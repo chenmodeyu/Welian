@@ -103,6 +103,7 @@
     }];
     [UserDefaults removeObjectForKey:kSessionId];
     [UserDefaults removeObjectForKey:kBPushRequestChannelIdKey];
+    [UserDefaults setBool:NO forKey:kneedChannelId];
     [UserDefaults synchronize];
     [LogInUser setUserisNow:NO];
     [self.view.window setRootViewController:[[LoginGuideController alloc] init]];

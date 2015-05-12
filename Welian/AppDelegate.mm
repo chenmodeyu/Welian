@@ -526,6 +526,7 @@ BMKMapManager* _mapManager;
     }
     [LogInUser setUserisNow:NO];
     [UserDefaults removeObjectForKey:kSessionId];
+    [UserDefaults setBool:NO forKey:kneedChannelId];
     [UserDefaults removeObjectForKey:kBPushRequestChannelIdKey];
     [UserDefaults synchronize];
 }
