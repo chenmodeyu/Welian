@@ -16,6 +16,7 @@
 #import "PublishStatusController.h"
 
 #import "MessageKeyboardView.h"
+#import "ActivityHeaderViewCell.h"
 #import "ActivityCustomViewCell.h"
 #import "ActivityInfoViewCell.h"
 #import "ActivityUserViewCell.h"
@@ -363,29 +364,12 @@
         if (indexPath.row == 0) {
             //头部标题
             static NSString *cellIdentifier = @"Activity_Header_View_Cell";
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            ActivityHeaderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+                cell = [[ActivityHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
             }
             
-            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(.0f, .0f, self.view.width, kTableViewHeaderHeight)];
-            headerView.backgroundColor = [UIColor whiteColor];
-            headerView.layer.borderColorFromUIColor = RGB(231.f, 231.f, 231.f);
-            headerView.layer.borderWidths = @"{0,0,0.6,0}";
-            
-            UIView *topBgView = [[UIView alloc] initWithFrame:CGRectMake(.0f, .0f, headerView.width, 15.f)];
-            topBgView.backgroundColor = RGB(236.f, 238.f, 241.f);
-            [headerView addSubview:topBgView];
-            
-            UILabel *titleLabel = [[UILabel alloc] init];
-            titleLabel.font = kNormal14Font;
-            titleLabel.textColor = RGB(125.f, 125.f, 125.f);
-            titleLabel.text = (_datasource.count > 0 && indexPath.section == 1) ? @"嘉宾" : @"简介";
-            [titleLabel sizeToFit];
-            titleLabel.left = 15.f;
-            titleLabel.centerY = (headerView.height - topBgView.height) / 2.f + topBgView.height;
-            [headerView addSubview:titleLabel];
-            [cell.contentView addSubview:headerView];
+            cell.titleLabel.text = (_datasource.count > 0 && indexPath.section == 1) ? @"嘉宾" : @"详情";
             return cell;
         }else{
             //活动嘉宾
@@ -407,9 +391,8 @@
                 if (!cell) {
                     cell = [[ActivityInfoViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
                 }
-                cell.layer.borderColorFromUIColor = RGB(231.f, 231.f, 231.f);
-                cell.layer.borderWidths = @"{0.6,0,0,0}";
-                
+//                cell.layer.borderColorFromUIColor = RGB(231.f, 231.f, 231.f);
+//                cell.layer.borderWidths = @"{0.6,0,0,0}";
                 cell.textLabel.text = @"";
                 cell.detailTextLabel.text = [_activityInfo displayActivityInfo];
                 WEAKSELF

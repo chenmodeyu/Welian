@@ -25,8 +25,8 @@
 #import "UserInfoView.h"
 #import "WLCustomSegmentedControl.h"
 
-#define kTableViewHeaderViewHeight 145.f
-#define kHeaderBgImageHeight 105.f
+#define kTableViewHeaderViewHeight 215.f
+#define kHeaderBgImageHeight 20.f
 
 @interface MeViewController () <UITableViewDataSource,UITableViewDelegate>
 {
@@ -142,8 +142,8 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     CGFloat offsetY = scrollView.contentOffset.y + kHeaderBgImageHeight;
     UIColor *color = kNavBgColor;
     DLog(@"scroll off Y---%f",offsetY);
-    if (offsetY > kHeaderBgImageHeight/2) {
-        CGFloat alpha = 1 - ((kHeaderBgImageHeight/2 + 64 - offsetY) / 64);
+    if (offsetY > 100.f/2) {
+        CGFloat alpha = 1 - ((100.f/2 + 64 - offsetY) / 64);
         self.navHeaderView.backgroundColor = [color colorWithAlphaComponent:alpha];
     } else {
         self.navHeaderView.backgroundColor = [color colorWithAlphaComponent:0];
@@ -184,16 +184,17 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     
     //设置自定义图片头部背景 me_background
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kHeaderBgImageHeight)];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kHeaderBgImageHeight)];
-    [imageView setImage:[UIImage imageNamed:@"header_gackground_top"]];
-//    [imageView setImage:[UIImage imageNamed:@"me_background"]];
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kHeaderBgImageHeight)];
+//    [imageView setImage:[UIImage imageNamed:@"header_gackground_top"]];
+////    [imageView setImage:[UIImage imageNamed:@"me_background"]];
+//    
+//    //关键步骤 设置可变化背景view属性
+//    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight| UIViewAutoresizingFlexibleWidth;
+//    imageView.clipsToBounds = YES;
+//    imageView.contentMode = UIViewContentModeScaleAspectFill;
     
-    //关键步骤 设置可变化背景view属性
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight| UIViewAutoresizingFlexibleWidth;
-    imageView.clipsToBounds = YES;
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    [customView addSubview:imageView];
+//    [customView addSubview:imageView];
+    customView.backgroundColor = RGB(117.f, 167.f, 209.f);
     _header = [CExpandHeader expandWithScrollView:_tableView expandView:customView];
     
     //设置头部

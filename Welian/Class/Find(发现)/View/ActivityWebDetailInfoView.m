@@ -102,6 +102,7 @@
     webView.backgroundColor = [UIColor whiteColor];
     webView.delegate = self;
     webView.scrollView.delegate = self;
+    webView.scalesPageToFit = YES;//自动缩放页面以适应屏幕
     [self addSubview:webView];
     self.webView = webView;
     

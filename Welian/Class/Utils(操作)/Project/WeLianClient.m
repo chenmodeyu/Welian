@@ -259,7 +259,10 @@
 + (void)updateclientID
 {
     if ([[UserDefaults objectForKey:kBPushRequestChannelIdKey] length]&& ![UserDefaults boolForKey:kneedChannelId]&&[UserDefaults objectForKey:kSessionId]) {
-        [self reqestPostWithParams:@{@"platform":KPlatformType,@"clientid":[UserDefaults objectForKey:kBPushRequestChannelIdKey],@"version":XcodeAppVersion} Path:kUpdateclient Success:^(id resultInfo) {
+        NSDictionary *params = @{@"platform":KPlatformType,
+                                 @"clientid":[UserDefaults objectForKey:kBPushRequestChannelIdKey],
+                                 @"version":XcodeAppVersion};
+        [self reqestPostWithParams:params Path:kUpdateclient Success:^(id resultInfo) {
             DLog(@"%@",resultInfo);
             [UserDefaults setBool:YES forKey:kneedChannelId];
         } Failed:^(NSError *error) {
