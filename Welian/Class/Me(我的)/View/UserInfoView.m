@@ -18,6 +18,7 @@
 
 #define kMarginLeft 10.f
 #define kMarginEdge 7.f
+#define kBottomHeight 30.f
 
 @interface UserInfoView ()<UIGestureRecognizerDelegate>
 
@@ -163,12 +164,12 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _bgImageView.size = CGSizeMake(self.width, kBlueBgViewHeight + 150.f);
-    _bgImageView.top = -150.f;
+    _bgImageView.size = CGSizeMake(self.width, self.height - kBottomHeight);
+    _bgImageView.top = 0.f;
     _bgImageView.centerX = self.width / 2.f;
     
     _logoImageView.size = CGSizeMake(kLogoHeight, kLogoHeight);
-    _logoImageView.top = 0.f;
+    _logoImageView.bottom = self.height - 7.f;
     _logoImageView.left = kMarginLeft;
     
     [_phoneRZImageView sizeToFit];
@@ -216,7 +217,7 @@
     self.backgroundColor = [UIColor whiteColor];
     
     //蓝色背景me_background header_background_bottom
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me_background"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me_background3"]];
     bgImageView.backgroundColor = [UIColor clearColor];
     [self addSubview:bgImageView];
     self.bgImageView = bgImageView;

@@ -19,8 +19,8 @@
 #import "UserInfoViewCell.h"
 #import "WLNoteInfoView.h"
 
-#define kTableViewHeaderViewHeight 115.f
-#define kHeaderBgImageHeight 93.f
+#define kTableViewHeaderViewHeight 190.f
+#define kHeaderBgImageHeight 20.f
 
 #define kTableViewCellHeight 60.f
 #define kTableViewHeaderHeight 60.f
@@ -202,8 +202,8 @@ static NSString *fridcellid = @"fridcellid";
     CGFloat offsetY = scrollView.contentOffset.y + kHeaderBgImageHeight;
     UIColor *color = kNavBgColor;
 //    DLog(@"scroll off Y---%f",offsetY);
-    if (offsetY > kHeaderBgImageHeight/2) {
-        CGFloat alpha = 1 - ((kHeaderBgImageHeight/2 + 64 - offsetY) / 64);
+    if (offsetY > 80.f/2) {
+        CGFloat alpha = 1 - ((80.f/2 + 64 - offsetY) / 64);
         self.navHeaderView.backgroundColor = [color colorWithAlphaComponent:alpha];
     } else {
         self.navHeaderView.backgroundColor = [color colorWithAlphaComponent:0];
@@ -234,15 +234,16 @@ static NSString *fridcellid = @"fridcellid";
     
     //设置自定义图片头部背景
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kHeaderBgImageHeight)];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kHeaderBgImageHeight)];
-    [imageView setImage:[UIImage imageNamed:@"header_gackground_top"]];
-    
-    //关键步骤 设置可变化背景view属性
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight| UIViewAutoresizingFlexibleWidth;
-    imageView.clipsToBounds = YES;
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    [customView addSubview:imageView];
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kHeaderBgImageHeight)];
+//    [imageView setImage:[UIImage imageNamed:@"header_gackground_top"]];
+//    
+//    //关键步骤 设置可变化背景view属性
+//    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight| UIViewAutoresizingFlexibleWidth;
+//    imageView.clipsToBounds = YES;
+//    imageView.contentMode = UIViewContentModeScaleAspectFill;
+//    
+//    [customView addSubview:imageView];
+    customView.backgroundColor = RGB(117.f, 167.f, 209.f);
     _header = [CExpandHeader expandWithScrollView:_tableView expandView:customView];
     
     //设置头部
@@ -254,6 +255,7 @@ static NSString *fridcellid = @"fridcellid";
     }
     self.userInfoView = userInfoView;
     [headerView addSubview:userInfoView];
+    [userInfoView setDebug:YES];
     
     //切换按钮
     [headerView addSubview:self.wlSegmentedControl];
