@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 chuansongmen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "IFBase.h"
 
-@interface MessageHomeModel : NSObject
+@interface MessageHomeModel : IFBase
 
 /**  该条消息的id   */
 @property (nonatomic, strong) NSNumber *commentid;

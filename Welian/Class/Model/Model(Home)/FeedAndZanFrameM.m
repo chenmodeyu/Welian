@@ -62,9 +62,10 @@
     if (zanArray.count) {
         for (IBaseUserM *zanModel  in zanArray) {
             if (zanModel != zanArray.lastObject) {
+                
                 [zanStrM appendFormat:@"%@，",zanModel.name];
             }else{
-                [zanStrM appendFormat:@"%@",zanModel.name];
+                [zanStrM appendString:zanModel.name];
             }
         }
         CGFloat zanlabelH = [self textViewHeightForAttributedText:zanStrM andWidth:labelW];

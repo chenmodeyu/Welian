@@ -628,7 +628,7 @@ static NSString *projectcellid = @"projectcellid";
                                               if (creatPhots.count) {
                                                   NSMutableArray *photoArray = [NSMutableArray arrayWithArray:_projectModel.photos];
                                                   for (NSDictionary *photoDic in creatPhots) {
-                                                      IPhotoInfo *photoI = [IPhotoInfo objectWithKeyValues:photoDic];
+                                                      IPhotoInfo *photoI = [IPhotoInfo objectWithDict:photoDic];
                                                       [photoArray addObject:photoI];
                                                   }
                                                   [_projectModel setPhotos:photoArray];

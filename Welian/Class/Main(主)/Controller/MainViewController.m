@@ -47,7 +47,7 @@ single_implementation(MainViewController)
 {
     self = [super init];
     if (self) {
-        
+        [WeLianClient updateclientID];
     }
     return self;
 }

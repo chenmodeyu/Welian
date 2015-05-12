@@ -1335,7 +1335,7 @@ static NSString *fridcellid = @"fridcellid";
     
     // 详细信息
     NSDictionary *profile = [dataDic objectForKey:@"profile"];
-    IBaseUserM *profileM = [IBaseUserM objectWithKeyValues:profile];
+    IBaseUserM *profileM = [IBaseUserM objectWithDict:profile];
     
     //设置用户信息
     self.baseUserModel = profileM;
@@ -1371,14 +1371,14 @@ static NSString *fridcellid = @"fridcellid";
     NSMutableArray *lvliArray = [NSMutableArray array];
     NSArray *usercompany = [dataDic objectForKey:@"usercompany"];
     for (NSDictionary *dic in usercompany) {
-        ICompanyResult *usercompanyM = [ICompanyResult objectWithKeyValues:dic];
+        ICompanyResult *usercompanyM = [ICompanyResult objectWithDict:dic];
         [lvliArray addObject:usercompanyM];
     }
     
     // 教育经历列表
     NSArray *userschool = [dataDic objectForKey:@"userschool"];
     for (NSDictionary *dic  in userschool) {
-        ISchoolResult *userschoolM = [ISchoolResult objectWithKeyValues:dic];
+        ISchoolResult *userschoolM = [ISchoolResult objectWithDict:dic];
         [lvliArray addObject:userschoolM];
     }
     

@@ -486,11 +486,11 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
 {
     // 详细信息
     NSDictionary *profile = [dataDic objectForKey:@"profile"];
-    ILoginUserModel *profileM = [ILoginUserModel objectWithKeyValues:profile];
+    ILoginUserModel *profileM = [ILoginUserModel objectWithDict:profile];
     
     // 动态
     NSDictionary *feed = [dataDic objectForKey:@"feed"];
-    WLStatusM *feedM = [WLStatusM objectWithKeyValues:feed];
+    WLStatusM *feedM = [WLStatusM objectWithDict:feed];
     
     // 投资案例
     NSDictionary *investor = [dataDic objectForKey:@"investor"];
@@ -506,7 +506,7 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     NSArray *usercompany = [dataDic objectForKey:@"usercompany"];
     NSMutableArray *companyArrayM = [NSMutableArray arrayWithCapacity:usercompany.count];
     for (NSDictionary *dic in usercompany) {
-        ICompanyResult *usercompanyM = [ICompanyResult objectWithKeyValues:dic];
+        ICompanyResult *usercompanyM = [ICompanyResult objectWithDict:dic];
         [companyArrayM addObject:usercompanyM];
         //保存到数据库
         [CompanyModel createCompanyModel:usercompanyM];
@@ -516,7 +516,7 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     NSArray *userschool = [dataDic objectForKey:@"userschool"];
     NSMutableArray *schoolArrayM = [NSMutableArray arrayWithCapacity:userschool.count];
     for (NSDictionary *dic  in userschool) {
-        ISchoolResult *userschoolM = [ISchoolResult objectWithKeyValues:dic];
+        ISchoolResult *userschoolM = [ISchoolResult objectWithDict:dic];
         [schoolArrayM addObject:userschoolM];
         //保存到数据库
         [SchoolModel createSchoolModel:userschoolM];

@@ -212,7 +212,7 @@
                 //动态详情
                 YTKKeyValueItem *item = [[WLDataDBTool sharedService] getYTKKeyValueItemById:[NSString stringWithFormat:@"%@",messagedata.feedid] fromTable:KWLStutarDataTableName];
                 
-                WLStatusM *statusM = [WLStatusM objectWithKeyValues:item.itemObject];
+                WLStatusM *statusM = [WLStatusM objectWithDict:item.itemObject];
                 [statusM setFid:messagedata.feedid];
                 [statusM setTopid:messagedata.feedid];
                 CommentInfoController *commentVC = [[CommentInfoController alloc] init];

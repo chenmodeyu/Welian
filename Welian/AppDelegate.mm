@@ -145,6 +145,13 @@ BMKMapManager* _mapManager;
     // [2]:注册APNS
     [self registerRemoteNotification];
     
+    // [2-EXT]: 获取启动时收到的APN
+    NSDictionary* message = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (message) {
+        NSString *payloadMsg = [message objectForKey:@"payload"];
+    }
+
+    
     return YES;
 }
 
@@ -327,10 +334,9 @@ BMKMapManager* _mapManager;
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-//    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    
+    NSString *payloadMsg = [userInfo objectForKey:@"payload"];
 }
+
 
 #pragma mark - 接收推送收取一条
 - (void)inceptMessage:(NSDictionary*)userInfo
@@ -343,7 +349,7 @@ BMKMapManager* _mapManager;
     
     if ([type isEqualToString:@"feedZan"]||[type isEqualToString:@"feedComment"]||[type isEqualToString:@"feedForward"]) {     // 动态消息推送
 
-        [HomeMessage createHomeMessageModel:[MessageHomeModel objectWithKeyValues:dataDic]];
+        [HomeMessage createHomeMessageModel:[MessageHomeModel objectWithDict:dataDic]];
         NSInteger badge = [[LogInUser getCurrentLoginUser].homemessagebadge integerValue];
         badge++;
         [LogInUser setUserHomemessagebadge:@(badge)];
@@ -404,7 +410,7 @@ BMKMapManager* _mapManager;
 - (void)getNewFriendMessage:(NSDictionary *)dataDic LoginUserId:(NSNumber *)userId
 {
     NSString *type = [dataDic objectForKey:@"type"];
-    NewFriendModel *newfrendM = [NewFriendModel objectWithKeyValues:dataDic];
+    NewFriendModel *newfrendM = [NewFriendModel objectWithDict:dataDic];
     LogInUser *loginUser = nil;
     if (userId) {
         //接口获取
@@ -523,7 +529,6 @@ BMKMapManager* _mapManager;
     [UserDefaults removeObjectForKey:kBPushRequestChannelIdKey];
     [UserDefaults synchronize];
 }
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
