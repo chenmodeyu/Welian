@@ -255,7 +255,7 @@ static NSString *fridcellid = @"fridcellid";
     }
     self.userInfoView = userInfoView;
     [headerView addSubview:userInfoView];
-    [userInfoView setDebug:YES];
+//    [userInfoView setDebug:YES];
     
     //切换按钮
     [headerView addSubview:self.wlSegmentedControl];
