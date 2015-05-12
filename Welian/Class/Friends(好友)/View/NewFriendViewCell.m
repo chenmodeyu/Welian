@@ -177,7 +177,9 @@
                                options:SDWebImageRetryFailed|SDWebImageLowPriority];
     _nameLabel.text = _needAddUser.wlname.length > 0 ? _needAddUser.wlname : _needAddUser.name;
     if (_needAddUser.userType.integerValue == 1) {
-        _messageLabel.text = _needAddUser.friendship.integerValue == 0 ? [NSString stringWithFormat:@"手机号码：%@",_needAddUser.mobile] : [NSString stringWithFormat:@"手机联系人：%@",_needAddUser.name];
+        ////friendship /** 好友关系，1好友，2好友的好友,-1自己，0没关系  4:等待验证   5.已发送  */
+        _messageLabel.text = _needAddUser.uid == nil ? [NSString stringWithFormat:@"手机号码：%@",_needAddUser.mobile] : [NSString stringWithFormat:@"手机联系人：%@",_needAddUser.name];;
+//        _messageLabel.text = _needAddUser.friendship.integerValue == 0 ? [NSString stringWithFormat:@"手机号码：%@",_needAddUser.mobile] : [NSString stringWithFormat:@"手机联系人：%@",_needAddUser.name];
     }else{
         //微信联系人
         _messageLabel.text = _needAddUser.friendship.integerValue == 0 ? [NSString stringWithFormat:@"微信好友：%@",_needAddUser.wlname.length > 0 ? _needAddUser.wlname : _needAddUser.name] : [NSString stringWithFormat:@"微信好友：%@",_needAddUser.name.length > 0 ? _needAddUser.name : _needAddUser.wlname];
