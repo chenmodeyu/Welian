@@ -28,7 +28,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "MsgPlaySound.h"
 
-@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate>
+@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
      NSString *_upURL; // 更新地址
@@ -334,7 +334,7 @@ BMKMapManager* _mapManager;
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    NSString *payloadMsg = [userInfo objectForKey:@"payload"];
+//    NSString *payloadMsg = [userInfo objectForKey:@"payload"];
 }
 
 
@@ -588,14 +588,14 @@ BMKMapManager* _mapManager;
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-//    return [[ShareEngine sharedShareEngine] handleOpenURL:url];
-    return [ShareSDK handleOpenURL:url
-                        wxDelegate:self];
+    if ([url.description rangeOfString:@"wechat"].length>0) {
+        return  [WXApi handleOpenURL:url delegate:self];
+    }
+    return [ShareSDK handleOpenURL:url wxDelegate:self];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-//    return [[ShareEngine sharedShareEngine] handleOpenURL:url];
     //跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给SDK
     if ([url.host isEqualToString:@"safepay"]) {
         [[AlipaySDK defaultService]
@@ -630,11 +630,50 @@ BMKMapManager* _mapManager;
         }];
         return YES;
     }
+    // url登陆: wx5e4e9a58776baed3://oauth?code=0212878332e4f9e909d6ec2ec0ea802w&state=123
+//    wx5e4e9a58776baed3://platformId=wechat
+    if ([url.description rangeOfString:@"wechat"].length>0) {
+        return  [WXApi handleOpenURL:url delegate:self];
+    }
     
     return [ShareSDK handleOpenURL:url
                  sourceApplication:sourceApplication
                         annotation:annotation
                         wxDelegate:self];
+}
+
+- (void) onResp:(BaseResp *)resp
+{
+//    WXSuccess           = 0,    /**< 成功    */
+//    WXErrCodeCommon     = -1,   /**< 普通错误类型    */
+//    WXErrCodeUserCancel = -2,   /**< 用户点击取消并返回    */
+//    WXErrCodeSentFail   = -3,   /**< 发送失败    */
+//    WXErrCodeAuthDeny   = -4,   /**< 授权失败    */
+//    WXErrCodeUnsupport  = -5,   /**< 微信不支持    */
+    int64_t delayInSeconds = 1.0;
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(time, dispatch_get_main_queue(), ^{
+        if([resp isKindOfClass:[SendMessageToWXResp class]]){
+            switch (resp.errCode) {
+                case WXSuccess:
+                    [WLHUDView showSuccessHUD:@"分享成功！"];
+                    break;
+                case WXErrCodeCommon:
+                    [WLHUDView showErrorHUD:@"分享失败！"];
+                    break;
+                case WXErrCodeUserCancel:
+                    [WLHUDView showErrorHUD:@"取消分享！"];
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+}
+
+- (void)onReq:(BaseReq *)req
+{
+    DLog(@"%@",req);
 }
 
 #pragma mark - GexinSdkDelegate
