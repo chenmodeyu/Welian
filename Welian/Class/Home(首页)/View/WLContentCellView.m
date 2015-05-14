@@ -252,27 +252,9 @@
         webVC.showRightShareBtn = YES;//现实右上角分享按钮
         [self.homeVC.navigationController pushViewController:webVC animated:YES];
     }else if (card.type.integerValue==4||card.type.integerValue==6){   // 个人信息
-//        IBaseUserM *mode = [[IBaseUserM alloc] init];
         IBaseUserM *mode = self.statusFrame.status.user?self.statusFrame.status.user:self.commentFrame.status.user;
-//        [mode setUid:user.uid];
-//        [mode setAvatar:user.avatar];
-//        [mode setName:user.name];
-        
-//        UserInfoBasicVC *userinfoVC = [[UserInfoBasicVC alloc] initWithStyle:UITableViewStyleGrouped andUsermode:mode isAsk:NO];
-//        [self.homeVC.navigationController pushViewController:userinfoVC animated:YES];
         UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:mode OperateType:nil HidRightBtn:NO];
         [self.homeVC.navigationController pushViewController:userInfoVC animated:YES];
-    }
-}
-
-#pragma mark - 收起or展开
-- (void)openupisok:(UIButton*)but
-{
-    if ([but.titleLabel.text isEqualToString:@"收起"]) {
-        self.openupBlock(NO);
-        
-    }else if ([but.titleLabel.text isEqualToString:@"展开"]){
-        self.openupBlock(YES);
     }
 }
 

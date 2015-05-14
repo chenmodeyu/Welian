@@ -248,7 +248,7 @@ static NSString *mobileCellid = @"MobileInfoCellid";
                 [inffVC setUserInfoStr:mode.company];
             }else if (indexPath.row ==2){
                 controller = [[NameController alloc] initWithBlock:^(NSString *userInfo) {
-                    [WeLianClient saveUserInfoWithParameterDic:@{@"company":userInfo} Success:^(id resultInfo) {
+                    [WeLianClient saveUserInfoWithParameterDic:@{@"position":userInfo} Success:^(id resultInfo) {
                         [LogInUser setUserPosition:userInfo];
                         [weakSelf saveUserInfoAtIndexPath:indexPath];
                     } Failed:^(NSError *error) {
