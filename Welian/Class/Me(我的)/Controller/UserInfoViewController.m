@@ -26,10 +26,8 @@
 #define kTableViewHeaderHeight 60.f
 
 @interface UserInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
-{
-    CExpandHeader *_header;//用于设置头部背景
-}
 
+@property (strong,nonatomic) CExpandHeader *header;//用于设置头部背景
 @property (assign,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) WLCustomSegmentedControl *wlSegmentedControl;
 @property (strong,nonatomic) NSMutableArray *datasource1;
@@ -51,6 +49,7 @@ static NSString *fridcellid = @"fridcellid";
 
 - (void)dealloc
 {
+    _header = nil;
     _wlSegmentedControl = nil;
     _datasource1 = nil;
     _datasource2 = nil;
@@ -223,7 +222,7 @@ static NSString *fridcellid = @"fridcellid";
     UITableView *tableView = [[UITableView alloc] initWithFrame:Rect(0.f,0.f,self.view.width,self.view.height) style:UITableViewStyleGrouped];
     tableView.dataSource = self;
     tableView.delegate = self;
-    tableView.contentInset = UIEdgeInsetsMake(-100,0, 0,0);
+//    tableView.contentInset = UIEdgeInsetsMake(-100,0, 0,0);
     tableView.backgroundColor = [UIColor whiteColor];
     //隐藏表格分割线
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -244,7 +243,8 @@ static NSString *fridcellid = @"fridcellid";
 //    
 //    [customView addSubview:imageView];
     customView.backgroundColor = RGB(117.f, 167.f, 209.f);
-    _header = [CExpandHeader expandWithScrollView:_tableView expandView:customView];
+    self.header = [[CExpandHeader alloc] init];// [CExpandHeader expandWithScrollView:_tableView expandView:customView];
+    [_header expandWithScrollView:_tableView expandView:customView];
     
     //设置头部
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0.f, _tableView.width, kTableViewHeaderViewHeight)];

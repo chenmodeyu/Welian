@@ -252,13 +252,16 @@
             [WeLianClient requestAddFriendWithID:baseUser.uid
                                          Message:[alert textFieldAtIndex:0].text
                                          Success:^(id resultInfo) {
-                                             NSMutableDictionary *infoDic =  [NSMutableDictionary dictionaryWithDictionary:_datasource[indexPath.row]];
+//                                             NSMutableDictionary *infoDic =  [NSMutableDictionary dictionaryWithDictionary:_datasource[indexPath.row]];
+//                                             [infoDic setValue:@"4" forKey:@"friendship"];
                                              //重置好友关系
-                                             [infoDic setValue:@"4" forKey:@"friendship"];
+                                             IBaseUserM *newUser = _datasource[indexPath.row];
+                                             newUser.friendship = @(4);
+                                             
                                              //                //发送邀请成功，修改状态，刷新列表
                                              //                NeedAddUser *addUser = [needAddUser updateFriendShip:4];
                                              //改变数组，刷新列表
-                                             [self.datasource replaceObjectAtIndex:indexPath.row withObject:infoDic];
+                                             [self.datasource replaceObjectAtIndex:indexPath.row withObject:newUser];
                                              //刷新列表
                                              [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
                                              [WLHUDView showSuccessHUD:@"好友请求已发送"];

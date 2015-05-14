@@ -765,4 +765,13 @@
     return needAddUser;
 }
 
+//删除指定类型的好友
+- (void)delelteAllNeedAddUserWithType:(NSNumber *)type
+{
+    //删除本地所有数据
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLoginUser",self,@"userType",type];
+    [NeedAddUser MR_deleteAllMatchingPredicate:pre inContext:[self managedObjectContext]];
+    [[self managedObjectContext] MR_saveToPersistentStoreAndWait];
+}
+
 @end
