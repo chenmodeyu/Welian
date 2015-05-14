@@ -15243,7 +15243,7 @@
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = weLianDev;
-				PROVISIONING_PROFILE = "e0712cc9-ac03-4d0c-87c6-5d9a09e8d351";
+				PROVISIONING_PROFILE = "a7e244d0-3c34-46d7-ba8f-121aa26aaa31";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -15291,7 +15291,7 @@
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = weLianDev;
-				PROVISIONING_PROFILE = "e0712cc9-ac03-4d0c-87c6-5d9a09e8d351";
+				PROVISIONING_PROFILE = "a7e244d0-3c34-46d7-ba8f-121aa26aaa31";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
