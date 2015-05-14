@@ -12,12 +12,12 @@
 
 enum  WXErrCode {
     
-    WXSuccess           = 0,
-    WXErrCodeCommon     = -1,
-    WXErrCodeUserCancel = -2,
-    WXErrCodeSentFail   = -3,
-    WXErrCodeAuthDeny   = -4,
-    WXErrCodeUnsupport  = -5,
+    WXSuccess           = 0,    /**< 成功    */
+    WXErrCodeCommon     = -1,   /**< 普通错误类型    */
+    WXErrCodeUserCancel = -2,   /**< 用户点击取消并返回    */
+    WXErrCodeSentFail   = -3,   /**< 发送失败    */
+    WXErrCodeAuthDeny   = -4,   /**< 授权失败    */
+    WXErrCodeUnsupport  = -5,   /**< 微信不支持    */
 };
 
 enum WXScene {

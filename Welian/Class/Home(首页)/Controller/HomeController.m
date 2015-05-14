@@ -27,11 +27,10 @@
 #import "WLPhoto.h"
 #import "IPhotoUp.h"
 
-@interface HomeController () <UIActionSheetDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface HomeController () <UITableViewDelegate,UITableViewDataSource>
 {
    __block NSMutableArray *_dataArry;
     
-    NSIndexPath *_clickIndex;
     NSNumber *_uid;
     NSIndexPath *_seletIndexPath;
     
@@ -470,49 +469,39 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:currentTouchPosition];
     if(indexPath)
     {
-        _clickIndex = indexPath;
+        WEAKSELF
+        UIActionSheet *sheet = [[UIActionSheet alloc] bk_initWithTitle:nil];
+        [sheet bk_setDestructiveButtonWithTitle:@"删除该条动态" handler:^{
+            WLStatusFrame *statuF = _dataArry[indexPath.row];
+            if (statuF.status.type.integerValue==13) { // 删除自己发布的
+                [[WLDataDBTool sharedService] deleteObjectById:statuF.status.sendId fromTable:KSendAgainDataTableName];
+                [_dataArry removeObject:statuF];
+                [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                if (_uid) {
+                    [weakSelf.notDataView setHidden:_dataArry.count];
+                }else{
+                    [weakSelf.homeView setHidden:_dataArry.count];
+                }
+            }else{
+                [WeLianClient deleteFeedWithID:statuF.status.fid
+                                       Success:^(id resultInfo) {
+                                           [_dataArry removeObject:statuF];
+                                           [weakSelf.tableView reloadData];
+                                           if (_uid) {
+                                               [weakSelf.notDataView setHidden:_dataArry.count];
+                                           }else{
+                                               [weakSelf.homeView setHidden:_dataArry.count];
+                                           }
+                                       } Failed:^(NSError *error) {
+                                           
+                                       }];
+            }
+        }];
+        [sheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
+        [sheet showInView:self.view];
     }
-    
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除该条动态" otherButtonTitles:nil,nil];
-    [sheet showInView:self.view];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex==0) {
-        WLStatusFrame *statuF = _dataArry[_clickIndex.row];
-        if (statuF.status.type.integerValue==13) { // 删除自己发布的
-            [[WLDataDBTool sharedService] deleteObjectById:statuF.status.sendId fromTable:KSendAgainDataTableName];
-            [_dataArry removeObject:statuF];
-            [self.tableView deleteRowsAtIndexPaths:@[_clickIndex] withRowAnimation:UITableViewRowAnimationFade];
-            if (_uid) {
-                [self.notDataView setHidden:_dataArry.count];
-            }else{
-                [self.homeView setHidden:_dataArry.count];
-            }
-        }else{
-            [WeLianClient deleteFeedWithID:statuF.status.fid
-                                   Success:^(id resultInfo) {
-                                       [_dataArry removeObject:statuF];
-                                       [self.tableView deleteRowsAtIndexPaths:@[_clickIndex] withRowAnimation:UITableViewRowAnimationFade];
-                                       if (_uid) {
-                                           [self.notDataView setHidden:_dataArry.count];
-                                       }else{
-                                           [self.homeView setHidden:_dataArry.count];
-                                       }
-                                   } Failed:^(NSError *error) {
-                                       
-                                   }];
-//            [WLHttpTool deleteFeedParameterDic:@{@"fid":statuF.status.fid} success:^(id JSON) {
-//                
-//                
-//            } fail:^(NSError *error) {
-//                
-//            }];
-        }
-        
-    }
-}
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -527,7 +516,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     [self pushCommentInfoVC:indexPath];
 }
 

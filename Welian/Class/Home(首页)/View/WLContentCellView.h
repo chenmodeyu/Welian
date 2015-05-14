@@ -16,8 +16,6 @@ typedef void (^FeedAndZanBlock)(WLStatusM *starusM);
 
 typedef void (^FeedTuiBlock)(WLStatusM *starusM);
 
-typedef void (^OpenUpBlock)(BOOL isOpen);
-
 @interface WLContentCellView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame;
@@ -32,7 +30,6 @@ typedef void (^OpenUpBlock)(BOOL isOpen);
 // 转推
 @property (nonatomic, copy) FeedTuiBlock feedTuiBlock;
 
-@property (nonatomic, copy) OpenUpBlock openupBlock;
 
 /**
  *  模型（数据 + 子控件的frame）

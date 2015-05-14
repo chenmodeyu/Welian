@@ -76,7 +76,7 @@
     [requstDic setObject:[self.userInfoDic objectForKey:@"unionid"] forKey:@"unionid"];
 
     [requstDic setObject:_phoneTF.text forKey:@"mobile"];
-    [requstDic setObject:_pwdTF.text forKey:@"password"];
+    [requstDic setObject:[_pwdTF.text MD5String] forKey:@"password"];
 
     [WLHUDView showHUDWithStr:@"绑定中..." dim:YES];
     [WeLianClient loginWithParameterDic:requstDic Success:^(id resultInfo) {

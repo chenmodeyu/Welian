@@ -116,6 +116,12 @@
                               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   //打印错误信息
                                   SAFE_BLOCK_CALL(failed, nil);
+                                  if (error.code == -1001) {
+                                      [WLHUDView showErrorHUD:@"请求超时，请检查网络"];
+                                  }
+                                  if (error.code == -1009) {
+                                      [WLHUDView showErrorHUD:@"网络已断开，请检查网络"];
+                                  }
                                   DLog(@"SystemErroInfo-- : %@",error.description);
                               }];
 }

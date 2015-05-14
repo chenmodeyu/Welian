@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Welian/Class/Home(&#x9996;&#x9875;)/View/WLContentCellView.m"
-            timestampString = "453019628.269799"
+            timestampString = "453266976.158477"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "-projectAndActivityBtnClick:event:"
             landmarkType = "5">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Welian/Class/Home(&#x9996;&#x9875;)/View/WLContentCellView.m"
-            timestampString = "453019638.439997"
+            timestampString = "453267018.980576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "-projectAndActivityBtnClick:event:"
             landmarkType = "5">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Welian/Class/Home(&#x9996;&#x9875;)/View/WLContentCellView.m"
-            timestampString = "453019649.12824"
+            timestampString = "453267020.609156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-projectAndActivityBtnClick:event:"
             landmarkType = "5">
          </BreakpointContent>
@@ -67,46 +67,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/AppDelegate.mm"
-            timestampString = "453107986.368463"
+            filePath = "Welian/Class/Home(&#x9996;&#x9875;)/Controller/CommentInfoController.m"
+            timestampString = "453275174.122351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
-            landmarkName = "-inceptMessage:"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "-moreButClick:"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Welian/AppDelegate.mm"
-            timestampString = "453109052.962885"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "657"
-            endingLineNumber = "657"
-            landmarkName = "-GexinSdkDidReceivePayload:fromApplication:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Welian/AppDelegate.mm"
-            timestampString = "453107986.368463"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "337"
-            endingLineNumber = "337"
-            landmarkName = "-application:didReceiveRemoteNotification:"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[CommentInfoController moreButClick:]_block_invoke278"
+                  moduleName = "weLianDev"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Home(%E9%A6%96%E9%A1%B5)/Controller/CommentInfoController.m"
+                  timestampString = "453275174.145234"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "253"
+                  endingLineNumber = "253"
+                  offsetFromSymbolStart = "1306">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[CommentInfoController moreButClick:]_block_invoke_4"
+                  moduleName = "weLianDev"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Home(%E9%A6%96%E9%A1%B5)/Controller/CommentInfoController.m"
+                  timestampString = "453275174.145434"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "253"
+                  endingLineNumber = "253"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

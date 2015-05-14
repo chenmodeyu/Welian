@@ -86,13 +86,6 @@
                 weakcell.feedTuiBlock (statusM);
             }
         };
-        _contentAndDockView.openupBlock = ^(BOOL isopen){
-            if (isopen) {
-
-            }else{
-                
-            }
-        };
         [self.contentView addSubview:_contentAndDockView];
         
         _feznView = [[FeedAndZanView alloc] init];
