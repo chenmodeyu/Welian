@@ -64,10 +64,10 @@
 - (void)publeshButClick:(UIButton*)but
 {
     PublishStatusController *publishVC = [[PublishStatusController alloc] init];
-    
-    [self.homeController presentViewController:[[NavViewController alloc] initWithRootViewController:publishVC] animated:YES completion:^{
-        
-    }];
+    publishVC.publishDicBlock = ^(NSDictionary *reqDataDic, NSString *fidStr){
+        [self.homeController sendAgainStuat:reqDataDic withFidStr:fidStr];
+    };
+    [self.homeController presentViewController:[[NavViewController alloc] initWithRootViewController:publishVC] animated:YES completion:nil];
 }
 
 

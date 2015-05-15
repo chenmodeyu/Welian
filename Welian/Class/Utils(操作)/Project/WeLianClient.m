@@ -36,7 +36,7 @@
         //设置传输为json格式
         self.requestSerializer = [AFJSONRequestSerializer serializer];
         self.responseSerializer = [AFJSONResponseSerializer serializer];
-        self.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"text/html",@"text/plain"]];
     }
     return self;
 }
@@ -100,7 +100,9 @@
                                           }
                                           //可以提醒的错误
                                           SAFE_BLOCK_CALL(failed, result.error);
-                                        [WLHUDView showErrorHUD:result.errormsg];
+                                          if (result.state.integerValue != 1010) {
+                                              [WLHUDView showErrorHUD:result.errormsg];
+                                          }
                                       }else if(result.state.integerValue >= 2000 && result.state.integerValue < 3000){
                                           //系统级错误，直接打印错误信息
                                           DLog(@"Result System ErroInfo-- : %@",result.errormsg);

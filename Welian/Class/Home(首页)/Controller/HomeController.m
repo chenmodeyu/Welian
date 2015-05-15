@@ -303,7 +303,6 @@
             self.tableView.tableHeaderView = nil;
         }
     }];
-
 }
 
 /**

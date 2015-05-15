@@ -67,54 +67,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/Class/Home(&#x9996;&#x9875;)/Controller/CommentInfoController.m"
-            timestampString = "453275174.122351"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "-moreButClick:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[CommentInfoController moreButClick:]_block_invoke278"
-                  moduleName = "weLianDev"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Home(%E9%A6%96%E9%A1%B5)/Controller/CommentInfoController.m"
-                  timestampString = "453362762.673918"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "253"
-                  endingLineNumber = "253"
-                  offsetFromSymbolStart = "956">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[CommentInfoController moreButClick:]_block_invoke_4"
-                  moduleName = "weLianDev"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Home(%E9%A6%96%E9%A1%B5)/Controller/CommentInfoController.m"
-                  timestampString = "453362762.674107"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "253"
-                  endingLineNumber = "253"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Welian/Class/Login(&#x767b;&#x9646;)/Controller/UserInfoController.m"
             timestampString = "453295220.43207"
             startingColumnNumber = "9223372036854775807"
@@ -132,7 +84,7 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Login(%E7%99%BB%E9%99%86)/Controller/UserInfoController.m"
-                  timestampString = "453362762.676049"
+                  timestampString = "453374889.599722"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "138"
@@ -147,7 +99,7 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Login(%E7%99%BB%E9%99%86)/Controller/UserInfoController.m"
-                  timestampString = "453362762.67623"
+                  timestampString = "453374889.599874"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "138"

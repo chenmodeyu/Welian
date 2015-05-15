@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeController.h"
 
 @interface HomeView : UIView
 
-@property (nonatomic, weak) UIViewController *homeController;
+@property (nonatomic, weak) HomeController *homeController;
 
 @end

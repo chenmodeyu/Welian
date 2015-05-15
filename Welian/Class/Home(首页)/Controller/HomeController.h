@@ -17,4 +17,7 @@
 
 - (void)beginRefreshing;
 
+#pragma mark - 重新发布动态
+- (void)sendAgainStuat:(NSDictionary *)reqDataDic withFidStr:(NSString *)fidStr;
+
 @end

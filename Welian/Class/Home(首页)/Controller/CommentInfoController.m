@@ -490,24 +490,25 @@ static NSString *noCommentCell = @"NoCommentCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CommentCellFrame *selecCommF;
     if (self.statusM.zans.count||self.statusM.forwards.count) {
         if (indexPath.row==0) {
             return;
         }
-        _selecCommFrame = _dataArrayM[indexPath.row-1];
+        selecCommF = _dataArrayM[indexPath.row-1];
     }else{
-        _selecCommFrame = _dataArrayM[indexPath.row];
+        selecCommF = _dataArrayM[indexPath.row];
     }
     
     LogInUser *mode = [LogInUser getCurrentLoginUser];
     
-    if ([_selecCommFrame.commentM.user.uid integerValue]==[mode.uid integerValue]) {
+    if ([selecCommF.commentM.user.uid integerValue]==[mode.uid integerValue]) {
         WEAKSELF
         UIActionSheet *sheet = [UIActionSheet bk_actionSheetWithTitle:nil];
         [sheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
         [sheet bk_setDestructiveButtonWithTitle:@"删除" handler:^{
-            [WeLianClient deleteFeedCommentWithID:_selecCommFrame.commentM.cid Success:^(id resultInfo) {
-                [_dataArrayM removeObject:_selecCommFrame];
+            [WeLianClient deleteFeedCommentWithID:selecCommF.commentM.cid Success:^(id resultInfo) {
+                [_dataArrayM removeObject:selecCommF];
                 NSMutableArray *commentAM = [NSMutableArray arrayWithCapacity:_dataArrayM.count];
                 for (CommentCellFrame *comCellF in _dataArrayM) {
                     [commentAM addObject:comCellF.commentM];
@@ -515,45 +516,19 @@ static NSString *noCommentCell = @"NoCommentCell";
                 [weakSelf.statusM setComments:commentAM];
                 weakSelf.statusM.commentcount = @(weakSelf.statusM.commentcount.integerValue-1);
                 [weakSelf updataCommentBlock];
-                _selecCommFrame = nil;
                 [weakSelf.tableView reloadData];
                 weakSelf.commentHeadView;
             } Failed:^(NSError *error) {
                 
             }];
-            
         }];
         [sheet showInView:self.view];
     }else{
+        _selecCommFrame = selecCommF;
         [self.messageView startCompile:_selecCommFrame.commentM.user];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-
-//- (void)refreshDataChangde:(WLStatusM *)status isYES:(BOOL)isYes
-//{
-//    if (isYes) {
-//        _zanArrayM = [NSMutableArray arrayWithArray:status.zans];
-//        _feedArrayM = [NSMutableArray arrayWithArray:status.forwards];
-//    }
-//    if (_zanArrayM.count||_feedArrayM.count) {
-//        if (!_feedAndZanFM) {
-//            _feedAndZanFM = [[FeedAndZanFrameM alloc] init];
-//        }
-//        [_feedAndZanFM setCellWidth:[UIScreen mainScreen].bounds.size.width];
-//        [_feedAndZanFM setFeedAndzanDic:@{@"zans":_zanArrayM,@"forwards":_feedArrayM}];
-//        
-//    }else{
-//        _feedAndZanFM = nil;
-//    }
-//    
-//    [self.statusM setZans:_zanArrayM];
-//    [self.statusM setForwards:_feedArrayM];
-//    
-//    [self.tableView reloadData];
-//    
-//}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

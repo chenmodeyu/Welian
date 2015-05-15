@@ -10318,7 +10318,7 @@
 						DevelopmentTeam = V6JKEEZATW;
 					};
 					F566497A1A2AFD56008A5830 = {
-						DevelopmentTeam = SYMR4TKBFN;
+						DevelopmentTeam = V6JKEEZATW;
 					};
 					F5664C341A2AFDD5008A5830 = {
 						DevelopmentTeam = SYMR4TKBFN;
@@ -15243,7 +15243,7 @@
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = weLianDev;
-				PROVISIONING_PROFILE = "a7e244d0-3c34-46d7-ba8f-121aa26aaa31";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -15291,7 +15291,7 @@
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = weLianDev;
-				PROVISIONING_PROFILE = "a7e244d0-3c34-46d7-ba8f-121aa26aaa31";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};

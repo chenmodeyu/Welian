@@ -127,7 +127,7 @@
     IBaseUserM *user = userStat.user;
     // 头像
     [_iconImageView sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:@"user_small"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
-    // 是否创业
+
     [_touziImageView setHidden:user.investorauth.integerValue != 1];
 
     if (userStat.type.integerValue==5||userStat.type.integerValue==12) {
@@ -188,6 +188,7 @@
         if (userStat.type.integerValue==2) {
             [_friendLabel setHidden:YES];
             [_addFriendBut setHidden:NO];
+            [_addFriendBut setEnabled:YES];
             
         }else{
             [_addFriendBut setHidden:YES];
@@ -198,13 +199,6 @@
 - (void)tapiconImage:(UITapGestureRecognizer *)tap
 {
     IBaseUserM *mode = _userStat.user;
-//    WLBasicTrends *user = _userStat.user;
-//    [mode setUid:user.uid];
-//    [mode setAvatar:user.avatar];
-//    [mode setName:user.name];
-    
-//    UserInfoBasicVC *userinfoVC = [[UserInfoBasicVC alloc] initWithStyle:UITableViewStyleGrouped andUsermode:mode isAsk:NO];
-//    [self.controllVC.navigationController pushViewController:userinfoVC animated:YES];
     UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:mode OperateType:nil HidRightBtn:NO];
     [self.controllVC.navigationController pushViewController:userInfoVC animated:YES];
 }
@@ -213,7 +207,6 @@
 #pragma mark - 添加推荐好友
 - (void)addFriendButClick:(UIButton *)but
 {
-//    UserInfoModel *mode = [[UserInfoTool sharedUserInfoTool] getUserInfoModel];
     LogInUser *mode = [LogInUser getCurrentLoginUser];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友验证" message:[NSString stringWithFormat:@"发送至好友：%@",_userStat.user.name] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"发送", nil];
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];

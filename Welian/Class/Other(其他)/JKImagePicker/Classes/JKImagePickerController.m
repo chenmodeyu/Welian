@@ -15,6 +15,7 @@
 #import "JKPromptView.h"
 #import "JKPhotoBrowser.h"
 #import "PhotoAlbumManager.h"
+#import <AVFoundation/AVFoundation.h>
 
 ALAssetsFilter * ALAssetsFilterFromJKImagePickerControllerFilterType(JKImagePickerControllerFilterType type) {
     switch (type) {
@@ -596,14 +597,26 @@ static NSString *kJKAssetsFooterViewIdentifier = @"kJKAssetsFooterViewIdentifier
         [JKPromptView showWithImageName:@"picker_alert_sigh" message:str];
         return;
     }
-    
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+       [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+    //判断相机是否能够使用
+    BOOL isCamera = NO;
+    if(IsiOS8Later){
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (status == AVAuthorizationStatusAuthorized||status == AVAuthorizationStatusNotDetermined) {
+            isCamera = YES;
+        }
+    }else{
+        isCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+    }
+    if(isCamera) {
         UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
         pickerController.allowsEditing = NO;
         pickerController.delegate = self;
         pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:pickerController animated:YES completion:^{
         }];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"" message:@"请在iPhone的“设置-隐私-相机”中允许访问相机。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
     }
 }
 
