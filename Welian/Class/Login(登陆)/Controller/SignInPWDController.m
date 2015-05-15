@@ -111,7 +111,7 @@
     }
     
     if (![NSString passwordValidate:self.pwdTextField.text]) {
-        [WLHUDView showErrorHUD:@"密码为6-18位！"];
+        [WLHUDView showErrorHUD:@"密码为6-18位字符，区分大小写"];
         return;
     }
     [WLHUDView showHUDWithStr:@"加载中..." dim:YES];

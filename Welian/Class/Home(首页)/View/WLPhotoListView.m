@@ -187,15 +187,11 @@
     // 1.只有1张图片
     if (count.count == 1) {
         WLPhoto *wlPhoto = count[0];
-        NSArray *array = [wlPhoto.photo componentsSeparatedByString:@"-"];
-        CGFloat w = 180;
-        CGFloat h = 150;
-        if (array.count>1) {
-            w = [array[1] floatValue];
-            h = [[array[2] stringByReplacingOccurrencesOfString:@"_x.jpg" withString:@""] floatValue];
-            h = [[array[2] stringByReplacingOccurrencesOfString:@".jpg" withString:@""] floatValue];
-            h = [[array[2] stringByReplacingOccurrencesOfString:@"_x.png" withString:@""] floatValue];
-            h = [[array[2] stringByReplacingOccurrencesOfString:@".png" withString:@""] floatValue];
+        if (wlPhoto.imageDataStr) {
+            NSData *photoData = [[NSData alloc] initWithBase64EncodedString:wlPhoto.imageDataStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+            UIImage *image = [UIImage imageWithData:photoData];
+            CGFloat w = image.size.width;
+            CGFloat h = image.size.height;
             if (w>h || w==h) {
                 CGFloat se = 1.0;
                 if (w>180) {
@@ -211,8 +207,36 @@
                 }
                 w = w*se;
             }
+            return CGSizeMake(w, h);
+        }else{
+            NSArray *array = [wlPhoto.photo componentsSeparatedByString:@"-"];
+            CGFloat w = 180;
+            CGFloat h = 150;
+            if (array.count>1) {
+                w = [array[1] floatValue];
+                h = [[array[2] stringByReplacingOccurrencesOfString:@"_x.jpg" withString:@""] floatValue];
+                h = [[array[2] stringByReplacingOccurrencesOfString:@".jpg" withString:@""] floatValue];
+                h = [[array[2] stringByReplacingOccurrencesOfString:@"_x.png" withString:@""] floatValue];
+                h = [[array[2] stringByReplacingOccurrencesOfString:@".png" withString:@""] floatValue];
+                if (w>h || w==h) {
+                    CGFloat se = 1.0;
+                    if (w>180) {
+                        se = 180/w;
+                        w = 180;
+                    }
+                    h = h*se;
+                }else{
+                    CGFloat se = 1.0;
+                    if (h>150) {
+                        se = 150/h;
+                        h= 150;
+                    }
+                    w = w*se;
+                }
+            }
+            return CGSizeMake(w, h);
         }
-        return CGSizeMake(w, h);
+        
 
     }
 

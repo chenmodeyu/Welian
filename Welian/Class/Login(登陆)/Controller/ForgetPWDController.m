@@ -77,20 +77,6 @@
     } Failed:^(NSError *error) {
         [WLHUDView showErrorHUD:error.localizedDescription];
     }];
-//    [WLHttpTool forgetPasswordParameterDic:@{@"newpassword":self.pwdTextField.text} success:^(id JSON) {
-//        if ([[JSON objectForKey:@"flag"] integerValue]==0) {
-//            [WLHUDView showSuccessHUD:@"密码修改成功！"];
-//            LoginPhoneVC *loginPhoneVC = self.navigationController.viewControllers[0];
-//            [loginPhoneVC setPhoneString:self.phoneString];
-//            
-//            [self.navigationController popToViewController:loginPhoneVC animated:YES];
-//
-//        }else{
-//            [WLHUDView showErrorHUD:@"密码修改失败！请重试"];
-//        }
-//    } fail:^(NSError *error) {
-//        
-//    }];
 }
 
 - (void)popToViewController

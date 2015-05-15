@@ -100,6 +100,7 @@
                                           }
                                           //可以提醒的错误
                                           SAFE_BLOCK_CALL(failed, result.error);
+                                        [WLHUDView showErrorHUD:result.errormsg];
                                       }else if(result.state.integerValue >= 2000 && result.state.integerValue < 3000){
                                           //系统级错误，直接打印错误信息
                                           DLog(@"Result System ErroInfo-- : %@",result.errormsg);
@@ -118,10 +119,12 @@
                                   SAFE_BLOCK_CALL(failed, nil);
                                   if (error.code == -1001) {
                                       [WLHUDView showErrorHUD:@"请求超时，请检查网络"];
+                                  }else{
+                                      [WLHUDView hiddenHud];
                                   }
-                                  if (error.code == -1009) {
-                                      [WLHUDView showErrorHUD:@"网络已断开，请检查网络"];
-                                  }
+//                                  if (error.code == -1009) {
+//                                      [WLHUDView showErrorHUD:@"网络已断开，请检查网络"];
+//                                  }
                                   DLog(@"SystemErroInfo-- : %@",error.description);
                               }];
 }
@@ -167,7 +170,7 @@
                              ,@"mobile":mobile
                              ,@"company":company
                              ,@"position":position
-                             ,@"avatar":@"1417496795301_x.png"
+                             ,@"avatar":avatar
                              ,@"password":password};
     [self reqestPostWithParams:params
                           Path:kRegisterPath
