@@ -199,6 +199,7 @@
                                                //第一页
                                                [ActivityInfo deleteAllActivityInfoWithType:@(_selectType + 1)];
                                            }
+                                           
                                            //0：普通   1：收藏  2：我参加的
                                            NSArray *activitys = resultInfo;
                                            for (IActivityInfo *iActivityInfo in activitys) {
