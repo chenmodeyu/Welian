@@ -44,6 +44,8 @@
 #pragma mark - Private
 - (void)setup
 {
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     UIView *topBgView = [[UIView alloc] init];
     topBgView.backgroundColor = RGB(236.f, 238.f, 241.f);
     [self addSubview:topBgView];

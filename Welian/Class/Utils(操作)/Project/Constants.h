@@ -10,6 +10,7 @@
 #pragma mark - NSNotification Key
 extern NSString *const kAccepteFriend;//同意好友请求
 extern NSString *const KupdataMyAllFriends;//我的好友更新通知
+extern NSString *const kReloadSameFriend;//重新获取共同好友
 
 //----------聊天
 extern NSString *const kChatMsgNumChanged;//聊天消息数量改变

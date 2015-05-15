@@ -218,6 +218,8 @@ static NSString *fridcellid = @"fridcellid";
     
     //添加同意好友请求成功监听
     [KNSNotification addObserver:self selector:@selector(addSucceed) name:[NSString stringWithFormat:kAccepteFriend,_baseUserModel.uid]  object:nil];
+    //添加刷新共同好友的数量
+    [KNSNotification addObserver:self selector:@selector(reloadSameFriend) name:kReloadSameFriend object:nil];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:Rect(0.f,0.f,self.view.width,self.view.height) style:UITableViewStyleGrouped];
     tableView.dataSource = self;
@@ -728,6 +730,9 @@ static NSString *fridcellid = @"fridcellid";
             break;
         case 2:
         {
+            //重置共同好友数量
+            self.baseUserModel.samefriendscount = @(_datasource3.count);
+            
             //加载完成，但数据为空
             if (isLoad && _datasource3.count <= 0) {
                 noteInfo = @"你们之间还没有共同好友";
@@ -741,6 +746,9 @@ static NSString *fridcellid = @"fridcellid";
         default:
             break;
     }
+    
+    //设置好友数量
+    _wlSegmentedControl.sectionDetailTitles = @[@"",_baseUserModel.feedcount.stringValue.length > 0 ? (_baseUserModel.feedcount.integerValue > 1000 ? @"999+" : _baseUserModel.feedcount.stringValue) : @"",_baseUserModel.samefriendscount.stringValue.length > 0 ? (_baseUserModel.samefriendscount.integerValue > 99 ? @"99+" : _baseUserModel.samefriendscount.stringValue) : @""];
     
     self.wlNoteInfoView.isLoaded = isLoad;
     self.wlNoteInfoView.noteInfo = noteInfo;
@@ -800,6 +808,7 @@ static NSString *fridcellid = @"fridcellid";
                                  [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
                                  
                                  //聊天状态发送改变
+                                 [KNSNotification postNotificationName:kReloadSameFriend object:nil];
                                  [KNSNotification postNotificationName:kChatUserChanged object:nil];
                                  [KNSNotification postNotificationName:KupdataMyAllFriends object:self];
                                  [self.navigationController popViewControllerAnimated:YES];
@@ -870,6 +879,7 @@ static NSString *fridcellid = @"fridcellid";
                                       [[WLDataDBTool sharedService] putObject:resultInfo withId:_baseUserModel.uid.stringValue intoTable:KWLSamefriendsTableName];
                                       
                                       _datasource3 = [NSMutableArray arrayWithArray:[IBaseUserM objectsWithInfo:resultInfo]];
+                                      
                                       //检查
                                       [self checkNoteInfoLoad:YES];
                                   } Failed:^(NSError *error) {
@@ -1230,6 +1240,12 @@ static NSString *fridcellid = @"fridcellid";
     self.baseUserModel.friendship = @(1);
     //设置用户信息
     _userInfoView.baseUserModel = _baseUserModel;
+}
+
+//重新获取共同好友
+- (void)reloadSameFriend
+{
+    [self getSameFriendData];
 }
 
 //进入聊天页面

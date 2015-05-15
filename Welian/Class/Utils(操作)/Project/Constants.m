@@ -9,6 +9,7 @@
 #pragma mark - NSNotification Key
 NSString *const kAccepteFriend = @"Accepte%@";//同意好友请求
 NSString *const KupdataMyAllFriends = @"KupdataMyAllFriends";//我的好友更新通知
+NSString *const kReloadSameFriend = @"ReloadSameFriend";//重新获取共同好友
 
 //----------聊天
 NSString *const kChatMsgNumChanged = @"ChatMsgNumChanged";//聊天消息数量改变

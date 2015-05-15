@@ -62,6 +62,7 @@
 {
     [super viewWillDisappear:animated];
     _searcher.delegate = nil;
+    [WLHUDView hiddenHud];
 }
 
 - (void)viewDidAppear:(BOOL)animated

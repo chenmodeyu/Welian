@@ -644,7 +644,7 @@
 //    NewFriendUser *newFriend = [NewFriendUser MR_findFirstWithPredicate:pre sortedBy:@"messageid" ascending:NO];
     NSArray *NewFriendUsers = [NewFriendUser MR_findAllWithPredicate:pre inContext:self.managedObjectContext];
     NewFriendUser *newFriend = nil;
-    if (NewFriendUsers.count > 0) {
+    if (NewFriendUsers.count > 0 && NewFriendUsers != nil) {
         NSArray *sortMessages = [NewFriendUsers sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
             return [[obj1 messageid] integerValue] > [[obj2 messageid] integerValue];
         }];
