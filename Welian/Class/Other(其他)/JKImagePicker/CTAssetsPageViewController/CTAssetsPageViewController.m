@@ -116,7 +116,7 @@
 {
     _currently = index;
     NSInteger count = self.assets.count;
-    self.title = [NSString stringWithFormat:NSLocalizedString(@"%ld of %ld", nil), index, count];
+    self.title = [NSString stringWithFormat:NSLocalizedString(@"%ld / %ld", nil), index, count];
 }
 
 

@@ -403,6 +403,12 @@ static NSString *financingCellid = @"financingCellid";
             [WLHUDView showErrorHUD:@"请正确填写出让股份"];
             return;
         }
+        
+        if (self.projectModel.financing.length>200) {
+            [WLHUDView showErrorHUD:@"项目描述内容200字内"];
+            return;
+        }
+        
         if (self.projectModel.financing.length) {
             [finishDic setObject:self.projectModel.financing forKey:@"financing"];
         }

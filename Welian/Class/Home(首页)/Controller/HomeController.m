@@ -177,49 +177,6 @@
     } Failed:^(NSError *error) {
         [self endRefreshing];
     }];
-//    [WLHttpTool loadFeedsParameterDic:darDic andLoadType:_uid success:^(id JSON) {
-//        
-//        NSArray *jsonarray = [NSArray arrayWithArray:JSON];
-//        if (!_uid) {
-//            [LogInUser setUserNewstustcount:@(0)];
-//        }
-//        // 1.在拿到最新微博数据的同时计算它的frame
-//        [_dataArry removeAllObjects];
-//        
-//        NSArray *againArray = [self getSendAgainStuatArray];
-//        [_dataArry addObjectsFromArray:againArray];
-//        
-//        for (NSDictionary *statusDic in jsonarray) {
-//             WLStatusFrame *sf = [self dataFrameWith:statusDic];
-//            [_dataArry addObject:sf];
-//        }
-//        _page++;
-//        if (!_uid) {
-//            [self loadFirstFID:[self dataFrameWith:[jsonarray firstObject]]];
-//            if (!_dataArry.count) {
-//                [self.homeView setHidden:NO];
-//            }else{
-//                [self.homeView setHidden:YES];
-//            }
-//        }else if(_uid.integerValue == 0){
-//            if (!_dataArry.count) {
-//                [self.notDataView setHidden:NO];
-//            }else{
-//                [self.notDataView setHidden:YES];
-//            }
-//        }
-//        [[MainViewController sharedMainViewController] updataItembadge];
-//        [self.tableView reloadData];
-//
-//        [self endRefreshing];
-//        if (jsonarray.count<KCellConut) {
-//            [self.tableView.footer setHidden:YES];
-//        }else{
-//            [self.tableView.footer setHidden:NO];
-//        }
-//    } fail:^(NSError *error) {
-//        [self endRefreshing];
-//    }];
 }
 
 - (WLStatusFrame*)dataFrameWith:(NSDictionary *)statusDic
@@ -339,6 +296,7 @@
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
             [self showStatusNotReachable];
+              [WLHUDView showErrorHUD:@"网络已断开，请检查网络"];
         }else{
 //            [self beginPullDownRefreshing];
             [self.tableView.header beginRefreshing];
@@ -699,6 +657,13 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     [self sendStuat:reqDataDic withIndexPath:indexPath];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    // 更新界面
+    if (!_uid) {
+        [self.homeView setHidden:_dataArry.count];
+    }else if(_uid.integerValue == 0){
+        [self.notDataView setHidden:_dataArry.count];
+    }
+    
 }
 
 - (WLStatusFrame *)relodStatusFrameWithDic:(NSDictionary *)reqDataDic withFidStr:(NSString *)fidStr
