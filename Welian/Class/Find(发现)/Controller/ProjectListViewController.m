@@ -216,24 +216,25 @@
                                      [self.tableView.header endRefreshing];
                                      [self.tableView.footer endRefreshing];
                                      
-                                     if ([resultInfo count] > 0) {
-                                         if (_pageIndex == 1) {
-                                             //第一页
-                                             [ProjectInfo deleteAllProjectInfoWithType:@(0)];
-                                         }
-                                         NSArray *projects = resultInfo;
+                                     if (_pageIndex == 1) {
+                                         //第一页
+                                         [ProjectInfo deleteAllProjectInfoWithType:@(0)];
+                                     }
+                                     NSArray *projects = resultInfo;
+                                     if (projects.count > 0) {
+                                         
                                          for (IProjectInfo *iProjectInfo in projects) {
                                              [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(0)];
                                          }
-                                         
-                                         NSArray *sortedInfo = [ProjectInfo allNormalProjectInfos];
-                                         self.headDatasource = sortedInfo[0];
-                                         self.datasource = sortedInfo[1];
-                                         
-                                         //添加数据
-                                         [_allDataSource addObjectsFromArray:projects];
-                                         [self.tableView reloadData];
                                      }
+                                     
+                                     NSArray *sortedInfo = [ProjectInfo allNormalProjectInfos];
+                                     self.headDatasource = sortedInfo[0];
+                                     self.datasource = sortedInfo[1];
+                                     
+                                     //添加数据
+                                     [_allDataSource addObjectsFromArray:projects];
+                                     [self.tableView reloadData];
                                      
                                      //设置是否可以下拉刷新
                                      if ([resultInfo count] != KCellConut) {

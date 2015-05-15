@@ -332,17 +332,18 @@
                                 Success:^(id resultInfo) {
                                     [_tableView.header endRefreshing];
                                     [_tableView.footer endRefreshing];
+                                   
+                                    if (_pageIndex == 1) {
+                                        //第一页 删除所有
+                                        [ActivityInfo deleteAllActivityInfoWithType:@(0)];
+                                    }
                                     
                                     if ([resultInfo count] > 0) {
-                                        if (_pageIndex == 1) {
-                                            //第一页 删除所有
-                                            [ActivityInfo deleteAllActivityInfoWithType:@(0)];
-                                        }
-                                        
                                         for (IActivityInfo *iActivityInfo in resultInfo) {
                                             [ActivityInfo createActivityInfoWith:iActivityInfo withType:@(0)];
                                         }
                                     }
+                                    
                                     //获取数据
                                     self.datasource = [ActivityInfo allNormalActivityInfos];
                                     [_tableView reloadData];

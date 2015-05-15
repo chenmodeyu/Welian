@@ -31,9 +31,9 @@
 @interface MeViewController () <UITableViewDataSource,UITableViewDelegate>
 {
     NSArray *_data;
-    CExpandHeader *_header;//用于设置头部背景
 }
 
+@property (strong,nonatomic) CExpandHeader *header;//用于设置头部背景
 @property (assign,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) WLCustomSegmentedControl *wlSegmentedControl;
 @property (strong,nonatomic) NSDictionary *infoDict;
@@ -47,6 +47,7 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
 
 - (void)dealloc
 {
+    _header = nil;
     _wlSegmentedControl = nil;
     _infoDict = nil;
 }
@@ -195,7 +196,8 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     
 //    [customView addSubview:imageView];
     customView.backgroundColor = RGB(117.f, 167.f, 209.f);
-    _header = [CExpandHeader expandWithScrollView:_tableView expandView:customView];
+    self.header = self.header = [[CExpandHeader alloc] init];//[CExpandHeader expandWithScrollView:_tableView expandView:customView];
+    [_header expandWithScrollView:_tableView expandView:customView];
     
     //设置头部
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.width, kTableViewHeaderViewHeight)];

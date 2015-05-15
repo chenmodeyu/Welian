@@ -120,6 +120,8 @@
 - (NeedAddUser *)getNeedAddUserWithUid:(NSNumber *)uid;
 //获取已经存在的好友对象
 - (NeedAddUser *)getNeedAddUserWithMobile:(NSString *)mobile;
+//删除指定类型的好友
+- (void)delelteAllNeedAddUserWithType:(NSNumber *)type;
 
 
 
