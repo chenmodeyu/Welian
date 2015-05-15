@@ -30,7 +30,7 @@
 @property (nonatomic, retain) NSString * url;// 详情url
 @property (nonatomic, retain) NSNumber * type;//1收费，0免费
 @property (nonatomic, retain) NSString * sponsor;//主办方
-@property (nonatomic, retain) NSNumber * activeType; //0：普通   1：收藏  2：我参加的
+@property (nonatomic, retain) NSNumber * activeType; //0：普通   1：收藏  2：我参加的   -1：已经删除的活动
 @property (nonatomic, retain) LogInUser *rsLoginUser;
 
 //创建活动
@@ -58,6 +58,8 @@
 - (ActivityInfo *)updateIsjoined:(NSNumber *)isJoined;
 //更新已报名人数
 - (ActivityInfo *)updateJoined:(NSNumber *)joined;
+//更新报名状态和已报名人数
+- (ActivityInfo *)updateIsjoinedAndJoinedCount:(BOOL)isJoined;
 
 //获取活动开始是周几
 - (NSString *)displayStartWeekDay;

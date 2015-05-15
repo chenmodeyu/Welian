@@ -730,6 +730,11 @@ static NSString *noCommentCell = @"NoCommentCell";
                                     _iProjectDetailInfo.zancount = @(_iProjectDetailInfo.zancount.integerValue + 1);
                                     [_projectDetailInfo updateZancount:_iProjectDetailInfo.zancount];
                                     
+                                    if (_projectInfo) {
+                                        //更新点赞状态和数量
+                                        [_projectInfo updateIsZanAndZanCount:YES];
+                                    }
+                                    
                                     IBaseUserM *zanUser = [[IBaseUserM alloc] init];
                                     zanUser.avatar = loginUser.avatar;
                                     zanUser.name = loginUser.name;
@@ -768,6 +773,11 @@ static NSString *noCommentCell = @"NoCommentCell";
                                           _iProjectDetailInfo.iszan = @(0);
                                           _iProjectDetailInfo.zancount = @(_iProjectDetailInfo.zancount.integerValue - 1);
                                           [_projectDetailInfo updateZancount:_iProjectDetailInfo.zancount];
+                                          
+                                          if (_projectInfo) {
+                                              //更新点赞状态和数量
+                                              [_projectInfo updateIsZanAndZanCount:NO];
+                                          }
                                           
                                           IBaseUserM *zanUser = [zanUsers bk_match:^BOOL(id obj) {
                                               return [obj uid].integerValue == loginUser.uid.integerValue;

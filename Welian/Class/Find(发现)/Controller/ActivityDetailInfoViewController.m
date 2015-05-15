@@ -614,7 +614,7 @@
                                          Success:^(id resultInfo) {
                                              [WLHUDView hiddenHud];
                                              
-                                             self.activityInfo = [_activityInfo updateFavorite:@(0)];
+                                             self.activityInfo = [_activityInfo updateFavorite:@(NO)];
                                              [self checkFavorteStatus];
                                              //通知刷新我的活动中的数据
                                              [KNSNotification postNotificationName:kMyActivityInfoChanged object:nil];
@@ -632,7 +632,7 @@
                                    Success:^(id resultInfo) {
                                        [WLHUDView hiddenHud];
                                        
-                                       self.activityInfo = [_activityInfo updateFavorite:@(1)];
+                                       self.activityInfo = [_activityInfo updateFavorite:@(YES)];
                                        [self checkFavorteStatus];
                                        //通知刷新我的活动中的数据
                                        [KNSNotification postNotificationName:kMyActivityInfoChanged object:nil];
@@ -946,17 +946,19 @@
 //更新报名人数信息
 - (void)updateJoinedInfo:(BOOL)isJoin
 {
+    ////更新报名状态和已报名人数
+    self.activityInfo = [_activityInfo updateIsjoinedAndJoinedCount:isJoin];
+//    self.activityInfo.isjoined = @(YES);
+//    self.activityInfo.joined = @(self.activityInfo.joined.integerValue + (isJoin ? 1 : -1));
+    //更新报名人数
+//    self.activityInfo = [_activityInfo updateJoined:@(isJoin ? 1 : -1)];
+    //更页面
+    [self updateUI];
+    
     //通知刷新我的活动中的数据
     [KNSNotification postNotificationName:kMyActivityInfoChanged object:nil];
     //更新列表的报名状态
     [KNSNotification postNotificationName:kUpdateJoinedUI object:nil];
-    
-    //更新报名状态
-    self.activityInfo = [_activityInfo updateIsjoined:@(isJoin)];
-    //更新报名人数
-    self.activityInfo = [_activityInfo updateJoined:@(isJoin ? 1 : -1)];
-    //更页面
-    [self updateUI];
 }
 
 //更新支付报名

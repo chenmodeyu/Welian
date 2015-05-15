@@ -9,6 +9,7 @@
 #pragma mark - NSNotification Key
 NSString *const kAccepteFriend = @"Accepte%@";//同意好友请求
 NSString *const KupdataMyAllFriends = @"KupdataMyAllFriends";//我的好友更新通知
+NSString *const kReloadSameFriend = @"ReloadSameFriend";//重新获取共同好友
 
 //----------聊天
 NSString *const kChatMsgNumChanged = @"ChatMsgNumChanged";//聊天消息数量改变
@@ -23,6 +24,7 @@ NSString *const kUpdateMainMessageBadge = @"UpdateMainMessageBadge";//更新主�
 NSString *const kMyActivityInfoChanged = @"MyActivityInfoChanged";//我的活动信息改变
 NSString *const kNeedReloadActivityUI = @"NeedReloadActivityUI";//重新加载活动UI
 NSString *const kUpdateJoinedUI = @"UpdateJoinedUI";//更新报名的活动列表
+NSString *const kUpdateProjectListUI = @"UpdateProjectListUI";//更新项目列表
 
 //------ 支付宝支付通知
 NSString *const kAlipayPaySuccess = @"AlipayPaySuccess";//支付成功

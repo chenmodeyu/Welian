@@ -520,7 +520,7 @@
 -(void)loadMyAllFriends
 {
     LogInUser *nowLoginUser = [LogInUser getCurrentLoginUser];
-    if(nowLoginUser.rsMyFriends.count == 0){
+    if(nowLoginUser.rsMyFriends.count == 0 && nowLoginUser != nil){
         //获取好友列表
         [WeLianClient getFriendListWithID:nowLoginUser.uid
                                   Success:^(id resultInfo) {

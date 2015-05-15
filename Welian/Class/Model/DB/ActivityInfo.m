@@ -51,7 +51,7 @@
     activityInfo.joined = iActivityInfo.joined;
     activityInfo.isjoined = iActivityInfo.isjoined;
     activityInfo.intro = iActivityInfo.intro;
-    activityInfo.isfavorite = iActivityInfo.isfavorite;
+    activityInfo.isfavorite = iActivityInfo.isfavorite;//activeType; //0：普通   1：收藏  2：我参加的
     activityInfo.shareurl = iActivityInfo.shareurl;
     activityInfo.url = iActivityInfo.url;
     activityInfo.type = iActivityInfo.type;
@@ -71,8 +71,11 @@
 + (ActivityInfo *)updateActivityInfoWith:(IActivityInfo *)iActivityInfo withType:(NSNumber *)activityType
 {
     ActivityInfo *activityInfo = [self getActivityInfoWithActiveId:iActivityInfo.activeid Type:activityType];
-//    activityInfo.activeid = iActivityInfo.activeid;
-//    activityInfo.name = iActivityInfo.name;
+    if (!activityInfo) {
+        activityInfo = [ActivityInfo MR_createEntity];
+    }
+    activityInfo.activeid = iActivityInfo.activeid;
+    activityInfo.name = iActivityInfo.name;
     activityInfo.logo = iActivityInfo.logo;
     activityInfo.startime = iActivityInfo.startime;
     activityInfo.endtime = iActivityInfo.endtime;
@@ -111,12 +114,30 @@
 + (void)deleteAllActivityInfoWithType:(NSNumber *)type
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"activeType",type];
-//    NSArray *all = [ActivityInfo MR_findAllWithPredicate:pre];
-//    for (ActivityInfo *activityInfo in all) {
-//        [activityInfo MR_deleteEntity];
+   
+    //设置属性，而不删除
+//    if (type.integerValue == 0) {
+//        //删除所有查询的信息
+////        [ActivityInfo MR_deleteAllMatchingPredicate:pre];
+//    }else{
+//        
 //    }
-    //删除所有查询的信息
-    [ActivityInfo MR_deleteAllMatchingPredicate:pre];
+    //隐形删除，设置对应的属性
+     //0：普通   1：收藏  2：我参加的   -1：隐形删除的活动
+    NSArray *all = [ActivityInfo MR_findAllWithPredicate:pre];
+    for (ActivityInfo *activityInfo in all) {
+        //        [activityInfo MR_deleteEntity];
+        if (type.integerValue == 1) {
+            //设置不收藏
+            activityInfo.isfavorite = @(NO);
+        }else if(type.integerValue == 2){
+            //设置我参加的
+            activityInfo.isjoined = @(NO);
+        }else{
+            activityInfo.activeType = @(-1);
+        }
+    }
+    
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
@@ -146,11 +167,12 @@
 + (NSArray *)allMyActivityInfoWithType:(NSNumber *)activityType
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    //未开始
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != %@", @"activeType",activityType,@"rsLoginUser",loginUser,@"status",@(2)];
+    //未开始  //0：普通   1：收藏  2：我参加的
+    NSString *serchType = activityType.integerValue == 1 ? @"isfavorite" : @"isjoined";
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@ && %K != %@", @"activeType",activityType,serchType,@(YES),@"rsLoginUser",loginUser,@"status",@(2)];
     NSArray *unStartArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:YES withPredicate:pre];
     //已结束
-    NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@", @"activeType",activityType,@"rsLoginUser",loginUser,@"status",@(2)];
+    NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@ && %K == %@", @"activeType",activityType,serchType,@(YES),@"rsLoginUser",loginUser,@"status",@(2)];
     NSArray *endArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:NO withPredicate:pre1];
     
     NSMutableArray *allArray = [NSMutableArray array];
@@ -164,7 +186,7 @@
 - (ActivityInfo *)updateFavorite:(NSNumber *)isFavorite
 {
     self.isfavorite = isFavorite;
-    [self.managedObjectContext MR_saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
     return self;
 }
@@ -173,7 +195,7 @@
 - (ActivityInfo *)updateIsjoined:(NSNumber *)isJoined
 {
     self.isjoined = isJoined;
-    [self.managedObjectContext MR_saveToPersistentStoreAndWait];
+    [[self managedObjectContext] MR_saveToPersistentStoreAndWait];
     
     return self;
 }
@@ -183,6 +205,16 @@
 {
     self.joined = @(self.joined.integerValue + joined.integerValue);
     [self.managedObjectContext MR_saveToPersistentStoreAndWait];
+    
+    return self;
+}
+
+//更新报名状态和已报名人数
+- (ActivityInfo *)updateIsjoinedAndJoinedCount:(BOOL)isJoined
+{
+    self.isjoined = @(isJoined);
+    self.joined = @(self.joined.integerValue + (isJoined ? 1 : -1));
+    [[self managedObjectContext] MR_saveToPersistentStoreAndWait];
     
     return self;
 }

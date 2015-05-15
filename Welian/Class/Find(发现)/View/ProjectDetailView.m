@@ -72,7 +72,13 @@
     _infoLabel.text = _projectDetailInfo.des;
     
     NSMutableArray *photos = [NSMutableArray array];
-    NSArray *photoInfos = _projectDetailInfo.rsPhotoInfos.allObjects;
+    NSArray *photoInfos = [NSArray array];
+    if (_projectDetailInfo.rsPhotoInfos.allObjects.count > 0) {
+        //排序
+         photoInfos = [_projectDetailInfo.rsPhotoInfos.allObjects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            return [[obj1 picid] integerValue] > [[obj2 picid] integerValue];
+        }];
+    }
     if (photoInfos > 0) {
         for (int i = 0; i< photoInfos.count; i++) {
             WLPhoto *wlphoto = [[WLPhoto alloc] init];

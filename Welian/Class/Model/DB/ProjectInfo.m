@@ -62,12 +62,14 @@
 //删除所有指定类型的对象
 + (void)deleteAllProjectInfoWithType:(NSNumber *)type
 {
+    //0：普通   1：收藏  2：创建  -1：已删除
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"type",type];
-//    NSArray *all = [ProjectInfo MR_findAllWithPredicate:pre];
-//    for (ProjectInfo *projectInfo in all) {
-//        [projectInfo MR_deleteEntity];
-//    }
-    [ProjectInfo MR_deleteAllMatchingPredicate:pre];
+    NSArray *all = [ProjectInfo MR_findAllWithPredicate:pre];
+    for (ProjectInfo *projectInfo in all) {
+        //设置状态为已经删除
+        projectInfo.type = @(-1);
+    }
+//    [ProjectInfo MR_deleteAllMatchingPredicate:pre];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
@@ -123,6 +125,18 @@
             return [NSString stringWithFormat:@"%.1fw",self.zancount.floatValue / 10000];
         }
     }
+}
+
+//更新点赞状态和点赞人数
+- (void)updateIsZanAndZanCount:(BOOL)isZan
+{
+    self.iszan = @(isZan);
+    self.zancount = @(self.zancount.integerValue + (isZan ? 1 : -1));
+    [[self managedObjectContext] MR_saveToPersistentStoreAndWait];
+    
+    //更新项目列表
+    [KNSNotification postNotificationName:kUpdateProjectListUI object:nil];
+//    return self;
 }
 
 //获取自己的项目或者自己收藏的

@@ -58,8 +58,10 @@
 {
     NSDictionary *attrsDic = @{NSForegroundColorAttributeName:sColor,NSFontAttributeName:sFont};
     NSMutableAttributedString *attrstr = [[NSMutableAttributedString alloc] initWithString:str];
-    NSRange searchRange = [str rangeOfString:searchStr options:NSCaseInsensitiveSearch];
-    [attrstr addAttributes:attrsDic range:searchRange];
+    if (searchStr) {
+        NSRange searchRange = [str rangeOfString:searchStr options:NSCaseInsensitiveSearch];
+        [attrstr addAttributes:attrsDic range:searchRange];
+    }
     return attrstr;
 }
 

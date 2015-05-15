@@ -34,6 +34,7 @@
     _headDatasource = nil;
     _allDataSource = nil;
     _notView = nil;
+    [KNSNotification removeObserver:self];
 }
 
 - (NotstringView *)notView
@@ -64,6 +65,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //监听报名状态改变
+    [KNSNotification addObserver:self selector:@selector(updateUiInfo) name:kUpdateProjectListUI object:nil];
+    
     //隐藏表格分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -204,6 +209,17 @@
         self.tableView.footer.hidden = NO;
         [self initData];
     }
+}
+
+- (void)updateUiInfo
+{
+    //获取数据
+    NSArray *sortedInfo = [ProjectInfo allNormalProjectInfos];
+    self.headDatasource = sortedInfo[0];
+    self.datasource = sortedInfo[1];
+    
+    self.allDataSource = self.datasource;
+    [self.tableView reloadData];
 }
 
 //获取数据
