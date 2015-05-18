@@ -2710,6 +2710,26 @@
 		A4F6A5EC1A514ACF008DBC8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F6A5EB1A514ACF008DBC8C /* MessageUI.framework */; };
 		A4F6A5ED1A514AD6008DBC8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F6A5EB1A514ACF008DBC8C /* MessageUI.framework */; };
 		A4F6A5EE1A514ADD008DBC8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F6A5EB1A514ACF008DBC8C /* MessageUI.framework */; };
+		A4FDF3B91B0A038700A487A9 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */; };
+		A4FDF3BA1B0A038700A487A9 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */; };
+		A4FDF3BB1B0A038700A487A9 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */; };
+		A4FDF3BC1B0A038700A487A9 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */; };
+		A4FDF3BD1B0A038700A487A9 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */; };
+		A4FDF3C51B0A041800A487A9 /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */; };
+		A4FDF3C61B0A041800A487A9 /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */; };
+		A4FDF3C71B0A041800A487A9 /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */; };
+		A4FDF3C81B0A041800A487A9 /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */; };
+		A4FDF3C91B0A041800A487A9 /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */; };
+		A4FDF3CA1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C21B0A041800A487A9 /* HYBLoopScrollView.m */; };
+		A4FDF3CB1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C21B0A041800A487A9 /* HYBLoopScrollView.m */; };
+		A4FDF3CC1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C21B0A041800A487A9 /* HYBLoopScrollView.m */; };
+		A4FDF3CD1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C21B0A041800A487A9 /* HYBLoopScrollView.m */; };
+		A4FDF3CE1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C21B0A041800A487A9 /* HYBLoopScrollView.m */; };
+		A4FDF3CF1B0A041800A487A9 /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C41B0A041800A487A9 /* HYBPageControl.m */; };
+		A4FDF3D01B0A041800A487A9 /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C41B0A041800A487A9 /* HYBPageControl.m */; };
+		A4FDF3D11B0A041800A487A9 /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C41B0A041800A487A9 /* HYBPageControl.m */; };
+		A4FDF3D21B0A041800A487A9 /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C41B0A041800A487A9 /* HYBPageControl.m */; };
+		A4FDF3D31B0A041800A487A9 /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C41B0A041800A487A9 /* HYBPageControl.m */; };
 		F500B1E31AAEAB4C00A7AD35 /* home_repost_huati@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F500B1E11AAEAB4C00A7AD35 /* home_repost_huati@2x.png */; };
 		F500B1E41AAEAB4C00A7AD35 /* home_repost_huati@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F500B1E11AAEAB4C00A7AD35 /* home_repost_huati@2x.png */; };
 		F500B1E51AAEAB4C00A7AD35 /* home_repost_huati@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F500B1E11AAEAB4C00A7AD35 /* home_repost_huati@2x.png */; };
@@ -2777,21 +2797,9 @@
 		F50CB0A61ACE8CF10003DA8E /* home_repost_xiangmu_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09C1ACE8CF10003DA8E /* home_repost_xiangmu_no@2x.png */; };
 		F50CB0A71ACE8CF10003DA8E /* home_repost_xiangmu_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09C1ACE8CF10003DA8E /* home_repost_xiangmu_no@2x.png */; };
 		F50CB0A81ACE8CF10003DA8E /* home_repost_xiangmu_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09C1ACE8CF10003DA8E /* home_repost_xiangmu_no@2x.png */; };
-		F51484D71B09B28800970AFB /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D21B09B28800970AFB /* HYBLoadImageView.m */; };
-		F51484D81B09B28800970AFB /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D21B09B28800970AFB /* HYBLoadImageView.m */; };
-		F51484D91B09B28800970AFB /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D21B09B28800970AFB /* HYBLoadImageView.m */; };
 		F51484DA1B09B28800970AFB /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D21B09B28800970AFB /* HYBLoadImageView.m */; };
-		F51484DB1B09B28800970AFB /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D21B09B28800970AFB /* HYBLoadImageView.m */; };
-		F51484DC1B09B28800970AFB /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D41B09B28800970AFB /* HYBLoopScrollView.m */; };
-		F51484DD1B09B28800970AFB /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D41B09B28800970AFB /* HYBLoopScrollView.m */; };
-		F51484DE1B09B28800970AFB /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D41B09B28800970AFB /* HYBLoopScrollView.m */; };
 		F51484DF1B09B28800970AFB /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D41B09B28800970AFB /* HYBLoopScrollView.m */; };
-		F51484E01B09B28800970AFB /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D41B09B28800970AFB /* HYBLoopScrollView.m */; };
-		F51484E11B09B28800970AFB /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D61B09B28800970AFB /* HYBPageControl.m */; };
-		F51484E21B09B28800970AFB /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D61B09B28800970AFB /* HYBPageControl.m */; };
-		F51484E31B09B28800970AFB /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D61B09B28800970AFB /* HYBPageControl.m */; };
 		F51484E41B09B28800970AFB /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D61B09B28800970AFB /* HYBPageControl.m */; };
-		F51484E51B09B28800970AFB /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F51484D61B09B28800970AFB /* HYBPageControl.m */; };
 		F51A97731AD3BBF9005EDAF4 /* me_lvli_bianji@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F51A97721AD3BBF9005EDAF4 /* me_lvli_bianji@2x.png */; };
 		F51A97741AD3BBF9005EDAF4 /* me_lvli_bianji@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F51A97721AD3BBF9005EDAF4 /* me_lvli_bianji@2x.png */; };
 		F51A97751AD3BBF9005EDAF4 /* me_lvli_bianji@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F51A97721AD3BBF9005EDAF4 /* me_lvli_bianji@2x.png */; };
@@ -5645,6 +5653,14 @@
 		A4F646BC1A43C2FB002E66FC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A4F6A5E71A514A47008DBC8C /* libBlocksKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBlocksKit.a; sourceTree = "<group>"; };
 		A4F6A5EB1A514ACF008DBC8C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A4FDF3B71B0A038700A487A9 /* MCAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAvatarView.h; sourceTree = "<group>"; };
+		A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAvatarView.m; sourceTree = "<group>"; };
+		A4FDF3BF1B0A041800A487A9 /* HYBLoadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBLoadImageView.h; sourceTree = "<group>"; };
+		A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBLoadImageView.m; sourceTree = "<group>"; };
+		A4FDF3C11B0A041800A487A9 /* HYBLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBLoopScrollView.h; sourceTree = "<group>"; };
+		A4FDF3C21B0A041800A487A9 /* HYBLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBLoopScrollView.m; sourceTree = "<group>"; };
+		A4FDF3C31B0A041800A487A9 /* HYBPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBPageControl.h; sourceTree = "<group>"; };
+		A4FDF3C41B0A041800A487A9 /* HYBPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBPageControl.m; sourceTree = "<group>"; };
 		F500B1E11AAEAB4C00A7AD35 /* home_repost_huati@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_repost_huati@2x.png"; sourceTree = "<group>"; };
 		F500B1E21AAEAB4C00A7AD35 /* home_repost_huodong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_repost_huodong@2x.png"; sourceTree = "<group>"; };
 		F500B1EB1AAEAB5B00A7AD35 /* home_repost_xiangmu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_repost_xiangmu@2x.png"; sourceTree = "<group>"; };
@@ -5677,11 +5693,8 @@
 		F511F0D519ECFF5500B1A356 /* ZBFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBFaceView.m; sourceTree = "<group>"; };
 		F511F0D619ECFF5500B1A356 /* ZBMessageManagerFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBMessageManagerFaceView.h; sourceTree = "<group>"; };
 		F511F0D719ECFF5500B1A356 /* ZBMessageManagerFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBMessageManagerFaceView.m; sourceTree = "<group>"; };
-		F51484D11B09B28800970AFB /* HYBLoadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBLoadImageView.h; sourceTree = "<group>"; };
 		F51484D21B09B28800970AFB /* HYBLoadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBLoadImageView.m; sourceTree = "<group>"; };
-		F51484D31B09B28800970AFB /* HYBLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBLoopScrollView.h; sourceTree = "<group>"; };
 		F51484D41B09B28800970AFB /* HYBLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBLoopScrollView.m; sourceTree = "<group>"; };
-		F51484D51B09B28800970AFB /* HYBPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBPageControl.h; sourceTree = "<group>"; };
 		F51484D61B09B28800970AFB /* HYBPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBPageControl.m; sourceTree = "<group>"; };
 		F516B93019C29843002D0605 /* login_user_pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_user_pre@2x.png"; sourceTree = "<group>"; };
 		F516B93119C29843002D0605 /* login_user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_user@2x.png"; sourceTree = "<group>"; };
@@ -8518,6 +8531,28 @@
 			path = PureLayout;
 			sourceTree = "<group>";
 		};
+		A4FDF3B61B0A038700A487A9 /* MCAvatarView */ = {
+			isa = PBXGroup;
+			children = (
+				A4FDF3B71B0A038700A487A9 /* MCAvatarView.h */,
+				A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */,
+			);
+			path = MCAvatarView;
+			sourceTree = "<group>";
+		};
+		A4FDF3BE1B0A041800A487A9 /* HYBLoopScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				A4FDF3BF1B0A041800A487A9 /* HYBLoadImageView.h */,
+				A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */,
+				A4FDF3C11B0A041800A487A9 /* HYBLoopScrollView.h */,
+				A4FDF3C21B0A041800A487A9 /* HYBLoopScrollView.m */,
+				A4FDF3C31B0A041800A487A9 /* HYBPageControl.h */,
+				A4FDF3C41B0A041800A487A9 /* HYBPageControl.m */,
+			);
+			path = HYBLoopScrollView;
+			sourceTree = "<group>";
+		};
 		F511F0D119ECFF5500B1A356 /* messageFaceView */ = {
 			isa = PBXGroup;
 			children = (
@@ -8529,19 +8564,6 @@
 				F511F0D719ECFF5500B1A356 /* ZBMessageManagerFaceView.m */,
 			);
 			path = messageFaceView;
-			sourceTree = "<group>";
-		};
-		F51484D01B09B28800970AFB /* HYBLoopScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				F51484D11B09B28800970AFB /* HYBLoadImageView.h */,
-				F51484D21B09B28800970AFB /* HYBLoadImageView.m */,
-				F51484D31B09B28800970AFB /* HYBLoopScrollView.h */,
-				F51484D41B09B28800970AFB /* HYBLoopScrollView.m */,
-				F51484D51B09B28800970AFB /* HYBPageControl.h */,
-				F51484D61B09B28800970AFB /* HYBPageControl.m */,
-			);
-			path = HYBLoopScrollView;
 			sourceTree = "<group>";
 		};
 		F5188AA919CF017600FE9273 /* SDWebImage */ = {
@@ -9822,7 +9844,8 @@
 		F5CE864119BFF44100A9D14C /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
-				F51484D01B09B28800970AFB /* HYBLoopScrollView */,
+				A4FDF3BE1B0A041800A487A9 /* HYBLoopScrollView */,
+				A4FDF3B61B0A038700A487A9 /* MCAvatarView */,
 				A492C48C1AF9C3C5001DB60A /* CExpandHeader */,
 				A49234D81ADE6939009E0B8C /* JKImagePicker */,
 				10389B611A3EC8E3001A785C /* Other.h */,
@@ -12963,6 +12986,7 @@
 				A49C7C1E1A70D42700F2AEC5 /* LocationprovinceController.m in Sources */,
 				A49C7C1F1A70D42700F2AEC5 /* UIView+Convenience.m in Sources */,
 				A47D41DF1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
+				A4FDF3CE1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
 				A49C7C231A70D42700F2AEC5 /* WorkListCell.m in Sources */,
 				F55078F71A80C70C009CE4F7 /* ProjectBaseModel.m in Sources */,
 				A49C7C251A70D42700F2AEC5 /* UIImage+Utility.m in Sources */,
@@ -13046,6 +13070,7 @@
 				A49235731ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A49235641ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
 				A49C7C641A70D42700F2AEC5 /* LogInUser.m in Sources */,
+				A4FDF3C91B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49C7C661A70D42700F2AEC5 /* UIImage+MultiFormat.m in Sources */,
 				A49C7C671A70D42700F2AEC5 /* FMResultSet.m in Sources */,
 				A493C32B1ADD14A60056BD52 /* CardStatuModel.m in Sources */,
@@ -13081,7 +13106,6 @@
 				A49C7C851A70D42700F2AEC5 /* BadgeBaseCell.m in Sources */,
 				A49C7C861A70D42700F2AEC5 /* BindingPhoneController.m in Sources */,
 				A49C7C891A70D42700F2AEC5 /* InvestItemM.m in Sources */,
-				F51484E51B09B28800970AFB /* HYBPageControl.m in Sources */,
 				A49C7C8B1A70D42700F2AEC5 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731B21A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F5D04C761AC104A6004DE412 /* WUEmoticonsKeyboardKeyCell.m in Sources */,
@@ -13118,6 +13142,7 @@
 				A49C7CAF1A70D42700F2AEC5 /* XHViewState.m in Sources */,
 				A493C26B1ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				A4743EBE1A7F979E00645998 /* ProjectDetailInfoView.m in Sources */,
+				A4FDF3D31B0A041800A487A9 /* HYBPageControl.m in Sources */,
 				A49C7CB11A70D42700F2AEC5 /* CommentCellView.m in Sources */,
 				A493C33F1ADD14A60056BD52 /* CommentMode.m in Sources */,
 				A493C1C21ADD0A0C0056BD52 /* Constants.m in Sources */,
@@ -13266,7 +13291,6 @@
 				A49C7D241A70D42700F2AEC5 /* NoCommentCell.m in Sources */,
 				A49C7D251A70D42700F2AEC5 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C081AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
-				F51484E01B09B28800970AFB /* HYBLoopScrollView.m in Sources */,
 				A49C7D281A70D42700F2AEC5 /* AddFriendViewController.m in Sources */,
 				A49C7D291A70D42700F2AEC5 /* AddFriendsController.m in Sources */,
 				A49C7D2A1A70D42700F2AEC5 /* MJMethod.m in Sources */,
@@ -13279,7 +13303,6 @@
 				A49C7D2F1A70D42700F2AEC5 /* FriendsFriendUser.m in Sources */,
 				A49C7D301A70D42700F2AEC5 /* InfoUserHaderCell.m in Sources */,
 				A493C2AC1ADD0BB00056BD52 /* WLNavHeaderView.m in Sources */,
-				F51484DB1B09B28800970AFB /* HYBLoadImageView.m in Sources */,
 				A49C7D321A70D42700F2AEC5 /* ActivityMapViewController.m in Sources */,
 				A493C3801ADD14A60056BD52 /* WLUserStatusesResult.m in Sources */,
 				A49C7D331A70D42700F2AEC5 /* IInvestStageModel.m in Sources */,
@@ -13474,6 +13497,7 @@
 				A47D41DE1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
 				F53DC2DB1A49192600F5F712 /* WorkListCell.m in Sources */,
 				F55078F61A80C70C009CE4F7 /* ProjectBaseModel.m in Sources */,
+				A4FDF3CC1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
 				A4C1407C1A4BEA8500C9BAB5 /* UIImage+Utility.m in Sources */,
 				F53DC2DD1A49192600F5F712 /* SignInPWDController.m in Sources */,
 				A4C141731A4BEF5700C9BAB5 /* XHPathCover.m in Sources */,
@@ -13557,6 +13581,7 @@
 				F53DC3011A49192600F5F712 /* UIImage+MultiFormat.m in Sources */,
 				F53DC3021A49192600F5F712 /* FMResultSet.m in Sources */,
 				A493C3291ADD14A60056BD52 /* CardStatuModel.m in Sources */,
+				A4FDF3C71B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49FF3C01AC2671B009982E2 /* UserInfoView.m in Sources */,
 				F53DC3041A49192600F5F712 /* TQRichTextURLRun.m in Sources */,
 				A493C3601ADD14A60056BD52 /* WLBasicTrends.m in Sources */,
@@ -13592,7 +13617,6 @@
 				A4A2EAEA1A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731B11A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F5D04C751AC104A6004DE412 /* WUEmoticonsKeyboardKeyCell.m in Sources */,
-				F51484E31B09B28800970AFB /* HYBPageControl.m in Sources */,
 				A4C140791A4BEA8500C9BAB5 /* UIImage+RoundedCorner.m in Sources */,
 				F53DC31B1A49192600F5F712 /* MJPhotoLoadingView.m in Sources */,
 				A4C1406A1A4BEA8500C9BAB5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
@@ -13629,6 +13653,7 @@
 				A4C1416D1A4BEF5700C9BAB5 /* XHViewState.m in Sources */,
 				A493C2691ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				A4743EBD1A7F979E00645998 /* ProjectDetailInfoView.m in Sources */,
+				A4FDF3D11B0A041800A487A9 /* HYBPageControl.m in Sources */,
 				F53DC3301A49192600F5F712 /* CommentCellView.m in Sources */,
 				A493C33D1ADD14A60056BD52 /* CommentMode.m in Sources */,
 				A49235761ADE693A009E0B8C /* UIView+JKPicker.m in Sources */,
@@ -13777,7 +13802,6 @@
 				F53DC3801A49192600F5F712 /* NoCommentCell.m in Sources */,
 				F53DC3811A49192600F5F712 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C071AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
-				F51484DE1B09B28800970AFB /* HYBLoopScrollView.m in Sources */,
 				A47C5F501A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				A492357B1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				F53DC3841A49192600F5F712 /* AddFriendsController.m in Sources */,
@@ -13790,7 +13814,6 @@
 				A493C27D1ADD0BB00056BD52 /* DKArrayQuery.m in Sources */,
 				F53D4E3F1A4AABE800CA06C8 /* FriendsFriendUser.m in Sources */,
 				F53DC3871A49192600F5F712 /* InfoUserHaderCell.m in Sources */,
-				F51484D91B09B28800970AFB /* HYBLoadImageView.m in Sources */,
 				A493C2AA1ADD0BB00056BD52 /* WLNavHeaderView.m in Sources */,
 				A45065591A5BD4AF0057F8AA /* ActivityMapViewController.m in Sources */,
 				A493C37E1ADD14A60056BD52 /* WLUserStatusesResult.m in Sources */,
@@ -13985,6 +14008,7 @@
 				F56649AE1A2AFD56008A5830 /* IconTableViewCell.m in Sources */,
 				A4717C371AA7F8370054289D /* IActivityTicket.m in Sources */,
 				A48CA6A11A4D044B009EBD04 /* DTError.m in Sources */,
+				A4FDF3CA1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
 				F56649B11A2AFD56008A5830 /* HomeView.m in Sources */,
 				F56649B21A2AFD56008A5830 /* LocationprovinceController.m in Sources */,
 				A47D41DC1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
@@ -14068,6 +14092,7 @@
 				A49235421ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				A492356F1ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A49235601ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
+				A4FDF3C51B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A493C3271ADD14A60056BD52 /* CardStatuModel.m in Sources */,
 				F56649D81A2AFD56008A5830 /* FMResultSet.m in Sources */,
 				A49FF3BE1AC2671B009982E2 /* UserInfoView.m in Sources */,
@@ -14103,7 +14128,6 @@
 				F56649EE1A2AFD56008A5830 /* MJPhotoLoadingView.m in Sources */,
 				F56649EF1A2AFD56008A5830 /* InvestorController.m in Sources */,
 				F557863B1A63749500630A46 /* BadgeBaseCell.m in Sources */,
-				F51484E11B09B28800970AFB /* HYBPageControl.m in Sources */,
 				F58CA96E1A5CE3CD00988A61 /* BindingPhoneController.m in Sources */,
 				F56649F01A2AFD56008A5830 /* MJPhotoView.m in Sources */,
 				A4C1408F1A4BEA8500C9BAB5 /* WLMessageBubbleFactory.m in Sources */,
@@ -14140,6 +14164,7 @@
 				A493C2671ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				F550787E1A7F2BE0009CE4F7 /* CreateProjectFootView.m in Sources */,
 				F5664A011A2AFD56008A5830 /* WLCellHead.m in Sources */,
+				A4FDF3CF1B0A041800A487A9 /* HYBPageControl.m in Sources */,
 				A41CE1B21A6F81DB004F17E7 /* WLShareMenuView.m in Sources */,
 				A493C33B1ADD14A60056BD52 /* CommentMode.m in Sources */,
 				F5664A021A2AFD56008A5830 /* TOWebViewController.m in Sources */,
@@ -14288,7 +14313,6 @@
 				F5664A471A2AFD56008A5830 /* SWTableViewCell.m in Sources */,
 				F5664A481A2AFD56008A5830 /* AFSecurityPolicy.m in Sources */,
 				F5664A491A2AFD56008A5830 /* NSData+ImageContentType.m in Sources */,
-				F51484DC1B09B28800970AFB /* HYBLoopScrollView.m in Sources */,
 				F5CA5C051AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A47C5F4E1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				F5664A4A1A2AFD56008A5830 /* NoCommentCell.m in Sources */,
@@ -14301,7 +14325,6 @@
 				A493C27B1ADD0BB00056BD52 /* DKArrayQuery.m in Sources */,
 				F5664A4D1A2AFD56008A5830 /* AddFriendsController.m in Sources */,
 				F5664A4E1A2AFD56008A5830 /* MJMethod.m in Sources */,
-				F51484D71B09B28800970AFB /* HYBLoadImageView.m in Sources */,
 				A45065571A5BD4AF0057F8AA /* ActivityMapViewController.m in Sources */,
 				A493C2A81ADD0BB00056BD52 /* WLNavHeaderView.m in Sources */,
 				A493C37C1ADD14A60056BD52 /* WLUserStatusesResult.m in Sources */,
@@ -14496,6 +14519,7 @@
 				A47D41DD1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
 				F5E380B61A41B1680084F7F3 /* WorkListCell.m in Sources */,
 				F55078F51A80C70C009CE4F7 /* ProjectBaseModel.m in Sources */,
+				A4FDF3CB1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
 				A4C1407B1A4BEA8500C9BAB5 /* UIImage+Utility.m in Sources */,
 				F5664C701A2AFDD5008A5830 /* SignInPWDController.m in Sources */,
 				A4C141721A4BEF5700C9BAB5 /* XHPathCover.m in Sources */,
@@ -14579,6 +14603,7 @@
 				F5664C911A2AFDD5008A5830 /* UIImage+MultiFormat.m in Sources */,
 				F5664C921A2AFDD5008A5830 /* FMResultSet.m in Sources */,
 				A493C3281ADD14A60056BD52 /* CardStatuModel.m in Sources */,
+				A4FDF3C61B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49FF3BF1AC2671B009982E2 /* UserInfoView.m in Sources */,
 				F5664C941A2AFDD5008A5830 /* TQRichTextURLRun.m in Sources */,
 				A493C35F1ADD14A60056BD52 /* WLBasicTrends.m in Sources */,
@@ -14614,7 +14639,6 @@
 				A4A2EAE91A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731B01A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F5D04C741AC104A6004DE412 /* WUEmoticonsKeyboardKeyCell.m in Sources */,
-				F51484E21B09B28800970AFB /* HYBPageControl.m in Sources */,
 				A4C140781A4BEA8500C9BAB5 /* UIImage+RoundedCorner.m in Sources */,
 				F5664CA81A2AFDD5008A5830 /* MJPhotoLoadingView.m in Sources */,
 				A4C140691A4BEA8500C9BAB5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
@@ -14651,6 +14675,7 @@
 				A4C1416C1A4BEF5700C9BAB5 /* XHViewState.m in Sources */,
 				A493C2681ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				A4743EBC1A7F979E00645998 /* ProjectDetailInfoView.m in Sources */,
+				A4FDF3D01B0A041800A487A9 /* HYBPageControl.m in Sources */,
 				F5664CB81A2AFDD5008A5830 /* CommentCellView.m in Sources */,
 				A493C33C1ADD14A60056BD52 /* CommentMode.m in Sources */,
 				A49235751ADE693A009E0B8C /* UIView+JKPicker.m in Sources */,
@@ -14799,7 +14824,6 @@
 				F5664D041A2AFDD5008A5830 /* NoCommentCell.m in Sources */,
 				F5664D051A2AFDD5008A5830 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C061AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
-				F51484DD1B09B28800970AFB /* HYBLoopScrollView.m in Sources */,
 				A47C5F4F1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				A492357A1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				F5664D071A2AFDD5008A5830 /* AddFriendsController.m in Sources */,
@@ -14812,7 +14836,6 @@
 				A493C27C1ADD0BB00056BD52 /* DKArrayQuery.m in Sources */,
 				F53D4E3E1A4AABE800CA06C8 /* FriendsFriendUser.m in Sources */,
 				F5664D0A1A2AFDD5008A5830 /* InfoUserHaderCell.m in Sources */,
-				F51484D81B09B28800970AFB /* HYBLoadImageView.m in Sources */,
 				A493C2A91ADD0BB00056BD52 /* WLNavHeaderView.m in Sources */,
 				A45065581A5BD4AF0057F8AA /* ActivityMapViewController.m in Sources */,
 				A493C37D1ADD14A60056BD52 /* WLUserStatusesResult.m in Sources */,
@@ -14915,6 +14938,7 @@
 				A40515861AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
 				A49234D01ADE3E0C009E0B8C /* UserCardController.m in Sources */,
 				A493C3391ADD14A60056BD52 /* CommentHomeViewFrame.m in Sources */,
+				A4FDF3D21B0A041800A487A9 /* HYBPageControl.m in Sources */,
 				A49075FB1AEF399D001921EB /* IFriend2Model.m in Sources */,
 				A493C24C1ADD0BB00056BD52 /* UIAlertView+Extend.m in Sources */,
 				A493C26F1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
@@ -14942,6 +14966,7 @@
 				A49235451ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				A492366F1ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				A492356D1ADE693A009E0B8C /* JKUtil.m in Sources */,
+				A4FDF3CD1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
 				A493C3A71ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				A49235861ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
 				A49235721ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
@@ -14993,10 +15018,11 @@
 				A493C32A1ADD14A60056BD52 /* CardStatuModel.m in Sources */,
 				A492357C1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				A493C1C11ADD0A0C0056BD52 /* Constants.m in Sources */,
+				A4FDF3C81B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A493C2601ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				A49235591ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
 				A493C1C61ADD0A0C0056BD52 /* HttpTool.m in Sources */,
-				A49599261B0998F400944919 /* MCAvatarView.m in Sources */,
+				A4FDF3BC1B0A038700A487A9 /* MCAvatarView.m in Sources */,
 				A493C2A11ADD0BB00056BD52 /* CardAlertView.m in Sources */,
 				F587964B1AE889EE002C414F /* UITextField+LeftRightView.m in Sources */,
 			);
