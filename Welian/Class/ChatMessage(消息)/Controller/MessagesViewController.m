@@ -224,14 +224,16 @@
         case 2:
         {
             NewFriendUser *friendM = _datasource[indexPath.row];
-            NSNumber *opereateType = nil;
-            if ([friendM.operateType integerValue] == 1 ||[friendM.pushType isEqualToString:@"friendCommand"]) {
-                opereateType = @(1);
-            }else{
-                opereateType = friendM.operateType;
-            }
+//            NSNumber *opereateType = nil;
+//            
+//            if ([friendM.operateType integerValue] == 1) {
+//                opereateType = @(1);
+//            }else{
+//                
+//            }
+//            opereateType = friendM.operateType;
 //            UserInfoBasicVC *userInfoVC = [[UserInfoBasicVC alloc] initWithStyle:UITableViewStyleGrouped andUsermode:(IBaseUserM *)friendM isAsk:isask];
-            UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:(IBaseUserM *)friendM OperateType:opereateType HidRightBtn:NO];
+            UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:(IBaseUserM *)friendM OperateType:friendM.operateType HidRightBtn:NO];
             [self.navigationController pushViewController:userInfoVC animated:YES];
 //            [userInfoVC setNeedlessCancel:YES];
             WEAKSELF
