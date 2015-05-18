@@ -169,6 +169,7 @@ static NSString *fridcellid = @"fridcellid";
                                           //本地不存在，不是好友关系
                                           if(!isHave){
                                               if (newFuser) {
+                                                  //操作类型0：添加 1：接受  2:已添加 3：待验证
                                                   //更新好友请求列表数据为 添加
                                                   [newFuser updateOperateType:0];
                                               }
@@ -183,7 +184,7 @@ static NSString *fridcellid = @"fridcellid";
                                           }else{
                                               //好友
                                               if (newFuser) {
-                                                  //更新好友请求列表数据为 添加
+                                                  //更新好友请求列表数据为 添加 //操作类型0：添加 1：接受  2:已添加 3：待验证
                                                   [newFuser updateOperateType:2];
                                               }
                                           }
@@ -227,6 +228,9 @@ static NSString *fridcellid = @"fridcellid";
                                           [fff setText:[NSString stringWithFormat:@"%ld位好友",(long)_count]];
                                           [weakSelf.tableView reloadData];
                                           [self.searchDisplayVC setActive:NO animated:NO];
+                                          
+                                          //通知刷新好友通知页面
+                                          [KNSNotification postNotificationName:KNewFriendNotif object:self];
                                       }];
                                   });
                               } Failed:^(NSError *error) {

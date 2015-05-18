@@ -1309,6 +1309,11 @@
 		A493C3EC1ADD14A60056BD52 /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A493C30D1ADD14A60056BD52 /* settingPlist.plist */; };
 		A493C3ED1ADD14A60056BD52 /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A493C30D1ADD14A60056BD52 /* settingPlist.plist */; };
 		A493C3EE1ADD14A60056BD52 /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A493C30D1ADD14A60056BD52 /* settingPlist.plist */; };
+		A49599231B0998F400944919 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A49599221B0998F400944919 /* MCAvatarView.m */; };
+		A49599241B0998F400944919 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A49599221B0998F400944919 /* MCAvatarView.m */; };
+		A49599251B0998F400944919 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A49599221B0998F400944919 /* MCAvatarView.m */; };
+		A49599261B0998F400944919 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A49599221B0998F400944919 /* MCAvatarView.m */; };
+		A49599271B0998F400944919 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A49599221B0998F400944919 /* MCAvatarView.m */; };
 		A49C7BC31A70D42700F2AEC5 /* ISchoolResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A3F8F51A41855900F06DDD /* ISchoolResult.m */; };
 		A49C7BC51A70D42700F2AEC5 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = A48CA6951A4D044B009EBD04 /* DTTimePeriod.m */; };
 		A49C7BC61A70D42700F2AEC5 /* ActivityUserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CE1AB1A6E4ED5004F17E7 /* ActivityUserViewCell.m */; };
@@ -5199,6 +5204,8 @@
 		A493C30C1ADD14A60056BD52 /* province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = province.plist; sourceTree = "<group>"; };
 		A493C30D1ADD14A60056BD52 /* settingPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settingPlist.plist; sourceTree = "<group>"; };
 		A493C3EF1ADD17720056BD52 /* SendIFMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendIFMacros.h; sourceTree = "<group>"; };
+		A49599211B0998F400944919 /* MCAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAvatarView.h; sourceTree = "<group>"; };
+		A49599221B0998F400944919 /* MCAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAvatarView.m; sourceTree = "<group>"; };
 		A49C7FC11A70D42700F2AEC5 /* weLianAppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weLianAppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49C7FC31A70D63C00F2AEC5 /* weLianAppDev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "weLianAppDev-Info.plist"; sourceTree = "<group>"; };
 		A49C7FC81A70EA0B00F2AEC5 /* weLian1.1.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weLian1.1.6.xcdatamodel; sourceTree = "<group>"; };
@@ -7670,6 +7677,15 @@
 				A493C30D1ADD14A60056BD52 /* settingPlist.plist */,
 			);
 			path = "Model(Me)";
+			sourceTree = "<group>";
+		};
+		A49599201B0998F400944919 /* MCAvatarView */ = {
+			isa = PBXGroup;
+			children = (
+				A49599211B0998F400944919 /* MCAvatarView.h */,
+				A49599221B0998F400944919 /* MCAvatarView.m */,
+			);
+			path = MCAvatarView;
 			sourceTree = "<group>";
 		};
 		A49C7FCF1A71040F00F2AEC5 /* alipay */ = {
@@ -13026,6 +13042,7 @@
 				A4743EB81A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				A49C7C571A70D42700F2AEC5 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				A49C7C581A70D42700F2AEC5 /* MJType.m in Sources */,
+				A49599271B0998F400944919 /* MCAvatarView.m in Sources */,
 				F5D04C821AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
 				A49C7C591A70D42700F2AEC5 /* XHZoomingImageView.m in Sources */,
 				A4D43ABB1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
@@ -13537,6 +13554,7 @@
 				A4A2EB201A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */,
 				A4743EB71A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				F53DC2FA1A49192600F5F712 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				A49599251B0998F400944919 /* MCAvatarView.m in Sources */,
 				F53DC2FB1A49192600F5F712 /* MJType.m in Sources */,
 				F5D04C811AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
 				A4C141701A4BEF5700C9BAB5 /* XHZoomingImageView.m in Sources */,
@@ -14048,6 +14066,7 @@
 				A472DBE51A85F0F3003EF296 /* ActivityListViewCell.m in Sources */,
 				A4C1406E1A4BEA8500C9BAB5 /* UIButton+XHButtonTitlePosition.m in Sources */,
 				A4A2EB1E1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */,
+				A49599231B0998F400944919 /* MCAvatarView.m in Sources */,
 				F5D04C7F1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
 				A4743EB51A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				F53D4E381A4AABE800CA06C8 /* LogInUser.m in Sources */,
@@ -14559,6 +14578,7 @@
 				A4A2EB1F1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */,
 				A4743EB61A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				F5664C8B1A2AFDD5008A5830 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				A49599241B0998F400944919 /* MCAvatarView.m in Sources */,
 				F5664C8C1A2AFDD5008A5830 /* MJType.m in Sources */,
 				F5D04C801AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
 				A4C1416F1A4BEF5700C9BAB5 /* XHZoomingImageView.m in Sources */,
@@ -14994,6 +15014,7 @@
 				A493C2601ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				A49235591ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
 				A493C1C61ADD0A0C0056BD52 /* HttpTool.m in Sources */,
+				A49599261B0998F400944919 /* MCAvatarView.m in Sources */,
 				A493C2A11ADD0BB00056BD52 /* CardAlertView.m in Sources */,
 				F587964B1AE889EE002C414F /* UITextField+LeftRightView.m in Sources */,
 			);

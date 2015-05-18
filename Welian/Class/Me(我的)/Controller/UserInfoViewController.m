@@ -41,6 +41,7 @@
 @property (assign,nonatomic) NSInteger pageIndex;//默认选择动态页数
 @property (assign,nonatomic) BOOL canLoadMore;
 @property (assign,nonatomic) BOOL hidRightBtn;//右上角按钮
+@property (strong,nonatomic) NSMutableDictionary *localUserInfoData;//本地个人信息
 
 @end
 
@@ -57,6 +58,7 @@ static NSString *fridcellid = @"fridcellid";
     _baseUserModel = nil;
     _operateType = nil;
     _wlNoteInfoView = nil;
+    _localUserInfoData = nil;
     [KNSNotification removeObserver:self];
 }
 
@@ -216,8 +218,6 @@ static NSString *fridcellid = @"fridcellid";
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
-    //添加同意好友请求成功监听
-    [KNSNotification addObserver:self selector:@selector(addSucceed) name:[NSString stringWithFormat:kAccepteFriend,_baseUserModel.uid]  object:nil];
     //添加刷新共同好友的数量
     [KNSNotification addObserver:self selector:@selector(reloadSameFriend) name:kReloadSameFriend object:nil];
     
@@ -747,6 +747,11 @@ static NSString *fridcellid = @"fridcellid";
             break;
     }
     
+    //设置操作按钮
+    if (_operateType) {
+        _userInfoView.operateType = _operateType;
+    }
+    
     //设置好友数量
     _wlSegmentedControl.sectionDetailTitles = @[@"",_baseUserModel.feedcount.stringValue.length > 0 ? (_baseUserModel.feedcount.integerValue > 1000 ? @"999+" : _baseUserModel.feedcount.stringValue) : @"",_baseUserModel.samefriendscount.stringValue.length > 0 ? (_baseUserModel.samefriendscount.integerValue > 99 ? @"99+" : _baseUserModel.samefriendscount.stringValue) : @""];
     
@@ -807,57 +812,42 @@ static NSString *fridcellid = @"fridcellid";
                                  
                                  [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
                                  
+                                 
+                                 //设置为好友的好友
+                                 self.baseUserModel.friendship = @(2);
+                                 
+                                 //设置右上角操作按钮
+                                 [self setRightNavBtnWithUserInfoModel:_baseUserModel];
+                                 
+                                 //重新设置数据库数据
+                                 [self resetLocalFriendShipInfo];
+                                 
                                  //聊天状态发送改变
                                  [KNSNotification postNotificationName:kReloadSameFriend object:nil];
                                  [KNSNotification postNotificationName:kChatUserChanged object:nil];
                                  [KNSNotification postNotificationName:KupdataMyAllFriends object:self];
+                                 [KNSNotification postNotificationName:KNewFriendNotif object:self];
                                  [self.navigationController popViewControllerAnimated:YES];
                                  [WLHUDView showSuccessHUD:@"删除成功！"];
                              } Failed:^(NSError *error) {
                                  [WLHUDView hiddenHud];
                                  [WLHUDView showErrorHUD:@"删除失败，请重试！"];
                              }];
-    
-//    [WLHttpTool deleteFriendParameterDic:@{@"fid":_baseUserModel.uid} success:^(id JSON) {
-//        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-//        //更新数据库好友的数量
-//        loginUser.friendcount = @(loginUser.friendcount.integerValue - 1);
-//        
-//        MyFriendUser *friendUser = [loginUser getMyfriendUserWithUid:_baseUserModel.uid];
-//        //数据库删除当前好友
-//        //        [loginUser removeRsMyFriendsObject:friendUser];
-//        //更新设置为不是我的好友
-//        [friendUser updateIsNotMyFriend];
-//        //聊天状态发送改变
-//        [friendUser updateIsChatStatus:NO];
-//        //更新未读消息数量
-//        [friendUser updateUnReadMessageNumber:@(0)];
-//        
-//        
-//        //删除新的好友本地数据库
-//        NewFriendUser *newFuser = [loginUser getNewFriendUserWithUid:_baseUserModel.uid];
-//        if (newFuser) {
-//            //删除好友请求数据
-//            //更新好友请求列表数据为 添加
-//            [newFuser updateOperateType:0];
-//        }
-//        //更新本地添加好友数据库
-//        NeedAddUser *needAddUser = [loginUser getNeedAddUserWithUid:_baseUserModel.uid];
-//        if (needAddUser) {
-//            //更新未好友的好友
-//            [needAddUser updateFriendShip:2];
-//        }
-//        
-//        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-//        
-//        //聊天状态发送改变
-//        [KNSNotification postNotificationName:kChatUserChanged object:nil];
-//        [KNSNotification postNotificationName:KupdataMyAllFriends object:self];
-//        [self.navigationController popViewControllerAnimated:YES];
-//        [WLHUDView showSuccessHUD:@"删除成功！"];
-//    } fail:^(NSError *error) {
-//        
-//    }];
+}
+
+//重新设置本地数据库数据
+- (void)resetLocalFriendShipInfo{
+    //设置好友关系
+    if (_localUserInfoData) {
+        NSDictionary *localProfile = [_localUserInfoData objectForKey:@"profile"];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:localProfile];
+        [dict setObject:_baseUserModel.friendship forKey:@"friendship"];
+        NSMutableDictionary *newDic = [NSMutableDictionary dictionaryWithDictionary:_localUserInfoData];
+        [newDic setObject:dict forKey:@"profile"];
+        self.localUserInfoData = newDic;
+        //重新保存到sqlite数据库
+        [[WLDataDBTool sharedService] putObject:_localUserInfoData withId:_baseUserModel.uid.stringValue intoTable:KWLUserInfoTableName];
+    }
 }
 
 //获取共同好友列表
@@ -1217,6 +1207,10 @@ static NSString *fridcellid = @"fridcellid";
             {
                 //通过验证
                 if (self.acceptFriendBlock) {
+                    //设置添加成功的监听
+                    //添加同意好友请求成功监听
+                    [KNSNotification addObserver:self selector:@selector(addSucceed) name:[NSString stringWithFormat:kAccepteFriend,_baseUserModel.uid]  object:nil];
+                    
                     self.acceptFriendBlock();
                 }
             }
@@ -1238,8 +1232,17 @@ static NSString *fridcellid = @"fridcellid";
 {
 //    NewFriendUser *friendM = [[LogInUser getCurrentLoginUser] getNewFriendUserWithUid:_baseUserModel.uid];
     self.baseUserModel.friendship = @(1);
+    //操作类型0：添加 1：接受  2:已添加 3：待验证   10:隐藏操作按钮
+    self.operateType = @(2);
     //设置用户信息
     _userInfoView.baseUserModel = _baseUserModel;
+    _userInfoView.operateType = _operateType;
+    
+    //设置右上角操作按钮
+    [self setRightNavBtnWithUserInfoModel:_baseUserModel];
+    
+    //重新设置数据库数据
+    [self resetLocalFriendShipInfo];
 }
 
 //重新获取共同好友
@@ -1302,6 +1305,9 @@ static NSString *fridcellid = @"fridcellid";
         [self.navHeaderView setRightBtnTitle:nil RightBtnImage:[UIImage imageNamed:@"navbar_more"]];
         //更多操作
 //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more"] style:UIBarButtonItemStyleBordered target:self action:@selector(moreBtnClicked)];
+    }else{
+        //设置右侧按钮
+        [self.navHeaderView setRightBtnTitle:nil RightBtnImage:nil];
     }
 }
 
@@ -1313,24 +1319,27 @@ static NSString *fridcellid = @"fridcellid";
         //获取用户详细信息
         [WeLianClient getUserDetailInfoWithUid:_baseUserModel.uid Success:^(id resultInfo) {
             DLog(@"userDetailInfo----%@",resultInfo);
+            self.localUserInfoData = resultInfo;
             WEAKSELF
             dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                // 详细信息
+                NSDictionary *profile = [resultInfo objectForKey:@"profile"];
+                IBaseUserM *profileM = [IBaseUserM objectWithDict:profile];
+                //设置用户信息
+                weakSelf.baseUserModel = profileM;
                 weakSelf.datasource1 = [weakSelf getUserInfoWith:resultInfo];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //检查
                     [weakSelf checkNoteInfoLoad:YES];
+                    
+                    //设置右上角操作按钮
+                    [self setRightNavBtnWithUserInfoModel:_baseUserModel];
                 });
             });
             
         } Failed:^(NSError *error) {
             _wlNoteInfoView.loadFailed = YES;
         }];
-        
-//        [WLHttpTool loadUserInfoParameterDic:@{@"uid":_baseUserModel.uid} success:^(id JSON) {
-//            [self getUserInfoWith:JSON];
-//        } fail:^(NSError *error) {
-//            _wlNoteInfoView.loadFailed = YES;
-//        }];
     }
 }
 
@@ -1340,7 +1349,15 @@ static NSString *fridcellid = @"fridcellid";
     //取sqlite数据库用户信息
     YTKKeyValueItem *item = [[WLDataDBTool sharedService] getYTKKeyValueItemById:_baseUserModel.uid.stringValue fromTable:KWLUserInfoTableName];
     if (item) {
-        [self getUserInfoWith:item.itemObject];
+        self.localUserInfoData = item.itemObject;
+        //初始化数据
+        [self getUserInfoWith:_localUserInfoData];
+        
+        // 详细信息
+        NSDictionary *profile = [_localUserInfoData objectForKey:@"profile"];
+        IBaseUserM *profileM = [IBaseUserM objectWithDict:profile];
+        //设置用户信息
+        self.baseUserModel = profileM;
     }
     //检查
     [self checkNoteInfoLoad:YES];
@@ -1350,23 +1367,6 @@ static NSString *fridcellid = @"fridcellid";
 {
     //保存到sqlite数据库
     [[WLDataDBTool sharedService] putObject:dataDic withId:_baseUserModel.uid.stringValue intoTable:KWLUserInfoTableName];
-    
-    // 详细信息
-    NSDictionary *profile = [dataDic objectForKey:@"profile"];
-    IBaseUserM *profileM = [IBaseUserM objectWithDict:profile];
-    
-    //设置用户信息
-    self.baseUserModel = profileM;
-    
-    //设置操作按钮
-    if (_operateType) {
-        _userInfoView.operateType = _operateType;
-    }
-    
-    [self setRightNavBtnWithUserInfoModel:_baseUserModel];
-    
-    //设置好友数量
-    _wlSegmentedControl.sectionDetailTitles = @[@"",_baseUserModel.feedcount.stringValue.length > 0 ? (_baseUserModel.feedcount.integerValue > 1000 ? @"999+" : _baseUserModel.feedcount.stringValue) : @"",_baseUserModel.samefriendscount.stringValue.length > 0 ? (_baseUserModel.samefriendscount.integerValue > 99 ? @"99+" : _baseUserModel.samefriendscount.stringValue) : @""];
     
     // 动态
     //    NSDictionary *feed = [dataDic objectForKey:@"feed"];
