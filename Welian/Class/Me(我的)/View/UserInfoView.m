@@ -102,19 +102,21 @@
     //自己
     _operateBtn.hidden = NO;
     /**  好友关系，1好友，2好友的好友,-1自己，0没关系   */
-    if (_baseUserModel.friendship.integerValue == 1) {
-        [_operateBtn setTitle:@"发消息" forState:UIControlStateNormal];
-        [_operateBtn setImage:[UIImage imageNamed:@"me_button_chat"] forState:UIControlStateNormal];
-    }else{
-        if (_baseUserModel.friendship.integerValue == -1) {
-            //自己
-            _operateBtn.hidden = YES;
+    if(!_operateType){///如果操作状态不存在，再通过friendship判断
+        if (_baseUserModel.friendship.integerValue == 1) {
+            [_operateBtn setTitle:@"发消息" forState:UIControlStateNormal];
+            [_operateBtn setImage:[UIImage imageNamed:@"me_button_chat"] forState:UIControlStateNormal];
         }else{
-            [_operateBtn setTitle:@"加好友" forState:UIControlStateNormal];
-            [_operateBtn setImage:[UIImage imageNamed:@"me_button_add"] forState:UIControlStateNormal];
+            if (_baseUserModel.friendship.integerValue == -1) {
+                //自己
+                _operateBtn.hidden = YES;
+            }else{
+                [_operateBtn setTitle:@"加好友" forState:UIControlStateNormal];
+                [_operateBtn setImage:[UIImage imageNamed:@"me_button_add"] forState:UIControlStateNormal];
+            }
         }
     }
-    
+   
     [self setNeedsLayout];
 }
 
@@ -134,6 +136,7 @@
             [_operateBtn setTitle:@"发消息" forState:UIControlStateNormal];
             [_operateBtn setImage:[UIImage imageNamed:@"me_button_chat"] forState:UIControlStateNormal];
         }else{
+            ////操作类型0：添加 1：接受  2:已添加 3：待验证   10:隐藏操作按钮
             switch (_operateType.integerValue) {
                 case 0:
                 {

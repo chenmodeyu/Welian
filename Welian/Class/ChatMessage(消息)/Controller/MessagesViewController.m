@@ -313,6 +313,7 @@
                 MessageFrameModel *messageFrameModel = _datasource[indexPath.row];
                 HomeMessage *messagedata = messageFrameModel.messageDataM;
                 [messagedata MR_deleteEntity];
+                [[messagedata managedObjectContext] MR_saveToPersistentStoreAndWait];
             }
                 break;
             case 2:
@@ -320,6 +321,7 @@
                 NewFriendUser *friendM = _datasource[indexPath.row];
                 //删除本地数据库数据
                 [friendM MR_deleteEntity];
+                [[friendM managedObjectContext] MR_saveToPersistentStoreAndWait];
             }
                 break;
             default:

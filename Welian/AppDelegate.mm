@@ -494,7 +494,6 @@ BMKMapManager* _mapManager;
                 if (![UserDefaults boolForKey:kIsLookAtNewFriendVC]) {
                     [LogInUser setUserNewfriendbadge:@(1)];
                 }
-                [KNSNotification postNotificationName:KNewFriendNotif object:self];
             }
         }
     }
@@ -502,6 +501,9 @@ BMKMapManager* _mapManager;
     //创建的时间
     newfrendM.created = newfrendM.created.length > 0 ? newfrendM.created : [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
     [NewFriendUser createNewFriendUserModel:newfrendM];
+    
+    //通知刷新页面
+    [KNSNotification postNotificationName:KNewFriendNotif object:self];
 }
 
 // 接收聊天消息

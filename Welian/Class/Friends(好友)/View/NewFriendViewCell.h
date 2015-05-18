@@ -13,9 +13,9 @@
 
 typedef enum : NSUInteger {
     FriendOperateTypeAdd = 0,//添加
-    FriendOperateTypeAccept,//接受
-    FriendOperateTypeAdded,//已添加
-    FriendOperateTypeWait,//待验证
+    FriendOperateTypeAccept = 1,//接受
+    FriendOperateTypeAdded = 2,//已添加
+    FriendOperateTypeWait = 3,//待验证
 } FriendOperateType;
 
 typedef void(^newFriendOperateBlock)(FriendOperateType type,NewFriendUser *newFriendUser,NSIndexPath *indexPath);

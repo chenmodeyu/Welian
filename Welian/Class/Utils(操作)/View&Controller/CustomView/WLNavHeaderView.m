@@ -77,13 +77,20 @@
     self.rightBtnTitle = rightBtnTitle;
     self.rightBtnImage = rightBtnImage;
     
-    [_rightBtn setTitle:_rightBtnTitle forState:UIControlStateNormal];
-    [_rightBtn setImage:_rightBtnImage forState:UIControlStateNormal];
-    if (_rightBtnImage && _rightBtnTitle) {
-        _rightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    if (_rightBtnImage || _rightBtnTitle) {
+        _rightBtn.hidden = NO;
+        [_rightBtn setTitle:_rightBtnTitle forState:UIControlStateNormal];
+        [_rightBtn setImage:_rightBtnImage forState:UIControlStateNormal];
+        if (_rightBtnImage && _rightBtnTitle) {
+            _rightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        }else{
+            _rightBtn.titleEdgeInsets = UIEdgeInsetsZero;
+        }
     }else{
-        _rightBtn.titleEdgeInsets = UIEdgeInsetsZero;
+        _rightBtn.hidden = YES;
     }
+    
+    
     [self setNeedsLayout];
 }
 

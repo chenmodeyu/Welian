@@ -587,6 +587,8 @@
                                               }
                                               
                                           } completion:^(BOOL contextDidSave, NSError *error) {
+                                              //通知刷新好友通知页面
+                                              [KNSNotification postNotificationName:KNewFriendNotif object:self];
                                           }];
                                       });
                                   } Failed:^(NSError *error) {
