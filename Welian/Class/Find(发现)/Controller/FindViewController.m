@@ -15,18 +15,28 @@
 #import "BadgeBaseCell.h"
 #import "MainViewController.h"
 #import "ProjectListViewController.h"
+#import "HYBLoopScrollView.h"
 
 @interface FindViewController () <UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *_data;
-    NSArray *_urlArray;
 }
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) HYBLoopScrollView *loopView;
 
 @end
 
 static NSString *CellIdentifier = @"BadgeBaseCellid";
 @implementation FindViewController
+
+- (HYBLoopScrollView *)loopView
+{
+    if (_loopView == nil) {
+        _loopView = [[HYBLoopScrollView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, 135)];
+    }
+    return _loopView;
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -160,14 +170,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSDictionary *webDic ;
-    for (NSDictionary *urlDic  in _urlArray) {
-        if ([cell.textLabel.text isEqualToString:urlDic[@"name"]]) {
-            webDic = urlDic;
-            break;
-        }
-    }
+
     switch (indexPath.section) {
         case 0:
         {

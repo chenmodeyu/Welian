@@ -76,7 +76,7 @@
 - (void)forgetPhoneNext:(id)sender {
     [self.phoneTextField resignFirstResponder];
     
-    if (![NSString phoneValidate:self.phoneTextField.text]) {
+    if (![self.phoneTextField.text phoneValidate]) {
         [WLHUDView showErrorHUD:@"手机号码输入错误！"];
         return;
     }
@@ -94,19 +94,5 @@
     } Failed:^(NSError *error) {
         [WLHUDView showErrorHUD:error.localizedDescription];
     }];
-//    [WLHttpTool getCheckCodeParameterDic:reqstDic success:^(id JSON) {
-//        if ([[JSON objectForKey:@"flag"] integerValue] == 1) {
-//
-//            ForgetCoderController  *forgetCoderVC = [[ForgetCoderController alloc] init];
-//            [forgetCoderVC setPhoneString:self.phoneTextField.text];
-//            [forgetCoderVC setCoderString:[JSON objectForKey:@"checkcode"]];
-//            [self.navigationController pushViewController:forgetCoderVC animated:YES];
-//
-//        }else if ([[JSON objectForKey:@"flag"] integerValue]==0){
-//            [WLHUDView showErrorHUD:@"该号码未注册，请先注册！"];
-//        }
-//    } fail:^(NSError *error) {
-//        
-//    }];
 }
 @end

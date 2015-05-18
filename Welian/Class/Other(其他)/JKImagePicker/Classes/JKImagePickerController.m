@@ -486,9 +486,7 @@ static NSString *kJKAssetsFooterViewIdentifier = @"kJKAssetsFooterViewIdentifier
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if (kind == UICollectionElementKindSectionFooter) {
-        JKAssetsCollectionFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                                                      withReuseIdentifier:kJKAssetsFooterViewIdentifier
-                                                                                             forIndexPath:indexPath];
+        JKAssetsCollectionFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kJKAssetsFooterViewIdentifier forIndexPath:indexPath];
         
         switch (self.filterType) {
             case JKImagePickerControllerFilterTypeNone:{
@@ -597,7 +595,6 @@ static NSString *kJKAssetsFooterViewIdentifier = @"kJKAssetsFooterViewIdentifier
         [JKPromptView showWithImageName:@"picker_alert_sigh" message:str];
         return;
     }
-       [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
     //判断相机是否能够使用
     BOOL isCamera = NO;
     if(IsiOS8Later){

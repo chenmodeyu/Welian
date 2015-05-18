@@ -54,9 +54,7 @@
 {
     BiaoqainCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellid" forIndexPath:indexPath];
     NSDictionary *dic = self.dataArray[indexPath.row];
-    //    CGSize size = [[dic objectForKey:@"name"] boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 30) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:16],NSFontAttributeName, nil]  context:nil].size;
     [cell.burt setTitle:[dic objectForKey:@"name"] forState:UIControlStateNormal];
-    //    [cell.burt setFrame:CGRectMake(0, 0, size.width, 30)];
     [cell.burt sizeToFit];
     CGRect butframe = cell.burt.frame;
     butframe.size.width+=10;

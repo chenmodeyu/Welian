@@ -10,7 +10,7 @@
 
 @interface NSString(val)
 //手机号是否有效
-+ (BOOL)phoneValidate:(NSString *)phoneNum;
+- (BOOL)phoneValidate;
 
 // 邮箱
 + (BOOL) validateEmail:(NSString *)email;

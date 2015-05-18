@@ -9,12 +9,11 @@
 #import "NSString+val.h"
 
 @implementation NSString(val)
-+ (BOOL)phoneValidate:(NSString *)phoneNum{
+- (BOOL)phoneValidate{
     
-
     NSString *numberRe = @"^[0-9]{11}";
     NSPredicate *numberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",numberRe];
-    return [numberTest evaluateWithObject:phoneNum];
+    return [numberTest evaluateWithObject:self];
 
     //手机号以13， 15，18开头，八个 \d 数字字符    
 //    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";

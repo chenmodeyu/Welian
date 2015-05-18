@@ -73,7 +73,7 @@
             
             personPhone = [personPhone stringByReplacingOccurrencesOfString:@"-" withString:@""];
             
-            if ([NSString phoneValidate:personPhone]) {
+            if ([personPhone phoneValidate]) {
                 NSMutableString *name = [[NSMutableString alloc] init];
                 if (lastname) {
                     [name appendString:lastname];

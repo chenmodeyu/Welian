@@ -130,7 +130,7 @@
 - (void)loginPhonePWD:(UIButton *)sender {
     [[self.view findFirstResponder] resignFirstResponder];
     
-    if (![NSString phoneValidate:self.phoneTextField.text]) {
+    if (![self.phoneTextField.text phoneValidate]) {
         [WLHUDView showErrorHUD:@"手机号码有误！"];
         return;
     }
