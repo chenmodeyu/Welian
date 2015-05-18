@@ -85,25 +85,6 @@ static NSString *itemscellid = @"itemscellid";
     } Failed:^(NSError *error) {
     
     }];
-    // 取自己创业者认证
-//    [WLHttpTool getInvestAuthParameterDic:@{@"uid":@(0)} success:^(id JSON) {
-//        IIMeInvestAuthModel *meInvestAuth = [IIMeInvestAuthModel objectWithDict:JSON];
-//        [LogInUser setUserUrl:meInvestAuth.url];
-//        [LogInUser setUserinvestorauth:meInvestAuth.auth];
-//        for (IInvestIndustryModel *industryM in meInvestAuth.industry) {
-//            [InvestIndustry createInvestIndustry:industryM];
-//        }
-//        for (IInvestStageModel *stageM in meInvestAuth.stages) {
-//            [InvestStages createInvestStages:stageM];
-//        }
-//        for (InvestItemM *itemM in meInvestAuth.items) {
-//            [InvestItems createInvestItems:itemM];
-//        }
-//        [self.tableView reloadData];
-//    } fail:^(NSError *error) {
-//        
-//    }];
-    
     [self refreshTabelViewHead];
     [self.tableView registerNib:[UINib nibWithNibName:@"InvestCardCell" bundle:nil] forCellReuseIdentifier:invcellid];
     [self.tableView registerNib:[UINib nibWithNibName:@"AddCaseCell" bundle:nil] forCellReuseIdentifier:addcasecellid];
@@ -317,16 +298,6 @@ static NSString *itemscellid = @"itemscellid";
         
     }];
     
-    
-//    [WLHttpTool investAuthParameterDic:@{@"photo":avatarStr} success:^(id JSON) {
-//        NSString *url = [JSON objectForKey:@"url"];
-//        [LogInUser setUserinvestorauth:@(-2)];
-//        [LogInUser setUserUrl:url];
-//        [self refreshTabelViewHead];
-////        [self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:0]withRowAnimation:UITableViewRowAnimationNone];
-//    } fail:^(NSError *error) {
-//        
-//    }];
     [picker dismissViewControllerAnimated:YES completion:nil];
 
 }

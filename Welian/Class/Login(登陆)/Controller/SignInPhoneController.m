@@ -95,15 +95,8 @@
 - (void)coderPhoneClick:(UIButton *)sender {
     [self.phoneTextField resignFirstResponder];
     
-    if ([self.phoneTextField.text isMobileNumber]) {
-//        NSMutableDictionary *reqstDicM = [NSMutableDictionary dictionary];
-//        [reqstDicM setObject:@"register" forKey:@"type"];
-//        [reqstDicM setObject:self.phoneTextField.text forKey:@"mobile"];
-//        [reqstDicM setObject:KPlatformType forKey:@"platform"];
-//        
-//        if ([UserDefaults objectForKey:kBPushRequestChannelIdKey]) {
-//            [reqstDicM setObject:[UserDefaults objectForKey:kBPushRequestChannelIdKey] forKey:@"clientid"];
-//        }
+    if ([self.phoneTextField.text phoneValidate]) {
+
         [WLHUDView showHUDWithStr:@"加载中..." dim:YES];
         [WeLianClient getCodeWithMobile:self.phoneTextField.text Type:@"register" Success:^(id resultInfo) {
             DLog(@"%@",resultInfo);
@@ -116,25 +109,7 @@
             }
         } Failed:^(NSError *error) {
             [WLHUDView showErrorHUD:error.localizedDescription];
-//            [WLHUDView showErrorHUD:error.description];
         }];
-//        [WLHttpTool getCheckCodeParameterDic:reqstDicM success:^(id JSON) {
-//            if ([[JSON objectForKey:@"flag"] integerValue]==0) {
-//            // 未注册
-//              NSString *coderStr = [JSON objectForKey:@"checkcode"];
-//                SignInPWDController  *signInPWDVC = [[SignInPWDController alloc] init];
-//                [signInPWDVC setPhoneString:self.phoneTextField.text];
-//                [signInPWDVC setCoderString:coderStr];
-//                [UserDefaults setObject:[JSON objectForKey:@"sessionid"] forKey:kSidkey];
-//                [self.navigationController pushViewController:signInPWDVC animated:YES];
-//                
-//            }else if ([[JSON objectForKey:@"flag"] integerValue]==1){
-//                // 该号码已注册
-//                [WLHUDView showErrorHUD:@"该号码已存在，请登录！"];
-//            }
-//        } fail:^(NSError *error) {
-//            
-//        }];
     }else{
         [WLHUDView showErrorHUD:@"手机号码有误！"];
     }

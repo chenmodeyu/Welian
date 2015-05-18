@@ -157,12 +157,12 @@ static NSString *noCommentCell = @"NoCommentCell";
     
     WEAKSELF
     self.messageView = [[MessageKeyboardView alloc] initWithFrame:CGRectMake(0, self.tableView.frame.size.height, self.view.frame.size.width, 50) andSuperView:self.view withMessageBlock:^(NSString *comment) {
-        
+        if (![comment deleteTopAndBottomKonggeAndHuiche].length) {
+            [WLHUDView showErrorHUD:@"评论内容为空"];
+            return;
+        }
         NSMutableDictionary *reqstDicM = [NSMutableDictionary dictionary];
-//        [reqstDicM setObject:weakSelf.statusM.topid forKey:@"fid"];
-//        if (weakSelf.statusM.topid==0) {
         [reqstDicM setObject:weakSelf.statusM.fid forKey:@"fid"];
-//        }
         [reqstDicM setObject:comment forKey:@"comment"];
         
         if (_selecCommFrame) {

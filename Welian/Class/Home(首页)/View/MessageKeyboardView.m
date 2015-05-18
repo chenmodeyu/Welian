@@ -103,7 +103,6 @@
             WUEmoticonsKeyboard *keyboard = [WUDemoKeyboardBuilder sharedEmoticonsKeyboard];
             [keyboard setHideSendBut:NO];
             [keyboard setSpaceButtonTappedBlock:^{
-//                _messageBlock(_commentTextView.text);
                 [weakSelf sendMessgeText];
             }];
             [_commentTextView.internalTextView switchToEmoticonsKeyboard:keyboard];

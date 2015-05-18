@@ -86,6 +86,11 @@
 
 - (void)saveInfo:(UIBarButtonItem*)itme
 {
+    [self.view.findFirstResponder resignFirstResponder];
+    if (![self.searchTextField.text deleteTopAndBottomKonggeAndHuiche].length) {
+        [WLHUDView showErrorHUD:@"保存内容为空"];
+        return;
+    }
     if (_verType == IWVerifiedTypeMailbox) {
         //邮箱
         if (self.searchTextField.text.length > 0 && ![self.searchTextField.text isEmail]) {

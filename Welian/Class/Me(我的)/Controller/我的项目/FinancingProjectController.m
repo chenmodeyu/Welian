@@ -153,7 +153,7 @@ static NSString *financingCellid = @"financingCellid";
             return nil;
         }
     }else if (section==1) {
-         NSInteger a = _projectModel.amount.integerValue/_projectModel.share.integerValue*100;
+         NSInteger a = _projectModel.amount.integerValue*100/_projectModel.share.integerValue;
         NSString *headStr = [NSString stringWithFormat:@"投后估值为%ld万",(long)a];
         NSInteger  length = [[NSString stringWithFormat:@"%ld",(long)a] length];
         
@@ -311,7 +311,7 @@ static NSString *financingCellid = @"financingCellid";
             }];
             [cell.textField setBk_shouldChangeCharactersInRangeWithReplacementStringBlock:^BOOL(UITextField *textField, NSRange range, NSString *textStr) {
                 
-                if (range.location>=8) return NO;
+                if (range.location>=2) return NO;
                 return YES;
             }];
             UILabel *rightL = (UILabel *)cell.textField.rightView;

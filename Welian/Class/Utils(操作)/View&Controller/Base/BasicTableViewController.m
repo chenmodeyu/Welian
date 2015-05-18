@@ -8,6 +8,7 @@
 
 #import "BasicTableViewController.h"
 #import "UIImageView+WebCache.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface BasicTableViewController ()  <UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -19,7 +20,6 @@
 {
     [super viewWillAppear:animated];
     //显示导航条
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.hidden = NO;
 }
@@ -90,16 +90,17 @@
             [[[UIAlertView alloc] initWithTitle:nil message:@"摄像头不可用！！！" delegate:self cancelButtonTitle:@"知道了！" otherButtonTitles:nil, nil] show];
             return;
         }
-        
-        [self presentViewController:imagePicker animated:YES completion:^{
-            
-        }];
-        
-        
+        //判断相机是否能够使用
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (status == AVAuthorizationStatusAuthorized||status == AVAuthorizationStatusNotDetermined) {
+             [self presentViewController:imagePicker animated:YES completion:nil];
+        }else {
+            [[[UIAlertView alloc] initWithTitle:@"" message:@"请在iPhone的“设置-隐私-相机”中允许访问相机。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+            return;
+        }
     }else if(buttonIndex ==1) {  // 从相册选择
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            
         }else {
             [[[UIAlertView alloc] initWithTitle:nil message:@"相册不可用！！！" delegate:self cancelButtonTitle:@"知道了！" otherButtonTitles:nil, nil] show];
             return;

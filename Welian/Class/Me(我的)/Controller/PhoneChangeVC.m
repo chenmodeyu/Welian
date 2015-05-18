@@ -98,7 +98,7 @@
         [WLHUDView showErrorHUD:@"请输入手机号！"];
         return;
     }
-    if (self.phoneTF.text.length > 0 && ![self.phoneTF.text isMobileNumber]) {
+    if (self.phoneTF.text.length > 0 && ![self.phoneTF.text phoneValidate]) {
         [WLHUDView showErrorHUD:@"请填写正确的手机号！"];
         return;
     }
@@ -156,7 +156,7 @@
         [WLHUDView showErrorHUD:@"请输入手机号！"];
         return;
     }
-    if (self.phoneTF.text.length > 0 && ![self.phoneTF.text isMobileNumber]) {
+    if (self.phoneTF.text.length > 0 && ![self.phoneTF.text phoneValidate]) {
         [WLHUDView showErrorHUD:@"请填写正确的手机号！"];
         return;
     }

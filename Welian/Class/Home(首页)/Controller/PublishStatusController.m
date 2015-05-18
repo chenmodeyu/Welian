@@ -278,6 +278,7 @@ static NSString *picCellid = @"PicCellID";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self dismissKeyBoard];
     if (indexPath.row == self.assetsArray.count) {
         [self showPicVC:nil];
     }else{
@@ -292,16 +293,13 @@ static NSString *picCellid = @"PicCellID";
         vc.pageIndex = indexPath.row;
         
         [self.navigationController pushViewController:vc animated:YES];
-        
     }
 }
 
 
 - (void)showPicVC:(UIButton*)but
 {
-    
     [self dismissKeyBoard];
-    
     JKImagePickerController *imagePickerController = [[JKImagePickerController alloc] init];
     imagePickerController.delegate = self;
     imagePickerController.filterType = JKImagePickerControllerFilterTypePhotos;
@@ -413,8 +411,7 @@ static NSString *picCellid = @"PicCellID";
             return;
         }
     }else if (_publishType == PublishTypeNomel){
-        
-        if (!(_textCell.textView.text.length||self.assetsArray.count)) {
+        if (!(_textCell.textView.text.length && [_textCell.textView.text deleteTopAndBottomKonggeAndHuiche].length)&&!self.assetsArray.count) {
             [WLHUDView showErrorHUD:@"内容为空！"];
             return;
         }

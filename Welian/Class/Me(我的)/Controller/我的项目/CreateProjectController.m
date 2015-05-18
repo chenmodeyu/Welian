@@ -239,13 +239,17 @@ static NSString *projectcellid = @"projectcellid";
 
 - (void)selectPhotosBut
 {
+    if (_projectModel.photos.count>=9) {
+        [[[UIAlertView alloc] initWithTitle:@"" message:@"最多选择9张照片" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil] show];
+        return;
+    }
     JKImagePickerController *imagePickerController = [[JKImagePickerController alloc] init];
     imagePickerController.delegate = self;
     imagePickerController.filterType = JKImagePickerControllerFilterTypePhotos;
     imagePickerController.showsCancelButton = YES;
     imagePickerController.allowsMultipleSelection = YES;
-    imagePickerController.minimumNumberOfSelection = 1;
-    imagePickerController.maximumNumberOfSelection = 9;
+    imagePickerController.minimumNumberOfSelection = 0;
+    imagePickerController.maximumNumberOfSelection = 9-_projectModel.photos.count;
     imagePickerController.selectedAssetArray = self.assetsArray;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
     [self presentViewController:navigationController animated:YES completion:NULL];
@@ -402,16 +406,16 @@ static NSString *projectcellid = @"projectcellid";
 - (void)addMemberProject
 {
     [self.view.findFirstResponder resignFirstResponder];
-    if (!_projectModel.name.length) {
-        [WLHUDView showErrorHUD:@"请填写项目名称"];
+    if (!_projectModel.name.length||![_projectModel.name deleteTopAndBottomKonggeAndHuiche].length) {
+        [WLHUDView showErrorHUD:@"项目名称不能为空"];
         return;
     }
     if (_projectModel.name.length>10) {
         [WLHUDView showErrorHUD:@"项目名称最长允许10个字"];
         return;
     }
-    if (!_projectModel.intro.length) {
-        [WLHUDView showErrorHUD:@"请填写一句话介绍"];
+    if (!_projectModel.intro.length||![_projectModel.intro deleteTopAndBottomKonggeAndHuiche].length) {
+        [WLHUDView showErrorHUD:@"一句话介绍不能为空"];
         return;
     }
     if (_projectModel.intro.length>50) {
@@ -419,7 +423,7 @@ static NSString *projectcellid = @"projectcellid";
         return;
     }
     if (!_projectModel.industrys.count) {
-        [WLHUDView showErrorHUD:@"请设置项目领域"];
+        [WLHUDView showErrorHUD:@"项目领域不能为空"];
         return;
     }
     if (_projectModel.website&&_projectModel.website.length>255) {
