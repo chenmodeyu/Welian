@@ -148,6 +148,11 @@ fprintf(stderr, "-----------------------------------\n");                       
 #define kTitleTextColor RGB(125.f, 125.f, 125.f)
 #define KBlueTextColor RGB(52.f, 116.f, 186.f)
 
+
+//背景灰色
+#define KBgLightGrayColor RGB(236.f, 238.f, 241.f)
+#define KBgGrayColor RGB(212.f, 214.f, 216.f)
+
 //nav背景颜色
 #define kNavBgColor RGB(74.f, 117.f, 183.f)
 

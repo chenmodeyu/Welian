@@ -637,6 +637,21 @@
 		A48465BE1ADF900A0041BBCE /* WLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */; };
 		A48465BF1ADF900A0041BBCE /* WLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */; };
 		A48465C01ADF900A0041BBCE /* WLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */; };
+		A48845F41B0B10860053B92F /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845F31B0B10860053B92F /* NewsListViewController.m */; };
+		A48845F51B0B10860053B92F /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845F31B0B10860053B92F /* NewsListViewController.m */; };
+		A48845F61B0B10860053B92F /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845F31B0B10860053B92F /* NewsListViewController.m */; };
+		A48845F71B0B10860053B92F /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845F31B0B10860053B92F /* NewsListViewController.m */; };
+		A48845F81B0B10860053B92F /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845F31B0B10860053B92F /* NewsListViewController.m */; };
+		A48845FC1B0B15490053B92F /* NewsListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845FB1B0B15490053B92F /* NewsListViewCell.m */; };
+		A48845FD1B0B15490053B92F /* NewsListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845FB1B0B15490053B92F /* NewsListViewCell.m */; };
+		A48845FE1B0B15490053B92F /* NewsListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845FB1B0B15490053B92F /* NewsListViewCell.m */; };
+		A48845FF1B0B15490053B92F /* NewsListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845FB1B0B15490053B92F /* NewsListViewCell.m */; };
+		A48846001B0B15490053B92F /* NewsListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845FB1B0B15490053B92F /* NewsListViewCell.m */; };
+		A48846031B0B2BF50053B92F /* CSLoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48846021B0B2BF50053B92F /* CSLoadingImageView.m */; };
+		A48846041B0B2BF50053B92F /* CSLoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48846021B0B2BF50053B92F /* CSLoadingImageView.m */; };
+		A48846051B0B2BF50053B92F /* CSLoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48846021B0B2BF50053B92F /* CSLoadingImageView.m */; };
+		A48846061B0B2BF50053B92F /* CSLoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48846021B0B2BF50053B92F /* CSLoadingImageView.m */; };
+		A48846071B0B2BF50053B92F /* CSLoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48846021B0B2BF50053B92F /* CSLoadingImageView.m */; };
 		A489E7B71AA198E400F7BE9F /* ActivityOrderInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A489E7B61AA198E400F7BE9F /* ActivityOrderInfoViewCell.m */; };
 		A489E7B81AA198E400F7BE9F /* ActivityOrderInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A489E7B61AA198E400F7BE9F /* ActivityOrderInfoViewCell.m */; };
 		A489E7B91AA198E400F7BE9F /* ActivityOrderInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A489E7B61AA198E400F7BE9F /* ActivityOrderInfoViewCell.m */; };
@@ -4956,6 +4971,12 @@
 		A48302FB1AA9849000B5CB52 /* discovery_activity_detail_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discovery_activity_detail_time@2x.png"; sourceTree = "<group>"; };
 		A48465BA1ADF900A0041BBCE /* WLSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSegmentedControl.h; sourceTree = "<group>"; };
 		A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSegmentedControl.m; sourceTree = "<group>"; };
+		A48845F21B0B10860053B92F /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
+		A48845F31B0B10860053B92F /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
+		A48845FA1B0B15490053B92F /* NewsListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewCell.h; sourceTree = "<group>"; };
+		A48845FB1B0B15490053B92F /* NewsListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewCell.m; sourceTree = "<group>"; };
+		A48846011B0B2BF50053B92F /* CSLoadingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLoadingImageView.h; sourceTree = "<group>"; };
+		A48846021B0B2BF50053B92F /* CSLoadingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLoadingImageView.m; sourceTree = "<group>"; };
 		A489E7B51AA198E400F7BE9F /* ActivityOrderInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityOrderInfoViewCell.h; sourceTree = "<group>"; };
 		A489E7B61AA198E400F7BE9F /* ActivityOrderInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityOrderInfoViewCell.m; sourceTree = "<group>"; };
 		A489E7BC1AA1A54400F7BE9F /* MyActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityViewController.h; sourceTree = "<group>"; };
@@ -7096,6 +7117,24 @@
 			name = Project;
 			sourceTree = "<group>";
 		};
+		A48845F11B0B0F5F0053B92F /* HeadLines */ = {
+			isa = PBXGroup;
+			children = (
+				A48845F21B0B10860053B92F /* NewsListViewController.h */,
+				A48845F31B0B10860053B92F /* NewsListViewController.m */,
+			);
+			name = HeadLines;
+			sourceTree = "<group>";
+		};
+		A48845F91B0B151D0053B92F /* HeadLines */ = {
+			isa = PBXGroup;
+			children = (
+				A48845FA1B0B15490053B92F /* NewsListViewCell.h */,
+				A48845FB1B0B15490053B92F /* NewsListViewCell.m */,
+			);
+			name = HeadLines;
+			sourceTree = "<group>";
+		};
 		A489E7BB1AA1A47B00F7BE9F /* 我的活动 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7537,6 +7576,8 @@
 		A493C2121ADD0BB00056BD52 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				A48846011B0B2BF50053B92F /* CSLoadingImageView.h */,
+				A48846021B0B2BF50053B92F /* CSLoadingImageView.m */,
 				A48465BA1ADF900A0041BBCE /* WLSegmentedControl.h */,
 				A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */,
 				A493C2B31ADD13DF0056BD52 /* WLTextField.h */,
@@ -8699,6 +8740,7 @@
 				F51FBA3B19EFAC9A00D85D7F /* InvestorUserCell.h */,
 				F51FBA3C19EFAC9A00D85D7F /* InvestorUserCell.m */,
 				F51FBA3D19EFAC9A00D85D7F /* InvestorUserCell.xib */,
+				A48845F91B0B151D0053B92F /* HeadLines */,
 				A47D42001A8B8ACB0070BFD8 /* Activity */,
 				A47D41FF1A8B8AB80070BFD8 /* Project */,
 			);
@@ -9613,6 +9655,7 @@
 				F532FCDC19C80B7F005B887D /* InvestorController.m */,
 				F51FBA2B19EF973600D85D7F /* InvestorUsersListController.h */,
 				F51FBA2C19EF973600D85D7F /* InvestorUsersListController.m */,
+				A48845F11B0B0F5F0053B92F /* HeadLines */,
 				A47F1B321A7F539300CB4D9F /* Activity */,
 				A47F1B331A7F53AA00CB4D9F /* Project */,
 			);
@@ -12964,6 +13007,7 @@
 				A493C2341ADD0BB00056BD52 /* NSError+Extend.m in Sources */,
 				A49C7C171A70D42700F2AEC5 /* UIView+XHRemoteImage.m in Sources */,
 				A49C7C1B1A70D42700F2AEC5 /* MyFriendUser.m in Sources */,
+				A48846071B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				A49C7C1C1A70D42700F2AEC5 /* HomeView.m in Sources */,
 				A4717C3A1AA7F8370054289D /* IActivityTicket.m in Sources */,
 				A49C7C1D1A70D42700F2AEC5 /* IBaseUserM.m in Sources */,
@@ -13023,6 +13067,7 @@
 				A49236751ADE6AF9009E0B8C /* BasicViewController.m in Sources */,
 				F5D04C7E1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
 				A49C7C4D1A70D42700F2AEC5 /* HomeController.m in Sources */,
+				A48846001B0B15490053B92F /* NewsListViewCell.m in Sources */,
 				A49C7C4E1A70D42700F2AEC5 /* MainViewController.m in Sources */,
 				A49C7C4F1A70D42700F2AEC5 /* WLMessageTextView.m in Sources */,
 				A49C80531A71041000F2AEC5 /* DataVerifier.m in Sources */,
@@ -13304,6 +13349,7 @@
 				A49C7D3B1A70D42700F2AEC5 /* InvestItems.m in Sources */,
 				A49236661ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A40515921AE61FE500A3CA3F /* IBaseModel.m in Sources */,
+				A48845F81B0B10860053B92F /* NewsListViewController.m in Sources */,
 				A46A283E1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
 				A49C7D3C1A70D42700F2AEC5 /* NSManagedObject+MagicalRequests.m in Sources */,
 				A49C7D3D1A70D42700F2AEC5 /* AboutViewController.m in Sources */,
@@ -13475,6 +13521,7 @@
 				F53D4E351A4AABE700CA06C8 /* MyFriendUser.m in Sources */,
 				F53DC2D71A49192600F5F712 /* HomeView.m in Sources */,
 				A4717C391AA7F8370054289D /* IActivityTicket.m in Sources */,
+				A48846051B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				F562728D1A4C4FE9002A9B88 /* IBaseUserM.m in Sources */,
 				F53DC2D81A49192600F5F712 /* LocationprovinceController.m in Sources */,
 				A4C141371A4BEF5700C9BAB5 /* UIView+Convenience.m in Sources */,
@@ -13534,6 +13581,7 @@
 				A49236731ADE6AF9009E0B8C /* BasicViewController.m in Sources */,
 				F5D04C7D1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
 				F53DC2F21A49192600F5F712 /* HomeController.m in Sources */,
+				A48845FE1B0B15490053B92F /* NewsListViewCell.m in Sources */,
 				F53DC2F31A49192600F5F712 /* MainViewController.m in Sources */,
 				A4C140A31A4BEA8500C9BAB5 /* WLMessageTextView.m in Sources */,
 				A49C80521A71041000F2AEC5 /* DataVerifier.m in Sources */,
@@ -13815,6 +13863,7 @@
 				F53DC38D1A49192600F5F712 /* CompanyModel.m in Sources */,
 				A49236641ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A40515901AE61FE500A3CA3F /* IBaseModel.m in Sources */,
+				A48845F61B0B10860053B92F /* NewsListViewController.m in Sources */,
 				F534DB661A5119A000B6A725 /* InvestItems.m in Sources */,
 				A46A283D1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
 				A4A2EAFF1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */,
@@ -13986,6 +14035,7 @@
 				F56649A91A2AFD56008A5830 /* MJPhoto.m in Sources */,
 				A493C2301ADD0BB00056BD52 /* NSError+Extend.m in Sources */,
 				F56649AB1A2AFD56008A5830 /* WeixinActivityBase.m in Sources */,
+				A48846031B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				F56649AC1A2AFD56008A5830 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F56649AD1A2AFD56008A5830 /* SDWebImageDownloader.m in Sources */,
 				A4C141111A4BEF5700C9BAB5 /* FLAnimatedImageView.m in Sources */,
@@ -14045,6 +14095,7 @@
 				F5D04C7B1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
 				A49236711ADE6AF9009E0B8C /* BasicViewController.m in Sources */,
 				F56649CA1A2AFD56008A5830 /* NSObject+MJKeyValue.m in Sources */,
+				A48845FC1B0B15490053B92F /* NewsListViewCell.m in Sources */,
 				F56649CB1A2AFD56008A5830 /* HomeController.m in Sources */,
 				F56649CC1A2AFD56008A5830 /* MainViewController.m in Sources */,
 				F56649CE1A2AFD56008A5830 /* ZBExpressionSectionBar.m in Sources */,
@@ -14326,6 +14377,7 @@
 				F5664A531A2AFD56008A5830 /* TOActivityChrome.m in Sources */,
 				A49236621ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A405158E1AE61FE500A3CA3F /* IBaseModel.m in Sources */,
+				A48845F41B0B10860053B92F /* NewsListViewController.m in Sources */,
 				A4A2EAFD1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */,
 				F56272901A4D474E002A9B88 /* HomeMessage.m in Sources */,
 				A46A283B1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
@@ -14497,6 +14549,7 @@
 				F53D4E341A4AABE700CA06C8 /* MyFriendUser.m in Sources */,
 				F5664C6B1A2AFDD5008A5830 /* HomeView.m in Sources */,
 				A4717C381AA7F8370054289D /* IActivityTicket.m in Sources */,
+				A48846041B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				F562728C1A4C4FE9002A9B88 /* IBaseUserM.m in Sources */,
 				F5664C6C1A2AFDD5008A5830 /* LocationprovinceController.m in Sources */,
 				A4C141361A4BEF5700C9BAB5 /* UIView+Convenience.m in Sources */,
@@ -14556,6 +14609,7 @@
 				A49236721ADE6AF9009E0B8C /* BasicViewController.m in Sources */,
 				F5D04C7C1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
 				F5664C851A2AFDD5008A5830 /* HomeController.m in Sources */,
+				A48845FD1B0B15490053B92F /* NewsListViewCell.m in Sources */,
 				F5664C861A2AFDD5008A5830 /* MainViewController.m in Sources */,
 				A4C140A21A4BEA8500C9BAB5 /* WLMessageTextView.m in Sources */,
 				A49C80511A71041000F2AEC5 /* DataVerifier.m in Sources */,
@@ -14837,6 +14891,7 @@
 				F59E76141A4071330028FBAF /* CompanyModel.m in Sources */,
 				A49236631ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A405158F1AE61FE500A3CA3F /* IBaseModel.m in Sources */,
+				A48845F51B0B10860053B92F /* NewsListViewController.m in Sources */,
 				F534DB651A5119A000B6A725 /* InvestItems.m in Sources */,
 				A46A283C1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
 				A4A2EAFE1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */,
@@ -14957,6 +15012,7 @@
 				A493C3931ADD14A60056BD52 /* FriendsAddressBook.m in Sources */,
 				A493C25B1ADD0BB00056BD52 /* UINavigationBar+BackgroundColor.m in Sources */,
 				A49235631ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
+				A48846061B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				A492354F1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C34D1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
 				A493C3AC1ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
@@ -14989,6 +15045,7 @@
 				A49235771ADE693A009E0B8C /* UIView+JKPicker.m in Sources */,
 				A49235401ADE693A009E0B8C /* JKAssetsCollectionFooterView.m in Sources */,
 				A48173A91B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
+				A48845F71B0B10860053B92F /* NewsListViewController.m in Sources */,
 				A493C3981ADD14A60056BD52 /* FriendsUserModel.m in Sources */,
 				A493C36B1ADD14A60056BD52 /* WLPhoto.m in Sources */,
 				A493C2881ADD0BB00056BD52 /* DKPredicate.m in Sources */,
@@ -15001,6 +15058,7 @@
 				A493C3251ADD14A60056BD52 /* NewFriendModel.m in Sources */,
 				A493C32A1ADD14A60056BD52 /* CardStatuModel.m in Sources */,
 				A492357C1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
+				A48845FF1B0B15490053B92F /* NewsListViewCell.m in Sources */,
 				A493C1C11ADD0A0C0056BD52 /* Constants.m in Sources */,
 				A4FDF3C81B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A493C2601ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
