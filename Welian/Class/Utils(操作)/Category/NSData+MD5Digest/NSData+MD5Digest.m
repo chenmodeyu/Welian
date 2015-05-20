@@ -7,6 +7,7 @@
 
 #import "NSData+MD5Digest.h"
 #import <CommonCrypto/CommonDigest.h>
+#import<CommonCrypto/CommonCrypto.h>
 
 @implementation NSData (MD5)
 
@@ -34,6 +35,44 @@
 
 -(NSString *)MD5HexDigest {
     return [NSData MD5HexDigest:self];
+}
+
+//解密
+- (NSString *)DESdecrypt
+{
+    NSData *data = [[NSData alloc] initWithBase64EncodedData:self options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    return [[NSString alloc] initWithData:[self DESDecrypt:data WithKey:@"weLian&188"] encoding:NSUTF8StringEncoding];
+}
+
+
+- (NSData *)DESDecrypt:(NSData *)data WithKey:(NSString *)key
+{
+    char keyPtr[kCCKeySizeAES256+1];
+    bzero(keyPtr, sizeof(keyPtr));
+    
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    
+    NSUInteger dataLength = [data length];
+    
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
+    
+    size_t numBytesDecrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmDES,
+                                          kCCOptionPKCS7Padding | kCCOptionECBMode,
+                                          keyPtr, kCCBlockSizeDES,
+                                          NULL,
+                                          [data bytes], dataLength,
+                                          buffer, bufferSize,
+                                          &numBytesDecrypted);
+    
+    if (cryptStatus == kCCSuccess) {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesDecrypted];
+    }
+    
+    free(buffer);
+    return nil;
 }
 
 @end

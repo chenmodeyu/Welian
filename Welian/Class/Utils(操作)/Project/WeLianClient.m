@@ -8,6 +8,7 @@
 
 #import "WeLianClient.h"
 #import "AppDelegate.h"
+#import "NSData+MD5Digest.h"
 
 @interface WeLianClient ()
 {
@@ -35,7 +36,7 @@
     if (self) {
         //设置传输为json格式
         self.requestSerializer = [AFJSONRequestSerializer serializer];
-        self.responseSerializer = [AFJSONResponseSerializer serializer];
+        self.responseSerializer = [AFHTTPResponseSerializer serializer];
         self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"text/html",@"text/plain"]];
     }
     return self;
@@ -81,9 +82,9 @@
     [[WeLianClient sharedClient] POST:pathInfo
                            parameters:params
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  DLog(@"reqest----- %@---- %@",path,[operation responseString]);
-                                  
-                                  IBaseModel *result = [IBaseModel objectWithDict:responseObject];
+                                  DLog(@"reqest----- %@---- %@",path,[responseObject DESdecrypt]);
+
+                                  IBaseModel *result = [IBaseModel objectWithDict:[[responseObject DESdecrypt] JSONValue]];
                                   //如果sessionid有的话放入data
                                   if (result.isSuccess) {
                                       if (result.sessionid.length > 0) {

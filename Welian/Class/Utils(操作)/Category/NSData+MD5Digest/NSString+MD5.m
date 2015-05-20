@@ -25,8 +25,6 @@
         [md5String appendFormat:@"%02x",result[i]];  
     }  
     
-    return md5String;  
-
-
+    return md5String;
 }
 @end

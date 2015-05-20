@@ -96,7 +96,7 @@ BMKMapManager* _mapManager;
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:kStoreName];
     
     // 版本更新
-    [self detectionUpdataVersionDic];
+//    [self detectionUpdataVersionDic];
     
     // 友盟统计
     [self umengTrack];

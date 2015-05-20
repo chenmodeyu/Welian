@@ -15,4 +15,7 @@
 +(NSString *)MD5HexDigest:(NSData *)input;
 -(NSString *)MD5HexDigest;
 
+//解密
+- (NSString *)DESdecrypt;
+
 @end

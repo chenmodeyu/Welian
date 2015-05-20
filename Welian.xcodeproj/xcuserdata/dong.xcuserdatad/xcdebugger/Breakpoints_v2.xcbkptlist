@@ -52,7 +52,7 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Login(%E7%99%BB%E9%99%86)/Controller/UserInfoController.m"
-                  timestampString = "453791658.112628"
+                  timestampString = "453810211.163455"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "138"
@@ -67,7 +67,7 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Login(%E7%99%BB%E9%99%86)/Controller/UserInfoController.m"
-                  timestampString = "453791658.112767"
+                  timestampString = "453810211.163671"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "138"
@@ -106,6 +106,22 @@
             startingLineNumber = "100"
             endingLineNumber = "100"
             landmarkName = "-coderPhoneClick:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Welian/Class/Utils(&#x64cd;&#x4f5c;)/Project/WeLianClient.m"
+            timestampString = "453810210.937132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "+reqestPostWithParams:Path:Success:Failed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
