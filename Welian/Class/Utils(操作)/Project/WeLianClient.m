@@ -147,9 +147,347 @@
     } Failed:^(NSError *error) {
         SAFE_BLOCK_CALL(failed, error);
     }];
-
 }
 
+// 微链头条 列表
++ (void)getTouTiaoListWithTime:(NSString *)time
+                          Type:(NSNumber *)type
+                          Size:(NSNumber *)size
+                       Success:(SuccessBlock)success
+                        Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"time":time,
+                             @"type":type,
+                             @"size":size};
+    [self reqestPostWithParams:params
+                          Path:KTouTiaoListUrl
+                       Success:^(id resultInfo) {
+                           DLog(@"getTouTiaoList ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+// 热门项目
++ (void)getHotProjectWithPage:(NSNumber *)page
+                         Size:(NSNumber *)size
+                      Success:(SuccessBlock)success
+                       Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"page":page,
+                             @"size":size};
+    [self reqestPostWithParams:params
+                          Path:KHotProjectPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getHotProject ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+// 项目集
++ (void)getProjectClassificationsWithSuccess:(SuccessBlock)success
+                                      Failed:(FailedBlock)failed
+{
+    [self reqestPostWithParams:nil
+                          Path:KClassifications
+                       Success:^(id resultInfo) {
+                           DLog(@"getProjectClassifications ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//取项目集下的项目列表
++ (void)getProjectClassListWithCid:(NSNumber *)cid
+                              Page:(NSNumber *)page
+                              Size:(NSNumber *)size
+                           Success:(SuccessBlock)success
+                            Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"cid":cid,
+                             @"page":page,
+                             @"size":size};
+    [self reqestPostWithParams:params
+                          Path:KClassListPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getProjectClassList ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//检索项目
++ (void)searchProcjetWithIndustryid:(NSNumber *)industryid
+                              Stage:(NSNumber *)stage
+                             Cityid:(NSNumber *)cityid
+                            Success:(SuccessBlock)success
+                             Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"industryid":industryid,
+                             @"stage":stage,
+                             @"cityid":cityid};
+    [self reqestPostWithParams:params
+                          Path:KProjectSearchPath
+                       Success:^(id resultInfo) {
+                           DLog(@"searchProcjet ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//取系统筛选选项
++ (void)getSelectInfoWithSuccess:(SuccessBlock)success
+                          Failed:(FailedBlock)failed
+{
+    [self reqestPostWithParams:nil
+                          Path:KCommSelectPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getSelectInfo ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+
+#pragma mark - 投资人模块
+//取投资人列表
++ (void)getInvestorListWithType:(NSNumber *)type
+                           Page:(NSNumber *)page
+                           Size:(NSNumber *)size
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"type":type,
+                             @"page":page,
+                             @"size":size};
+    [self reqestPostWithParams:params
+                          Path:kInvestorListPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getInvestorList ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//获取投资人的项目列表
++ (void)getInvestorProjectsWithSuccess:(SuccessBlock)success
+                                Failed:(FailedBlock)failed
+{
+    [self reqestPostWithParams:nil
+                          Path:kInvestorProjectsPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getInvestorProjects ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//投递项目
++ (void)investorToudiWithPid:(NSNumber *)pid
+                         Uid:(NSNumber *)uid
+                     Success:(SuccessBlock)success
+                      Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"pid":pid,
+                             @"uid":uid};
+    [self reqestPostWithParams:params
+                          Path:kInvestorToudiPath
+                       Success:^(id resultInfo) {
+                           DLog(@"investorToudi ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//投资人取项目详情
++ (void)getInvestorProjectDetailInfoWithPid:(NSNumber *)pid
+                                    Success:(SuccessBlock)success
+                                     Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"pid":pid};
+    [self reqestPostWithParams:params
+                          Path:kInvestorProjectDetailInfoPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getInvestorProjectDetailInfo ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//项目bp的下载
++ (void)investorDownloadWithPid:(NSNumber *)pid
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"pid":pid};
+    [self reqestPostWithParams:params
+                          Path:kInvestorDownloadPath
+                       Success:^(id resultInfo) {
+                           DLog(@"investorDownload ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//索要bp
++ (void)investorRequiredWithPid:(NSNumber *)pid
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"pid":pid};
+    [self reqestPostWithParams:params
+                          Path:kInvestorRequiredPath
+                       Success:^(id resultInfo) {
+                           DLog(@"investorRequired ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//查看投资人
++ (void)investorGetInfoWithUid:(NSNumber *)uid
+                       Success:(SuccessBlock)success
+                        Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"uid":uid};
+    [self reqestPostWithParams:params
+                          Path:kInvestorGetPath
+                       Success:^(id resultInfo) {
+                           DLog(@"investorGetInfo ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//不同意投递bp
++ (void)investorNoToudiWithUid:(NSNumber *)uid
+                           Pid:(NSNumber *)pid
+                       Success:(SuccessBlock)success
+                        Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"uid":uid,@"pid":pid};
+    [self reqestPostWithParams:params
+                          Path:kInvestorNoToudiPath
+                       Success:^(id resultInfo) {
+                           DLog(@"investorNoToudi ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//取投资机构
++ (void)getInvestorJigouWithPage:(NSNumber *)page
+                            Size:(NSNumber *)size
+                         Success:(SuccessBlock)success
+                          Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"page":page,@"size":size};
+    [self reqestPostWithParams:params
+                          Path:kInvestorJigouPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getInvestorJigou ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//取投资机构的投资人
++ (void)getInvestorJigouPersonWithJigouid:(NSNumber *)jigouid
+                                     Page:(NSNumber *)page
+                                     Size:(NSNumber *)size
+                                  Success:(SuccessBlock)success
+                                   Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"jigouid":jigouid,
+                             @"page":page,
+                             @"size":size};
+    [self reqestPostWithParams:params
+                          Path:kInvestorJigouPersonPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getInvestorJigouPerson ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//取投资机构案例
++ (void)getInvestorCasesWithJigouid:(NSNumber *)jigouid
+                               Page:(NSNumber *)page
+                               Size:(NSNumber *)size
+                            Success:(SuccessBlock)success
+                             Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"jigouid":jigouid,
+                             @"page":page,
+                             @"size":size};
+    [self reqestPostWithParams:params
+                          Path:kInvestorCasesPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getInvestorCases ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//投资人筛选
++ (void)investorSearchPersonWithIndustryid:(NSNumber *)industryid
+                                     Stage:(NSNumber *)stage
+                                    Cityid:(NSNumber *)cityid
+                                   Success:(SuccessBlock)success
+                                    Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"industryid":industryid,
+                             @"stage":stage,
+                             @"cityid":cityid};
+    [self reqestPostWithParams:params
+                          Path:kInvestorSearchPath
+                       Success:^(id resultInfo) {
+                           DLog(@"investorSearchPerson ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//项目投递反馈
++ (void)investorFankuiWithPid:(NSNumber *)pid
+                         Type:(NSNumber *)type
+                      Success:(SuccessBlock)success
+                       Failed:(FailedBlock)failed
+{
+    //"type":0 同意，1不同意
+    NSDictionary *params = @{@"pid":pid,
+                             @"type":type};
+    [self reqestPostWithParams:params
+                          Path:kInvestorFankuiPath
+                       Success:^(id resultInfo) {
+                           DLog(@"investorFankui ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+
+//********************************************************************************//
 
 #pragma mark - 注册，登录
 //微信注册

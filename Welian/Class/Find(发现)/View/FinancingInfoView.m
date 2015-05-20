@@ -33,6 +33,15 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
 - (void)setIProjectDetailInfo:(IProjectDetailInfo *)iProjectDetailInfo
 {
     [super willChangeValueForKey:@"iProjectDetailInfo"];
@@ -94,12 +103,14 @@
     _aboutLabel.width = self.width - kMarginLeft * 2.f;
     [_aboutLabel sizeToFit];
     _aboutLabel.left = kMarginLeft;
-    _aboutLabel.top = kMarginTop;
+    _aboutLabel.top = _valuationsLabel.bottom + kMarginTop;
 }
 
 #pragma mark - Private
 - (void)setup
 {
+    self.backgroundColor = [UIColor whiteColor];
+    
     //融资阶段
     UILabel *stempLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     stempLabel.backgroundColor = [UIColor clearColor];

@@ -20,6 +20,123 @@
 // 发现banner 广告
 + (void)adBannerWithSuccess:(SuccessBlock)success Failed:(FailedBlock)failed;
 
+// 微链头条 列表
++ (void)getTouTiaoListWithTime:(NSString *)time
+                          Type:(NSNumber *)type
+                          Size:(NSNumber *)size
+                       Success:(SuccessBlock)success
+                        Failed:(FailedBlock)failed;
+
+// 热门项目
++ (void)getHotProjectWithPage:(NSNumber *)page
+                         Size:(NSNumber *)size
+                      Success:(SuccessBlock)success
+                       Failed:(FailedBlock)failed;
+
+// 项目集
++ (void)getProjectClassificationsWithSuccess:(SuccessBlock)success
+                                      Failed:(FailedBlock)failed;
+
+//取项目集下的项目列表
++ (void)getProjectClassListWithCid:(NSNumber *)cid
+                              Page:(NSNumber *)page
+                              Size:(NSNumber *)size
+                           Success:(SuccessBlock)success
+                            Failed:(FailedBlock)failed;
+
+//检索项目
++ (void)searchProcjetWithIndustryid:(NSNumber *)industryid
+                              Stage:(NSNumber *)stage
+                             Cityid:(NSNumber *)cityid
+                            Success:(SuccessBlock)success
+                             Failed:(FailedBlock)failed;
+
+//取系统筛选选项
++ (void)getSelectInfoWithSuccess:(SuccessBlock)success
+                          Failed:(FailedBlock)failed;
+
+
+#pragma mark - 投资人模块
+//取投资人列表
++ (void)getInvestorListWithType:(NSNumber *)type   ////1 收藏，2参加的
+                           Page:(NSNumber *)page
+                           Size:(NSNumber *)size
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed;
+
+//获取投资人的项目列表
++ (void)getInvestorProjectsWithSuccess:(SuccessBlock)success
+                                Failed:(FailedBlock)failed;
+
+//投递项目
++ (void)investorToudiWithPid:(NSNumber *)pid
+                         Uid:(NSNumber *)uid
+                     Success:(SuccessBlock)success
+                      Failed:(FailedBlock)failed;
+
+//投资人取项目详情
++ (void)getInvestorProjectDetailInfoWithPid:(NSNumber *)pid
+                                    Success:(SuccessBlock)success
+                                     Failed:(FailedBlock)failed;
+
+//项目bp的下载
++ (void)investorDownloadWithPid:(NSNumber *)pid
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed;
+
+//索要bp
++ (void)investorRequiredWithPid:(NSNumber *)pid
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed;
+
+//查看投资人
++ (void)investorGetInfoWithUid:(NSNumber *)uid
+                       Success:(SuccessBlock)success
+                        Failed:(FailedBlock)failed;
+
+//不同意投递bp
++ (void)investorNoToudiWithUid:(NSNumber *)uid
+                           Pid:(NSNumber *)pid
+                       Success:(SuccessBlock)success
+                        Failed:(FailedBlock)failed;
+
+//取投资机构
++ (void)getInvestorJigouWithPage:(NSNumber *)page
+                            Size:(NSNumber *)size
+                         Success:(SuccessBlock)success
+                          Failed:(FailedBlock)failed;
+
+//取投资机构的投资人
++ (void)getInvestorJigouPersonWithJigouid:(NSNumber *)jigouid
+                                     Page:(NSNumber *)page
+                                     Size:(NSNumber *)size
+                                  Success:(SuccessBlock)success
+                                   Failed:(FailedBlock)failed;
+
+//取投资机构案例
++ (void)getInvestorCasesWithJigouid:(NSNumber *)jigouid
+                               Page:(NSNumber *)page
+                               Size:(NSNumber *)size
+                            Success:(SuccessBlock)success
+                             Failed:(FailedBlock)failed;
+
+//投资人筛选
++ (void)investorSearchPersonWithIndustryid:(NSNumber *)industryid
+                                     Stage:(NSNumber *)stage
+                                    Cityid:(NSNumber *)cityid
+                                   Success:(SuccessBlock)success
+                                    Failed:(FailedBlock)failed;
+
+//项目投递反馈
++ (void)investorFankuiWithPid:(NSNumber *)pid
+                         Type:(NSNumber *)type
+                      Success:(SuccessBlock)success
+                       Failed:(FailedBlock)failed;
+
+
+
+//********************************************************************************//
+
 #pragma mark - 注册，登录
 //微信注册
 + (void)wxRegisterWithParameterDic:(NSDictionary *)params Success:(SuccessBlock)success Failed:(FailedBlock)failed;

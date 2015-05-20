@@ -30,12 +30,55 @@
 #pragma mark - 1.8.0版接口
 // 发现banner 广告
 #define KBannerUrl(path) [NSString stringWithFormat:@"ad/%@",path]
-// 微链头条 列表
+
+#pragma mark - 微链头条
 #define KTouTiaoUrl(path) [NSString stringWithFormat:@"toutiao/%@",path]
+// 微链头条 列表
+#define KTouTiaoListUrl KTouTiaoUrl(@"list")
+
 // 热门项目
-//#define KHotProjectPath kProjectUrl(@"hot")
-//// 项目集
-//#define KClassifications(<#args#>
+#define KHotProjectPath kProjectUrl(@"hot")
+// 项目集
+#define KClassifications kProjectUrl(@"classifications")
+//取项目集下的项目列表
+#define KClassListPath kProjectUrl(@"clist")
+//检索项目
+#define KProjectSearchPath kProjectUrl(@"search")
+//取筛选选项
+#define KCommSelectPath kCommonUrl(@"select")
+
+#pragma mark - 投资人模块
+//基本路径
+#define kInvestorUrl(path) [NSString stringWithFormat:@"investor/%@",path]
+//取投资人列表
+#define kInvestorListPath kInvestorUrl(@"list")
+//获取投资人的项目列表
+#define kInvestorProjectsPath kInvestorUrl(@"projects")
+//投递项目
+#define kInvestorToudiPath kInvestorUrl(@"toudi")
+//投资人取项目详情
+#define kInvestorProjectDetailInfoPath kInvestorUrl(@"project")
+//项目bp的下载
+#define kInvestorDownloadPath kInvestorUrl(@"download")
+//索要bp
+#define kInvestorRequiredPath kInvestorUrl(@"required")
+//查看投资人
+#define kInvestorGetPath kInvestorUrl(@"get")
+//不同意投递bp
+#define kInvestorNoToudiPath kInvestorUrl(@"notoudi")
+//取投资机构
+#define kInvestorJigouPath kInvestorUrl(@"jigou")
+//取投资机构的投资人
+#define kInvestorJigouPersonPath kInvestorUrl(@"jigou")
+//取投资机构案例
+#define kInvestorCasesPath kInvestorUrl(@"cases")
+//投资人筛选
+#define kInvestorSearchPath kInvestorUrl(@"search")
+//项目投递反馈
+#define kInvestorFankuiPath kInvestorUrl(@"fankui")
+
+
+
 
 //********************************************************************************//
 #pragma mark - 注册，登录
