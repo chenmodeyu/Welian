@@ -294,9 +294,11 @@
     ChatMessage *lastChatMsg = [friendUser getTheLastChatMessage];
     
     ChatMessage *chatMsg = nil;
-    if (friendUser.uid.integerValue > 100) {
-        //其他的不设置聊天信息
-        //非系统推送消息
+    //小助手的消息，直接添加
+    if(messageid.integerValue == 0){
+        chatMsg = [ChatMessage MR_createEntityInContext:friendUser.managedObjectContext];
+    }else{
+        //去除重复
         chatMsg = [self getChatMsgWithMessageId:messageid];
         //如果存在对应messageId的聊天消息，则不提醒
         if (chatMsg) {
@@ -304,10 +306,21 @@
         }else{
             chatMsg = [ChatMessage MR_createEntityInContext:friendUser.managedObjectContext];
         }
-    }else{
-        //系统定义的好友，推来消息，自动设置好友关系
-        chatMsg = [ChatMessage MR_createEntityInContext:friendUser.managedObjectContext];
     }
+//    if (friendUser.uid.integerValue > 100) {
+//        //其他的不设置聊天信息
+//        //非系统推送消息
+//        chatMsg = [self getChatMsgWithMessageId:messageid];
+//        //如果存在对应messageId的聊天消息，则不提醒
+//        if (chatMsg) {
+//            return;
+//        }else{
+//            chatMsg = [ChatMessage MR_createEntityInContext:friendUser.managedObjectContext];
+//        }
+//    }else{
+//        //系统定义的好友，推来消息，自动设置好友关系
+//        chatMsg = [ChatMessage MR_createEntityInContext:friendUser.managedObjectContext];
+//    }
     
     NSNumber *maxMsgId = [friendUser getMaxChatMessageId];
     chatMsg.msgId = @(maxMsgId.integerValue + 1);
