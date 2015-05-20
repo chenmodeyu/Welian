@@ -258,7 +258,7 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 - (void)setup
 {
     //Direct ivar reference since we don't want to trigger their actions yet
-    _showActionButton = YES;
+    _showActionButton = NO;
     _showDoneButton   = YES;
     _buttonSpacing    = (IPAD == NO) ? NAVIGATION_BUTTON_SPACING : NAVIGATION_BUTTON_SPACING_IPAD;
     _buttonWidth      = NAVIGATION_BUTTON_WIDTH;

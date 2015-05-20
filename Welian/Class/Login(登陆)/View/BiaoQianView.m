@@ -30,10 +30,7 @@
         [biaoqianview setKeyboardDismissMode:UIScrollViewKeyboardDismissModeOnDrag];
         [biaoqianview setDelegate:self];
         [biaoqianview registerClass:[BiaoqainCell class] forCellWithReuseIdentifier:@"cellid"];
-//        [biaoqianview setBackgroundColor:[UIColor redColor]];
-//        [biaoqianview setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin];
         [self addSubview:biaoqianview];
-        //        [biaoqianview sizeToFit];
     }
     return self;
 }
