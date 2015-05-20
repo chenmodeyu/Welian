@@ -275,7 +275,8 @@ static NSString *noCommentCell = @"NoCommentCell";
                                                  
                                                  CommentCellFrame *commentFrame = [[CommentCellFrame alloc] init];
                                                  [commentFrame setCommentM:commentM];
-                                                 [_datasource insertObject:commentFrame atIndex:0];
+//                                                 [_datasource insertObject:commentFrame atIndex:0];
+                                                 [_datasource addObject:commentFrame];
                                                  
                                                  _iProjectDetailInfo.commentcount = @(_iProjectDetailInfo.commentcount.integerValue + 1);
                                                  
@@ -283,8 +284,12 @@ static NSString *noCommentCell = @"NoCommentCell";
                                                  if (_iProjectDetailInfo.zancount.integerValue < 1) {
                                                      //如果之前没有刷新整个table
                                                      [_tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+                                                     //设置滚动到最下面的评论
+                                                     [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_datasource.count - 1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom  animated:YES];
                                                  }else{
                                                      [_tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+                                                     //设置滚动到最下面的评论
+                                                     [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_datasource.count - 1) inSection:1] atScrollPosition:UITableViewScrollPositionBottom  animated:YES];
                                                  }
                                                  
                                                  //隐藏键盘
@@ -1000,74 +1005,6 @@ static NSString *noCommentCell = @"NoCommentCell";
                                              [WLHUDView showErrorHUD:@"获取详情失败，请刷新重试！"];
                                          }
                                      }];
-    
-//    WEAKSELF
-//    [WLHttpTool getProjectDetailParameterDic:@{@"pid":_projectPid}
-//                                     success:^(id JSON) {
-//                                         //隐藏
-//                                         [self.tableView.header endRefreshing];
-//                                         if ([[JSON objectForKey:@"deleted"] boolValue]) {
-//                                            UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"该项目已经被删除！"];
-//                                             [alert bk_addButtonWithTitle:@"确定" handler:^{
-//                                                  [weakSelf.navigationController popViewControllerAnimated:YES];
-//                                             }];
-//                                             [alert show];
-//                                             return;
-//                                         }
-//                                         IProjectDetailInfo *detailInfo = [IProjectDetailInfo objectWithDict:JSON];
-//                                         weakSelf.iProjectDetailInfo = detailInfo;
-//                                         weakSelf.projectDetailInfo = [ProjectDetailInfo createWithIProjectDetailInfo:detailInfo];
-//                                         
-//                                         //添加分享按钮
-//                                         weakSelf.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more"] style:UIBarButtonItemStyleBordered target:self action:@selector(shareBtnClicked)];
-//                                         
-//                                         NSMutableArray *dataAM = [NSMutableArray arrayWithCapacity:detailInfo.comments.count];
-//                                         for (ICommentInfo *commentInfo in detailInfo.comments) {
-//                                             
-//                                             CommentMode *commentM = [[CommentMode alloc] init];
-//                                             commentM.fcid = commentInfo.pcid;
-//                                             commentM.comment = commentInfo.comment;
-//                                             commentM.created = commentInfo.created;
-//                                             if (commentInfo.user.uid) {
-////                                                 WLBasicTrends *user = [[WLBasicTrends alloc] init];
-////                                                 user.avatar = commentInfo.user.avatar;
-////                                                 user.company = commentInfo.user.company;
-////                                                 user.investorauth = commentInfo.user.investorauth.intValue;
-////                                                 user.name = commentInfo.user.name;
-////                                                 user.position = commentInfo.user.position;
-////                                                 user.uid = commentInfo.user.uid;
-//                                                 commentM.user = commentInfo.user;
-//                                             }
-//                                             if (commentInfo.touser.uid) {
-////                                                 WLBasicTrends *touser = [[WLBasicTrends alloc] init];
-////                                                 touser.avatar = commentInfo.touser.avatar;
-////                                                 touser.company = commentInfo.touser.company;
-////                                                 touser.investorauth = commentInfo.touser.investorauth.intValue;
-////                                                 touser.name = commentInfo.touser.name;
-////                                                 touser.position = commentInfo.touser.position;
-////                                                 touser.uid = commentInfo.touser.uid;
-//                                                 commentM.touser = commentInfo.touser;
-//                                             }
-//                                             
-//                                             CommentCellFrame *commentFrame = [[CommentCellFrame alloc] init];
-//                                             [commentFrame setCommentM:commentM];
-//                                             
-//                                             [dataAM addObject:commentFrame];
-//                                         }
-//                                         self.datasource = dataAM;
-//                                         if (dataAM.count >= detailInfo.commentcount.integerValue) {
-//                                             [weakSelf.tableView.footer setHidden:YES];
-//                                         }else{
-//                                             [weakSelf.tableView.footer setHidden:NO];
-//                                         }
-//                                         [_tableView reloadData];
-//                                         
-//                                         [weakSelf updateUI];
-//                                     } fail:^(NSError *error) {
-//                                         //隐藏
-//                                         [weakSelf.tableView.header endRefreshing];
-//                                         [UIAlertView showWithTitle:@"系统提示" message:@"获取详情失败，请重试！"];
-//                                     }];
 }
 
 //初始化页面展示
@@ -1287,7 +1224,11 @@ static NSString *noCommentCell = @"NoCommentCell";
     if (_selectIndex) {
         [_tableView scrollToRowAtIndexPath:_selectIndex atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }else{
-        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        if (_iProjectDetailInfo.zancount.integerValue < 1) {
+            [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_datasource.count - 1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }else{
+            [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_datasource.count - 1) inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
     }
     //添加手势
     [_tableView addGestureRecognizer:self.tapGesture];
