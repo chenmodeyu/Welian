@@ -473,7 +473,7 @@
                       Success:(SuccessBlock)success
                        Failed:(FailedBlock)failed
 {
-    //"type":0 同意，1不同意
+    //type":0 同意，1不同意
     NSDictionary *params = @{@"pid":pid,
                              @"type":type};
     [self reqestPostWithParams:params

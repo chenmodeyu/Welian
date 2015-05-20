@@ -13,6 +13,8 @@
 #import "NoteTableViewCell.h"
 #import "ProjectBPViewCell.h"
 
+#define kNotViewHeight 40.f
+
 @interface FinancingInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (assign,nonatomic) UITableView *tableView;
@@ -65,7 +67,7 @@
     [_tableView setTableHeaderView:financingInfoView];
     
     //设置提醒
-    NoteMsgView *noteView = [[NoteMsgView alloc] initWithFrame:Rect(0, 0, _tableView.width, 40.f)];
+    NoteMsgView *noteView = [[NoteMsgView alloc] initWithFrame:Rect(0, 0, _tableView.width, kNotViewHeight)];
     noteView.noteInfo = @"BP非公开文件，如果想要查看，可发送请求";
     [_tableView setTableFooterView:noteView];
 }
