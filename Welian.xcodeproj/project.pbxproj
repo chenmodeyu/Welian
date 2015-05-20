@@ -1324,6 +1324,21 @@
 		A493C3EC1ADD14A60056BD52 /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A493C30D1ADD14A60056BD52 /* settingPlist.plist */; };
 		A493C3ED1ADD14A60056BD52 /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A493C30D1ADD14A60056BD52 /* settingPlist.plist */; };
 		A493C3EE1ADD14A60056BD52 /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A493C30D1ADD14A60056BD52 /* settingPlist.plist */; };
+		A4948E731B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */; };
+		A4948E741B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */; };
+		A4948E751B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */; };
+		A4948E761B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */; };
+		A4948E771B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */; };
+		A4948E7A1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
+		A4948E7B1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
+		A4948E7C1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
+		A4948E7D1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
+		A4948E7E1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
+		A4948E811B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
+		A4948E821B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
+		A4948E831B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
+		A4948E841B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
+		A4948E851B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
 		A49C7BC31A70D42700F2AEC5 /* ISchoolResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A3F8F51A41855900F06DDD /* ISchoolResult.m */; };
 		A49C7BC51A70D42700F2AEC5 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = A48CA6951A4D044B009EBD04 /* DTTimePeriod.m */; };
 		A49C7BC61A70D42700F2AEC5 /* ActivityUserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CE1AB1A6E4ED5004F17E7 /* ActivityUserViewCell.m */; };
@@ -5220,6 +5235,12 @@
 		A493C30C1ADD14A60056BD52 /* province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = province.plist; sourceTree = "<group>"; };
 		A493C30D1ADD14A60056BD52 /* settingPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settingPlist.plist; sourceTree = "<group>"; };
 		A493C3EF1ADD17720056BD52 /* SendIFMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendIFMacros.h; sourceTree = "<group>"; };
+		A4948E711B0C2AC500BA6258 /* FinancingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancingInfoViewController.h; sourceTree = "<group>"; };
+		A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancingInfoViewController.m; sourceTree = "<group>"; };
+		A4948E781B0C2BBB00BA6258 /* ProjectPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectPostViewController.h; sourceTree = "<group>"; };
+		A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectPostViewController.m; sourceTree = "<group>"; };
+		A4948E7F1B0C2C8500BA6258 /* FinancingInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancingInfoView.h; sourceTree = "<group>"; };
+		A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancingInfoView.m; sourceTree = "<group>"; };
 		A49C7FC11A70D42700F2AEC5 /* weLianAppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weLianAppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49C7FC31A70D63C00F2AEC5 /* weLianAppDev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "weLianAppDev-Info.plist"; sourceTree = "<group>"; };
 		A49C7FC81A70EA0B00F2AEC5 /* weLian1.1.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weLian1.1.6.xcdatamodel; sourceTree = "<group>"; };
@@ -7052,6 +7073,8 @@
 				A4C770F71A80BC9A005ABC7F /* ProjectFavorteItemView.m */,
 				A4743EB91A7F979E00645998 /* ProjectDetailInfoView.h */,
 				A4743EBA1A7F979E00645998 /* ProjectDetailInfoView.m */,
+				A4948E7F1B0C2C8500BA6258 /* FinancingInfoView.h */,
+				A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -7113,6 +7136,10 @@
 				A4743EAE1A7F7BCE00645998 /* ProjectDetailsViewController.m */,
 				A4C770FC1A80E3AB005ABC7F /* ProjectUserListViewController.h */,
 				A4C770FD1A80E3AB005ABC7F /* ProjectUserListViewController.m */,
+				A4948E711B0C2AC500BA6258 /* FinancingInfoViewController.h */,
+				A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */,
+				A4948E781B0C2BBB00BA6258 /* ProjectPostViewController.h */,
+				A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -13131,6 +13158,7 @@
 				A49C7C821A70D42700F2AEC5 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				A49C7C831A70D42700F2AEC5 /* UIImage+XHRounded.m in Sources */,
 				A49C7C841A70D42700F2AEC5 /* WLPhotoView.m in Sources */,
+				A4948E771B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				A493C3AD1ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
 				A49C7C851A70D42700F2AEC5 /* BadgeBaseCell.m in Sources */,
 				A49C7C861A70D42700F2AEC5 /* BindingPhoneController.m in Sources */,
@@ -13286,6 +13314,7 @@
 				A492353C1ADE693A009E0B8C /* JKAssets.m in Sources */,
 				F5933FB51AD4F4030088C70D /* UIView+MJExtension.m in Sources */,
 				A493C33A1ADD14A60056BD52 /* CommentHomeViewFrame.m in Sources */,
+				A4948E851B0C2C8500BA6258 /* FinancingInfoView.m in Sources */,
 				A49C7D0F1A70D42700F2AEC5 /* AddFriendTypeListViewController.m in Sources */,
 				A49C7D101A70D42700F2AEC5 /* CommentCell.m in Sources */,
 				A49C7D111A70D42700F2AEC5 /* NSNumber+MagicalDataImport.m in Sources */,
@@ -13376,6 +13405,7 @@
 				A493C3A81ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F550790A1A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C2201ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
+				A4948E7E1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				F57F31E51AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A49C7D501A70D42700F2AEC5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				A49C7D531A70D42700F2AEC5 /* UIImage+GIF.m in Sources */,
@@ -13645,6 +13675,7 @@
 				A493C3AB1ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
 				F557863D1A63749500630A46 /* BadgeBaseCell.m in Sources */,
 				F58CA9701A5CE3CD00988A61 /* BindingPhoneController.m in Sources */,
+				A4948E751B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				F5C779761A53935F0098BC29 /* InvestItemM.m in Sources */,
 				A4A2EAEA1A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731B11A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
@@ -13800,6 +13831,7 @@
 				F53DC3731A49192600F5F712 /* UIButton+WebCache.m in Sources */,
 				F5933FB41AD4F4030088C70D /* UIView+MJExtension.m in Sources */,
 				A493C3381ADD14A60056BD52 /* CommentHomeViewFrame.m in Sources */,
+				A4948E831B0C2C8500BA6258 /* FinancingInfoView.m in Sources */,
 				A47C5F561A5E663100E63737 /* AddFriendTypeListViewController.m in Sources */,
 				F53DC3741A49192600F5F712 /* CommentCell.m in Sources */,
 				A4A2EAE71A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */,
@@ -13890,6 +13922,7 @@
 				A493C3A61ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F55079091A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C21E1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
+				A4948E7C1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				F57F31E41AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A4C141281A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				F53DC3981A49192600F5F712 /* UIImage+GIF.m in Sources */,
@@ -14159,6 +14192,7 @@
 				A4A2EB241A6CF7C8006ADA55 /* MagicalRecord+Setup.m in Sources */,
 				A493C3A91ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
 				F59E760B1A405D170028FBAF /* weLian.xcdatamodeld in Sources */,
+				A4948E731B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				A4A2EAEB1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				F56649EE1A2AFD56008A5830 /* MJPhotoLoadingView.m in Sources */,
 				F56649EF1A2AFD56008A5830 /* InvestorController.m in Sources */,
@@ -14314,6 +14348,7 @@
 				A49235381ADE693A009E0B8C /* JKAssets.m in Sources */,
 				F5664A3C1A2AFD56008A5830 /* SignInPhoneController.m in Sources */,
 				A493C3361ADD14A60056BD52 /* CommentHomeViewFrame.m in Sources */,
+				A4948E811B0C2C8500BA6258 /* FinancingInfoView.m in Sources */,
 				F5933FB21AD4F4030088C70D /* UIView+MJExtension.m in Sources */,
 				A4A2EAE51A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */,
 				A4C140B71A4BEF0E00C9BAB5 /* XHFileAttribute.m in Sources */,
@@ -14404,6 +14439,7 @@
 				A493C3A41ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F57F31E21AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A493C21C1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
+				A4948E7A1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				F5664A601A2AFD56008A5830 /* StaurCell.m in Sources */,
 				F5664A611A2AFD56008A5830 /* MJTypeEncoding.m in Sources */,
 				F534DB5F1A5119A000B6A725 /* InvestStages.m in Sources */,
@@ -14673,6 +14709,7 @@
 				A493C3AA1ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
 				F557863C1A63749500630A46 /* BadgeBaseCell.m in Sources */,
 				F58CA96F1A5CE3CD00988A61 /* BindingPhoneController.m in Sources */,
+				A4948E741B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				F5C779751A53935F0098BC29 /* InvestItemM.m in Sources */,
 				A4A2EAE91A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731B01A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
@@ -14828,6 +14865,7 @@
 				F5664CF81A2AFDD5008A5830 /* UIButton+WebCache.m in Sources */,
 				F5933FB31AD4F4030088C70D /* UIView+MJExtension.m in Sources */,
 				A493C3371ADD14A60056BD52 /* CommentHomeViewFrame.m in Sources */,
+				A4948E821B0C2C8500BA6258 /* FinancingInfoView.m in Sources */,
 				A47C5F551A5E663100E63737 /* AddFriendTypeListViewController.m in Sources */,
 				F5664CF91A2AFDD5008A5830 /* CommentCell.m in Sources */,
 				A4A2EAE61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */,
@@ -14918,6 +14956,7 @@
 				A493C3A51ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F55079081A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C21D1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
+				A4948E7B1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				F57F31E31AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A4C141271A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				F5664D181A2AFDD5008A5830 /* UIImage+GIF.m in Sources */,
@@ -14972,6 +15011,7 @@
 				A493C3161ADD14A60056BD52 /* InvestorUserM.m in Sources */,
 				A493C2511ADD0BB00056BD52 /* UIColor+_6jinzhi.m in Sources */,
 				A49235811ADE693A009E0B8C /* CTAssetScrollView.m in Sources */,
+				A4948E761B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				F51484DF1B09B28800970AFB /* HYBLoopScrollView.m in Sources */,
 				A493C3B11ADD14A60056BD52 /* WLTool.m in Sources */,
 				A40515861AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
@@ -14982,6 +15022,7 @@
 				A493C24C1ADD0BB00056BD52 /* UIAlertView+Extend.m in Sources */,
 				A493C26F1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
 				A492353B1ADE693A009E0B8C /* JKAssets.m in Sources */,
+				A4948E7D1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				A493C1CB1ADD0A0C0056BD52 /* ResManager.m in Sources */,
 				A493C2291ADD0BB00056BD52 /* NSString+MD5.m in Sources */,
 				A493C3A21ADD14A60056BD52 /* MsgPlaySound.m in Sources */,
@@ -15008,6 +15049,7 @@
 				A4FDF3CD1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
 				A493C3A71ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				A49235861ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
+				A4948E841B0C2C8500BA6258 /* FinancingInfoView.m in Sources */,
 				A49235721ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A493C3931ADD14A60056BD52 /* FriendsAddressBook.m in Sources */,
 				A493C25B1ADD0BB00056BD52 /* UINavigationBar+BackgroundColor.m in Sources */,
