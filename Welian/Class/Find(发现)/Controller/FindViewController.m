@@ -7,7 +7,6 @@
 //
 
 #import "FindViewController.h"
-#import "InvestorController.h"
 #import "UserCardController.h"
 #import "TOWebViewController.h"
 #import "MainViewController.h"
@@ -15,9 +14,9 @@
 #import "InvestorUsersListController.h"
 #import "ActivityListViewController.h"
 #import "NewsListViewController.h"
-
 #import "BadgeBaseCell.h"
 #import "HYBLoopScrollView.h"
+
 
 @interface FindViewController () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -36,6 +35,8 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
 {
     if (_loopView == nil) {
         _loopView = [[HYBLoopScrollView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, 135)];
+        _loopView.pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:0.9 alpha:0.7];
+        _loopView.pageControl.currentPageIndicatorTintColor = KBasesColor;
     }
     return _loopView;
 }
@@ -56,6 +57,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     [KNSNotification addObserver:self selector:@selector(reloadNewactivit) name:KNewactivitNotif object:nil];
     [KNSNotification addObserver:self selector:@selector(reloadProject) name:KProjectstateNotif object:nil];
     // 加载数据
+//    [self loadLoopViewData];
     [self loadDatalist];
     // 加载页面
     [self loadUIview];
@@ -74,15 +76,37 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+// 加载发现头部
+- (void)loadLoopViewData
+{
+    WEAKSELF
+    [WeLianClient adBannerWithSuccess:^(id resultInfo) {
+        DLog(@"%@",resultInfo);
+        NSString *url = @"http://test.meirongzongjian.com/imageServer/user/3/42ccb9c75ccf5e910cd6f5aaf0cd1200.jpg";
+        NSArray *images = @[url,url,url,url];
+        if (images.count) {
+            [weakSelf.loopView setImageUrls:images];
+            [weakSelf.tableView setTableHeaderView:self.loopView];
+            weakSelf.loopView.timeInterval = 3;
+            weakSelf.loopView.didSelectItemBlock = ^(NSInteger atIndex, HYBLoadImageView *sender) {
+                
+            };
+        }else{
+            
+        }
+        
+    } Failed:^(NSError *error) {
+        
+    }];
+}
+
 #pragma mark - 加载数据
 - (void)loadDatalist
 {
     // 1.获得路径
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"Findplist" withExtension:@"plist"];
-    
     // 2.读取数据
     _data = [NSArray arrayWithContentsOfURL:url];
-    
 }
 
 #pragma mark - 加载页面

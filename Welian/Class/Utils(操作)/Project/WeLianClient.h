@@ -15,6 +15,11 @@
 #pragma mark - 取消所有请求
 + (void)cancelAllRequestHttpTool;
 
+
+#pragma mark - 1.8.0版本
+// 发现banner 广告
++ (void)adBannerWithSuccess:(SuccessBlock)success Failed:(FailedBlock)failed;
+
 #pragma mark - 注册，登录
 //微信注册
 + (void)wxRegisterWithParameterDic:(NSDictionary *)params Success:(SuccessBlock)success Failed:(FailedBlock)failed;

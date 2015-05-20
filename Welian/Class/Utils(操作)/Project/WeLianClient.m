@@ -81,7 +81,7 @@
     [[WeLianClient sharedClient] POST:pathInfo
                            parameters:params
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  DLog(@"reqest Result ---- %@",[operation responseString]);
+                                  DLog(@"reqest----- %@---- %@",path,[operation responseString]);
                                   
                                   IBaseModel *result = [IBaseModel objectWithDict:responseObject];
                                   //如果sessionid有的话放入data
@@ -136,6 +136,20 @@
 {
     [[[WeLianClient sharedClient] operationQueue] cancelAllOperations];
 }
+
+
+#pragma mark - 1.8.0版本
+// 发现banner 广告
++ (void)adBannerWithSuccess:(SuccessBlock)success Failed:(FailedBlock)failed
+{
+    [self reqestPostWithParams:nil Path:KBannerUrl(@"banner") Success:^(id resultInfo) {
+        SAFE_BLOCK_CALL(success, resultInfo);
+    } Failed:^(NSError *error) {
+        SAFE_BLOCK_CALL(failed, error);
+    }];
+
+}
+
 
 #pragma mark - 注册，登录
 //微信注册

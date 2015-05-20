@@ -27,7 +27,17 @@
 //#define kAlipayNotifyURL @"http://test.welian.com:8080/alipay/notify"
 #define kAlipayNotifyURL @"http://www.welian.com:8080/alipay/notify"
 
+#pragma mark - 1.8.0版接口
+// 发现banner 广告
+#define KBannerUrl(path) [NSString stringWithFormat:@"ad/%@",path]
+// 微链头条 列表
+#define KTouTiaoUrl(path) [NSString stringWithFormat:@"toutiao/%@",path]
+// 热门项目
+//#define KHotProjectPath kProjectUrl(@"hot")
+//// 项目集
+//#define KClassifications(<#args#>
 
+//********************************************************************************//
 #pragma mark - 注册，登录
 //基本路径
 #define kRegisterUrl(path) [NSString stringWithFormat:@"register/%@",path]

@@ -198,7 +198,6 @@ static NSString *identifier = @"investorcellid";
     }
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     InvestorUserCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];

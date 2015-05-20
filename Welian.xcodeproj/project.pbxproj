@@ -1485,7 +1485,6 @@
 		A49C7C8D1A70D42700F2AEC5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1403E1A4BEA8500C9BAB5 /* UIImage+RoundedCorner.m */; };
 		A49C7C8E1A70D42700F2AEC5 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E219D3BACE003987CC /* MJPhotoLoadingView.m */; };
 		A49C7C8F1A70D42700F2AEC5 /* NSString+XHDiskSizeTransfrom.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140321A4BEA8500C9BAB5 /* NSString+XHDiskSizeTransfrom.m */; };
-		A49C7C901A70D42700F2AEC5 /* InvestorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FCDC19C80B7F005B887D /* InvestorController.m */; };
 		A49C7C911A70D42700F2AEC5 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E819D3BACE003987CC /* MJPhotoView.m */; };
 		A49C7C921A70D42700F2AEC5 /* WLStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5874C1F1A1D901F009F7D83 /* WLStatusCell.m */; };
 		A49C7C941A70D42700F2AEC5 /* SameFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B8519F63EE800D9E696 /* SameFriendsCell.m */; };
@@ -3030,7 +3029,6 @@
 		F53DC3151A49192600F5F712 /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D11319F9F7F8000610A1 /* YTKKeyValueStore.m */; };
 		F53DC3161A49192600F5F712 /* WLPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C8AF19D2BE8200110C07 /* WLPhotoView.m */; };
 		F53DC31B1A49192600F5F712 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E219D3BACE003987CC /* MJPhotoLoadingView.m */; };
-		F53DC31C1A49192600F5F712 /* InvestorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FCDC19C80B7F005B887D /* InvestorController.m */; };
 		F53DC31D1A49192600F5F712 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E819D3BACE003987CC /* MJPhotoView.m */; };
 		F53DC31E1A49192600F5F712 /* WLStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5874C1F1A1D901F009F7D83 /* WLStatusCell.m */; };
 		F53DC3201A49192600F5F712 /* SameFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B8519F63EE800D9E696 /* SameFriendsCell.m */; };
@@ -3481,7 +3479,6 @@
 		F56649EA1A2AFD56008A5830 /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D11319F9F7F8000610A1 /* YTKKeyValueStore.m */; };
 		F56649EB1A2AFD56008A5830 /* WLPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C8AF19D2BE8200110C07 /* WLPhotoView.m */; };
 		F56649EE1A2AFD56008A5830 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E219D3BACE003987CC /* MJPhotoLoadingView.m */; };
-		F56649EF1A2AFD56008A5830 /* InvestorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FCDC19C80B7F005B887D /* InvestorController.m */; };
 		F56649F01A2AFD56008A5830 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E819D3BACE003987CC /* MJPhotoView.m */; };
 		F56649F21A2AFD56008A5830 /* WLStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5874C1F1A1D901F009F7D83 /* WLStatusCell.m */; };
 		F56649F31A2AFD56008A5830 /* SameFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B8519F63EE800D9E696 /* SameFriendsCell.m */; };
@@ -3754,7 +3751,6 @@
 		F5664CA41A2AFDD5008A5830 /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D11319F9F7F8000610A1 /* YTKKeyValueStore.m */; };
 		F5664CA51A2AFDD5008A5830 /* WLPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C8AF19D2BE8200110C07 /* WLPhotoView.m */; };
 		F5664CA81A2AFDD5008A5830 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E219D3BACE003987CC /* MJPhotoLoadingView.m */; };
-		F5664CA91A2AFDD5008A5830 /* InvestorController.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FCDC19C80B7F005B887D /* InvestorController.m */; };
 		F5664CAA1A2AFDD5008A5830 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E819D3BACE003987CC /* MJPhotoView.m */; };
 		F5664CAC1A2AFDD5008A5830 /* WLStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5874C1F1A1D901F009F7D83 /* WLStatusCell.m */; };
 		F5664CAD1A2AFDD5008A5830 /* SameFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B8519F63EE800D9E696 /* SameFriendsCell.m */; };
@@ -4209,6 +4205,10 @@
 		F5B5FE7A1A596D4B007FE11B /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE671A596D4A007FE11B /* ShareSDK.framework */; };
 		F5B5FE7B1A596D4B007FE11B /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE671A596D4A007FE11B /* ShareSDK.framework */; };
 		F5B5FE7C1A596D4B007FE11B /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE671A596D4A007FE11B /* ShareSDK.framework */; };
+		F5B8ADCA1B0C52AC005D5760 /* InvestorsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B8ADC91B0C52AC005D5760 /* InvestorsListController.m */; };
+		F5B8ADCB1B0C52AC005D5760 /* InvestorsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B8ADC91B0C52AC005D5760 /* InvestorsListController.m */; };
+		F5B8ADCC1B0C52AC005D5760 /* InvestorsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B8ADC91B0C52AC005D5760 /* InvestorsListController.m */; };
+		F5B8ADCD1B0C52AC005D5760 /* InvestorsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B8ADC91B0C52AC005D5760 /* InvestorsListController.m */; };
 		F5C566891A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
 		F5C5668A1A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
 		F5C5668B1A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
@@ -5883,8 +5883,6 @@
 		F5324CDE19EB794200A1D066 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		F5324CE319EBB7C200A1D066 /* MessageKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageKeyboardView.h; sourceTree = "<group>"; };
 		F5324CE419EBB7C200A1D066 /* MessageKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageKeyboardView.m; sourceTree = "<group>"; };
-		F532FCDB19C80B7F005B887D /* InvestorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorController.h; sourceTree = "<group>"; };
-		F532FCDC19C80B7F005B887D /* InvestorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorController.m; sourceTree = "<group>"; };
 		F532FCE519C8694B005B887D /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		F532FCE619C8694B005B887D /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		F532FCE719C8694B005B887D /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -6247,6 +6245,8 @@
 		F5B5FE601A596D4A007FE11B /* ShareSDKCoreService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKCoreService.framework; sourceTree = "<group>"; };
 		F5B5FE611A596D4A007FE11B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ShareSDKLocalizable.strings"; sourceTree = "<group>"; };
 		F5B5FE671A596D4A007FE11B /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
+		F5B8ADC81B0C52AC005D5760 /* InvestorsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorsListController.h; sourceTree = "<group>"; };
+		F5B8ADC91B0C52AC005D5760 /* InvestorsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorsListController.m; sourceTree = "<group>"; };
 		F5BA193719C16D4D005F91BE /* UserInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoController.h; sourceTree = "<group>"; };
 		F5BA193819C16D4D005F91BE /* UserInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoController.m; sourceTree = "<group>"; };
 		F5BA193F19C18FE6005F91BE /* NameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameController.h; sourceTree = "<group>"; };
@@ -9393,6 +9393,17 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		F5B8ADCE1B0C5329005D5760 /* Investors */ = {
+			isa = PBXGroup;
+			children = (
+				F51FBA2B19EF973600D85D7F /* InvestorUsersListController.h */,
+				F51FBA2C19EF973600D85D7F /* InvestorUsersListController.m */,
+				F5B8ADC81B0C52AC005D5760 /* InvestorsListController.h */,
+				F5B8ADC91B0C52AC005D5760 /* InvestorsListController.m */,
+			);
+			name = Investors;
+			sourceTree = "<group>";
+		};
 		F5BCDE6B1A038B2000183F64 /* BaiduMap_IOSSDK_v2.5.0_Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -9676,15 +9687,12 @@
 		F5CE862E19BFF44100A9D14C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F56254ED19C01C0800809D0B /* FindViewController.h */,
-				F56254EE19C01C0800809D0B /* FindViewController.m */,
-				F532FCDB19C80B7F005B887D /* InvestorController.h */,
-				F532FCDC19C80B7F005B887D /* InvestorController.m */,
-				F51FBA2B19EF973600D85D7F /* InvestorUsersListController.h */,
-				F51FBA2C19EF973600D85D7F /* InvestorUsersListController.m */,
 				A48845F11B0B0F5F0053B92F /* HeadLines */,
 				A47F1B321A7F539300CB4D9F /* Activity */,
 				A47F1B331A7F53AA00CB4D9F /* Project */,
+				F5B8ADCE1B0C5329005D5760 /* Investors */,
+				F56254ED19C01C0800809D0B /* FindViewController.h */,
+				F56254EE19C01C0800809D0B /* FindViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -13169,7 +13177,6 @@
 				A49C7C8D1A70D42700F2AEC5 /* UIImage+RoundedCorner.m in Sources */,
 				A49C7C8E1A70D42700F2AEC5 /* MJPhotoLoadingView.m in Sources */,
 				A49C7C8F1A70D42700F2AEC5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
-				A49C7C901A70D42700F2AEC5 /* InvestorController.m in Sources */,
 				A493C2571ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				A49C7C911A70D42700F2AEC5 /* MJPhotoView.m in Sources */,
 				A49C7C921A70D42700F2AEC5 /* WLStatusCell.m in Sources */,
@@ -13425,6 +13432,7 @@
 				A49C7D5D1A70D42700F2AEC5 /* pinyin.c in Sources */,
 				A49C7D5E1A70D42700F2AEC5 /* WLMessageInputView.m in Sources */,
 				F5D04C6A1AC104A6004DE412 /* WUDemoKeyboardBuilder.m in Sources */,
+				F5B8ADCD1B0C52AC005D5760 /* InvestorsListController.m in Sources */,
 				A49C7D5F1A70D42700F2AEC5 /* AddWXFriendCell.m in Sources */,
 				A49C7D601A70D42700F2AEC5 /* UIImage+ImageEffects.m in Sources */,
 				A49C7D611A70D42700F2AEC5 /* AuthTypeView.m in Sources */,
@@ -13685,7 +13693,6 @@
 				A4C1406A1A4BEA8500C9BAB5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
 				A49235531ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A492354E1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
-				F53DC31C1A49192600F5F712 /* InvestorController.m in Sources */,
 				A493C2551ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				F53DC31D1A49192600F5F712 /* MJPhotoView.m in Sources */,
 				F53DC31E1A49192600F5F712 /* WLStatusCell.m in Sources */,
@@ -13942,6 +13949,7 @@
 				F53DC3A11A49192600F5F712 /* pinyin.c in Sources */,
 				A4C140A01A4BEA8500C9BAB5 /* WLMessageInputView.m in Sources */,
 				F5D04C691AC104A6004DE412 /* WUDemoKeyboardBuilder.m in Sources */,
+				F5B8ADCC1B0C52AC005D5760 /* InvestorsListController.m in Sources */,
 				F53DC3A21A49192600F5F712 /* AddWXFriendCell.m in Sources */,
 				F53DC3A31A49192600F5F712 /* UIImage+ImageEffects.m in Sources */,
 				F53DC3A41A49192600F5F712 /* AuthTypeView.m in Sources */,
@@ -14195,7 +14203,6 @@
 				A4948E731B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				A4A2EAEB1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				F56649EE1A2AFD56008A5830 /* MJPhotoLoadingView.m in Sources */,
-				F56649EF1A2AFD56008A5830 /* InvestorController.m in Sources */,
 				F557863B1A63749500630A46 /* BadgeBaseCell.m in Sources */,
 				F58CA96E1A5CE3CD00988A61 /* BindingPhoneController.m in Sources */,
 				F56649F01A2AFD56008A5830 /* MJPhotoView.m in Sources */,
@@ -14459,6 +14466,7 @@
 				A47BC7351A8359F400A720F4 /* ProjcetDetailImageViewCell.m in Sources */,
 				A4C140BA1A4BEF0E00C9BAB5 /* XHHTTPClient.m in Sources */,
 				F5664A681A2AFD56008A5830 /* AddWXFriendCell.m in Sources */,
+				F5B8ADCA1B0C52AC005D5760 /* InvestorsListController.m in Sources */,
 				F5664A691A2AFD56008A5830 /* UIImage+ImageEffects.m in Sources */,
 				F5D04C671AC104A6004DE412 /* WUDemoKeyboardBuilder.m in Sources */,
 				F5664A6A1A2AFD56008A5830 /* AuthTypeView.m in Sources */,
@@ -14719,7 +14727,6 @@
 				A4C140691A4BEA8500C9BAB5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
 				A49235521ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A492354D1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
-				F5664CA91A2AFDD5008A5830 /* InvestorController.m in Sources */,
 				A493C2541ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				F5664CAA1A2AFDD5008A5830 /* MJPhotoView.m in Sources */,
 				F5664CAC1A2AFDD5008A5830 /* WLStatusCell.m in Sources */,
@@ -14976,6 +14983,7 @@
 				F5664D211A2AFDD5008A5830 /* pinyin.c in Sources */,
 				A4C1409F1A4BEA8500C9BAB5 /* WLMessageInputView.m in Sources */,
 				F5D04C681AC104A6004DE412 /* WUDemoKeyboardBuilder.m in Sources */,
+				F5B8ADCB1B0C52AC005D5760 /* InvestorsListController.m in Sources */,
 				F5664D221A2AFDD5008A5830 /* AddWXFriendCell.m in Sources */,
 				F5664D231A2AFDD5008A5830 /* UIImage+ImageEffects.m in Sources */,
 				F5664D241A2AFDD5008A5830 /* AuthTypeView.m in Sources */,
