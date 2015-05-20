@@ -418,6 +418,10 @@ BMKMapManager* _mapManager;
     }else{
         loginUser = [LogInUser getCurrentLoginUser];;
     }
+    //如果为空返回
+    if (loginUser == nil) {
+        return;
+    }
     //判断当前是否已经是好友
     NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];
     if ([type isEqualToString:@"friendAdd"]) {

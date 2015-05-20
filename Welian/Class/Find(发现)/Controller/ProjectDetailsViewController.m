@@ -13,6 +13,7 @@
 #import "TOWebViewController.h"
 #import "FinancingProjectController.h"
 #import "UserInfoViewController.h"
+#import "FinancingInfoViewController.h"
 
 #import "ProjectInfoView.h"
 #import "ProjectDetailView.h"
@@ -909,12 +910,20 @@ static NSString *noCommentCell = @"NoCommentCell";
                                        handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
                                            if (buttonIndex == 0) {
                                                return ;
+//                                               [self lookProjectFinancingInfo];
                                            }else{
                                                InvestCerVC *investVC = [[InvestCerVC alloc] initWithStyle:UITableViewStyleGrouped];
                                                [self.navigationController pushViewController:investVC animated:YES];
                                            }
                                        }];
     }
+}
+
+//查看项目融资信息
+- (void)lookProjectFinancingInfo
+{
+    FinancingInfoViewController *financingInfoVC = [[FinancingInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
+    [self.navigationController pushViewController:financingInfoVC animated:YES];
 }
 
 //关闭项目详情

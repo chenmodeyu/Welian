@@ -18,7 +18,7 @@
 
 
 //设置特殊颜色
-- (NSMutableAttributedString *)getAttributedInfoString:(NSString *)str searchStr:(NSString *)searchStr color:(UIColor *)sColor font:(UIFont *)sFont;
++ (NSMutableAttributedString *)getAttributedInfoString:(NSString *)str searchStr:(NSString *)searchStr color:(UIColor *)sColor font:(UIFont *)sFont;
 
 
 //传入的参数：1、生成图片的大小 2、压缩比 3、存放图片的路径
