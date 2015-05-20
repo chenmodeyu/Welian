@@ -284,8 +284,12 @@ static NSString *noCommentCell = @"NoCommentCell";
                                                  if (_iProjectDetailInfo.zancount.integerValue < 1) {
                                                      //如果之前没有刷新整个table
                                                      [_tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+                                                     //设置滚动到最下面的评论
+                                                     [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_datasource.count - 1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom  animated:YES];
                                                  }else{
                                                      [_tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+                                                     //设置滚动到最下面的评论
+                                                     [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_datasource.count - 1) inSection:1] atScrollPosition:UITableViewScrollPositionBottom  animated:YES];
                                                  }
                                                  
                                                  //隐藏键盘
@@ -1220,7 +1224,11 @@ static NSString *noCommentCell = @"NoCommentCell";
     if (_selectIndex) {
         [_tableView scrollToRowAtIndexPath:_selectIndex atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }else{
-        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        if (_iProjectDetailInfo.zancount.integerValue < 1) {
+            [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_datasource.count - 1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }else{
+            [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_datasource.count - 1) inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
     }
     //添加手势
     [_tableView addGestureRecognizer:self.tapGesture];
