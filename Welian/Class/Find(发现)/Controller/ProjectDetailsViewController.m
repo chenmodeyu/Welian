@@ -14,6 +14,7 @@
 #import "FinancingProjectController.h"
 #import "UserInfoViewController.h"
 #import "FinancingInfoViewController.h"
+#import "ProjectPostDetailInfoViewController.h"
 
 #import "ProjectInfoView.h"
 #import "ProjectDetailView.h"
@@ -927,8 +928,11 @@ static NSString *noCommentCell = @"NoCommentCell";
 //查看项目融资信息
 - (void)lookProjectFinancingInfo
 {
-    FinancingInfoViewController *financingInfoVC = [[FinancingInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
-    [self.navigationController pushViewController:financingInfoVC animated:YES];
+//    FinancingInfoViewController *financingInfoVC = [[FinancingInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
+//    [self.navigationController pushViewController:financingInfoVC animated:YES];
+    
+    ProjectPostDetailInfoViewController *postDetailInfoVC = [[ProjectPostDetailInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
+    [self.navigationController pushViewController:postDetailInfoVC animated:YES];
 }
 
 //关闭项目详情

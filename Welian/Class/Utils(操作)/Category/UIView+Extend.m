@@ -55,7 +55,9 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [button setImage:image forState:UIControlStateNormal];
-    button.imageEdgeInsets = UIEdgeInsetsMake(0.f, -10.f, 0.f, 0.f);
+    if (image) {
+        button.imageEdgeInsets = UIEdgeInsetsMake(0.f, -10.f, 0.f, 0.f);
+    }
     button.layer.cornerRadius = 5.f;
     button.layer.masksToBounds = YES;
     //    favoriteBtn.frame = CGRectMake(0.f, 0.f, self.view.width / 3.f, toolBarHeight);

@@ -1329,16 +1329,36 @@
 		A4948E751B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */; };
 		A4948E761B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */; };
 		A4948E771B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */; };
-		A4948E7A1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
-		A4948E7B1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
-		A4948E7C1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
-		A4948E7D1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
-		A4948E7E1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */; };
 		A4948E811B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
 		A4948E821B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
 		A4948E831B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
 		A4948E841B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
 		A4948E851B0C2C8500BA6258 /* FinancingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */; };
+		A4948E8F1B0C798200BA6258 /* NoteMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E8E1B0C798200BA6258 /* NoteMsgView.m */; };
+		A4948E901B0C798200BA6258 /* NoteMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E8E1B0C798200BA6258 /* NoteMsgView.m */; };
+		A4948E911B0C798200BA6258 /* NoteMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E8E1B0C798200BA6258 /* NoteMsgView.m */; };
+		A4948E921B0C798200BA6258 /* NoteMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E8E1B0C798200BA6258 /* NoteMsgView.m */; };
+		A4948E931B0C798200BA6258 /* NoteMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E8E1B0C798200BA6258 /* NoteMsgView.m */; };
+		A4948E961B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E951B0C7A1200BA6258 /* NoteTableViewCell.m */; };
+		A4948E971B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E951B0C7A1200BA6258 /* NoteTableViewCell.m */; };
+		A4948E981B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E951B0C7A1200BA6258 /* NoteTableViewCell.m */; };
+		A4948E991B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E951B0C7A1200BA6258 /* NoteTableViewCell.m */; };
+		A4948E9A1B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E951B0C7A1200BA6258 /* NoteTableViewCell.m */; };
+		A4948E9D1B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */; };
+		A4948E9E1B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */; };
+		A4948E9F1B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */; };
+		A4948EA01B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */; };
+		A4948EA11B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */; };
+		A4948EA31B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */; };
+		A4948EA41B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */; };
+		A4948EA51B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */; };
+		A4948EA61B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */; };
+		A4948EA71B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */; };
+		A4948EAA1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */; };
+		A4948EAB1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */; };
+		A4948EAC1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */; };
+		A4948EAD1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */; };
+		A4948EAE1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */; };
 		A49C7BC31A70D42700F2AEC5 /* ISchoolResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A3F8F51A41855900F06DDD /* ISchoolResult.m */; };
 		A49C7BC51A70D42700F2AEC5 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = A48CA6951A4D044B009EBD04 /* DTTimePeriod.m */; };
 		A49C7BC61A70D42700F2AEC5 /* ActivityUserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CE1AB1A6E4ED5004F17E7 /* ActivityUserViewCell.m */; };
@@ -5237,10 +5257,17 @@
 		A493C3EF1ADD17720056BD52 /* SendIFMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendIFMacros.h; sourceTree = "<group>"; };
 		A4948E711B0C2AC500BA6258 /* FinancingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancingInfoViewController.h; sourceTree = "<group>"; };
 		A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancingInfoViewController.m; sourceTree = "<group>"; };
-		A4948E781B0C2BBB00BA6258 /* ProjectPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectPostViewController.h; sourceTree = "<group>"; };
-		A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectPostViewController.m; sourceTree = "<group>"; };
 		A4948E7F1B0C2C8500BA6258 /* FinancingInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancingInfoView.h; sourceTree = "<group>"; };
 		A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancingInfoView.m; sourceTree = "<group>"; };
+		A4948E8D1B0C798200BA6258 /* NoteMsgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteMsgView.h; sourceTree = "<group>"; };
+		A4948E8E1B0C798200BA6258 /* NoteMsgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteMsgView.m; sourceTree = "<group>"; };
+		A4948E941B0C7A1200BA6258 /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
+		A4948E951B0C7A1200BA6258 /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
+		A4948E9B1B0C7E2F00BA6258 /* ProjectBPViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectBPViewCell.h; sourceTree = "<group>"; };
+		A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectBPViewCell.m; sourceTree = "<group>"; };
+		A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangmu_pdf@2x.png"; sourceTree = "<group>"; };
+		A4948EA81B0C860300BA6258 /* ProjectPostDetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectPostDetailInfoViewController.h; sourceTree = "<group>"; };
+		A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectPostDetailInfoViewController.m; sourceTree = "<group>"; };
 		A49C7FC11A70D42700F2AEC5 /* weLianAppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weLianAppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49C7FC31A70D63C00F2AEC5 /* weLianAppDev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "weLianAppDev-Info.plist"; sourceTree = "<group>"; };
 		A49C7FC81A70EA0B00F2AEC5 /* weLian1.1.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weLian1.1.6.xcdatamodel; sourceTree = "<group>"; };
@@ -7075,6 +7102,8 @@
 				A4743EBA1A7F979E00645998 /* ProjectDetailInfoView.m */,
 				A4948E7F1B0C2C8500BA6258 /* FinancingInfoView.h */,
 				A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */,
+				A4948E9B1B0C7E2F00BA6258 /* ProjectBPViewCell.h */,
+				A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -7138,8 +7167,8 @@
 				A4C770FD1A80E3AB005ABC7F /* ProjectUserListViewController.m */,
 				A4948E711B0C2AC500BA6258 /* FinancingInfoViewController.h */,
 				A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */,
-				A4948E781B0C2BBB00BA6258 /* ProjectPostViewController.h */,
-				A4948E791B0C2BBB00BA6258 /* ProjectPostViewController.m */,
+				A4948EA81B0C860300BA6258 /* ProjectPostDetailInfoViewController.h */,
+				A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -7603,6 +7632,8 @@
 		A493C2121ADD0BB00056BD52 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				A4948E8D1B0C798200BA6258 /* NoteMsgView.h */,
+				A4948E8E1B0C798200BA6258 /* NoteMsgView.m */,
 				A48846011B0B2BF50053B92F /* CSLoadingImageView.h */,
 				A48846021B0B2BF50053B92F /* CSLoadingImageView.m */,
 				A48465BA1ADF900A0041BBCE /* WLSegmentedControl.h */,
@@ -7618,6 +7649,8 @@
 				A493C2191ADD0BB00056BD52 /* WLNavHeaderView.m */,
 				A493C21A1ADD0BB00056BD52 /* WLNoteInfoView.h */,
 				A493C21B1ADD0BB00056BD52 /* WLNoteInfoView.m */,
+				A4948E941B0C7A1200BA6258 /* NoteTableViewCell.h */,
+				A4948E951B0C7A1200BA6258 /* NoteTableViewCell.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -8696,6 +8729,7 @@
 		F51FB9ED19EF6C3E00D85D7F /* 发现images */ = {
 			isa = PBXGroup;
 			children = (
+				A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */,
 				F584803F1AE10629002C2722 /* me_play@2x.png */,
 				A4557DFA1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png */,
 				A48302FB1AA9849000B5CB52 /* discovery_activity_detail_time@2x.png */,
@@ -10733,6 +10767,7 @@
 				A4C770C61A806A5D005ABC7F /* discovery_rongzi_chacha@2x.png in Resources */,
 				A49C7E691A70D42700F2AEC5 /* VoiceBtn_BlackHL@2x.png in Resources */,
 				A49C7E6B1A70D42700F2AEC5 /* tabbar_home_selected_prompt@2x.png in Resources */,
+				A4948EA71B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */,
 				A409A21D1AC2E1AF0033A31D /* me_mycard_emaillogo@2x.png in Resources */,
 				F5933F891AD4F4030088C70D /* MJRefresh.bundle in Resources */,
 				A49C7E6D1A70D42700F2AEC5 /* circle_chat_sendfailed@2x.png in Resources */,
@@ -11331,6 +11366,7 @@
 				F53DC4681A49192600F5F712 /* InfoUserHaderCell.xib in Resources */,
 				A4C1444A1A4C0A6B00C9BAB5 /* RecordCancel@2x.png in Resources */,
 				A437CEED1A53D53100B54E68 /* circle_chatlist_sendfailed@2x.png in Resources */,
+				A4948EA51B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */,
 				A4C770C51A806A5D005ABC7F /* discovery_rongzi_chacha@2x.png in Resources */,
 				A4C144171A4C0A6B00C9BAB5 /* VoiceBtn_BlackHL@2x.png in Resources */,
 				F53DC46B1A49192600F5F712 /* tabbar_home_selected_prompt@2x.png in Resources */,
@@ -12139,6 +12175,7 @@
 				A409A2221AC2E1AF0033A31D /* me_mycard_phonelogo@2x.png in Resources */,
 				F55772F41A5AA3E200693279 /* login_register_btn_pre@2x.png in Resources */,
 				A4C143D01A4C0A6B00C9BAB5 /* SenderVoiceNodePlaying000@2x.png in Resources */,
+				A4948EA31B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */,
 				F53519BD1A8C935F004488EE /* CreateHeaderView.xib in Resources */,
 				A4C143881A4C0A6B00C9BAB5 /* section0_emotion3@2x.png in Resources */,
 				F5E380B71A41B1680084F7F3 /* WorkListCell.xib in Resources */,
@@ -12525,6 +12562,7 @@
 				F5664DDE1A2AFDD5008A5830 /* InfoUserHaderCell.xib in Resources */,
 				A4C144491A4C0A6B00C9BAB5 /* RecordCancel@2x.png in Resources */,
 				A437CEEC1A53D53100B54E68 /* circle_chatlist_sendfailed@2x.png in Resources */,
+				A4948EA41B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */,
 				A4C770C41A806A5D005ABC7F /* discovery_rongzi_chacha@2x.png in Resources */,
 				A4C144161A4C0A6B00C9BAB5 /* VoiceBtn_BlackHL@2x.png in Resources */,
 				F51BA44D1A444DA2009E5CDF /* tabbar_home_selected_prompt@2x.png in Resources */,
@@ -12906,6 +12944,7 @@
 				A493C3111ADD14A60056BD52 /* Findplist.plist in Resources */,
 				A492C49F1AF9FB72001DB60A /* header_background_bottom@2x.png in Resources */,
 				F5D858EE1AE9F2B300534756 /* home_link_logo@2x.png in Resources */,
+				A4948EA61B0C830000BA6258 /* xiangmu_pdf@2x.png in Resources */,
 				A493C3DE1ADD14A60056BD52 /* meplist.plist in Resources */,
 				A492364E1ADE693A009E0B8C /* picker_image_placeholder@2x.png in Resources */,
 				A493C3BB1ADD14A60056BD52 /* city.plist in Resources */,
@@ -12938,6 +12977,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4948E931B0C798200BA6258 /* NoteMsgView.m in Sources */,
 				F506A8A71ADE666B00EABB0E /* NavViewController.m in Sources */,
 				A49C7BC31A70D42700F2AEC5 /* ISchoolResult.m in Sources */,
 				A46A284A1ABD72F100BD5EA3 /* MessagesViewController.m in Sources */,
@@ -13134,6 +13174,7 @@
 				A49235731ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A49235641ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
 				A49C7C641A70D42700F2AEC5 /* LogInUser.m in Sources */,
+				A4948EAE1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A4FDF3C91B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49C7C661A70D42700F2AEC5 /* UIImage+MultiFormat.m in Sources */,
 				A49C7C671A70D42700F2AEC5 /* FMResultSet.m in Sources */,
@@ -13264,6 +13305,7 @@
 				A48A36601AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
 				F55EB1111ACB9FE400FFB3BE /* HPGrowingTextView.m in Sources */,
 				F57F31D71AA71A2300B8EF72 /* POHorizontalList.m in Sources */,
+				A4948E9A1B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */,
 				A49C7CE41A70D42700F2AEC5 /* NSString+XHMD5.m in Sources */,
 				A493C3D01ADD14A60056BD52 /* InvestReqstModel.m in Sources */,
 				A49C7CE61A70D42700F2AEC5 /* MessageController.m in Sources */,
@@ -13342,6 +13384,7 @@
 				A49C7D1B1A70D42700F2AEC5 /* AFURLRequestSerialization.m in Sources */,
 				A49C7D1E1A70D42700F2AEC5 /* ChatMessageController.m in Sources */,
 				F5D04C8A1AC104A6004DE412 /* WUEmoticonsKeyboardToolsView.m in Sources */,
+				A4948EA11B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */,
 				A489E7BA1AA198E400F7BE9F /* ActivityOrderInfoViewCell.m in Sources */,
 				A49C7D1F1A70D42700F2AEC5 /* NewFriendViewController.m in Sources */,
 				F5933F9D1AD4F4030088C70D /* MJRefreshGifHeader.m in Sources */,
@@ -13412,7 +13455,6 @@
 				A493C3A81ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F550790A1A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C2201ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
-				A4948E7E1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				F57F31E51AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A49C7D501A70D42700F2AEC5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				A49C7D531A70D42700F2AEC5 /* UIImage+GIF.m in Sources */,
@@ -13455,6 +13497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4948E911B0C798200BA6258 /* NoteMsgView.m in Sources */,
 				F506A8A81ADE672C00EABB0E /* NavViewController.m in Sources */,
 				F53DC29D1A49192600F5F712 /* ISchoolResult.m in Sources */,
 				A46A28491ABD72F100BD5EA3 /* MessagesViewController.m in Sources */,
@@ -13651,6 +13694,7 @@
 				F53DC3011A49192600F5F712 /* UIImage+MultiFormat.m in Sources */,
 				F53DC3021A49192600F5F712 /* FMResultSet.m in Sources */,
 				A493C3291ADD14A60056BD52 /* CardStatuModel.m in Sources */,
+				A4948EAC1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A4FDF3C71B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49FF3C01AC2671B009982E2 /* UserInfoView.m in Sources */,
 				F53DC3041A49192600F5F712 /* TQRichTextURLRun.m in Sources */,
@@ -13781,6 +13825,7 @@
 				A48A365E1AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
 				A4A2EB021A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				F53DC3571A49192600F5F712 /* CityLocationController.m in Sources */,
+				A4948E981B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */,
 				A493C2AF1ADD0BB00056BD52 /* WLNoteInfoView.m in Sources */,
 				F55EB1101ACB9FE400FFB3BE /* HPGrowingTextView.m in Sources */,
 				F57F31D61AA71A2300B8EF72 /* POHorizontalList.m in Sources */,
@@ -13859,6 +13904,7 @@
 				F53DC37A1A49192600F5F712 /* AFURLRequestSerialization.m in Sources */,
 				F53D4E521A4AAEA100CA06C8 /* ChatMessageController.m in Sources */,
 				F5D04C891AC104A6004DE412 /* WUEmoticonsKeyboardToolsView.m in Sources */,
+				A4948E9F1B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */,
 				A489E7B91AA198E400F7BE9F /* ActivityOrderInfoViewCell.m in Sources */,
 				A40356171A5D4F61006AE52C /* NewFriendViewController.m in Sources */,
 				F5933F9C1AD4F4030088C70D /* MJRefreshGifHeader.m in Sources */,
@@ -13929,7 +13975,6 @@
 				A493C3A61ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F55079091A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C21E1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
-				A4948E7C1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				F57F31E41AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A4C141281A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				F53DC3981A49192600F5F712 /* UIImage+GIF.m in Sources */,
@@ -13972,6 +14017,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4948E8F1B0C798200BA6258 /* NoteMsgView.m in Sources */,
 				F5E380B51A41B1680084F7F3 /* WorkListCell.m in Sources */,
 				A46A28471ABD72F100BD5EA3 /* MessagesViewController.m in Sources */,
 				A4C140741A4BEA8500C9BAB5 /* UIImage+Resize.m in Sources */,
@@ -14168,6 +14214,7 @@
 				A49235421ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				A492356F1ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A49235601ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
+				A4948EAA1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A4FDF3C51B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A493C3271ADD14A60056BD52 /* CardStatuModel.m in Sources */,
 				F56649D81A2AFD56008A5830 /* FMResultSet.m in Sources */,
@@ -14298,6 +14345,7 @@
 				F55EB10E1ACB9FE400FFB3BE /* HPGrowingTextView.m in Sources */,
 				A48A365C1AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
 				F57F31D41AA71A2300B8EF72 /* POHorizontalList.m in Sources */,
+				A4948E961B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */,
 				F5664A231A2AFD56008A5830 /* MessageController.m in Sources */,
 				A493C3CC1ADD14A60056BD52 /* InvestReqstModel.m in Sources */,
 				A4C770F81A80BC9A005ABC7F /* ProjectFavorteItemView.m in Sources */,
@@ -14376,6 +14424,7 @@
 				F5D04E621AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
 				A4C141711A4BEF5700C9BAB5 /* XHPathCover.m in Sources */,
 				F5664A431A2AFD56008A5830 /* CommentHeadView.m in Sources */,
+				A4948E9D1B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */,
 				A489E7B71AA198E400F7BE9F /* ActivityOrderInfoViewCell.m in Sources */,
 				F5D04C871AC104A6004DE412 /* WUEmoticonsKeyboardToolsView.m in Sources */,
 				A40356151A5D4F61006AE52C /* NewFriendViewController.m in Sources */,
@@ -14446,7 +14495,6 @@
 				A493C3A41ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F57F31E21AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A493C21C1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
-				A4948E7A1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				F5664A601A2AFD56008A5830 /* StaurCell.m in Sources */,
 				F5664A611A2AFD56008A5830 /* MJTypeEncoding.m in Sources */,
 				F534DB5F1A5119A000B6A725 /* InvestStages.m in Sources */,
@@ -14489,6 +14537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4948E901B0C798200BA6258 /* NoteMsgView.m in Sources */,
 				F506A8A91ADE674200EABB0E /* NavViewController.m in Sources */,
 				F5E380B11A419ED90084F7F3 /* ISchoolResult.m in Sources */,
 				A46A28481ABD72F100BD5EA3 /* MessagesViewController.m in Sources */,
@@ -14685,6 +14734,7 @@
 				F5664C911A2AFDD5008A5830 /* UIImage+MultiFormat.m in Sources */,
 				F5664C921A2AFDD5008A5830 /* FMResultSet.m in Sources */,
 				A493C3281ADD14A60056BD52 /* CardStatuModel.m in Sources */,
+				A4948EAB1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A4FDF3C61B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49FF3BF1AC2671B009982E2 /* UserInfoView.m in Sources */,
 				F5664C941A2AFDD5008A5830 /* TQRichTextURLRun.m in Sources */,
@@ -14815,6 +14865,7 @@
 				A48A365D1AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
 				A4A2EB011A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				F5664CDB1A2AFDD5008A5830 /* CityLocationController.m in Sources */,
+				A4948E971B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */,
 				A493C2AE1ADD0BB00056BD52 /* WLNoteInfoView.m in Sources */,
 				F55EB10F1ACB9FE400FFB3BE /* HPGrowingTextView.m in Sources */,
 				F57F31D51AA71A2300B8EF72 /* POHorizontalList.m in Sources */,
@@ -14893,6 +14944,7 @@
 				F5664CFF1A2AFDD5008A5830 /* AFURLRequestSerialization.m in Sources */,
 				F53D4E511A4AAEA100CA06C8 /* ChatMessageController.m in Sources */,
 				F5D04C881AC104A6004DE412 /* WUEmoticonsKeyboardToolsView.m in Sources */,
+				A4948E9E1B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */,
 				A489E7B81AA198E400F7BE9F /* ActivityOrderInfoViewCell.m in Sources */,
 				A40356161A5D4F61006AE52C /* NewFriendViewController.m in Sources */,
 				F5933F9B1AD4F4030088C70D /* MJRefreshGifHeader.m in Sources */,
@@ -14963,7 +15015,6 @@
 				A493C3A51ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F55079081A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C21D1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
-				A4948E7B1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
 				F57F31E31AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A4C141271A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				F5664D181A2AFDD5008A5830 /* UIImage+GIF.m in Sources */,
@@ -15006,6 +15057,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4948E921B0C798200BA6258 /* NoteMsgView.m in Sources */,
 				A493C39D1ADD14A60056BD52 /* LocationTool.m in Sources */,
 				A493C2651ADD0BB00056BD52 /* UIView+Size.m in Sources */,
 				A493C3341ADD14A60056BD52 /* CommentHeadFrame.m in Sources */,
@@ -15030,7 +15082,7 @@
 				A493C24C1ADD0BB00056BD52 /* UIAlertView+Extend.m in Sources */,
 				A493C26F1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
 				A492353B1ADE693A009E0B8C /* JKAssets.m in Sources */,
-				A4948E7D1B0C2BBB00BA6258 /* ProjectPostViewController.m in Sources */,
+				A4948E991B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */,
 				A493C1CB1ADD0A0C0056BD52 /* ResManager.m in Sources */,
 				A493C2291ADD0BB00056BD52 /* NSString+MD5.m in Sources */,
 				A493C3A21ADD14A60056BD52 /* MsgPlaySound.m in Sources */,
@@ -15068,6 +15120,7 @@
 				A493C3AC1ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
 				F5CE862319BFF2AB00A9D14C /* WelianTests.m in Sources */,
 				A492C4931AF9C3C5001DB60A /* CExpandHeader.m in Sources */,
+				A4948EA01B0C7E2F00BA6258 /* ProjectBPViewCell.m in Sources */,
 				A493C3701ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
 				A493C3661ADD14A60056BD52 /* WLContentCellFrame.m in Sources */,
 				A48A365F1AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
@@ -15090,6 +15143,7 @@
 				A493C3751ADD14A60056BD52 /* WLStatusM.m in Sources */,
 				A493C2831ADD0BB00056BD52 /* DKManagedObjectQuery.m in Sources */,
 				A493C22E1ADD0BB00056BD52 /* NSString+val.m in Sources */,
+				A4948EAD1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A493C2421ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
 				A493C2741ADD0BB00056BD52 /* NSManagedObject+e0571.m in Sources */,
 				A49235771ADE693A009E0B8C /* UIView+JKPicker.m in Sources */,
