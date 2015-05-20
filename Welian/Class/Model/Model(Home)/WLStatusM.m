@@ -43,7 +43,7 @@
     }
     
     if (self.type.integerValue==5||self.type.integerValue==12) {
-        [self.joinedusers addObject:self.user];
+        [self.joinedusers insertObject:self.user atIndex:0];
     }
     self.created = [self getCreated];
 }
