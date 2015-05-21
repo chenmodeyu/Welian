@@ -151,20 +151,19 @@
 }
 
 // 微链头条 列表
-+ (void)getTouTiaoListWithTime:(NSString *)time
-                          Type:(NSNumber *)type
++ (void)getTouTiaoListWithPage:(NSNumber *)page
                           Size:(NSNumber *)size
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"time":time,
-                             @"type":type,
+    NSDictionary *params = @{@"page":page,
                              @"size":size};
     [self reqestPostWithParams:params
                           Path:KTouTiaoListUrl
                        Success:^(id resultInfo) {
                            DLog(@"getTouTiaoList ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           NSArray *result = [ITouTiaoModel objectsWithInfo:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];

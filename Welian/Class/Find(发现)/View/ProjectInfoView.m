@@ -134,12 +134,12 @@
     
     [_praiseImageView sizeToFit];
     _praiseImageView.centerX = _praiseView.width / 2.f;
-    _praiseImageView.top = 5.f;
+    _praiseImageView.bottom = _praiseView.height / 2.f - 2.f;
     
     [_praiseNumLabel sizeToFit];
     _praiseNumLabel.width = _praiseView.width;
     _praiseNumLabel.centerX = _praiseView.width / 2.f;
-    _praiseNumLabel.top = _praiseImageView.bottom + 5.f;
+    _praiseNumLabel.top = _praiseImageView.bottom + 4.f;
     
     _logoBtn.size = CGSizeMake(kLogoWidth, kLogoWidth);
     _logoBtn.top = _praiseView.top + 5.f;
@@ -171,10 +171,12 @@
 {
     //赞内容
     UIView *praiseView = [[UIView alloc] initWithFrame:CGRectZero];
-    praiseView.backgroundColor = RGB(229.f, 229.f, 229.f);
+    praiseView.backgroundColor = RGB(247.f, 247.f, 247.f);
     //圆角
     praiseView.layer.cornerRadius = 5.f;
     praiseView.layer.masksToBounds = YES;
+    praiseView.layer.borderColor = kNormalLineColor.CGColor;
+    praiseView.layer.borderWidth = 0.5f;
     [self addSubview:praiseView];
     self.praiseView = praiseView;
     

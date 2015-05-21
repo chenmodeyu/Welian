@@ -30,7 +30,7 @@
 {
     self = [super init];
     if (self) {
-        self.datasource = @[@"",@"",@"",@"",@""];
+        
     }
     return self;
 }
@@ -45,6 +45,8 @@
     
     //背景色
     self.view.backgroundColor = KBgLightGrayColor;
+    self.pageIndex = 1;
+    self.pageSize = KCellConut;
     
     //添加创建活动按钮
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建活动" style:UIBarButtonItemStyleDone target:self action:@selector(createActivity)];
@@ -69,7 +71,7 @@
     _tableView.footer.hidden = YES;
     
     //初始化数据
-//    [_tableView.header beginRefreshing];
+    [_tableView.header beginRefreshing];
 }
 
 #pragma mark - UITableView Datasource&Delegate
@@ -91,14 +93,15 @@
     if (!cell) {
         cell = [[NewsListViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.infoData = @{};
+    cell.infoData = _datasource[indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:@"http://m.huxiu.com/"];
+    ITouTiaoModel *touTiao = _datasource[indexPath.row];
+    TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:touTiao.url];
     webVC.navigationButtonsHidden = NO;//隐藏底部操作栏目
     webVC.showRightShareBtn = YES;//现实右上角分享按钮
     [self.navigationController pushViewController:webVC animated:YES];
@@ -116,26 +119,58 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [NewsListViewCell configureWithNewInfo:@{}];
+    return [NewsListViewCell configureWithNewInfo:_datasource[indexPath.row]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [NewsListViewCell configureWithNewInfo:@{}];
+    return [NewsListViewCell configureWithNewInfo:_datasource[indexPath.row]];
 }
 
 
 #pragma mark - Private
+//初始化数据
+- (void)initData
+{
+    [WeLianClient getTouTiaoListWithPage:@(_pageIndex)
+                                    Size:@(_pageSize)
+                                 Success:^(id resultInfo) {
+                                     [_tableView.header endRefreshing];
+                                     [_tableView.footer endRefreshing];
+                                     
+                                     self.datasource = resultInfo;
+                                     [_tableView reloadData];
+                                     
+                                     if ([resultInfo count] == _pageSize) {
+                                         _tableView.footer.hidden = NO;
+                                     }else{
+                                         _tableView.footer.hidden = YES;
+                                     }
+                                 } Failed:^(NSError *error) {
+                                     [_tableView.header endRefreshing];
+                                     [_tableView.footer endRefreshing];
+                                     
+                                     if (error) {
+                                         [WLHUDView showErrorHUD:error.localizedDescription];
+                                     }else{
+                                         [WLHUDView showErrorHUD:@"网络无法连接，请重试！"];
+                                     }
+                                     DLog(@"getTouTiaoList error:%@",error.localizedDescription);
+                                 }];
+}
+
 //下拉刷新数据
 - (void)loadNewDataInfo
 {
-    
+    _pageIndex = 1;
+    [self initData];
 }
 
 //上拉加载更多数据
 - (void)loadMoreDataInfo
 {
-    
+    self.pageIndex = _pageIndex + 1;
+    [self initData];
 }
 
 @end

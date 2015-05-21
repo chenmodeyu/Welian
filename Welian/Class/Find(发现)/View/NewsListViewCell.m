@@ -40,12 +40,17 @@
     return self;
 }
 
-- (void)setInfoData:(NSDictionary *)infoData
+- (void)setInfoData:(ITouTiaoModel *)infoData
 {
     [super willChangeValueForKey:@"infoData"];
     _infoData = infoData;
     [super didChangeValueForKey:@"infoData"];
-    _infoImageView.image = nil;
+    [_infoImageView sd_setImageWithURL:[NSURL URLWithString:_infoData.photo]
+                      placeholderImage:nil
+                               options:SDWebImageRetryFailed|SDWebImageLowPriority];
+    _timeLabel.text = _infoData.created;
+    _titleLabel.text = _infoData.title;
+    _detailLabel.text = _infoData.intro;
 }
 
 - (void)layoutSubviews
@@ -64,7 +69,7 @@
     CGFloat maxWidth = _cardView.width - kMarginLeft * 2.f;
     _titleLabel.width = maxWidth;
     [_titleLabel sizeToFit];
-    _titleLabel.centerX = _cardView.width / 2.f;
+    _titleLabel.left = kMarginLeft;
     _titleLabel.top = kTitleMarginEdge;
     
     _infoImageView.size = CGSizeMake(_cardView.width - kMarginLeft * 2.f, kImageViewHeight);
@@ -73,7 +78,7 @@
     
     _detailLabel.width = maxWidth;
     [_detailLabel sizeToFit];
-    _detailLabel.centerX = _cardView.width / 2.f;
+    _detailLabel.left = kMarginLeft;
     _detailLabel.top = _infoImageView.bottom + kDetailMarginEdge;
     
     _lineView.frame = CGRectMake(kMarginLeft, _detailLabel.bottom + kDetailMarginEdge, _cardView.width - kMarginLeft * 2.f, .8f);
@@ -159,11 +164,11 @@
 }
 
 //返回cell的高度
-+ (CGFloat)configureWithNewInfo:(NSDictionary *)newInfo
++ (CGFloat)configureWithNewInfo:(ITouTiaoModel *)newInfo
 {
     CGFloat maxWidth = [[UIScreen mainScreen] bounds].size.width - kMarginLeft * 4.f;
-    NSString *titleStr = @"为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业";
-    NSString *detailStr = @"熊猫一天要吃14个小时，什么竹子都能尝尝，熊猫一天要吃14个小时，什么竹子都能尝尝，熊猫一天要吃14个小时，什么竹子都能尝尝什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业";
+    NSString *titleStr = newInfo.title;
+    NSString *detailStr = newInfo.intro;
     //计算第一个label的高度
     CGSize size1 = [titleStr calculateSize:CGSizeMake(maxWidth, 40.f) font:kNormal15Font];
     CGSize size2 = [detailStr calculateSize:CGSizeMake(maxWidth, 30.f) font:kNormal12Font];
