@@ -233,6 +233,16 @@
     return date;
 }
 
+//不带秒的时间格式
+- (NSDate *)dateFromNormalStringNoss
+{
+    NSString *string = self;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm";
+    NSDate *date = [formatter dateFromString:string];
+    return date;
+}
+
 //去除空格
 - (NSString *)deleteTopAndBottomKongge
 {

@@ -138,7 +138,16 @@
                                      [_tableView.header endRefreshing];
                                      [_tableView.footer endRefreshing];
                                      
-                                     self.datasource = resultInfo;
+                                     if (_pageIndex == 1) {
+                                         //隐性删除数据库数据
+                                         [TouTiaoInfo deleteAllTouTiaoInfos];
+                                     }
+                                     
+                                     for (ITouTiaoModel *iTouTiaoModel in resultInfo) {
+                                         [TouTiaoInfo createTouTiaoInfoWith:iTouTiaoModel];
+                                     }
+                                     
+                                     self.datasource = [TouTiaoInfo getAllTouTiaos];
                                      [_tableView reloadData];
                                      
                                      if ([resultInfo count] == _pageSize) {

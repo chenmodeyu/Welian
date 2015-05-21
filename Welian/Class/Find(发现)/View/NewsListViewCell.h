@@ -11,7 +11,7 @@
 @interface NewsListViewCell : UITableViewCell
 
 
-@property (strong,nonatomic) ITouTiaoModel *infoData;
+@property (strong,nonatomic) TouTiaoInfo *infoData;
 
 //返回cell的高度
 + (CGFloat)configureWithNewInfo:(ITouTiaoModel *)newInfo;

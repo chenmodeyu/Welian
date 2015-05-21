@@ -14,6 +14,7 @@
 #import "InvestorUsersListController.h"
 #import "ActivityListViewController.h"
 #import "NewsListViewController.h"
+
 #import "BadgeBaseCell.h"
 #import "HYBLoopScrollView.h"
 
@@ -204,13 +205,13 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                 case 0:
                 {
                     // 观点  虎嗅网
-                    TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:@"http://m.huxiu.com/"];
-                    webVC.navigationButtonsHidden = NO;//隐藏底部操作栏目
-                    webVC.showRightShareBtn = YES;//现实右上角分享按钮
-                    [self.navigationController pushViewController:webVC animated:YES];
+//                    TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:@"http://m.huxiu.com/"];
+//                    webVC.navigationButtonsHidden = NO;//隐藏底部操作栏目
+//                    webVC.showRightShareBtn = YES;//现实右上角分享按钮
+//                    [self.navigationController pushViewController:webVC animated:YES];
                     //创业头条
-//                    NewsListViewController *newListVC = [[NewsListViewController alloc] init];
-//                    [self.navigationController pushViewController:newListVC animated:YES];
+                    NewsListViewController *newListVC = [[NewsListViewController alloc] init];
+                    [self.navigationController pushViewController:newListVC animated:YES];
                 }
                     break;
                 case 1:
