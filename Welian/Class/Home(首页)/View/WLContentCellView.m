@@ -350,7 +350,7 @@
         [statM setIsforward:@(1)];
         statM.forwardcount = @(statM.forwardcount.integerValue +1);
         [WeLianClient feedForwardWithID:statM.topid == 0 ? statM.fid : statM.topid Success:^(id resultInfo) {
-            [WLHUDView showCustomHUD:@"已转推给你的好友！" imageview:nil];
+            [WLHUDView showSuccessHUD:@"已转推给你的好友！"];
             [but setEnabled:YES];
         } Failed:^(NSError *error) {
             [but setEnabled:YES];

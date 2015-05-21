@@ -42,7 +42,7 @@
 {
     NSData *data = [[NSData alloc] initWithBase64EncodedData:self options:NSDataBase64DecodingIgnoreUnknownCharacters];
     
-    return [[NSString alloc] initWithData:[self DESDecrypt:data WithKey:@"weLian&188"] encoding:NSUTF8StringEncoding];
+    return [[NSString alloc] initWithData:[self DESDecrypt:data WithKey:KDESkey] encoding:NSUTF8StringEncoding];
 }
 
 

@@ -2136,8 +2136,8 @@
             }
             
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            DLog(@"reqest Result ---- %@",[operation responseString]);
-            IBaseModel *result = [IBaseModel objectWithDict:responseObject];
+            DLog(@"reqest --- %@---- %@",pathInfo,[[responseObject DESdecrypt] JSONValue]);
+            IBaseModel *result = [IBaseModel objectWithDict:[[responseObject DESdecrypt] JSONValue]];
             //如果sessionid有的话放入data
             if (result.isSuccess) {
                 if (result.sessionid.length > 0) {
