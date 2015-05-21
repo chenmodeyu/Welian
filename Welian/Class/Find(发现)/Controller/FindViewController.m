@@ -16,6 +16,8 @@
 #import "NewsListViewController.h"
 #import "BadgeBaseCell.h"
 #import "HYBLoopScrollView.h"
+#import "BannerModel.h"
+#import "ProjectDetailsViewController.h"
 
 
 @interface FindViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -57,7 +59,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     [KNSNotification addObserver:self selector:@selector(reloadNewactivit) name:KNewactivitNotif object:nil];
     [KNSNotification addObserver:self selector:@selector(reloadProject) name:KProjectstateNotif object:nil];
     // 加载数据
-//    [self loadLoopViewData];
+    [self loadLoopViewData];
     [self loadDatalist];
     // 加载页面
     [self loadUIview];
@@ -81,15 +83,22 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
 {
     WEAKSELF
     [WeLianClient adBannerWithSuccess:^(id resultInfo) {
+//        NSArray *bannerArray = [BannerModel objectsWithInfo:resultInfo];
+        NSMutableArray *bannerArray = [NSMutableArray array];
+        NSMutableArray *images = [NSMutableArray array];
+        for (NSDictionary *bannerDic in resultInfo) {
+            BannerModel *bModel = [BannerModel objectWithDict:bannerDic];
+            [bannerArray addObject:bModel];
+            [images addObject:bModel.photo];
+        }
         DLog(@"%@",resultInfo);
-        NSString *url = @"http://test.meirongzongjian.com/imageServer/user/3/42ccb9c75ccf5e910cd6f5aaf0cd1200.jpg";
-        NSArray *images = @[url,url,url,url];
-        if (images.count) {
+        if (bannerArray.count) {
             [weakSelf.loopView setImageUrls:images];
             [weakSelf.tableView setTableHeaderView:self.loopView];
-            weakSelf.loopView.timeInterval = 3;
+            weakSelf.loopView.timeInterval = 5;
             weakSelf.loopView.didSelectItemBlock = ^(NSInteger atIndex, HYBLoadImageView *sender) {
-                
+                BannerModel *baModel = bannerArray[atIndex];
+                [weakSelf pushBannerControllerWithBanner:baModel];
             };
         }else{
             
@@ -99,6 +108,34 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
         
     }];
 }
+
+// 通过广告位跳转到指定页
+- (void)pushBannerControllerWithBanner:(BannerModel *)bannerM
+{
+    // 广告类型：0 网页，1 项目，2 活动，3 项目集合
+    NSInteger type = bannerM.type.integerValue;
+    switch (type) {
+        case 0:
+            
+            break;
+        case 1:
+        {
+            ProjectDetailsViewController *projectVc = [[ProjectDetailsViewController alloc] initWithProjectPid:bannerM.bid];
+            [self.navigationController pushViewController:projectVc animated:YES];
+        }
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+        default:
+            break;
+    }
+}
+
+
 
 #pragma mark - 加载数据
 - (void)loadDatalist
@@ -162,7 +199,10 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
             {
                 if (meinfo.activecount.integerValue > 0) {
                     [cell.deputLabel setHidden:NO];
-                    [cell.deputLabel setText:[NSString stringWithFormat:@"有%@个活动可以参与",meinfo.activecount]];
+                    [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"有%@个活动可以参与",meinfo.activecount]
+                                                                           searchStr:meinfo.activecount.stringValue
+                                                                    color:KBlueTextColor
+                                                                                font:WLFONTBLOD(15)]];
                 }
                 [cell.badgeImage setHidden:!meinfo.isactivebadge.boolValue];
             }
@@ -179,13 +219,19 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
             [cell.deputLabel setHidden:!meinfo.projectcount.integerValue];
             [cell.badgeImage setHidden:!meinfo.isprojectbadge.boolValue];
             if (meinfo.projectcount.integerValue) {
-                [cell.deputLabel setText:[NSString stringWithFormat:@"有%@个创业项目",meinfo.projectcount]];
+                [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"有%@个创业项目",meinfo.projectcount]
+                                        searchStr:meinfo.projectcount.stringValue
+                                            color:KBlueTextColor
+                                            font:WLFONTBLOD(15)]];
             }
         }else if (indexPath.row==1){
             [cell.deputLabel setHidden:!meinfo.investorcount.boolValue];
             [cell.badgeImage setHidden:YES];
             if (meinfo.investorcount.integerValue) {
-                [cell.deputLabel setText:[NSString stringWithFormat:@"%@位已认证投资人",meinfo.investorcount]];
+                [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"%@位已认证投资人",meinfo.investorcount]
+                                                                           searchStr:meinfo.investorcount.stringValue
+                                                                               color:KBlueTextColor
+                                                                                font:WLFONTBLOD(15)]];
             }
         }
     }

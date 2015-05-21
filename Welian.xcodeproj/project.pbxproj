@@ -4267,6 +4267,10 @@
 		F5CA5C081AA59DA900E3E2F8 /* WLCellCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA5C041AA59DA900E3E2F8 /* WLCellCardView.m */; };
 		F5CAB7761B0DCDDF00937E63 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5CAB7751B0DCDDF00937E63 /* Settings.bundle */; };
 		F5CAB7771B0DCDDF00937E63 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5CAB7751B0DCDDF00937E63 /* Settings.bundle */; };
+		F5CAB77A1B0DF77E00937E63 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CAB7791B0DF77E00937E63 /* BannerModel.m */; };
+		F5CAB77B1B0DF77E00937E63 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CAB7791B0DF77E00937E63 /* BannerModel.m */; };
+		F5CAB77C1B0DF77E00937E63 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CAB7791B0DF77E00937E63 /* BannerModel.m */; };
+		F5CAB77D1B0DF77E00937E63 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CAB7791B0DF77E00937E63 /* BannerModel.m */; };
 		F5CBE3091AC40AD100F4C884 /* me_circle_chat_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CBE3081AC40AD100F4C884 /* me_circle_chat_location@2x.png */; };
 		F5CBE30A1AC40AD100F4C884 /* me_circle_chat_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CBE3081AC40AD100F4C884 /* me_circle_chat_location@2x.png */; };
 		F5CBE30B1AC40AD100F4C884 /* me_circle_chat_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CBE3081AC40AD100F4C884 /* me_circle_chat_location@2x.png */; };
@@ -6434,6 +6438,8 @@
 		F5CA5C031AA59DA900E3E2F8 /* WLCellCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCellCardView.h; sourceTree = "<group>"; };
 		F5CA5C041AA59DA900E3E2F8 /* WLCellCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCellCardView.m; sourceTree = "<group>"; };
 		F5CAB7751B0DCDDF00937E63 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F5CAB7781B0DF77E00937E63 /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
+		F5CAB7791B0DF77E00937E63 /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		F5CBE3081AC40AD100F4C884 /* me_circle_chat_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me_circle_chat_location@2x.png"; sourceTree = "<group>"; };
 		F5CBE30D1AC4351A00F4C884 /* Expression_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_1@2x.png"; sourceTree = "<group>"; };
 		F5CBE30E1AC4351A00F4C884 /* Expression_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_2@2x.png"; sourceTree = "<group>"; };
@@ -7726,6 +7732,8 @@
 				A493C2BB1ADD14A60056BD52 /* Findplist.plist */,
 				A493C2BC1ADD14A60056BD52 /* InvestorUserM.h */,
 				A493C2BD1ADD14A60056BD52 /* InvestorUserM.m */,
+				F5CAB7781B0DF77E00937E63 /* BannerModel.h */,
+				F5CAB7791B0DF77E00937E63 /* BannerModel.m */,
 			);
 			path = "Model(Find)";
 			sourceTree = "<group>";
@@ -13114,6 +13122,7 @@
 				A4C770E31A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
 				A49C7C041A70D42700F2AEC5 /* MagicalRecord+ErrorHandling.m in Sources */,
 				A49C7C081A70D42700F2AEC5 /* FeedAndZanView.m in Sources */,
+				F5CAB77D1B0DF77E00937E63 /* BannerModel.m in Sources */,
 				A489E7D31AA5980C00F7BE9F /* ActivityInfo.m in Sources */,
 				A49C7C091A70D42700F2AEC5 /* AppDelegate.mm in Sources */,
 				A4E731AC1A8CA99700980676 /* ActivityTicketView.m in Sources */,
@@ -13637,6 +13646,7 @@
 				A4A2EB1D1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */,
 				F53DC2CA1A49192600F5F712 /* FeedAndZanView.m in Sources */,
 				A489E7D21AA5980C00F7BE9F /* ActivityInfo.m in Sources */,
+				F5CAB77C1B0DF77E00937E63 /* BannerModel.m in Sources */,
 				F53DC2CB1A49192600F5F712 /* AppDelegate.mm in Sources */,
 				A4E731AB1A8CA99700980676 /* ActivityTicketView.m in Sources */,
 				A493C1CA1ADD0A0C0056BD52 /* ResManager.m in Sources */,
@@ -14160,6 +14170,7 @@
 				A4C1408C1A4BEA8500C9BAB5 /* WLMessageTableViewController.m in Sources */,
 				F566499E1A2AFD56008A5830 /* FriendCell.m in Sources */,
 				F566499F1A2AFD56008A5830 /* SWUtilityButtonView.m in Sources */,
+				F5CAB77A1B0DF77E00937E63 /* BannerModel.m in Sources */,
 				A4C770E01A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
 				A4A2EB1B1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */,
 				A4C13FFF1A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */,
@@ -14683,6 +14694,7 @@
 				A4A2EB1C1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */,
 				F5664C5E1A2AFDD5008A5830 /* FeedAndZanView.m in Sources */,
 				A489E7D11AA5980C00F7BE9F /* ActivityInfo.m in Sources */,
+				F5CAB77B1B0DF77E00937E63 /* BannerModel.m in Sources */,
 				F5664C5F1A2AFDD5008A5830 /* AppDelegate.mm in Sources */,
 				A4E731AA1A8CA99700980676 /* ActivityTicketView.m in Sources */,
 				A493C1C91ADD0A0C0056BD52 /* ResManager.m in Sources */,
