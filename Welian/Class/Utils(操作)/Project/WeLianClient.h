@@ -21,8 +21,7 @@
 + (void)adBannerWithSuccess:(SuccessBlock)success Failed:(FailedBlock)failed;
 
 // 微链头条 列表
-+ (void)getTouTiaoListWithTime:(NSString *)time
-                          Type:(NSNumber *)type
++ (void)getTouTiaoListWithPage:(NSNumber *)page
                           Size:(NSNumber *)size
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed;

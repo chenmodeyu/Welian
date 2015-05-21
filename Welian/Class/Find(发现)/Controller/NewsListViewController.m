@@ -45,6 +45,7 @@
     
     //背景色
     self.view.backgroundColor = KBgLightGrayColor;
+    self.pageIndex = 1;
     self.pageSize = KCellConut;
     
     //添加创建活动按钮
@@ -131,11 +132,8 @@
 //初始化数据
 - (void)initData
 {
-    //type == 0 ，取time时间后最新更新的.time 为客户端保存的最新的一条的头条的时间，
-    //type==1 ，取time时间更新前的数量，time 为客户端保存的最早的一条头条的时间
-    [WeLianClient getTouTiaoListWithTime:@"2015-05-19 19:21"
-                                    Type:@(1)
-                                    Size:@(30)
+    [WeLianClient getTouTiaoListWithPage:@(_pageIndex)
+                                    Size:@(_pageSize)
                                  Success:^(id resultInfo) {
                                      [_tableView.header endRefreshing];
                                      [_tableView.footer endRefreshing];
@@ -164,13 +162,15 @@
 //下拉刷新数据
 - (void)loadNewDataInfo
 {
+    _pageIndex = 1;
     [self initData];
 }
 
 //上拉加载更多数据
 - (void)loadMoreDataInfo
 {
-    
+    self.pageIndex = _pageIndex + 1;
+    [self initData];
 }
 
 @end
