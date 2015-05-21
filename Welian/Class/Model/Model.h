@@ -23,6 +23,7 @@
 #import "NeedAddUser.h"
 #import "CompanyModel.h"
 #import "SchoolModel.h"
+#import "TouTiaoInfo.h"
 
 
 #pragma mark - Interface

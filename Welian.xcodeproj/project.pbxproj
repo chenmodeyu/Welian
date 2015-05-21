@@ -2772,6 +2772,11 @@
 		A4F6A5EC1A514ACF008DBC8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F6A5EB1A514ACF008DBC8C /* MessageUI.framework */; };
 		A4F6A5ED1A514AD6008DBC8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F6A5EB1A514ACF008DBC8C /* MessageUI.framework */; };
 		A4F6A5EE1A514ADD008DBC8C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F6A5EB1A514ACF008DBC8C /* MessageUI.framework */; };
+		A4FA34FC1B0DD983006066A6 /* TouTiaoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA34FB1B0DD983006066A6 /* TouTiaoInfo.m */; };
+		A4FA34FD1B0DD983006066A6 /* TouTiaoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA34FB1B0DD983006066A6 /* TouTiaoInfo.m */; };
+		A4FA34FE1B0DD983006066A6 /* TouTiaoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA34FB1B0DD983006066A6 /* TouTiaoInfo.m */; };
+		A4FA34FF1B0DD983006066A6 /* TouTiaoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA34FB1B0DD983006066A6 /* TouTiaoInfo.m */; };
+		A4FA35001B0DD983006066A6 /* TouTiaoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FA34FB1B0DD983006066A6 /* TouTiaoInfo.m */; };
 		A4FDF3BC1B0A038700A487A9 /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */; };
 		A4FDF3C51B0A041800A487A9 /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */; };
 		A4FDF3C61B0A041800A487A9 /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FDF3C01B0A041800A487A9 /* HYBLoadImageView.m */; };
@@ -5748,6 +5753,9 @@
 		A4F646BC1A43C2FB002E66FC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A4F6A5E71A514A47008DBC8C /* libBlocksKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBlocksKit.a; sourceTree = "<group>"; };
 		A4F6A5EB1A514ACF008DBC8C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A4FA34F91B0DD78A006066A6 /* weLian1.8.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weLian1.8.0.xcdatamodel; sourceTree = "<group>"; };
+		A4FA34FA1B0DD983006066A6 /* TouTiaoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouTiaoInfo.h; sourceTree = "<group>"; };
+		A4FA34FB1B0DD983006066A6 /* TouTiaoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouTiaoInfo.m; sourceTree = "<group>"; };
 		A4FDF3B71B0A038700A487A9 /* MCAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAvatarView.h; sourceTree = "<group>"; };
 		A4FDF3B81B0A038700A487A9 /* MCAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAvatarView.m; sourceTree = "<group>"; };
 		A4FDF3BF1B0A041800A487A9 /* HYBLoadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBLoadImageView.h; sourceTree = "<group>"; };
@@ -9335,6 +9343,8 @@
 			isa = PBXGroup;
 			children = (
 				F59E76091A405D170028FBAF /* weLian.xcdatamodeld */,
+				A4FA34FA1B0DD983006066A6 /* TouTiaoInfo.h */,
+				A4FA34FB1B0DD983006066A6 /* TouTiaoInfo.m */,
 				A489E7CE1AA5980C00F7BE9F /* ActivityInfo.h */,
 				A489E7CF1AA5980C00F7BE9F /* ActivityInfo.m */,
 				A47D41D41A8B50320070BFD8 /* ProjectUser.h */,
@@ -13287,6 +13297,7 @@
 				A493C2571ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				A49C7C911A70D42700F2AEC5 /* MJPhotoView.m in Sources */,
 				A49C7C921A70D42700F2AEC5 /* WLStatusCell.m in Sources */,
+				A4FA35001B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
 				A49C7C941A70D42700F2AEC5 /* SameFriendsCell.m in Sources */,
 				A49C7C951A70D42700F2AEC5 /* XHSoundManager.m in Sources */,
 				A49C7C961A70D42700F2AEC5 /* FLAnimatedImage.m in Sources */,
@@ -13811,6 +13822,7 @@
 				F53DC31D1A49192600F5F712 /* MJPhotoView.m in Sources */,
 				F53DC31E1A49192600F5F712 /* WLStatusCell.m in Sources */,
 				F53DC3201A49192600F5F712 /* SameFriendsCell.m in Sources */,
+				A4FA34FE1B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
 				A4C141761A4BEF5700C9BAB5 /* XHSoundManager.m in Sources */,
 				A4C141101A4BEF5700C9BAB5 /* FLAnimatedImage.m in Sources */,
 				A49C804A1A71041000F2AEC5 /* base64.m in Sources */,
@@ -14335,6 +14347,7 @@
 				A4A2EAE81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731AF1A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F56649F21A2AFD56008A5830 /* WLStatusCell.m in Sources */,
+				A4FA34FC1B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
 				F56649F31A2AFD56008A5830 /* SameFriendsCell.m in Sources */,
 				F56649F41A2AFD56008A5830 /* WeixinSessionActivity.m in Sources */,
 				F56649F61A2AFD56008A5830 /* InvestorUsersListController.m in Sources */,
@@ -14859,6 +14872,7 @@
 				F5664CAA1A2AFDD5008A5830 /* MJPhotoView.m in Sources */,
 				F5664CAC1A2AFDD5008A5830 /* WLStatusCell.m in Sources */,
 				F5664CAD1A2AFDD5008A5830 /* SameFriendsCell.m in Sources */,
+				A4FA34FD1B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
 				A4C141751A4BEF5700C9BAB5 /* XHSoundManager.m in Sources */,
 				A4C1410F1A4BEF5700C9BAB5 /* FLAnimatedImage.m in Sources */,
 				A49C80491A71041000F2AEC5 /* base64.m in Sources */,
@@ -15153,6 +15167,7 @@
 				A4948E761B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				F51484DF1B09B28800970AFB /* HYBLoopScrollView.m in Sources */,
 				A493C3B11ADD14A60056BD52 /* WLTool.m in Sources */,
+				A4FA34FF1B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
 				A40515861AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
 				A49234D01ADE3E0C009E0B8C /* UserCardController.m in Sources */,
 				A493C3391ADD14A60056BD52 /* CommentHomeViewFrame.m in Sources */,
@@ -15890,6 +15905,7 @@
 		F59E76091A405D170028FBAF /* weLian.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A4FA34F91B0DD78A006066A6 /* weLian1.8.0.xcdatamodel */,
 				A46D5E9B1ABFE56600FF0554 /* weLian1.1.9.xcdatamodel */,
 				A489E7CD1AA5958E00F7BE9F /* weLian1.1.8.xcdatamodel */,
 				A4715B211A84A2C3005DB2FC /* weLian1.1.7.xcdatamodel */,
@@ -15902,7 +15918,7 @@
 				A437CEE71A539DBE00B54E68 /* weLian1.1.1.xcdatamodel */,
 				F59E760A1A405D170028FBAF /* weLian.xcdatamodel */,
 			);
-			currentVersion = A46D5E9B1ABFE56600FF0554 /* weLian1.1.9.xcdatamodel */;
+			currentVersion = A4FA34F91B0DD78A006066A6 /* weLian1.8.0.xcdatamodel */;
 			path = weLian.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

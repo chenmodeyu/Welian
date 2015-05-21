@@ -28,6 +28,8 @@
 - (NSDate *)dateFromShortString;
 - (NSDate *)dateFromString;
 - (NSDate *)dateFromNormalString;
+//不带秒的时间格式
+- (NSDate *)dateFromNormalStringNoss;
 
 //去除两端空格
 - (NSString *)deleteTopAndBottomKongge;

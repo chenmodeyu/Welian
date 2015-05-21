@@ -40,7 +40,7 @@
     return self;
 }
 
-- (void)setInfoData:(ITouTiaoModel *)infoData
+- (void)setInfoData:(TouTiaoInfo *)infoData
 {
     [super willChangeValueForKey:@"infoData"];
     _infoData = infoData;
@@ -48,7 +48,7 @@
     [_infoImageView sd_setImageWithURL:[NSURL URLWithString:_infoData.photo]
                       placeholderImage:nil
                                options:SDWebImageRetryFailed|SDWebImageLowPriority];
-    _timeLabel.text = _infoData.created;
+    _timeLabel.text = [_infoData displayCreateTime];
     _titleLabel.text = _infoData.title;
     _detailLabel.text = _infoData.intro;
 }
@@ -122,7 +122,7 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.textColor = kTitleNormalTextColor;
     titleLabel.font = kNormal15Font;
-    titleLabel.text = @"为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业";
+    titleLabel.text = @"";
     titleLabel.numberOfLines = 2.f;
     [cardView addSubview:titleLabel];
     self.titleLabel = titleLabel;
@@ -138,7 +138,7 @@
     UILabel *detailLabel = [[UILabel alloc] init];
     detailLabel.textColor = kTitleTextColor;
     detailLabel.font = kNormal12Font;
-    detailLabel.text = @"熊猫一天要吃14个小时，什么竹子都能尝尝，熊猫一天要吃14个小时，什么竹子都能尝尝，熊猫一天要吃14个小时，什么竹子都能尝尝什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业为什么我不去创业";
+    detailLabel.text = @"";
     detailLabel.numberOfLines = 2.f;
     [cardView addSubview:detailLabel];
     self.detailLabel = detailLabel;

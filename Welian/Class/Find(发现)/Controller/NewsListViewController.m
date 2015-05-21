@@ -47,6 +47,7 @@
     self.view.backgroundColor = KBgLightGrayColor;
     self.pageIndex = 1;
     self.pageSize = KCellConut;
+    self.datasource = [TouTiaoInfo getAllTouTiaos];
     
     //添加创建活动按钮
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建活动" style:UIBarButtonItemStyleDone target:self action:@selector(createActivity)];
@@ -60,6 +61,11 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
     //    [tableView setDebug:YES];
+    
+    //设置底部空白区域
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 30.f)];
+    footerView.backgroundColor = KBgLightGrayColor;
+    [tableView setTableFooterView:footerView];
     
     //下拉刷新
     [_tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewDataInfo)];
@@ -138,7 +144,16 @@
                                      [_tableView.header endRefreshing];
                                      [_tableView.footer endRefreshing];
                                      
-                                     self.datasource = resultInfo;
+                                     if (_pageIndex == 1) {
+                                         //隐性删除数据库数据
+                                         [TouTiaoInfo deleteAllTouTiaoInfos];
+                                     }
+                                     
+                                     for (ITouTiaoModel *iTouTiaoModel in resultInfo) {
+                                         [TouTiaoInfo createTouTiaoInfoWith:iTouTiaoModel];
+                                     }
+                                     
+                                     self.datasource = [TouTiaoInfo getAllTouTiaos];
                                      [_tableView reloadData];
                                      
                                      if ([resultInfo count] == _pageSize) {
