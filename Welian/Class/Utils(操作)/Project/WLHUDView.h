@@ -12,9 +12,12 @@
 @interface WLHUDView : NSObject
 
 +(UIWindow*)window;
-
+// 成功
 + (void)showSuccessHUD:(NSString *)labeltext;
+// 失败
 + (void)showErrorHUD:(NSString *)labeltext;
+// 警告
++ (void)showAttentionHUD:(NSString *)labelText;
 
 + (void)showCustomHUD:(NSString *)labeltext imageview:(NSString *)imageName;
 

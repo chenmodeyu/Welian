@@ -9,8 +9,9 @@
 #import "WLHUDView.h"
 #import "MBProgressHUD.h"
 
-#define Kerror     @"error"
-#define Ksuccess   @"success"
+#define Kerror     @"hud_error"
+#define Ksuccess   @"hud_success"
+#define KAttention @"hud_attention"
 
 @interface WLHUDView ()
 @end
@@ -25,6 +26,11 @@
 
 MBProgressHUD *HUD;
 
+
++ (void)showAttentionHUD:(NSString *)labelText
+{
+    [self showCustomHUD:labelText imageview:KAttention];
+}
 
 + (void)showSuccessHUD:(NSString *)labeltext
 {
@@ -44,7 +50,7 @@ MBProgressHUD *HUD;
         HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     }
     HUD.mode = MBProgressHUDModeCustomView;
-    [HUD hide:YES afterDelay:1.0];
+    [HUD hide:YES afterDelay:1.2];
 }
 
 
