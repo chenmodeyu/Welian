@@ -136,6 +136,7 @@
     }
     WEAKSELF
     [WeLianClient getFeedListWithParameterDic:darDic Success:^(id resultInfo) {
+        weakSelf.tableView.tableHeaderView = nil;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             // 耗时的操作
             NSArray *jsonarray = [NSArray arrayWithArray:resultInfo];
@@ -292,15 +293,17 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView setBackgroundColor:WLLineColor];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, IWTableBorderWidth, 0);
+    
+    // 检查网络连接
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    WEAKSELF
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
-            [self showStatusNotReachable];
+            [weakSelf showStatusNotReachable];
               [WLHUDView showErrorHUD:@"网络已断开，请检查网络"];
         }else{
-//            [self beginPullDownRefreshing];
-            [self.tableView.header beginRefreshing];
-            self.tableView.tableHeaderView = nil;
+            [weakSelf.tableView.header beginRefreshing];
+
         }
     }];
 }
@@ -335,6 +338,7 @@
     [UIView animateWithDuration:duration animations:^{
         btn.transform = CGAffineTransformMakeTranslation(0, btnH);
     } completion:^(BOOL finished) {
+        [self.tableView setTableHeaderView:nil];
         [self.tableView setTableHeaderView:btn];
     }];
 }

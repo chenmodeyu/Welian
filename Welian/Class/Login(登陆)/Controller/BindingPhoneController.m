@@ -90,38 +90,6 @@
     } Failed:^(NSError *error) {
         [WLHUDView showErrorHUD:error.localizedDescription];
     }];
-    
-//    [WLHttpTool loginParameterDic:requstDic success:^(id JSON) {
-//        NSDictionary *dataDic = JSON;
-//        if (dataDic) {
-//            UserInfoModel *mode = [UserInfoModel objectWithKeyValues:dataDic];
-//            
-//            //记录最后一次登陆的手机号
-//            SaveLoginMobile(_phoneTF.text);
-////            SaveLoginPassWD(_pwdTF.text);
-//            
-//            [UserDefaults setObject:mode.sessionid forKey:kSessionId];
-//            [LogInUser createLogInUserModel:mode];
-//            [LogInUser setUseropenid:[self.userInfoDic objectForKey:@"openid"]];
-//            [LogInUser setUserunionid:[self.userInfoDic objectForKey:@"unionid"]];
-//            BSearchFriendsController *BSearchFVC = [[BSearchFriendsController alloc] init];
-//            [BSearchFVC setIsStart:YES];
-//            NavViewController *nav = [[NavViewController alloc] initWithRootViewController:BSearchFVC];
-////            [self.navigationController pushViewController:nav animated:YES];
-//            [self presentViewController:nav animated:YES completion:^{
-//                [self.navigationController popToRootViewControllerAnimated:NO];
-//            }];
-//        }
-//    } fail:^(NSError *error) {
-//        [WLHUDView showErrorHUD:error.domain];
-//        if (error.code==1) {
-//            
-//        }else if (error.code==-1){
-//        
-//        }else if (error.code==-2){
-//            
-//        }
-//    } isHUD:YES];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
