@@ -4265,6 +4265,8 @@
 		F5CA5C061AA59DA900E3E2F8 /* WLCellCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA5C041AA59DA900E3E2F8 /* WLCellCardView.m */; };
 		F5CA5C071AA59DA900E3E2F8 /* WLCellCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA5C041AA59DA900E3E2F8 /* WLCellCardView.m */; };
 		F5CA5C081AA59DA900E3E2F8 /* WLCellCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CA5C041AA59DA900E3E2F8 /* WLCellCardView.m */; };
+		F5CAB7761B0DCDDF00937E63 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5CAB7751B0DCDDF00937E63 /* Settings.bundle */; };
+		F5CAB7771B0DCDDF00937E63 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5CAB7751B0DCDDF00937E63 /* Settings.bundle */; };
 		F5CBE3091AC40AD100F4C884 /* me_circle_chat_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CBE3081AC40AD100F4C884 /* me_circle_chat_location@2x.png */; };
 		F5CBE30A1AC40AD100F4C884 /* me_circle_chat_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CBE3081AC40AD100F4C884 /* me_circle_chat_location@2x.png */; };
 		F5CBE30B1AC40AD100F4C884 /* me_circle_chat_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CBE3081AC40AD100F4C884 /* me_circle_chat_location@2x.png */; };
@@ -6431,6 +6433,7 @@
 		F5C779731A53935F0098BC29 /* InvestItemM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestItemM.m; sourceTree = "<group>"; };
 		F5CA5C031AA59DA900E3E2F8 /* WLCellCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCellCardView.h; sourceTree = "<group>"; };
 		F5CA5C041AA59DA900E3E2F8 /* WLCellCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCellCardView.m; sourceTree = "<group>"; };
+		F5CAB7751B0DCDDF00937E63 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F5CBE3081AC40AD100F4C884 /* me_circle_chat_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me_circle_chat_location@2x.png"; sourceTree = "<group>"; };
 		F5CBE30D1AC4351A00F4C884 /* Expression_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_1@2x.png"; sourceTree = "<group>"; };
 		F5CBE30E1AC4351A00F4C884 /* Expression_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_2@2x.png"; sourceTree = "<group>"; };
@@ -9710,6 +9713,7 @@
 				F5CE860619BFF2AB00A9D14C /* InfoPlist.strings */,
 				F5CE860919BFF2AB00A9D14C /* main.m */,
 				F5CE860B19BFF2AB00A9D14C /* weLian.pch */,
+				F5CAB7751B0DCDDF00937E63 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -12252,6 +12256,7 @@
 				A409A19A1AC2E1AF0033A31D /* cellbackground_normal@2x.png in Resources */,
 				F5CBE4131AC4351A00F4C884 /* Expression_42@2x.png in Resources */,
 				F5CBE4E31AC4351A00F4C884 /* Expression_94@2x.png in Resources */,
+				F5CAB7761B0DCDDF00937E63 /* Settings.bundle in Resources */,
 				F58796611AE8C008002C414F /* button_blue@2x.png in Resources */,
 				A4C144301A4C0A6B00C9BAB5 /* MultiSelectedPanelConfirmBtnbKG@2x.png in Resources */,
 				A409A2821AC2E1AF0033A31D /* me_tip_yirenzheng@2x.png in Resources */,
@@ -12639,6 +12644,7 @@
 				A409A2671AC2E1AF0033A31D /* me_mywriten_with.@2xpng.png in Resources */,
 				F55772EC1A5AA3E200693279 /* login_password@2x.png in Resources */,
 				A4A888BE1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png in Resources */,
+				F5CAB7771B0DCDDF00937E63 /* Settings.bundle in Resources */,
 				F5664DEE1A2AFDD5008A5830 /* user_small@2x.png in Resources */,
 				A4C143D41A4C0A6B00C9BAB5 /* SenderVoiceNodePlaying001@2x.png in Resources */,
 				A409A2731AC2E1AF0033A31D /* me_renzheng_chuang@2x.png in Resources */,

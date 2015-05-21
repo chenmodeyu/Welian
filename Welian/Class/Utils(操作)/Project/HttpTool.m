@@ -23,7 +23,7 @@ static HttpTool *engine;
     if (engine == nil) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            engine = [[self alloc] initWithBaseURL:[NSURL URLWithString:WLHttpServer]];
+            engine = [[self alloc] initWithBaseURL:[NSURL URLWithString:[UserDefaults boolForKey:WLHttpCheck]?WLHttpTestServer:WLHttpServer]];
             engine.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
             engine.requestSerializer = [AFHTTPRequestSerializer serializer];
             engine.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -175,7 +175,7 @@ static HttpTool *engine;
         NSString *value = [parameters objectForKey:key];
         paraString = [NSString stringWithFormat:@"%@%@=%@%@",paraString,key,value, ++index == keyArray.count ? @"" : @"&"];
     }
-    NSString *api = [NSString stringWithFormat:@"====\n%@/%@?%@\n=======", WLHttpServer,@"server/index", paraString];
+    NSString *api = [NSString stringWithFormat:@"====\n%@/%@?%@\n=======", [UserDefaults boolForKey:WLHttpCheck]?WLHttpTestServer:WLHttpServer,@"server/index", paraString];
     DLog(@"api:%@", api);
 }
 

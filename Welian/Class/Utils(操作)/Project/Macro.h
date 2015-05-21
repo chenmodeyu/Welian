@@ -14,7 +14,7 @@
 
 // 服务器地址
 //测试环境
-//#define WLHttpServer  @"http://test.welian.com:8080"
+#define WLHttpTestServer  @"http://test.welian.com:8080"
 
 //正式环境
 #define WLHttpServer @"http://sev.welian.com:80"
@@ -23,6 +23,8 @@
 //#define WLHttpServer  @"http://192.168.1.122:80"
 
 //#define WLHttpServer  @"http://www.welian.com:8080"
+
+#define WLHttpCheck   @"Http_preference"
 
 // DES加解密key
 #define KDESkey @"weLian&188"

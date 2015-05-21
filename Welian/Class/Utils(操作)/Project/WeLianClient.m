@@ -47,7 +47,7 @@
     static WeLianClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[WeLianClient alloc] initWithBaseURL:[NSURL URLWithString:WLHttpServer]];
+        _sharedClient = [[WeLianClient alloc] initWithBaseURL:[NSURL URLWithString:[UserDefaults boolForKey:WLHttpCheck]?WLHttpTestServer:WLHttpServer]];
     });
     return _sharedClient;
 }
@@ -61,7 +61,7 @@
         NSString *value = [parameters objectForKey:key];
         paraString = [NSString stringWithFormat:@"%@%@=%@%@\n",paraString,key,value, ++index == keyArray.count ? @"" : @"&"];
     }
-    NSString *api = [NSString stringWithFormat:@"====\n%@/%@?%@\n=======", WLHttpServer,pathInfo, paraString];
+    NSString *api = [NSString stringWithFormat:@"====\n%@/%@?%@\n=======", [UserDefaults boolForKey:WLHttpCheck]?WLHttpTestServer:WLHttpServer,pathInfo, paraString];
     DLog(@"api:%@", api);
 }
 
