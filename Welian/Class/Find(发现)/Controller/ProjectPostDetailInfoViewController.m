@@ -8,15 +8,18 @@
 
 #import "ProjectPostDetailInfoViewController.h"
 
+#import "ProjectInfoViewCell.h"
 #import "FinancingInfoView.h"
 #import "NoteMsgView.h"
 #import "NoteTableViewCell.h"
 #import "ProjectBPViewCell.h"
+#import "FinancingInfoViewCell.h"
 
 #define ToolBarHeight 50.f
 #define kOperateButtonHeight 35.f
 #define kmarginLeft 15.f
 #define kNotViewHeight 30.f
+#define kProjectInfoViewHeight 70.f
 
 @interface ProjectPostDetailInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -64,13 +67,9 @@
     self.tableView = tableView;
     //    [tableView setDebug:YES];
     
-    //设置头部内容
-    CGFloat headerHeight = [FinancingInfoView configureWithIProjectInfo:_iProjectDetailInfo];
-    FinancingInfoView *financingInfoView = [[FinancingInfoView alloc] initWithFrame:Rect(0, 0, _tableView.width, headerHeight)];
-    financingInfoView.iProjectDetailInfo = _iProjectDetailInfo;
-    financingInfoView.layer.borderColorFromUIColor = kNormalLineColor;
-    financingInfoView.layer.borderWidths = @"{0,0,0.5,0}";
-    [_tableView setTableHeaderView:financingInfoView];
+    //设置底部空白区域
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 40.f)];
+    [tableView setTableFooterView:footerView];
     
     //设置提醒
     NoteMsgView *noteView = [[NoteMsgView alloc] initWithFrame:Rect(0, tableView.bottom, self.view.width, kNotViewHeight)];
@@ -130,30 +129,61 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _datasource.count ? : 1;
+    return _datasource.count ? _datasource.count + 2 : 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //评论列表
-    if (_datasource.count > 0) {
-        static NSString *cellIdentifier = @"FinancingInfo_List_View_Cell";
-        ProjectBPViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (!cell) {
-            cell = [[ProjectBPViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    switch (indexPath.row) {
+        case 0:
+        {
+            //项目信息
+            static NSString *cellIdentifier = @"FinancingInfo_ProjectInfo_View_Cell";
+            ProjectInfoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (!cell) {
+                cell = [[ProjectInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            }
+            cell.iProjectDetailInfo = _iProjectDetailInfo;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
         }
-        cell.fineName = @"微链商业计划书.pdf";
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        return cell;
-    }else{
-        static NSString *cellIdentifier = @"FinancingInfo_Not_View_Cell";
-        NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (!cell) {
-            cell = [[NoteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            break;
+        case 1:
+        {
+            static NSString *cellIdentifier = @"FinancingInfo_View_Cell";
+            FinancingInfoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (!cell) {
+                cell = [[FinancingInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            }
+            cell.iProjectDetailInfo = _iProjectDetailInfo;
+            return cell;
         }
-        cell.noteInfo = @"该项目暂未上传BP文件";
-        return cell;
+            break;
+        default:
+        {
+            //评论列表
+            if (_datasource.count > 0) {
+                static NSString *cellIdentifier = @"FinancingInfo_List_View_Cell";
+                ProjectBPViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (!cell) {
+                    cell = [[ProjectBPViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+                }
+                cell.fineName = @"微链商业计划书.pdf";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                return cell;
+            }else{
+                static NSString *cellIdentifier = @"FinancingInfo_Not_View_Cell";
+                NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (!cell) {
+                    cell = [[NoteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+                }
+                cell.noteInfo = @"该项目暂未上传BP文件";
+                return cell;
+            }
+        }
+            break;
     }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -164,7 +194,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.f;
+    return 0.01f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -174,12 +204,50 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 43.f;
+    switch (indexPath.row) {
+        case 0:
+        {
+            //项目信息
+            return kProjectInfoViewHeight;
+        }
+            break;
+        case 1:
+        {
+            //融资信息
+            return [FinancingInfoView configureWithIProjectInfo:_iProjectDetailInfo];
+        }
+            break;
+        default:
+        {
+            //评论列表
+            return 43.f;
+        }
+            break;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 43.f;
+    switch (indexPath.row) {
+        case 0:
+        {
+            //项目信息
+            return kProjectInfoViewHeight;
+        }
+            break;
+        case 1:
+        {
+            //融资信息
+            return [FinancingInfoView configureWithIProjectInfo:_iProjectDetailInfo];
+        }
+            break;
+        default:
+        {
+            //评论列表
+            return 43.f;
+        }
+            break;
+    }
 }
 
 @end

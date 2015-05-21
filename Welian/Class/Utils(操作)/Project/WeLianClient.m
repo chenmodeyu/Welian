@@ -164,7 +164,8 @@
                           Path:KTouTiaoListUrl
                        Success:^(id resultInfo) {
                            DLog(@"getTouTiaoList ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           NSArray *result = [ITouTiaoModel objectsWithInfo:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];

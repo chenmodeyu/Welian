@@ -24,6 +24,11 @@
 
 @implementation FinancingInfoView
 
+- (void)dealloc
+{
+    _iProjectDetailInfo = nil;
+}
+
 - (instancetype)init
 {
     self = [super init];

@@ -464,6 +464,26 @@
 		A4557DFC1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4557DFA1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png */; };
 		A4557DFD1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4557DFA1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png */; };
 		A4557DFE1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4557DFA1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png */; };
+		A45923991B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923981B0D7CFB00715F06 /* ITouTiaoModel.m */; };
+		A459239A1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923981B0D7CFB00715F06 /* ITouTiaoModel.m */; };
+		A459239B1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923981B0D7CFB00715F06 /* ITouTiaoModel.m */; };
+		A459239C1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923981B0D7CFB00715F06 /* ITouTiaoModel.m */; };
+		A459239D1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923981B0D7CFB00715F06 /* ITouTiaoModel.m */; };
+		A45923A01B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A459239F1B0D82C200715F06 /* ProjectInfoViewCell.m */; };
+		A45923A11B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A459239F1B0D82C200715F06 /* ProjectInfoViewCell.m */; };
+		A45923A21B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A459239F1B0D82C200715F06 /* ProjectInfoViewCell.m */; };
+		A45923A31B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A459239F1B0D82C200715F06 /* ProjectInfoViewCell.m */; };
+		A45923A41B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A459239F1B0D82C200715F06 /* ProjectInfoViewCell.m */; };
+		A45923A61B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A45923A51B0D83A500715F06 /* xiangmu_rongziing@2x.png */; };
+		A45923A71B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A45923A51B0D83A500715F06 /* xiangmu_rongziing@2x.png */; };
+		A45923A81B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A45923A51B0D83A500715F06 /* xiangmu_rongziing@2x.png */; };
+		A45923A91B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A45923A51B0D83A500715F06 /* xiangmu_rongziing@2x.png */; };
+		A45923AA1B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A45923A51B0D83A500715F06 /* xiangmu_rongziing@2x.png */; };
+		A45923AD1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923AC1B0D93DA00715F06 /* FinancingInfoViewCell.m */; };
+		A45923AE1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923AC1B0D93DA00715F06 /* FinancingInfoViewCell.m */; };
+		A45923AF1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923AC1B0D93DA00715F06 /* FinancingInfoViewCell.m */; };
+		A45923B01B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923AC1B0D93DA00715F06 /* FinancingInfoViewCell.m */; };
+		A45923B11B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A45923AC1B0D93DA00715F06 /* FinancingInfoViewCell.m */; };
 		A464614C1AAD424D00D2687B /* navbar_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A464614B1AAD424D00D2687B /* navbar_share@2x.png */; };
 		A464614D1AAD424D00D2687B /* navbar_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A464614B1AAD424D00D2687B /* navbar_share@2x.png */; };
 		A464614E1AAD424D00D2687B /* navbar_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A464614B1AAD424D00D2687B /* navbar_share@2x.png */; };
@@ -4935,6 +4955,13 @@
 		A45065551A5BD4AF0057F8AA /* ActivityMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityMapViewController.h; sourceTree = "<group>"; };
 		A45065561A5BD4AF0057F8AA /* ActivityMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityMapViewController.m; sourceTree = "<group>"; };
 		A4557DFA1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discovery_activity_detail_zhubanfang@2x.png"; sourceTree = "<group>"; };
+		A45923971B0D7CFB00715F06 /* ITouTiaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITouTiaoModel.h; sourceTree = "<group>"; };
+		A45923981B0D7CFB00715F06 /* ITouTiaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITouTiaoModel.m; sourceTree = "<group>"; };
+		A459239E1B0D82C200715F06 /* ProjectInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectInfoViewCell.h; sourceTree = "<group>"; };
+		A459239F1B0D82C200715F06 /* ProjectInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectInfoViewCell.m; sourceTree = "<group>"; };
+		A45923A51B0D83A500715F06 /* xiangmu_rongziing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangmu_rongziing@2x.png"; sourceTree = "<group>"; };
+		A45923AB1B0D93DA00715F06 /* FinancingInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancingInfoViewCell.h; sourceTree = "<group>"; };
+		A45923AC1B0D93DA00715F06 /* FinancingInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancingInfoViewCell.m; sourceTree = "<group>"; };
 		A464614B1AAD424D00D2687B /* navbar_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_share@2x.png"; sourceTree = "<group>"; };
 		A4675D2A1AC16F4100E556B2 /* msg_dian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg_dian@2x.png"; sourceTree = "<group>"; };
 		A46934921ACAC69900B87D87 /* navbar_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_left@2x.png"; sourceTree = "<group>"; };
@@ -6877,6 +6904,8 @@
 				A48A36621AF0AF130099615D /* IAlipayInfoModel.m */,
 				F581E7861AF870B900902665 /* IPhotoUp.h */,
 				F581E7871AF870B900902665 /* IPhotoUp.m */,
+				A45923971B0D7CFB00715F06 /* ITouTiaoModel.h */,
+				A45923981B0D7CFB00715F06 /* ITouTiaoModel.m */,
 			);
 			path = Interface2.0;
 			sourceTree = "<group>";
@@ -7086,6 +7115,8 @@
 		A47D41FF1A8B8AB80070BFD8 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				A459239E1B0D82C200715F06 /* ProjectInfoViewCell.h */,
+				A459239F1B0D82C200715F06 /* ProjectInfoViewCell.m */,
 				A47F1B241A7F2AF100CB4D9F /* ProjectViewCell.h */,
 				A47F1B251A7F2AF100CB4D9F /* ProjectViewCell.m */,
 				A47F1B341A7F54E300CB4D9F /* ProjectInfoView.h */,
@@ -7104,6 +7135,8 @@
 				A4948E801B0C2C8500BA6258 /* FinancingInfoView.m */,
 				A4948E9B1B0C7E2F00BA6258 /* ProjectBPViewCell.h */,
 				A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */,
+				A45923AB1B0D93DA00715F06 /* FinancingInfoViewCell.h */,
+				A45923AC1B0D93DA00715F06 /* FinancingInfoViewCell.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -8729,6 +8762,7 @@
 		F51FB9ED19EF6C3E00D85D7F /* 发现images */ = {
 			isa = PBXGroup;
 			children = (
+				A45923A51B0D83A500715F06 /* xiangmu_rongziing@2x.png */,
 				A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */,
 				F584803F1AE10629002C2722 /* me_play@2x.png */,
 				A4557DFA1AC91A90008EB54E /* discovery_activity_detail_zhubanfang@2x.png */,
@@ -10950,6 +10984,7 @@
 				A409A1951AC2E1AF0033A31D /* bluebuttton_pressed@2x.png in Resources */,
 				A49C7F221A70D42700F2AEC5 /* home_new_emoji@2x.png in Resources */,
 				A409A1DD1AC2E1AF0033A31D /* me_circle_chat_card@2x.png in Resources */,
+				A45923AA1B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */,
 				A49C7F231A70D42700F2AEC5 /* weLianDis-Info.plist in Resources */,
 				A4C770CB1A806A6D005ABC7F /* discovery_rongzi_right@2x.png in Resources */,
 				A49C7F251A70D42700F2AEC5 /* SenderVoiceNodePlaying003@2x.png in Resources */,
@@ -11549,6 +11584,7 @@
 				F53DC4F71A49192600F5F712 /* success@2x.png in Resources */,
 				F5472DB71A8DCE8E002C9B35 /* backItem@2x.png in Resources */,
 				A4C1445F1A4C0A6B00C9BAB5 /* RecordingSignal006@2x.png in Resources */,
+				A45923A81B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */,
 				F53DC4FA1A49192600F5F712 /* tabbar_discovery_prompt@2x.png in Resources */,
 				A409A2981AC2E1AF0033A31D /* me_yes@2x.png in Resources */,
 				F53DC4FC1A49192600F5F712 /* MeSttingCell.xib in Resources */,
@@ -12256,6 +12292,7 @@
 				F5CBE49F1AC4351A00F4C884 /* Expression_77@2x.png in Resources */,
 				A4C143D91A4C0A6B00C9BAB5 /* SenderVoiceNodePlaying003@2x.png in Resources */,
 				F557731C1A5AB04200693279 /* login_guide1@2x.png in Resources */,
+				A45923A61B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */,
 				A4C143851A4C0A6B00C9BAB5 /* section0_emotion2@2x.png in Resources */,
 				F5CBE4271AC4351A00F4C884 /* Expression_47@2x.png in Resources */,
 				F5664C091A2AFD56008A5830 /* mapapi.bundle in Resources */,
@@ -12745,6 +12782,7 @@
 				F5664E651A2AFDD5008A5830 /* success@2x.png in Resources */,
 				F5472DB61A8DCE8E002C9B35 /* backItem@2x.png in Resources */,
 				A4C1445E1A4C0A6B00C9BAB5 /* RecordingSignal006@2x.png in Resources */,
+				A45923A71B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */,
 				F51BA4431A444DA2009E5CDF /* tabbar_discovery_prompt@2x.png in Resources */,
 				A409A2971AC2E1AF0033A31D /* me_yes@2x.png in Resources */,
 				F5664E691A2AFDD5008A5830 /* MeSttingCell.xib in Resources */,
@@ -12924,6 +12962,7 @@
 				A49234D51ADE3E0C009E0B8C /* UserCardController.xib in Resources */,
 				A492358B1ADE693A009E0B8C /* assets_placeholder_picture@2x.png in Resources */,
 				A49235E51ADE693A009E0B8C /* compose_photograph_highlighted@3x.png in Resources */,
+				A45923A91B0D83A500715F06 /* xiangmu_rongziing@2x.png in Resources */,
 				A493C3B61ADD14A60056BD52 /* city.db in Resources */,
 				F587965F1AE8C008002C414F /* button_blue_pre@2x.png in Resources */,
 				A49236261ADE693A009E0B8C /* photo_check_selected@3x.png in Resources */,
@@ -13099,6 +13138,7 @@
 				A49C7C291A70D42700F2AEC5 /* FMDatabaseAdditions.m in Sources */,
 				A49C7C2A1A70D42700F2AEC5 /* WLMessageSpecialView.m in Sources */,
 				A49C7C2B1A70D42700F2AEC5 /* ShareEngine.m in Sources */,
+				A45923B11B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A49C7C2E1A70D42700F2AEC5 /* AddWorkOrEducationController.m in Sources */,
 				A49C7C301A70D42700F2AEC5 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				A49C7C311A70D42700F2AEC5 /* WLBubblePhotoImageView.m in Sources */,
@@ -13218,6 +13258,7 @@
 				A49C7C8D1A70D42700F2AEC5 /* UIImage+RoundedCorner.m in Sources */,
 				A49C7C8E1A70D42700F2AEC5 /* MJPhotoLoadingView.m in Sources */,
 				A49C7C8F1A70D42700F2AEC5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
+				A459239D1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				A493C2571ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				A49C7C911A70D42700F2AEC5 /* MJPhotoView.m in Sources */,
 				A49C7C921A70D42700F2AEC5 /* WLStatusCell.m in Sources */,
@@ -13244,6 +13285,7 @@
 				A49C7CAC1A70D42700F2AEC5 /* UIImageView+MJWebCache.m in Sources */,
 				A49C7CAD1A70D42700F2AEC5 /* WLShareMenuView.m in Sources */,
 				A49C7CAE1A70D42700F2AEC5 /* UIImage+Alpha.m in Sources */,
+				A45923A41B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A49C7CAF1A70D42700F2AEC5 /* XHViewState.m in Sources */,
 				A493C26B1ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				A4743EBE1A7F979E00645998 /* ProjectDetailInfoView.m in Sources */,
@@ -13619,6 +13661,7 @@
 				F53DC2DF1A49192600F5F712 /* ShareEngine.m in Sources */,
 				F53DC2E21A49192600F5F712 /* AddWorkOrEducationController.m in Sources */,
 				A4A2EAE11A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
+				A45923AF1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A4C1446A1A4C271900C9BAB5 /* WLBubblePhotoImageView.m in Sources */,
 				A493C26E1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
 				F53DC2E41A49192600F5F712 /* UIImageView+WebCache.m in Sources */,
@@ -13738,6 +13781,7 @@
 				A49235531ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A492354E1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C2551ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
+				A459239B1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				F53DC31D1A49192600F5F712 /* MJPhotoView.m in Sources */,
 				F53DC31E1A49192600F5F712 /* WLStatusCell.m in Sources */,
 				F53DC3201A49192600F5F712 /* SameFriendsCell.m in Sources */,
@@ -13764,6 +13808,7 @@
 				F53DC32E1A49192600F5F712 /* UIImageView+MJWebCache.m in Sources */,
 				A41CE1B41A6F81DB004F17E7 /* WLShareMenuView.m in Sources */,
 				A4C140731A4BEA8500C9BAB5 /* UIImage+Alpha.m in Sources */,
+				A45923A21B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A4C1416D1A4BEF5700C9BAB5 /* XHViewState.m in Sources */,
 				A493C2691ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				A4743EBD1A7F979E00645998 /* ProjectDetailInfoView.m in Sources */,
@@ -14139,6 +14184,7 @@
 				F55078F41A80C70C009CE4F7 /* ProjectBaseModel.m in Sources */,
 				A4C144741A4C370100C9BAB5 /* WLMessageVoiceFactory.m in Sources */,
 				A48CA6B01A4D044B009EBD04 /* NSDate+DateTools.m in Sources */,
+				A45923AD1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				F534DB641A5119A000B6A725 /* InvestItems.m in Sources */,
 				F56649B61A2AFD56008A5830 /* SignInPWDController.m in Sources */,
 				A437CEF51A541BF300B54E68 /* WLMessageSpecialView.m in Sources */,
@@ -14258,6 +14304,7 @@
 				F5C779741A53935F0098BC29 /* InvestItemM.m in Sources */,
 				A493C2531ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				A4C140861A4BEA8500C9BAB5 /* UIView+XHBadgeView.m in Sources */,
+				A45923991B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				A4A2EAE81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731AF1A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F56649F21A2AFD56008A5830 /* WLStatusCell.m in Sources */,
@@ -14284,6 +14331,7 @@
 				F5933FAE1AD4F4030088C70D /* UIScrollView+MJRefresh.m in Sources */,
 				A4743E951A7F619D00645998 /* ProjectDetailView.m in Sources */,
 				A4C1416E1A4BEF5700C9BAB5 /* XHZoomingImageView.m in Sources */,
+				A45923A01B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A493C2671ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				F550787E1A7F2BE0009CE4F7 /* CreateProjectFootView.m in Sources */,
 				F5664A011A2AFD56008A5830 /* WLCellHead.m in Sources */,
@@ -14659,6 +14707,7 @@
 				F5664C721A2AFDD5008A5830 /* ShareEngine.m in Sources */,
 				F5664C751A2AFDD5008A5830 /* AddWorkOrEducationController.m in Sources */,
 				A4A2EAE01A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
+				A45923AE1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A4C144691A4C271900C9BAB5 /* WLBubblePhotoImageView.m in Sources */,
 				A493C26D1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
 				F5664C771A2AFDD5008A5830 /* UIImageView+WebCache.m in Sources */,
@@ -14778,6 +14827,7 @@
 				A49235521ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A492354D1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C2541ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
+				A459239A1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				F5664CAA1A2AFDD5008A5830 /* MJPhotoView.m in Sources */,
 				F5664CAC1A2AFDD5008A5830 /* WLStatusCell.m in Sources */,
 				F5664CAD1A2AFDD5008A5830 /* SameFriendsCell.m in Sources */,
@@ -14804,6 +14854,7 @@
 				F5664CB61A2AFDD5008A5830 /* UIImageView+MJWebCache.m in Sources */,
 				A41CE1B31A6F81DB004F17E7 /* WLShareMenuView.m in Sources */,
 				A4C140721A4BEA8500C9BAB5 /* UIImage+Alpha.m in Sources */,
+				A45923A11B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A4C1416C1A4BEF5700C9BAB5 /* XHViewState.m in Sources */,
 				A493C2681ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				A4743EBC1A7F979E00645998 /* ProjectDetailInfoView.m in Sources */,
@@ -15088,8 +15139,10 @@
 				A493C3A21ADD14A60056BD52 /* MsgPlaySound.m in Sources */,
 				A493C32F1ADD14A60056BD52 /* CommentCellFrame.m in Sources */,
 				A493C3CF1ADD14A60056BD52 /* InvestReqstModel.m in Sources */,
+				A459239C1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				A49076021AEF3A07001921EB /* IFriend2InfoModel.m in Sources */,
 				A493C37F1ADD14A60056BD52 /* WLUserStatusesResult.m in Sources */,
+				A45923A31B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A47095721ADD252600329050 /* NavViewController.m in Sources */,
 				A493C3431ADD14A60056BD52 /* FeedAndZanFrameM.m in Sources */,
 				A493C1D01ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
@@ -15129,6 +15182,7 @@
 				A493C2561ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				A493C3521ADD14A60056BD52 /* MessageHomeModel.m in Sources */,
 				A49236651ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
+				A45923B01B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A493C2AB1ADD0BB00056BD52 /* WLNavHeaderView.m in Sources */,
 				A492355E1ADE693A009E0B8C /* JKPhotoBrowser.m in Sources */,
 				A493C2381ADD0BB00056BD52 /* NSFileManager+DoNotBackup.m in Sources */,
