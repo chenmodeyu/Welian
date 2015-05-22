@@ -915,8 +915,8 @@ static NSString *noCommentCell = @"NoCommentCell";
                              otherButtonTitles:@[@"去认证"]
                                        handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
                                            if (buttonIndex == 0) {
-                                               return ;
-//                                               [self lookProjectFinancingInfo];
+//                                               return ;
+                                               [self lookProjectFinancingInfo];
                                            }else{
                                                InvestCerVC *investVC = [[InvestCerVC alloc] initWithStyle:UITableViewStyleGrouped];
                                                [self.navigationController pushViewController:investVC animated:YES];
