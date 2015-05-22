@@ -181,7 +181,8 @@
                           Path:KHotProjectPath
                        Success:^(id resultInfo) {
                            DLog(@"getHotProject ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           NSArray *result = [IProjectInfo objectsWithInfo:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];

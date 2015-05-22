@@ -20,6 +20,7 @@
 #import "BannerModel.h"
 #import "ProjectDetailsViewController.h"
 
+#define kBannerHeight 135.f
 
 @interface FindViewController () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -37,7 +38,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
 - (HYBLoopScrollView *)loopView
 {
     if (_loopView == nil) {
-        _loopView = [[HYBLoopScrollView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, 135)];
+        _loopView = [[HYBLoopScrollView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, kBannerHeight)];
         _loopView.pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:0.9 alpha:0.7];
         _loopView.pageControl.currentPageIndicatorTintColor = KBasesColor;
     }
@@ -79,6 +80,11 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    [self.tableView shouldPositionParallaxHeader];
+//}
+
 // 加载发现头部
 - (void)loadLoopViewData
 {
@@ -96,6 +102,10 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
         if (bannerArray.count) {
             [weakSelf.loopView setImageUrls:images];
             [weakSelf.tableView setTableHeaderView:self.loopView];
+//            [weakSelf.tableView setParallaxHeaderView:self.loopView
+//                                                 mode:VGParallaxHeaderModeFill
+//                                               height:kBannerHeight];
+            
             weakSelf.loopView.timeInterval = 5;
             weakSelf.loopView.didSelectItemBlock = ^(NSInteger atIndex, HYBLoadImageView *sender) {
                 BannerModel *baModel = bannerArray[atIndex];

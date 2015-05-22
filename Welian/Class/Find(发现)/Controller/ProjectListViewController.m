@@ -224,6 +224,53 @@
 
 //获取数据
 - (void)initData{
+    //获取最热项目
+    [WeLianClient getHotProjectWithPage:@(_pageIndex)
+                                   Size:@(_pageSize)
+                                Success:^(id resultInfo) {
+                                    [self.tableView.header endRefreshing];
+                                    [self.tableView.footer endRefreshing];
+                                    
+                                    //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
+                                    if (_pageIndex == 1) {
+                                        //第一页
+                                        [ProjectInfo deleteAllProjectInfoWithType:@(3)];
+                                    }
+                                    NSArray *projects = resultInfo;
+                                    if (projects.count > 0) {
+                                        
+                                        for (IProjectInfo *iProjectInfo in projects) {
+                                            [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(3)];
+                                        }
+                                    }
+                                    
+                                    //获取热门项目
+                                    NSArray *hotProjects = [ProjectInfo allMyProjectInfoWithType:@(3)];
+                                    self.headDatasource = nil;
+                                    self.datasource = [NSMutableArray arrayWithArray:hotProjects];
+                                    
+                                    //添加数据
+                                    [_allDataSource addObjectsFromArray:projects];
+                                    [self.tableView reloadData];
+                                    
+                                    //设置是否可以下拉刷新
+                                    if ([resultInfo count] != _pageSize) {
+                                        self.tableView.footer.hidden = YES;
+                                    }else{
+                                        self.tableView.footer.hidden = NO;
+                                    }
+                                    
+                                    if(_allDataSource.count == 0){
+                                        [self.tableView addSubview:self.notView];
+                                        [self.tableView sendSubviewToBack:self.notView];
+                                    }else{
+                                        [_notView removeFromSuperview];
+                                    }
+                                } Failed:^(NSError *error) {
+                                    [self.tableView.header endRefreshing];
+                                    [self.tableView.footer endRefreshing];
+                                }];
+    
     //大于零取某个用户的，-1取自己的，不传或者0取全部
     [WeLianClient getProjectListWithUid:@(0)//"uid":10086,// -1 取自己，0 取推荐的项目，大于0取id为uid的用户
                                    Page:@(_pageIndex)
@@ -232,6 +279,7 @@
                                      [self.tableView.header endRefreshing];
                                      [self.tableView.footer endRefreshing];
                                      
+                                     //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
                                      if (_pageIndex == 1) {
                                          //第一页
                                          [ProjectInfo deleteAllProjectInfoWithType:@(0)];
@@ -268,7 +316,6 @@
                                  } Failed:^(NSError *error) {
                                      [self.tableView.header endRefreshing];
                                      [self.tableView.footer endRefreshing];
-                                     
                                  }];
 }
 
