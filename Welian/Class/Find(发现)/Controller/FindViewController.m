@@ -11,6 +11,7 @@
 #import "TOWebViewController.h"
 #import "MainViewController.h"
 #import "ProjectListViewController.h"
+#import "ProjectMainViewController.h"
 //#import "InvestorUsersListController.h"
 #import "InvestorsListController.h"
 #import "ActivityListViewController.h"
@@ -297,8 +298,11 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
         {
             if (indexPath.row==0) {
                 //项目
-                ProjectListViewController *projectListVC = [[ProjectListViewController alloc] init];
-                [self.navigationController pushViewController:projectListVC animated:YES];
+//                ProjectListViewController *projectListVC = [[ProjectListViewController alloc] init];
+//                [self.navigationController pushViewController:projectListVC animated:YES];
+                ProjectMainViewController *projectMainVC = [[ProjectMainViewController alloc] init];
+                [self.navigationController pushViewController:projectMainVC animated:YES];
+                
                 // 取消新活动角标
                 [LogInUser setUserIsProjectBadge:NO];
                 [[MainViewController sharedMainViewController] loadNewStustupdata];

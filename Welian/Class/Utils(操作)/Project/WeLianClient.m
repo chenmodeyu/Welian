@@ -196,7 +196,8 @@
                           Path:KClassifications
                        Success:^(id resultInfo) {
                            DLog(@"getProjectClassifications ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           NSArray *result = [IProjectClassModel objectsWithInfo:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];
@@ -216,7 +217,8 @@
                           Path:KClassListPath
                        Success:^(id resultInfo) {
                            DLog(@"getProjectClassList ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           NSArray *result = [IProjectInfo objectsWithInfo:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];
@@ -236,7 +238,8 @@
                           Path:KProjectSearchPath
                        Success:^(id resultInfo) {
                            DLog(@"searchProcjet ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           NSArray *result = [IProjectInfo objectsWithInfo:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];

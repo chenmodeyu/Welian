@@ -30,6 +30,7 @@
 #import "UIImage+FixOrientation.h"
 #import "UINavigationBar+BackgroundColor.h"
 #import "NSString+val.h"
+#import "UIImage+RTTint.h"
 
 
 #pragma mark - CoreDataComment
