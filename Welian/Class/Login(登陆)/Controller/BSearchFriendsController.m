@@ -358,27 +358,32 @@ static NSString *fridcellid = @"fridcellid";
     [headerLabel setTextColor:WLRGB(153, 153, 153)];
     [headerLabel setFont:WLFONT(14)];
     NSString *headStr = @"";
-    NSInteger  length = 0;
+//    NSInteger  length = 0;
+    NSString *countStr = @"";
     if (section==0) {
         if (self.friendsBook.count) {
-           headStr =  [NSString stringWithFormat:@"为你搜索到 %lu 个通讯录好友",(unsigned long)self.friendsBook.count];
-            length = [[NSString stringWithFormat:@"%lu",(unsigned long)self.friendsBook.count] length];
+            countStr = [NSString stringWithFormat:@"%lu",(unsigned long)self.friendsBook.count];
+           headStr =  [NSString stringWithFormat:@"为你搜索到 %@ 个通讯录好友",countStr];
+//            length = [[NSString stringWithFormat:@"%lu",(unsigned long)self.friendsBook.count] length];
             
         }else if (self.friendsWeixing.count){
-           headStr =  [NSString stringWithFormat:@"为你搜索到 %lu 个微信好友",(unsigned long)self.friendsWeixing.count];
-            length = [[NSString stringWithFormat:@"%lu",(unsigned long)self.friendsWeixing.count] length];
+        countStr = [NSString stringWithFormat:@"%lu",(unsigned long)self.friendsWeixing.count];
+           headStr =  [NSString stringWithFormat:@"为你搜索到 %@ 个微信好友",countStr];
+//            length = [[NSString stringWithFormat:@"%lu",(unsigned long)self.friendsWeixing.count] length];
         }
         
     }else if (section==1){
-        headStr =  [NSString stringWithFormat:@"为你搜索到 %lu 个微信好友",(unsigned long)self.friendsWeixing.count];
-        length = [[NSString stringWithFormat:@"%lu",(unsigned long)self.friendsWeixing.count] length];
+        countStr = [NSString stringWithFormat:@"%lu",(unsigned long)self.friendsWeixing.count];
+        headStr =  [NSString stringWithFormat:@"为你搜索到 %@ 个微信好友",countStr];
+//        length = [[NSString stringWithFormat:@"%lu",(unsigned long)self.friendsWeixing.count] length];
+
     }
     
-    NSDictionary *attrsDic = @{NSForegroundColorAttributeName: WLRGB(52, 116, 186),NSFontAttributeName:WLFONTBLOD(17)};
-    NSMutableAttributedString *attrstr = [[NSMutableAttributedString alloc] initWithString:headStr];
-    [attrstr addAttributes:attrsDic range:NSMakeRange(6, length)];
-    
-    [headerLabel setAttributedText:attrstr];
+//    NSDictionary *attrsDic = @{NSForegroundColorAttributeName: WLRGB(52, 116, 186),NSFontAttributeName:WLFONTBLOD(17)};
+//    NSMutableAttributedString *attrstr = [[NSMutableAttributedString alloc] initWithString:headStr];
+//    [attrstr addAttributes:attrsDic range:NSMakeRange(6, length)];
+    [headerLabel setAttributedText:[NSObject getAttributedInfoString:headStr searchStr:countStr color:WLRGB(52, 116, 186) font:WLFONTBLOD(17)]];
+//    [headerLabel setAttributedText:attrstr];
     
     return headerLabel;
 }
