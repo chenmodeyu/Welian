@@ -30,7 +30,7 @@
         _segmentedControl.selectionIndicatorHeight = 2;
         _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-        UIView *lieView = [[UIView alloc] initWithFrame:CGRectMake(0, navHeight-1, ScreenWidth, 0.5)];
+        UIView *lieView = [[UIView alloc] initWithFrame:CGRectMake(0, navHeight-0.5, ScreenWidth, 0.5)];
         [lieView setBackgroundColor:[UIColor lightGrayColor]];
         [_segmentedControl addSubview:lieView];
     }
