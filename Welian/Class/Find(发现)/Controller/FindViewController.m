@@ -11,7 +11,8 @@
 #import "TOWebViewController.h"
 #import "MainViewController.h"
 #import "ProjectListViewController.h"
-#import "InvestorUsersListController.h"
+//#import "InvestorUsersListController.h"
+#import "InvestorsListController.h"
 #import "ActivityListViewController.h"
 #import "NewsListViewController.h"
 
@@ -293,7 +294,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                 [[MainViewController sharedMainViewController] loadNewStustupdata];
                 [self reloadProject];
             }else if (indexPath.row==1){
-                InvestorUsersListController *investorListVC = [[InvestorUsersListController alloc] initWithStyle:UITableViewStylePlain];
+                InvestorsListController *investorListVC = [[InvestorsListController alloc] init];
                 [investorListVC setTitle:@"投资人"];
                 [self.navigationController pushViewController:investorListVC animated:YES];
             }

@@ -1,13 +1,13 @@
 //
-//  InvestorsListController.h
+//  ShaiXuanView.h
 //  Welian
 //
 //  Created by dong on 15/5/22.
 //  Copyright (c) 2015年 chuansongmen. All rights reserved.
 //
 
-#import "XZPageViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface InvestorsListController : XZPageViewController
+@interface ShaiXuanView : UIView
 
 @end
