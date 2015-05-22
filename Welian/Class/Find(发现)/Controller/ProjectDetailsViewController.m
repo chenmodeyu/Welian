@@ -907,7 +907,8 @@ static NSString *noCommentCell = @"NoCommentCell";
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     //认证投资人或者自己创建的项目可以查看融资信息  /**  投资者认证  0 默认状态  1  认证成功  -2 正在审核  -1 认证失败 */
     if (loginUser.investorauth.integerValue == 1 || loginUser.uid.integerValue == _projectDetailInfo.rsProjectUser.uid.integerValue) {
-        [self openProjectDetailInfoView];
+//        [self openProjectDetailInfoView];
+        [self lookProjectFinancingInfo];
     }else{
         [UIAlertView bk_showAlertViewWithTitle:@""
                                        message:@"您不是认证投资人，无法查看融资信息"
@@ -915,8 +916,7 @@ static NSString *noCommentCell = @"NoCommentCell";
                              otherButtonTitles:@[@"去认证"]
                                        handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
                                            if (buttonIndex == 0) {
-//                                               return ;
-                                               [self lookProjectFinancingInfo];
+                                               return ;
                                            }else{
                                                InvestCerVC *investVC = [[InvestCerVC alloc] initWithStyle:UITableViewStyleGrouped];
                                                [self.navigationController pushViewController:investVC animated:YES];
@@ -928,11 +928,10 @@ static NSString *noCommentCell = @"NoCommentCell";
 //查看项目融资信息
 - (void)lookProjectFinancingInfo
 {
-//    FinancingInfoViewController *financingInfoVC = [[FinancingInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
-//    [self.navigationController pushViewController:financingInfoVC animated:YES];
-    
-    ProjectPostDetailInfoViewController *postDetailInfoVC = [[ProjectPostDetailInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
-    [self.navigationController pushViewController:postDetailInfoVC animated:YES];
+    FinancingInfoViewController *financingInfoVC = [[FinancingInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
+    [self.navigationController pushViewController:financingInfoVC animated:YES];
+//    ProjectPostDetailInfoViewController *postDetailInfoVC = [[ProjectPostDetailInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
+//    [self.navigationController pushViewController:postDetailInfoVC animated:YES];
 }
 
 //关闭项目详情

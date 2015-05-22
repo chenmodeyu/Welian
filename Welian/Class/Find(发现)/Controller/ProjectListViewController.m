@@ -235,7 +235,7 @@
         default:
         {
             //项目列表
-            ProjectInfo *projectInfo = _datasource[indexPath.section][indexPath.row];
+            ProjectInfo *projectInfo = _projectType == 1 ? _datasource[indexPath.section][indexPath.row] : _datasource[indexPath.row];
             if (projectInfo) {
                 ProjectDetailsViewController *projectDetailVC = [[ProjectDetailsViewController alloc] initWithProjectInfo:projectInfo];
                 [self.navigationController pushViewController:projectDetailVC animated:YES];
@@ -510,7 +510,8 @@
                     [_notView removeFromSuperview];
                 }
             } Failed:^(NSError *error) {
-                
+                [self.tableView.header endRefreshing];
+                [self.tableView.footer endRefreshing];
             }];
         }
             break;

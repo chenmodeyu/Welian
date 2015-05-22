@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class IProjectInfo ,LogInUser;
+@class IProjectInfo ,LogInUser ,ProjectUser;
 @interface ProjectInfo : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * commentcount;//评论数量
@@ -26,6 +26,7 @@
 
 @property (nonatomic, retain) NSNumber * type;//0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除  other:对应项目集的id
 @property (nonatomic, retain) LogInUser * rsLoginUser;
+@property (nonatomic, retain) ProjectUser * rsProjectUser;
 
 //创建项目
 + (void)createProjectInfoWith:(IProjectInfo *)iProjectInfo withType:(NSNumber *)type;

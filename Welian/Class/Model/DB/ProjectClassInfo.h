@@ -25,5 +25,7 @@
 + (NSArray *)getAllProjectClassInfos;
 //删除数据库数据。 隐性删除
 + (void)deleteAllProjectClassInfos;
+//真实删除
++ (void)deleteAllProjectClassInfosReal;
 
 @end

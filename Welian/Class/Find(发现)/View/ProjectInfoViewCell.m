@@ -61,7 +61,7 @@
     [super willChangeValueForKey:@"iProjectDetailInfo"];
     _iProjectDetailInfo = iProjectDetailInfo;
     [super didChangeValueForKey:@"iProjectDetailInfo"];
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img.welian.com/1429003645443.jpg"]
+    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_iProjectDetailInfo.user.avatar]
                       placeholderImage:[UIImage imageNamed:@"user_small"]
                                options:SDWebImageRetryFailed|SDWebImageLowPriority];
     _praiseNumLabel.text = [_iProjectDetailInfo displayZancountInfo];
@@ -77,7 +77,7 @@
     [super willChangeValueForKey:@"iProjectInfo"];
     _iProjectInfo = iProjectInfo;
     [super didChangeValueForKey:@"iProjectInfo"];
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img.welian.com/1429003645443.jpg"]
+    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_iProjectInfo.user.avatar]
                       placeholderImage:[UIImage imageNamed:@"user_small"]
                                options:SDWebImageRetryFailed|SDWebImageLowPriority];
     _praiseNumLabel.text = [_iProjectInfo displayZancountInfo];
@@ -94,7 +94,7 @@
     _projectInfo = projectInfo;
     [super didChangeValueForKey:@"projectInfo"];
     //头像
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img.welian.com/1429003645443.jpg"]
+    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_projectInfo.rsProjectUser.avatar]
                       placeholderImage:[UIImage imageNamed:@"user_small"]
                                options:SDWebImageRetryFailed|SDWebImageLowPriority];
     //赞数量
