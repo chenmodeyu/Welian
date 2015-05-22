@@ -159,8 +159,8 @@
     [self addSubview:praiseView];
     self.praiseView = praiseView;
     
-    //赞图标
-    UIImageView *praiseImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discovery_good"]];
+    //赞图标 xiangmu_good  discovery_good
+    UIImageView *praiseImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"xiangmu_good"]];
     praiseImageView.backgroundColor = [UIColor clearColor];
     [praiseView addSubview:praiseImageView];
     self.praiseImageView = praiseImageView;

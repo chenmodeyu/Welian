@@ -24,6 +24,7 @@
 #import "CompanyModel.h"
 #import "SchoolModel.h"
 #import "TouTiaoInfo.h"
+#import "ProjectClassInfo.h"
 
 
 #pragma mark - Interface
@@ -49,6 +50,7 @@
 #import "IActivityOrderResultModel.h"
 #import "IAlipayInfoModel.h"
 #import "ITouTiaoModel.h"
+#import "IProjectClassModel.h"
 
 
 #pragma mark - Model（Home）

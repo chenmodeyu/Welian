@@ -9,7 +9,7 @@
 #import "XZPageViewController.h"
 #define navHeight 50
 
-@interface XZPageViewController () <UIPageViewControllerDelegate, UIScrollViewDelegate>
+@interface XZPageViewController () <UIPageViewControllerDataSource,UIPageViewControllerDelegate, UIScrollViewDelegate>
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, assign) NSInteger navCount;
@@ -68,7 +68,7 @@
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     [self addChildViewController:self.pageViewController];
 
-//    self.pageViewController.dataSource = self;
+    self.pageViewController.dataSource = self;
     self.pageViewController.delegate = self;
     CGFloat navH = CGRectGetMaxY(self.segmentedControl.frame);
     self.contentView = [[UIView alloc] initWithFrame:CGRectMake(0, navH, self.view.bounds.size.width, self.view.bounds.size.height-navH)];
@@ -104,26 +104,26 @@
 
 
 #pragma mark - UIPageViewControllerDataSource
-//- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-//    NSInteger index = [self indexOfViewController:viewController];
-//    if (index == 0) {
-//        return nil;
-//    } else {
-//        index--;
-//    }
-//    return [self viewControllerAtIndex:index];
-//}
-//
-//- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-//    NSInteger index = [self indexOfViewController:viewController];
-//    if (index == self.navCount - 1) {
-//        return nil;
-//    } else {
-//        index++;
-//    }
-//    return [self viewControllerAtIndex:index];
-//}
-//
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSInteger index = [self indexOfViewController:viewController];
+    if (index == 0) {
+        return nil;
+    } else {
+        index--;
+    }
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    NSInteger index = [self indexOfViewController:viewController];
+    if (index == self.navCount - 1) {
+        return nil;
+    } else {
+        index++;
+    }
+    return [self viewControllerAtIndex:index];
+}
+
 
 #pragma mark - UIPageViewControllerDelegate
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {

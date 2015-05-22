@@ -12,7 +12,7 @@
 
 @class ILoginUserModel;
 
-@class CompanyModel, FriendsFriendUser, MyFriendUser, NewFriendUser, SchoolModel, HomeMessage, InvestStages, InvestIndustry, InvestItems, NeedAddUser ,ProjectInfo, ActivityInfo ,TouTiaoInfo;
+@class CompanyModel, FriendsFriendUser, MyFriendUser, NewFriendUser, SchoolModel, HomeMessage, InvestStages, InvestIndustry, InvestItems, NeedAddUser ,ProjectInfo, ActivityInfo ,TouTiaoInfo, ProjectClassInfo;
 
 @interface LogInUser : BaseUser
 
@@ -38,6 +38,7 @@
 @property (nonatomic, retain) NSSet *rsProjectInfos;
 @property (nonatomic, retain) NSSet *rsActivityInfos;
 @property (nonatomic, retain) NSSet *rsTouTiaoInfos;
+@property (nonatomic, retain) NSSet *rsProjectClassInfos;
 
 
 //获取当前登陆的账户
@@ -254,5 +255,10 @@
 - (void)removeRsTouTiaoInfosObject:(TouTiaoInfo *)value;
 - (void)addRsTouTiaoInfos:(NSSet *)values;
 - (void)removeRsTouTiaoInfos:(NSSet *)values;
+
+- (void)addRsProjectClassInfosObject:(ProjectClassInfo *)value;
+- (void)removeRsProjectClassInfosObject:(ProjectClassInfo *)value;
+- (void)addRsProjectClassInfos:(NSSet *)values;
+- (void)removeRsProjectClassInfos:(NSSet *)values;
 
 @end

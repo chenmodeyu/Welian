@@ -131,15 +131,17 @@
 {
     //赞内容
     UIView *praiseView = [[UIView alloc] initWithFrame:CGRectZero];
-    praiseView.backgroundColor = RGB(229.f, 229.f, 229.f);
+    praiseView.backgroundColor = RGB(247.f, 247.f, 247.f);
     //圆角
     praiseView.layer.cornerRadius = 5.f;
     praiseView.layer.masksToBounds = YES;
+    praiseView.layer.borderColor = kNormalLineColor.CGColor;
+    praiseView.layer.borderWidth = 0.5f;
     [self addSubview:praiseView];
     self.praiseView = praiseView;
     
-    //赞图标
-    UIImageView *praiseImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discovery_good"]];
+    //赞图标 xiangmu_good@2x  discovery_good
+    UIImageView *praiseImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"xiangmu_good"]];
     praiseImageView.backgroundColor = [UIColor clearColor];
     [praiseView addSubview:praiseImageView];
     self.praiseImageView = praiseImageView;

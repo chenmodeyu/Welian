@@ -24,7 +24,7 @@
 @property (nonatomic, retain) NSNumber * status;//// 0 暂不融资   1正在融资
 @property (nonatomic, retain) NSNumber * zancount;//点赞数量
 
-@property (nonatomic, retain) NSNumber * type;//0：普通   1：收藏  2：创建  -1：已删除
+@property (nonatomic, retain) NSNumber * type;//0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除  other:对应项目集的id
 @property (nonatomic, retain) LogInUser * rsLoginUser;
 
 //创建项目

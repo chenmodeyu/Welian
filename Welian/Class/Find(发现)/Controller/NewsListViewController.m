@@ -9,6 +9,7 @@
 #import "NewsListViewController.h"
 #import "NewsListViewCell.h"
 #import "TOWebViewController.h"
+#import "NotstringView.h"
 
 @interface NewsListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -16,14 +17,29 @@
 @property (strong,nonatomic) NSArray *datasource;
 @property (assign,nonatomic) NSInteger pageIndex;
 @property (assign,nonatomic) NSInteger pageSize;
+@property (strong,nonatomic) NotstringView *notView;
 
 @end
 
 @implementation NewsListViewController
 
+- (void)dealloc
+{
+    _datasource = nil;
+    _notView = nil;
+}
+
 - (NSString *)title
 {
     return @"创业头条";
+}
+
+- (NotstringView *)notView
+{
+    if (!_notView) {
+        _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitleStr:@"暂无创业头条"];
+    }
+    return _notView;
 }
 
 - (instancetype)init
@@ -156,10 +172,19 @@
                                      self.datasource = [TouTiaoInfo getAllTouTiaos];
                                      [_tableView reloadData];
                                      
+                                     //是否显示上拉加载更多
                                      if ([resultInfo count] == _pageSize) {
                                          _tableView.footer.hidden = NO;
                                      }else{
                                          _tableView.footer.hidden = YES;
+                                     }
+                                     
+                                     //提醒信息显示
+                                     if(_datasource.count == 0){
+                                         [_tableView addSubview:self.notView];
+                                         [_tableView sendSubviewToBack:self.notView];
+                                     }else{
+                                         [_notView removeFromSuperview];
                                      }
                                  } Failed:^(NSError *error) {
                                      [_tableView.header endRefreshing];

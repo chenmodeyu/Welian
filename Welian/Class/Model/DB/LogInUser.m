@@ -52,6 +52,7 @@
 @dynamic rsProjectInfos;
 @dynamic rsActivityInfos;
 @dynamic rsTouTiaoInfos;
+@dynamic rsProjectClassInfos;
 
 
 //获取当前登陆的账户

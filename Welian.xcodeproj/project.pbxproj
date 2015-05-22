@@ -2161,6 +2161,41 @@
 		A4A888BE1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */; };
 		A4A888BF1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */; };
 		A4A888C01AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */; };
+		A4C0E1101B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
+		A4C0E1111B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
+		A4C0E1121B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
+		A4C0E1131B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
+		A4C0E1141B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
+		A4C0E1171B0EF46800A9929D /* ProjectMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */; };
+		A4C0E1181B0EF46800A9929D /* ProjectMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */; };
+		A4C0E1191B0EF46800A9929D /* ProjectMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */; };
+		A4C0E11A1B0EF46800A9929D /* ProjectMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */; };
+		A4C0E11B1B0EF46800A9929D /* ProjectMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */; };
+		A4C0E11E1B0EFCAF00A9929D /* IProjectClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E11D1B0EFCAF00A9929D /* IProjectClassModel.m */; };
+		A4C0E11F1B0EFCAF00A9929D /* IProjectClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E11D1B0EFCAF00A9929D /* IProjectClassModel.m */; };
+		A4C0E1201B0EFCAF00A9929D /* IProjectClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E11D1B0EFCAF00A9929D /* IProjectClassModel.m */; };
+		A4C0E1211B0EFCAF00A9929D /* IProjectClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E11D1B0EFCAF00A9929D /* IProjectClassModel.m */; };
+		A4C0E1221B0EFCAF00A9929D /* IProjectClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E11D1B0EFCAF00A9929D /* IProjectClassModel.m */; };
+		A4C0E1251B0EFE5600A9929D /* ProjectClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1241B0EFE5600A9929D /* ProjectClassInfo.m */; };
+		A4C0E1261B0EFE5600A9929D /* ProjectClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1241B0EFE5600A9929D /* ProjectClassInfo.m */; };
+		A4C0E1271B0EFE5600A9929D /* ProjectClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1241B0EFE5600A9929D /* ProjectClassInfo.m */; };
+		A4C0E1281B0EFE5600A9929D /* ProjectClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1241B0EFE5600A9929D /* ProjectClassInfo.m */; };
+		A4C0E1291B0EFE5600A9929D /* ProjectClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1241B0EFE5600A9929D /* ProjectClassInfo.m */; };
+		A4C0E12C1B0F031000A9929D /* ProjectClassViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E12B1B0F031000A9929D /* ProjectClassViewCell.m */; };
+		A4C0E12D1B0F031000A9929D /* ProjectClassViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E12B1B0F031000A9929D /* ProjectClassViewCell.m */; };
+		A4C0E12E1B0F031000A9929D /* ProjectClassViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E12B1B0F031000A9929D /* ProjectClassViewCell.m */; };
+		A4C0E12F1B0F031000A9929D /* ProjectClassViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E12B1B0F031000A9929D /* ProjectClassViewCell.m */; };
+		A4C0E1301B0F031000A9929D /* ProjectClassViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E12B1B0F031000A9929D /* ProjectClassViewCell.m */; };
+		A4C0E1331B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */; };
+		A4C0E1341B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */; };
+		A4C0E1351B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */; };
+		A4C0E1361B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */; };
+		A4C0E1371B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */; };
+		A4C0E13A1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1391B0F1B3000A9929D /* UIImage+RTTint.m */; };
+		A4C0E13B1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1391B0F1B3000A9929D /* UIImage+RTTint.m */; };
+		A4C0E13C1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1391B0F1B3000A9929D /* UIImage+RTTint.m */; };
+		A4C0E13D1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1391B0F1B3000A9929D /* UIImage+RTTint.m */; };
+		A4C0E13E1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C0E1391B0F1B3000A9929D /* UIImage+RTTint.m */; };
 		A4C13FFF1A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C13FFE1A4BC0AD00C9BAB5 /* ChatViewController.m */; };
 		A4C140001A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C13FFE1A4BC0AD00C9BAB5 /* ChatViewController.m */; };
 		A4C140011A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C13FFE1A4BC0AD00C9BAB5 /* ChatViewController.m */; };
@@ -5509,6 +5544,19 @@
 		A4A2EADB1A6CF7C8006ADA55 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		A4A888B71AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Sending_Card@2x.png"; sourceTree = "<group>"; };
 		A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Receiving_Card@2x.png"; sourceTree = "<group>"; };
+		A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangmu_good@2x.png"; sourceTree = "<group>"; };
+		A4C0E1151B0EF46800A9929D /* ProjectMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectMainViewController.h; sourceTree = "<group>"; };
+		A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectMainViewController.m; sourceTree = "<group>"; };
+		A4C0E11C1B0EFCAF00A9929D /* IProjectClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IProjectClassModel.h; sourceTree = "<group>"; };
+		A4C0E11D1B0EFCAF00A9929D /* IProjectClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IProjectClassModel.m; sourceTree = "<group>"; };
+		A4C0E1231B0EFE5600A9929D /* ProjectClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectClassInfo.h; sourceTree = "<group>"; };
+		A4C0E1241B0EFE5600A9929D /* ProjectClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectClassInfo.m; sourceTree = "<group>"; };
+		A4C0E12A1B0F031000A9929D /* ProjectClassViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectClassViewCell.h; sourceTree = "<group>"; };
+		A4C0E12B1B0F031000A9929D /* ProjectClassViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectClassViewCell.m; sourceTree = "<group>"; };
+		A4C0E1311B0F0D6F00A9929D /* ProjcetClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjcetClassViewController.h; sourceTree = "<group>"; };
+		A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjcetClassViewController.m; sourceTree = "<group>"; };
+		A4C0E1381B0F1B3000A9929D /* UIImage+RTTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RTTint.h"; sourceTree = "<group>"; };
+		A4C0E1391B0F1B3000A9929D /* UIImage+RTTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RTTint.m"; sourceTree = "<group>"; };
 		A4C13FFD1A4BC0AD00C9BAB5 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		A4C13FFE1A4BC0AD00C9BAB5 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		A4C1402F1A4BEA8500C9BAB5 /* NSString+MessageInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MessageInputView.h"; sourceTree = "<group>"; };
@@ -6968,6 +7016,8 @@
 				F581E7871AF870B900902665 /* IPhotoUp.m */,
 				A45923971B0D7CFB00715F06 /* ITouTiaoModel.h */,
 				A45923981B0D7CFB00715F06 /* ITouTiaoModel.m */,
+				A4C0E11C1B0EFCAF00A9929D /* IProjectClassModel.h */,
+				A4C0E11D1B0EFCAF00A9929D /* IProjectClassModel.m */,
 			);
 			path = Interface2.0;
 			sourceTree = "<group>";
@@ -7199,6 +7249,8 @@
 				A4948E9C1B0C7E2F00BA6258 /* ProjectBPViewCell.m */,
 				A45923AB1B0D93DA00715F06 /* FinancingInfoViewCell.h */,
 				A45923AC1B0D93DA00715F06 /* FinancingInfoViewCell.m */,
+				A4C0E12A1B0F031000A9929D /* ProjectClassViewCell.h */,
+				A4C0E12B1B0F031000A9929D /* ProjectClassViewCell.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -7254,6 +7306,8 @@
 		A47F1B331A7F53AA00CB4D9F /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				A4C0E1151B0EF46800A9929D /* ProjectMainViewController.h */,
+				A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */,
 				A47F1B191A7F215E00CB4D9F /* ProjectListViewController.h */,
 				A47F1B1A1A7F215E00CB4D9F /* ProjectListViewController.m */,
 				A4743EAD1A7F7BCE00645998 /* ProjectDetailsViewController.h */,
@@ -7264,6 +7318,8 @@
 				A4948E721B0C2AC500BA6258 /* FinancingInfoViewController.m */,
 				A4948EA81B0C860300BA6258 /* ProjectPostDetailInfoViewController.h */,
 				A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */,
+				A4C0E1311B0F0D6F00A9929D /* ProjcetClassViewController.h */,
+				A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -7626,6 +7682,8 @@
 		A493C1D71ADD0BAF0056BD52 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A4C0E1381B0F1B3000A9929D /* UIImage+RTTint.h */,
+				A4C0E1391B0F1B3000A9929D /* UIImage+RTTint.m */,
 				A493C1D81ADD0BAF0056BD52 /* CALayer+XibConfiguration.h */,
 				A493C1D91ADD0BAF0056BD52 /* CALayer+XibConfiguration.m */,
 				A493C1DA1ADD0BAF0056BD52 /* NSData+MD5Digest */,
@@ -8826,6 +8884,7 @@
 		F51FB9ED19EF6C3E00D85D7F /* 发现images */ = {
 			isa = PBXGroup;
 			children = (
+				A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */,
 				A45923A51B0D83A500715F06 /* xiangmu_rongziing@2x.png */,
 				A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */,
 				F584803F1AE10629002C2722 /* me_play@2x.png */,
@@ -9400,6 +9459,8 @@
 			isa = PBXGroup;
 			children = (
 				F59E76091A405D170028FBAF /* weLian.xcdatamodeld */,
+				A4C0E1231B0EFE5600A9929D /* ProjectClassInfo.h */,
+				A4C0E1241B0EFE5600A9929D /* ProjectClassInfo.m */,
 				A4FA34FA1B0DD983006066A6 /* TouTiaoInfo.h */,
 				A4FA34FB1B0DD983006066A6 /* TouTiaoInfo.m */,
 				A489E7CE1AA5980C00F7BE9F /* ActivityInfo.h */,
@@ -10714,6 +10775,7 @@
 				A49C7DCE1A70D42700F2AEC5 /* login_my_bg_pre@2x.png in Resources */,
 				A49C7DD01A70D42700F2AEC5 /* section0_emotion3@2x.png in Resources */,
 				F500B1E61AAEAB4C00A7AD35 /* home_repost_huati@2x.png in Resources */,
+				A4C0E1141B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */,
 				F5CBE3CA1AC4351A00F4C884 /* Expression_23@2x.png in Resources */,
 				A4E731BC1A8CCE2600980676 /* discovery_activity_detail_jian@2x.png in Resources */,
 				A409A2BD1AC2E1AF0033A31D /* tabbar_chat_selected@2x.png in Resources */,
@@ -11317,6 +11379,7 @@
 				A4C1438A1A4C0A6B00C9BAB5 /* section0_emotion3@2x.png in Resources */,
 				F500B1E51AAEAB4C00A7AD35 /* home_repost_huati@2x.png in Resources */,
 				A4E731BB1A8CCE2600980676 /* discovery_activity_detail_jian@2x.png in Resources */,
+				A4C0E1121B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */,
 				F53DC3EE1A49192600F5F712 /* home_new_upload_picture_enlarge_delete@2x.png in Resources */,
 				F5CBE3C91AC4351A00F4C884 /* Expression_23@2x.png in Resources */,
 				A4C1439F1A4C0A6B00C9BAB5 /* Fav_Cell_Loc@2x.png in Resources */,
@@ -11925,6 +11988,7 @@
 				A409A19E1AC2E1AF0033A31D /* greenbutton@2x.png in Resources */,
 				A4C143941A4C0A6B00C9BAB5 /* section0_emotion7@2x.png in Resources */,
 				A409A1E21AC2E1AF0033A31D /* me_circle_chat_keybroad@2x.png in Resources */,
+				A4C0E1101B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */,
 				F5CBE43F1AC4351A00F4C884 /* Expression_53@2x.png in Resources */,
 				F56C30831AC404D800EDF054 /* me_renzheng_certification_bg@2x.png in Resources */,
 				A4C144951A4C3EC600C9BAB5 /* circle_chat_lastseen_bg@2x.png in Resources */,
@@ -12967,6 +13031,7 @@
 				A4C141211A4BEF5700C9BAB5 /* MultiSelectedPanel.xib in Resources */,
 				A49235CA1ADE693A009E0B8C /* compose_photograph@3x.png in Resources */,
 				F5664E991A2AFDD5008A5830 /* Images.xcassets in Resources */,
+				A4C0E1111B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */,
 				F50CB09E1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */,
 				F5664E9A1A2AFDD5008A5830 /* Icon-29@2x.png in Resources */,
 				F5D04CEF1AC1056F004DE412 /* DeleteEmoticonBtn_ios7@2x.png in Resources */,
@@ -13070,6 +13135,7 @@
 				A49236261ADE693A009E0B8C /* photo_check_selected@3x.png in Resources */,
 				A493C3ED1ADD14A60056BD52 /* settingPlist.plist in Resources */,
 				A493C3D41ADD14A60056BD52 /* InvestStagePlist.plist in Resources */,
+				A4C0E1131B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */,
 				A49235AE1ADE693A009E0B8C /* compose_photo_original@3x.png in Resources */,
 				A493C3D91ADD14A60056BD52 /* meinfoPlist.plist in Resources */,
 				A493C3C51ADD14A60056BD52 /* FinancingStagePlist.plist in Resources */,
@@ -13162,10 +13228,12 @@
 				A49C7BDF1A70D42700F2AEC5 /* AFNetworkReachabilityManager.m in Sources */,
 				A49C7BE01A70D42700F2AEC5 /* TQRichTextBaseRun.m in Sources */,
 				A49C7BE11A70D42700F2AEC5 /* AddImageCollectionCell.m in Sources */,
+				A4C0E13E1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				A49C7BE31A70D42700F2AEC5 /* PinyinHelper.m in Sources */,
 				A49C7BE41A70D42700F2AEC5 /* ICompanyResult.m in Sources */,
 				A49C7BE61A70D42700F2AEC5 /* NeedAddUser.m in Sources */,
 				A49C7BE71A70D42700F2AEC5 /* MJPhotoProgressView.m in Sources */,
+				A4C0E11B1B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				A493C3711ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
 				A49C7BE81A70D42700F2AEC5 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				F5D04C7A1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItem.m in Sources */,
@@ -13305,8 +13373,10 @@
 				A49C7C591A70D42700F2AEC5 /* XHZoomingImageView.m in Sources */,
 				A4D43ABB1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
 				A49C7C5B1A70D42700F2AEC5 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				A4C0E1371B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A49C7C5C1A70D42700F2AEC5 /* UIWebView+AFNetworking.m in Sources */,
 				A48A36671AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
+				A4C0E1301B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				A49C7C5D1A70D42700F2AEC5 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
 				A492355F1ADE693A009E0B8C /* JKPhotoBrowser.m in Sources */,
 				A4C770E91A80A3D1005ABC7F /* IUserInfo.m in Sources */,
@@ -13435,6 +13505,7 @@
 				A49C7CCA1A70D42700F2AEC5 /* ChatMessageViewCell.m in Sources */,
 				A49C7CCC1A70D42700F2AEC5 /* AFHTTPRequestOperation.m in Sources */,
 				A49C7CCD1A70D42700F2AEC5 /* TQRichTextEmojiRun.m in Sources */,
+				A4C0E1221B0EFCAF00A9929D /* IProjectClassModel.m in Sources */,
 				F55078F01A80BA62009CE4F7 /* FinancingCell.m in Sources */,
 				A49C7CCE1A70D42700F2AEC5 /* UIView+WebCacheOperation.m in Sources */,
 				A49C7CCF1A70D42700F2AEC5 /* UIProgressView+AFNetworking.m in Sources */,
@@ -13584,6 +13655,7 @@
 				A49C7D3C1A70D42700F2AEC5 /* NSManagedObject+MagicalRequests.m in Sources */,
 				A49C7D3D1A70D42700F2AEC5 /* AboutViewController.m in Sources */,
 				A49C7D3E1A70D42700F2AEC5 /* WLMessageVoiceFactory.m in Sources */,
+				A4C0E1291B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A49236701ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				A49C7D3F1A70D42700F2AEC5 /* UIView+FirstResponderNotify.m in Sources */,
 				A49C7D401A70D42700F2AEC5 /* CommonFriendsController.m in Sources */,
@@ -13692,10 +13764,12 @@
 				F53DC2AF1A49192600F5F712 /* AFNetworkReachabilityManager.m in Sources */,
 				F53DC2B01A49192600F5F712 /* TQRichTextBaseRun.m in Sources */,
 				F53DC2B11A49192600F5F712 /* AddImageCollectionCell.m in Sources */,
+				A4C0E13C1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				F53DC2B21A49192600F5F712 /* PinyinHelper.m in Sources */,
 				F53DC2B41A49192600F5F712 /* ICompanyResult.m in Sources */,
 				A482A2491A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				A49235581ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
+				A4C0E1191B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				F53DC2B61A49192600F5F712 /* MJPhotoProgressView.m in Sources */,
 				A493C36F1ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
 				A4A2EAF31A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m in Sources */,
@@ -13835,8 +13909,10 @@
 				F5D04C811AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
 				A4C141701A4BEF5700C9BAB5 /* XHZoomingImageView.m in Sources */,
 				A4D43ABA1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
+				A4C0E1351B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A4A2EB081A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				A48A36651AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
+				A4C0E12E1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				F53DC2FD1A49192600F5F712 /* UIWebView+AFNetworking.m in Sources */,
 				F58CA9991A5D4F9100988A61 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
 				A4C770E81A80A3D1005ABC7F /* IUserInfo.m in Sources */,
@@ -13965,6 +14041,7 @@
 				F53DC3431A49192600F5F712 /* UserInfoController.m in Sources */,
 				A49235711ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				F53DC3441A49192600F5F712 /* UIImageView+AFNetworking.m in Sources */,
+				A4C0E1201B0EFCAF00A9929D /* IProjectClassModel.m in Sources */,
 				A4C8E9491A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */,
 				F53DC3461A49192600F5F712 /* AFHTTPRequestOperation.m in Sources */,
 				F53DC3471A49192600F5F712 /* TQRichTextEmojiRun.m in Sources */,
@@ -14114,6 +14191,7 @@
 				A46A283D1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
 				A4A2EAFF1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */,
 				F53DC38E1A49192600F5F712 /* AboutViewController.m in Sources */,
+				A4C0E1271B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A492366E1ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				A4C144761A4C370100C9BAB5 /* WLMessageVoiceFactory.m in Sources */,
 				F58CA9A51A5D4F9100988A61 /* UIView+FirstResponderNotify.m in Sources */,
@@ -14222,10 +14300,12 @@
 				A4C770F21A80A5B3005ABC7F /* IPhotoInfo.m in Sources */,
 				F566498D1A2AFD56008A5830 /* TQRichTextBaseRun.m in Sources */,
 				F566498E1A2AFD56008A5830 /* AddImageCollectionCell.m in Sources */,
+				A4C0E13A1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				F566498F1A2AFD56008A5830 /* PinyinHelper.m in Sources */,
 				A4C140B41A4BEF0E00C9BAB5 /* XHCacheManager.m in Sources */,
 				A4C8E9471A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */,
 				A4C1446E1A4C2D3B00C9BAB5 /* WLMessageBubbleHelper.m in Sources */,
+				A4C0E1171B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				A493C36D1ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
 				A482A2471A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				F56649921A2AFD56008A5830 /* MJPhotoProgressView.m in Sources */,
@@ -14365,8 +14445,10 @@
 				A4743EB51A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				F53D4E381A4AABE800CA06C8 /* LogInUser.m in Sources */,
 				A4D43AB81AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
+				A4C0E1331B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A4C140651A4BEA8500C9BAB5 /* NSString+MessageInputView.m in Sources */,
 				F56649D51A2AFD56008A5830 /* UIButton+Badge.m in Sources */,
+				A4C0E12C1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				A48A36631AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
 				A4A2EB061A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				A492355B1ADE693A009E0B8C /* JKPhotoBrowser.m in Sources */,
@@ -14495,6 +14577,7 @@
 				F5664A111A2AFD56008A5830 /* AFHTTPRequestOperation.m in Sources */,
 				F5664A121A2AFD56008A5830 /* TQRichTextEmojiRun.m in Sources */,
 				A4C140831A4BEA8500C9BAB5 /* UIScrollView+XHkeyboardControl.m in Sources */,
+				A4C0E11E1B0EFCAF00A9929D /* IProjectClassModel.m in Sources */,
 				F5664A131A2AFD56008A5830 /* UIView+WebCacheOperation.m in Sources */,
 				A4C1412C1A4BEF5700C9BAB5 /* MultiSelectTableViewCell.m in Sources */,
 				F5664A141A2AFD56008A5830 /* UIProgressView+AFNetworking.m in Sources */,
@@ -14644,6 +14727,7 @@
 				F56272901A4D474E002A9B88 /* HomeMessage.m in Sources */,
 				A46A283B1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
 				F5664A541A2AFD56008A5830 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				A4C0E1251B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A492366C1ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				F58CA9A31A5D4F9100988A61 /* UIView+FirstResponderNotify.m in Sources */,
 				F5664A561A2AFD56008A5830 /* AboutViewController.m in Sources */,
@@ -14752,10 +14836,12 @@
 				F5664C461A2AFDD5008A5830 /* AFNetworkReachabilityManager.m in Sources */,
 				F5664C471A2AFDD5008A5830 /* TQRichTextBaseRun.m in Sources */,
 				F5664C481A2AFDD5008A5830 /* AddImageCollectionCell.m in Sources */,
+				A4C0E13B1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				F5664C491A2AFDD5008A5830 /* PinyinHelper.m in Sources */,
 				F59E76201A411E4C0028FBAF /* ICompanyResult.m in Sources */,
 				A482A2481A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				A49235571ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
+				A4C0E1181B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				F5664C4C1A2AFDD5008A5830 /* MJPhotoProgressView.m in Sources */,
 				A493C36E1ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
 				A4A2EAF21A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m in Sources */,
@@ -14895,8 +14981,10 @@
 				F5D04C801AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
 				A4C1416F1A4BEF5700C9BAB5 /* XHZoomingImageView.m in Sources */,
 				A4D43AB91AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
+				A4C0E1341B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A4A2EB071A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				A48A36641AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
+				A4C0E12D1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				F5664C8E1A2AFDD5008A5830 /* UIWebView+AFNetworking.m in Sources */,
 				F58CA9981A5D4F9100988A61 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
 				A4C770E71A80A3D1005ABC7F /* IUserInfo.m in Sources */,
@@ -15025,6 +15113,7 @@
 				F5664CC81A2AFDD5008A5830 /* UserInfoController.m in Sources */,
 				A49235701ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				F5664CC91A2AFDD5008A5830 /* UIImageView+AFNetworking.m in Sources */,
+				A4C0E11F1B0EFCAF00A9929D /* IProjectClassModel.m in Sources */,
 				A4C8E9481A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */,
 				F5664CCB1A2AFDD5008A5830 /* AFHTTPRequestOperation.m in Sources */,
 				F5664CCC1A2AFDD5008A5830 /* TQRichTextEmojiRun.m in Sources */,
@@ -15174,6 +15263,7 @@
 				A46A283C1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
 				A4A2EAFE1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */,
 				F5664D101A2AFDD5008A5830 /* AboutViewController.m in Sources */,
+				A4C0E1261B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A492366D1ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				A4C144751A4C370100C9BAB5 /* WLMessageVoiceFactory.m in Sources */,
 				F58CA9A41A5D4F9100988A61 /* UIView+FirstResponderNotify.m in Sources */,
@@ -15245,6 +15335,7 @@
 				A493C2471ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
 				A493C21F1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
 				A493C2921ADD0BB00056BD52 /* NSArray+ArrayQuery.m in Sources */,
+				A4C0E1361B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A48A36661AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
 				A493C2241ADD0BB00056BD52 /* NSData+MD5Digest.m in Sources */,
 				A493C2791ADD0BB00056BD52 /* NSManagedObjectContext+e0571.m in Sources */,
@@ -15281,6 +15372,7 @@
 				A493C2971ADD0BB00056BD52 /* NSManagedObject+ManagedObjectQuery.m in Sources */,
 				A493C2B81ADD13DF0056BD52 /* WLTextField.m in Sources */,
 				A493C3571ADD14A60056BD52 /* PublishModel.m in Sources */,
+				A4C0E13D1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				A49235541ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A49236741ADE6AF9009E0B8C /* BasicViewController.m in Sources */,
 				A492354A1ADE693A009E0B8C /* JKAssetsGroupsView.m in Sources */,
@@ -15294,6 +15386,7 @@
 				A493C3A71ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				A49235861ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
 				A4948E841B0C2C8500BA6258 /* FinancingInfoView.m in Sources */,
+				A4C0E11A1B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				A49235721ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A493C3931ADD14A60056BD52 /* FriendsAddressBook.m in Sources */,
 				A493C25B1ADD0BB00056BD52 /* UINavigationBar+BackgroundColor.m in Sources */,
@@ -15314,7 +15407,9 @@
 				A493C3521ADD14A60056BD52 /* MessageHomeModel.m in Sources */,
 				A49236651ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A45923B01B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
+				A4C0E1281B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A493C2AB1ADD0BB00056BD52 /* WLNavHeaderView.m in Sources */,
+				A4C0E12F1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				A492355E1ADE693A009E0B8C /* JKPhotoBrowser.m in Sources */,
 				A493C2381ADD0BB00056BD52 /* NSFileManager+DoNotBackup.m in Sources */,
 				A493C26A1ADD0BB00056BD52 /* BaseModel.m in Sources */,
@@ -15331,6 +15426,7 @@
 				A4948EAD1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A493C2421ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
 				A493C2741ADD0BB00056BD52 /* NSManagedObject+e0571.m in Sources */,
+				A4C0E1211B0EFCAF00A9929D /* IProjectClassModel.m in Sources */,
 				A49235771ADE693A009E0B8C /* UIView+JKPicker.m in Sources */,
 				A49235401ADE693A009E0B8C /* JKAssetsCollectionFooterView.m in Sources */,
 				A48173A91B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,

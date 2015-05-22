@@ -141,7 +141,7 @@ fprintf(stderr, "-----------------------------------\n");                       
 
 // 线条浅灰颜色
 #define WLLineColor WLRGB(232, 234, 239)
-#define kNormalLineColor RGB(231.f, 231.f, 231.f)
+#define kNormalLineColor RGB(229.f, 229.f, 229.f)
 
 //常用系统颜色
 #define kNormalTextColor RGB(173.f, 173.f, 173.f)
