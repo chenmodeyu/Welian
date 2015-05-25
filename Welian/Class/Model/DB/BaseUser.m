@@ -34,4 +34,34 @@
 @dynamic checked;
 @dynamic samefriendscount;
 
+//将数据库对象转换成接口对象模型
+- (IBaseUserM *)toIBaseUserModelInfo
+{
+    IBaseUserM *iBaseUserM = [[IBaseUserM alloc] init];
+    iBaseUserM.uid = self.uid;
+    iBaseUserM.name = self.name;
+    iBaseUserM.avatar = self.avatar;
+    iBaseUserM.address = self.address;
+    iBaseUserM.email = self.email;
+    iBaseUserM.friendship = self.friendship;
+    iBaseUserM.investorauth = self.investorauth;
+    iBaseUserM.inviteurl = self.inviteurl;
+    iBaseUserM.mobile = self.mobile;
+//    iBaseUserM.startupauth = self.startupauth;
+    iBaseUserM.company = self.company;
+    iBaseUserM.position = self.position;
+    iBaseUserM.provinceid = self.provinceid;
+    iBaseUserM.provincename = self.provincename;
+    iBaseUserM.cityid = self.cityid;
+    iBaseUserM.cityname = self.cityname;
+    iBaseUserM.shareurl = self.shareurl;
+    iBaseUserM.friendcount = self.friendcount;
+    iBaseUserM.feedcount = self.feedcount;
+    iBaseUserM.friend2count = self.friend2count;
+    iBaseUserM.checked = self.checked;
+    iBaseUserM.samefriendscount = self.samefriendscount;
+    
+    return iBaseUserM;
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ProjectPostDetailInfoViewController.h"
+#import "UserInfoViewController.h"
 
 #import "ProjectInfoViewCell.h"
 #import "FinancingInfoView.h"
@@ -121,6 +122,18 @@
     
 }
 
+//查看创建用户的信息
+- (void)lookCreateUserInfo:(id)userInfo
+{
+    if ([userInfo isKindOfClass:[IProjectDetailInfo class]]) {
+        IProjectDetailInfo *iProjectDetailInfo = userInfo;
+        if (iProjectDetailInfo.user) {
+            UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:iProjectDetailInfo.user OperateType:nil HidRightBtn:NO];
+            [self.navigationController pushViewController:userInfoVC animated:YES];
+        }
+    }
+}
+
 #pragma mark - UITableView Datasource&Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -144,6 +157,10 @@
                 cell = [[ProjectInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
             }
             cell.iProjectDetailInfo = _iProjectDetailInfo;
+            WEAKSELF
+            [cell setUserInfoBlock:^(id userInfo){
+                [weakSelf lookCreateUserInfo:userInfo];
+            }];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }

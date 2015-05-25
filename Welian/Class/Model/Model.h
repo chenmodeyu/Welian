@@ -51,6 +51,7 @@
 #import "IAlipayInfoModel.h"
 #import "ITouTiaoModel.h"
 #import "IProjectClassModel.h"
+#import "IProjectBPModel.h"
 
 
 #pragma mark - Model（Home）

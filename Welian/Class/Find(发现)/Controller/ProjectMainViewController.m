@@ -26,6 +26,7 @@
     self = [super init];
     if (self) {
         self.navTitlesArr = @[@"最新",@"热门",@"项目集",@"筛选"];
+        self.navTitleImagesArr = @[@"",@"",@"",@"xiangmu_list_funnel"];
         self.dataSource = self;
         self.delegate = self;
     }
@@ -39,6 +40,12 @@
     
     WEAKSELF
     [self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
+        DLog(@"segmentedControl select:%d",(int)index);
+        if (index == (weakSelf.navTitleImagesArr.count - 1)) {
+            weakSelf.segmentedControl.sectionImages = @[@"",@"",@"",@"xiangmu_list_funnel_selected"];
+        }else{
+            weakSelf.segmentedControl.sectionImages = weakSelf.navTitleImagesArr;
+        }
         [weakSelf transitionToViewControllerAtIndex:index];
     }];
 }

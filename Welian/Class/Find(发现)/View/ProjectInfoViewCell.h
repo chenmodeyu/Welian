@@ -8,9 +8,13 @@
 
 #import "BaseTableViewCell.h"
 
+typedef void(^ProjectInfoUserInfoBlock)(id UserInfo);
+
 @interface ProjectInfoViewCell : BaseTableViewCell
 
-@property (strong,nonatomic) IProjectInfo *iProjectInfo;
+@property (strong,nonatomic) ProjectInfoUserInfoBlock userInfoBlock;
+
+//@property (strong,nonatomic) IProjectInfo *iProjectInfo;
 @property (strong,nonatomic) ProjectInfo *projectInfo;
 @property (strong,nonatomic) IProjectDetailInfo *iProjectDetailInfo;
 

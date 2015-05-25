@@ -10,6 +10,7 @@
 #import "ProjectDetailsViewController.h"
 #import "CreateProjectController.h"
 #import "ProjcetClassViewController.h"
+#import "UserInfoViewController.h"
 
 #import "ProjectInfoViewCell.h"
 #import "ProjectClassViewCell.h"
@@ -214,6 +215,10 @@
                 cell = [[ProjectInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
             }
             cell.projectInfo = _projectType == 1 ? _datasource[indexPath.section][indexPath.row] : _datasource[indexPath.row];
+            WEAKSELF
+            [cell setUserInfoBlock:^(id userInfo){
+                [weakSelf lookCreateUserInfo:userInfo];
+            }];
             return cell;
         }
             break;
@@ -562,6 +567,16 @@
             break;
         default:
             break;
+    }
+}
+
+//查看创建用户的信息
+- (void)lookCreateUserInfo:(id)userInfo
+{
+    if ([userInfo isKindOfClass:[ProjectInfo class]]) {
+        IBaseUserM *baseUser = [[userInfo rsProjectUser] toIBaseUserModelInfo];
+        UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:baseUser OperateType:nil HidRightBtn:NO];
+        [self.navigationController pushViewController:userInfoVC animated:YES];
     }
 }
 

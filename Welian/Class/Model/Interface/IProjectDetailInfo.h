@@ -7,7 +7,8 @@
 //
 
 #import "IFBase.h"
-#import "IBaseUserM.h"
+
+@class IBaseUserM,IProjectBPModel;
 
 @interface IProjectDetailInfo : IFBase
 
@@ -29,6 +30,7 @@
 @property (nonatomic,strong) NSString *financing;//融资说明
 @property (nonatomic,strong) NSString *financingtime;
 @property (nonatomic,strong) IBaseUserM *user;
+@property (nonatomic,strong) IProjectBPModel *bp;//项目BP对象
 // 图片
 @property (nonatomic,strong) NSArray *photos;
 // 领域

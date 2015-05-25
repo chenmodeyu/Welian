@@ -8,6 +8,7 @@
 
 #import "BasicViewController.h"
 #import "HMSegmentedControl.h"
+#import "WLCustomSegmentedControl.h"
 
 @protocol XZPageViewControllerDataSource;
 @protocol XZPageViewControllerDelegate;
@@ -15,11 +16,13 @@
 @interface XZPageViewController : BasicViewController
 @property (nonatomic, strong) NSMutableArray *viewControllerArr;
 @property (nonatomic, strong) NSArray *navTitlesArr;
+@property (nonatomic, strong) NSArray *navTitleImagesArr;
 
 @property (nonatomic, weak) id<XZPageViewControllerDataSource> dataSource;
 @property (nonatomic, weak) id<XZPageViewControllerDelegate> delegate;
 
-@property (nonatomic, strong) HMSegmentedControl *segmentedControl;
+//@property (nonatomic, strong) HMSegmentedControl *segmentedControl;
+@property (strong,nonatomic) WLCustomSegmentedControl *segmentedControl;
 
 - (void)transitionToViewControllerAtIndex:(NSInteger)index;
 
