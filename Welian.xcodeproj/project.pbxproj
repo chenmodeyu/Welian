@@ -2915,6 +2915,14 @@
 		F50B62EF1B1308E0002259B2 /* ProjectsMailingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */; };
 		F50B62F01B1308E0002259B2 /* ProjectsMailingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */; };
 		F50B62F11B1308E0002259B2 /* ProjectsMailingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */; };
+		F50B62F91B132928002259B2 /* ProjectTouDiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62F81B132928002259B2 /* ProjectTouDiModel.m */; };
+		F50B62FA1B132928002259B2 /* ProjectTouDiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62F81B132928002259B2 /* ProjectTouDiModel.m */; };
+		F50B62FB1B132928002259B2 /* ProjectTouDiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62F81B132928002259B2 /* ProjectTouDiModel.m */; };
+		F50B62FC1B132928002259B2 /* ProjectTouDiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62F81B132928002259B2 /* ProjectTouDiModel.m */; };
+		F50B62FF1B1347EF002259B2 /* CasesJiGouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */; };
+		F50B63001B1347EF002259B2 /* CasesJiGouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */; };
+		F50B63011B1347EF002259B2 /* CasesJiGouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */; };
+		F50B63021B1347EF002259B2 /* CasesJiGouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */; };
 		F50CB09D1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
 		F50CB09E1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
 		F50CB09F1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
@@ -5911,6 +5919,10 @@
 		F50B62D11B12D752002259B2 /* InvestorUserInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorUserInfoController.m; sourceTree = "<group>"; };
 		F50B62EC1B1308E0002259B2 /* ProjectsMailingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsMailingView.h; sourceTree = "<group>"; };
 		F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsMailingView.m; sourceTree = "<group>"; };
+		F50B62F71B132928002259B2 /* ProjectTouDiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTouDiModel.h; sourceTree = "<group>"; };
+		F50B62F81B132928002259B2 /* ProjectTouDiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTouDiModel.m; sourceTree = "<group>"; };
+		F50B62FD1B1347EF002259B2 /* CasesJiGouModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasesJiGouModel.h; sourceTree = "<group>"; };
+		F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasesJiGouModel.m; sourceTree = "<group>"; };
 		F50C89691A08F2050007BE52 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		F50C896A1A08F2050007BE52 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_repost_beijing@2x.png"; sourceTree = "<group>"; };
@@ -7895,12 +7907,16 @@
 				A493C2BB1ADD14A60056BD52 /* Findplist.plist */,
 				F569727D1B0F254D004E86AC /* TouzijigouModel.h */,
 				F569727E1B0F254D004E86AC /* TouzijigouModel.m */,
+				F50B62FD1B1347EF002259B2 /* CasesJiGouModel.h */,
+				F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */,
 				F56972771B0F2459004E86AC /* InvestorUserModel.h */,
 				F56972781B0F2459004E86AC /* InvestorUserModel.m */,
 				A493C2BC1ADD14A60056BD52 /* InvestorUserM.h */,
 				A493C2BD1ADD14A60056BD52 /* InvestorUserM.m */,
 				F5CAB7781B0DF77E00937E63 /* BannerModel.h */,
 				F5CAB7791B0DF77E00937E63 /* BannerModel.m */,
+				F50B62F71B132928002259B2 /* ProjectTouDiModel.h */,
+				F50B62F81B132928002259B2 /* ProjectTouDiModel.m */,
 			);
 			path = "Model(Find)";
 			sourceTree = "<group>";
@@ -13430,6 +13446,7 @@
 				A49C7C431A70D42700F2AEC5 /* WLLocationHelper.m in Sources */,
 				F56C305D1AC3E01D00EDF054 /* PhoneChangeVC.m in Sources */,
 				F583996D1AD7CDC7008A1A48 /* UCZProgressView.m in Sources */,
+				F50B63021B1347EF002259B2 /* CasesJiGouModel.m in Sources */,
 				F5933F8D1AD4F4030088C70D /* MJRefreshComponent.m in Sources */,
 				A49C7C451A70D42700F2AEC5 /* MagicalRecord+Actions.m in Sources */,
 				A49C805F1A71041000F2AEC5 /* openssl_wrapper.m in Sources */,
@@ -13712,6 +13729,7 @@
 				F5CA5C081AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A49C7D281A70D42700F2AEC5 /* AddFriendViewController.m in Sources */,
 				A49C7D291A70D42700F2AEC5 /* AddFriendsController.m in Sources */,
+				F50B62FC1B132928002259B2 /* ProjectTouDiModel.m in Sources */,
 				A49C7D2A1A70D42700F2AEC5 /* MJMethod.m in Sources */,
 				A493C2391ADD0BB00056BD52 /* NSFileManager+DoNotBackup.m in Sources */,
 				A49C7D2B1A70D42700F2AEC5 /* NewFriendViewCell.m in Sources */,
@@ -13972,6 +13990,7 @@
 				F56C305C1AC3E01D00EDF054 /* PhoneChangeVC.m in Sources */,
 				F583996C1AD7CDC7008A1A48 /* UCZProgressView.m in Sources */,
 				A49235851ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
+				F50B63011B1347EF002259B2 /* CasesJiGouModel.m in Sources */,
 				F5933F8C1AD4F4030088C70D /* MJRefreshComponent.m in Sources */,
 				A4A2EB1A1A6CF7C8006ADA55 /* MagicalRecord+Actions.m in Sources */,
 				A49C805E1A71041000F2AEC5 /* openssl_wrapper.m in Sources */,
@@ -14254,6 +14273,7 @@
 				F5CA5C071AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A47C5F501A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				A492357B1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
+				F50B62FB1B132928002259B2 /* ProjectTouDiModel.m in Sources */,
 				F53DC3841A49192600F5F712 /* AddFriendsController.m in Sources */,
 				F53DC3851A49192600F5F712 /* MJMethod.m in Sources */,
 				A493C2371ADD0BB00056BD52 /* NSFileManager+DoNotBackup.m in Sources */,
@@ -14514,6 +14534,7 @@
 				A49236671ADE6AF9009E0B8C /* BasicPlainTableViewController.m in Sources */,
 				F56C305A1AC3E01D00EDF054 /* PhoneChangeVC.m in Sources */,
 				F583996A1AD7CDC7008A1A48 /* UCZProgressView.m in Sources */,
+				F50B62FF1B1347EF002259B2 /* CasesJiGouModel.m in Sources */,
 				F5933F8A1AD4F4030088C70D /* MJRefreshComponent.m in Sources */,
 				F56649C61A2AFD56008A5830 /* NotstringView.m in Sources */,
 				A4C1407A1A4BEA8500C9BAB5 /* UIImage+Utility.m in Sources */,
@@ -14796,6 +14817,7 @@
 				F5664A491A2AFD56008A5830 /* NSData+ImageContentType.m in Sources */,
 				F5CA5C051AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A47C5F4E1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
+				F50B62F91B132928002259B2 /* ProjectTouDiModel.m in Sources */,
 				F5664A4A1A2AFD56008A5830 /* NoCommentCell.m in Sources */,
 				F5664A4B1A2AFD56008A5830 /* WeixinTimelineActivity.m in Sources */,
 				A493C2351ADD0BB00056BD52 /* NSFileManager+DoNotBackup.m in Sources */,
@@ -15056,6 +15078,7 @@
 				F56C305B1AC3E01D00EDF054 /* PhoneChangeVC.m in Sources */,
 				F583996B1AD7CDC7008A1A48 /* UCZProgressView.m in Sources */,
 				A49235841ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
+				F50B63001B1347EF002259B2 /* CasesJiGouModel.m in Sources */,
 				F5933F8B1AD4F4030088C70D /* MJRefreshComponent.m in Sources */,
 				A4A2EB191A6CF7C8006ADA55 /* MagicalRecord+Actions.m in Sources */,
 				A49C805D1A71041000F2AEC5 /* openssl_wrapper.m in Sources */,
@@ -15338,6 +15361,7 @@
 				F5CA5C061AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A47C5F4F1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				A492357A1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
+				F50B62FA1B132928002259B2 /* ProjectTouDiModel.m in Sources */,
 				F5664D071A2AFDD5008A5830 /* AddFriendsController.m in Sources */,
 				F5664D081A2AFDD5008A5830 /* MJMethod.m in Sources */,
 				A493C2361ADD0BB00056BD52 /* NSFileManager+DoNotBackup.m in Sources */,
