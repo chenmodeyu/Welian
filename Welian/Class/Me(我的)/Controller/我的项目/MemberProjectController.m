@@ -35,6 +35,7 @@ static NSString *fridcellid = @"fridcellid";
         [_tableView registerNib:[UINib nibWithNibName:@"FriendCell" bundle:nil] forCellReuseIdentifier:fridcellid];
         [_tableView setSectionFooterHeight:0.01];
         [_tableView setEditing:YES];
+        [_tableView setTableFooterView:[UIView new]];
     }
     return _tableView;
 }

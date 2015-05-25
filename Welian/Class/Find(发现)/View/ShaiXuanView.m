@@ -218,7 +218,7 @@
 
 - (void)showVC
 {
-    [self.window addSubview:self];
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
 }
 
 

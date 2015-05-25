@@ -49,8 +49,8 @@
     WEAKSELF
     [self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
         if (index == self.navTitlesArr.count-1) {
-            [weakSelf.view.window addSubview:weakSelf.shaixuanView];
-//            [weakSelf.shaixuanView showVC];
+//            [weakSelf.view.window addSubview:weakSelf.shaixuanView];
+            [weakSelf.shaixuanView showVC];
         }else{
             [weakSelf transitionToViewControllerAtIndex:index];
         }

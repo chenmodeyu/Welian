@@ -7,6 +7,7 @@
 //
 
 #import "IFBase.h"
+// 投资阶段
 
 @interface IInvestStageModel : IFBase
 @property (nonatomic, retain) NSNumber * stage;

@@ -160,14 +160,6 @@
         [WLHUDView showErrorHUD:@"请填写正确的手机号！"];
         return;
     }
-//    if (!self.phoneTF.text.length) {
-//        [WLHUDView showErrorHUD:@"请输入手机号"];
-//        return;
-//    }
-//    if (![NSString phoneValidate:self.phoneTF.text]) {
-//        [WLHUDView showErrorHUD:@""];
-//        return;
-//    }
     [self startTime];
     [self chongxingfasongforgetcode];
 }

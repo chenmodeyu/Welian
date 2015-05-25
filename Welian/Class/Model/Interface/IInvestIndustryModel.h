@@ -7,6 +7,7 @@
 //
 
 #import "IFBase.h"
+// 投资领域
 
 @interface IInvestIndustryModel : IFBase
 @property (nonatomic, retain) NSString * industryname;

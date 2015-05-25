@@ -9,10 +9,13 @@
 #import "InvestorsTableController.h"
 #import "InvestorCell.h"
 #import "InvestorOrgCell.h"
+#import "InvestorUserModel.h"
+#import "InvestorUserInfoController.h"
 
 @interface InvestorsTableController ()
 {
     InvestorsType invType;
+    NSMutableArray *_dataArray;
 }
 
 @end
@@ -27,7 +30,7 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     self = [super init];
     if (self) {
         invType = investorsType;
-        
+        _dataArray = [NSMutableArray array];
     }
     return self;
 }
@@ -36,7 +39,10 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
 {
     if (invType == InvestorsTypeUser) {
         [WeLianClient getInvestorListWithType:@(0) Page:@(1) Size:@(KCellConut) Success:^(id resultInfo) {
-            
+            NSArray *investorUM = [InvestorUserModel objectsWithInfo:resultInfo];
+            [_dataArray removeAllObjects];
+            [_dataArray addObjectsFromArray:investorUM];
+            [self.tableView reloadData];
         } Failed:^(NSError *error) {
             
         }];
@@ -53,6 +59,7 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     WEAKSELF
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
@@ -61,11 +68,13 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     [self.tableView addLegendFooterWithRefreshingBlock:^{
         
     }];
+    [self.tableView.header beginRefreshing];
     if (invType == InvestorsTypeUser) {
         [self.tableView registerNib:[UINib nibWithNibName:@"InvestorCell" bundle:nil] forCellReuseIdentifier:identifier];
     }else if (invType == InvestorsTypeOrganization){
         [self.tableView registerNib:[UINib nibWithNibName:@"InvestorOrgCell" bundle:nil] forCellReuseIdentifier:investorOrgCellid];
     }
+//    [self.tableView.header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,23 +95,27 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 23;
+    return _dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
     if (invType == InvestorsTypeUser) {
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+      InvestorCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        InvestorUserModel *invesUserM = [_dataArray objectAtIndex:indexPath.row];
+        [cell setInvestUserM:invesUserM];
+        return cell;
     }else if (invType == InvestorsTypeOrganization){
-        cell = [tableView dequeueReusableCellWithIdentifier:investorOrgCellid];
+      InvestorOrgCell *cell = [tableView dequeueReusableCellWithIdentifier:investorOrgCellid];
+      return cell;
     }
-    return cell;
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    InvestorUserInfoController *invesInfo = [[InvestorUserInfoController alloc] init];
+    [self.navigationController pushViewController:invesInfo animated:YES];
 }
 
 @end

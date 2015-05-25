@@ -2883,6 +2883,18 @@
 		F506A8A71ADE666B00EABB0E /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A470956E1ADD252600329050 /* NavViewController.m */; };
 		F506A8A81ADE672C00EABB0E /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A470956E1ADD252600329050 /* NavViewController.m */; };
 		F506A8A91ADE674200EABB0E /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A470956E1ADD252600329050 /* NavViewController.m */; };
+		F50B62CC1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62CB1B11F8FF002259B2 /* InvestorInfoHeadView.m */; };
+		F50B62CD1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62CB1B11F8FF002259B2 /* InvestorInfoHeadView.m */; };
+		F50B62CE1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62CB1B11F8FF002259B2 /* InvestorInfoHeadView.m */; };
+		F50B62CF1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62CB1B11F8FF002259B2 /* InvestorInfoHeadView.m */; };
+		F50B62D21B12D752002259B2 /* InvestorUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62D11B12D752002259B2 /* InvestorUserInfoController.m */; };
+		F50B62D31B12D752002259B2 /* InvestorUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62D11B12D752002259B2 /* InvestorUserInfoController.m */; };
+		F50B62D41B12D752002259B2 /* InvestorUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62D11B12D752002259B2 /* InvestorUserInfoController.m */; };
+		F50B62D51B12D752002259B2 /* InvestorUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62D11B12D752002259B2 /* InvestorUserInfoController.m */; };
+		F50B62EE1B1308E0002259B2 /* ProjectsMailingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */; };
+		F50B62EF1B1308E0002259B2 /* ProjectsMailingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */; };
+		F50B62F01B1308E0002259B2 /* ProjectsMailingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */; };
+		F50B62F11B1308E0002259B2 /* ProjectsMailingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */; };
 		F50CB09D1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
 		F50CB09E1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
 		F50CB09F1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
@@ -4050,6 +4062,14 @@
 		F56972741B0F01C6004E86AC /* InvestorOrgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F569726E1B0F01C6004E86AC /* InvestorOrgCell.xib */; };
 		F56972751B0F01C6004E86AC /* InvestorOrgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F569726E1B0F01C6004E86AC /* InvestorOrgCell.xib */; };
 		F56972761B0F01C6004E86AC /* InvestorOrgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F569726E1B0F01C6004E86AC /* InvestorOrgCell.xib */; };
+		F56972791B0F2459004E86AC /* InvestorUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F56972781B0F2459004E86AC /* InvestorUserModel.m */; };
+		F569727A1B0F2459004E86AC /* InvestorUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F56972781B0F2459004E86AC /* InvestorUserModel.m */; };
+		F569727B1B0F2459004E86AC /* InvestorUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F56972781B0F2459004E86AC /* InvestorUserModel.m */; };
+		F569727C1B0F2459004E86AC /* InvestorUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F56972781B0F2459004E86AC /* InvestorUserModel.m */; };
+		F569727F1B0F254D004E86AC /* TouzijigouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F569727E1B0F254D004E86AC /* TouzijigouModel.m */; };
+		F56972801B0F254D004E86AC /* TouzijigouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F569727E1B0F254D004E86AC /* TouzijigouModel.m */; };
+		F56972811B0F254D004E86AC /* TouzijigouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F569727E1B0F254D004E86AC /* TouzijigouModel.m */; };
+		F56972821B0F254D004E86AC /* TouzijigouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F569727E1B0F254D004E86AC /* TouzijigouModel.m */; };
 		F569A8011A31B2FE00B677B0 /* repost_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F569A8001A31B2FE00B677B0 /* repost_small@2x.png */; };
 		F569A8021A31B2FE00B677B0 /* repost_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F569A8001A31B2FE00B677B0 /* repost_small@2x.png */; };
 		F569A8081A31B33C00B677B0 /* osusume_add_bg_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F569A8031A31B33C00B677B0 /* osusume_add_bg_pressed@2x.png */; };
@@ -5860,6 +5880,12 @@
 		F507F25019E6226F00661A90 /* IconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IconTableViewCell.xib; sourceTree = "<group>"; };
 		F50A23A119D327100035705B /* common_card_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_card_background@2x.png"; sourceTree = "<group>"; };
 		F50A23A319D3272B0035705B /* common_card_background_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_card_background_highlighted@2x.png"; sourceTree = "<group>"; };
+		F50B62CA1B11F8FF002259B2 /* InvestorInfoHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorInfoHeadView.h; sourceTree = "<group>"; };
+		F50B62CB1B11F8FF002259B2 /* InvestorInfoHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorInfoHeadView.m; sourceTree = "<group>"; };
+		F50B62D01B12D752002259B2 /* InvestorUserInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorUserInfoController.h; sourceTree = "<group>"; };
+		F50B62D11B12D752002259B2 /* InvestorUserInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorUserInfoController.m; sourceTree = "<group>"; };
+		F50B62EC1B1308E0002259B2 /* ProjectsMailingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsMailingView.h; sourceTree = "<group>"; };
+		F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsMailingView.m; sourceTree = "<group>"; };
 		F50C89691A08F2050007BE52 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		F50C896A1A08F2050007BE52 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_repost_beijing@2x.png"; sourceTree = "<group>"; };
@@ -6220,6 +6246,10 @@
 		F569726C1B0F01C6004E86AC /* InvestorOrgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorOrgCell.h; sourceTree = "<group>"; };
 		F569726D1B0F01C6004E86AC /* InvestorOrgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorOrgCell.m; sourceTree = "<group>"; };
 		F569726E1B0F01C6004E86AC /* InvestorOrgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorOrgCell.xib; sourceTree = "<group>"; };
+		F56972771B0F2459004E86AC /* InvestorUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorUserModel.h; sourceTree = "<group>"; };
+		F56972781B0F2459004E86AC /* InvestorUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorUserModel.m; sourceTree = "<group>"; };
+		F569727D1B0F254D004E86AC /* TouzijigouModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouzijigouModel.h; sourceTree = "<group>"; };
+		F569727E1B0F254D004E86AC /* TouzijigouModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouzijigouModel.m; sourceTree = "<group>"; };
 		F569A8001A31B2FE00B677B0 /* repost_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "repost_small@2x.png"; sourceTree = "<group>"; };
 		F569A8031A31B33C00B677B0 /* osusume_add_bg_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osusume_add_bg_pressed@2x.png"; sourceTree = "<group>"; };
 		F569A8041A31B33C00B677B0 /* osusume_add_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osusume_add_bg@2x.png"; sourceTree = "<group>"; };
@@ -7836,6 +7866,10 @@
 			isa = PBXGroup;
 			children = (
 				A493C2BB1ADD14A60056BD52 /* Findplist.plist */,
+				F569727D1B0F254D004E86AC /* TouzijigouModel.h */,
+				F569727E1B0F254D004E86AC /* TouzijigouModel.m */,
+				F56972771B0F2459004E86AC /* InvestorUserModel.h */,
+				F56972781B0F2459004E86AC /* InvestorUserModel.m */,
 				A493C2BC1ADD14A60056BD52 /* InvestorUserM.h */,
 				A493C2BD1ADD14A60056BD52 /* InvestorUserM.m */,
 				F5CAB7781B0DF77E00937E63 /* BannerModel.h */,
@@ -8969,6 +9003,10 @@
 				F569726C1B0F01C6004E86AC /* InvestorOrgCell.h */,
 				F569726D1B0F01C6004E86AC /* InvestorOrgCell.m */,
 				F569726E1B0F01C6004E86AC /* InvestorOrgCell.xib */,
+				F50B62CA1B11F8FF002259B2 /* InvestorInfoHeadView.h */,
+				F50B62CB1B11F8FF002259B2 /* InvestorInfoHeadView.m */,
+				F50B62EC1B1308E0002259B2 /* ProjectsMailingView.h */,
+				F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -9615,6 +9653,8 @@
 				F56972501B0ED17A004E86AC /* InvestorsListController.m */,
 				F569725B1B0EF2B4004E86AC /* InvestorsTableController.h */,
 				F569725C1B0EF2B4004E86AC /* InvestorsTableController.m */,
+				F50B62D01B12D752002259B2 /* InvestorUserInfoController.h */,
+				F50B62D11B12D752002259B2 /* InvestorUserInfoController.m */,
 			);
 			name = Investors;
 			sourceTree = "<group>";
@@ -13288,6 +13328,7 @@
 				A49C7C121A70D42700F2AEC5 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				A49C7C131A70D42700F2AEC5 /* WeixinActivityBase.m in Sources */,
 				A47D41D91A8B50320070BFD8 /* ProjectUser.m in Sources */,
+				F56972821B0F254D004E86AC /* TouzijigouModel.m in Sources */,
 				A49C7C141A70D42700F2AEC5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A49C7C151A70D42700F2AEC5 /* SDWebImageDownloader.m in Sources */,
 				A49C7C161A70D42700F2AEC5 /* IconTableViewCell.m in Sources */,
@@ -13299,6 +13340,7 @@
 				A4717C3A1AA7F8370054289D /* IActivityTicket.m in Sources */,
 				A49C7C1D1A70D42700F2AEC5 /* IBaseUserM.m in Sources */,
 				A49C7C1E1A70D42700F2AEC5 /* LocationprovinceController.m in Sources */,
+				F50B62D51B12D752002259B2 /* InvestorUserInfoController.m in Sources */,
 				A49C7C1F1A70D42700F2AEC5 /* UIView+Convenience.m in Sources */,
 				A47D41DF1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
 				A4FDF3CE1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
@@ -13435,6 +13477,7 @@
 				A49C7C8D1A70D42700F2AEC5 /* UIImage+RoundedCorner.m in Sources */,
 				A49C7C8E1A70D42700F2AEC5 /* MJPhotoLoadingView.m in Sources */,
 				A49C7C8F1A70D42700F2AEC5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
+				F50B62CF1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239D1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				A493C2571ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				A49C7C911A70D42700F2AEC5 /* MJPhotoView.m in Sources */,
@@ -13644,6 +13687,7 @@
 				A49C7D361A70D42700F2AEC5 /* TOActivityChrome.m in Sources */,
 				F53519B11A8C90A0004488EE /* CreateHeaderView.m in Sources */,
 				A49C7D371A70D42700F2AEC5 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F569727C1B0F2459004E86AC /* InvestorUserModel.m in Sources */,
 				A493C34E1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
 				A49C7D381A70D42700F2AEC5 /* BiaoqainCell.m in Sources */,
 				A49C7D3A1A70D42700F2AEC5 /* CompanyModel.m in Sources */,
@@ -13663,6 +13707,7 @@
 				A49C7D431A70D42700F2AEC5 /* InvestStages.m in Sources */,
 				A49C7D451A70D42700F2AEC5 /* WLPhotoListView.m in Sources */,
 				A49C7D461A70D42700F2AEC5 /* AFHTTPSessionManager.m in Sources */,
+				F50B62F11B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5D04C5E1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
 				A49C7D471A70D42700F2AEC5 /* IWTextView.m in Sources */,
 				A46FAE531A8DDE00005EB34E /* ActivityLookTicketViewCell.m in Sources */,
@@ -13824,6 +13869,7 @@
 				A47D41D81A8B50320070BFD8 /* ProjectUser.m in Sources */,
 				F53DC2D21A49192600F5F712 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F53DC2D31A49192600F5F712 /* SDWebImageDownloader.m in Sources */,
+				F56972811B0F254D004E86AC /* TouzijigouModel.m in Sources */,
 				F53DC2D41A49192600F5F712 /* IconTableViewCell.m in Sources */,
 				A493C2321ADD0BB00056BD52 /* NSError+Extend.m in Sources */,
 				A4C1408B1A4BEA8500C9BAB5 /* UIView+XHRemoteImage.m in Sources */,
@@ -13835,6 +13881,7 @@
 				F53DC2D81A49192600F5F712 /* LocationprovinceController.m in Sources */,
 				A4C141371A4BEF5700C9BAB5 /* UIView+Convenience.m in Sources */,
 				A47D41DE1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
+				F50B62D41B12D752002259B2 /* InvestorUserInfoController.m in Sources */,
 				F53DC2DB1A49192600F5F712 /* WorkListCell.m in Sources */,
 				F55078F61A80C70C009CE4F7 /* ProjectBaseModel.m in Sources */,
 				A4FDF3CC1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
@@ -13971,6 +14018,7 @@
 				A49235531ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A492354E1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C2551ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
+				F50B62CE1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239B1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				F53DC31D1A49192600F5F712 /* MJPhotoView.m in Sources */,
 				F53DC31E1A49192600F5F712 /* WLStatusCell.m in Sources */,
@@ -14180,6 +14228,7 @@
 				A41CE1E31A6FA5E7004F17E7 /* WLPhotographyHelper.m in Sources */,
 				F53DC38A1A49192600F5F712 /* TOActivityChrome.m in Sources */,
 				F53519B01A8C90A0004488EE /* CreateHeaderView.m in Sources */,
+				F569727B1B0F2459004E86AC /* InvestorUserModel.m in Sources */,
 				F53DC38B1A49192600F5F712 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				A493C34C1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
 				F58CA98A1A5D0BD900988A61 /* BiaoqainCell.m in Sources */,
@@ -14199,6 +14248,7 @@
 				A4A2EB2C1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */,
 				F534DB611A5119A000B6A725 /* InvestStages.m in Sources */,
 				F53DC3911A49192600F5F712 /* WLPhotoListView.m in Sources */,
+				F50B62F01B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F53DC3921A49192600F5F712 /* AFHTTPSessionManager.m in Sources */,
 				F5D04C5D1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
 				F53DC3931A49192600F5F712 /* IWTextView.m in Sources */,
@@ -14360,6 +14410,7 @@
 				F56649A71A2AFD56008A5830 /* UIBarButtonItem+Badge.m in Sources */,
 				A4A2EAF41A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				F56649A81A2AFD56008A5830 /* ChineseString.m in Sources */,
+				F569727F1B0F254D004E86AC /* TouzijigouModel.m in Sources */,
 				A49C80441A71041000F2AEC5 /* Order.m in Sources */,
 				A4A2EB0C1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				A47D41D61A8B50320070BFD8 /* ProjectUser.m in Sources */,
@@ -14371,6 +14422,7 @@
 				F56649AD1A2AFD56008A5830 /* SDWebImageDownloader.m in Sources */,
 				A4C141111A4BEF5700C9BAB5 /* FLAnimatedImageView.m in Sources */,
 				F56649AE1A2AFD56008A5830 /* IconTableViewCell.m in Sources */,
+				F50B62D21B12D752002259B2 /* InvestorUserInfoController.m in Sources */,
 				A4717C371AA7F8370054289D /* IActivityTicket.m in Sources */,
 				A48CA6A11A4D044B009EBD04 /* DTError.m in Sources */,
 				A4FDF3CA1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
@@ -14507,6 +14559,7 @@
 				F5C779741A53935F0098BC29 /* InvestItemM.m in Sources */,
 				A493C2531ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				A4C140861A4BEA8500C9BAB5 /* UIView+XHBadgeView.m in Sources */,
+				F50B62CC1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A45923991B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				A4A2EAE81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731AF1A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
@@ -14716,6 +14769,7 @@
 				F534DB5A1A5119A000B6A725 /* InvestIndustry.m in Sources */,
 				F53519AE1A8C90A0004488EE /* CreateHeaderView.m in Sources */,
 				F58CA9881A5D0BD900988A61 /* BiaoqainCell.m in Sources */,
+				F56972791B0F2459004E86AC /* InvestorUserModel.m in Sources */,
 				A493C34A1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
 				F5664A521A2AFD56008A5830 /* LoginPhoneVC.m in Sources */,
 				F562728B1A4C4FE9002A9B88 /* IBaseUserM.m in Sources */,
@@ -14735,6 +14789,7 @@
 				F5664A571A2AFD56008A5830 /* CommonFriendsController.m in Sources */,
 				F5664A591A2AFD56008A5830 /* WLPhotoListView.m in Sources */,
 				F5664A5A1A2AFD56008A5830 /* AFHTTPSessionManager.m in Sources */,
+				F50B62EE1B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5664A5B1A2AFD56008A5830 /* IWTextView.m in Sources */,
 				F5D04C5B1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
 				A46FAE501A8DDE00005EB34E /* ActivityLookTicketViewCell.m in Sources */,
@@ -14896,6 +14951,7 @@
 				A47D41D71A8B50320070BFD8 /* ProjectUser.m in Sources */,
 				F5664C661A2AFDD5008A5830 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F5664C671A2AFDD5008A5830 /* SDWebImageDownloader.m in Sources */,
+				F56972801B0F254D004E86AC /* TouzijigouModel.m in Sources */,
 				F5664C681A2AFDD5008A5830 /* IconTableViewCell.m in Sources */,
 				A493C2311ADD0BB00056BD52 /* NSError+Extend.m in Sources */,
 				A4C1408A1A4BEA8500C9BAB5 /* UIView+XHRemoteImage.m in Sources */,
@@ -14907,6 +14963,7 @@
 				F5664C6C1A2AFDD5008A5830 /* LocationprovinceController.m in Sources */,
 				A4C141361A4BEF5700C9BAB5 /* UIView+Convenience.m in Sources */,
 				A47D41DD1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
+				F50B62D31B12D752002259B2 /* InvestorUserInfoController.m in Sources */,
 				F5E380B61A41B1680084F7F3 /* WorkListCell.m in Sources */,
 				F55078F51A80C70C009CE4F7 /* ProjectBaseModel.m in Sources */,
 				A4FDF3CB1B0A041800A487A9 /* HYBLoopScrollView.m in Sources */,
@@ -15043,6 +15100,7 @@
 				A49235521ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A492354D1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C2541ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
+				F50B62CD1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239A1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				F5664CAA1A2AFDD5008A5830 /* MJPhotoView.m in Sources */,
 				F5664CAC1A2AFDD5008A5830 /* WLStatusCell.m in Sources */,
@@ -15252,6 +15310,7 @@
 				A41CE1E21A6FA5E7004F17E7 /* WLPhotographyHelper.m in Sources */,
 				F5664D0D1A2AFDD5008A5830 /* TOActivityChrome.m in Sources */,
 				F53519AF1A8C90A0004488EE /* CreateHeaderView.m in Sources */,
+				F569727A1B0F2459004E86AC /* InvestorUserModel.m in Sources */,
 				F5664D0E1A2AFDD5008A5830 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				A493C34B1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
 				F58CA9891A5D0BD900988A61 /* BiaoqainCell.m in Sources */,
@@ -15271,6 +15330,7 @@
 				A4A2EB2B1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */,
 				F534DB601A5119A000B6A725 /* InvestStages.m in Sources */,
 				F5664D131A2AFDD5008A5830 /* WLPhotoListView.m in Sources */,
+				F50B62EF1B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5664D141A2AFDD5008A5830 /* AFHTTPSessionManager.m in Sources */,
 				F5D04C5C1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
 				F5664D151A2AFDD5008A5830 /* IWTextView.m in Sources */,
