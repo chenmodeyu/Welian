@@ -39,17 +39,24 @@
 
 - (WLCustomSegmentedControl *)segmentedControl
 {
-    if (_segmentedControl == nil) {
-        _segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, navHeight)];
-        _segmentedControl.selectedTextColor = KBasesColor;
-        _segmentedControl.textColor = WLRGB(51.0, 51.0, 51.0);
-        _segmentedControl.selectionIndicatorColor = KBasesColor;
-        _segmentedControl.selectionIndicatorHeight = 2;
-        _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
-        _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-        UIView *lieView = [[UIView alloc] initWithFrame:CGRectMake(0, navHeight-0.5, ScreenWidth, 0.5)];
-        [lieView setBackgroundColor:[UIColor lightGrayColor]];
-        [_segmentedControl addSubview:lieView];
+    if (!_segmentedControl) {
+        _segmentedControl = [[WLCustomSegmentedControl alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, navHeight)];
+//        _wlSegmentedControl.frame = CGRectMake(0, kTableViewHeaderViewHeight - 38.f, self.view.width, 38.f);
+        _segmentedControl.selectedTextColor = kTitleNormalTextColor;
+        _segmentedControl.textColor = kTitleNormalTextColor;
+        _segmentedControl.detailTextColor = KBlueTextColor;
+        _segmentedControl.selectionIndicatorHeight = 4;//设置底部滑块的高度
+        _segmentedControl.selectionIndicatorColor = KBlueTextColor;
+        _segmentedControl.showBottomLine = YES;
+        _segmentedControl.showLine = NO;//显示分割线
+        //        _wlSegmentedControl.isShowVertical = YES;//纵向显示
+        _segmentedControl.isAllowTouchEveryTime = YES;//允许重复点击
+        _segmentedControl.detailLabelFont = kNormalBlod14Font;
+        _segmentedControl.font = kNormal14Font;
+        //设置边线
+        _segmentedControl.layer.borderColorFromUIColor = WLLineColor;
+        _segmentedControl.layer.borderWidths = @"{0,0,0.8,0}";
+        _segmentedControl.layer.masksToBounds = YES;
     }
     return _segmentedControl;
 }
