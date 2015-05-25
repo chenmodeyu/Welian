@@ -575,8 +575,10 @@
 {
     if ([userInfo isKindOfClass:[ProjectInfo class]]) {
         IBaseUserM *baseUser = [[userInfo rsProjectUser] toIBaseUserModelInfo];
-        UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:baseUser OperateType:nil HidRightBtn:NO];
-        [self.navigationController pushViewController:userInfoVC animated:YES];
+        if (baseUser) {
+            UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:baseUser OperateType:nil HidRightBtn:NO];
+            [self.navigationController pushViewController:userInfoVC animated:YES];
+        }
     }
 }
 
