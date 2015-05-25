@@ -24,6 +24,7 @@
 @dynamic zancount;
 @dynamic type;
 @dynamic rsLoginUser;
+@dynamic rsProjectUser;
 
 //创建项目
 + (void)createProjectInfoWith:(IProjectInfo *)iProjectInfo withType:(NSNumber *)type
@@ -44,6 +45,10 @@
     projectInfo.iszan = iProjectInfo.iszan;
     projectInfo.industrys = [iProjectInfo displayIndustrys];
     projectInfo.type = type;
+    //设置用户
+    ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectInfo.user];
+    projectInfo.rsProjectUser = projectUser;
+    
     if (type != 0) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
         [loginUser addRsProjectInfosObject:projectInfo];

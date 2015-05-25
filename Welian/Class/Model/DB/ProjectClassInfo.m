@@ -63,4 +63,11 @@
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
+//真实删除
++ (void)deleteAllProjectClassInfosReal
+{
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isShow",@(NO)];
+    [ProjectClassInfo MR_deleteAllMatchingPredicate:pre];
+}
+
 @end

@@ -35,7 +35,7 @@
     self = [super init];
     if (self) {
         self.iProjectDetailInfo = iProjectDetailInfo;
-        self.datasource = @[@""];
+        self.datasource = _iProjectDetailInfo.bp.bpid != nil ? @[_iProjectDetailInfo.bp] : nil;
     }
     return self;
 }
@@ -72,6 +72,49 @@
     [_tableView setTableFooterView:noteView];
 }
 
+#pragma mark - Private
+//请求查看BP
+- (void)getBPBtnClicked:(NSIndexPath *)indexPath
+{
+    [UIAlertView bk_showAlertViewWithTitle:@""
+                                   message:@"确定查看该项目的BP？"
+                         cancelButtonTitle:@"取消"
+                         otherButtonTitles:@[@"发送请求"]
+                                   handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                       if (buttonIndex == 0) {
+                                           return;
+                                       }else{
+                                           [self getBPInfo:indexPath];
+                                       }
+                                   }];
+}
+
+//向创业者索要BP
+- (void)getBPInfo:(NSIndexPath *)indexPath
+{
+    //向创业者索要BP
+    [WLHUDView showHUDWithStr:@"请求发送中..." dim:NO];
+    IProjectBPModel *bpModel = _datasource[indexPath.row];
+    [WeLianClient investorRequiredWithPid:bpModel.bpid
+                                  Success:^(id resultInfo) {
+                                      [WLHUDView hiddenHud];
+                                      //发送成功
+                                      [UIAlertView bk_showAlertViewWithTitle:@""
+                                                                     message:@"查看BP请求发送成功，请等待回复！"
+                                                           cancelButtonTitle:@"知道了"
+                                                           otherButtonTitles:nil
+                                                                     handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                                         
+                                                                     }];
+                                  } Failed:^(NSError *error) {
+                                      if (error) {
+                                          [WLHUDView showErrorHUD:error.localizedDescription];
+                                      }else{
+                                          [WLHUDView showErrorHUD:@"取消收藏失败，请重试！"];
+                                      }
+                                  }];
+}
+
 #pragma mark - UITableView Datasource&Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -92,8 +135,16 @@
         if (!cell) {
             cell = [[ProjectBPViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
-        cell.fineName = @"微链商业计划书.pdf";
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        IProjectBPModel *bpModel = _datasource[indexPath.row];
+        cell.fineName = bpModel.bpname;// @"微链商业计划书.pdf";
+        cell.showGetBPBtn = YES;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        WEAKSELF
+        [cell setBlock:^(void){
+            //请求查看BP
+            [weakSelf getBPBtnClicked:indexPath];
+        }];
         return cell;
     }else{
         static NSString *cellIdentifier = @"FinancingInfo_Not_View_Cell";
@@ -108,7 +159,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 }
 

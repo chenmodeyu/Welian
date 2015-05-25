@@ -20,7 +20,24 @@
 
 @implementation XZPageViewController
 
-- (HMSegmentedControl *)segmentedControl
+//- (HMSegmentedControl *)segmentedControl
+//{
+//    if (_segmentedControl == nil) {
+//        _segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, navHeight)];
+//        _segmentedControl.selectedTextColor = KBasesColor;
+//        _segmentedControl.textColor = WLRGB(51.0, 51.0, 51.0);
+//        _segmentedControl.selectionIndicatorColor = KBasesColor;
+//        _segmentedControl.selectionIndicatorHeight = 2;
+//        _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+//        _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+//        UIView *lieView = [[UIView alloc] initWithFrame:CGRectMake(0, navHeight-1, ScreenWidth, 0.5)];
+//        [lieView setBackgroundColor:[UIColor lightGrayColor]];
+//        [_segmentedControl addSubview:lieView];
+//    }
+//    return _segmentedControl;
+//}
+
+- (WLCustomSegmentedControl *)segmentedControl
 {
     if (_segmentedControl == nil) {
         _segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, navHeight)];
@@ -36,7 +53,6 @@
     }
     return _segmentedControl;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,8 +71,11 @@
 }
 
 - (void)loadNavScrollView {
+//    [self.view addSubview:self.segmentedControl];
+//    self.segmentedControl.sectionTitles = self.navTitlesArr;
     [self.view addSubview:self.segmentedControl];
-    self.segmentedControl.sectionTitles = self.navTitlesArr;
+    _segmentedControl.sectionTitles = self.navTitlesArr;
+    _segmentedControl.sectionImages = self.navTitleImagesArr;
 }
 
 - (void)loadPageViewController {

@@ -133,7 +133,7 @@ typedef void (^IndexChangeBlock)(NSInteger index);
 @property (nonatomic) BOOL shouldAnimateUserSelection;
 
 
-- (id)initWithSectionTitles:(NSArray *)sectiontitles;
+- (id)initWithSectionTitles:(NSArray *)sectiontitles SectionImages:(NSArray *)sectionImages;
 - (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated;
 - (void)setIndexChangeBlock:(IndexChangeBlock)indexChangeBlock;
 

@@ -22,6 +22,7 @@
 @property (nonatomic,strong) NSNumber *status;
 // 领域
 @property (nonatomic,strong) NSArray *industrys;
+@property (nonatomic,strong) IBaseUserM *user;
 
 //赞的数量
 - (NSString *)displayZancountInfo;

@@ -10,11 +10,12 @@
 #import <CoreData/CoreData.h>
 #import "BaseUser.h"
 
-@class ProjectDetailInfo, IBaseUserM;
+@class ProjectDetailInfo, IBaseUserM, ProjectInfo;
 
 @interface ProjectUser : BaseUser
 
 @property (nonatomic, retain) ProjectDetailInfo *rsProjectDetailInfo;
+@property (nonatomic, retain) ProjectInfo *rsProjectInfo;
 
 //创建对象
 + (ProjectUser *)createWithIBaseUserM:(IBaseUserM *)iBaseUserM;

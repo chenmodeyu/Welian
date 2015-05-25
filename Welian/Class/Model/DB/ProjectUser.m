@@ -13,6 +13,7 @@
 @implementation ProjectUser
 
 @dynamic rsProjectDetailInfo;
+@dynamic rsProjectInfo;
 
 //创建对象
 + (ProjectUser *)createWithIBaseUserM:(IBaseUserM *)iBaseUserM

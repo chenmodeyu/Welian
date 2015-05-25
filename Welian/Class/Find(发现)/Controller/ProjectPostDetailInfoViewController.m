@@ -7,6 +7,7 @@
 //
 
 #import "ProjectPostDetailInfoViewController.h"
+#import "UserInfoViewController.h"
 
 #import "ProjectInfoViewCell.h"
 #import "FinancingInfoView.h"
@@ -112,13 +113,44 @@
 //不感兴趣
 - (void)noLikeBtnClicked:(UIButton *)sender
 {
-    
+    [WeLianClient investorNoToudiWithUid:@(0)
+                                     Pid:@(22)
+                                 Success:^(id resultInfo) {
+                                     
+                                 } Failed:^(NSError *error) {
+                                     
+                                 }];
+    [WeLianClient investorFankuiWithPid:@(22)
+                                   Type:@(1)//1 不感兴趣，2约谈
+                                Success:^(id resultInfo) {
+                                    
+                                } Failed:^(NSError *error) {
+                                    
+                                }];
 }
 
 //立即约谈
 - (void)talkNowBtnClicked:(UIButton *)sender
 {
-    
+    [WeLianClient investorFankuiWithPid:@(22)
+                                   Type:@(2)//1 不感兴趣，2约谈
+                                Success:^(id resultInfo) {
+                                    
+                                } Failed:^(NSError *error) {
+                                    
+                                }];
+}
+
+//查看创建用户的信息
+- (void)lookCreateUserInfo:(id)userInfo
+{
+    if ([userInfo isKindOfClass:[IProjectDetailInfo class]]) {
+        IProjectDetailInfo *iProjectDetailInfo = userInfo;
+        if (iProjectDetailInfo.user) {
+            UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:iProjectDetailInfo.user OperateType:nil HidRightBtn:NO];
+            [self.navigationController pushViewController:userInfoVC animated:YES];
+        }
+    }
 }
 
 #pragma mark - UITableView Datasource&Delegate
@@ -144,6 +176,10 @@
                 cell = [[ProjectInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
             }
             cell.iProjectDetailInfo = _iProjectDetailInfo;
+            WEAKSELF
+            [cell setUserInfoBlock:^(id userInfo){
+                [weakSelf lookCreateUserInfo:userInfo];
+            }];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }

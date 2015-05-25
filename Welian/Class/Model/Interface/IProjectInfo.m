@@ -15,6 +15,7 @@
 {
     self.des = dict[@"description"];
     self.industrys = [IInvestIndustryModel objectsWithInfo:self.industrys];
+    self.user = [IBaseUserM objectWithDict:dict[@"user"]];
 }
 
 //赞的数量

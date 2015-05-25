@@ -8,9 +8,11 @@
 
 #import "ProjcetClassViewController.h"
 #import "ProjectDetailsViewController.h"
+#import "UserInfoViewController.h"
 
 #import "ProjectInfoViewCell.h"
 #import "NoteTableViewCell.h"
+#import "CSLoadingImageView.h"
 
 #define kHeaderImageHeight 100.f
 
@@ -86,14 +88,14 @@
     //    [self loadReflshData];
     [self.tableView.header beginRefreshing];
     
-    UIImageView *headerView = [[UIImageView alloc] init];
+    CSLoadingImageView *headerView = [[CSLoadingImageView alloc] init];
     //设置图片
     [headerView sd_setImageWithURL:[NSURL URLWithString:_projectClassInfo.photo]
                       placeholderImage:nil
                                options:SDWebImageRetryFailed|SDWebImageLowPriority
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                  //图片进行染色（Tinting）、增加亮度（lightening）以及降低亮度（darkening）
-                                 [headerView setImage:[image rt_darkenWithLevel:0.3f]];
+                                 [headerView setImage:[image rt_darkenWithLevel:0.5f]];
                              }];
     [_tableView setParallaxHeaderView:headerView
                                  mode:VGParallaxHeaderModeFill
@@ -179,6 +181,16 @@
     [self loadInitData];
 }
 
+//查看创建用户的信息
+- (void)lookCreateUserInfo:(id)userInfo
+{
+    if ([userInfo isKindOfClass:[ProjectInfo class]]) {
+        IBaseUserM *baseUser = [[userInfo rsProjectUser] toIBaseUserModelInfo];
+        UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:baseUser OperateType:nil HidRightBtn:NO];
+        [self.navigationController pushViewController:userInfoVC animated:YES];
+    }
+}
+
 #pragma mark - UITableView Datasource&Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -201,6 +213,10 @@
             cell = [[ProjectInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         cell.projectInfo = _datasource[indexPath.row];
+        WEAKSELF
+        [cell setUserInfoBlock:^(id userInfo){
+            [weakSelf lookCreateUserInfo:userInfo];
+        }];
         return cell;
     }else{
         static NSString *cellIdentifier = @"ProjectClass_No_View_Cell";

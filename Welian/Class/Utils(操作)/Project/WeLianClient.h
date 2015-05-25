@@ -93,7 +93,7 @@
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed;
 
-//不同意投递bp
+//拒绝发送bp
 + (void)investorNoToudiWithUid:(NSNumber *)uid
                            Pid:(NSNumber *)pid
                        Success:(SuccessBlock)success

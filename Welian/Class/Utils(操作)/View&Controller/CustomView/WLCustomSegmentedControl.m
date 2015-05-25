@@ -14,6 +14,7 @@
 #define kBadge2Width 24.f
 
 #define kTagOfTitle 800
+#define kTagOfImage 840
 #define kTagOfDetailTitle 810
 #define kTagOfLine 820
 #define kTagOfBadge 830
@@ -69,11 +70,12 @@
     return self;
 }
 
-- (id)initWithSectionTitles:(NSArray *)sectiontitles {
+- (id)initWithSectionTitles:(NSArray *)sectiontitles SectionImages:(NSArray *)sectionImages{
     self = [self initWithFrame:CGRectZero];
     if (self) {
         [self setup];
         self.sectionTitles = sectiontitles;
+        self.sectionImages = sectionImages;
     }
     return self;
 }
@@ -145,6 +147,7 @@
         titleLabel.centerX = (_segmentWidth / 2.f) + _segmentWidth * idx;
         titleLabel.centerY = (self.height - _selectionIndicatorHeight) / 2.f;
         
+        //副标题
         if (_sectionDetailTitles) {
             UILabel *detailLabel = (UILabel *)[_scrollView viewWithTag:kTagOfDetailTitle + idx];
             if (!detailLabel) {
@@ -169,6 +172,26 @@
                 titleLabel.centerY = (self.height - _selectionIndicatorHeight) / 2.f;
                 detailLabel.left = titleLabel.right + 3.f;
                 detailLabel.centerY = titleLabel.centerY;
+            }
+        }
+        
+        //图标
+        if (_sectionImages.count > 0) {
+            NSString *imageName = _sectionImages[idx];
+            if (imageName.length > 0) {
+                UIImageView *titleImageView = (UIImageView *)[_scrollView viewWithTag:kTagOfImage + idx];
+                if (!titleImageView) {
+                    titleImageView = [[UIImageView alloc] init];
+                    titleImageView.backgroundColor = [UIColor clearColor];
+                    titleImageView.tag = kTagOfImage + idx;
+                    [_scrollView addSubview:titleImageView];
+//                    [titleImageView setDebug:YES];
+                }
+                titleImageView.image = [UIImage imageNamed:imageName];
+                [titleImageView sizeToFit];
+                titleLabel.centerX = titleLabel.centerX - (titleImageView.width / 2.f);
+                titleImageView.centerY = titleLabel.centerY;
+                titleImageView.left = titleLabel.right + 2.f;
             }
         }
         
@@ -250,6 +273,15 @@
     [super willChangeValueForKey:@"sectionTitles"];
     _sectionTitles = sectionTitles;
     [super didChangeValueForKey:@"sectionTitles"];
+    
+    [self setNeedsLayout];
+}
+
+- (void)setSectionImages:(NSArray *)sectionImages
+{
+    [super willChangeValueForKey:@"sectionImages"];
+    _sectionImages = sectionImages;
+    [super didChangeValueForKey:@"sectionImages"];
     
     [self setNeedsLayout];
 }

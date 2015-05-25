@@ -82,7 +82,7 @@ static NSString *fridcellid = @"fridcellid";
 - (WLCustomSegmentedControl *)wlSegmentedControl
 {
     if (!_wlSegmentedControl) {
-        _wlSegmentedControl = [[WLCustomSegmentedControl alloc] initWithSectionTitles:@[@"个人信息", @"动态", @"共同好友"]];
+        _wlSegmentedControl = [[WLCustomSegmentedControl alloc] initWithSectionTitles:@[@"个人信息", @"动态", @"共同好友"] SectionImages:nil];
         _wlSegmentedControl.frame = CGRectMake(0, kTableViewHeaderViewHeight - 38.f, self.view.width, 38.f);
         _wlSegmentedControl.selectedTextColor = kTitleNormalTextColor;
         _wlSegmentedControl.textColor = kTitleNormalTextColor;

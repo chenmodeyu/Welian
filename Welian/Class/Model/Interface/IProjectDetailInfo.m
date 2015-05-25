@@ -18,6 +18,7 @@
 {
     self.des = dict[@"description"];
     self.user = [IBaseUserM objectWithDict:dict[@"user"]];
+    self.bp = [IProjectBPModel objectWithDict:dict[@"bp"]];
     self.photos = [IPhotoInfo objectsWithInfo:self.photos];
     self.industrys = [IInvestIndustryModel objectsWithInfo:self.industrys];
     self.comments = [CommentMode objectsWithInfo:self.comments];

@@ -64,6 +64,7 @@
 
 - (void)setCardM:(CardStatuModel *)cardM
 {
+    //3 活动，10项目，11 网页 12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
     _cardM = cardM;
     NSInteger typeint = cardM.type.integerValue;
     NSString *imageName = @"";

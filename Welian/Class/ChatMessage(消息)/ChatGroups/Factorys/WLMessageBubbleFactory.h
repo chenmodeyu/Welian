@@ -19,10 +19,13 @@ typedef NS_ENUM(NSUInteger, WLBubbleImageViewStyle) {
     WLBubbleImageViewStyleWeChatPre
 };
 
-typedef NS_ENUM(NSUInteger, WLBubbleMessageCardType) {////3 活动，10项目，11 网页
+typedef NS_ENUM(NSUInteger, WLBubbleMessageCardType) {//3 活动，10项目，11 网页 12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
     WLBubbleMessageCardTypeActivity = 3,
     WLBubbleMessageCardTypeProject = 10,
     WLBubbleMessageCardTypeWeb = 11,
+    WLBubbleMessageCardTypeInvestorGet = 12,    //索要项目
+    WLBubbleMessageCardTypeInvestorPost = 13,   //投递项目
+    WLBubbleMessageCardTypeInvestorUser = 14,   //用户名片卡片
 };
 
 typedef NS_ENUM(NSInteger, WLBubbleMessageMediaType) {

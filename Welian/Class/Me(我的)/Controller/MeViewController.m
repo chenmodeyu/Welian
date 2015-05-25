@@ -60,7 +60,7 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
 - (WLCustomSegmentedControl *)wlSegmentedControl
 {
     if (!_wlSegmentedControl) {
-        _wlSegmentedControl = [[WLCustomSegmentedControl alloc] initWithSectionTitles:@[@"好友", @"好友的好友"]];
+        _wlSegmentedControl = [[WLCustomSegmentedControl alloc] initWithSectionTitles:@[@"好友", @"好友的好友"] SectionImages:nil];
         _wlSegmentedControl.frame = CGRectMake(0, kTableViewHeaderViewHeight-60.f, self.view.width, 60.f);
         _wlSegmentedControl.selectedTextColor = kTitleNormalTextColor;
         _wlSegmentedControl.textColor = kTitleNormalTextColor;

@@ -232,9 +232,11 @@
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="zancount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="rsLoginUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LogInUser" inverseName="rsProjectInfos" inverseEntity="LogInUser" syncable="YES"/>
+        <relationship name="rsProjectUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectUser" inverseName="rsProjectInfo" inverseEntity="ProjectUser" syncable="YES"/>
     </entity>
     <entity name="ProjectUser" representedClassName="ProjectUser" parentEntity="BaseUser" syncable="YES">
         <relationship name="rsProjectDetailInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectDetailInfo" inverseName="rsProjectUser" inverseEntity="ProjectDetailInfo" syncable="YES"/>
+        <relationship name="rsProjectInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectInfo" inverseName="rsProjectUser" inverseEntity="ProjectInfo" syncable="YES"/>
     </entity>
     <entity name="SchoolCompanyDate" representedClassName="SchoolCompanyDate" isAbstract="YES" syncable="YES">
         <attribute name="endmonth" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -278,8 +280,8 @@
         <element name="NewFriendUser" positionX="-623" positionY="-270" width="128" height="165"/>
         <element name="PhotoInfos" positionX="-1359" positionY="-396" width="128" height="103"/>
         <element name="ProjectDetailInfo" positionX="-1350" positionY="-387" width="128" height="360"/>
-        <element name="ProjectInfo" positionX="-1359" positionY="-396" width="128" height="240"/>
-        <element name="ProjectUser" positionX="-1359" positionY="-396" width="128" height="58"/>
+        <element name="ProjectInfo" positionX="-1359" positionY="-396" width="128" height="255"/>
+        <element name="ProjectUser" positionX="-1359" positionY="-396" width="128" height="75"/>
         <element name="SchoolCompanyDate" positionX="322" positionY="-63" width="128" height="103"/>
         <element name="SchoolModel" positionX="63" positionY="53" width="128" height="133"/>
         <element name="TouTiaoInfo" positionX="-1359" positionY="-396" width="128" height="180"/>

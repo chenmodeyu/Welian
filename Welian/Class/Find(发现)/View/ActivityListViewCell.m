@@ -7,6 +7,7 @@
 //
 
 #import "ActivityListViewCell.h"
+#import "CSLoadingImageView.h"
 
 #define kImageViewWidth 90.f
 #define kImageViewHeight 68.f
@@ -15,7 +16,7 @@
 
 @interface ActivityListViewCell ()
 
-@property (assign,nonatomic) UIImageView *iconImageView;
+@property (assign,nonatomic) CSLoadingImageView *iconImageView;
 @property (assign,nonatomic) UIImageView *joinedImageView;
 @property (assign,nonatomic) UILabel *titleLabel;
 @property (assign,nonatomic) UIButton *timeBtn;
@@ -161,8 +162,10 @@
 - (void)setup
 {
     //图标
-    UIImageView *iconImageView = [[UIImageView alloc] init];
-    iconImageView.backgroundColor = [UIColor lightGrayColor];
+    CSLoadingImageView *iconImageView = [[CSLoadingImageView alloc] init];
+    iconImageView.backgroundColor = IWGlobalBg;
+    iconImageView.layer.borderColor = kNormalLineColor.CGColor;
+    iconImageView.layer.borderWidth = 0.5f;
     [self.contentView addSubview:iconImageView];
     self.iconImageView = iconImageView;
 //    [iconImageView setDebug:YES];

@@ -356,8 +356,8 @@
 //            break;
         case WLBubbleMessageMediaTypeActivity://活动
         case WLBubbleMessageMediaTypeCard:
-            //卡片 //3 活动，10项目，11 网页
         {
+            //3 活动，10项目，11 网页 12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
             NSDictionary *card = dict[@"card"];
             NSNumber *cid = card[@"cid"];
             NSString *title = card[@"title"];
@@ -381,6 +381,15 @@
                     break;
                 case WLBubbleMessageCardTypeWeb://网页
                     chatMsg.message = @"[链接]";
+                    break;
+                case WLBubbleMessageCardTypeInvestorGet://索要项目
+                    chatMsg.message = @"[项目]";
+                    break;
+                case WLBubbleMessageCardTypeInvestorPost://投递项目
+                    chatMsg.message = @"[项目]";
+                    break;
+                case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
+                    chatMsg.message = @"[名片]";
                     break;
                 default:
                     chatMsg.message = @"对方刚给你发了一条消息，您当前版本无法查看，快去升级吧.";
@@ -583,6 +592,9 @@
                 case WLBubbleMessageCardTypeActivity://活动
                 case WLBubbleMessageCardTypeProject://项目
                 case WLBubbleMessageCardTypeWeb://网页
+                case WLBubbleMessageCardTypeInvestorGet://索要项目
+                case WLBubbleMessageCardTypeInvestorPost://投递项目
+                case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
                     msg = self.cardMsg.length > 0 ? self.cardMsg : self.message;
                     break;
                 default:

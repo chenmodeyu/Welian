@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class IBaseUserM;
+
 @interface BaseUser : NSManagedObject
 
 @property (nonatomic, retain) NSString * avatar;
@@ -34,5 +36,8 @@
 @property (nonatomic, strong) NSNumber * friend2count;// 二度好友 数量
 @property (nonatomic, strong) NSNumber * checked;//手机号码是否验证
 @property (nonatomic, strong) NSNumber * samefriendscount; // 共同好友数量  取自己信息的时候没有
+
+//将数据库对象转换成接口对象模型
+- (IBaseUserM *)toIBaseUserModelInfo;
 
 @end

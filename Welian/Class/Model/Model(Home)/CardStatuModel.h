@@ -11,7 +11,7 @@
 @interface CardStatuModel : IFBase
 
 @property (nonatomic, strong) NSNumber *cid;
- //3 活动，10项目，11 网页
+ //3 活动，10项目，11 网页 12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
 @property (nonatomic, strong) NSNumber *type;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *intro;

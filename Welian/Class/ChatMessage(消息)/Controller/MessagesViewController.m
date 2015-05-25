@@ -51,7 +51,7 @@
 - (WLCustomSegmentedControl *)wlSegmentedControl
 {
     if (!_wlSegmentedControl) {
-        _wlSegmentedControl = [[WLCustomSegmentedControl alloc] initWithSectionTitles:@[@"聊天", @"消息",@"好友通知"]];
+        _wlSegmentedControl = [[WLCustomSegmentedControl alloc] initWithSectionTitles:@[@"聊天", @"消息",@"好友通知"] SectionImages:nil];
         _wlSegmentedControl.frame = CGRectMake(0, StatusBarHeight, self.view.width, NaviBarHeight - 0.5);
         _wlSegmentedControl.selectedTextColor = [UIColor whiteColor];
         _wlSegmentedControl.textColor = [UIColor colorWithWhite:0.8 alpha:1];
@@ -509,10 +509,12 @@
 - (void)updateCurrentBadgeInfo
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    //聊天
-    NSInteger unReadChatMsg = [loginUser allUnReadChatMessageNum];
-    //设置角标
-    _wlSegmentedControl.sectionBadges = @[@(unReadChatMsg),loginUser.homemessagebadge,loginUser.newfriendbadge];
+    if (loginUser) {
+        //聊天
+        NSInteger unReadChatMsg = [loginUser allUnReadChatMessageNum];
+        //设置角标
+        _wlSegmentedControl.sectionBadges = @[@(unReadChatMsg),loginUser.homemessagebadge,loginUser.newfriendbadge];
+    }
 }
 
 /**
