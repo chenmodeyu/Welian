@@ -282,10 +282,12 @@
 }
 
 //获取投资人的项目列表
-+ (void)getInvestorProjectsWithSuccess:(SuccessBlock)success
-                                Failed:(FailedBlock)failed
++ (void)getInvestorProjectsListPid:(NSNumber *)pid
+                           Success:(SuccessBlock)success
+                            Failed:(FailedBlock)failed
 {
-    [self reqestPostWithParams:nil
+    NSDictionary *params = @{@"pid":pid};
+    [self reqestPostWithParams:params
                           Path:kInvestorProjectsPath
                        Success:^(id resultInfo) {
                            DLog(@"getInvestorProjects ---- %@",resultInfo);
