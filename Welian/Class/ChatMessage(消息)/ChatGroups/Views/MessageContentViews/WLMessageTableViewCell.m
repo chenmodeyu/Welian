@@ -579,6 +579,9 @@ didSelectLinkWithCorrectionCheckingResult:(NSString *)components
             case WLBubbleMessageCardTypeActivity:
             case WLBubbleMessageCardTypeProject:
             case WLBubbleMessageCardTypeWeb:
+            case WLBubbleMessageCardTypeInvestorGet://索要项目
+            case WLBubbleMessageCardTypeInvestorPost://投递项目
+            case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
             {
                 menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"transpond", @"MessageDisplayKitString", @"转发") action:@selector(transpond:)];
             }

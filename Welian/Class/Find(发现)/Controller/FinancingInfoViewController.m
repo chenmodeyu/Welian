@@ -93,7 +93,7 @@
 - (void)getBPInfo:(NSIndexPath *)indexPath
 {
     //向创业者索要BP
-    [WLHUDView showHUDWithStr:@"发送请求中..." dim:NO];
+    [WLHUDView showHUDWithStr:@"请求发送中..." dim:NO];
     IProjectBPModel *bpModel = _datasource[indexPath.row];
     [WeLianClient investorRequiredWithPid:bpModel.bpid
                                   Success:^(id resultInfo) {

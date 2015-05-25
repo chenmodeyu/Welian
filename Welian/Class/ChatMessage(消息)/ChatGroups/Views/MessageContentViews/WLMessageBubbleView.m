@@ -144,6 +144,9 @@
                 case WLBubbleMessageCardTypeActivity:
                 case WLBubbleMessageCardTypeProject:
                 case WLBubbleMessageCardTypeWeb:
+                case WLBubbleMessageCardTypeInvestorGet://索要项目
+                case WLBubbleMessageCardTypeInvestorPost://投递项目
+                case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
 //                    bubbleSize = CGSizeMake(InfoMaxWidth, [WLMessageCardView calculateCellHeightWithMessage:message]);
                     bubbleSize = [WLMessageCardView calculateCellSizeWithMessage:message];
                     break;
@@ -289,6 +292,9 @@
                         case WLBubbleMessageCardTypeActivity:
                         case WLBubbleMessageCardTypeProject:
                         case WLBubbleMessageCardTypeWeb:
+                        case WLBubbleMessageCardTypeInvestorGet://索要项目
+                        case WLBubbleMessageCardTypeInvestorPost://投递项目
+                        case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
                         {
                             //卡片
                             _displayCardView.hidden = NO;
@@ -431,6 +437,9 @@
                 case WLBubbleMessageCardTypeActivity:
                 case WLBubbleMessageCardTypeProject:
                 case WLBubbleMessageCardTypeWeb:
+                case WLBubbleMessageCardTypeInvestorGet://索要项目
+                case WLBubbleMessageCardTypeInvestorPost://投递项目
+                case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
                 {
                      //卡片
                     CardStatuModel *model = [[CardStatuModel alloc] init];

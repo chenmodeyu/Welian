@@ -113,13 +113,32 @@
 //不感兴趣
 - (void)noLikeBtnClicked:(UIButton *)sender
 {
-    
+    [WeLianClient investorNoToudiWithUid:@(0)
+                                     Pid:@(22)
+                                 Success:^(id resultInfo) {
+                                     
+                                 } Failed:^(NSError *error) {
+                                     
+                                 }];
+    [WeLianClient investorFankuiWithPid:@(22)
+                                   Type:@(1)//1 不感兴趣，2约谈
+                                Success:^(id resultInfo) {
+                                    
+                                } Failed:^(NSError *error) {
+                                    
+                                }];
 }
 
 //立即约谈
 - (void)talkNowBtnClicked:(UIButton *)sender
 {
-    
+    [WeLianClient investorFankuiWithPid:@(22)
+                                   Type:@(2)//1 不感兴趣，2约谈
+                                Success:^(id resultInfo) {
+                                    
+                                } Failed:^(NSError *error) {
+                                    
+                                }];
 }
 
 //查看创建用户的信息

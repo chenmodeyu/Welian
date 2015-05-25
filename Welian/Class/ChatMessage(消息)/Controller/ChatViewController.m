@@ -1156,6 +1156,7 @@
         case WLBubbleMessageMediaTypeCard:
         {
             DLog(@"message ----> Card");
+            //3 活动，10项目，11 网页 12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
             switch (message.cardType.integerValue) {
                 case WLBubbleMessageCardTypeActivity:
                 {
@@ -1198,6 +1199,24 @@
                     webVC.navigationButtonsHidden = YES;//隐藏底部操作栏目
                     webVC.showRightShareBtn = YES;//现实右上角分享按钮
                     [self.navigationController pushViewController:webVC animated:YES];
+                }
+                    break;
+                case WLBubbleMessageCardTypeInvestorGet:
+                {
+                    //索要项目
+                    
+                }
+                    break;
+                case WLBubbleMessageCardTypeInvestorPost:
+                {
+                    //投递项目
+                    
+                }
+                    break;
+                case WLBubbleMessageCardTypeInvestorUser:
+                {
+                    //用户名片卡片
+                    
                 }
                     break;
                 default:
