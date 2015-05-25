@@ -18,10 +18,11 @@
 //创建对象
 + (ProjectUser *)createWithIBaseUserM:(IBaseUserM *)iBaseUserM
 {
-    ProjectUser *baseUser = [self getBaseUserWith:iBaseUserM.uid];
-    if (!baseUser) {
-        baseUser = [ProjectUser MR_createEntity];
-    }
+//    ProjectUser *baseUser = [self getBaseUserWith:iBaseUserM.uid];
+//    if (!baseUser) {
+//        baseUser = [ProjectUser MR_createEntity];
+//    }
+    ProjectUser *baseUser = [ProjectUser MR_createEntity];
     baseUser.avatar = iBaseUserM.avatar;
     baseUser.name = iBaseUserM.name;
     baseUser.uid = iBaseUserM.uid;
@@ -44,10 +45,10 @@
     return baseUser;
 }
 
-//获取指定uid的对象
-+ (ProjectUser *)getBaseUserWith:(NSNumber *)uid
-{
-    return [ProjectUser MR_findFirstByAttribute:@"uid" withValue:uid];
-}
+////获取指定uid的对象
+//+ (ProjectUser *)getBaseUserWith:(NSNumber *)uid
+//{
+//    return [ProjectUser MR_findFirstByAttribute:@"uid" withValue:uid];
+//}
 
 @end

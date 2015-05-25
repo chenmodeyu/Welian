@@ -46,8 +46,11 @@
     projectInfo.industrys = [iProjectInfo displayIndustrys];
     projectInfo.type = type;
     //设置用户
-    ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectInfo.user];
-    projectInfo.rsProjectUser = projectUser;
+    if(!projectInfo.rsProjectUser){
+        //如果不存在，创建
+        ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectInfo.user];
+        projectInfo.rsProjectUser = projectUser;
+    }
     
     if (type != 0) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
