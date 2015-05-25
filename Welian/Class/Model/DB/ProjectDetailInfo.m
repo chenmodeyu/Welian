@@ -133,8 +133,12 @@
     detailInfo.website = iProjectDetailInfo.website;
     detailInfo.zancount = iProjectDetailInfo.zancount;
     //设置用户
-    ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectDetailInfo.user];
-    detailInfo.rsProjectUser = projectUser;
+    //设置用户
+    if(!detailInfo.rsProjectUser){
+        //如果不存在，创建
+        ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectDetailInfo.user];
+        detailInfo.rsProjectUser = projectUser;
+    }
     
     //设置领域
     if (detailInfo.rsIndustrys.count > 0) {

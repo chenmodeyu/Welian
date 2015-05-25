@@ -20,6 +20,6 @@
 //创建对象
 + (ProjectUser *)createWithIBaseUserM:(IBaseUserM *)iBaseUserM;
 //获取指定uid的对象
-+ (ProjectUser *)getBaseUserWith:(NSNumber *)uid;
+//+ (ProjectUser *)getBaseUserWith:(NSNumber *)uid;
 
 @end
