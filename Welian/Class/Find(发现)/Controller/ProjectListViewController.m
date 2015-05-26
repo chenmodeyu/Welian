@@ -390,40 +390,40 @@
                                             [self.tableView.header endRefreshing];
                                             [self.tableView.footer endRefreshing];
                                             
-                                            //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
-                                            if (_pageIndex == 1) {
-                                                //第一页
-                                                [ProjectInfo deleteAllProjectInfoWithType:@(0)];
-                                            }
-                                            NSArray *projects = resultInfo;
-                                            if (projects.count > 0) {
-                                                
-                                                for (IProjectInfo *iProjectInfo in projects) {
-                                                    [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(0)];
+                                            WEAKSELF
+                                            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
+                                                if (_pageIndex == 1) {
+                                                    //第一页
+                                                    [ProjectInfo deleteAllProjectInfoWithType:@(0)];
                                                 }
-                                            }
-                                            
-                                            NSArray *sortedInfo = [ProjectInfo allNormalProjectInfos];
-                                            self.headDatasource = sortedInfo[0];
-                                            self.datasource = sortedInfo[1];
-                                            
-                                            //添加数据
-                                            [_allDataSource addObjectsFromArray:projects];
-                                            [self.tableView reloadData];
-                                            
-                                            //设置是否可以下拉刷新
-                                            if ([resultInfo count] != KCellConut) {
-                                                self.tableView.footer.hidden = YES;
-                                            }else{
-                                                self.tableView.footer.hidden = NO;
-                                            }
-                                            
-                                            if(_allDataSource.count == 0){
-                                                [self.tableView addSubview:self.notView];
-                                                [self.tableView sendSubviewToBack:self.notView];
-                                            }else{
-                                                [_notView removeFromSuperview];
-                                            }
+                                                NSArray *projects = resultInfo;
+                                                if (projects.count > 0) {
+                                                    
+                                                    for (IProjectInfo *iProjectInfo in projects) {
+                                                        [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(0)];
+                                                    }
+                                                }
+                                                
+                                                NSArray *sortedInfo = [ProjectInfo allNormalProjectInfos];
+                                                weakSelf.headDatasource = sortedInfo[0];
+                                                weakSelf.datasource = sortedInfo[1];
+                                                
+                                                //添加数据
+                                                [_allDataSource addObjectsFromArray:projects];
+                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                    [weakSelf.tableView reloadData];
+                                                    
+                                                    if(weakSelf.allDataSource.count == 0){
+                                                        [weakSelf.tableView addSubview:weakSelf.notView];
+                                                        [weakSelf.tableView sendSubviewToBack:weakSelf.notView];
+                                                    }else{
+                                                        [weakSelf.notView removeFromSuperview];
+                                                    }
+                                                    [weakSelf checkFooterViewWith:resultInfo];
+                                                    
+                                                });
+                                            });
                                         } Failed:^(NSError *error) {
                                             [self.tableView.header endRefreshing];
                                             [self.tableView.footer endRefreshing];
@@ -438,39 +438,32 @@
                                         Success:^(id resultInfo) {
                                             [self.tableView.header endRefreshing];
                                             [self.tableView.footer endRefreshing];
-                                            
-                                            //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
-                                            if (_pageIndex == 1) {
-                                                //第一页
-                                                [ProjectInfo deleteAllProjectInfoWithType:@(3)];
-                                            }
-                                            NSArray *projects = resultInfo;
-                                            if (projects.count > 0) {
-                                                
-                                                for (IProjectInfo *iProjectInfo in projects) {
-                                                    [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(3)];
+                                            WEAKSELF
+                                            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
+                                                if (_pageIndex == 1) {
+                                                    //第一页
+                                                    [ProjectInfo deleteAllProjectInfoWithType:@(3)];
                                                 }
-                                            }
-                                            
-                                            //获取热门项目
-                                            NSArray *hotProjects = [ProjectInfo allMyProjectInfoWithType:@(3)];
-                                            self.datasource = hotProjects;
-                                            
-                                            [self.tableView reloadData];
-                                            
-                                            //设置是否可以下拉刷新
-                                            if ([resultInfo count] != _pageSize) {
-                                                self.tableView.footer.hidden = YES;
-                                            }else{
-                                                self.tableView.footer.hidden = NO;
-                                            }
-                                            
-                                            if(_datasource.count == 0){
-                                                [self.tableView addSubview:self.notView];
-                                                [self.tableView sendSubviewToBack:self.notView];
-                                            }else{
-                                                [_notView removeFromSuperview];
-                                            }
+                                                NSArray *projects = resultInfo;
+                                                if (projects.count > 0) {
+                                                    
+                                                    for (IProjectInfo *iProjectInfo in projects) {
+                                                        [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(3)];
+                                                    }
+                                                }
+                                                
+                                                //获取热门项目
+                                                NSArray *hotProjects = [ProjectInfo allMyProjectInfoWithType:@(3)];
+                                                weakSelf.datasource = hotProjects;
+                                                
+                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                    [weakSelf.tableView reloadData];
+                                                    
+                                                    [weakSelf checkNotViewShow];
+                                                    [weakSelf checkFooterViewWith:resultInfo];
+                                                });
+                                            });
                                         } Failed:^(NSError *error) {
                                             [self.tableView.header endRefreshing];
                                             [self.tableView.footer endRefreshing];
@@ -484,36 +477,30 @@
                 [self.tableView.header endRefreshing];
                 [self.tableView.footer endRefreshing];
                 
-                //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
-                if (_pageIndex == 1) {
-                    //第一页
-                    [ProjectClassInfo deleteAllProjectClassInfos];
-                }
-                NSArray *projectClasss = resultInfo;
-                if (projectClasss.count > 0) {
-                    
-                    for (IProjectClassModel *iProjectClassModel in projectClasss) {
-                        [ProjectClassInfo createProjectClassInfoWith:iProjectClassModel];
+                WEAKSELF
+                dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
+                    if (_pageIndex == 1) {
+                        //第一页
+                        [ProjectClassInfo deleteAllProjectClassInfos];
                     }
-                }
-                
-                //获取项目集
-                self.datasource = [ProjectClassInfo getAllProjectClassInfos];
-                [self.tableView reloadData];
-                
-                //设置是否可以下拉刷新
-                if ([resultInfo count] != _pageSize) {
-                    self.tableView.footer.hidden = YES;
-                }else{
-                    self.tableView.footer.hidden = NO;
-                }
-                
-                if(_datasource.count == 0){
-                    [self.tableView addSubview:self.notView];
-                    [self.tableView sendSubviewToBack:self.notView];
-                }else{
-                    [_notView removeFromSuperview];
-                }
+                    NSArray *projectClasss = resultInfo;
+                    if (projectClasss.count > 0) {
+                        
+                        for (IProjectClassModel *iProjectClassModel in projectClasss) {
+                            [ProjectClassInfo createProjectClassInfoWith:iProjectClassModel];
+                        }
+                    }
+                    
+                    //获取项目集
+                    weakSelf.datasource = [ProjectClassInfo getAllProjectClassInfos];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [weakSelf.tableView reloadData];
+                        
+                        [weakSelf checkNotViewShow];
+                        [weakSelf checkFooterViewWith:resultInfo];
+                    });
+                });
             } Failed:^(NSError *error) {
                 [self.tableView.header endRefreshing];
                 [self.tableView.footer endRefreshing];
@@ -530,35 +517,30 @@
                                                   [self.tableView.header endRefreshing];
                                                   [self.tableView.footer endRefreshing];
                                                   
-                                                  //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
-                                                  if (_pageIndex == 1) {
-                                                      //第一页
-                                                      [ProjectInfo deleteAllProjectInfoWithType:@(4)];
-                                                  }
-                                                  NSArray *projects = resultInfo;
-                                                  if (projects.count > 0) {
-                                                      for (IProjectInfo *iProjectInfo in projects) {
-                                                          [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(4)];
+                                                  WEAKSELF
+                                                  dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                      //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
+                                                      if (_pageIndex == 1) {
+                                                          //第一页
+                                                          [ProjectInfo deleteAllProjectInfoWithType:@(4)];
                                                       }
-                                                  }
-                                                  
-                                                  //获取项目
-                                                  self.datasource = [ProjectInfo allMyProjectInfoWithType:@(4)];
-                                                  [self.tableView reloadData];
-                                                  
-                                                  //设置是否可以下拉刷新
-                                                  if ([resultInfo count] != _pageSize) {
-                                                      self.tableView.footer.hidden = YES;
-                                                  }else{
-                                                      self.tableView.footer.hidden = NO;
-                                                  }
-                                                  
-                                                  if(_datasource.count == 0){
-                                                      [self.tableView addSubview:self.notView];
-                                                      [self.tableView sendSubviewToBack:self.notView];
-                                                  }else{
-                                                      [_notView removeFromSuperview];
-                                                  }
+                                                      NSArray *projects = resultInfo;
+                                                      if (projects.count > 0) {
+                                                          for (IProjectInfo *iProjectInfo in projects) {
+                                                              [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(4)];
+                                                          }
+                                                      }
+                                                      
+                                                      //获取项目
+                                                      weakSelf.datasource = [ProjectInfo allMyProjectInfoWithType:@(4)];
+                                                      
+                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                          [weakSelf.tableView reloadData];
+                                                          
+                                                          [weakSelf checkNotViewShow];
+                                                          [weakSelf checkFooterViewWith:resultInfo];
+                                                      });
+                                                  });
                                               } Failed:^(NSError *error) {
                                                   [self.tableView.header endRefreshing];
                                                   [self.tableView.footer endRefreshing];
@@ -567,6 +549,28 @@
             break;
         default:
             break;
+    }
+}
+
+//检查页面展示信息
+- (void)checkNotViewShow
+{
+    if(_datasource.count == 0){
+        [self.tableView addSubview:_notView];
+        [self.tableView sendSubviewToBack:_notView];
+    }else{
+        [_notView removeFromSuperview];
+    }
+}
+
+//检查下拉按钮
+- (void)checkFooterViewWith:(id)resultInfo
+{
+    //设置是否可以下拉刷新
+    if ([resultInfo count] != KCellConut) {
+        self.tableView.footer.hidden = YES;
+    }else{
+        self.tableView.footer.hidden = NO;
     }
 }
 
