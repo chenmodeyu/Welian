@@ -77,6 +77,12 @@
         <attribute name="voiceUrl" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="rsMyFriendUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MyFriendUser" inverseName="rsChatMessages" inverseEntity="MyFriendUser" syncable="YES"/>
     </entity>
+    <entity name="CityInfo" representedClassName="CityInfo" syncable="YES">
+        <attribute name="cityid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="isShow" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="CompanyModel" representedClassName="CompanyModel" parentEntity="SchoolCompanyDate" syncable="YES">
         <attribute name="companyid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="companyname" optional="YES" attributeType="String" syncable="YES"/>
@@ -270,7 +276,7 @@
         <element name="CompanyModel" positionX="52" positionY="-234" width="128" height="133"/>
         <element name="FriendsFriendUser" positionX="-632" positionY="-31" width="128" height="60"/>
         <element name="HomeMessage" positionX="-1359" positionY="-396" width="128" height="223"/>
-        <element name="InvestIndustry" positionX="-1332" positionY="-369" width="128" height="103"/>
+        <element name="InvestIndustry" positionX="-1332" positionY="-369" width="128" height="105"/>
         <element name="InvestItems" positionX="-1350" positionY="-387" width="128" height="103"/>
         <element name="InvestorUser" positionX="-729" positionY="-477" width="128" height="58"/>
         <element name="InvestStages" positionX="-1341" positionY="-378" width="128" height="88"/>
@@ -279,12 +285,13 @@
         <element name="NeedAddUser" positionX="-1359" positionY="-396" width="128" height="120"/>
         <element name="NewFriendUser" positionX="-623" positionY="-270" width="128" height="165"/>
         <element name="PhotoInfos" positionX="-1359" positionY="-396" width="128" height="103"/>
+        <element name="ProjectClassInfo" positionX="-1359" positionY="-396" width="128" height="135"/>
         <element name="ProjectDetailInfo" positionX="-1350" positionY="-387" width="128" height="360"/>
         <element name="ProjectInfo" positionX="-1359" positionY="-396" width="128" height="255"/>
         <element name="ProjectUser" positionX="-1359" positionY="-396" width="128" height="75"/>
         <element name="SchoolCompanyDate" positionX="322" positionY="-63" width="128" height="103"/>
         <element name="SchoolModel" positionX="63" positionY="53" width="128" height="133"/>
         <element name="TouTiaoInfo" positionX="-1359" positionY="-396" width="128" height="180"/>
-        <element name="ProjectClassInfo" positionX="-1359" positionY="-396" width="128" height="135"/>
+        <element name="CityInfo" positionX="-1359" positionY="-396" width="128" height="105"/>
     </elements>
 </model>

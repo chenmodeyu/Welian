@@ -81,7 +81,7 @@
 //投资人筛选
 #define kInvestorSearchPath kInvestorUrl(@"search")
 //项目投递反馈
-#define kInvestorFankuiPath kInvestorUrl(@"fankui")
+#define kInvestorFankuiPath kInvestorUrl(@"feedback")
 
 
 

@@ -253,6 +253,7 @@
                           Path:KCommSelectPath
                        Success:^(id resultInfo) {
                            DLog(@"getSelectInfo ---- %@",resultInfo);
+//                           ICommonSelectInfoResult *result = [ICommonSelectInfoResult objectWithDict:resultInfo];
                            SAFE_BLOCK_CALL(success,resultInfo);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
@@ -325,7 +326,8 @@
                           Path:kInvestorProjectDetailInfoPath
                        Success:^(id resultInfo) {
                            DLog(@"getInvestorProjectDetailInfo ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           IProjectDetailInfo *result = [IProjectDetailInfo objectWithDict:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];
@@ -336,7 +338,7 @@
                         Success:(SuccessBlock)success
                          Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"pid":pid};
+    NSDictionary *params = @{@"bpid":pid};
     [self reqestPostWithParams:params
                           Path:kInvestorDownloadPath
                        Success:^(id resultInfo) {
@@ -479,9 +481,9 @@
                       Success:(SuccessBlock)success
                        Failed:(FailedBlock)failed
 {
-    //type":0 同意，1不同意
+    //1 不感兴趣，2约谈
     NSDictionary *params = @{@"pid":pid,
-                             @"type":type};
+                             @"status":type};
     [self reqestPostWithParams:params
                           Path:kInvestorFankuiPath
                        Success:^(id resultInfo) {

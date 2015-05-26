@@ -8,6 +8,10 @@
 
 #import "ProjectPostDetailInfoViewController.h"
 #import "UserInfoViewController.h"
+#import "LookBPFileViewController.h"
+#import "WebViewLookBPViewController.h"
+#import "ChatViewController.h"
+#import "MessagesViewController.h"
 
 #import "ProjectInfoViewCell.h"
 #import "FinancingInfoView.h"
@@ -27,6 +31,10 @@
 @property (assign,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSArray *datasource;
 @property (strong,nonatomic) IProjectDetailInfo *iProjectDetailInfo;
+@property (strong,nonatomic) NSNumber *localPid;
+
+@property (assign,nonatomic) UIButton *noLikeBtn;
+@property (assign,nonatomic) UIButton *talkNowBtn;
 
 @end
 
@@ -37,12 +45,21 @@
     return @"项目信息";
 }
 
-- (instancetype)initWithProjectInfo:(IProjectDetailInfo *)iProjectDetailInfo
+//- (instancetype)initWithProjectInfo:(IProjectDetailInfo *)iProjectDetailInfo
+//{
+//    self = [super init];
+//    if (self) {
+//        self.iProjectDetailInfo = iProjectDetailInfo;
+//        self.datasource = @[@""];
+//    }
+//    return self;
+//}
+
+- (instancetype)initWithPid:(NSNumber *)pid
 {
     self = [super init];
     if (self) {
-        self.iProjectDetailInfo = iProjectDetailInfo;
-        self.datasource = @[@""];
+        self.localPid = pid;
     }
     return self;
 }
@@ -96,7 +113,7 @@
     [noLikeBtn setTitleColor:KBlueTextColor forState:UIControlStateNormal];
     [noLikeBtn addTarget:self action:@selector(noLikeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [operateToolView addSubview:noLikeBtn];
-//    self.favorteBtn = favorteBtn;
+    self.noLikeBtn = noLikeBtn;
     
     //立即约谈
     UIButton *talkNowBtn = [UIView getBtnWithTitle:@"立即约谈" image:nil];
@@ -107,37 +124,85 @@
     [talkNowBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [talkNowBtn addTarget:self action:@selector(talkNowBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [operateToolView addSubview:talkNowBtn];
+    self.talkNowBtn = talkNowBtn;
+    
+    //获取信息
+    [self initProjectDetailInfo];
 }
 
 #pragma mark - Private
+- (void)initProjectDetailInfo
+{
+    [WLHUDView showHUDWithStr:@"获取项目信息中..." dim:NO];
+    [WeLianClient getInvestorProjectDetailInfoWithPid:_localPid
+                                              Success:^(id resultInfo) {
+                                                  self.iProjectDetailInfo = resultInfo;
+                                                  self.datasource = self.iProjectDetailInfo.bp.bpid ? @[self.iProjectDetailInfo.bp] : nil;
+                                                  [self.tableView reloadData];
+                                              } Failed:^(NSError *error) {
+                                                  if (error) {
+                                                      [WLHUDView showErrorHUD:error.localizedDescription];
+                                                  }else{
+                                                      [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                                  }
+                                              }];
+}
+
 //不感兴趣
 - (void)noLikeBtnClicked:(UIButton *)sender
 {
-    [WeLianClient investorNoToudiWithUid:@(0)
-                                     Pid:@(22)
-                                 Success:^(id resultInfo) {
-                                     
-                                 } Failed:^(NSError *error) {
-                                     
-                                 }];
-    [WeLianClient investorFankuiWithPid:@(22)
+    [WeLianClient investorFankuiWithPid:_localPid
                                    Type:@(1)//1 不感兴趣，2约谈
                                 Success:^(id resultInfo) {
                                     
                                 } Failed:^(NSError *error) {
-                                    
+                                    if (error) {
+                                        [WLHUDView showErrorHUD:error.localizedDescription];
+                                    }else{
+                                        [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                    }
                                 }];
 }
 
 //立即约谈
 - (void)talkNowBtnClicked:(UIButton *)sender
 {
-    [WeLianClient investorFankuiWithPid:@(22)
+    [WeLianClient investorFankuiWithPid:_localPid
                                    Type:@(2)//1 不感兴趣，2约谈
                                 Success:^(id resultInfo) {
+                                    //创建好友关系
+                                    /**  好友关系，1好友，2好友的好友,-1自己，0没关系   */
+                                    MyFriendUser *user = [[LogInUser getCurrentLoginUser] getMyfriendUserWithUid:_iProjectDetailInfo.user.uid];
+                                    if (!user) {
+                                        self.iProjectDetailInfo.user.friendship = @(1);
+                                        user = [MyFriendUser createOrUpddateMyFriendUserModel:_iProjectDetailInfo.user];
+                                    }
                                     
+                                    UIViewController *rootVC = [self.navigationController.viewControllers firstObject];
+                                    //当前已经在消息页面
+                                    if ([rootVC isKindOfClass:[MessagesViewController class]]) {
+                                        [KNSNotification postNotificationName:kCurrentChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
+                                        ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
+                                        [self.navigationController pushViewController:chatVC animated:YES];
+                                        
+                                        //替换中间的内容
+                                        NSMutableArray *contros = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+                                        [contros removeObjectsInRange:NSMakeRange(1, contros.count - 1) ];
+                                        [contros addObject:chatVC];
+                                        
+                                        [self.navigationController setViewControllers:contros animated:YES];
+                                    }else{
+                                        //进入聊天页面
+                                        [KNSNotification postNotificationName:kChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
+                                        
+                                        [self.navigationController popToRootViewControllerAnimated:YES];
+                                    }
                                 } Failed:^(NSError *error) {
-                                    
+                                    if (error) {
+                                        [WLHUDView showErrorHUD:error.localizedDescription];
+                                    }else{
+                                        [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                    }
                                 }];
 }
 
@@ -146,11 +211,38 @@
 {
     if ([userInfo isKindOfClass:[IProjectDetailInfo class]]) {
         IProjectDetailInfo *iProjectDetailInfo = userInfo;
-        if (iProjectDetailInfo.user) {
+        if (iProjectDetailInfo.user.uid) {
             UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:iProjectDetailInfo.user OperateType:nil HidRightBtn:NO];
             [self.navigationController pushViewController:userInfoVC animated:YES];
         }
     }
+}
+
+- (void)downloadBPAndLook:(NSString *)url
+{
+    //下载照片
+    NSString *fileName = [url lastPathComponent];
+    NSString *folder = [[ResManager userResourcePath] stringByAppendingPathComponent:@"ChatDocument/ProjectBP/"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:folder]) {
+        DLog(@"创建home cover 目录!");
+        [[NSFileManager defaultManager] createDirectoryAtPath:folder
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:nil];
+    }
+    folder = [folder stringByAppendingPathComponent:fileName];
+    
+    //删除文件
+//    [ResManager fileDelete:folder];
+    if ([ResManager fileExistByPath:folder]) {
+        //本地存在的话，直接查看
+        LookBPFileViewController *lookBPFileVC = [[LookBPFileViewController alloc] initWithBpPath:url];
+        [self.navigationController pushViewController:lookBPFileVC animated:YES];
+    }else{
+        WebViewLookBPViewController *webLookVC = [[WebViewLookBPViewController alloc] initWithBpPath:url];
+        [self.navigationController pushViewController:webLookVC animated:YES];
+    }
+    
 }
 
 #pragma mark - UITableView Datasource&Delegate
@@ -204,7 +296,8 @@
                 if (!cell) {
                     cell = [[ProjectBPViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
                 }
-                cell.fineName = @"微链商业计划书.pdf";
+                IProjectBPModel *bpModel = _datasource[indexPath.row - 2];
+                cell.fineName = bpModel.bpname;// @"微链商业计划书.pdf";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 return cell;
             }else{
@@ -226,6 +319,19 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    IProjectBPModel *bpModel = _datasource[indexPath.row - 2];
+    [WeLianClient investorDownloadWithPid:bpModel.bpid
+                                  Success:^(id resultInfo) {
+                                      //BP地址url
+                                      NSString *url = resultInfo[@"url"];
+                                      [self downloadBPAndLook:url];
+                                  } Failed:^(NSError *error) {
+                                      if (error) {
+                                          [WLHUDView showErrorHUD:error.localizedDescription];
+                                      }else{
+                                          [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                      }
+                                  }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

@@ -44,7 +44,7 @@
 @property (nonatomic, copy) NSString *sended;
 
 @property (nonatomic, copy) NSNumber * cardId;//卡片标题
-@property (nonatomic, copy) NSNumber * cardType;//卡片类型 //3 活动，10项目，11 网页  12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
+@property (nonatomic, copy) NSNumber * cardType;//卡片类型 //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
 @property (nonatomic, copy) NSString * cardTitle;//卡片标题
 @property (nonatomic, copy) NSString * cardIntro;//卡片详情
 @property (nonatomic, copy) NSString * cardUrl;//卡片链接

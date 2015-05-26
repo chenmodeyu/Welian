@@ -10,7 +10,11 @@
 #import "CreateProjectController.h"
 #import "ProjectListViewController.h"
 
-@interface ProjectMainViewController ()<XZPageViewControllerDataSource,XZPageViewControllerDelegate>
+#import "ShaiXuanView.h"
+
+@interface ProjectMainViewController ()<XZPageViewControllerDataSource,XZPageViewControllerDelegate,ShaiXuanViewDataSource>
+
+@property (nonatomic, strong) ShaiXuanView *shaixuanView;
 
 @end
 
@@ -21,6 +25,16 @@
     return @"创业项目";
 }
 
+- (ShaiXuanView *)shaixuanView
+{
+    if (!_shaixuanView) {
+        _shaixuanView = [[ShaiXuanView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _shaixuanView.dataSource = self;
+        _shaixuanView.titleText = @"创业项目";
+    }
+    return _shaixuanView;
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -29,6 +43,10 @@
         self.navTitleImagesArr = @[@"",@"",@"",@"xiangmu_list_funnel"];
         self.dataSource = self;
         self.delegate = self;
+        
+        //项目领域
+        NSArray *industryInfos = [InvestIndustry getAllInvestIndustrys];
+        NSArray *projectCitys = [CityInfo getAllCityInfosType:@(2)];
     }
     return self;
 }
@@ -41,13 +59,30 @@
     WEAKSELF
     [self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
         DLog(@"segmentedControl select:%d",(int)index);
-        if (index == (weakSelf.navTitleImagesArr.count - 1)) {
-            weakSelf.segmentedControl.sectionImages = @[@"",@"",@"",@"xiangmu_list_funnel_selected"];
-        }else{
-            weakSelf.segmentedControl.sectionImages = weakSelf.navTitleImagesArr;
-        }
+        [weakSelf updateSegmentUIWithIndex:index];
         [weakSelf transitionToViewControllerAtIndex:index];
     }];
+}
+
+#pragma mark - Private
+/**
+ *  创建项目
+ */
+- (void)createProject
+{
+    CreateProjectController *createProjectVC = [[CreateProjectController alloc] initIsEdit:NO withData:nil];
+    [self.navigationController pushViewController:createProjectVC animated:YES];
+}
+
+//设置切换按钮
+- (void)updateSegmentUIWithIndex:(NSInteger)index
+{
+    if (index == (self.navTitleImagesArr.count - 1)) {
+        self.segmentedControl.sectionImages = @[@"",@"",@"",@"xiangmu_list_funnel_selected"];
+        [self.shaixuanView showVC];
+    }else{
+        self.segmentedControl.sectionImages = self.navTitleImagesArr;
+    }
 }
 
 #pragma mark - XZPageViewControllerDataSource Delegate
@@ -63,17 +98,29 @@
 - (void)viewPageController:(XZPageViewController *)pageViewController pageViewControllerChangedAtIndex:(NSInteger)index
 {
     [self.segmentedControl setSelectedSegmentIndex:index animated:YES];
+    [self updateSegmentUIWithIndex:index];
 }
 
-#pragma mark - Private
-/**
- *  创建项目
- */
-- (void)createProject
+#pragma mark - 筛选代理方法
+// 多少组
+- (NSInteger)numberOfSections
 {
-    CreateProjectController *createProjectVC = [[CreateProjectController alloc] initIsEdit:NO withData:nil];
-    [self.navigationController pushViewController:createProjectVC animated:YES];
+    return 3;
+}
+// 每组多少个
+- (NSInteger)numberOfItemsInSection:(NSInteger)section
+{
+    return 13;
+}
+// 每组组头文字
+- (NSString *)titleWithSectionsTextatIndexPath:(NSIndexPath *)indexPath
+{
+    return @"dsa";
 }
 
+- (NSString *)textCellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"fdadfd";
+}
 
 @end

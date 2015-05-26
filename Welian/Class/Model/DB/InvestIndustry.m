@@ -26,7 +26,7 @@
         investitem = [InvestIndustry MR_createEntityInContext:loginUser.managedObjectContext];
     }
     investitem.industryid = investIndustry.industryid;
-    investitem.industryname = investIndustry.industryname;
+    investitem.industryname = [investIndustry.industryname deleteTopAndBottomKonggeAndHuiche];
     
     [loginUser addRsInvestIndustrysObject:investitem];
     [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
@@ -42,6 +42,28 @@
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return investitem;
+}
+
+//获取未对应对象的领域列表
++ (NSArray *)getAllInvestIndustrys
+{
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == nil && %K == nil",@"rsLogInUser",@"rsProjectDetailInfo"];
+    NSArray *all = [InvestIndustry MR_findAllWithPredicate:pre];
+    return all;
+}
+
++ (InvestIndustry *)getInvestIndustryWith:(NSNumber *)industryid
+{
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == nil && %K == nil && %K == %@ ",@"rsLogInUser",@"rsProjectDetailInfo",@"industryid",industryid];
+    InvestIndustry *investIndustry = [InvestIndustry MR_findFirstWithPredicate:pre];
+    return investIndustry;
+}
+
+//删除未对应对象的领域列表
++ (void)deleteAllInvestIndustrys
+{
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == nil && %K == nil",@"rsLogInUser",@"rsProjectDetailInfo"];
+    [InvestIndustry MR_deleteAllMatchingPredicate:pre];
 }
 
 // //通过item查询

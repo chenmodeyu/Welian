@@ -26,4 +26,10 @@
 // //通过item查询
 //+ (InvestIndustry *)getInvestIndustryWithName:(NSString *)name;
 
+//获取未对应对象的领域列表
++ (NSArray *)getAllInvestIndustrys;
++ (InvestIndustry *)getInvestIndustryWith:(NSNumber *)industryid;
+//删除未对应对象的领域列表
++ (void)deleteAllInvestIndustrys;
+
 @end

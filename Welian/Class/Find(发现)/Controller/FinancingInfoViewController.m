@@ -94,8 +94,7 @@
 {
     //向创业者索要BP
     [WLHUDView showHUDWithStr:@"请求发送中..." dim:NO];
-    IProjectBPModel *bpModel = _datasource[indexPath.row];
-    [WeLianClient investorRequiredWithPid:bpModel.bpid
+    [WeLianClient investorRequiredWithPid:_iProjectDetailInfo.pid
                                   Success:^(id resultInfo) {
                                       [WLHUDView hiddenHud];
                                       //发送成功
@@ -110,7 +109,7 @@
                                       if (error) {
                                           [WLHUDView showErrorHUD:error.localizedDescription];
                                       }else{
-                                          [WLHUDView showErrorHUD:@"取消收藏失败，请重试！"];
+                                          [WLHUDView showErrorHUD:@"发送请求失败，请重试！"];
                                       }
                                   }];
 }
