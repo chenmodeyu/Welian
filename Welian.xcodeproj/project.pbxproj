@@ -2923,6 +2923,10 @@
 		F50B63001B1347EF002259B2 /* CasesJiGouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */; };
 		F50B63011B1347EF002259B2 /* CasesJiGouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */; };
 		F50B63021B1347EF002259B2 /* CasesJiGouModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */; };
+		F50B63051B141353002259B2 /* InvestorInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B63041B141353002259B2 /* InvestorInfoCell.m */; };
+		F50B63061B141353002259B2 /* InvestorInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B63041B141353002259B2 /* InvestorInfoCell.m */; };
+		F50B63071B141353002259B2 /* InvestorInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B63041B141353002259B2 /* InvestorInfoCell.m */; };
+		F50B63081B141353002259B2 /* InvestorInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B63041B141353002259B2 /* InvestorInfoCell.m */; };
 		F50CB09D1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
 		F50CB09E1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
 		F50CB09F1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
@@ -5923,6 +5927,8 @@
 		F50B62F81B132928002259B2 /* ProjectTouDiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTouDiModel.m; sourceTree = "<group>"; };
 		F50B62FD1B1347EF002259B2 /* CasesJiGouModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasesJiGouModel.h; sourceTree = "<group>"; };
 		F50B62FE1B1347EF002259B2 /* CasesJiGouModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasesJiGouModel.m; sourceTree = "<group>"; };
+		F50B63031B141353002259B2 /* InvestorInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorInfoCell.h; sourceTree = "<group>"; };
+		F50B63041B141353002259B2 /* InvestorInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorInfoCell.m; sourceTree = "<group>"; };
 		F50C89691A08F2050007BE52 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		F50C896A1A08F2050007BE52 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_repost_beijing@2x.png"; sourceTree = "<group>"; };
@@ -9051,6 +9057,8 @@
 				F569726E1B0F01C6004E86AC /* InvestorOrgCell.xib */,
 				F50B62CA1B11F8FF002259B2 /* InvestorInfoHeadView.h */,
 				F50B62CB1B11F8FF002259B2 /* InvestorInfoHeadView.m */,
+				F50B63031B141353002259B2 /* InvestorInfoCell.h */,
+				F50B63041B141353002259B2 /* InvestorInfoCell.m */,
 				F50B62EC1B1308E0002259B2 /* ProjectsMailingView.h */,
 				F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */,
 			);
@@ -13770,6 +13778,7 @@
 				A49C7D421A70D42700F2AEC5 /* MagicalRecord.m in Sources */,
 				A49C7D431A70D42700F2AEC5 /* InvestStages.m in Sources */,
 				A49C7D451A70D42700F2AEC5 /* WLPhotoListView.m in Sources */,
+				F50B63081B141353002259B2 /* InvestorInfoCell.m in Sources */,
 				A49C7D461A70D42700F2AEC5 /* AFHTTPSessionManager.m in Sources */,
 				F50B62F11B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5D04C5E1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
@@ -14314,6 +14323,7 @@
 				F53DC38F1A49192600F5F712 /* CommonFriendsController.m in Sources */,
 				A4A2EB2C1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */,
 				F534DB611A5119A000B6A725 /* InvestStages.m in Sources */,
+				F50B63071B141353002259B2 /* InvestorInfoCell.m in Sources */,
 				F53DC3911A49192600F5F712 /* WLPhotoListView.m in Sources */,
 				F50B62F01B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F53DC3921A49192600F5F712 /* AFHTTPSessionManager.m in Sources */,
@@ -14858,6 +14868,7 @@
 				A4A2EB2A1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */,
 				F5664A571A2AFD56008A5830 /* CommonFriendsController.m in Sources */,
 				F5664A591A2AFD56008A5830 /* WLPhotoListView.m in Sources */,
+				F50B63051B141353002259B2 /* InvestorInfoCell.m in Sources */,
 				F5664A5A1A2AFD56008A5830 /* AFHTTPSessionManager.m in Sources */,
 				F50B62EE1B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5664A5B1A2AFD56008A5830 /* IWTextView.m in Sources */,
@@ -15402,6 +15413,7 @@
 				F5664D111A2AFDD5008A5830 /* CommonFriendsController.m in Sources */,
 				A4A2EB2B1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */,
 				F534DB601A5119A000B6A725 /* InvestStages.m in Sources */,
+				F50B63061B141353002259B2 /* InvestorInfoCell.m in Sources */,
 				F5664D131A2AFDD5008A5830 /* WLPhotoListView.m in Sources */,
 				F50B62EF1B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5664D141A2AFDD5008A5830 /* AFHTTPSessionManager.m in Sources */,

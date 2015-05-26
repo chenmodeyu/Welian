@@ -7,6 +7,7 @@
 //
 
 #import "InvestorInfoHeadView.h"
+#import "InvestorUserModel.h"
 
 @implementation InvestorInfoHeadView
 
@@ -16,15 +17,15 @@
     if (self) {
         _friendTypeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 100, 20)];
         _friendTypeLabel.right = self.right-15;
-        [_friendTypeLabel setText:@"好友的好友"];
         [_friendTypeLabel setFont:WLFONT(14)];
         [_friendTypeLabel setTextColor:[UIColor grayColor]];
         [_friendTypeLabel setTextAlignment:NSTextAlignmentRight];
         [self addSubview:_friendTypeLabel];
 
         _iconImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 70, 70)];
-        [_iconImage setCenterX:self.centerX];        
+        [_iconImage setCenterX:self.centerX];
         _iconImage.layer.borderWidth = 2;
+        _iconImage.layer.masksToBounds = YES;
         _iconImage.layer.cornerRadius = 35;
         _iconImage.layer.borderColor = [WLRGB(52, 116, 186) CGColor];
         [self addSubview:_iconImage];
@@ -37,11 +38,10 @@
         [_nameLabel setCenterX:self.centerX];
         [_nameLabel setTextAlignment:NSTextAlignmentCenter];
         [_nameLabel setTextColor:WLRGB(51, 51, 51)];
-        [_nameLabel setText:@"陈日莎"];
+//        [_nameLabel setText:@"陈日莎"];
         [self addSubview:_nameLabel];
         
         _positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _nameLabel.bottom+5, SuperSize.width, 16)];
-        [_positionLabel setText:@"产品经理  微链"];
         [_positionLabel setFont:WLFONT(15)];
         [_positionLabel setTextColor:[UIColor grayColor]];
         [_positionLabel setTextAlignment:NSTextAlignmentCenter];
@@ -81,9 +81,28 @@
         [_agreeBut setFrame:CGRectMake(_rejectBut.right+20, 0, (_agreeView.width-20)*0.5, _agreeView.height)];
         [_agreeBut setBackgroundColor:[UIColor orangeColor]];
         [_agreeView addSubview:_agreeBut];
-        
     }
     return self;
+}
+
+- (void)setInvestorUserModel:(InvestorUserModel *)investorUserModel
+{
+    _investorUserModel = investorUserModel;
+    /**  好友关系，1好友，2好友的好友,-1自己，0没关系   */
+    IBaseUserM *userM = investorUserModel.user;
+    if (userM.friendship.integerValue==1) {
+        [_friendTypeLabel setText:@"好友"];
+    }else if (userM.friendship.integerValue ==2){
+        [_friendTypeLabel setText:@"好友的好友"];
+    }else{
+        [_friendTypeLabel setText:@""];
+    }
+    
+    [_iconImage sd_setImageWithURL:[NSURL URLWithString:userM.avatar] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageLowPriority];
+    
+    [_nameLabel setText:userM.name];
+    [_positionLabel setText:[NSString stringWithFormat:@"%@  %@",userM.position,userM.company]];
+    
 }
 
 @end

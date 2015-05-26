@@ -434,7 +434,7 @@
         UIActionSheet *sheet = [[UIActionSheet alloc] bk_initWithTitle:nil];
         [sheet bk_setDestructiveButtonWithTitle:@"删除该条动态" handler:^{
             WLStatusFrame *statuF = _dataArry[indexPath.row];
-            if (statuF.status.type.integerValue==13) { // 删除自己发布的
+            if (statuF.status.type.integerValue==101) { // 删除自己发布的
                 [[WLDataDBTool sharedService] deleteObjectById:statuF.status.sendId fromTable:KSendAgainDataTableName];
                 [_dataArry removeObject:statuF];
                 [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -485,7 +485,7 @@
 {
     WLStatusFrame *statusF = _dataArry[indexPath.row];
     NSInteger type = statusF.status.type.integerValue;
-    if (type==2 ||type==4 || type==5||type==6||type==12 || type ==13) return;
+    if (type==2 ||type==4 || type==5||type==6||type==12 || type ==101) return;
     
     CommentInfoController *commentInfo = [[CommentInfoController alloc] init];
     [commentInfo setStatusM:statusF.status];
@@ -677,7 +677,7 @@
     WLStatusFrame *newsf = [[WLStatusFrame alloc] initWithWidth:[UIScreen mainScreen].bounds.size.width-60];
     statusM.sendId = fidStr;
     statusM.sendType = 1;
-    statusM.type = @(13);
+    statusM.type = @(101);
     IBaseUserM *meBasic =  [IBaseUserM getLoginUserBaseInfo];
     statusM.user = meBasic;
     newsf.status = statusM;
