@@ -77,14 +77,17 @@
         [_nameLabel setTextColor:WLRGB(51, 51, 51)];
         [_backgView addSubview:_nameLabel];
         
+        
         _friendBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_friendBut setEnabled:NO];
         [_friendBut setTitleColor:WLRGB(173, 173, 173) forState:UIControlStateDisabled];
+        [_friendBut setImage:[UIImage imageNamed:@"touziren_list_friend.png"] forState:UIControlStateDisabled];
         [_friendBut.titleLabel setFont:WLFONT(13)];
         [_backgView addSubview:_friendBut];
         
         _cityBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cityBut setEnabled:NO];
+        [_cityBut setImage:[UIImage imageNamed:@"discovery_activity_list_place.png"] forState:UIControlStateDisabled];
         [_cityBut setTitleColor:WLRGB(173, 173, 173) forState:UIControlStateDisabled];
         [_cityBut.titleLabel setFont:WLFONT(13)];
         [_backgView addSubview:_cityBut];
@@ -99,9 +102,17 @@
     IBaseUserM *user = investUserM.user;
     
     [_iconImage sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageLowPriority];
-    CGSize citySize =[investUserM.cityName sizeWithCustomFont:WLFONT(14)];
-    [_cityBut setFrame:CGRectMake(SuperSize.width-citySize.width-15, 15, citySize.width, 20)];
+    
+    UIEdgeInsets edgeImage = UIEdgeInsetsMake(0, 0, 0, 5);
     [_cityBut setTitle:investUserM.cityName forState:UIControlStateNormal];
+    CGSize citySize =[investUserM.cityName sizeWithCustomFont:WLFONT(14)];
+    if (citySize.width) {
+        citySize.width += 20;
+        [_cityBut setImageEdgeInsets:edgeImage];
+    }else{
+        [_cityBut setImageEdgeInsets:UIEdgeInsetsZero];
+    }
+    [_cityBut setFrame:CGRectMake(SuperSize.width-citySize.width-15, 15, citySize.width, 15)];
     
     NSInteger friend = user.friendship.integerValue;
     CGSize friendSize = CGSizeZero;
@@ -111,8 +122,17 @@
     }else if (friend ==2){
         friendSize = [@"好友的好友" sizeWithCustomFont:WLFONT(14)];
         [_friendBut setTitle:@"好友的好友" forState:UIControlStateNormal];
+    }else{
+        [_friendBut setTitle:@"" forState:UIControlStateNormal];
     }
-    [_friendBut setFrame:CGRectMake(SuperSize.width-citySize.width-10-friendSize.width, 20, friendSize.width, 20)];
+    if (friendSize.width) {
+        friendSize.width += 20;
+        [_friendBut setImageEdgeInsets:edgeImage];
+    }else{
+        [_friendBut setImageEdgeInsets:UIEdgeInsetsZero];
+    }
+    
+    [_friendBut setFrame:CGRectMake(SuperSize.width-citySize.width-15-friendSize.width, 15, friendSize.width, 15)];
     
     [_nameLabel setText:user.name];
     [_nameLabel setFrame:CGRectMake(70, 15, SuperSize.width-70-friendSize.width-citySize.width-15, 20)];
