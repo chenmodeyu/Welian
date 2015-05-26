@@ -57,6 +57,31 @@
     return myFriend;
 }
 
++ (MyFriendUser *)createOrUpddateMyFriendUserModel:(IBaseUserM *)iBaseUserM
+{
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:iBaseUserM.uid];
+    if (!myFriend) {
+        myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
+    }
+    myFriend.uid = iBaseUserM.uid;
+    myFriend.position = iBaseUserM.position;
+    myFriend.friendship = iBaseUserM.friendship;
+    myFriend.avatar = iBaseUserM.avatar;
+    myFriend.name = iBaseUserM.name;
+    myFriend.investorauth = iBaseUserM.investorauth;
+    myFriend.company = iBaseUserM.company;
+    myFriend.unReadChatMsg = @(0);
+    myFriend.isMyFriend = @(YES);
+    
+    if (!myFriend.rsLogInUser) {
+        [loginUser addRsMyFriendsObject:myFriend];
+    }
+    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+    
+    return myFriend;
+}
+
 //创建新的同意好意请求数据
 + (MyFriendUser *)createMyFriendNewFriendModel:(NewFriendModel *)userInfoM LogInUser:(LogInUser *)loginUser
 {

@@ -24,6 +24,7 @@
 
 //创建新收据
 + (MyFriendUser *)createMyFriendUserModel:(FriendsUserModel *)userInfoM;
++ (MyFriendUser *)createOrUpddateMyFriendUserModel:(IBaseUserM *)iBaseUserM;
 
 //创建新的同意好意请求数据
 + (MyFriendUser *)createMyFriendNewFriendModel:(NewFriendModel *)userInfoM LogInUser:(LogInUser *)loginUser;

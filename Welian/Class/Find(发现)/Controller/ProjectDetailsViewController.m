@@ -930,8 +930,6 @@ static NSString *noCommentCell = @"NoCommentCell";
 {
     FinancingInfoViewController *financingInfoVC = [[FinancingInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
     [self.navigationController pushViewController:financingInfoVC animated:YES];
-//    ProjectPostDetailInfoViewController *postDetailInfoVC = [[ProjectPostDetailInfoViewController alloc] initWithProjectInfo:_iProjectDetailInfo];
-//    [self.navigationController pushViewController:postDetailInfoVC animated:YES];
 }
 
 //关闭项目详情

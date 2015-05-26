@@ -383,6 +383,11 @@
 		A409A2EF1AC2E1AF0033A31D /* yellowbutton_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A409A1891AC2E1AF0033A31D /* yellowbutton_pressed@2x.png */; };
 		A409A2F01AC2E1AF0033A31D /* yellowbutton_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A409A1891AC2E1AF0033A31D /* yellowbutton_pressed@2x.png */; };
 		A409A2F11AC2E1AF0033A31D /* yellowbutton_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A409A1891AC2E1AF0033A31D /* yellowbutton_pressed@2x.png */; };
+		A415F18D1B14654900D473A3 /* WebViewLookBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A415F18C1B14654900D473A3 /* WebViewLookBPViewController.m */; };
+		A415F18E1B14654900D473A3 /* WebViewLookBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A415F18C1B14654900D473A3 /* WebViewLookBPViewController.m */; };
+		A415F18F1B14654900D473A3 /* WebViewLookBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A415F18C1B14654900D473A3 /* WebViewLookBPViewController.m */; };
+		A415F1901B14654900D473A3 /* WebViewLookBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A415F18C1B14654900D473A3 /* WebViewLookBPViewController.m */; };
+		A415F1911B14654900D473A3 /* WebViewLookBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A415F18C1B14654900D473A3 /* WebViewLookBPViewController.m */; };
 		A41CE1A71A6E25CC004F17E7 /* ActivityUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CE1A61A6E25CC004F17E7 /* ActivityUserListViewController.m */; };
 		A41CE1A81A6E25CC004F17E7 /* ActivityUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CE1A61A6E25CC004F17E7 /* ActivityUserListViewController.m */; };
 		A41CE1A91A6E25CC004F17E7 /* ActivityUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CE1A61A6E25CC004F17E7 /* ActivityUserListViewController.m */; };
@@ -5026,6 +5031,8 @@
 		A409A1871AC2E1AF0033A31D /* tabbar_me_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_me_selected@2x.png"; sourceTree = "<group>"; };
 		A409A1881AC2E1AF0033A31D /* yellowbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowbutton@2x.png"; sourceTree = "<group>"; };
 		A409A1891AC2E1AF0033A31D /* yellowbutton_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowbutton_pressed@2x.png"; sourceTree = "<group>"; };
+		A415F18B1B14654900D473A3 /* WebViewLookBPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewLookBPViewController.h; sourceTree = "<group>"; };
+		A415F18C1B14654900D473A3 /* WebViewLookBPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewLookBPViewController.m; sourceTree = "<group>"; };
 		A41CE1A51A6E25CC004F17E7 /* ActivityUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityUserListViewController.h; sourceTree = "<group>"; };
 		A41CE1A61A6E25CC004F17E7 /* ActivityUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityUserListViewController.m; sourceTree = "<group>"; };
 		A41CE1AA1A6E4ED5004F17E7 /* ActivityUserViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityUserViewCell.h; sourceTree = "<group>"; };
@@ -7429,6 +7436,8 @@
 				A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */,
 				A4E323041B1458C600DD395B /* LookBPFileViewController.h */,
 				A4E323051B1458C600DD395B /* LookBPFileViewController.m */,
+				A415F18B1B14654900D473A3 /* WebViewLookBPViewController.h */,
+				A415F18C1B14654900D473A3 /* WebViewLookBPViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -13482,6 +13491,7 @@
 				A49C7C3D1A70D42700F2AEC5 /* SDWebImageDownloaderOperation.m in Sources */,
 				A49C7C3E1A70D42700F2AEC5 /* NotstringView.m in Sources */,
 				A49C7C3F1A70D42700F2AEC5 /* PublishStatusController.m in Sources */,
+				A415F1911B14654900D473A3 /* WebViewLookBPViewController.m in Sources */,
 				A49C7C401A70D42700F2AEC5 /* MultiSelectTableViewCell.m in Sources */,
 				A49C7C411A70D42700F2AEC5 /* LKBadgeView.m in Sources */,
 				F5D04E611AC1056F004DE412 /* MLEmojiLabel.m in Sources */,
@@ -14031,6 +14041,7 @@
 				F53DC2ED1A49192600F5F712 /* NotstringView.m in Sources */,
 				F53DC2EE1A49192600F5F712 /* PublishStatusController.m in Sources */,
 				A4C1412E1A4BEF5700C9BAB5 /* MultiSelectTableViewCell.m in Sources */,
+				A415F18F1B14654900D473A3 /* WebViewLookBPViewController.m in Sources */,
 				A4C141161A4BEF5700C9BAB5 /* LKBadgeView.m in Sources */,
 				F5D04E601AC1056F004DE412 /* MLEmojiLabel.m in Sources */,
 				A493C2A01ADD0BB00056BD52 /* CardAlertView.m in Sources */,
@@ -14580,6 +14591,7 @@
 				F56649BD1A2AFD56008A5830 /* UIImageView+WebCache.m in Sources */,
 				F56649BE1A2AFD56008A5830 /* AFURLSessionManager.m in Sources */,
 				F56649C01A2AFD56008A5830 /* MKAnnotationView+WebCache.m in Sources */,
+				A415F18D1B14654900D473A3 /* WebViewLookBPViewController.m in Sources */,
 				A4C140951A4BEA8500C9BAB5 /* WLBaseTableViewCell.m in Sources */,
 				F56649C31A2AFD56008A5830 /* MJArgument.m in Sources */,
 				A493C29E1ADD0BB00056BD52 /* CardAlertView.m in Sources */,
@@ -15129,6 +15141,7 @@
 				F5664C801A2AFDD5008A5830 /* NotstringView.m in Sources */,
 				F5664C811A2AFDD5008A5830 /* PublishStatusController.m in Sources */,
 				A4C1412D1A4BEF5700C9BAB5 /* MultiSelectTableViewCell.m in Sources */,
+				A415F18E1B14654900D473A3 /* WebViewLookBPViewController.m in Sources */,
 				A4C141151A4BEF5700C9BAB5 /* LKBadgeView.m in Sources */,
 				F5D04E5F1AC1056F004DE412 /* MLEmojiLabel.m in Sources */,
 				A493C29F1ADD0BB00056BD52 /* CardAlertView.m in Sources */,
@@ -15576,6 +15589,7 @@
 				A492354A1ADE693A009E0B8C /* JKAssetsGroupsView.m in Sources */,
 				A493C29C1ADD0BB00056BD52 /* IFBase.m in Sources */,
 				A49235681ADE693A009E0B8C /* JKPromptView.m in Sources */,
+				A415F1901B14654900D473A3 /* WebViewLookBPViewController.m in Sources */,
 				A493C3CA1ADD14A60056BD52 /* InvestAuthModel.m in Sources */,
 				A49235451ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				A492366F1ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
