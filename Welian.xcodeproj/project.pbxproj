@@ -4082,10 +4082,6 @@
 		F56972651B0EF60A004E86AC /* InvestorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F56972621B0EF60A004E86AC /* InvestorCell.m */; };
 		F56972661B0EF60A004E86AC /* InvestorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F56972621B0EF60A004E86AC /* InvestorCell.m */; };
 		F56972671B0EF60A004E86AC /* InvestorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F56972621B0EF60A004E86AC /* InvestorCell.m */; };
-		F56972681B0EF60A004E86AC /* InvestorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56972631B0EF60A004E86AC /* InvestorCell.xib */; };
-		F56972691B0EF60A004E86AC /* InvestorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56972631B0EF60A004E86AC /* InvestorCell.xib */; };
-		F569726A1B0EF60A004E86AC /* InvestorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56972631B0EF60A004E86AC /* InvestorCell.xib */; };
-		F569726B1B0EF60A004E86AC /* InvestorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56972631B0EF60A004E86AC /* InvestorCell.xib */; };
 		F569726F1B0F01C6004E86AC /* InvestorOrgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F569726D1B0F01C6004E86AC /* InvestorOrgCell.m */; };
 		F56972701B0F01C6004E86AC /* InvestorOrgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F569726D1B0F01C6004E86AC /* InvestorOrgCell.m */; };
 		F56972711B0F01C6004E86AC /* InvestorOrgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F569726D1B0F01C6004E86AC /* InvestorOrgCell.m */; };
@@ -6285,7 +6281,6 @@
 		F569725C1B0EF2B4004E86AC /* InvestorsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorsTableController.m; sourceTree = "<group>"; };
 		F56972611B0EF60A004E86AC /* InvestorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorCell.h; sourceTree = "<group>"; };
 		F56972621B0EF60A004E86AC /* InvestorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorCell.m; sourceTree = "<group>"; };
-		F56972631B0EF60A004E86AC /* InvestorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorCell.xib; sourceTree = "<group>"; };
 		F569726C1B0F01C6004E86AC /* InvestorOrgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorOrgCell.h; sourceTree = "<group>"; };
 		F569726D1B0F01C6004E86AC /* InvestorOrgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorOrgCell.m; sourceTree = "<group>"; };
 		F569726E1B0F01C6004E86AC /* InvestorOrgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorOrgCell.xib; sourceTree = "<group>"; };
@@ -9051,7 +9046,6 @@
 				A47D41FF1A8B8AB80070BFD8 /* Project */,
 				F56972611B0EF60A004E86AC /* InvestorCell.h */,
 				F56972621B0EF60A004E86AC /* InvestorCell.m */,
-				F56972631B0EF60A004E86AC /* InvestorCell.xib */,
 				F569726C1B0F01C6004E86AC /* InvestorOrgCell.h */,
 				F569726D1B0F01C6004E86AC /* InvestorOrgCell.m */,
 				F569726E1B0F01C6004E86AC /* InvestorOrgCell.xib */,
@@ -10969,7 +10963,6 @@
 				A409A2691AC2E1AF0033A31D /* me_mywriten_with.@2xpng.png in Resources */,
 				A409A2AD1AC2E1AF0033A31D /* remind_big_nostring@2x.png in Resources */,
 				A493C3BC1ADD14A60056BD52 /* city.plist in Resources */,
-				F569726B1B0EF60A004E86AC /* InvestorCell.xib in Resources */,
 				F5D858EF1AE9F2B300534756 /* home_link_logo@2x.png in Resources */,
 				F5CBE3FE1AC4351A00F4C884 /* Expression_36@2x.png in Resources */,
 				A49C7E281A70D42700F2AEC5 /* me_circle_chat_camera@2x.png in Resources */,
@@ -11576,7 +11569,6 @@
 				A409A2A01AC2E1AF0033A31D /* navbar_more@2x.png in Resources */,
 				A41CE1CC1A6F9E25004F17E7 /* me_circle_chat_camera@2x.png in Resources */,
 				A493C3BA1ADD14A60056BD52 /* city.plist in Resources */,
-				F569726A1B0EF60A004E86AC /* InvestorCell.xib in Resources */,
 				F5D858ED1AE9F2B300534756 /* home_link_logo@2x.png in Resources */,
 				A4C143751A4C0A6B00C9BAB5 /* section0_emotion11@2x.png in Resources */,
 				A4C770BC1A806A48005ABC7F /* discovery_xiangmu_detail_link@2x.png in Resources */,
@@ -12398,7 +12390,6 @@
 				A409A1AE1AC2E1AF0033A31D /* investor_attestation_add@2x.png in Resources */,
 				F5CBE4A71AC4351A00F4C884 /* Expression_79@2x.png in Resources */,
 				F5664B851A2AFD56008A5830 /* MJPhotoBrowser.bundle in Resources */,
-				F56972681B0EF60A004E86AC /* InvestorCell.xib in Resources */,
 				F5CBE3DF1AC4351A00F4C884 /* Expression_29@2x.png in Resources */,
 				A4C1449B1A4C3EC600C9BAB5 /* home_loading_30px@2x.png in Resources */,
 				F56C305E1AC3E01D00EDF054 /* PhoneChangeVC.xib in Resources */,
@@ -13036,7 +13027,6 @@
 				A4C143801A4C0A6B00C9BAB5 /* section0_emotion15@2x.png in Resources */,
 				A4C1444F1A4C0A6B00C9BAB5 /* RecordingSignal001@2x.png in Resources */,
 				F5CBE3701AC4351A00F4C884 /* Expression_1@2x.png in Resources */,
-				F56972691B0EF60A004E86AC /* InvestorCell.xib in Resources */,
 				F557730D1A5AA3E200693279 /* login_zhiwei@2x.png in Resources */,
 				F58CA95E1A5BF3AE00988A61 /* leida2@2x.png in Resources */,
 				A409A2BF1AC2E1AF0033A31D /* tabbar_chat_selected_prompt@2x.png in Resources */,

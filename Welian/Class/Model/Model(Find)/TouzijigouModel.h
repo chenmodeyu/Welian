@@ -10,9 +10,12 @@
 
 @interface TouzijigouModel : IFBase
 
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *logo;
 @property (nonatomic, strong) NSString *intro;
+
+@property (nonatomic, strong) NSNumber *casecount;
+@property (nonatomic, strong) NSNumber *membercount;
 
 @property (nonatomic, strong) NSArray *stages;
 @property (nonatomic, strong) NSArray *cases;

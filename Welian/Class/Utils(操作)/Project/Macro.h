@@ -73,7 +73,7 @@
 //不同意投递bp
 #define kInvestorNoToudiPath kInvestorUrl(@"notoudi")
 //取投资机构
-#define kInvestorJigouPath kInvestorUrl(@"jigou")
+#define kInvestorJigouPath kInvestorUrl(@"firms")
 //取投资机构的投资人
 #define kInvestorJigouPersonPath kInvestorUrl(@"jigou")
 //取投资机构案例

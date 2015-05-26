@@ -38,15 +38,13 @@
         [_nameLabel setCenterX:self.centerX];
         [_nameLabel setTextAlignment:NSTextAlignmentCenter];
         [_nameLabel setTextColor:WLRGB(51, 51, 51)];
-//        [_nameLabel setText:@"陈日莎"];
         [self addSubview:_nameLabel];
         
-        _positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _nameLabel.bottom+5, SuperSize.width, 16)];
+        _positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, _nameLabel.bottom+5, SuperSize.width-60, 16)];
         [_positionLabel setFont:WLFONT(15)];
         [_positionLabel setTextColor:[UIColor grayColor]];
         [_positionLabel setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:_positionLabel];
-        
         
         _receivedView = [[UIView alloc] initWithFrame:CGRectMake(30, _positionLabel.bottom+15, 60, 60)];
         [_receivedView setBackgroundColor:[UIColor redColor]];
