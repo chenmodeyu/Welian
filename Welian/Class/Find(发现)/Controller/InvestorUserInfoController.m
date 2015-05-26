@@ -9,6 +9,7 @@
 #import "InvestorUserInfoController.h"
 #import "InvestorInfoHeadView.h"
 #import "ProjectsMailingView.h"
+#import "ProjectTouDiModel.h"
 
 @interface InvestorUserInfoController ()
 
@@ -29,8 +30,17 @@
 // 投递
 - (void)mailingInvestorClick
 {
-    ProjectsMailingView *projectsMailingView = [[ProjectsMailingView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.view.window addSubview:projectsMailingView];
+    IBaseUserM *meModel = [IBaseUserM getLoginUserBaseInfo];
+    [WeLianClient getInvestorProjectsListPid:meModel.uid Success:^(id resultInfo) {
+        NSArray *projectArray = [ProjectTouDiModel objectsWithInfo:resultInfo];
+        
+        ProjectsMailingView *projectsMailingView = [[ProjectsMailingView alloc] initWithFrame:[UIScreen mainScreen].bounds andProjects:projectArray];
+        [self.view.window addSubview:projectsMailingView];
+        DLog(@"%@",resultInfo);
+    } Failed:^(NSError *error) {
+        
+    }];
+    
     
 }
 

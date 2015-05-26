@@ -10,5 +10,6 @@
 
 @interface ProjectsMailingView : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame andProjects:(NSArray *)projects;
 
 @end

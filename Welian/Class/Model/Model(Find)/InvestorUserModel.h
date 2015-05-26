@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSNumber *feedback;   //反馈的
 @property (nonatomic, strong) NSNumber *interview;  // 约谈
 
-@property (nonatomic, strong) TouzijigouModel *touzijigou;
+@property (nonatomic, strong) TouzijigouModel *firm;
 
 @property (nonatomic, strong) NSArray *stages;
 @property (nonatomic, strong) NSArray *items;

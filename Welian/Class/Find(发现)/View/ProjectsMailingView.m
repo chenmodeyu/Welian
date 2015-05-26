@@ -7,29 +7,32 @@
 //
 
 #import "ProjectsMailingView.h"
+#import "ProjectTouDiModel.h"
 
 @interface ProjectsMailingView () <UITableViewDelegate,UITableViewDataSource>
-
+{
+    NSArray *_dataArray;
+}
 @property (strong, nonatomic) UIView *tapGestureView;
-
 @property (strong, nonatomic) NSIndexPath *seletIndex;
 
 @end
 
 @implementation ProjectsMailingView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame andProjects:(NSArray *)projects
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        _dataArray = projects;
         self.tapGestureView = [[UIView alloc] initWithFrame:self.bounds];
         [self addSubview:self.tapGestureView];
         [self.tapGestureView setBackgroundColor:[UIColor colorWithWhite:0.3 alpha:0.7]];
         
-        UIView *backGuView = [[UIView alloc] initWithFrame:CGRectMake(30, 100, SuperSize.width-60, SuperSize.height-200)];
+        UIView *backGuView = [[UIView alloc] initWithFrame:CGRectMake(30, 100, SuperSize.width-60, 280)];
         [backGuView setBackgroundColor:[UIColor whiteColor]];
         backGuView.layer.cornerRadius = 8;
+        backGuView.centerY = self.centerY;
         [self addSubview:backGuView];
         
         UILabel *titiLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 8, backGuView.width, 20)];
@@ -67,13 +70,33 @@
         [erectLine setBackgroundColor:WLRGB(125, 125, 125)];
         [backGuView addSubview:erectLine];
         
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, topLine.bottom, backGuView.width, backGuView.height-topLine.bottom-50) style:UITableViewStylePlain];
-        [tableView setDelegate:self];
-        [tableView setDataSource:self];
-        [tableView setEditing:YES];
-        [tableView setTableFooterView:[UIView new]];
-        [tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-        [backGuView addSubview:tableView];
+        CGRect tableFrame = CGRectMake(0, topLine.bottom, backGuView.width, backGuView.height-topLine.bottom-50);
+        if (_dataArray.count) {
+            UITableView *tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+            [tableView setDelegate:self];
+            [tableView setDataSource:self];
+            [tableView setEditing:YES];
+            [tableView setTableFooterView:[UIView new]];
+            [tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+            [backGuView addSubview:tableView];
+        }else{
+            UIView *noProject = [[UIView alloc] initWithFrame:tableFrame];
+            [noProject setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+            [backGuView addSubview:noProject];
+            UILabel *noLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, noProject.width, 20)];
+            [noLabel setText:@"还没有项目哦~"];
+            [noLabel setTextAlignment:NSTextAlignmentCenter];
+            [noLabel setTextColor:WLRGB(125, 125, 125)];
+            noLabel.centerY = noProject.centery-50;
+            [noProject addSubview:noLabel];
+            
+            UIButton *addProjectBut = [UIButton buttonWithType:UIButtonTypeCustom];
+            [addProjectBut setFrame:CGRectMake(58, noLabel.bottom+10, noProject.width-2*58, 44)];
+            [addProjectBut setTitle:@"创建项目" forState:UIControlStateNormal];
+            [addProjectBut setBackgroundColor:self.tintColor];
+            [noProject addSubview:addProjectBut];
+        }
+        
         
     }
     return self;
@@ -82,7 +105,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return _dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,10 +120,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@""];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"projectcellid"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@""];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"projectcellid"];
     }
+    ProjectTouDiModel *projectM = _dataArray[indexPath.row];
+    [cell.textLabel setText:projectM.name];
+    [cell.detailTextLabel setText:projectM.notes];
     return cell;
 }
 
@@ -127,6 +153,7 @@
 //取消一项
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"取消一项");
+    self.seletIndex = nil;
 
 }
 
