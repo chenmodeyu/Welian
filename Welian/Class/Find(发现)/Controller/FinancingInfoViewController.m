@@ -89,23 +89,19 @@
                                    }];
 }
 
+
+
 //向创业者索要BP
 - (void)getBPInfo:(NSIndexPath *)indexPath
 {
     //向创业者索要BP
     [WLHUDView showHUDWithStr:@"请求发送中..." dim:NO];
     IProjectBPModel *bpModel = _datasource[indexPath.row];
-    [WeLianClient investorRequiredWithPid:bpModel.bpid
+    [WeLianClient investorDownloadWithPid:bpModel.bpid
                                   Success:^(id resultInfo) {
-                                      [WLHUDView hiddenHud];
-                                      //发送成功
-                                      [UIAlertView bk_showAlertViewWithTitle:@""
-                                                                     message:@"查看BP请求发送成功，请等待回复！"
-                                                           cancelButtonTitle:@"知道了"
-                                                           otherButtonTitles:nil
-                                                                     handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                                                                         
-                                                                     }];
+                                      //BP地址url
+                                      NSString *url = resultInfo[@"url"];
+                                      [self downloadBPAndLook:url];
                                   } Failed:^(NSError *error) {
                                       if (error) {
                                           [WLHUDView showErrorHUD:error.localizedDescription];
@@ -113,6 +109,25 @@
                                           [WLHUDView showErrorHUD:@"取消收藏失败，请重试！"];
                                       }
                                   }];
+    
+//    [WeLianClient investorRequiredWithPid:_iProjectDetailInfo.pid
+//                                  Success:^(id resultInfo) {
+//                                      [WLHUDView hiddenHud];
+//                                      //发送成功
+//                                      [UIAlertView bk_showAlertViewWithTitle:@""
+//                                                                     message:@"查看BP请求发送成功，请等待回复！"
+//                                                           cancelButtonTitle:@"知道了"
+//                                                           otherButtonTitles:nil
+//                                                                     handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+//                                                                         
+//                                                                     }];
+//                                  } Failed:^(NSError *error) {
+//                                      if (error) {
+//                                          [WLHUDView showErrorHUD:error.localizedDescription];
+//                                      }else{
+//                                          [WLHUDView showErrorHUD:@"取消收藏失败，请重试！"];
+//                                      }
+//                                  }];
 }
 
 #pragma mark - UITableView Datasource&Delegate

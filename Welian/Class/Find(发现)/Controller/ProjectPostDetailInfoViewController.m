@@ -27,6 +27,7 @@
 @property (assign,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSArray *datasource;
 @property (strong,nonatomic) IProjectDetailInfo *iProjectDetailInfo;
+@property (strong,nonatomic) NSNumber *localPid;
 
 @end
 
@@ -42,6 +43,16 @@
     self = [super init];
     if (self) {
         self.iProjectDetailInfo = iProjectDetailInfo;
+        self.datasource = @[@""];
+    }
+    return self;
+}
+
+- (instancetype)initWithPid:(NSNumber *)pid
+{
+    self = [super init];
+    if (self) {
+        self.localPid = pid;
         self.datasource = @[@""];
     }
     return self;

@@ -266,7 +266,9 @@
     [self loadMyAllFriends];
     
     //每次程序启动获取一次活动里面的城市列表
-    [self loadAcitvityCitys];
+//    [self loadAcitvityCitys];
+    //获取默认筛选条件
+    [self loadCommonSelectInfos];
 }
 
 - (void)dealloc
@@ -631,6 +633,73 @@
         }
     } Failed:^(NSError *error) {
         DLog(@"getActiveCities error:%@",error.description);
+    }];
+}
+
+//获取默认刷选列表
+- (void)loadCommonSelectInfos
+{
+    [WeLianClient getSelectInfoWithSuccess:^(id resultInfo) {
+        NSArray *activecitys = resultInfo[@"activecity"];
+        if (activecitys.count > 0) {
+            //写入到本地
+            BOOL state = [activecitys writeToFile:[[ResManager documentPath] stringByAppendingString:@"/ActivityCitys.plist"] atomically:YES];
+            if (state == YES) {
+                DLog(@"activecitys write successfully");
+            }else{
+                DLog(@"activecitys fail to write");
+            }
+            
+            //删除本地数据库的缓存  //1：活动城市   2：项目城市
+            NSArray *citys = [ICityModel objectsWithInfo:activecitys];
+            if (citys.count > 0) {
+                [CityInfo deleteAllCityInfosRealWithType:@(1)];
+                for (ICityModel *iCityModel in citys) {
+                    [CityInfo createCityInfoWith:iCityModel Type:@(1)];
+                }
+            }
+        }
+        
+        NSArray *projectcitys = resultInfo[@"projectcity"];
+        if (projectcitys.count > 0) {
+            //写入到本地
+            BOOL state = [projectcitys writeToFile:[[ResManager documentPath] stringByAppendingString:@"/ProjectCitys.plist"] atomically:YES];
+            if (state == YES) {
+                DLog(@"projectcitys write successfully");
+            }else{
+                DLog(@"projectcitys fail to write");
+            }
+            
+            NSArray *citys = [ICityModel objectsWithInfo:projectcitys];
+            if (citys.count > 0) {
+                [CityInfo deleteAllCityInfosRealWithType:@(2)];
+                for (ICityModel *iCityModel in citys) {
+                    [CityInfo createCityInfoWith:iCityModel Type:@(2)];
+                }
+            }
+        }
+        
+        NSArray *industrys = resultInfo[@"industry"];
+        if (industrys.count > 0) {
+            //写入到本地
+            BOOL state = [industrys writeToFile:[[ResManager documentPath] stringByAppendingString:@"/Industrys.plist"] atomically:YES];
+            if (state == YES) {
+                DLog(@"projectcitys write successfully");
+            }else{
+                DLog(@"projectcitys fail to write");
+            }
+            
+            NSArray *industryInfos = [IInvestIndustryModel objectsWithInfo:industrys];
+            if (industryInfos.count > 0) {
+                //删除本地的
+                [InvestIndustry deleteAllInvestIndustrys];
+                for (IInvestIndustryModel *iInvestIndustry in industryInfos) {
+                    [InvestIndustry createInvestIndustryWith:iInvestIndustry];
+                }
+            }
+        }
+    } Failed:^(NSError *error) {
+        DLog(@"getSelectInfo error:%@",error.localizedDescription);
     }];
 }
 

@@ -949,7 +949,7 @@ static NSString *noCommentCell = @"NoCommentCell";
 //获取详情信息
 - (void)initData{
     
-    if (!_projectPid.boolValue) {
+    if (!_projectPid) {
         UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"该项目已经被删除！"];
         [alert bk_addButtonWithTitle:@"确定" handler:^{
             [self.navigationController popViewControllerAnimated:YES];

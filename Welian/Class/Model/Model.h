@@ -25,7 +25,8 @@
 #import "SchoolModel.h"
 #import "TouTiaoInfo.h"
 #import "ProjectClassInfo.h"
-
+#import "CityInfo.h"
+#import "InvestIndustry.h"
 
 #pragma mark - Interface
 #import "IBaseModel.h"
@@ -52,6 +53,8 @@
 #import "ITouTiaoModel.h"
 #import "IProjectClassModel.h"
 #import "IProjectBPModel.h"
+#import "ICommonSelectInfoResult.h"
+#import "ICityModel.h"
 
 
 #pragma mark - Model（Home）

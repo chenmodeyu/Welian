@@ -64,26 +64,70 @@
 
 - (void)setCardM:(CardStatuModel *)cardM
 {
-    //3 活动，10项目，11 网页 12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
+    //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
     _cardM = cardM;
     NSInteger typeint = cardM.type.integerValue;
     NSString *imageName = @"";
     BOOL cidBool = cardM.cid.boolValue;
-    if (typeint==12||typeint==10) { // 项目
-        imageName = cidBool? @"home_repost_xiangmu":@"home_repost_xiangmu_no";
-    }else if (typeint==11){    // 网页
-        imageName = @"home_repost_link";
-        
-    }else if (typeint==3||typeint==5){ // 活动
-        imageName = cidBool? @"home_repost_huodong":@"home_repost_huodong_no";
-    }else if (typeint==13){ // 话题
-        imageName = @"home_repost_huati";
-    }else if (typeint==4 || typeint==6){ // 个人信息
-        
-        imageName = @"home_repost_beijing";
+    switch (typeint) {
+        case 10:
+        case 12:
+        case 13:
+        {
+            //项目
+            imageName = cidBool? @"home_repost_xiangmu":@"home_repost_xiangmu_no";
+        }
+            break;
+        case 11:
+        {
+            // 网页
+            imageName = @"home_repost_link";
+        }
+            break;
+//        case 13:
+//        {
+//            // 话题
+//            imageName = @"home_repost_huati";
+//        }
+//            break;
+        case 4:
+        case 6:
+        {
+           // 个人信息
+            imageName = @"home_repost_beijing";
+        }
+            break;
+        case 14:
+        case 15:
+        {
+            //名片  需要下载
+            [_iconImage sd_setImageWithURL:[NSURL URLWithString:_cardM.url]
+                          placeholderImage:[UIImage imageNamed:@"user_small"]
+                                   options:SDWebImageRetryFailed|SDWebImageLowPriority];
+        }
+            break;
+        default:
+            break;
     }
     
-    [_iconImage setImage:[UIImage imageNamed:imageName]];
+//    if (typeint == 12 || typeint == 10 || typeint == 13) { // 项目
+//        imageName = cidBool? @"home_repost_xiangmu":@"home_repost_xiangmu_no";
+//    }else if (typeint==11){    // 网页
+//        imageName = @"home_repost_link";
+//        
+//    }else if (typeint==3||typeint==5){ // 活动
+//        imageName = cidBool? @"home_repost_huodong":@"home_repost_huodong_no";
+//    }else if (typeint==13){ // 话题
+//        imageName = @"home_repost_huati";
+//    }else if (typeint==4 || typeint==6){ // 个人信息
+//        
+//        imageName = @"home_repost_beijing";
+//    }else if (typeint == 15 || typeint == 14){
+//        
+//    }
+    if(imageName.length > 0){
+        [_iconImage setImage:[UIImage imageNamed:imageName]];
+    }
     _titLabel.text = cardM.title;
     _detailLabel.text = cardM.intro;
 }

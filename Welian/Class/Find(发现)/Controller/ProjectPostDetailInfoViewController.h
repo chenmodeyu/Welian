@@ -11,5 +11,6 @@
 @interface ProjectPostDetailInfoViewController : BasicViewController
 
 - (instancetype)initWithProjectInfo:(IProjectDetailInfo *)iProjectDetailInfo;
+- (instancetype)initWithPid:(NSNumber *)pid;
 
 @end

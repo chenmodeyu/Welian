@@ -253,6 +253,7 @@
                           Path:KCommSelectPath
                        Success:^(id resultInfo) {
                            DLog(@"getSelectInfo ---- %@",resultInfo);
+//                           ICommonSelectInfoResult *result = [ICommonSelectInfoResult objectWithDict:resultInfo];
                            SAFE_BLOCK_CALL(success,resultInfo);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
@@ -336,7 +337,7 @@
                         Success:(SuccessBlock)success
                          Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"pid":pid};
+    NSDictionary *params = @{@"bpid":pid};
     [self reqestPostWithParams:params
                           Path:kInvestorDownloadPath
                        Success:^(id resultInfo) {

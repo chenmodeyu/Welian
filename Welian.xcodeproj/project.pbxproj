@@ -2751,6 +2751,26 @@
 		A4D43AB91AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D43AAB1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m */; };
 		A4D43ABA1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D43AAB1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m */; };
 		A4D43ABB1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D43AAB1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m */; };
+		A4E322EA1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322E91B14118400DD395B /* ICommonSelectInfoResult.m */; };
+		A4E322EB1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322E91B14118400DD395B /* ICommonSelectInfoResult.m */; };
+		A4E322EC1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322E91B14118400DD395B /* ICommonSelectInfoResult.m */; };
+		A4E322ED1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322E91B14118400DD395B /* ICommonSelectInfoResult.m */; };
+		A4E322EE1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322E91B14118400DD395B /* ICommonSelectInfoResult.m */; };
+		A4E322F81B1412C900DD395B /* ICityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322F71B1412C900DD395B /* ICityModel.m */; };
+		A4E322F91B1412C900DD395B /* ICityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322F71B1412C900DD395B /* ICityModel.m */; };
+		A4E322FA1B1412C900DD395B /* ICityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322F71B1412C900DD395B /* ICityModel.m */; };
+		A4E322FB1B1412C900DD395B /* ICityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322F71B1412C900DD395B /* ICityModel.m */; };
+		A4E322FC1B1412C900DD395B /* ICityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322F71B1412C900DD395B /* ICityModel.m */; };
+		A4E322FF1B14161500DD395B /* CityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322FE1B14161500DD395B /* CityInfo.m */; };
+		A4E323001B14161500DD395B /* CityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322FE1B14161500DD395B /* CityInfo.m */; };
+		A4E323011B14161500DD395B /* CityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322FE1B14161500DD395B /* CityInfo.m */; };
+		A4E323021B14161500DD395B /* CityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322FE1B14161500DD395B /* CityInfo.m */; };
+		A4E323031B14161500DD395B /* CityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E322FE1B14161500DD395B /* CityInfo.m */; };
+		A4E323061B1458C600DD395B /* LookBPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E323051B1458C600DD395B /* LookBPFileViewController.m */; };
+		A4E323071B1458C600DD395B /* LookBPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E323051B1458C600DD395B /* LookBPFileViewController.m */; };
+		A4E323081B1458C600DD395B /* LookBPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E323051B1458C600DD395B /* LookBPFileViewController.m */; };
+		A4E323091B1458C600DD395B /* LookBPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E323051B1458C600DD395B /* LookBPFileViewController.m */; };
+		A4E3230A1B1458C600DD395B /* LookBPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E323051B1458C600DD395B /* LookBPFileViewController.m */; };
 		A4E7318A1A8C8AE500980676 /* discovery_activity_detail_people@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E731871A8C8AE500980676 /* discovery_activity_detail_people@2x.png */; };
 		A4E7318B1A8C8AE500980676 /* discovery_activity_detail_people@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E731871A8C8AE500980676 /* discovery_activity_detail_people@2x.png */; };
 		A4E7318C1A8C8AE500980676 /* discovery_activity_detail_people@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E731871A8C8AE500980676 /* discovery_activity_detail_people@2x.png */; };
@@ -5849,6 +5869,14 @@
 		A4D43AA91AC55A7200713295 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 		A4D43AAA1AC55A7200713295 /* UIScrollView+VGParallaxHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+VGParallaxHeader.h"; sourceTree = "<group>"; };
 		A4D43AAB1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+VGParallaxHeader.m"; sourceTree = "<group>"; };
+		A4E322E81B14118400DD395B /* ICommonSelectInfoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICommonSelectInfoResult.h; sourceTree = "<group>"; };
+		A4E322E91B14118400DD395B /* ICommonSelectInfoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICommonSelectInfoResult.m; sourceTree = "<group>"; };
+		A4E322F61B1412C900DD395B /* ICityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICityModel.h; sourceTree = "<group>"; };
+		A4E322F71B1412C900DD395B /* ICityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICityModel.m; sourceTree = "<group>"; };
+		A4E322FD1B14161500DD395B /* CityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfo.h; sourceTree = "<group>"; };
+		A4E322FE1B14161500DD395B /* CityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfo.m; sourceTree = "<group>"; };
+		A4E323041B1458C600DD395B /* LookBPFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookBPFileViewController.h; sourceTree = "<group>"; };
+		A4E323051B1458C600DD395B /* LookBPFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookBPFileViewController.m; sourceTree = "<group>"; };
 		A4E731871A8C8AE500980676 /* discovery_activity_detail_people@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discovery_activity_detail_people@2x.png"; sourceTree = "<group>"; };
 		A4E731881A8C8AE500980676 /* discovery_activity_detail_place@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discovery_activity_detail_place@2x.png"; sourceTree = "<group>"; };
 		A4E731961A8C8C8600980676 /* ActivityCustomViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCustomViewCell.h; sourceTree = "<group>"; };
@@ -7087,6 +7115,10 @@
 				A4C0E11D1B0EFCAF00A9929D /* IProjectClassModel.m */,
 				A4B07C161B12D09D008A3702 /* IProjectBPModel.h */,
 				A4B07C171B12D09D008A3702 /* IProjectBPModel.m */,
+				A4E322E81B14118400DD395B /* ICommonSelectInfoResult.h */,
+				A4E322E91B14118400DD395B /* ICommonSelectInfoResult.m */,
+				A4E322F61B1412C900DD395B /* ICityModel.h */,
+				A4E322F71B1412C900DD395B /* ICityModel.m */,
 			);
 			path = Interface2.0;
 			sourceTree = "<group>";
@@ -7389,6 +7421,8 @@
 				A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */,
 				A4C0E1311B0F0D6F00A9929D /* ProjcetClassViewController.h */,
 				A4C0E1321B0F0D6F00A9929D /* ProjcetClassViewController.m */,
+				A4E323041B1458C600DD395B /* LookBPFileViewController.h */,
+				A4E323051B1458C600DD395B /* LookBPFileViewController.m */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -9543,6 +9577,8 @@
 			isa = PBXGroup;
 			children = (
 				F59E76091A405D170028FBAF /* weLian.xcdatamodeld */,
+				A4E322FD1B14161500DD395B /* CityInfo.h */,
+				A4E322FE1B14161500DD395B /* CityInfo.m */,
 				A4C0E1231B0EFE5600A9929D /* ProjectClassInfo.h */,
 				A4C0E1241B0EFE5600A9929D /* ProjectClassInfo.m */,
 				A4FA34FA1B0DD983006066A6 /* TouTiaoInfo.h */,
@@ -13303,6 +13339,7 @@
 				A493C24D1ADD0BB00056BD52 /* UIAlertView+Extend.m in Sources */,
 				A49C7BCA1A70D42700F2AEC5 /* MJPhotoToolbar.m in Sources */,
 				A49C7BCC1A70D42700F2AEC5 /* UIImage+TOWebViewControllerIcons.m in Sources */,
+				A4E322FC1B1412C900DD395B /* ICityModel.m in Sources */,
 				A49C7BCD1A70D42700F2AEC5 /* MultiSelectViewController.m in Sources */,
 				A49C7BCE1A70D42700F2AEC5 /* MessageKeyboardView.m in Sources */,
 				A493C2B91ADD13E00056BD52 /* WLTextField.m in Sources */,
@@ -13466,6 +13503,7 @@
 				A49C80531A71041000F2AEC5 /* DataVerifier.m in Sources */,
 				A49C7C511A70D42700F2AEC5 /* ZBExpressionSectionBar.m in Sources */,
 				F5E13A471A7B5329001BB786 /* CreateProjectController.m in Sources */,
+				A4E322EE1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				A49C7C521A70D42700F2AEC5 /* SWLongPressGestureRecognizer.m in Sources */,
 				F5D04C6E1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
 				A49C7C531A70D42700F2AEC5 /* WLMessageTableView.m in Sources */,
@@ -13490,6 +13528,7 @@
 				A49C7C5F1A70D42700F2AEC5 /* ChatViewController.m in Sources */,
 				F56972671B0EF60A004E86AC /* InvestorCell.m in Sources */,
 				A49C7C611A70D42700F2AEC5 /* UIButton+Badge.m in Sources */,
+				A4E3230A1B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				A49C7C621A70D42700F2AEC5 /* UIAlertView+AFNetworking.m in Sources */,
 				A49235461ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				A48173AA1B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
@@ -13569,6 +13608,7 @@
 				A49C7CAC1A70D42700F2AEC5 /* UIImageView+MJWebCache.m in Sources */,
 				A49C7CAD1A70D42700F2AEC5 /* WLShareMenuView.m in Sources */,
 				A49C7CAE1A70D42700F2AEC5 /* UIImage+Alpha.m in Sources */,
+				A4E323031B14161500DD395B /* CityInfo.m in Sources */,
 				A45923A41B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A49C7CAF1A70D42700F2AEC5 /* XHViewState.m in Sources */,
 				A493C26B1ADD0BB00056BD52 /* BaseModel.m in Sources */,
@@ -13847,6 +13887,7 @@
 				F53DC2A11A49192600F5F712 /* MJPhotoToolbar.m in Sources */,
 				F53DC2A31A49192600F5F712 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				A4C141341A4BEF5700C9BAB5 /* MultiSelectViewController.m in Sources */,
+				A4E322FA1B1412C900DD395B /* ICityModel.m in Sources */,
 				A49235441ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				F53DC2A41A49192600F5F712 /* MessageKeyboardView.m in Sources */,
 				A493C2B71ADD13DF0056BD52 /* WLTextField.m in Sources */,
@@ -14010,6 +14051,7 @@
 				A49C80521A71041000F2AEC5 /* DataVerifier.m in Sources */,
 				A49235621ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
 				F53DC2F51A49192600F5F712 /* ZBExpressionSectionBar.m in Sources */,
+				A4E322EC1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				F5E13A461A7B5329001BB786 /* CreateProjectController.m in Sources */,
 				F53DC2F71A49192600F5F712 /* SWLongPressGestureRecognizer.m in Sources */,
 				F5D04C6D1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
@@ -14034,6 +14076,7 @@
 				A4C140011A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */,
 				F56972661B0EF60A004E86AC /* InvestorCell.m in Sources */,
 				F53DC2FE1A49192600F5F712 /* UIButton+Badge.m in Sources */,
+				A4E323081B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				F53DC2FF1A49192600F5F712 /* UIAlertView+AFNetworking.m in Sources */,
 				F53D4E3A1A4AABE800CA06C8 /* LogInUser.m in Sources */,
 				A48173A81B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
@@ -14113,6 +14156,7 @@
 				F53DC32E1A49192600F5F712 /* UIImageView+MJWebCache.m in Sources */,
 				A41CE1B41A6F81DB004F17E7 /* WLShareMenuView.m in Sources */,
 				A4C140731A4BEA8500C9BAB5 /* UIImage+Alpha.m in Sources */,
+				A4E323011B14161500DD395B /* CityInfo.m in Sources */,
 				A45923A21B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A4C1416D1A4BEF5700C9BAB5 /* XHViewState.m in Sources */,
 				A493C2691ADD0BB00056BD52 /* BaseModel.m in Sources */,
@@ -14391,6 +14435,7 @@
 				F59E76171A4071330028FBAF /* SchoolModel.m in Sources */,
 				F56649801A2AFD56008A5830 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				F56649811A2AFD56008A5830 /* MessageKeyboardView.m in Sources */,
+				A4E322F81B1412C900DD395B /* ICityModel.m in Sources */,
 				F56649821A2AFD56008A5830 /* FMDatabasePool.m in Sources */,
 				A493C2B51ADD13DF0056BD52 /* WLTextField.m in Sources */,
 				F56649841A2AFD56008A5830 /* UIImage+WebP.m in Sources */,
@@ -14554,6 +14599,7 @@
 				F56649CE1A2AFD56008A5830 /* ZBExpressionSectionBar.m in Sources */,
 				F56649CF1A2AFD56008A5830 /* SWLongPressGestureRecognizer.m in Sources */,
 				A49C80501A71041000F2AEC5 /* DataVerifier.m in Sources */,
+				A4E322EA1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				F5D04C6B1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
 				F56649D11A2AFD56008A5830 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				F5E13A441A7B5329001BB786 /* CreateProjectController.m in Sources */,
@@ -14578,6 +14624,7 @@
 				A4C770E61A80A3D1005ABC7F /* IUserInfo.m in Sources */,
 				F56972641B0EF60A004E86AC /* InvestorCell.m in Sources */,
 				F58CA99D1A5D4F9100988A61 /* DaiDodgeKeyboard.m in Sources */,
+				A4E323061B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				F56649D61A2AFD56008A5830 /* UIAlertView+AFNetworking.m in Sources */,
 				F56649D71A2AFD56008A5830 /* UIImage+MultiFormat.m in Sources */,
 				A48173A61B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
@@ -14657,6 +14704,7 @@
 				F5933FAE1AD4F4030088C70D /* UIScrollView+MJRefresh.m in Sources */,
 				A4743E951A7F619D00645998 /* ProjectDetailView.m in Sources */,
 				A4C1416E1A4BEF5700C9BAB5 /* XHZoomingImageView.m in Sources */,
+				A4E322FF1B14161500DD395B /* CityInfo.m in Sources */,
 				A45923A01B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A493C2671ADD0BB00056BD52 /* BaseModel.m in Sources */,
 				F550787E1A7F2BE0009CE4F7 /* CreateProjectFootView.m in Sources */,
@@ -14935,6 +14983,7 @@
 				F5664C391A2AFDD5008A5830 /* MJPhotoToolbar.m in Sources */,
 				F5664C3A1A2AFDD5008A5830 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				A4C141331A4BEF5700C9BAB5 /* MultiSelectViewController.m in Sources */,
+				A4E322F91B1412C900DD395B /* ICityModel.m in Sources */,
 				A49235431ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				F5664C3B1A2AFDD5008A5830 /* MessageKeyboardView.m in Sources */,
 				A493C2B61ADD13DF0056BD52 /* WLTextField.m in Sources */,
@@ -15098,6 +15147,7 @@
 				A49C80511A71041000F2AEC5 /* DataVerifier.m in Sources */,
 				A49235611ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
 				F5664C881A2AFDD5008A5830 /* ZBExpressionSectionBar.m in Sources */,
+				A4E322EB1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				F5E13A451A7B5329001BB786 /* CreateProjectController.m in Sources */,
 				F5664C891A2AFDD5008A5830 /* SWLongPressGestureRecognizer.m in Sources */,
 				F5D04C6C1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
@@ -15122,6 +15172,7 @@
 				A4C140001A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */,
 				F56972651B0EF60A004E86AC /* InvestorCell.m in Sources */,
 				F5664C8F1A2AFDD5008A5830 /* UIButton+Badge.m in Sources */,
+				A4E323071B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				F5664C901A2AFDD5008A5830 /* UIAlertView+AFNetworking.m in Sources */,
 				F53D4E391A4AABE800CA06C8 /* LogInUser.m in Sources */,
 				A48173A71B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
@@ -15201,6 +15252,7 @@
 				F5664CB61A2AFDD5008A5830 /* UIImageView+MJWebCache.m in Sources */,
 				A41CE1B31A6F81DB004F17E7 /* WLShareMenuView.m in Sources */,
 				A4C140721A4BEA8500C9BAB5 /* UIImage+Alpha.m in Sources */,
+				A4E323001B14161500DD395B /* CityInfo.m in Sources */,
 				A45923A11B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A4C1416C1A4BEF5700C9BAB5 /* XHViewState.m in Sources */,
 				A493C2681ADD0BB00056BD52 /* BaseModel.m in Sources */,
@@ -15504,6 +15556,7 @@
 				A40515991AE777E300A3CA3F /* ILoginUserModel.m in Sources */,
 				A493C2971ADD0BB00056BD52 /* NSManagedObject+ManagedObjectQuery.m in Sources */,
 				A493C2B81ADD13DF0056BD52 /* WLTextField.m in Sources */,
+				A4E322ED1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				A493C3571ADD14A60056BD52 /* PublishModel.m in Sources */,
 				A4C0E13D1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				A49235541ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
@@ -15534,6 +15587,7 @@
 				A493C3701ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
 				A493C3661ADD14A60056BD52 /* WLContentCellFrame.m in Sources */,
 				A4B07C1B1B12D09D008A3702 /* IProjectBPModel.m in Sources */,
+				A4E323021B14161500DD395B /* CityInfo.m in Sources */,
 				A48A365F1AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
 				A493C2331ADD0BB00056BD52 /* NSError+Extend.m in Sources */,
 				A48465BF1ADF900A0041BBCE /* WLSegmentedControl.m in Sources */,
@@ -15552,6 +15606,7 @@
 				A493C2A61ADD0BB00056BD52 /* WLCustomSegmentedControl.m in Sources */,
 				A493C1D51ADD0A0C0056BD52 /* WLHUDView.m in Sources */,
 				A492366A1ADE6AF9009E0B8C /* BasicPlainTableViewController.m in Sources */,
+				A4E323091B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				A493C3611ADD14A60056BD52 /* WLBasicTrends.m in Sources */,
 				F51484DA1B09B28800970AFB /* HYBLoadImageView.m in Sources */,
 				A493C3751ADD14A60056BD52 /* WLStatusM.m in Sources */,
@@ -15581,6 +15636,7 @@
 				A493C1C11ADD0A0C0056BD52 /* Constants.m in Sources */,
 				A4FDF3C81B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A493C2601ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
+				A4E322FB1B1412C900DD395B /* ICityModel.m in Sources */,
 				A49235591ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
 				A493C1C61ADD0A0C0056BD52 /* HttpTool.m in Sources */,
 				A4FDF3BC1B0A038700A487A9 /* MCAvatarView.m in Sources */,

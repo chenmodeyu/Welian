@@ -357,7 +357,7 @@
         case WLBubbleMessageMediaTypeActivity://活动
         case WLBubbleMessageMediaTypeCard:
         {
-            //3 活动，10项目，11 网页 12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
+            //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
             NSDictionary *card = dict[@"card"];
             NSNumber *cid = card[@"cid"];
             NSString *title = card[@"title"];
@@ -371,6 +371,55 @@
             chatMsg.cardIntro = intro;
             chatMsg.cardUrl = url;
             chatMsg.cardMsg = msg;
+            
+            /*
+             索要项目
+             {
+                 data =     {
+                     card =         {
+                             cid = 10061;
+                             intro = "\U8f6f\U4ef6\U5de5\U7a0b\U5e08 \U676d\U5dde\U4f20\U9001\U95e8\U7f51\U7edc\U79d1\U6280\U6709\U9650\U516c\U53f8";
+                             title = "\U8e47\U5146\U6587";
+                             type = 15;
+                             url = "http:h5.welian.com/invite/i/4vd91h3K2EY=";
+                    };
+                    created = "2015-05-26 14:34:24";
+                    fromuser =         {
+                         avatar = "http:img.welian.com/1414322325264_x.png";
+                         name = "\U9879\U76ee\U5c0f\U79d8\U4e66";
+                         uid = 2;
+                     };
+                     messageid = 133713;
+                     msg = "\U6295\U8d44\U4eba\U8e47\U5146\U6587\U5e0c\U671b\U80fd\U67e5\U770b\U9879\U76ee How \U7684bp";
+                     type = 51;
+                     uid = 20622;
+                 };
+                 type = IM;
+             }
+             */
+            
+            /*
+             投递BP
+             {
+                 card =     {
+                     cid = 10691;
+                     intro = Sthgghjgg;
+                     title = How;
+                     type = 13;
+                     url = "http://h5.welian.com/project/i/Sf2AGpHQpmU=";
+                 };
+                 created = "2015-05-26 15:34:24";
+                 fromuser =     {
+                     avatar = "http://img.welian.com/1414322325264_x.png";
+                     name = "\U9879\U76ee\U5c0f\U79d8\U4e66";
+                     uid = 2;
+                 };
+                 messageid = 133729;
+                 msg = "\U5f20\U8273\U4e1c\U5411\U4f60\U6295\U9012\U4e86\U4e00\U4e2a\U9879\U76ee";
+                 type = 51;
+                 uid = 10061;
+             }
+             */
             
             switch (cardType) {
                 case WLBubbleMessageCardTypeActivity://活动
@@ -587,7 +636,7 @@
         case WLBubbleMessageMediaTypeActivity://活动
         case WLBubbleMessageMediaTypeCard:
         {
-            //卡片 //3 活动，10项目，11 网页
+            //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
             switch (self.cardType.integerValue) {
                 case WLBubbleMessageCardTypeActivity://活动
                 case WLBubbleMessageCardTypeProject://项目

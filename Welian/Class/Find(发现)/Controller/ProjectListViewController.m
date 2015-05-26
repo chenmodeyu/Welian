@@ -410,7 +410,7 @@
                                                 weakSelf.datasource = sortedInfo[1];
                                                 
                                                 //添加数据
-                                                [_allDataSource addObjectsFromArray:projects];
+                                                [weakSelf.allDataSource addObjectsFromArray:projects];
                                                 dispatch_async(dispatch_get_main_queue(), ^{
                                                     [weakSelf.tableView reloadData];
                                                     

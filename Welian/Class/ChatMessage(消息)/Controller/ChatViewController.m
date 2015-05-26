@@ -15,6 +15,7 @@
 #import "ShareFriendsController.h"
 #import "NavViewController.h"
 #import "UserInfoViewController.h"
+#import "ProjectPostDetailInfoViewController.h"
 
 #import "WLPhotoView.h"
 #import "MJPhoto.h"
@@ -1156,7 +1157,7 @@
         case WLBubbleMessageMediaTypeCard:
         {
             DLog(@"message ----> Card");
-            //3 活动，10项目，11 网页 12 投资人索要项目卡片，13 投递项目卡片 14 用户名片卡片
+            //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
             switch (message.cardType.integerValue) {
                 case WLBubbleMessageCardTypeActivity:
                 {
@@ -1210,7 +1211,8 @@
                 case WLBubbleMessageCardTypeInvestorPost:
                 {
                     //投递项目
-                    
+                    ProjectPostDetailInfoViewController *projectPostDetailVC = [[ProjectPostDetailInfoViewController alloc] initWithPid:message.cardId];
+                    [self.navigationController pushViewController:projectPostDetailVC animated:YES];
                 }
                     break;
                 case WLBubbleMessageCardTypeInvestorUser:
