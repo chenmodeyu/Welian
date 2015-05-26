@@ -61,7 +61,7 @@
 //获取投资人的项目列表
 #define kInvestorProjectsPath kInvestorUrl(@"projects")
 //投递项目
-#define kInvestorToudiPath kInvestorUrl(@"toudi")
+#define kInvestorToudiPath kInvestorUrl(@"order")
 //投资人取项目详情
 #define kInvestorProjectDetailInfoPath kInvestorUrl(@"project")
 //项目bp的下载

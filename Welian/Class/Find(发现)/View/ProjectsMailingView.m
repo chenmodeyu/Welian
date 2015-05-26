@@ -7,7 +7,6 @@
 //
 
 #import "ProjectsMailingView.h"
-#import "ProjectTouDiModel.h"
 
 @interface ProjectsMailingView () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -60,6 +59,7 @@
         UIButton *toudiBut = [[UIButton alloc] initWithFrame:CGRectMake(backGuView.width*0.5, backGuView.height-50, backGuView.width*0.5, 50)];
         [toudiBut setTitleColor:self.tintColor forState:UIControlStateNormal];
         [toudiBut setTitle:@"投递" forState:UIControlStateNormal];
+        [toudiBut addTarget:self action:@selector(mailingInvestorHttpClick) forControlEvents:UIControlEventTouchUpInside];
         [backGuView addSubview:toudiBut];
         
         UIView *bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, cancelBut.top, backGuView.width, 0.5)];
@@ -96,8 +96,6 @@
             [addProjectBut setBackgroundColor:self.tintColor];
             [noProject addSubview:addProjectBut];
         }
-        
-        
     }
     return self;
 }
@@ -132,10 +130,12 @@
 
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row==1) {
-        return UITableViewCellEditingStyleNone;
+    ProjectTouDiModel *projectM = _dataArray[indexPath.row];
+    
+    if (projectM.state&&projectM.state.integerValue ==0) {
+        return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
     }else{
-    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+        return UITableViewCellEditingStyleNone;
     }
 }
 
@@ -157,6 +157,16 @@
 
 }
 
+// 投递项目
+- (void)mailingInvestorHttpClick
+{
+    if (self.mailingProBlock) {
+        if (self.seletIndex) {
+            ProjectTouDiModel *projectM = _dataArray[self.seletIndex.row];
+            self.mailingProBlock(projectM);
+        }
+    }
+}
 
 
 - (void)cancelSelfVC

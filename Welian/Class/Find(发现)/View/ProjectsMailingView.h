@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProjectTouDiModel.h"
+
+typedef void(^MailingProjectBlock)(ProjectTouDiModel *projectModel);
 
 @interface ProjectsMailingView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame andProjects:(NSArray *)projects;
+- (void)cancelSelfVC;
+
+@property (nonatomic,copy) MailingProjectBlock mailingProBlock;
+
 
 @end

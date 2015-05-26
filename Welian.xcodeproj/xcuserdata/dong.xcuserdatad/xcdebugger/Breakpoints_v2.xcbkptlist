@@ -19,22 +19,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/Class/Find(&#x53d1;&#x73b0;)/Controller/InvestorsTableController.m"
-            timestampString = "454219982.37306"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Welian/Class/Me(&#x6211;&#x7684;)/Controller/PhoneChangeVC.m"
             timestampString = "454078522.696091"
             startingColumnNumber = "9223372036854775807"
@@ -52,7 +36,7 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Me(%E6%88%91%E7%9A%84)/Controller/PhoneChangeVC.m"
-                  timestampString = "454249401.973176"
+                  timestampString = "454318936.882519"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
@@ -67,7 +51,7 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Me(%E6%88%91%E7%9A%84)/Controller/PhoneChangeVC.m"
-                  timestampString = "454249401.973312"
+                  timestampString = "454318936.882687"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
@@ -90,22 +74,6 @@
             startingLineNumber = "110"
             endingLineNumber = "110"
             landmarkName = "-sureButClick:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Welian/AppDelegate.mm"
-            timestampString = "454233399.004355"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "700"
-            endingLineNumber = "700"
-            landmarkName = "-GexinSdkDidReceivePayload:fromApplication:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

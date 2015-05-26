@@ -7,7 +7,10 @@
 //
 
 #import "BasicPlainTableViewController.h"
+#import "InvestorUserModel.h"
 
 @interface InvestorUserInfoController : BasicPlainTableViewController
+
+- (instancetype)initWithUserModel:(InvestorUserModel *)investorUserModel;
 
 @end

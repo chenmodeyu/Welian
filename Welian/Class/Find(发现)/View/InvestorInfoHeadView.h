@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class InvestorUserModel;
 //typedef NS_ENUM
 
 typedef NS_ENUM(NSInteger, InvestorMailingType) {
@@ -43,5 +44,7 @@ typedef void(^InvestorMailingBlock)(InvestorMailingType mailingType);
 @property (nonatomic, strong) UIButton *agreeBut;
 
 @property (nonatomic, weak) InvestorMailingBlock mailingBlock;
+
+@property (nonatomic, strong) InvestorUserModel *investorUserModel;
 
 @end
