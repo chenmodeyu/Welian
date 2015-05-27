@@ -70,12 +70,13 @@
         
         _agreeView = [[UIView alloc] initWithFrame:CGRectMake(30, _interviewView.bottom+15, SuperSize.width-60, _mailingBut.height)];
         [_agreeView setBackgroundColor:[UIColor whiteColor]];
-//        [self addSubview:_agreeView];
+        [self addSubview:_agreeView];
         
         _rejectBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_rejectBut setTitle:@"拒绝发送BP" forState:UIControlStateNormal];
         [_rejectBut setFrame:CGRectMake(0, 0, (_agreeView.width-20)*0.5, _agreeView.height)];
         [_rejectBut setTitleColor:WLRGB(52, 116, 186) forState:UIControlStateNormal];
+        [_rejectBut setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
         _rejectBut.layer.borderWidth = 0.6;
         _rejectBut.layer.masksToBounds = YES;
         _rejectBut.layer.cornerRadius = 5;
@@ -111,7 +112,18 @@
     
     [_nameLabel setText:userM.name];
     [_positionLabel setText:[NSString stringWithFormat:@"%@  %@",userM.position,userM.company]];
-    
+}
+
+- (void)setUserType:(InvestorUserInfoType)userType
+{
+    _userType = userType;
+    if (userType == InvestorUserTypeUID) {
+        [_agreeView setHidden:NO];
+        [_mailingBut setHidden:YES];
+    }else if (userType ==InvestorUserTypeModel){
+        [_agreeView setHidden:YES];
+        [_mailingBut setHidden:NO];
+    }
 }
 
 @end

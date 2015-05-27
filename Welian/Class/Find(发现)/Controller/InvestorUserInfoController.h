@@ -8,9 +8,11 @@
 
 #import "BasicPlainTableViewController.h"
 #import "InvestorUserModel.h"
+#import "InvestorInfoHeadView.h"
 
 @interface InvestorUserInfoController : BasicPlainTableViewController
 
-- (instancetype)initWithUserModel:(InvestorUserModel *)investorUserModel;
+- (instancetype)initWithUserType:(InvestorUserInfoType)userType andUserData:(id)userData;
+
 
 @end

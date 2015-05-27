@@ -55,17 +55,17 @@
         
         _itmesLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelX, selfHeigh-10-labelH, labelW, labelH)];
         [_itmesLabel setTextColor:WLRGB(125, 125, 125)];
-        [_itmesLabel setFont:WLFONT(15)];
+        [_itmesLabel setFont:WLFONT(14)];
         [_backgView addSubview:_itmesLabel];
         
         _stageLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelX, _itmesLabel.top-labelH, labelW, labelH)];
         [_stageLabel setTextColor:WLRGB(125, 125, 125)];
-        [_stageLabel setFont:WLFONT(15)];
+        [_stageLabel setFont:WLFONT(14)];
         [_backgView addSubview:_stageLabel];
         
         _jobLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelX, _stageLabel.top-10-labelH, labelW, labelH)];
         [_jobLabel setTextColor:WLRGB(125, 125, 125)];
-        [_jobLabel setFont:WLFONT(15)];
+        [_jobLabel setFont:WLFONT(14)];
         [_backgView addSubview:_jobLabel];
         
         UIView *lienView = [[UIView alloc] initWithFrame:CGRectMake(labelX, _jobLabel.bottom+5, SuperSize.width-labelX, 0.5)];
@@ -74,6 +74,7 @@
         
         
         _nameLabel = [[UILabel alloc] init];
+        [_nameLabel setFont:WLFONT(16)];
         [_nameLabel setTextColor:WLRGB(51, 51, 51)];
         [_backgView addSubview:_nameLabel];
         
@@ -82,14 +83,14 @@
         [_friendBut setEnabled:NO];
         [_friendBut setTitleColor:WLRGB(173, 173, 173) forState:UIControlStateDisabled];
         [_friendBut setImage:[UIImage imageNamed:@"touziren_list_friend.png"] forState:UIControlStateDisabled];
-        [_friendBut.titleLabel setFont:WLFONT(13)];
+        [_friendBut.titleLabel setFont:WLFONT(12)];
         [_backgView addSubview:_friendBut];
         
         _cityBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cityBut setEnabled:NO];
         [_cityBut setImage:[UIImage imageNamed:@"discovery_activity_list_place.png"] forState:UIControlStateDisabled];
         [_cityBut setTitleColor:WLRGB(173, 173, 173) forState:UIControlStateDisabled];
-        [_cityBut.titleLabel setFont:WLFONT(13)];
+        [_cityBut.titleLabel setFont:WLFONT(12)];
         [_backgView addSubview:_cityBut];
 
     }
@@ -104,8 +105,8 @@
     [_iconImage sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageLowPriority];
     
     UIEdgeInsets edgeImage = UIEdgeInsetsMake(0, 0, 0, 5);
-    [_cityBut setTitle:investUserM.cityName forState:UIControlStateNormal];
-    CGSize citySize =[investUserM.cityName sizeWithCustomFont:WLFONT(14)];
+    [_cityBut setTitle:investUserM.cityname forState:UIControlStateNormal];
+    CGSize citySize =[investUserM.cityname sizeWithCustomFont:WLFONT(12)];
     if (citySize.width) {
         citySize.width += 20;
         [_cityBut setImageEdgeInsets:edgeImage];
@@ -117,10 +118,10 @@
     NSInteger friend = user.friendship.integerValue;
     CGSize friendSize = CGSizeZero;
     if (friend==1) {
-        friendSize = [@"好友" sizeWithCustomFont:WLFONT(14)];
+        friendSize = [@"好友" sizeWithCustomFont:WLFONT(12)];
         [_friendBut setTitle:@"好友" forState:UIControlStateNormal];
     }else if (friend ==2){
-        friendSize = [@"好友的好友" sizeWithCustomFont:WLFONT(14)];
+        friendSize = [@"好友的好友" sizeWithCustomFont:WLFONT(12)];
         [_friendBut setTitle:@"好友的好友" forState:UIControlStateNormal];
     }else{
         [_friendBut setTitle:@"" forState:UIControlStateNormal];

@@ -16,6 +16,10 @@ typedef NS_ENUM(NSInteger, InvestorMailingType) {
     InvestorMailingReject
 };
 
+typedef NS_ENUM(NSInteger, InvestorUserInfoType) {
+    InvestorUserTypeUID,                  // 投资人uid
+    InvestorUserTypeModel                 // 投资人数据模型
+};
 
 typedef void(^InvestorMailingBlock)(InvestorMailingType mailingType);
 
@@ -46,5 +50,7 @@ typedef void(^InvestorMailingBlock)(InvestorMailingType mailingType);
 @property (nonatomic, weak) InvestorMailingBlock mailingBlock;
 
 @property (nonatomic, strong) InvestorUserModel *investorUserModel;
+
+@property (nonatomic, assign) InvestorUserInfoType userType;
 
 @end

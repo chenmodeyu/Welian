@@ -7,37 +7,60 @@
 //
 
 #import "InvestorUserInfoController.h"
-#import "InvestorInfoHeadView.h"
 #import "ProjectsMailingView.h"
 #import "ProjectTouDiModel.h"
 #import "InvestorInfoCell.h"
 
 @interface InvestorUserInfoController ()
 {
+    InvestorUserInfoType _userType;
     InvestorUserModel *_investorUserM;
+    NSNumber *_userID;
 }
 @end
 
 @implementation InvestorUserInfoController
 
-- (instancetype)initWithUserModel:(InvestorUserModel *)investorUserModel
+- (instancetype)initWithUserType:(InvestorUserInfoType)userType andUserData:(id)userData
 {
     self = [super init];
     if (self) {
-        _investorUserM = investorUserModel;
-        self.title = investorUserModel.user.name;
+        _userType = userType;
+        if (userType == InvestorUserTypeUID) {
+            _userID = userData;
+            [WLHUDView showCustomHUD:nil imageview:nil];
+            [WeLianClient investorGetInfoWithUid:_userID Success:^(id resultInfo) {
+                _investorUserM = [InvestorUserModel objectWithDict:resultInfo];
+                [WLHUDView hiddenHud];
+                [self reloadUserDataView];
+                [self.tableView reloadData];
+            } Failed:^(NSError *error) {
+                
+            }];
+        }else if (userType == InvestorUserTypeModel){
+            _investorUserM = userData;
+            [self reloadUserDataView];
+        }
+
     }
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+- (void)reloadUserDataView
+{
+    self.title = _investorUserM.user.name;
     InvestorInfoHeadView *invesHeadView = [[InvestorInfoHeadView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, 280)];
     [invesHeadView setInvestorUserModel:_investorUserM];
+    [invesHeadView setUserType:_userType];
     [invesHeadView.mailingBut addTarget:self action:@selector(mailingInvestorClick) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView setTableHeaderView:invesHeadView];
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.tableView setTableFooterView:[UIView new]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

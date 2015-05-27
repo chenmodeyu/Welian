@@ -51,8 +51,6 @@
         [_industryView addSubview:_industryTiteLabel];
         _industryLabel = [self loadInfoLabel];
         [_industryView addSubview:_industryLabel];
-        _line1 = [self loadLineView];
-        [_industryView addSubview:_line1];
         
         
         _stageView = [[UIView alloc] init];
@@ -61,8 +59,7 @@
         [_stageView addSubview:_stageTiteLabel];
         _stageLabel = [self loadInfoLabel];
         [_stageView addSubview:_stageLabel];
-        _line2 = [self loadLineView];
-        [_stageView addSubview:_line2];
+        
         
         _itemView = [[UIView alloc] init];
         [_backgView addSubview:_itemView];
@@ -70,8 +67,7 @@
         [_itemView addSubview:_itemTiteLabel];
         _itemLabel = [self loadInfoLabel];
         [_itemView addSubview:_itemLabel];
-        _line3 = [self loadLineView];
-        [_itemView addSubview:_line3];
+        
         
         _firmView = [[UIView alloc] init];
         [_backgView addSubview:_firmView];
@@ -87,6 +83,13 @@
         [_firmView addSubview:_firmIntroLabel];
         _firmBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_firmView addSubview:_firmBut];
+        
+        _line1 = [self loadLineView];
+        [_industryView addSubview:_line1];
+        _line2 = [self loadLineView];
+        [_stageView addSubview:_line2];
+        _line3 = [self loadLineView];
+        [_itemView addSubview:_line3];
     }
     return self;
 }
@@ -103,47 +106,46 @@
     CGSize indusSize = [investorUserM.industrysStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
     CGSize stageSize = [investorUserM.stagesStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
     CGSize itemSize = [investorUserM.itemsStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
+    
+    [_industryView setHidden:!investorUserM.industrysStr];
     if (investorUserM.industrysStr) {
-        [_industryLabel setText:investorUserM.industrysStr];
-        
         [_industryLabel setFrame:CGRectMake(labelX, labelY, indusSize.width, indusSize.height)];
         [_industryTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, indusSize.height+2*labelY)];
         [_industryView setFrame:CGRectMake(0, 0, viewWidth, _industryTiteLabel.height)];
         [_line1 setLeft:0];
-        [_line1 setTop:_industryTiteLabel.bottom];
+        [_line1 setTop:_industryTiteLabel.bottom-0.5];
+        [_industryLabel setText:investorUserM.industrysStr];
     }else{
-        [_industryView setHidden:YES];
         [_industryView setFrame:CGRectZero];
     }
-    
+    [_stageView setHidden:!investorUserM.stagesStr];
     if (investorUserM.stagesStr) {
-        [_stageLabel setText:investorUserM.stagesStr];
         [_stageLabel setFrame:CGRectMake(labelX, labelY, stageSize.width, stageSize.height)];
         [_stageTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, stageSize.height+2*labelY)];
         [_stageView setFrame:CGRectMake(0, _industryView.bottom, viewWidth, _stageTiteLabel.height)];
         [_line2 setLeft:0];
-        [_line2 setTop:_stageTiteLabel.bottom];
+        [_line2 setTop:_stageTiteLabel.bottom-0.5];
+        [_stageLabel setText:investorUserM.stagesStr];
     }else{
-        [_stageView setHidden:YES];
         [_stageView setFrame:CGRectZero];
         _stageView.top = _industryView.bottom;
     }
-    
+    [_itemView setHidden:!investorUserM.itemsStr];
     if (investorUserM.itemsStr) {
-        [_itemLabel setText:investorUserM.itemsStr];
         [_itemLabel setFrame:CGRectMake(labelX, labelY, itemSize.width, itemSize.height)];
         [_itemTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, _itemLabel.height+2*labelY)];
         [_itemView setFrame:CGRectMake(0, _stageView.bottom, viewWidth, _itemTiteLabel.height)];
         [_line3 setLeft:0];
-        [_line3 setTop:_itemTiteLabel.bottom];
+        [_line3 setTop:_itemTiteLabel.bottom-0.5];
+        [_itemLabel setText:investorUserM.itemsStr];
     }else{
-        [_itemView setHidden:YES];
         [_itemView setFrame:CGRectZero];
         _itemView.top = _stageView.bottom;
     }
     
     CGFloat firmViewH = 70;
-    if (investorUserM.firm.title) {
+    _firmView.hidden = !investorUserM.firm.firmid;
+    if (investorUserM.firm.firmid) {
         [_firmNameLabel setText:investorUserM.firm.title];
         [_firmIconImage sd_setImageWithURL:[NSURL URLWithString:investorUserM.firm.logo] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageLowPriority];
         [_firmIntroLabel setText:investorUserM.firm.intro];
@@ -156,7 +158,6 @@
         [_firmBut setFrame:CGRectMake(0, 0, SuperSize.width-30*2, firmViewH)];
         
     }else{
-        _firmView.hidden = YES;
         [_firmView setFrame:CGRectZero];
         _firmView.top = _itemView.bottom;
     }
@@ -166,8 +167,6 @@
     _backgView.layer.masksToBounds = YES;
     _backgView.layer.cornerRadius = 8;
     _backgView.layer.borderColor = [WLRGB(204, 204, 204) CGColor];
-    
-    self.height = _backgView.height;
 }
 
 + (CGFloat)getCellHeightWith:(InvestorUserModel *)investorUserM
@@ -192,7 +191,7 @@
          itemSize = [investorUserM.itemsStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
         count += 2;
     }
-    if (investorUserM.firm.title) {
+    if (investorUserM.firm.firmid) {
         firmH = 70;
     }
     count+=2;

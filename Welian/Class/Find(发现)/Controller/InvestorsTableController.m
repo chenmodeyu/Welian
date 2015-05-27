@@ -168,7 +168,7 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (invType == InvestorsTypeUser) {
         InvestorUserModel *invesUserM = [_dataArray objectAtIndex:indexPath.row];
-        InvestorUserInfoController *invesInfo = [[InvestorUserInfoController alloc] initWithUserModel:invesUserM];
+        InvestorUserInfoController *invesInfo = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeUID andUserData:invesUserM.user.uid];
         [self.navigationController pushViewController:invesInfo animated:YES];
     }else if (invType == InvestorsTypeOrganization){
     

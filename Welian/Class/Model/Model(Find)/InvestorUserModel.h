@@ -13,7 +13,7 @@
 @interface InvestorUserModel : IFBase
 
 @property (nonatomic, strong) IBaseUserM *user;
-@property (nonatomic, strong) NSString *cityName;
+@property (nonatomic, strong) NSString *cityname;
 @property (nonatomic, strong) NSNumber *received;  // 收到的
 @property (nonatomic, strong) NSNumber *feedback;   //反馈的
 @property (nonatomic, strong) NSNumber *interview;  // 约谈

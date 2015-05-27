@@ -10,6 +10,7 @@
 
 @interface TouzijigouModel : IFBase
 
+@property (nonatomic, strong) NSNumber *firmid;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *logo;
 @property (nonatomic, strong) NSString *intro;
