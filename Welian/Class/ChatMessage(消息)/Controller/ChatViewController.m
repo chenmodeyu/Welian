@@ -16,6 +16,7 @@
 #import "NavViewController.h"
 #import "UserInfoViewController.h"
 #import "ProjectPostDetailInfoViewController.h"
+#import "InvestorUserInfoController.h"
 
 #import "WLPhotoView.h"
 #import "MJPhoto.h"
@@ -1205,7 +1206,8 @@
                 case WLBubbleMessageCardTypeInvestorGet:
                 {
                     //索要项目
-                    
+                    InvestorUserInfoController *investorUserInfoVC = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeUID andUserData:message.cardId];
+                    [self.navigationController pushViewController:investorUserInfoVC animated:YES];
                 }
                     break;
                 case WLBubbleMessageCardTypeInvestorPost:
