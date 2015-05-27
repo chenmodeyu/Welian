@@ -316,7 +316,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _datasource.count ? _datasource.count + 2 : 3;
+    if(_iProjectDetailInfo){
+        return _datasource.count ? _datasource.count + 2 : 3;
+    }else{
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
