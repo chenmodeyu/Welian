@@ -130,6 +130,7 @@
 //项目投递反馈
 + (void)investorFankuiWithPid:(NSNumber *)pid
                          Type:(NSNumber *)type
+                          Msg:(NSString *)msg
                       Success:(SuccessBlock)success
                        Failed:(FailedBlock)failed;
 
