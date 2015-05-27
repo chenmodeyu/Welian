@@ -12,6 +12,7 @@
 #import "InvestorUserModel.h"
 #import "InvestorUserInfoController.h"
 #import "TouzijigouModel.h"
+#import "InvestorFirmInfoController.h"
 
 @interface InvestorsTableController ()
 {
@@ -171,7 +172,8 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
         InvestorUserInfoController *invesInfo = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeUID andUserData:invesUserM.user.uid];
         [self.navigationController pushViewController:invesInfo animated:YES];
     }else if (invType == InvestorsTypeOrganization){
-    
+        InvestorFirmInfoController *firmInfoVC = [[InvestorFirmInfoController alloc] init];
+        [self.navigationController pushViewController:firmInfoVC animated:YES];
     }
     
 }

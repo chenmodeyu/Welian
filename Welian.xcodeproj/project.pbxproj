@@ -2965,6 +2965,14 @@
 		F50B63101B14A586002259B2 /* touziren_detail_toudi_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50B630E1B14A586002259B2 /* touziren_detail_toudi_button@2x.png */; };
 		F50B63111B14A586002259B2 /* touziren_detail_toudi_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50B630E1B14A586002259B2 /* touziren_detail_toudi_button@2x.png */; };
 		F50B63121B14A586002259B2 /* touziren_detail_toudi_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50B630E1B14A586002259B2 /* touziren_detail_toudi_button@2x.png */; };
+		F50B63151B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B63141B1575C3002259B2 /* InvestorFirmInfoController.m */; };
+		F50B63161B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B63141B1575C3002259B2 /* InvestorFirmInfoController.m */; };
+		F50B63171B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B63141B1575C3002259B2 /* InvestorFirmInfoController.m */; };
+		F50B63181B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B63141B1575C3002259B2 /* InvestorFirmInfoController.m */; };
+		F50B631B1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B631A1B1585D6002259B2 /* FirmInfoHeaderView.m */; };
+		F50B631C1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B631A1B1585D6002259B2 /* FirmInfoHeaderView.m */; };
+		F50B631D1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B631A1B1585D6002259B2 /* FirmInfoHeaderView.m */; };
+		F50B631E1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F50B631A1B1585D6002259B2 /* FirmInfoHeaderView.m */; };
 		F50CB09D1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
 		F50CB09E1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
 		F50CB09F1ACE8CF10003DA8E /* home_repost_beijing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */; };
@@ -5976,6 +5984,10 @@
 		F50B63041B141353002259B2 /* InvestorInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorInfoCell.m; sourceTree = "<group>"; };
 		F50B63091B149E93002259B2 /* touziren_list_friend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_list_friend@2x.png"; sourceTree = "<group>"; };
 		F50B630E1B14A586002259B2 /* touziren_detail_toudi_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_detail_toudi_button@2x.png"; sourceTree = "<group>"; };
+		F50B63131B1575C3002259B2 /* InvestorFirmInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorFirmInfoController.h; sourceTree = "<group>"; };
+		F50B63141B1575C3002259B2 /* InvestorFirmInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorFirmInfoController.m; sourceTree = "<group>"; };
+		F50B63191B1585D6002259B2 /* FirmInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirmInfoHeaderView.h; sourceTree = "<group>"; };
+		F50B631A1B1585D6002259B2 /* FirmInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirmInfoHeaderView.m; sourceTree = "<group>"; };
 		F50C89691A08F2050007BE52 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		F50C896A1A08F2050007BE52 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		F50CB09A1ACE8CF10003DA8E /* home_repost_beijing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_repost_beijing@2x.png"; sourceTree = "<group>"; };
@@ -9117,6 +9129,8 @@
 				F50B63041B141353002259B2 /* InvestorInfoCell.m */,
 				F50B62EC1B1308E0002259B2 /* ProjectsMailingView.h */,
 				F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */,
+				F50B63191B1585D6002259B2 /* FirmInfoHeaderView.h */,
+				F50B631A1B1585D6002259B2 /* FirmInfoHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -9767,6 +9781,8 @@
 				F569725C1B0EF2B4004E86AC /* InvestorsTableController.m */,
 				F50B62D01B12D752002259B2 /* InvestorUserInfoController.h */,
 				F50B62D11B12D752002259B2 /* InvestorUserInfoController.m */,
+				F50B63131B1575C3002259B2 /* InvestorFirmInfoController.h */,
+				F50B63141B1575C3002259B2 /* InvestorFirmInfoController.m */,
 			);
 			name = Investors;
 			sourceTree = "<group>";
@@ -13407,6 +13423,7 @@
 				A49C7BE11A70D42700F2AEC5 /* AddImageCollectionCell.m in Sources */,
 				A4C0E13E1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				A49C7BE31A70D42700F2AEC5 /* PinyinHelper.m in Sources */,
+				F50B63181B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				A49C7BE41A70D42700F2AEC5 /* ICompanyResult.m in Sources */,
 				A49C7BE61A70D42700F2AEC5 /* NeedAddUser.m in Sources */,
 				A49C7BE71A70D42700F2AEC5 /* MJPhotoProgressView.m in Sources */,
@@ -13496,6 +13513,7 @@
 				A49C7C301A70D42700F2AEC5 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				A49C7C311A70D42700F2AEC5 /* WLBubblePhotoImageView.m in Sources */,
 				A493C2701ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
+				F50B631E1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				A49C7C321A70D42700F2AEC5 /* UIImageView+WebCache.m in Sources */,
 				A49C7C331A70D42700F2AEC5 /* InvestInfoListVC.m in Sources */,
 				A49C7C341A70D42700F2AEC5 /* NSPersistentStore+MagicalRecord.m in Sources */,
@@ -13957,6 +13975,7 @@
 				F53DC2B11A49192600F5F712 /* AddImageCollectionCell.m in Sources */,
 				A4C0E13C1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				F53DC2B21A49192600F5F712 /* PinyinHelper.m in Sources */,
+				F50B63171B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				F53DC2B41A49192600F5F712 /* ICompanyResult.m in Sources */,
 				A482A2491A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				A49235581ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
@@ -14046,6 +14065,7 @@
 				A493C26E1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
 				F53DC2E41A49192600F5F712 /* UIImageView+WebCache.m in Sources */,
 				F52F96701A56EA0A00BAA77B /* InvestInfoListVC.m in Sources */,
+				F50B631D1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				A4A2EB141A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				F53DC2E51A49192600F5F712 /* AFURLSessionManager.m in Sources */,
 				F5E13A391A7B3062001BB786 /* MyProjectViewController.m in Sources */,
@@ -14507,6 +14527,7 @@
 				F566498E1A2AFD56008A5830 /* AddImageCollectionCell.m in Sources */,
 				A4C0E13A1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				F566498F1A2AFD56008A5830 /* PinyinHelper.m in Sources */,
+				F50B63151B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				A4C140B41A4BEF0E00C9BAB5 /* XHCacheManager.m in Sources */,
 				A4C8E9471A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */,
 				A4C1446E1A4C2D3B00C9BAB5 /* WLMessageBubbleHelper.m in Sources */,
@@ -14596,6 +14617,7 @@
 				F56649B61A2AFD56008A5830 /* SignInPWDController.m in Sources */,
 				A437CEF51A541BF300B54E68 /* WLMessageSpecialView.m in Sources */,
 				A493C26C1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
+				F50B631B1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				F56649B71A2AFD56008A5830 /* FMDatabaseAdditions.m in Sources */,
 				F56649B81A2AFD56008A5830 /* ShareEngine.m in Sources */,
 				A4C141351A4BEF5700C9BAB5 /* UIView+Convenience.m in Sources */,
@@ -15057,6 +15079,7 @@
 				F5664C481A2AFDD5008A5830 /* AddImageCollectionCell.m in Sources */,
 				A4C0E13B1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				F5664C491A2AFDD5008A5830 /* PinyinHelper.m in Sources */,
+				F50B63161B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				F59E76201A411E4C0028FBAF /* ICompanyResult.m in Sources */,
 				A482A2481A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				A49235571ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
@@ -15146,6 +15169,7 @@
 				A493C26D1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
 				F5664C771A2AFDD5008A5830 /* UIImageView+WebCache.m in Sources */,
 				F52F966F1A56EA0A00BAA77B /* InvestInfoListVC.m in Sources */,
+				F50B631C1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				A4A2EB131A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				F5664C781A2AFDD5008A5830 /* AFURLSessionManager.m in Sources */,
 				F5E13A381A7B3062001BB786 /* MyProjectViewController.m in Sources */,
