@@ -478,12 +478,14 @@
 //项目投递反馈
 + (void)investorFankuiWithPid:(NSNumber *)pid
                          Type:(NSNumber *)type
+                          Msg:(NSString *)msg
                       Success:(SuccessBlock)success
                        Failed:(FailedBlock)failed
 {
     //1 不感兴趣，2约谈
     NSDictionary *params = @{@"pid":pid,
-                             @"status":type};
+                             @"status":type,
+                             @"msg":msg};
     [self reqestPostWithParams:params
                           Path:kInvestorFankuiPath
                        Success:^(id resultInfo) {

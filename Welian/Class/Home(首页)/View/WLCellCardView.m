@@ -70,6 +70,20 @@
     NSString *imageName = @"";
     BOOL cidBool = cardM.cid.boolValue;
     switch (typeint) {
+        case 3:
+        case 5:
+        {
+            //活动
+            imageName = cidBool? @"home_repost_huodong":@"home_repost_huodong_no";
+        }
+            break;
+        case 4:
+        case 6:
+        {
+            // 个人信息
+            imageName = @"home_repost_beijing";
+        }
+            break;
         case 10:
         case 12:
         case 13:
@@ -90,13 +104,6 @@
 //            imageName = @"home_repost_huati";
 //        }
 //            break;
-        case 4:
-        case 6:
-        {
-           // 个人信息
-            imageName = @"home_repost_beijing";
-        }
-            break;
         case 14:
         case 15:
         {

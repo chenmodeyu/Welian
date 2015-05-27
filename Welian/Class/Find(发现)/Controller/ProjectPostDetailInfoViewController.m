@@ -111,6 +111,9 @@
     noLikeBtn.left = kmarginLeft;
     noLikeBtn.centerY = operateToolView.height / 2.f;
     [noLikeBtn setTitleColor:KBlueTextColor forState:UIControlStateNormal];
+    [noLikeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+    [noLikeBtn setTitle:@"已不感兴趣" forState:UIControlStateDisabled];
+    [noLikeBtn setImage:[UIImage imageNamed:@"touziren_detail_already"] forState:UIControlStateDisabled];
     [noLikeBtn addTarget:self action:@selector(noLikeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [operateToolView addSubview:noLikeBtn];
     self.noLikeBtn = noLikeBtn;
@@ -131,6 +134,16 @@
 }
 
 #pragma mark - Private
+//设置不感兴趣按钮
+- (void)checkNoLikeBtnUI
+{
+    //status  0:默认状态  1：已不感兴趣 2:已约谈
+    _noLikeBtn.enabled = _iProjectDetailInfo.status > 0 ? NO : YES;
+    _noLikeBtn.backgroundColor = _iProjectDetailInfo.status > 0 ? KBgGrayColor : [UIColor whiteColor];
+    _noLikeBtn.layer.borderColor = _iProjectDetailInfo.status > 0 ? KBgGrayColor.CGColor : KBlueTextColor.CGColor;
+    _noLikeBtn.imageEdgeInsets = _iProjectDetailInfo.status > 0 ? UIEdgeInsetsMake(0.f, -10.f, 0.f, 0.f) : UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+}
+
 - (void)initProjectDetailInfo
 {
     [WLHUDView showHUDWithStr:@"获取项目信息中..." dim:NO];
@@ -138,6 +151,7 @@
                                               Success:^(id resultInfo) {
                                                   self.iProjectDetailInfo = resultInfo;
                                                   self.datasource = self.iProjectDetailInfo.bp.bpid ? @[self.iProjectDetailInfo.bp] : nil;
+                                                  [self checkNoLikeBtnUI];
                                                   [self.tableView reloadData];
                                               } Failed:^(NSError *error) {
                                                   if (error) {
@@ -151,10 +165,69 @@
 //不感兴趣
 - (void)noLikeBtnClicked:(UIButton *)sender
 {
+    UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@""
+                                                    message:@"确定对该项目不感兴趣？"];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [alert textFieldAtIndex:0].placeholder = @"说一下理由吧";
+    [alert bk_addButtonWithTitle:@"取消" handler:nil];
+    [alert bk_addButtonWithTitle:@"不感兴趣" handler:^{
+        //发送好友请求
+        [WLHUDView showHUDWithStr:@"反馈中..." dim:NO];
+        [WeLianClient investorFankuiWithPid:_localPid
+                                       Type:@(1)//1 不感兴趣，2约谈
+                                        Msg:[alert textFieldAtIndex:0].text
+                                    Success:^(id resultInfo) {
+                                        [WLHUDView showSuccessHUD:@"已反馈"];
+                                        
+                                        //status  0:默认状态  1：已不感兴趣 2:已约谈
+                                        self.iProjectDetailInfo.status = @(1);
+                                        [self checkNoLikeBtnUI];
+                                    } Failed:^(NSError *error) {
+                                        if (error) {
+                                            [WLHUDView showErrorHUD:error.localizedDescription];
+                                        }else{
+                                            [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                        }
+                                    }];
+    }];
+    [alert show];
+}
+
+//立即约谈
+- (void)talkNowBtnClicked:(UIButton *)sender
+{
+    MyFriendUser *myFriendUser = [[LogInUser getCurrentLoginUser] getMyfriendUserWithUid:_iProjectDetailInfo.user.uid];
+    //status  0:默认状态  1：已不感兴趣 2:已约谈
+    if (myFriendUser && _iProjectDetailInfo.status.integerValue == 2) {
+        //已经是好友，并且约谈过
+        [self linkUserToChatUi];
+    }else{
+        //不是好友  或者未约谈过
+        [UIAlertView bk_showAlertViewWithTitle:@""
+                                       message:[NSString stringWithFormat:@"要立即约谈%@吗？",_iProjectDetailInfo.user.name]
+                             cancelButtonTitle:@"取消"
+                             otherButtonTitles:@[@"立即约谈"]
+                                       handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                           if (buttonIndex == 0) {
+                                               return ;
+                                           }else{
+                                               [self talkNow];
+                                           }
+                                       }];
+    }
+}
+
+//立即约谈
+- (void)talkNow
+{
+    [WLHUDView showHUDWithStr:@"约谈中..." dim:NO];
     [WeLianClient investorFankuiWithPid:_localPid
-                                   Type:@(1)//1 不感兴趣，2约谈
+                                   Type:@(2)//1 不感兴趣，2约谈
+                                    Msg:@""
                                 Success:^(id resultInfo) {
+                                    [WLHUDView hiddenHud];
                                     
+                                    [self linkUserToChatUi];
                                 } Failed:^(NSError *error) {
                                     if (error) {
                                         [WLHUDView showErrorHUD:error.localizedDescription];
@@ -164,46 +237,36 @@
                                 }];
 }
 
-//立即约谈
-- (void)talkNowBtnClicked:(UIButton *)sender
+//创建好友关系 进入聊天页面
+- (void)linkUserToChatUi
 {
-    [WeLianClient investorFankuiWithPid:_localPid
-                                   Type:@(2)//1 不感兴趣，2约谈
-                                Success:^(id resultInfo) {
-                                    //创建好友关系
-                                    /**  好友关系，1好友，2好友的好友,-1自己，0没关系   */
-                                    MyFriendUser *user = [[LogInUser getCurrentLoginUser] getMyfriendUserWithUid:_iProjectDetailInfo.user.uid];
-                                    if (!user) {
-                                        self.iProjectDetailInfo.user.friendship = @(1);
-                                        user = [MyFriendUser createOrUpddateMyFriendUserModel:_iProjectDetailInfo.user];
-                                    }
-                                    
-                                    UIViewController *rootVC = [self.navigationController.viewControllers firstObject];
-                                    //当前已经在消息页面
-                                    if ([rootVC isKindOfClass:[MessagesViewController class]]) {
-                                        [KNSNotification postNotificationName:kCurrentChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
-                                        ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
-                                        [self.navigationController pushViewController:chatVC animated:YES];
-                                        
-                                        //替换中间的内容
-                                        NSMutableArray *contros = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
-                                        [contros removeObjectsInRange:NSMakeRange(1, contros.count - 1) ];
-                                        [contros addObject:chatVC];
-                                        
-                                        [self.navigationController setViewControllers:contros animated:YES];
-                                    }else{
-                                        //进入聊天页面
-                                        [KNSNotification postNotificationName:kChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
-                                        
-                                        [self.navigationController popToRootViewControllerAnimated:YES];
-                                    }
-                                } Failed:^(NSError *error) {
-                                    if (error) {
-                                        [WLHUDView showErrorHUD:error.localizedDescription];
-                                    }else{
-                                        [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
-                                    }
-                                }];
+    //创建好友关系
+    /**  好友关系，1好友，2好友的好友,-1自己，0没关系   */
+    MyFriendUser *user = [[LogInUser getCurrentLoginUser] getMyfriendUserWithUid:_iProjectDetailInfo.user.uid];
+    if (!user) {
+        self.iProjectDetailInfo.user.friendship = @(1);
+        user = [MyFriendUser createOrUpddateMyFriendUserModel:_iProjectDetailInfo.user];
+    }
+    
+    UIViewController *rootVC = [self.navigationController.viewControllers firstObject];
+    //当前已经在消息页面
+    if ([rootVC isKindOfClass:[MessagesViewController class]]) {
+        [KNSNotification postNotificationName:kCurrentChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
+        ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
+        [self.navigationController pushViewController:chatVC animated:YES];
+        
+        //替换中间的内容
+        NSMutableArray *contros = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+        [contros removeObjectsInRange:NSMakeRange(1, contros.count - 1) ];
+        [contros addObject:chatVC];
+        
+        [self.navigationController setViewControllers:contros animated:YES];
+    }else{
+        //进入聊天页面
+        [KNSNotification postNotificationName:kChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 //查看创建用户的信息

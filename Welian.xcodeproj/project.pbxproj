@@ -2158,6 +2158,11 @@
 		A4A2EB2A1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */; };
 		A4A2EB2B1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */; };
 		A4A2EB2C1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */; };
+		A4A57EC51B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */; };
+		A4A57EC61B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */; };
+		A4A57EC71B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */; };
+		A4A57EC81B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */; };
+		A4A57EC91B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */; };
 		A4A888B81AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888B71AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png */; };
 		A4A888B91AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888B71AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png */; };
 		A4A888BA1AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888B71AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png */; };
@@ -5625,6 +5630,7 @@
 		A4A2EAD91A6CF7C8006ADA55 /* MagicalRecordLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordLogging.h; sourceTree = "<group>"; };
 		A4A2EADA1A6CF7C8006ADA55 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		A4A2EADB1A6CF7C8006ADA55 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
+		A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_detail_already@2x.png"; sourceTree = "<group>"; };
 		A4A888B71AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Sending_Card@2x.png"; sourceTree = "<group>"; };
 		A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Receiving_Card@2x.png"; sourceTree = "<group>"; };
 		A4B07C161B12D09D008A3702 /* IProjectBPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IProjectBPModel.h; sourceTree = "<group>"; };
@@ -9015,6 +9021,7 @@
 		F51FB9ED19EF6C3E00D85D7F /* 发现images */ = {
 			isa = PBXGroup;
 			children = (
+				A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */,
 				F50B630E1B14A586002259B2 /* touziren_detail_toudi_button@2x.png */,
 				F50B63091B149E93002259B2 /* touziren_list_friend@2x.png */,
 				A4B07C2F1B12FBF0008A3702 /* xiangmu_list_funnel_big@2x.png */,
@@ -11070,6 +11077,7 @@
 				A49C7FC71A70D63C00F2AEC5 /* weLianAppDev-Info.plist in Resources */,
 				A49C7E571A70D42700F2AEC5 /* login_chacha@2x.png in Resources */,
 				F5CBE40E1AC4351A00F4C884 /* Expression_40@2x.png in Resources */,
+				A4A57EC91B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */,
 				A409A29D1AC2E1AF0033A31D /* navbar_businesscard@2x.png in Resources */,
 				F5CBE45A1AC4351A00F4C884 /* Expression_59@2x.png in Resources */,
 				F5C566911A821BD9002AF408 /* HeaderLabel.xib in Resources */,
@@ -11678,6 +11686,7 @@
 				A4C770B11A806A0D005ABC7F /* me_mywriten_shoucang_pre@2x.png in Resources */,
 				A4C144651A4C0A6B00C9BAB5 /* RecordingSignal008@2x.png in Resources */,
 				A409A1EC1AC2E1AF0033A31D /* me_circle_chat_picture@2x.png in Resources */,
+				A4A57EC71B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */,
 				F55772DB1A5AA3E200693279 /* login_my_button@2x.png in Resources */,
 				F5CBE40D1AC4351A00F4C884 /* Expression_40@2x.png in Resources */,
 				F550790D1A80EA16009CE4F7 /* ProjectIndustryCell.xib in Resources */,
@@ -12213,6 +12222,7 @@
 				F5664AE31A2AFD56008A5830 /* login_user@2x.png in Resources */,
 				F5664AE61A2AFD56008A5830 /* FriendsNewCell.xib in Resources */,
 				F5664AE71A2AFD56008A5830 /* Icon-29@3x.png in Resources */,
+				A4A57EC51B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */,
 				A4C144481A4C0A6B00C9BAB5 /* RecordCancel@2x.png in Resources */,
 				A492C49C1AF9FB72001DB60A /* header_background_bottom@2x.png in Resources */,
 				A4C144421A4C0A6B00C9BAB5 /* contacts_add_voip@2x.png in Resources */,
@@ -12728,6 +12738,7 @@
 				F5664D5D1A2AFDD5008A5830 /* picture_loading@2x.png in Resources */,
 				F58CA96A1A5BF3AE00988A61 /* leida6@2x.png in Resources */,
 				F5664D5E1A2AFDD5008A5830 /* me_mycard_chuang@2x.png in Resources */,
+				A4A57EC61B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */,
 				F5CBE3A41AC4351A00F4C884 /* Expression_14@2x.png in Resources */,
 				F50CB0A61ACE8CF10003DA8E /* home_repost_xiangmu_no@2x.png in Resources */,
 				A409A1D71AC2E1AF0033A31D /* me_circle_chat_camera@2x.png in Resources */,
@@ -13310,6 +13321,7 @@
 				A49236301ADE693A009E0B8C /* picker_alert_sigh@2x.png in Resources */,
 				A4B07C3F1B12FBF0008A3702 /* xiangmu_list_funnel@2x.png in Resources */,
 				A492C4981AF9C3C5001DB60A /* image.png in Resources */,
+				A4A57EC81B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */,
 				A48173A21B01CAD7001346B8 /* me_background3@2x.png in Resources */,
 				A493C3111ADD14A60056BD52 /* Findplist.plist in Resources */,
 				A492C49F1AF9FB72001DB60A /* header_background_bottom@2x.png in Resources */,
