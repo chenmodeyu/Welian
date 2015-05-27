@@ -157,35 +157,61 @@
     [WeLianClient getTouTiaoListWithPage:@(_pageIndex)
                                     Size:@(_pageSize)
                                  Success:^(id resultInfo) {
-                                     [_tableView.header endRefreshing];
-                                     [_tableView.footer endRefreshing];
-                                     
                                      if (_pageIndex == 1) {
                                          //隐性删除数据库数据
                                          [TouTiaoInfo deleteAllTouTiaoInfos];
                                      }
                                      
-                                     for (ITouTiaoModel *iTouTiaoModel in resultInfo) {
-                                         [TouTiaoInfo createTouTiaoInfoWith:iTouTiaoModel];
-                                     }
-                                     
-                                     self.datasource = [TouTiaoInfo getAllTouTiaos];
-                                     [_tableView reloadData];
-                                     
-                                     //是否显示上拉加载更多
-                                     if ([resultInfo count] == _pageSize) {
-                                         _tableView.footer.hidden = NO;
+                                     //异步保存数据到数据库
+                                     if ([resultInfo count] > 0) {
+                                         [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                                             NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+                                             LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre inContext:localContext];
+                                             for (ITouTiaoModel *iTouTiaoModel in resultInfo) {
+                                                 NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"touTiaoId",iTouTiaoModel.touTiaoId];
+                                                 TouTiaoInfo *touTiaoInfo = [TouTiaoInfo MR_findFirstWithPredicate:pre inContext:localContext];
+                                                 if (!touTiaoInfo) {
+                                                     touTiaoInfo = [TouTiaoInfo MR_createEntityInContext:localContext];
+                                                 }
+                                                 touTiaoInfo.touTiaoId = iTouTiaoModel.touTiaoId;
+                                                 touTiaoInfo.author = iTouTiaoModel.author;
+                                                 touTiaoInfo.created = [iTouTiaoModel.created dateFromNormalStringNoss];
+                                                 touTiaoInfo.intro = iTouTiaoModel.intro;
+                                                 touTiaoInfo.photo = iTouTiaoModel.photo;
+                                                 touTiaoInfo.title = iTouTiaoModel.title;
+                                                 touTiaoInfo.url = iTouTiaoModel.url;
+                                                 touTiaoInfo.isShow = @(YES);
+                                                 
+                                                 [loginUser addRsTouTiaoInfosObject:touTiaoInfo];
+                                             }
+                                         } completion:^(BOOL contextDidSave, NSError *error) {
+                                             [self updateDataAndUIWithResultInfo:resultInfo];
+                                         }];
                                      }else{
-                                         _tableView.footer.hidden = YES;
+                                         [self updateDataAndUIWithResultInfo:resultInfo];
                                      }
                                      
-                                     //提醒信息显示
-                                     if(_datasource.count == 0){
-                                         [_tableView addSubview:self.notView];
-                                         [_tableView sendSubviewToBack:self.notView];
-                                     }else{
-                                         [_notView removeFromSuperview];
-                                     }
+//                                     for (ITouTiaoModel *iTouTiaoModel in resultInfo) {
+//                                         [TouTiaoInfo createTouTiaoInfoWith:iTouTiaoModel];
+//                                     }
+//                                     
+//                                     self.datasource = [TouTiaoInfo getAllTouTiaos];
+//                                     [_tableView reloadData];
+//                                     
+//                                     //是否显示上拉加载更多
+//                                     if ([resultInfo count] == _pageSize) {
+//                                         _tableView.footer.hidden = NO;
+//                                     }else{
+//                                         _tableView.footer.hidden = YES;
+//                                     }
+//                                     
+//                                     //提醒信息显示
+//                                     if(_datasource.count == 0){
+//                                         [_tableView addSubview:self.notView];
+//                                         [_tableView sendSubviewToBack:self.notView];
+//                                     }else{
+//                                         [_notView removeFromSuperview];
+//                                     }
                                  } Failed:^(NSError *error) {
                                      [_tableView.header endRefreshing];
                                      [_tableView.footer endRefreshing];
@@ -197,6 +223,30 @@
                                      }
                                      DLog(@"getTouTiaoList error:%@",error.localizedDescription);
                                  }];
+}
+
+- (void)updateDataAndUIWithResultInfo:(id)resultInfo
+{
+    [_tableView.header endRefreshing];
+    [_tableView.footer endRefreshing];
+    
+    self.datasource = [TouTiaoInfo getAllTouTiaos];
+    [_tableView reloadData];
+    
+    //是否显示上拉加载更多
+    if ([resultInfo count] == _pageSize) {
+        _tableView.footer.hidden = NO;
+    }else{
+        _tableView.footer.hidden = YES;
+    }
+    
+    //提醒信息显示
+    if(_datasource.count == 0){
+        [_tableView addSubview:self.notView];
+        [_tableView sendSubviewToBack:self.notView];
+    }else{
+        [_notView removeFromSuperview];
+    }
 }
 
 //下拉刷新数据

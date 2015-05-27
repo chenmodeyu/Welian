@@ -155,7 +155,7 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
 //    UIViewController *viewController = self.pageViewController.viewControllers[0];
 //    NSUInteger index = [self indexOfViewController:viewController];
-    NSLog(@"pfda");
+    NSLog(@"pageViewController willTransitionToViewControllers");
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {

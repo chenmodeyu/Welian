@@ -330,44 +330,104 @@
                                    Page:@(_pageIndex)
                                    Size:@(_pageSize)
                                 Success:^(id resultInfo) {
-                                    [_tableView.header endRefreshing];
-                                    [_tableView.footer endRefreshing];
+//                                    [_tableView.header endRefreshing];
+//                                    [_tableView.footer endRefreshing];
                                    
                                     if (_pageIndex == 1) {
                                         //第一页 删除所有
                                         [ActivityInfo deleteAllActivityInfoWithType:@(0)];
                                     }
                                     
-                                    if ([resultInfo count] > 0) {
-                                        for (IActivityInfo *iActivityInfo in resultInfo) {
-                                            [ActivityInfo createActivityInfoWith:iActivityInfo withType:@(0)];
-                                        }
-                                    }
-                                    
-                                    //获取数据
-                                    self.datasource = [ActivityInfo allNormalActivityInfos];
-                                    [_tableView reloadData];
-                                    
-                                    //设置是否可以下拉刷新
-                                    if ([resultInfo count] != KCellConut) {
-                                        _tableView.footer.hidden = YES;
+                                    if([resultInfo count] > 0){
+                                        //异步保存数据
+                                        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                                            for (IActivityInfo *iActivityInfo in resultInfo) {
+                                                NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"activeType",@(0),@"activeid",iActivityInfo.activeid];
+                                                ActivityInfo *activityInfo = [ActivityInfo MR_findFirstWithPredicate:pre inContext:localContext];
+                                                if (!activityInfo) {
+                                                    activityInfo = [ActivityInfo MR_createEntityInContext:localContext];
+                                                }
+                                                activityInfo.activeid = iActivityInfo.activeid;
+                                                activityInfo.name = iActivityInfo.name;
+                                                activityInfo.logo = iActivityInfo.logo;
+                                                activityInfo.startime = iActivityInfo.startime;
+                                                activityInfo.endtime = iActivityInfo.endtime;
+                                                activityInfo.status = iActivityInfo.status;
+                                                activityInfo.city = iActivityInfo.city;
+                                                activityInfo.address = iActivityInfo.address;
+                                                activityInfo.limited = iActivityInfo.limited;
+                                                activityInfo.joined = iActivityInfo.joined;
+                                                activityInfo.isjoined = iActivityInfo.isjoined;
+                                                activityInfo.intro = iActivityInfo.intro;
+                                                activityInfo.isfavorite = iActivityInfo.isfavorite;//activeType; //0：普通   1：收藏  2：我参加的
+                                                activityInfo.shareurl = iActivityInfo.shareurl;
+                                                activityInfo.url = iActivityInfo.url;
+                                                activityInfo.type = iActivityInfo.type;
+                                                activityInfo.sponsor = iActivityInfo.sponsors;
+                                                activityInfo.activeType = @(0);
+                                            }
+                                        } completion:^(BOOL contextDidSave, NSError *error) {
+                                            [self updateDataAndUIWithResultInfo:resultInfo];
+                                        }];
                                     }else{
-                                        _tableView.footer.hidden = NO;
-                                        _pageIndex++;
+                                        [self updateDataAndUIWithResultInfo:resultInfo];
                                     }
                                     
-                                    if(([_datasource[0] count] + [_datasource[1] count]) == 0){
-                                        [_tableView addSubview:self.notView];
-                                        [_tableView sendSubviewToBack:self.notView];
-                                    }else{
-                                        [_notView removeFromSuperview];
-                                    }
+//                                    if ([resultInfo count] > 0) {
+//                                        for (IActivityInfo *iActivityInfo in resultInfo) {
+//                                            [ActivityInfo createActivityInfoWith:iActivityInfo withType:@(0)];
+//                                        }
+//                                    }
+//                                    
+//                                    //获取数据
+//                                    self.datasource = [ActivityInfo allNormalActivityInfos];
+//                                    [_tableView reloadData];
+//                                    
+//                                    //设置是否可以下拉刷新
+//                                    if ([resultInfo count] != KCellConut) {
+//                                        _tableView.footer.hidden = YES;
+//                                    }else{
+//                                        _tableView.footer.hidden = NO;
+//                                        _pageIndex++;
+//                                    }
+//                                    
+//                                    if(([_datasource[0] count] + [_datasource[1] count]) == 0){
+//                                        [_tableView addSubview:self.notView];
+//                                        [_tableView sendSubviewToBack:self.notView];
+//                                    }else{
+//                                        [_notView removeFromSuperview];
+//                                    }
                                 } Failed:^(NSError *error) {
                                     //隐藏加载更多动画
                                     [self.tableView.header endRefreshing];
                                     [self.tableView.footer endRefreshing];
                                     DLog(@"getActiveList error:%@",error.localizedDescription);
                                 }];
+}
+
+- (void)updateDataAndUIWithResultInfo:(id)resultInfo
+{
+    [_tableView.header endRefreshing];
+    [_tableView.footer endRefreshing];
+    
+    //获取数据
+    self.datasource = [ActivityInfo allNormalActivityInfos];
+    [_tableView reloadData];
+    
+    //设置是否可以下拉刷新
+    if ([resultInfo count] != KCellConut) {
+        _tableView.footer.hidden = YES;
+    }else{
+        _tableView.footer.hidden = NO;
+        _pageIndex++;
+    }
+    
+    if(([_datasource[0] count] + [_datasource[1] count]) == 0){
+        [_tableView addSubview:self.notView];
+        [_tableView sendSubviewToBack:self.notView];
+    }else{
+        [_notView removeFromSuperview];
+    }
 }
 
 //下拉刷新数据

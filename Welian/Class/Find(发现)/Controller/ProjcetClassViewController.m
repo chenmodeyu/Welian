@@ -59,7 +59,7 @@
     }
     
     //获取数据
-    self.datasource = [ProjectInfo allMyProjectInfoWithType:_projectClassInfo.cid];
+    self.datasource = [ProjectInfo allMyProjectInfoWithType:@(_projectClassInfo.cid.integerValue + 100)];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.f,ViewCtrlTopBarHeight,self.view.width,self.view.height - ViewCtrlTopBarHeight)];
     tableView.backgroundColor = [UIColor whiteColor];
@@ -141,18 +141,18 @@
                                          //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除  other:对应项目集的id
                                          if (_pageIndex == 1) {
                                              //第一页
-                                             [ProjectInfo deleteAllProjectInfoWithType:_projectClassInfo.cid];
+                                             [ProjectInfo deleteAllProjectInfoWithType:@(_projectClassInfo.cid.integerValue + 100)];
                                          }
                                          NSArray *projects = resultInfo;
                                          if (projects.count > 0) {
                                              
                                              for (IProjectInfo *iProjectInfo in projects) {
-                                                 [ProjectInfo createProjectInfoWith:iProjectInfo withType:_projectClassInfo.cid];
+                                                 [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(_projectClassInfo.cid.integerValue + 100)];
                                              }
                                          }
                                          
                                          //获取数据
-                                         self.datasource = [ProjectInfo allMyProjectInfoWithType:_projectClassInfo.cid];
+                                         self.datasource = [ProjectInfo allMyProjectInfoWithType:@(_projectClassInfo.cid.integerValue + 100)];
                                          
                                          [self.tableView reloadData];
                                          
