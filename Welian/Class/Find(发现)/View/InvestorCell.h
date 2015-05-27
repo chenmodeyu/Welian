@@ -10,15 +10,7 @@
 #import "InvestorUserModel.h"
 
 @interface InvestorCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *jobLabel;
-@property (weak, nonatomic) IBOutlet UILabel *stageLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *caseLabel;
-
-@property (weak, nonatomic) IBOutlet UIButton *friendBut;
-@property (weak, nonatomic) IBOutlet UIButton *cityBut;
 
 @property (nonatomic, strong) InvestorUserModel *investUserM;
 

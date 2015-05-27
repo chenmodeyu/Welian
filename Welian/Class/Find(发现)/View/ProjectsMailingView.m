@@ -7,6 +7,7 @@
 //
 
 #import "ProjectsMailingView.h"
+#import "UIImage+ImageEffects.h"
 
 @interface ProjectsMailingView () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -93,7 +94,8 @@
             UIButton *addProjectBut = [UIButton buttonWithType:UIButtonTypeCustom];
             [addProjectBut setFrame:CGRectMake(58, noLabel.bottom+10, noProject.width-2*58, 44)];
             [addProjectBut setTitle:@"创建项目" forState:UIControlStateNormal];
-            [addProjectBut setBackgroundColor:self.tintColor];
+            [addProjectBut setBackgroundImage:[UIImage resizedImage:@"login_my_button"] forState:UIControlStateNormal];
+            [addProjectBut setBackgroundImage:[UIImage resizedImage:@"login_my_button_pre"] forState:UIControlStateHighlighted];
             [noProject addSubview:addProjectBut];
         }
     }

@@ -8,6 +8,7 @@
 
 #import "InvestorInfoHeadView.h"
 #import "InvestorUserModel.h"
+#import "UIImage+ImageEffects.h"
 
 @implementation InvestorInfoHeadView
 
@@ -27,7 +28,7 @@
         _iconImage.layer.borderWidth = 2;
         _iconImage.layer.masksToBounds = YES;
         _iconImage.layer.cornerRadius = 35;
-        _iconImage.layer.borderColor = [WLRGB(52, 116, 186) CGColor];
+        _iconImage.layer.borderColor = [WLRGBA(52, 116, 186,0.3) CGColor];
         [self addSubview:_iconImage];
         _vCimage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me_mycard_tou_big.png"]];
         _vCimage.right = _iconImage.right;
@@ -38,15 +39,13 @@
         [_nameLabel setCenterX:self.centerX];
         [_nameLabel setTextAlignment:NSTextAlignmentCenter];
         [_nameLabel setTextColor:WLRGB(51, 51, 51)];
-//        [_nameLabel setText:@"陈日莎"];
         [self addSubview:_nameLabel];
         
-        _positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _nameLabel.bottom+5, SuperSize.width, 16)];
+        _positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, _nameLabel.bottom+5, SuperSize.width-60, 16)];
         [_positionLabel setFont:WLFONT(15)];
         [_positionLabel setTextColor:[UIColor grayColor]];
         [_positionLabel setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:_positionLabel];
-        
         
         _receivedView = [[UIView alloc] initWithFrame:CGRectMake(30, _positionLabel.bottom+15, 60, 60)];
         [_receivedView setBackgroundColor:[UIColor redColor]];
@@ -62,8 +61,11 @@
         
         _mailingBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_mailingBut setFrame:CGRectMake(30, _interviewView.bottom+15, SuperSize.width-60, 40)];
-        [_mailingBut setBackgroundColor:[UIColor blueColor]];
         [_mailingBut setTitle:@"投递项目" forState:UIControlStateNormal];
+        [_mailingBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_mailingBut setBackgroundImage:[UIImage resizedImage:@"login_my_button"] forState:UIControlStateNormal];
+        [_mailingBut setBackgroundImage:[UIImage resizedImage:@"login_my_button_pre"] forState:UIControlStateHighlighted];
+        [_mailingBut setImage:[UIImage imageNamed:@"touziren_detail_toudi_button.png"] forState:UIControlStateNormal];
         [self addSubview:_mailingBut];
         
         _agreeView = [[UIView alloc] initWithFrame:CGRectMake(30, _interviewView.bottom+15, SuperSize.width-60, _mailingBut.height)];
@@ -73,13 +75,20 @@
         _rejectBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_rejectBut setTitle:@"拒绝发送BP" forState:UIControlStateNormal];
         [_rejectBut setFrame:CGRectMake(0, 0, (_agreeView.width-20)*0.5, _agreeView.height)];
-        [_rejectBut setBackgroundColor:[UIColor redColor]];
+        [_rejectBut setTitleColor:WLRGB(52, 116, 186) forState:UIControlStateNormal];
+        _rejectBut.layer.borderWidth = 0.6;
+        _rejectBut.layer.masksToBounds = YES;
+        _rejectBut.layer.cornerRadius = 5;
+        _rejectBut.layer.borderColor = [WLRGB(52, 116, 186) CGColor];
         [_agreeView addSubview:_rejectBut];
+        
         
         _agreeBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_agreeBut setTitle:@"同意发送BP" forState:UIControlStateNormal];
+        [_agreeBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_agreeBut setFrame:CGRectMake(_rejectBut.right+20, 0, (_agreeView.width-20)*0.5, _agreeView.height)];
-        [_agreeBut setBackgroundColor:[UIColor orangeColor]];
+        [_agreeBut setBackgroundImage:[UIImage resizedImage:@"login_my_button"] forState:UIControlStateNormal];
+        [_agreeBut setBackgroundImage:[UIImage resizedImage:@"login_my_button_pre"] forState:UIControlStateHighlighted];
         [_agreeView addSubview:_agreeBut];
     }
     return self;
