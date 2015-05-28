@@ -13,4 +13,5 @@
 
 @property (nonatomic, strong) TouzijigouModel *touziJiGouM;
 
++ (CGFloat)getFirmHeaderHeigh:(TouzijigouModel *)touziJiGouM;
 @end

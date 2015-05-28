@@ -398,7 +398,7 @@
                        }];
 }
 
-//取投资机构
+//取投资机构列表
 + (void)getInvestorJigouWithPage:(NSNumber *)page
                             Size:(NSNumber *)size
                          Success:(SuccessBlock)success
@@ -415,6 +415,23 @@
                        }];
 }
 
+//取单个投资机构
++ (void)getOneInvestorJigouWithFirmid:(NSNumber *)firmid
+                              Success:(SuccessBlock)success
+                               Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"firmid":firmid};
+    [self reqestPostWithParams:params
+                          Path:kInvestorUrl(@"firm")
+                       Success:^(id resultInfo) {
+                           DLog(@"getInvestorJigou ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+
+}
+
 //取投资机构的投资人
 + (void)getInvestorJigouPersonWithJigouid:(NSNumber *)jigouid
                                      Page:(NSNumber *)page
@@ -422,7 +439,7 @@
                                   Success:(SuccessBlock)success
                                    Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"jigouid":jigouid,
+    NSDictionary *params = @{@"firmid":jigouid,
                              @"page":page,
                              @"size":size};
     [self reqestPostWithParams:params
@@ -442,7 +459,7 @@
                             Success:(SuccessBlock)success
                              Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"jigouid":jigouid,
+    NSDictionary *params = @{@"firmid":jigouid,
                              @"page":page,
                              @"size":size};
     [self reqestPostWithParams:params

@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FirmInfoHeaderView.h"
+
+typedef NS_ENUM(NSInteger, FirmInfoType) {
+    FirmInfoTypeFirmID,                  // 投资机构uid
+    FirmInfoTypeModel                 // 投资机构数据模型
+};
 
 @interface InvestorFirmInfoController : UITableViewController
 
+- (instancetype)initWithType:(FirmInfoType)firmType andFirmData:(id)firmdata;
 
 @end

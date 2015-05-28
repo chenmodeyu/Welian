@@ -3568,6 +3568,14 @@
 		F56272901A4D474E002A9B88 /* HomeMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F562728F1A4D474E002A9B88 /* HomeMessage.m */; };
 		F56272911A4D474E002A9B88 /* HomeMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F562728F1A4D474E002A9B88 /* HomeMessage.m */; };
 		F56272921A4D474E002A9B88 /* HomeMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F562728F1A4D474E002A9B88 /* HomeMessage.m */; };
+		F564B0091B16B56200923A1B /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0061B16B56200923A1B /* DACircularProgressView.m */; };
+		F564B00A1B16B56200923A1B /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0061B16B56200923A1B /* DACircularProgressView.m */; };
+		F564B00B1B16B56200923A1B /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0061B16B56200923A1B /* DACircularProgressView.m */; };
+		F564B00C1B16B56200923A1B /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0061B16B56200923A1B /* DACircularProgressView.m */; };
+		F564B00D1B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0081B16B56200923A1B /* DALabeledCircularProgressView.m */; };
+		F564B00E1B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0081B16B56200923A1B /* DALabeledCircularProgressView.m */; };
+		F564B00F1B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0081B16B56200923A1B /* DALabeledCircularProgressView.m */; };
+		F564B0101B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0081B16B56200923A1B /* DALabeledCircularProgressView.m */; };
 		F566497D1A2AFD56008A5830 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B9019F684BF00D9E696 /* NSMutableArray+SWUtilityButtons.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F566497E1A2AFD56008A5830 /* FriendsNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5382B5C19FE261D00FAA5B6 /* FriendsNewCell.m */; };
 		F566497F1A2AFD56008A5830 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E619D3BACE003987CC /* MJPhotoToolbar.m */; };
@@ -4379,6 +4387,18 @@
 		F5A7D5B01AB2C3620060AE1F /* homeCellbackground_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A7D5AA1AB2C3620060AE1F /* homeCellbackground_normal@2x.png */; };
 		F5A7D5B11AB2C3620060AE1F /* homeCellbackground_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A7D5AA1AB2C3620060AE1F /* homeCellbackground_normal@2x.png */; };
 		F5A7D5B21AB2C3620060AE1F /* homeCellbackground_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A7D5AA1AB2C3620060AE1F /* homeCellbackground_normal@2x.png */; };
+		F5B4A16B1B15C55F00C70794 /* CasesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4A16A1B15C55F00C70794 /* CasesModel.m */; };
+		F5B4A16C1B15C55F00C70794 /* CasesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4A16A1B15C55F00C70794 /* CasesModel.m */; };
+		F5B4A16D1B15C55F00C70794 /* CasesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4A16A1B15C55F00C70794 /* CasesModel.m */; };
+		F5B4A16E1B15C55F00C70794 /* CasesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4A16A1B15C55F00C70794 /* CasesModel.m */; };
+		F5B4A1781B15D6D300C70794 /* FirmCasesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4A1761B15D6D300C70794 /* FirmCasesCell.m */; };
+		F5B4A1791B15D6D300C70794 /* FirmCasesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4A1761B15D6D300C70794 /* FirmCasesCell.m */; };
+		F5B4A17A1B15D6D300C70794 /* FirmCasesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4A1761B15D6D300C70794 /* FirmCasesCell.m */; };
+		F5B4A17B1B15D6D300C70794 /* FirmCasesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B4A1761B15D6D300C70794 /* FirmCasesCell.m */; };
+		F5B4A17C1B15D6D300C70794 /* FirmCasesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B4A1771B15D6D300C70794 /* FirmCasesCell.xib */; };
+		F5B4A17D1B15D6D300C70794 /* FirmCasesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B4A1771B15D6D300C70794 /* FirmCasesCell.xib */; };
+		F5B4A17E1B15D6D300C70794 /* FirmCasesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B4A1771B15D6D300C70794 /* FirmCasesCell.xib */; };
+		F5B4A17F1B15D6D300C70794 /* FirmCasesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B4A1771B15D6D300C70794 /* FirmCasesCell.xib */; };
 		F5B5FE2B1A59490C007FE11B /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE2A1A59490C007FE11B /* libicucore.dylib */; };
 		F5B5FE2D1A59491C007FE11B /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE2C1A59491C007FE11B /* libz.1.2.5.dylib */; };
 		F5B5FE531A5949DD007FE11B /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE2A1A59490C007FE11B /* libicucore.dylib */; };
@@ -6332,6 +6352,10 @@
 		F562728A1A4C4FE9002A9B88 /* IBaseUserM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBaseUserM.m; sourceTree = "<group>"; };
 		F562728E1A4D474E002A9B88 /* HomeMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMessage.h; sourceTree = "<group>"; };
 		F562728F1A4D474E002A9B88 /* HomeMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMessage.m; sourceTree = "<group>"; };
+		F564B0051B16B56200923A1B /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		F564B0061B16B56200923A1B /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		F564B0071B16B56200923A1B /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DALabeledCircularProgressView.h; sourceTree = "<group>"; };
+		F564B0081B16B56200923A1B /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
 		F5664C321A2AFD56008A5830 /* weLianDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weLianDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5664EEC1A2AFDD5008A5830 /* weLianDis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weLianDis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56972491B0ED0DE004E86AC /* XZPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZPageViewController.h; sourceTree = "<group>"; };
@@ -6527,6 +6551,11 @@
 		F5B123E819E7EECC002B9E58 /* AuthTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthTypeView.xib; sourceTree = "<group>"; };
 		F5B123EC19E81875002B9E58 /* LocationprovinceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationprovinceController.h; sourceTree = "<group>"; };
 		F5B123ED19E81875002B9E58 /* LocationprovinceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationprovinceController.m; sourceTree = "<group>"; };
+		F5B4A1691B15C55F00C70794 /* CasesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasesModel.h; sourceTree = "<group>"; };
+		F5B4A16A1B15C55F00C70794 /* CasesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasesModel.m; sourceTree = "<group>"; };
+		F5B4A1751B15D6D300C70794 /* FirmCasesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirmCasesCell.h; sourceTree = "<group>"; };
+		F5B4A1761B15D6D300C70794 /* FirmCasesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirmCasesCell.m; sourceTree = "<group>"; };
+		F5B4A1771B15D6D300C70794 /* FirmCasesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirmCasesCell.xib; sourceTree = "<group>"; };
 		F5B5FE2A1A59490C007FE11B /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		F5B5FE2C1A59491C007FE11B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		F5B5FE5A1A596D4A007FE11B /* WeChatConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WeChatConnection.framework; sourceTree = "<group>"; };
@@ -7989,6 +8018,8 @@
 				F5CAB7791B0DF77E00937E63 /* BannerModel.m */,
 				F50B62F71B132928002259B2 /* ProjectTouDiModel.h */,
 				F50B62F81B132928002259B2 /* ProjectTouDiModel.m */,
+				F5B4A1691B15C55F00C70794 /* CasesModel.h */,
+				F5B4A16A1B15C55F00C70794 /* CasesModel.m */,
 			);
 			path = "Model(Find)";
 			sourceTree = "<group>";
@@ -9131,6 +9162,9 @@
 				F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */,
 				F50B63191B1585D6002259B2 /* FirmInfoHeaderView.h */,
 				F50B631A1B1585D6002259B2 /* FirmInfoHeaderView.m */,
+				F5B4A1751B15D6D300C70794 /* FirmCasesCell.h */,
+				F5B4A1761B15D6D300C70794 /* FirmCasesCell.m */,
+				F5B4A1771B15D6D300C70794 /* FirmCasesCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -9425,6 +9459,17 @@
 				F55EB10D1ACB9FE400FFB3BE /* HPTextViewInternal.m */,
 			);
 			path = HPGrowingTextView;
+			sourceTree = "<group>";
+		};
+		F564B0041B16B56200923A1B /* DACircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				F564B0051B16B56200923A1B /* DACircularProgressView.h */,
+				F564B0061B16B56200923A1B /* DACircularProgressView.m */,
+				F564B0071B16B56200923A1B /* DALabeledCircularProgressView.h */,
+				F564B0081B16B56200923A1B /* DALabeledCircularProgressView.m */,
+			);
+			path = DACircularProgress;
 			sourceTree = "<group>";
 		};
 		F56972481B0ED0DE004E86AC /* XZPageViewController */ = {
@@ -10294,6 +10339,7 @@
 		F5CE864119BFF44100A9D14C /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
+				F564B0041B16B56200923A1B /* DACircularProgress */,
 				F56972481B0ED0DE004E86AC /* XZPageViewController */,
 				A4FDF3BE1B0A041800A487A9 /* HYBLoopScrollView */,
 				A4FDF3B61B0A038700A487A9 /* MCAvatarView */,
@@ -11205,6 +11251,7 @@
 				F5CBE3761AC4351A00F4C884 /* Expression_2@2x.png in Resources */,
 				F56972761B0F01C6004E86AC /* InvestorOrgCell.xib in Resources */,
 				F5CBE3BE1AC4351A00F4C884 /* Expression_20@2x.png in Resources */,
+				F5B4A17F1B15D6D300C70794 /* FirmCasesCell.xib in Resources */,
 				A49C7EB71A70D42700F2AEC5 /* discovery_viewpoint@2x.png in Resources */,
 				A49C7EBE1A70D42700F2AEC5 /* WorkListCell.xib in Resources */,
 				A49C7EBF1A70D42700F2AEC5 /* sharemore_voiceinput@2x.png in Resources */,
@@ -11814,6 +11861,7 @@
 				A4C1436F1A4C0A6B00C9BAB5 /* section0_emotion0@2x.png in Resources */,
 				F56972751B0F01C6004E86AC /* InvestorOrgCell.xib in Resources */,
 				F53DC49E1A49192600F5F712 /* discovery_activity_list_ expired_bg@2x.png in Resources */,
+				F5B4A17E1B15D6D300C70794 /* FirmCasesCell.xib in Resources */,
 				A409A1E41AC2E1AF0033A31D /* me_circle_chat_keybroad@2x.png in Resources */,
 				F5CBE3751AC4351A00F4C884 /* Expression_2@2x.png in Resources */,
 				F5CBE3BD1AC4351A00F4C884 /* Expression_20@2x.png in Resources */,
@@ -12222,6 +12270,7 @@
 				F5CBE38F1AC4351A00F4C884 /* Expression_9@2x.png in Resources */,
 				F5CBE3EF1AC4351A00F4C884 /* Expression_33@2x.png in Resources */,
 				A409A2E21AC2E1AF0033A31D /* tabbar_me@2x.png in Resources */,
+				F5B4A17C1B15D6D300C70794 /* FirmCasesCell.xib in Resources */,
 				F5CBE3AF1AC4351A00F4C884 /* Expression_17@2x.png in Resources */,
 				F58CA95A1A5BF3AE00988A61 /* leida1@2x.png in Resources */,
 				F5664AD71A2AFD56008A5830 /* home_empty_button_highlight@2x.png in Resources */,
@@ -12718,6 +12767,7 @@
 				F5CBE3B01AC4351A00F4C884 /* Expression_17@2x.png in Resources */,
 				F51BA4411A444DA2009E5CDF /* tabbar_circle_selected_prompt@2x.png in Resources */,
 				F5318F001A63E986009B6635 /* weLianDev-Info.plist in Resources */,
+				F5B4A17D1B15D6D300C70794 /* FirmCasesCell.xib in Resources */,
 				A46D5E9E1ABFFC1900FF0554 /* circle_chat_line@2x.png in Resources */,
 				A409A18B1AC2E1AF0033A31D /* about_welian_logo@2x.png in Resources */,
 				A4C1441C1A4C0A6B00C9BAB5 /* AddGroupMemberBtnHL@2x.png in Resources */,
@@ -13440,6 +13490,7 @@
 				A47F1B291A7F2AF200CB4D9F /* ProjectViewCell.m in Sources */,
 				A49C7BF01A70D42700F2AEC5 /* FindViewController.m in Sources */,
 				A49C804F1A71041000F2AEC5 /* DataSigner.m in Sources */,
+				F5B4A17B1B15D6D300C70794 /* FirmCasesCell.m in Sources */,
 				A4C770DD1A8079A1005ABC7F /* IProjectInfo.m in Sources */,
 				A493C2841ADD0BB00056BD52 /* DKManagedObjectQuery.m in Sources */,
 				A4B07C1C1B12D09D008A3702 /* IProjectBPModel.m in Sources */,
@@ -13484,6 +13535,7 @@
 				A49C7C131A70D42700F2AEC5 /* WeixinActivityBase.m in Sources */,
 				A47D41D91A8B50320070BFD8 /* ProjectUser.m in Sources */,
 				F56972821B0F254D004E86AC /* TouzijigouModel.m in Sources */,
+				F564B0101B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */,
 				A49C7C141A70D42700F2AEC5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A49C7C151A70D42700F2AEC5 /* SDWebImageDownloader.m in Sources */,
 				A49C7C161A70D42700F2AEC5 /* IconTableViewCell.m in Sources */,
@@ -13576,6 +13628,7 @@
 				A49C7C5B1A70D42700F2AEC5 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				A4C0E1371B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A49C7C5C1A70D42700F2AEC5 /* UIWebView+AFNetworking.m in Sources */,
+				F564B00C1B16B56200923A1B /* DACircularProgressView.m in Sources */,
 				A48A36671AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
 				A4C0E1301B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				A49C7C5D1A70D42700F2AEC5 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
@@ -13593,6 +13646,7 @@
 				A49235731ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A49235641ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
 				A49C7C641A70D42700F2AEC5 /* LogInUser.m in Sources */,
+				F5B4A16E1B15C55F00C70794 /* CasesModel.m in Sources */,
 				A4948EAE1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A4FDF3C91B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49C7C661A70D42700F2AEC5 /* UIImage+MultiFormat.m in Sources */,
@@ -13992,6 +14046,7 @@
 				F53DC2BA1A49192600F5F712 /* FindViewController.m in Sources */,
 				A49C804E1A71041000F2AEC5 /* DataSigner.m in Sources */,
 				A4C770DC1A8079A1005ABC7F /* IProjectInfo.m in Sources */,
+				F5B4A17A1B15D6D300C70794 /* FirmCasesCell.m in Sources */,
 				A493C2821ADD0BB00056BD52 /* DKManagedObjectQuery.m in Sources */,
 				F53DC2BB1A49192600F5F712 /* MBProgressHUD.m in Sources */,
 				A4B07C1A1B12D09D008A3702 /* IProjectBPModel.m in Sources */,
@@ -14036,6 +14091,7 @@
 				F53DC2D21A49192600F5F712 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F53DC2D31A49192600F5F712 /* SDWebImageDownloader.m in Sources */,
 				F56972811B0F254D004E86AC /* TouzijigouModel.m in Sources */,
+				F564B00F1B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */,
 				F53DC2D41A49192600F5F712 /* IconTableViewCell.m in Sources */,
 				A493C2321ADD0BB00056BD52 /* NSError+Extend.m in Sources */,
 				A4C1408B1A4BEA8500C9BAB5 /* UIView+XHRemoteImage.m in Sources */,
@@ -14128,6 +14184,7 @@
 				A4D43ABA1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
 				A4C0E1351B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A4A2EB081A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				F564B00B1B16B56200923A1B /* DACircularProgressView.m in Sources */,
 				A48A36651AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
 				A4C0E12E1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				F53DC2FD1A49192600F5F712 /* UIWebView+AFNetworking.m in Sources */,
@@ -14145,6 +14202,7 @@
 				F53DC3011A49192600F5F712 /* UIImage+MultiFormat.m in Sources */,
 				F53DC3021A49192600F5F712 /* FMResultSet.m in Sources */,
 				A493C3291ADD14A60056BD52 /* CardStatuModel.m in Sources */,
+				F5B4A16D1B15C55F00C70794 /* CasesModel.m in Sources */,
 				A4948EAC1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A4FDF3C71B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49FF3C01AC2671B009982E2 /* UserInfoView.m in Sources */,
@@ -14544,6 +14602,7 @@
 				A4C140891A4BEA8500C9BAB5 /* UIView+XHRemoteImage.m in Sources */,
 				A403560F1A5D2259006AE52C /* MyFriendsOperateViewCell.m in Sources */,
 				A49C7FCB1A70F07B00F2AEC5 /* WLDisplayMediaViewController.m in Sources */,
+				F5B4A1781B15D6D300C70794 /* FirmCasesCell.m in Sources */,
 				A4A2EB031A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A47F1B261A7F2AF100CB4D9F /* ProjectViewCell.m in Sources */,
 				A4B07C181B12D09D008A3702 /* IProjectBPModel.m in Sources */,
@@ -14588,6 +14647,7 @@
 				A4A2EAF41A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				F56649A81A2AFD56008A5830 /* ChineseString.m in Sources */,
 				F569727F1B0F254D004E86AC /* TouzijigouModel.m in Sources */,
+				F564B00D1B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */,
 				A49C80441A71041000F2AEC5 /* Order.m in Sources */,
 				A4A2EB0C1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				A47D41D61A8B50320070BFD8 /* ProjectUser.m in Sources */,
@@ -14680,6 +14740,7 @@
 				A4D43AB81AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
 				A4C0E1331B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A4C140651A4BEA8500C9BAB5 /* NSString+MessageInputView.m in Sources */,
+				F564B0091B16B56200923A1B /* DACircularProgressView.m in Sources */,
 				F56649D51A2AFD56008A5830 /* UIButton+Badge.m in Sources */,
 				A4C0E12C1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				A48A36631AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
@@ -14697,6 +14758,7 @@
 				A49235421ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				A492356F1ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A49235601ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
+				F5B4A16B1B15C55F00C70794 /* CasesModel.m in Sources */,
 				A4948EAA1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A4FDF3C51B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A493C3271ADD14A60056BD52 /* CardStatuModel.m in Sources */,
@@ -15096,6 +15158,7 @@
 				F5664C4F1A2AFDD5008A5830 /* FindViewController.m in Sources */,
 				A49C804D1A71041000F2AEC5 /* DataSigner.m in Sources */,
 				A4C770DB1A8079A1005ABC7F /* IProjectInfo.m in Sources */,
+				F5B4A1791B15D6D300C70794 /* FirmCasesCell.m in Sources */,
 				A493C2811ADD0BB00056BD52 /* DKManagedObjectQuery.m in Sources */,
 				F5664C501A2AFDD5008A5830 /* MBProgressHUD.m in Sources */,
 				A4B07C191B12D09D008A3702 /* IProjectBPModel.m in Sources */,
@@ -15140,6 +15203,7 @@
 				F5664C661A2AFDD5008A5830 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F5664C671A2AFDD5008A5830 /* SDWebImageDownloader.m in Sources */,
 				F56972801B0F254D004E86AC /* TouzijigouModel.m in Sources */,
+				F564B00E1B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */,
 				F5664C681A2AFDD5008A5830 /* IconTableViewCell.m in Sources */,
 				A493C2311ADD0BB00056BD52 /* NSError+Extend.m in Sources */,
 				A4C1408A1A4BEA8500C9BAB5 /* UIView+XHRemoteImage.m in Sources */,
@@ -15232,6 +15296,7 @@
 				A4D43AB91AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
 				A4C0E1341B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A4A2EB071A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				F564B00A1B16B56200923A1B /* DACircularProgressView.m in Sources */,
 				A48A36641AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
 				A4C0E12D1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				F5664C8E1A2AFDD5008A5830 /* UIWebView+AFNetworking.m in Sources */,
@@ -15249,6 +15314,7 @@
 				F5664C911A2AFDD5008A5830 /* UIImage+MultiFormat.m in Sources */,
 				F5664C921A2AFDD5008A5830 /* FMResultSet.m in Sources */,
 				A493C3281ADD14A60056BD52 /* CardStatuModel.m in Sources */,
+				F5B4A16C1B15C55F00C70794 /* CasesModel.m in Sources */,
 				A4948EAB1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */,
 				A4FDF3C61B0A041800A487A9 /* HYBLoadImageView.m in Sources */,
 				A49FF3BF1AC2671B009982E2 /* UserInfoView.m in Sources */,

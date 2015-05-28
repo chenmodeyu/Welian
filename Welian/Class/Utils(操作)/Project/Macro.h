@@ -75,7 +75,7 @@
 //取投资机构
 #define kInvestorJigouPath kInvestorUrl(@"firms")
 //取投资机构的投资人
-#define kInvestorJigouPersonPath kInvestorUrl(@"jigou")
+#define kInvestorJigouPersonPath kInvestorUrl(@"friminvestors")
 //取投资机构案例
 #define kInvestorCasesPath kInvestorUrl(@"cases")
 //投资人筛选
