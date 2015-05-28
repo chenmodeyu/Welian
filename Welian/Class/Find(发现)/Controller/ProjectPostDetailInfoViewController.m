@@ -40,6 +40,13 @@
 
 @implementation ProjectPostDetailInfoViewController
 
+- (void)dealloc
+{
+    _datasource = nil;
+    _iProjectDetailInfo = nil;
+    _localPid = nil;
+}
+
 - (NSString *)title
 {
     return @"项目信息";

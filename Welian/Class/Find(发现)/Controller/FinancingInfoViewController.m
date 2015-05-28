@@ -7,6 +7,8 @@
 //
 
 #import "FinancingInfoViewController.h"
+#import "LookBPFileViewController.h"
+#import "WebViewLookBPViewController.h"
 
 #import "FinancingInfoView.h"
 #import "NoteMsgView.h"
@@ -114,6 +116,31 @@
                                   }];
 }
 
+- (void)downloadBPAndLook:(NSString *)url
+{
+    //下载照片
+    NSString *fileName = [url lastPathComponent];
+    NSString *folder = [[ResManager userResourcePath] stringByAppendingPathComponent:@"ChatDocument/ProjectBP/"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:folder]) {
+        DLog(@"创建home cover 目录!");
+        [[NSFileManager defaultManager] createDirectoryAtPath:folder
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:nil];
+    }
+    folder = [folder stringByAppendingPathComponent:fileName];
+    
+    //删除文件
+    if ([ResManager fileExistByPath:folder]) {
+        //本地存在的话，直接查看
+        LookBPFileViewController *lookBPFileVC = [[LookBPFileViewController alloc] initWithBpPath:url];
+        [self.navigationController pushViewController:lookBPFileVC animated:YES];
+    }else{
+        WebViewLookBPViewController *webLookVC = [[WebViewLookBPViewController alloc] initWithBpPath:url];
+        [self.navigationController pushViewController:webLookVC animated:YES];
+    }
+}
+
 #pragma mark - UITableView Datasource&Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -136,14 +163,20 @@
         }
         IProjectBPModel *bpModel = _datasource[indexPath.row];
         cell.fineName = bpModel.bpname;// @"微链商业计划书.pdf";
-        cell.showGetBPBtn = YES;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        WEAKSELF
-        [cell setBlock:^(void){
-            //请求查看BP
-            [weakSelf getBPBtnClicked:indexPath];
-        }];
+        if (_iProjectDetailInfo.user.uid.integerValue == [LogInUser getCurrentLoginUser].uid.integerValue) {
+            //自己的项目
+            cell.showGetBPBtn = NO;
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }else{
+            cell.showGetBPBtn = YES;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            WEAKSELF
+            [cell setBlock:^(void){
+                //请求查看BP
+                [weakSelf getBPBtnClicked:indexPath];
+            }];
+        }
         return cell;
     }else{
         static NSString *cellIdentifier = @"FinancingInfo_Not_View_Cell";
@@ -158,8 +191,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (_iProjectDetailInfo.user.uid.integerValue == [LogInUser getCurrentLoginUser].uid.integerValue) {
+        //自己的项目
+        if (_datasource.count > 0) {
+            IProjectBPModel *bpModel = _datasource[indexPath.row];
+            [WeLianClient investorDownloadWithPid:bpModel.bpid
+                                          Success:^(id resultInfo) {
+                                              //BP地址url
+                                              NSString *url = resultInfo[@"url"];
+                                              [self downloadBPAndLook:url];
+                                          } Failed:^(NSError *error) {
+                                              if (error) {
+                                                  [WLHUDView showErrorHUD:error.localizedDescription];
+                                              }else{
+                                                  [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                              }
+                                          }];
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

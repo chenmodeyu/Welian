@@ -19,6 +19,13 @@
 
 @implementation WebViewLookBPViewController
 
+- (void)dealloc
+{
+    _bpPath = nil;
+    _webView = nil;
+    _bpUrl = nil;
+}
+
 - (NSString *)title
 {
     return @"BP详情";
@@ -52,7 +59,7 @@
     self.hasPDF = [ResManager fileExistByPath:folder];
     if (_hasPDF) {
         //本地存在的话，直接查看
-        self.bpUrl = [NSURL URLWithString:folder];
+        self.bpUrl = [NSURL fileURLWithPath:folder];
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:_bpUrl];

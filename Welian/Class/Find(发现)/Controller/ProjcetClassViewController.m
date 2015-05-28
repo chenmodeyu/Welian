@@ -29,6 +29,12 @@
 
 @implementation ProjcetClassViewController
 
+- (void)dealloc
+{
+    _datasource = nil;
+    _projectClassInfo = nil;
+}
+
 - (NSString *)title
 {
     return @"项目集";
