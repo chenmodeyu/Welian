@@ -1189,21 +1189,20 @@
 
 //取最新动态数量
 + (void)getNewFeedCountsWithID:(NSNumber *)fid
+                          Time:(NSString *)time
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed;
 {
-    if (fid) {
-        NSDictionary *params = @{@"fid":fid};
-        [self reqestPostWithParams:params
-                              Path:kFeedNewCountPath
-                           Success:^(id resultInfo) {
-                               DLog(@"getNewFeedCounts ---- %@",resultInfo);
-                               SAFE_BLOCK_CALL(success,resultInfo);
-                           } Failed:^(NSError *error) {
-                               SAFE_BLOCK_CALL(failed, error);
-                           }];
-    }
-    
+    NSDictionary *params = @{@"fid":fid,@"time":time};
+    [self reqestPostWithParams:params
+                          Path:kFeedNewCountPath
+                       Success:^(id resultInfo) {
+                           DLog(@"getNewFeedCounts ---- %@",resultInfo);
+                           IGetNewFeedResultModel *result = [IGetNewFeedResultModel objectWithDict:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
 }
 
 

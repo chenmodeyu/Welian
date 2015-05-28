@@ -79,7 +79,7 @@
     CSLoadingImageView *bgImageView = [[CSLoadingImageView alloc] init];
     bgImageView.layer.cornerRadius = 5.f;
     bgImageView.layer.masksToBounds = YES;
-    bgImageView.backgroundColor = [UIColor whiteColor];
+    bgImageView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];// [UIColor whiteColor];
     [self addSubview:bgImageView];
     self.bgImageView = bgImageView;
     
