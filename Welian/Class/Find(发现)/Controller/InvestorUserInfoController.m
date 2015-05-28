@@ -28,7 +28,7 @@
         _userType = userType;
         if (userType == InvestorUserTypeUID) {
             _userID = userData;
-            [WLHUDView showCustomHUD:nil imageview:nil];
+            [WLHUDView showCustomHUD:@"" imageview:nil];
             [WeLianClient investorGetInfoWithUid:_userID Success:^(id resultInfo) {
                 _investorUserM = [InvestorUserModel objectWithDict:resultInfo];
                 [WLHUDView hiddenHud];

@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSMutableArray *viewControllerArr;
 @property (nonatomic, strong) NSArray *navTitlesArr;
 @property (nonatomic, strong) NSArray *navTitleImagesArr;
+// 是否允许左右滑动 默认不允许
+@property (nonatomic, assign) BOOL slidePage;
 
 @property (nonatomic, weak) id<XZPageViewControllerDataSource> dataSource;
 @property (nonatomic, weak) id<XZPageViewControllerDelegate> delegate;

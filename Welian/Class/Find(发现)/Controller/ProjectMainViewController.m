@@ -12,12 +12,11 @@
 
 #import "ShaiXuanView.h"
 
-@interface ProjectMainViewController ()<XZPageViewControllerDataSource,XZPageViewControllerDelegate,ShaiXuanViewDataSource>
+@interface ProjectMainViewController ()<XZPageViewControllerDataSource,XZPageViewControllerDelegate>
 
 @property (nonatomic,strong) ShaiXuanView *shaixuanView;
-@property (nonatomic,strong) NSArray *industrys;
-@property (nonatomic,strong) NSArray *citys;
-@property (nonatomic,strong) NSArray *stages;
+
+@property (nonatomic, strong) NSArray *shaiXuanArray;
 
 @end
 
@@ -31,8 +30,7 @@
 - (ShaiXuanView *)shaixuanView
 {
     if (!_shaixuanView) {
-        _shaixuanView = [[ShaiXuanView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        _shaixuanView.dataSource = self;
+        _shaixuanView = [[ShaiXuanView alloc] initWithShaiXuanType:ShaiXuanTypeProject];
         _shaixuanView.titleText = @"创业项目";
     }
     return _shaixuanView;
@@ -46,17 +44,6 @@
         self.navTitleImagesArr = @[@"",@"",@"",@"xiangmu_list_funnel"];
         self.dataSource = self;
         self.delegate = self;
-        
-        //项目领域
-//        NSArray *industryInfos = [InvestIndustry getAllInvestIndustrys];
-//        NSArray *projectCitys = [CityInfo getAllCityInfosType:@(2)];
-        
-        //获取领域
-        self.industrys = [NSArray arrayWithContentsOfFile:[[ResManager documentPath] stringByAppendingString:@"/Industrys.plist"]];
-        //获取城市
-        self.citys = [NSArray arrayWithContentsOfFile:[[ResManager documentPath] stringByAppendingString:@"/ProjectCitys.plist"]];
-        //融资阶段 0:种子轮投资  1:天使轮投资  2:pre-A轮投资 3:A轮投资 4:B轮投资  5:C轮投资
-        self.stages = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"FinancingStagePlist" withExtension:@"plist"]];
     }
     return self;
 }
@@ -90,6 +77,10 @@
     if (index == (self.navTitleImagesArr.count - 1)) {
         self.segmentedControl.sectionImages = @[@"",@"",@"",@"xiangmu_list_funnel_selected"];
         [self.shaixuanView showVC];
+        WEAKSELF
+        self.shaixuanView.shaixuanBlock = ^(){
+
+        };
     }else{
         self.segmentedControl.sectionImages = self.navTitleImagesArr;
     }
@@ -109,83 +100,5 @@
     [self updateSegmentUIWithIndex:index];
 }
 
-#pragma mark - 筛选代理方法
-// 多少组
-- (NSInteger)numberOfSections
-{
-    return 3;
-}
-// 每组多少个
-- (NSInteger)numberOfItemsInSection:(NSInteger)section
-{
-    switch (section) {
-        case 0:
-        {
-            return _industrys.count;
-        }
-            break;
-        case 1:
-        {
-            return _stages.count;
-        }
-            break;
-        case 2:
-        {
-            return _citys.count;
-        }
-            break;
-        default:
-            return 0;
-            break;
-    }
-}
-// 每组组头文字
-- (NSString *)titleWithSectionsTextatIndexPath:(NSIndexPath *)indexPath
-{
-    switch (indexPath.section) {
-        case 0:
-        {
-            return [_industrys[indexPath.row] objectForKey:@"industryname"];
-        }
-            break;
-        case 1:
-        {
-            return [_stages[indexPath.row] objectForKey:@"stagename"];
-        }
-            break;
-        case 2:
-        {
-            return [_citys[indexPath.row] objectForKey:@"name"];
-        }
-            break;
-        default:
-            return @"";
-            break;
-    }
-}
-
-- (NSString *)textCellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    switch (indexPath.section) {
-        case 0:
-        {
-            return [_industrys[indexPath.row] objectForKey:@"industryname"];
-        }
-            break;
-        case 1:
-        {
-            return [_stages[indexPath.row] objectForKey:@"stagename"];
-        }
-            break;
-        case 2:
-        {
-            return [_citys[indexPath.row] objectForKey:@"name"];
-        }
-            break;
-        default:
-            return @"";
-            break;
-    }
-}
 
 @end

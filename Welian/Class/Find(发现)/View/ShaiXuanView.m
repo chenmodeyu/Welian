@@ -7,45 +7,89 @@
 //
 
 #import "ShaiXuanView.h"
-#import "BiaoqainCell.h"
+#import "ShaiXuanCell.h"
+#import "UICollectionViewLeftAlignedLayout.h"
+#import "ShaiXuanHeaderView.h"
 
 #define KleftW 50
 
-@interface ShaiXuanView()
+@interface ShaiXuanView() <UICollectionViewDataSource,UICollectionViewDelegate>
 {
-    NSIndexPath *oneIndex;
-    NSIndexPath *twoIndex;
-    NSIndexPath *threeIndex;
+    NSIndexPath *_oneIndex;
+    NSIndexPath *_twoIndex;
+    NSIndexPath *_threeIndex;
+    
+    ShaiXuanType _type;
 }
+
+@property (nonatomic,strong) NSArray *industrys;
+@property (nonatomic,strong) NSArray *citys;
+@property (nonatomic,strong) NSArray *stages;
 
 @property (nonatomic, strong) UIButton *confirmBut;
 @property (nonatomic, strong) UILabel *titleLabel;
 
 @end
 
+static NSString *shaixuanCellid = @"shaixuanCellid";
+static NSString *shaixuanHeaderid = @"ShaiXuanHeaderView";
+
 @implementation ShaiXuanView
+
+//获取领域
+- (NSArray *)industrys
+{
+    if (_industrys == nil) {
+        _industrys = [NSArray arrayWithContentsOfFile:[[ResManager documentPath] stringByAppendingString:@"/Industrys.plist"]];
+    }
+    return _industrys;
+}
+//融资阶段 0:种子轮投资  1:天使轮投资  2:pre-A轮投资 3:A轮投资 4:B轮投资  5:C轮投资
+- (NSArray *)stages
+{
+    if (_stages == nil) {
+        _stages = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"FinancingStagePlist" withExtension:@"plist"]];
+    }
+    return _stages;
+}
+
+//获取城市
+- (NSArray *)citys
+{
+    if (_citys == nil) {
+        _citys = [NSArray arrayWithContentsOfFile:[[ResManager documentPath] stringByAppendingString:@"/ProjectCitys.plist"]];
+    }
+    return _citys;
+}
+
 - (UICollectionView *)collectionView
 {
     if (_collectionView == nil) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        [layout setSectionInset:UIEdgeInsetsMake(20, 20, 10, 20)];
-        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        UICollectionViewLeftAlignedLayout *layout = [[UICollectionViewLeftAlignedLayout alloc] init];
+        layout.minimumLineSpacing = 10;
+        layout.minimumInteritemSpacing = 10;
+        [layout setHeaderReferenceSize:CGSizeMake(SuperSize.width-KleftW, 40)];
+        [layout setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         [_collectionView setBackgroundColor:[UIColor whiteColor]];
         _collectionView.alwaysBounceVertical = YES;
         _collectionView.allowsMultipleSelection = YES;
         [_collectionView setDataSource:self];
-        [_collectionView setKeyboardDismissMode:UIScrollViewKeyboardDismissModeOnDrag];
         [_collectionView setDelegate:self];
-        [_collectionView registerClass:[BiaoqainCell class] forCellWithReuseIdentifier:@"cellid"];
+        [_collectionView registerClass:[ShaiXuanCell class] forCellWithReuseIdentifier:shaixuanCellid];
+        [_collectionView registerNib:[UINib nibWithNibName:@"ShaiXuanHeaderView" bundle:nil]
+          forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                 withReuseIdentifier:shaixuanHeaderid];
     }
     return _collectionView;
 }
 
 
-- (void)loadUiWithFrame:(CGSize)size
+- (void)loadUI
 {
+    CGSize size = SuperSize;
     UIView *tapGestureView = [[UIView alloc] initWithFrame:self.bounds];
-    tapGestureView.backgroundColor = [UIColor colorWithWhite:0.4 alpha:0.7];
+    tapGestureView.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.7];
     [self addSubview:tapGestureView];
     UITapGestureRecognizer* singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(desmisSelfVC)];
     //点击的次数
@@ -63,15 +107,15 @@
     [backgView addSubview:titleLabel];
     self.titleLabel = titleLabel;
     
-    UIButton *desmisBut = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 100, 44)];
+    UIButton *desmisBut = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 60, 44)];
     [desmisBut setTitle:@"取消" forState:UIControlStateNormal];
-    [desmisBut setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [desmisBut setTitleColor:KBlueTextColor forState:UIControlStateNormal];
     [desmisBut addTarget:self action:@selector(desmisSelfVC) forControlEvents:UIControlEventTouchUpInside];
     [backgView addSubview:desmisBut];
     
-    UIButton *confirmBut = [[UIButton alloc] initWithFrame:CGRectMake(size.width-KleftW-100, 20, 100, 44)];
+    UIButton *confirmBut = [[UIButton alloc] initWithFrame:CGRectMake(size.width-KleftW-60, 20, 60, 44)];
     [confirmBut setTitle:@"确认" forState:UIControlStateNormal];
-    [confirmBut setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [confirmBut setTitleColor:KBlueTextColor forState:UIControlStateNormal];
     [confirmBut setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [confirmBut addTarget:self action:@selector(confirmButClick) forControlEvents:UIControlEventTouchUpInside];
     [backgView addSubview:confirmBut];
@@ -79,37 +123,56 @@
     self.confirmBut = confirmBut;
     [self.collectionView setFrame:CGRectMake(0, 64, size.width-KleftW, size.height-64)];
     [backgView addSubview:self.collectionView];
+    
+    if (_oneIndex||_twoIndex||_threeIndex) {
+        [confirmBut setEnabled:YES];
+    }
+    
+    [self.collectionView selectItemAtIndexPath:_oneIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+    [self.collectionView selectItemAtIndexPath:_twoIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+    [self.collectionView selectItemAtIndexPath:_threeIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
+
+- (instancetype)initWithShaiXuanType:(ShaiXuanType)type
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:[UIScreen mainScreen].bounds];
     if (self) {
-        [self loadUiWithFrame:frame.size];
+        _type = type;
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        NSDictionary *searchIndustryinfo;
+        NSDictionary *searchCity;
+        NSDictionary *searchStage;
+        if (type == ShaiXuanTypeProject) {
+            //项目 领域搜索条件
+            searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchIndustryKey,loginUser.uid]];
+            //项目 地区条件
+            searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchCityKey,loginUser.uid]];
+            //项目 投资阶段条件
+            searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchStageKey,loginUser.uid]];
+        }else if (type == ShaiXuanTypeInvestorUser){
+            //项目 领域搜索条件
+            searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchIndustryKey,loginUser.uid]];
+            //项目 投资阶段条件
+            searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
+            //项目 地区条件
+            searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
+        }
+        if (searchIndustryinfo) {
+            NSInteger industInt = [self.industrys indexOfObject:searchIndustryinfo];
+            _oneIndex = [NSIndexPath indexPathForItem:industInt inSection:0];
+        }
+        if (searchStage) {
+            NSInteger stageInt = [self.stages indexOfObject:searchStage];
+            _twoIndex = [NSIndexPath indexPathForItem:stageInt inSection:1];
+        }
+        if (searchCity) {
+            NSInteger cityInt = [self.citys indexOfObject:searchCity];
+            _threeIndex = [NSIndexPath indexPathForItem:cityInt inSection:2];
+        }
+        [self loadUI];
     }
     return self;
-}
-
-- (void)setSelectArray:(NSArray *)selectArray
-{
-//    oneIndex = [self.dataSource selectIndexPath:0];
-//    twoIndex = [self.dataSource selectIndexPath:1];
-//    threeIndex = [self.dataSource selectIndexPath:2];
-//    
-//    if (oneIndex) {
-//        [self.collectionView selectItemAtIndexPath:oneIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-//    }
-//    if (twoIndex) {
-//        [self.collectionView selectItemAtIndexPath:twoIndex animated:YES scrollPosition:0];
-//    }
-//    //        if (threeIndex) {
-//    [self.collectionView selectItemAtIndexPath:threeIndex animated:YES scrollPosition:0];
-//    
-//    if (oneIndex||twoIndex||threeIndex) {
-//        [self.confirmBut setEnabled:YES];
-//    }else{
-//        [self.confirmBut setEnabled:NO];
-//    }
 }
 
 - (void)layoutSubviews
@@ -118,22 +181,97 @@
     [self.titleLabel setText:self.titleText];
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *titStr = @"";
+    switch (indexPath.section) {
+        case 0:
+            titStr = [self.industrys[indexPath.row] objectForKey:@"industryname"];
+            break;
+        case 1:
+            titStr = [self.stages[indexPath.row] objectForKey:@"stagename"];
+            break;
+        case 2:
+            titStr = [self.citys[indexPath.row] objectForKey:@"name"];
+            break;
+        default:
+            break;
+    }
+   CGSize titSize = [titStr sizeWithCustomFont:WLFONT(15) constrainedToSize:CGSizeMake(MAXFLOAT, 20)];
+    return CGSizeMake(titSize.width+20, 35);
+}
+
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [self.dataSource numberOfSections];
+    return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.dataSource numberOfItemsInSection:section];
+    switch (section) {
+        case 0:
+            return self.industrys.count;
+            break;
+        case 1:
+            return self.stages.count;
+            break;
+        case 2:
+            return self.citys.count;
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    BiaoqainCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellid" forIndexPath:indexPath];
-//    [cell.titleLabel setText:[self.dataSource textCellForItemAtIndexPath:indexPath]];
-    [cell.burt setTitle:[self.dataSource textCellForItemAtIndexPath:indexPath] forState:UIControlStateNormal];
+    ShaiXuanCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:shaixuanCellid forIndexPath:indexPath];
+    NSString *titStr = @"";
+    switch (indexPath.section) {
+        case 0:
+            titStr = [self.industrys[indexPath.row] objectForKey:@"industryname"];
+            break;
+        case 1:
+            titStr = [self.stages[indexPath.row] objectForKey:@"stagename"];
+            break;
+        case 2:
+            titStr = [self.citys[indexPath.row] objectForKey:@"name"];
+            break;
+        default:
+            break;
+    }
+    [cell.titeButton setTitle:titStr forState:UIControlStateNormal];
     return cell;
 }
+
+#pragma mark - UICollectionViewDelegate
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqual:UICollectionElementKindSectionHeader]) {
+        ShaiXuanHeaderView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:shaixuanHeaderid forIndexPath:indexPath];
+        NSString *headerStr = @"";
+        switch (indexPath.section) {
+            case 0:
+                headerStr = _type==ShaiXuanTypeProject?@"项目领域":@"投资领域";
+                break;
+            case 1:
+                headerStr = _type==ShaiXuanTypeProject?@"投资阶段":@"投资阶段";
+                break;
+            case 2:
+                headerStr = _type==ShaiXuanTypeProject?@"项目地区":@"投资地区";
+                break;
+            default:
+                break;
+        }
+        [headerView.titLabel setText:headerStr];
+        return headerView;
+    }
+    return nil;
+}
+
 
 #pragma mark - 代理方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -141,27 +279,27 @@
     NSLog(@"didSelectItemAtIndexPath");
     switch (indexPath.section) {
         case 0:
-            if (oneIndex) {
-                [collectionView deselectItemAtIndexPath:oneIndex animated:NO];
+            if (_oneIndex) {
+                [collectionView deselectItemAtIndexPath:_oneIndex animated:NO];
             }
-            oneIndex = indexPath;
+            _oneIndex = indexPath;
             break;
         case 1:
-            if (twoIndex) {
-                [collectionView deselectItemAtIndexPath:twoIndex animated:NO];
+            if (_twoIndex) {
+                [collectionView deselectItemAtIndexPath:_twoIndex animated:NO];
             }
-            twoIndex = indexPath;
+            _twoIndex = indexPath;
             break;
         case 2:
-            if (threeIndex) {
-                [collectionView deselectItemAtIndexPath:threeIndex animated:NO];
+            if (_threeIndex) {
+                [collectionView deselectItemAtIndexPath:_threeIndex animated:NO];
             }
-            threeIndex = indexPath;
+            _threeIndex = indexPath;
             break;
         default:
             break;
     }
-    if (oneIndex||twoIndex||threeIndex) {
+    if (_oneIndex||_twoIndex||_threeIndex) {
         [self.confirmBut setEnabled:YES];
     }else{
         [self.confirmBut setEnabled:NO];
@@ -178,18 +316,18 @@
     NSLog(@"didDeselectItemAtIndexPath");
     switch (indexPath.section) {
         case 0:
-            oneIndex = nil;
+            _oneIndex = nil;
             break;
         case 1:
-            twoIndex = nil;
+            _twoIndex = nil;
             break;
         case 2:
-            threeIndex = nil;
+            _threeIndex = nil;
             break;
         default:
             break;
     }
-    if (oneIndex||twoIndex||threeIndex) {
+    if (_oneIndex||_twoIndex||_threeIndex) {
         [self.confirmBut setEnabled:YES];
     }else{
         [self.confirmBut setEnabled:NO];
@@ -203,8 +341,51 @@
 
 - (void)confirmButClick
 {
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (_type == ShaiXuanTypeProject) {
+        if (_oneIndex) {
+            //项目 领域搜索条件
+            [NSUserDefaults setObject:self.industrys[_oneIndex.row] forKey:[NSString stringWithFormat:kProjectSearchIndustryKey,loginUser.uid]];
+        }else{
+            [NSUserDefaults setObject:nil forKey:[NSString stringWithFormat:kProjectSearchIndustryKey,loginUser.uid]];
+        }
+        if (_twoIndex) {
+            //项目 投资阶段条件
+            [NSUserDefaults setObject:self.stages[_twoIndex.row] forKey:[NSString stringWithFormat:kProjectSearchStageKey,loginUser.uid]];
+        }else{
+            [NSUserDefaults setObject:nil forKey:[NSString stringWithFormat:kProjectSearchStageKey,loginUser.uid]];
+        }
+        
+        if (_threeIndex) {
+            //项目 地区条件
+            [NSUserDefaults setObject:self.citys[_threeIndex.row] forKey:[NSString stringWithFormat:kProjectSearchCityKey,loginUser.uid]];
+        }else{
+            [NSUserDefaults setObject:nil forKey:[NSString stringWithFormat:kProjectSearchCityKey,loginUser.uid]];
+        }
+    }else if (_type == ShaiXuanTypeInvestorUser){
+        if (_oneIndex) {
+            //项目 领域搜索条件
+            [NSUserDefaults setObject:self.industrys[_oneIndex.row] forKey:[NSString stringWithFormat:kInvestorSearchIndustryKey,loginUser.uid]];
+        }else{
+            [NSUserDefaults setObject:nil forKey:[NSString stringWithFormat:kInvestorSearchIndustryKey,loginUser.uid]];
+        }
+        if (_twoIndex) {
+            //项目 投资阶段条件
+            [NSUserDefaults setObject:self.stages[_twoIndex.row] forKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
+        }else{
+            [NSUserDefaults setObject:nil forKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
+        }
+        
+        if (_threeIndex) {
+            //项目 地区条件
+            [NSUserDefaults setObject:self.citys[_threeIndex.row] forKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
+        }else{
+            [NSUserDefaults setObject:nil forKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
+        }
+    }
+    
     if (self.shaixuanBlock) {
-        self.shaixuanBlock(1);
+        self.shaixuanBlock();
     }
     [self removeFromSuperview];
 }
@@ -221,6 +402,7 @@
 {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
 }
+
 
 
 @end

@@ -11,10 +11,10 @@
 #import "ShaiXuanView.h"
 #import "InvestorsTableController.h"
 
-@interface InvestorsListController () <XZPageViewControllerDataSource,XZPageViewControllerDelegate,ShaiXuanViewDataSource>
+@interface InvestorsListController () <XZPageViewControllerDataSource,XZPageViewControllerDelegate>
 
 @property (nonatomic, strong) ShaiXuanView *shaixuanView;
-@property (nonatomic, assign) __block NSInteger selectIndex;
+@property (nonatomic, assign) NSInteger selectIndex;
 @property (nonatomic, strong) NSArray *titArray;
 
 @end
@@ -24,8 +24,7 @@
 - (ShaiXuanView *)shaixuanView
 {
     if (_shaixuanView == nil) {
-        _shaixuanView = [[ShaiXuanView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        _shaixuanView.dataSource = self;
+        _shaixuanView = [[ShaiXuanView alloc] initWithShaiXuanType:ShaiXuanTypeInvestorUser];
         _shaixuanView.titleText = @"创业项目";
     }
     return _shaixuanView;
@@ -46,15 +45,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"认证投资人" style:UIBarButtonItemStyleBordered target:self action:@selector(goToInvestor)];
+    self.segmentedControl.sectionImages = @[@"",@"",@"",@"xiangmu_list_funnel_selected"];
     WEAKSELF
     [self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
         if (index == self.navTitlesArr.count-1) {
-//            [weakSelf.view.window addSubview:weakSelf.shaixuanView];
             [weakSelf.shaixuanView showVC];
+            weakSelf.shaixuanView.shaixuanBlock = ^(){
+                [weakSelf transitionToViewControllerAtIndex:index];
+                weakSelf.selectIndex = index;
+                [weakSelf.segmentedControl setSelectedSegmentIndex:weakSelf.selectIndex];
+            };
+            weakSelf.shaixuanView.cancelBlock = ^(){
+                [weakSelf.segmentedControl setSelectedSegmentIndex:weakSelf.selectIndex];
+            };
         }else{
             [weakSelf transitionToViewControllerAtIndex:index];
+            weakSelf.selectIndex = index;
+            [weakSelf.segmentedControl setSelectedSegmentIndex:weakSelf.selectIndex];
         }
-        
     }];
 }
 
@@ -67,7 +75,7 @@
         InvestorsTableController *investOrgTableVC = [[InvestorsTableController alloc] initWithInvestorsType:InvestorsTypeOrganization];
         return investOrgTableVC;
     }else if (index ==2){
-        InvestorsTableController *investOrgTableVC = [[InvestorsTableController alloc] initWithInvestorsType:InvestorsTypeOrganization];
+        InvestorsTableController *investOrgTableVC = [[InvestorsTableController alloc] initWithInvestorsType:InvestorsTypeUser];
         return investOrgTableVC;
     }
     return nil;
@@ -84,28 +92,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - 筛选代理方法
-// 多少组
-- (NSInteger)numberOfSections
-{
-    return 3;
-}
-// 每组多少个
-- (NSInteger)numberOfItemsInSection:(NSInteger)section
-{
-    return 13;
-}
-// 每组组头文字
-- (NSString *)titleWithSectionsTextatIndexPath:(NSIndexPath *)indexPath
-{
-    return @"dsa";
-}
-
-- (NSString *)textCellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return @"fda";
 }
 
 

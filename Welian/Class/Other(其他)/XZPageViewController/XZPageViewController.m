@@ -94,7 +94,7 @@
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     [self addChildViewController:self.pageViewController];
 
-    self.pageViewController.dataSource = self;
+//    self.pageViewController.dataSource = self;
     self.pageViewController.delegate = self;
     CGFloat navH = CGRectGetMaxY(self.segmentedControl.frame);
     self.contentView = [[UIView alloc] initWithFrame:CGRectMake(0, navH, self.view.bounds.size.width, self.view.bounds.size.height-navH)];
@@ -103,6 +103,16 @@
     self.pageViewController.view.frame = self.contentView.bounds;
     [self.contentView addSubview:self.pageViewController.view];
     [self.view addSubview:self.contentView];
+}
+
+- (void)setSlidePage:(BOOL)slidePage
+{
+    _slidePage = slidePage;
+    if (slidePage) {
+        self.pageViewController.dataSource = self;
+    }else{
+        self.pageViewController.dataSource = nil;
+    }
 }
 
 

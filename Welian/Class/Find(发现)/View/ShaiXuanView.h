@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol ShaiXuanViewDataSource;
-
+typedef NS_ENUM(NSInteger, ShaiXuanType) {
+    ShaiXuanTypeProject,                  // 项目
+    ShaiXuanTypeInvestorUser                // 投资人
+};
 
 typedef void (^CancelBlock)(void);
-typedef void (^ShaiXuanBlock)(NSInteger i);
+typedef void (^ShaiXuanBlock)(void);
 
-@interface ShaiXuanView : UIView <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ShaiXuanView : UIView
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-
-@property (nonatomic, weak) id<ShaiXuanViewDataSource> dataSource;
 
 @property (nonatomic, strong) NSString *titleText;
 
@@ -26,25 +26,24 @@ typedef void (^ShaiXuanBlock)(NSInteger i);
 
 @property (nonatomic, copy) ShaiXuanBlock shaixuanBlock;
 
-@property (nonatomic, strong) NSArray *selectArray;
+- (instancetype)initWithShaiXuanType:(ShaiXuanType)type;
 
-@property (nonatomic, strong) NSArray *dataArray;
 
 - (void)showVC;
 
 @end
 
 
-@protocol ShaiXuanViewDataSource <NSObject>
-
-- (NSIndexPath *)selectIndexPath:(NSInteger)section;
-// 多少组
-- (NSInteger)numberOfSections;
-// 每组多少个
-- (NSInteger)numberOfItemsInSection:(NSInteger)section;
-// 每组组头文字
-- (NSString *)titleWithSectionsTextatIndexPath:(NSIndexPath *)indexPath;
-
-- (NSString *)textCellForItemAtIndexPath:(NSIndexPath *)indexPath;
-
-@end
+//@protocol ShaiXuanViewDataSource <NSObject>
+//
+////- (NSIndexPath *)selectIndexPath:(NSInteger)section;
+//// 多少组
+//- (NSInteger)numberOfSections;
+//// 每组多少个
+//- (NSInteger)numberOfItemsInSection:(NSInteger)section;
+//// 每组组头文字
+//- (NSString *)titleWithSectionsTextatIndexPath:(NSIndexPath *)indexPath;
+//
+//- (NSString *)textCellForItemAtIndexPath:(NSIndexPath *)indexPath;
+//
+//@end

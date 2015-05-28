@@ -169,7 +169,7 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (invType == InvestorsTypeUser) {
         InvestorUserModel *invesUserM = [_dataArray objectAtIndex:indexPath.row];
-        InvestorUserInfoController *invesInfo = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeUID andUserData:invesUserM.user.uid];
+        InvestorUserInfoController *invesInfo = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeModel andUserData:invesUserM];
         [self.navigationController pushViewController:invesInfo animated:YES];
     }else if (invType == InvestorsTypeOrganization){
         TouzijigouModel *touzijigouM = [_dataArray objectAtIndex:indexPath.row];

@@ -27,7 +27,7 @@
         _dataArray = projects;
         self.tapGestureView = [[UIView alloc] initWithFrame:self.bounds];
         [self addSubview:self.tapGestureView];
-        [self.tapGestureView setBackgroundColor:[UIColor colorWithWhite:0.3 alpha:0.7]];
+        [self.tapGestureView setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.7]];
         
         UIView *backGuView = [[UIView alloc] initWithFrame:CGRectMake(30, 100, SuperSize.width-60, 280)];
         [backGuView setBackgroundColor:[UIColor whiteColor]];

@@ -81,7 +81,7 @@
     
     //监听报名状态改变
     [KNSNotification addObserver:self selector:@selector(updateUiInfo) name:kUpdateProjectListUI object:nil];
-    
+    [self.tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     //隐藏表格分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
