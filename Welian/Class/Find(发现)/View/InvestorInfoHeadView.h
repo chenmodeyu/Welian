@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DALabeledCircularProgressView.h"
+
 @class InvestorUserModel;
-//typedef NS_ENUM
 
 typedef NS_ENUM(NSInteger, InvestorMailingType) {
     InvestorMailingClick = 0,
@@ -32,11 +33,11 @@ typedef void(^InvestorMailingBlock)(InvestorMailingType mailingType);
 @property (nonatomic, strong) UIButton *cityBut;
 @property (nonatomic, strong) UILabel *positionLabel;
 // 收获所有项目
-@property (nonatomic, strong) UIView *receivedView;
+@property (nonatomic, strong) DALabeledCircularProgressView *receivedView;
 //反馈的
-@property (nonatomic, strong) UIView *feedbackView;
+@property (nonatomic, strong) DALabeledCircularProgressView *feedbackView;
 // 约谈
-@property (nonatomic, strong) UIView *interviewView;
+@property (nonatomic, strong) DALabeledCircularProgressView *interviewView;
 
 // 投递按钮
 @property (nonatomic, strong) UIButton *mailingBut;

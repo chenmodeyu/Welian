@@ -47,16 +47,31 @@
         [_positionLabel setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:_positionLabel];
         
-        _receivedView = [[UIView alloc] initWithFrame:CGRectMake(30, _positionLabel.bottom+15, 60, 60)];
-        [_receivedView setBackgroundColor:[UIColor redColor]];
+        _receivedView = [[DALabeledCircularProgressView alloc] initWithFrame:CGRectMake(30, _positionLabel.bottom+15, 60, 60)];
+        _receivedView.thicknessRatio = 0.05;
+        [_receivedView setTrackTintColor:[UIColor colorWithWhite:0.9 alpha:1]];
+        [_receivedView.titleLabel setText:@"收获项目"];
+        [_receivedView.titleLabel setTextColor:WLRGB(173, 173, 173)];
+        _receivedView.progresColor = WLRGB(253, 204, 101);
+        [_receivedView setProgressTintColor:WLRGB(253, 204, 101)];
         [self addSubview:_receivedView];
         
-        _feedbackView = [[UIView alloc] initWithFrame:CGRectMake((SuperSize.width-60-3*60)*0.5+_receivedView.right, _positionLabel.bottom+15, 60, 60)];
-        [_feedbackView setBackgroundColor:[UIColor redColor]];
+        _feedbackView = [[DALabeledCircularProgressView alloc] initWithFrame:CGRectMake((SuperSize.width-60-3*60)*0.5+_receivedView.right, _positionLabel.bottom+15, 60, 60)];
+        [_feedbackView setTrackTintColor:[UIColor colorWithWhite:0.9 alpha:1]];
+        _feedbackView.thicknessRatio = 0.05;
+        [_feedbackView.titleLabel setTextColor:WLRGB(173, 173, 173)];
+        [_feedbackView.titleLabel setText:@"反馈率"];
+        [_feedbackView setProgresColor:WLRGB(255, 119, 119)];
+        [_feedbackView setProgressTintColor:WLRGB(255, 119, 119)];
         [self addSubview:_feedbackView];
         
-        _interviewView = [[UIView alloc] initWithFrame:CGRectMake((SuperSize.width-60-3*60)*0.5+_feedbackView.right, _positionLabel.bottom+15, 60, 60)];
-        [_interviewView setBackgroundColor:[UIColor redColor]];
+        _interviewView = [[DALabeledCircularProgressView alloc] initWithFrame:CGRectMake((SuperSize.width-60-3*60)*0.5+_feedbackView.right, _positionLabel.bottom+15, 60, 60)];
+        [_interviewView setTrackTintColor:[UIColor colorWithWhite:0.9 alpha:1]];
+        _interviewView.thicknessRatio = 0.05;
+        [_interviewView.titleLabel setText:@"约谈率"];
+        [_interviewView.titleLabel setTextColor:WLRGB(173, 173, 173)];
+        [_interviewView setProgresColor:WLRGB(98, 201, 141)];
+        [_interviewView setProgressTintColor:WLRGB(98, 201, 141)];
         [self addSubview:_interviewView];
         
         _mailingBut = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -112,6 +127,15 @@
     
     [_nameLabel setText:userM.name];
     [_positionLabel setText:[NSString stringWithFormat:@"%@  %@",userM.position,userM.company]];
+    
+    [_receivedView setProgress:investorUserModel.received.floatValue animated:YES];
+    [_receivedView.progressLabel setText:[NSString stringWithFormat:@"%ld",(long)investorUserModel.received.integerValue]];
+
+    [_feedbackView setProgress:investorUserModel.received.floatValue?investorUserModel.feedback.floatValue/investorUserModel.received.floatValue:0.0 animated:YES];
+    [_feedbackView.progressLabel setText:[NSString stringWithFormat:@"%ld%@",investorUserModel.feedback.integerValue*100/investorUserModel.received.integerValue,@"%"]];
+    
+    [_interviewView setProgress:investorUserModel.received.floatValue?investorUserModel.interview.floatValue/investorUserModel.received.floatValue:0.0 animated:YES];
+    [_interviewView.progressLabel setText:[NSString stringWithFormat:@"%ld%@",investorUserModel.interview.integerValue*100/investorUserModel.received.integerValue,@"%"]];
 }
 
 - (void)setUserType:(InvestorUserInfoType)userType

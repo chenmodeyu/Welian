@@ -100,11 +100,17 @@
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed;
 
-//取投资机构
+//取投资机构列表
 + (void)getInvestorJigouWithPage:(NSNumber *)page
                             Size:(NSNumber *)size
                          Success:(SuccessBlock)success
                           Failed:(FailedBlock)failed;
+
+//取单个投资机构
++ (void)getOneInvestorJigouWithFirmid:(NSNumber *)firmid
+                              Success:(SuccessBlock)success
+                               Failed:(FailedBlock)failed;
+
 
 //取投资机构的投资人
 + (void)getInvestorJigouPersonWithJigouid:(NSNumber *)jigouid
