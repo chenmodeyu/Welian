@@ -82,6 +82,16 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+- (void)reloadToutiao
+{
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)reloadInvestor
+{
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 //{
 //    [self.tableView shouldPositionParallaxHeader];
@@ -208,11 +218,25 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     cell.deputLabel.hidden = YES;
     if (indexPath.section==0) {
         switch (indexPath.row) {
+            case 0:
+            {
+                [cell.deputLabel setHidden:!meinfo.toutiaocount.integerValue];
+                [cell.badgeImage setHidden:!meinfo.istoutiaobadge.boolValue];
+                if (meinfo.toutiaocount.integerValue > 0) {
+                    [cell.deputLabel setHidden:NO];
+                    [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"您有%@篇文章未读",meinfo.toutiaocount.stringValue]
+                                                                               searchStr:meinfo.toutiaocount.stringValue
+                                                                                   color:KBlueTextColor
+                                                                                    font:WLFONTBLOD(15)]];
+                }
+                [cell.badgeImage setHidden:!meinfo.istoutiaobadge.boolValue];
+            }
+                break;
             case 1:
             {
                 if (meinfo.activecount.integerValue > 0) {
                     [cell.deputLabel setHidden:NO];
-                    [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"有%@个活动可以参与",meinfo.activecount]
+                    [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"有%@个活动可以参与",meinfo.activecount.stringValue]
                                                                            searchStr:meinfo.activecount.stringValue
                                                                     color:KBlueTextColor
                                                                                 font:WLFONTBLOD(15)]];
@@ -232,16 +256,16 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
             [cell.deputLabel setHidden:!meinfo.projectcount.integerValue];
             [cell.badgeImage setHidden:!meinfo.isprojectbadge.boolValue];
             if (meinfo.projectcount.integerValue) {
-                [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"有%@个创业项目",meinfo.projectcount]
+                [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"有%@个创业项目",meinfo.projectcount.stringValue]
                                         searchStr:meinfo.projectcount.stringValue
                                             color:KBlueTextColor
                                             font:WLFONTBLOD(15)]];
             }
         }else if (indexPath.row==1){
             [cell.deputLabel setHidden:!meinfo.investorcount.boolValue];
-            [cell.badgeImage setHidden:YES];
+            [cell.badgeImage setHidden:!meinfo.isfindinvestorbadge.boolValue];
             if (meinfo.investorcount.integerValue) {
-                [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"%@位已认证投资人",meinfo.investorcount]
+                [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"%@位已认证投资人",meinfo.investorcount.stringValue]
                                                                            searchStr:meinfo.investorcount.stringValue
                                                                                color:KBlueTextColor
                                                                                 font:WLFONTBLOD(15)]];
@@ -270,6 +294,11 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                     //创业头条
                     NewsListViewController *newListVC = [[NewsListViewController alloc] init];
                     [self.navigationController pushViewController:newListVC animated:YES];
+                    
+                    [LogInUser updateToutiaoBadge:NO];
+                    [LogInUser updateToutiaoCount:@(0)];
+                    [[MainViewController sharedMainViewController] loadNewStustupdata];
+                    [self reloadToutiao];
                 }
                     break;
                 case 1:
@@ -311,6 +340,10 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                 InvestorsListController *investorListVC = [[InvestorsListController alloc] init];
                 [investorListVC setTitle:@"投资人"];
                 [self.navigationController pushViewController:investorListVC animated:YES];
+                
+                [LogInUser updateFindInvestorBadge:NO];
+                [[MainViewController sharedMainViewController] loadNewStustupdata];
+                [self reloadInvestor];
             }
         }
             break;

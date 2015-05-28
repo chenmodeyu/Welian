@@ -55,18 +55,22 @@ single_implementation(MainViewController)
 - (void)loadNewStustupdata
 {
     if ([UserDefaults objectForKey:kSessionId]) {
-        LogInUser *mode = [LogInUser getCurrentLoginUser];
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
         //获取最新动态数量
-        [WeLianClient getNewFeedCountsWithID:mode.firststustid
+        [WeLianClient getNewFeedCountsWithID:loginUser.firststustid ? : @(0)
+                                        Time:loginUser.lastGetTime.length > 0 ? loginUser.lastGetTime : @""
                                      Success:^(id resultInfo) {
-                                         NSNumber *count = [resultInfo objectForKey:@"count"];
-                                         NSNumber *activecount = [resultInfo objectForKey:@"activecount"];
-                                         NSNumber *investorcount = [resultInfo objectForKey:@"investorcount"];
-                                         NSNumber *projectcount = [resultInfo objectForKey:@"projectcount"];
-                                         [LogInUser setUserNewstustcount:count];
-                                         [LogInUser setUserActivecount:activecount];
-                                         [LogInUser setUserInvestorcount:investorcount];
-                                         [LogInUser setUserProjectcount:projectcount];
+                                         IGetNewFeedResultModel *newFeedModel = resultInfo;
+                                         //保存数据
+                                         [LogInUser setNewFeedCountInfo:newFeedModel];
+//                                         NSNumber *count = [resultInfo objectForKey:@"count"];
+//                                         NSNumber *activecount = [resultInfo objectForKey:@"activecount"];
+//                                         NSNumber *investorcount = [resultInfo objectForKey:@"investorcount"];
+//                                         NSNumber *projectcount = [resultInfo objectForKey:@"projectcount"];
+//                                         [LogInUser setUserNewstustcount:count];
+//                                         [LogInUser setUserActivecount:activecount];
+//                                         [LogInUser setUserInvestorcount:investorcount];
+//                                         [LogInUser setUserProjectcount:projectcount];
                                          [self updataItembadge];
                                      } Failed:^(NSError *error) {
                                          
@@ -107,7 +111,7 @@ single_implementation(MainViewController)
     }
     
     /// 有新的活动或者新的项目
-    if ([LogInUser getCurrentLoginUser].isactivebadge.boolValue || [LogInUser getCurrentLoginUser].isprojectbadge.boolValue) {
+    if ([LogInUser getCurrentLoginUser].isactivebadge.boolValue || [LogInUser getCurrentLoginUser].isprojectbadge.boolValue || [LogInUser getCurrentLoginUser].istoutiaobadge.boolValue || [LogInUser getCurrentLoginUser].isfindinvestorbadge.boolValue) {
         [findItem setImage:[[UIImage imageNamed:@"tabbar_discovery_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         [findItem setSelectedImage:[[UIImage imageNamed:@"tabbar_discovery_selected_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{

@@ -342,6 +342,7 @@
 
 //取最新动态数量
 + (void)getNewFeedCountsWithID:(NSNumber *)fid
+                          Time:(NSString *)time
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed;
 

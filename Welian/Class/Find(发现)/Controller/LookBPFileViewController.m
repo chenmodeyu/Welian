@@ -19,6 +19,13 @@
 
 @implementation LookBPFileViewController
 
+- (void)dealloc
+{
+    _bpPath = nil;
+    _previewController = nil;
+    _bpUrl = nil;
+}
+
 - (NSString *)title
 {
     return @"BP详情";
@@ -58,7 +65,7 @@
     folder = [folder stringByAppendingPathComponent:fileName];
     if ([ResManager fileExistByPath:folder]) {
         //本地存在的话，直接查看
-        self.bpUrl = [NSURL URLWithString:folder];
+        self.bpUrl = [NSURL fileURLWithPath:folder];
         [_previewController reloadData];
     }
 }

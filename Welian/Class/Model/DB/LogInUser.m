@@ -38,6 +38,10 @@
 @dynamic isinvestorbadge;
 @dynamic newfriendbadge;
 @dynamic activecount;
+@dynamic toutiaocount;
+@dynamic istoutiaobadge;
+@dynamic lastGetTime;
+@dynamic isfindinvestorbadge;
 
 @dynamic rsCompanys;
 @dynamic rsSchools;
@@ -221,6 +225,24 @@
 //    [[LogInUser getNowLogInUser] setActivecount:activecount];
 //    [MOC save];
 }
++ (void)updateToutiaoCount:(NSNumber *)count
+{
+    LogInUser *loginUser = [self getCurrentLoginUser];
+    loginUser.toutiaocount = count;
+    [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
+}
++ (void)updateToutiaoBadge:(BOOL)badge
+{
+    LogInUser *loginUser = [self getCurrentLoginUser];
+    loginUser.istoutiaobadge = @(badge);
+    [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
+}
++ (void)updateFindInvestorBadge:(BOOL)badge
+{
+    LogInUser *loginUser = [self getCurrentLoginUser];
+    loginUser.isfindinvestorbadge = @(badge);
+    [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
+}
 + (void)setUserIsactivebadge:(BOOL)isactivebadge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
@@ -253,6 +275,26 @@
     
 //    [[LogInUser getNowLogInUser] setNewfriendbadge:newfriendbadge];
 //    [MOC save];
+}
+
+//设置新的动态、项目、活动、头条等数量
++ (void)setNewFeedCountInfo:(IGetNewFeedResultModel *)newFeedModel
+{
+    //设置发现中的对应数量信息
+    LogInUser *loginUser = [self getCurrentLoginUser];
+    loginUser.lastGetTime = newFeedModel.time;
+    loginUser.newstustcount = newFeedModel.feedcount;
+    loginUser.activecount = newFeedModel.activecount;
+    loginUser.investorcount = newFeedModel.investorcount;
+    loginUser.projectcount = newFeedModel.projectcount;
+    loginUser.toutiaocount = newFeedModel.toutiaocount;
+    //是否有新的信息
+    loginUser.isactivebadge = loginUser.isactivebadge.boolValue ? @(YES): (newFeedModel.activenewcount.integerValue > 0 ? @(YES) : @(NO));
+    loginUser.isprojectbadge = loginUser.isprojectbadge.boolValue ? @(YES): (newFeedModel.projectnewcount.integerValue > 0 ? @(YES) : @(NO));
+    loginUser.istoutiaobadge = loginUser.istoutiaobadge.boolValue ? @(YES): (newFeedModel.toutiaonewcount.integerValue > 0 ? @(YES) : @(NO));
+    //投资人
+    loginUser.isfindinvestorbadge = loginUser.isfindinvestorbadge.boolValue ? @(YES): (newFeedModel.investornewcount.integerValue > 0 ? @(YES) : @(NO));
+    [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
 
 

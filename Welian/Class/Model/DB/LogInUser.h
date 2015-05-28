@@ -12,7 +12,7 @@
 
 @class ILoginUserModel;
 
-@class CompanyModel, FriendsFriendUser, MyFriendUser, NewFriendUser, SchoolModel, HomeMessage, InvestStages, InvestIndustry, InvestItems, NeedAddUser ,ProjectInfo, ActivityInfo ,TouTiaoInfo, ProjectClassInfo;
+@class CompanyModel, FriendsFriendUser, MyFriendUser, NewFriendUser, SchoolModel, HomeMessage, InvestStages, InvestIndustry, InvestItems, NeedAddUser ,ProjectInfo, ActivityInfo ,TouTiaoInfo, ProjectClassInfo,IGetNewFeedResultModel;
 
 @interface LogInUser : BaseUser
 
@@ -147,8 +147,14 @@
 @property (nonatomic, retain) NSNumber * isinvestorbadge;
 // 新好友请求个数
 @property (nonatomic, retain) NSNumber * newfriendbadge;
+@property (nonatomic, retain) NSNumber * isfindinvestorbadge;//发现中投资人
 // 发现模块 活动个数
 @property (nonatomic, retain) NSNumber * activecount;
+//头条
+@property (nonatomic, retain) NSNumber * toutiaocount;
+@property (nonatomic, retain) NSNumber * istoutiaobadge;
+
+@property (nonatomic, retain) NSString * lastGetTime;//最后一次请求接口的时间
 
 + (void)setUserFirststustid:(NSNumber *)firststustid;
 + (void)setUserNewstustcount:(NSNumber *)newstustcount;
@@ -156,10 +162,16 @@
 + (void)setUserInvestorcount:(NSNumber *)investorcount;
 + (void)setUserProjectcount:(NSNumber *)projectcount;
 + (void)setUserActivecount:(NSNumber *)activecount;
++ (void)updateToutiaoCount:(NSNumber *)count;
++ (void)updateToutiaoBadge:(BOOL)badge;
++ (void)updateFindInvestorBadge:(BOOL)badge;
 + (void)setUserIsactivebadge:(BOOL)isactivebadge;
 + (void)setUserIsinvestorbadge:(BOOL)isinvestorbadge;
 + (void)setUserIsProjectBadge:(BOOL)isprojectbadge;
 + (void)setUserNewfriendbadge:(NSNumber *)newfriendbadge;
+
+//设置新的动态、项目、活动、头条等数量
++ (void)setNewFeedCountInfo:(IGetNewFeedResultModel *)newFeedModel;
 
 
 

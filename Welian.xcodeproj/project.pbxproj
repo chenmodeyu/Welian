@@ -662,6 +662,11 @@
 		A48465BE1ADF900A0041BBCE /* WLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */; };
 		A48465BF1ADF900A0041BBCE /* WLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */; };
 		A48465C01ADF900A0041BBCE /* WLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */; };
+		A486EBDE1B16BA6900A591EE /* IGetNewFeedResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A486EBDD1B16BA6900A591EE /* IGetNewFeedResultModel.m */; };
+		A486EBDF1B16BA6900A591EE /* IGetNewFeedResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A486EBDD1B16BA6900A591EE /* IGetNewFeedResultModel.m */; };
+		A486EBE01B16BA6A00A591EE /* IGetNewFeedResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A486EBDD1B16BA6900A591EE /* IGetNewFeedResultModel.m */; };
+		A486EBE11B16BA6A00A591EE /* IGetNewFeedResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A486EBDD1B16BA6900A591EE /* IGetNewFeedResultModel.m */; };
+		A486EBE21B16BA6A00A591EE /* IGetNewFeedResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A486EBDD1B16BA6900A591EE /* IGetNewFeedResultModel.m */; };
 		A48845F41B0B10860053B92F /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845F31B0B10860053B92F /* NewsListViewController.m */; };
 		A48845F51B0B10860053B92F /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845F31B0B10860053B92F /* NewsListViewController.m */; };
 		A48845F61B0B10860053B92F /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48845F31B0B10860053B92F /* NewsListViewController.m */; };
@@ -5251,6 +5256,8 @@
 		A48302FB1AA9849000B5CB52 /* discovery_activity_detail_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discovery_activity_detail_time@2x.png"; sourceTree = "<group>"; };
 		A48465BA1ADF900A0041BBCE /* WLSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSegmentedControl.h; sourceTree = "<group>"; };
 		A48465BB1ADF900A0041BBCE /* WLSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSegmentedControl.m; sourceTree = "<group>"; };
+		A486EBDC1B16BA6900A591EE /* IGetNewFeedResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGetNewFeedResultModel.h; sourceTree = "<group>"; };
+		A486EBDD1B16BA6900A591EE /* IGetNewFeedResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGetNewFeedResultModel.m; sourceTree = "<group>"; };
 		A48845F21B0B10860053B92F /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
 		A48845F31B0B10860053B92F /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		A48845FA1B0B15490053B92F /* NewsListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewCell.h; sourceTree = "<group>"; };
@@ -7217,6 +7224,8 @@
 				A4E322E91B14118400DD395B /* ICommonSelectInfoResult.m */,
 				A4E322F61B1412C900DD395B /* ICityModel.h */,
 				A4E322F71B1412C900DD395B /* ICityModel.m */,
+				A486EBDC1B16BA6900A591EE /* IGetNewFeedResultModel.h */,
+				A486EBDD1B16BA6900A591EE /* IGetNewFeedResultModel.m */,
 			);
 			path = Interface2.0;
 			sourceTree = "<group>";
@@ -13864,6 +13873,7 @@
 				F5933FAD1AD4F4030088C70D /* UIScrollView+MJExtension.m in Sources */,
 				A49C7CED1A70D42700F2AEC5 /* WLShareMenuItem.m in Sources */,
 				A493C2431ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
+				A486EBE21B16BA6A00A591EE /* IGetNewFeedResultModel.m in Sources */,
 				A49C7CEF1A70D42700F2AEC5 /* NSObject+MJCoding.m in Sources */,
 				A49C7CF01A70D42700F2AEC5 /* HanyuPinyinOutputFormat.m in Sources */,
 				A49C7CF11A70D42700F2AEC5 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -14423,6 +14433,7 @@
 				F53DC35C1A49192600F5F712 /* SDWebImageManager.m in Sources */,
 				F53DC35D1A49192600F5F712 /* AFURLConnectionOperation.m in Sources */,
 				F58CA9A21A5D4F9100988A61 /* DaiDodgeKeyboardObjects.m in Sources */,
+				A486EBE01B16BA6A00A591EE /* IGetNewFeedResultModel.m in Sources */,
 				F5933FAC1AD4F4030088C70D /* UIScrollView+MJExtension.m in Sources */,
 				A41CE1B91A6F8EA0004F17E7 /* WLShareMenuItem.m in Sources */,
 				A493C2411ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
@@ -14982,6 +14993,7 @@
 				A41CE1B71A6F8EA0004F17E7 /* WLShareMenuItem.m in Sources */,
 				F5933FAA1AD4F4030088C70D /* UIScrollView+MJExtension.m in Sources */,
 				A493C23F1ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
+				A486EBDE1B16BA6900A591EE /* IGetNewFeedResultModel.m in Sources */,
 				F5A3F8F61A41855900F06DDD /* ISchoolResult.m in Sources */,
 				F5664A271A2AFD56008A5830 /* AFURLConnectionOperation.m in Sources */,
 				F5664A291A2AFD56008A5830 /* NSObject+MJCoding.m in Sources */,
@@ -15541,6 +15553,7 @@
 				F5664CE01A2AFDD5008A5830 /* SDWebImageManager.m in Sources */,
 				F5664CE11A2AFDD5008A5830 /* AFURLConnectionOperation.m in Sources */,
 				F58CA9A11A5D4F9100988A61 /* DaiDodgeKeyboardObjects.m in Sources */,
+				A486EBDF1B16BA6900A591EE /* IGetNewFeedResultModel.m in Sources */,
 				F5933FAB1AD4F4030088C70D /* UIScrollView+MJExtension.m in Sources */,
 				A41CE1B81A6F8EA0004F17E7 /* WLShareMenuItem.m in Sources */,
 				A493C2401ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
@@ -15733,6 +15746,7 @@
 				A493C2921ADD0BB00056BD52 /* NSArray+ArrayQuery.m in Sources */,
 				A4C0E1361B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A48A36661AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
+				A486EBE11B16BA6A00A591EE /* IGetNewFeedResultModel.m in Sources */,
 				A493C2241ADD0BB00056BD52 /* NSData+MD5Digest.m in Sources */,
 				A493C2791ADD0BB00056BD52 /* NSManagedObjectContext+e0571.m in Sources */,
 				A493C33E1ADD14A60056BD52 /* CommentMode.m in Sources */,

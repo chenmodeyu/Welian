@@ -906,7 +906,7 @@ static NSString *noCommentCell = @"NoCommentCell";
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     //认证投资人或者自己创建的项目可以查看融资信息  /**  投资者认证  0 默认状态  1  认证成功  -2 正在审核  -1 认证失败 */
-    if (loginUser.investorauth.integerValue == 1 || loginUser.uid.integerValue == _projectDetailInfo.rsProjectUser.uid.integerValue) {
+    if (loginUser.investorauth.integerValue == 1 || loginUser.uid.integerValue == _projectDetailInfo.rsProjectUser.uid.integerValue || loginUser.uid.integerValue == _iProjectDetailInfo.user.uid.integerValue || loginUser.uid.integerValue == _projectInfo.rsProjectUser.uid.integerValue) {
 //        [self openProjectDetailInfoView];
         [self lookProjectFinancingInfo];
     }else{

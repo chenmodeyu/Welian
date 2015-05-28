@@ -55,6 +55,7 @@
 #import "IProjectBPModel.h"
 #import "ICommonSelectInfoResult.h"
 #import "ICityModel.h"
+#import "IGetNewFeedResultModel.h"
 
 
 #pragma mark - Model（Home）

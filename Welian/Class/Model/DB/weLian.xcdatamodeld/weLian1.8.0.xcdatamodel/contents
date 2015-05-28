@@ -136,14 +136,18 @@
         <attribute name="homemessagebadge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="investorcount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="isactivebadge" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isfindinvestorbadge" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isinvestorbadge" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isNow" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isprojectbadge" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="istoutiaobadge" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastGetTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="newfriendbadge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="newstustcount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="openid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectcount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sessionid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toutiaocount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="unionid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="rsActivityInfos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ActivityInfo" inverseName="rsLoginUser" inverseEntity="ActivityInfo" syncable="YES"/>
@@ -273,6 +277,7 @@
         <element name="ActivityInfo" positionX="-1350" positionY="-387" width="128" height="328"/>
         <element name="BaseUser" positionX="-1566" positionY="-244" width="128" height="375"/>
         <element name="ChatMessage" positionX="-423" positionY="-549" width="128" height="495"/>
+        <element name="CityInfo" positionX="-1359" positionY="-396" width="128" height="105"/>
         <element name="CompanyModel" positionX="52" positionY="-234" width="128" height="133"/>
         <element name="FriendsFriendUser" positionX="-632" positionY="-31" width="128" height="60"/>
         <element name="HomeMessage" positionX="-1359" positionY="-396" width="128" height="223"/>
@@ -280,7 +285,7 @@
         <element name="InvestItems" positionX="-1350" positionY="-387" width="128" height="103"/>
         <element name="InvestorUser" positionX="-729" positionY="-477" width="128" height="58"/>
         <element name="InvestStages" positionX="-1341" positionY="-378" width="128" height="88"/>
-        <element name="LogInUser" positionX="-218" positionY="-193" width="128" height="510"/>
+        <element name="LogInUser" positionX="-218" positionY="-193" width="128" height="570"/>
         <element name="MyFriendUser" positionX="-650" positionY="-387" width="128" height="150"/>
         <element name="NeedAddUser" positionX="-1359" positionY="-396" width="128" height="120"/>
         <element name="NewFriendUser" positionX="-623" positionY="-270" width="128" height="165"/>
@@ -292,6 +297,5 @@
         <element name="SchoolCompanyDate" positionX="322" positionY="-63" width="128" height="103"/>
         <element name="SchoolModel" positionX="63" positionY="53" width="128" height="133"/>
         <element name="TouTiaoInfo" positionX="-1359" positionY="-396" width="128" height="180"/>
-        <element name="CityInfo" positionX="-1359" positionY="-396" width="128" height="105"/>
     </elements>
 </model>
