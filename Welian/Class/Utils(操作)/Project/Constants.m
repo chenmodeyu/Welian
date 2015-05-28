@@ -52,6 +52,15 @@ NSString *const kChatNowKey = @"chat:%@";//正在聊天中
 NSString *const kBPushRequestChannelIdKey = @"channel_id";// 个推 channel_id的键
 NSString *const kneedChannelId = @"needChannelId";// 需要上传 channel_id
 
+///搜索条件记录
+NSString *const kProjectSearchIndustryKey = @"ProjectSearchIndustry_%@";//项目 领域搜索条件
+NSString *const kProjectSearchCityKey = @"ProjectSearchCity_%@";//项目 地区条件
+NSString *const kProjectSearchStageKey = @"ProjectSearchStage_%@";//项目 投资阶段条件
+
+NSString *const kInvestorSearchIndustryKey = @"InvestorSearchIndustry_%@";//投资人 领域搜索条件
+NSString *const kInvestorSearchCityKey = @"InvestorSearchCity_%@";//投资人 地区条件
+NSString *const kInvestorSearchStageKey = @"InvestorSearchStage_%@";//投资人 投资阶段条件
+
 
 
 

@@ -386,19 +386,21 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    IProjectBPModel *bpModel = _datasource[indexPath.row - 2];
-    [WeLianClient investorDownloadWithPid:bpModel.bpid
-                                  Success:^(id resultInfo) {
-                                      //BP地址url
-                                      NSString *url = resultInfo[@"url"];
-                                      [self downloadBPAndLook:url];
-                                  } Failed:^(NSError *error) {
-                                      if (error) {
-                                          [WLHUDView showErrorHUD:error.localizedDescription];
-                                      }else{
-                                          [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
-                                      }
-                                  }];
+    if (_datasource.count > 0 && indexPath.row >= 2) {
+        IProjectBPModel *bpModel = _datasource[indexPath.row - 2];
+        [WeLianClient investorDownloadWithPid:bpModel.bpid
+                                      Success:^(id resultInfo) {
+                                          //BP地址url
+                                          NSString *url = resultInfo[@"url"];
+                                          [self downloadBPAndLook:url];
+                                      } Failed:^(NSError *error) {
+                                          if (error) {
+                                              [WLHUDView showErrorHUD:error.localizedDescription];
+                                          }else{
+                                              [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                          }
+                                      }];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

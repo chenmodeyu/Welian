@@ -69,7 +69,7 @@
                                                     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                         UIImage *avatorImage = [UIImage imageNamed:@"user_small"];
                                                         if (image) {
-                                                            avatorImage = [WLMessageAvatorFactory avatarImageNamed:image messageAvatorType:WLMessageAvatorTypeCircle];
+                                                            avatorImage = image;//[WLMessageAvatorFactory avatarImageNamed:image messageAvatorType:WLMessageAvatorTypeCircle];
                                                         }
                                                         [_logoBtn setImage:avatorImage forState:UIControlStateNormal];
                                                     }];
@@ -122,7 +122,7 @@
                                                     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                         UIImage *avatorImage = [UIImage imageNamed:@"user_small"];
                                                         if (image) {
-                                                            avatorImage = [WLMessageAvatorFactory avatarImageNamed:image messageAvatorType:WLMessageAvatorTypeCircle];
+                                                            avatorImage = image;//[WLMessageAvatorFactory avatarImageNamed:image messageAvatorType:WLMessageAvatorTypeCircle];
                                                         }
                                                         [_logoBtn setImage:avatorImage forState:UIControlStateNormal];
                                                     }];

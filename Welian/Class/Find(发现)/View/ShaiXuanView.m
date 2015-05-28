@@ -131,6 +131,7 @@
 {
     BiaoqainCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellid" forIndexPath:indexPath];
 //    [cell.titleLabel setText:[self.dataSource textCellForItemAtIndexPath:indexPath]];
+    [cell.burt setTitle:[self.dataSource textCellForItemAtIndexPath:indexPath] forState:UIControlStateNormal];
     return cell;
 }
 

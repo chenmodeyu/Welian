@@ -56,6 +56,14 @@ extern NSString *const kChatNowKey;//正在聊天中
 extern NSString *const kBPushRequestChannelIdKey;//个推 channel_id的键
 extern NSString *const kneedChannelId;//个推 需要上传 channel_id
 
+///搜索条件记录
+extern NSString *const kProjectSearchIndustryKey;//项目 领域搜索条件
+extern NSString *const kProjectSearchCityKey;//项目 地区条件
+extern NSString *const kProjectSearchStageKey;//项目 投资阶段条件
+
+extern NSString *const kInvestorSearchIndustryKey;//投资人 领域搜索条件
+extern NSString *const kInvestorSearchCityKey;//投资人 地区条件
+extern NSString *const kInvestorSearchStageKey;//投资人 投资阶段条件
 
 
 

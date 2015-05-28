@@ -22,27 +22,27 @@
 //    if (!baseUser) {
 //        baseUser = [ProjectUser MR_createEntity];
 //    }
-    ProjectUser *baseUser = [ProjectUser MR_createEntity];
-    baseUser.avatar = iBaseUserM.avatar;
-    baseUser.name = iBaseUserM.name;
-    baseUser.uid = iBaseUserM.uid;
-    baseUser.address = iBaseUserM.address;
-    baseUser.email = iBaseUserM.email;
-    baseUser.friendship = iBaseUserM.friendship;
-    baseUser.investorauth = iBaseUserM.investorauth;
-    baseUser.inviteurl = iBaseUserM.inviteurl;
-    baseUser.mobile = iBaseUserM.mobile;
+    ProjectUser *projectUser = [ProjectUser MR_createEntity];
+    projectUser.avatar = iBaseUserM.avatar;
+    projectUser.name = iBaseUserM.name;
+    projectUser.uid = iBaseUserM.uid;
+    projectUser.address = iBaseUserM.address;
+    projectUser.email = iBaseUserM.email;
+    projectUser.friendship = iBaseUserM.friendship;
+    projectUser.investorauth = iBaseUserM.investorauth;
+    projectUser.inviteurl = iBaseUserM.inviteurl;
+    projectUser.mobile = iBaseUserM.mobile;
 //    baseUser.startupauth = iBaseUserM.startupauth;
-    baseUser.company = iBaseUserM.company;
-    baseUser.position = iBaseUserM.position;
-    baseUser.provinceid = iBaseUserM.provinceid;
-    baseUser.provincename = iBaseUserM.provincename;
-    baseUser.cityid = iBaseUserM.cityid;
-    baseUser.cityname = iBaseUserM.cityname;
-    baseUser.shareurl = iBaseUserM.shareurl;
+    projectUser.company = iBaseUserM.company;
+    projectUser.position = iBaseUserM.position;
+    projectUser.provinceid = iBaseUserM.provinceid;
+    projectUser.provincename = iBaseUserM.provincename;
+    projectUser.cityid = iBaseUserM.cityid;
+    projectUser.cityname = iBaseUserM.cityname;
+    projectUser.shareurl = iBaseUserM.shareurl;
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    return baseUser;
+    return projectUser;
 }
 
 ////获取指定uid的对象
