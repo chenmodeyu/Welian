@@ -96,7 +96,8 @@
                                                     cardTitle:chatMessage.cardTitle
                                                     cardIntro:chatMessage.cardIntro
                                                       cardUrl:chatMessage.cardUrl
-                                                      cardMsg:chatMessage.cardMsg];
+                                                      cardMsg:chatMessage.cardMsg
+                                               cardRelationId:chatMessage.cardRelationId];
                     message.avatorUrl = chatMessage.avatorUrl;
                     message.sended = chatMessage.sendStatus.stringValue;
                     message.bubbleMessageType = chatMessage.bubbleMessageType.integerValue;
@@ -271,7 +272,8 @@
                                             cardTitle:chatMessage.cardTitle
                                             cardIntro:chatMessage.cardIntro
                                               cardUrl:chatMessage.cardUrl
-                                              cardMsg:chatMessage.cardMsg];
+                                              cardMsg:chatMessage.cardMsg
+                                       cardRelationId:chatMessage.cardRelationId];
             message.avatorUrl = chatMessage.avatorUrl;
             message.sended = chatMessage.sendStatus.stringValue;
             message.bubbleMessageType = chatMessage.bubbleMessageType.integerValue;
@@ -649,7 +651,8 @@
                                                     cardTitle:chatMessage.cardTitle
                                                     cardIntro:chatMessage.cardIntro
                                                       cardUrl:chatMessage.cardUrl
-                                                      cardMsg:chatMessage.cardMsg];
+                                                      cardMsg:chatMessage.cardMsg
+                                               cardRelationId:chatMessage.cardRelationId];
                     message.avatorUrl = chatMessage.avatorUrl;
                     message.sended = chatMessage.sendStatus.stringValue;
                     message.bubbleMessageType = chatMessage.bubbleMessageType.integerValue;
