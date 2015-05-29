@@ -65,6 +65,8 @@
 - (void)setCardM:(CardStatuModel *)cardM
 {
     //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
+    _iconImage.layer.cornerRadius = 0;
+    
     _cardM = cardM;
     NSInteger typeint = cardM.type.integerValue;
     NSString *imageName = @"";
@@ -107,10 +109,22 @@
         case 14:
         case 15:
         {
+            _iconImage.layer.cornerRadius = 40 /2.f;
+            _iconImage.layer.masksToBounds = YES;
             //名片  需要下载
+//            [_iconImage sd_setImageWithURL:[NSURL URLWithString:_cardM.url]
+//                          placeholderImage:[UIImage imageNamed:@"user_small"]
+//                                   options:SDWebImageRetryFailed|SDWebImageLowPriority];
             [_iconImage sd_setImageWithURL:[NSURL URLWithString:_cardM.url]
                           placeholderImage:[UIImage imageNamed:@"user_small"]
-                                   options:SDWebImageRetryFailed|SDWebImageLowPriority];
+                                   options:SDWebImageRetryFailed|SDWebImageLowPriority
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                     if (image) {
+                                         _iconImage.image = image;
+                                     }else{
+                                         _iconImage.image = [UIImage imageNamed:@"user_small"];
+                                     }
+                                 }];
         }
             break;
         default:
