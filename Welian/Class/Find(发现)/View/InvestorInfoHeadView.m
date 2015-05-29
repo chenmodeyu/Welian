@@ -133,22 +133,62 @@
     [_receivedView.progressLabel setText:[NSString stringWithFormat:@"%ld",(long)investorUserModel.received.integerValue]];
 
     [_feedbackView setProgress:investorUserModel.received.floatValue?investorUserModel.feedback.floatValue/investorUserModel.received.floatValue:0.0 animated:YES];
-    [_feedbackView.progressLabel setText:[NSString stringWithFormat:@"%ld%@",investorUserModel.feedback.integerValue*100/investorUserModel.received.integerValue,@"%"]];
+    [_feedbackView.progressLabel setText:[NSString stringWithFormat:@"%d%@",investorUserModel.feedback.integerValue*100/investorUserModel.received.integerValue,@"%"]];
     
     [_interviewView setProgress:investorUserModel.received.floatValue?investorUserModel.interview.floatValue/investorUserModel.received.floatValue:0.0 animated:YES];
-    [_interviewView.progressLabel setText:[NSString stringWithFormat:@"%ld%@",investorUserModel.interview.integerValue*100/investorUserModel.received.integerValue,@"%"]];
+    [_interviewView.progressLabel setText:[NSString stringWithFormat:@"%d%@",investorUserModel.interview.integerValue*100/investorUserModel.received.integerValue,@"%"]];
+    
+    [_mailingBut setHidden:!investorUserModel.status];
+    [_agreeView setHidden:!investorUserModel.status];
+    if (investorUserModel.status) {
+        switch (investorUserModel.status.integerValue) {
+            case 0:  //0 未处理
+                [_mailingBut setHidden:YES];
+                [_agreeView setHidden:NO];
+                [_rejectBut setEnabled:YES];
+                [_agreeBut setEnabled:YES];
+                break;
+            case 1:  //1 不同意
+                [_mailingBut setHidden:YES];
+                [_agreeView setHidden:NO];
+                [_rejectBut setTitle:@"已拒绝" forState:UIControlStateDisabled];
+                [_rejectBut setEnabled:NO];
+                [_agreeBut setTitle:@"同意发送BP" forState:UIControlStateDisabled];
+                [_agreeBut setEnabled:NO];
+                break;
+            case 2:  // 2 同意
+                [_mailingBut setHidden:YES];
+                [_agreeView setHidden:NO];
+                [_rejectBut setTitle:@"拒绝发送BP" forState:UIControlStateDisabled];
+                [_rejectBut setEnabled:NO];
+                [_agreeBut setTitle:@"已同意" forState:UIControlStateDisabled];
+                [_agreeBut setEnabled:NO];
+                break;
+            case 3:  // 3 已发送
+                [_mailingBut setHidden:NO];
+                [_agreeView setHidden:YES];
+                break;
+            case -1: // -1 标示只查看投资人
+                [_mailingBut setHidden:NO];
+                [_agreeView setHidden:YES];
+                break;
+            default:
+                break;
+        }
+    }
+    
 }
 
 - (void)setUserType:(InvestorUserInfoType)userType
 {
     _userType = userType;
-    if (userType == InvestorUserTypeUID) {
-        [_agreeView setHidden:NO];
-        [_mailingBut setHidden:YES];
-    }else if (userType ==InvestorUserTypeModel){
-        [_agreeView setHidden:YES];
-        [_mailingBut setHidden:NO];
-    }
+//    if (userType == InvestorUserTypeUID) {
+//        [_agreeView setHidden:NO];
+//        [_mailingBut setHidden:YES];
+//    }else if (userType ==InvestorUserTypeModel){
+//        [_agreeView setHidden:YES];
+//        [_mailingBut setHidden:NO];
+//    }
 }
 
 @end
