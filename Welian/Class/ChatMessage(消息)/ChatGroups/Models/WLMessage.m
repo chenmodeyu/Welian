@@ -43,6 +43,7 @@
                    cardIntro:(NSString *)cardIntro
                      cardUrl:(NSString *)cardUrl
                      cardMsg:(NSString *)cardMsg
+              cardRelationId:(NSNumber *)cardRelationId
 {
     self = [super init];
     if (self) {
@@ -56,6 +57,7 @@
         self.cardIntro = cardIntro;
         self.cardUrl = cardUrl;
         self.cardMsg = cardMsg;
+        self.cardRelationId = cardRelationId;
         self.messageMediaType = WLBubbleMessageMediaTypeCard;
     }
     return self;
@@ -314,6 +316,7 @@
         _cardIntro = [aDecoder decodeObjectForKey:@"cardIntro"];
         _cardUrl = [aDecoder decodeObjectForKey:@"cardUrl"];
         _cardMsg = [aDecoder decodeObjectForKey:@"cardMsg"];
+        _cardRelationId = [aDecoder decodeObjectForKey:@"cardRelationId"];
     }
     return self;
 }
@@ -351,6 +354,7 @@
     [aCoder encodeObject:self.cardIntro forKey:@"cardIntro"];
     [aCoder encodeObject:self.cardUrl forKey:@"cardUrl"];
     [aCoder encodeObject:self.cardUrl forKey:@"cardMsg"];
+    [aCoder encodeObject:self.cardRelationId forKey:@"cardRelationId"];
 }
 
 #pragma mark - NSCopying
@@ -367,7 +371,8 @@
                                                          cardTitle:[self.cardTitle copy]
                                                          cardIntro:[self.cardIntro copy]
                                                            cardUrl:[self.cardUrl copy]
-                                                           cardMsg:[self.cardMsg copy]];
+                                                           cardMsg:[self.cardMsg copy]
+                                                    cardRelationId:[self.cardRelationId copy]];
         case WLBubbleMessageMediaTypeText:
             return [[[self class] allocWithZone:zone] initWithText:[self.text copy]
                                                             sender:[self.sender copy]

@@ -49,6 +49,7 @@
 @property (nonatomic, copy) NSString * cardIntro;//卡片详情
 @property (nonatomic, copy) NSString * cardUrl;//卡片链接
 @property (nonatomic, copy) NSString * cardMsg;//卡片评论
+@property (nonatomic, copy) NSNumber * cardRelationId;//卡片相关的关键Id
 
 @property (nonatomic, assign) WLBubbleMessageMediaType messageMediaType;
 
@@ -88,7 +89,8 @@
                    cardTitle:(NSString *)cardTitle
                    cardIntro:(NSString *)cardIntro
                      cardUrl:(NSString *)cardUrl
-                     cardMsg:(NSString *)cardMsg;
+                     cardMsg:(NSString *)cardMsg
+              cardRelationId:(NSNumber *)cardRelationId;
 
 /**
  *  特殊消息消息
