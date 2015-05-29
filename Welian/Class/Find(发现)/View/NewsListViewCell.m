@@ -115,13 +115,15 @@
     cardView.backgroundColor = [UIColor whiteColor];
     cardView.layer.cornerRadius = 5.f;
     cardView.layer.masksToBounds = YES;
+    cardView.layer.borderColor = kNormalLineColor.CGColor;
+    cardView.layer.borderWidth = 0.5f;
     [self.contentView addSubview:cardView];
     self.cardView = cardView;
     
     //标题
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.textColor = kTitleNormalTextColor;
-    titleLabel.font = kNormal15Font;
+    titleLabel.font = kNormal16Font;
     titleLabel.text = @"";
     titleLabel.numberOfLines = 2.f;
     [cardView addSubview:titleLabel];
@@ -170,7 +172,7 @@
     NSString *titleStr = newInfo.title;
     NSString *detailStr = newInfo.intro;
     //计算第一个label的高度
-    CGSize size1 = [titleStr calculateSize:CGSizeMake(maxWidth, 40.f) font:kNormal15Font];
+    CGSize size1 = [titleStr calculateSize:CGSizeMake(maxWidth, 40.f) font:kNormal16Font];
     CGSize size2 = [detailStr calculateSize:CGSizeMake(maxWidth, 30.f) font:kNormal12Font];
     
     CGFloat titleHeight = (titleStr.length > 0 ? (size1.height + kTitleMarginEdge * 2.f) : kTitleMarginEdge);

@@ -50,6 +50,7 @@
 
 - (NSNumber *)cardId;
 - (NSNumber *)cardType;
+- (NSNumber *)cardRelationId;
 - (NSString *)cardTitle;
 - (NSString *)cardIntro;
 - (NSString *)cardUrl;

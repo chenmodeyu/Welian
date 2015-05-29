@@ -44,7 +44,11 @@
 - (NotstringView *)notView
 {
     if (!_notView) {
-        _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitleStr:@"暂无创业项目"];
+        if (_projectType == 4) {
+            _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitStr:@"无筛选结果" andImageName:@"xiangmu_list_funnel_big"];
+        }else{
+            _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitleStr:@"暂无创业项目"];
+        }
     }
     return _notView;
 }
@@ -81,6 +85,12 @@
     
     //监听报名状态改变
     [KNSNotification addObserver:self selector:@selector(updateUiInfo) name:kUpdateProjectListUI object:nil];
+    
+    if(_projectType == 4){
+        //监听 更新搜索数据 //1：最新   2：热门 3：项目集 4筛选
+        [KNSNotification addObserver:self selector:@selector(reSearchProjectInfo) name:kSearchProjectInfoKey object:nil];
+    }
+    
     [self.tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     //隐藏表格分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -137,27 +147,69 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (_projectType == 1) {
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 30.f)];
+    //1：最新   2：热门 3：项目集 4筛选
+    if (_projectType == 1 || _projectType == 4) {
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 32.f)];
         headerView.backgroundColor = RGB(236.f, 238.f, 241.f);
         
-        NSString *titile = _headDatasource[section];
-        if ([[_headDatasource[section] dateFromShortString] isToday]) {
-            titile = @"今天";
-        }else if([[_headDatasource[section] dateFromShortString] isYesterday]){
-            titile = @"昨天";
+        if (_projectType == 1) {
+            NSString *titile = _headDatasource[section];
+            if ([[_headDatasource[section] dateFromShortString] isToday]) {
+                titile = @"今天";
+            }else if([[_headDatasource[section] dateFromShortString] isYesterday]){
+                titile = @"昨天";
+            }
+            
+            UILabel *titleLabel = [[UILabel alloc] init];
+            titleLabel.backgroundColor = [UIColor clearColor];
+            titleLabel.textColor = RGB(125.f, 125.f, 125.f);
+            titleLabel.font = kNormal14Font;
+            titleLabel.text = titile;
+            [titleLabel sizeToFit];
+            titleLabel.left = 15.f;
+            titleLabel.centerY = headerView.height / 2.f;
+            [headerView addSubview:titleLabel];
+        }else{
+            LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+            NSMutableArray *selectInfos = [NSMutableArray array];
+            //项目 领域搜索条件
+            NSDictionary *searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchIndustryKey,loginUser.uid]];
+            //项目 地区条件
+            NSDictionary *searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchCityKey,loginUser.uid]];
+            //项目 投资阶段条件
+            NSDictionary *searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchStageKey,loginUser.uid]];
+            if (searchIndustryinfo) {
+                [selectInfos addObject:searchIndustryinfo[@"industryname"]];
+            }
+            if (searchStage) {
+                [selectInfos addObject:searchStage[@"stagename"]];
+            }
+            if (searchCity) {
+                [selectInfos addObject:searchCity[@"name"]];
+            }
+            if (selectInfos.count > 0) {
+                CGFloat leftWith = 15.f;
+                for (int i = 0; i < selectInfos.count; i++) {
+                    UILabel *titleLabel = [[UILabel alloc] init];
+                    titleLabel.backgroundColor = [UIColor whiteColor];
+                    titleLabel.textColor = kNormalTextColor;
+                    titleLabel.font = kNormal12Font;
+                    titleLabel.text = selectInfos[i];
+                    titleLabel.textAlignment = NSTextAlignmentCenter;
+                    titleLabel.layer.cornerRadius = 3.f;
+                    titleLabel.layer.masksToBounds = YES;
+                    titleLabel.layer.borderColor = kNormalLineColor.CGColor;
+                    titleLabel.layer.borderWidth = 0.6f;
+                    [titleLabel sizeToFit];
+                    titleLabel.width = titleLabel.width + 10.f;
+                    titleLabel.height = 22.f;
+                    titleLabel.left = leftWith;
+                    titleLabel.centerY = headerView.height / 2.f;
+                    leftWith = titleLabel.right + 5.f;
+                    [headerView addSubview:titleLabel];
+                }
+            }
         }
-        
-        UILabel *titleLabel = [[UILabel alloc] init];
-        titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.textColor = RGB(125.f, 125.f, 125.f);
-        titleLabel.font = kNormal14Font;
-        titleLabel.text = titile;
-        [titleLabel sizeToFit];
-        titleLabel.left = 15.f;
-        titleLabel.centerY = headerView.height / 2.f;
-        [headerView addSubview:titleLabel];
-        
         return headerView;
     }else{
         return nil;
@@ -229,7 +281,23 @@
     //1：最新   2：热门  3：项目集 4：筛选
     switch (_projectType) {
         case 1:
-            return 30.f;
+            return 32.f;
+            break;
+        case 4:
+        {
+            LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+            //项目 领域搜索条件
+            NSDictionary *searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchIndustryKey,loginUser.uid]];
+            //项目 地区条件
+            NSDictionary *searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchCityKey,loginUser.uid]];
+            //项目 投资阶段条件
+            NSDictionary *searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchStageKey,loginUser.uid]];
+            if (searchIndustryinfo || searchStage || searchCity) {
+                return 32.f;
+            }else{
+                return 0.f;
+            }
+        }
             break;
         default:
             return 0.f;
@@ -303,6 +371,14 @@
 //    }
     _pageIndex++;
     [self initData];
+}
+
+//重新搜索项目信息
+- (void)reSearchProjectInfo
+{
+    // 隐藏当前的上拉刷新控件
+    self.tableView.footer.hidden = YES;
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)updateUiInfo
@@ -498,19 +574,8 @@
             //项目 投资阶段条件
             NSDictionary *searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchStageKey,loginUser.uid]];
             
-            if (searchIndustryinfo || searchCity || searchStage) {
-                //检索项目 -1  //不限制
-                [WeLianClient searchProcjetWithIndustryid:@(-1) //领域
-                                                    Stage:@(-1) //投资阶段
-                                                   Cityid:@(-1) //地区
-                                                  Success:^(id resultInfo) {
-                                                      //保存数据
-                                                      [self saveProjectInfoWithResultInfo:resultInfo Type:@(4)];
-                                                  } Failed:^(NSError *error) {
-                                                      [self.tableView.header endRefreshing];
-                                                      [self.tableView.footer endRefreshing];
-                                                  }];
-            }else{
+            if (!searchIndustryinfo && !searchCity && !searchStage) {
+                //第一次进入 无筛选条件时
                 [self.tableView.header endRefreshing];
                 [self.tableView.footer endRefreshing];
                 
@@ -520,6 +585,18 @@
                 
                 [self checkNotViewShow];
                 [self checkFooterViewWith:nil];
+            }else{
+                //检索项目 -1  //不限制
+                [WeLianClient searchProcjetWithIndustryid:searchIndustryinfo ? @([searchIndustryinfo[@"industryid"] integerValue]) : @(-1) //领域
+                                                    Stage:searchStage ? @([searchStage[@"cityid"] integerValue]) : @(-1) //投资阶段
+                                                   Cityid:searchCity ? @([searchCity[@"stage"] integerValue]) : @(-1) //地区
+                                                  Success:^(id resultInfo) {
+                                                      //保存数据
+                                                      [self saveProjectInfoWithResultInfo:resultInfo Type:@(4)];
+                                                  } Failed:^(NSError *error) {
+                                                      [self.tableView.header endRefreshing];
+                                                      [self.tableView.footer endRefreshing];
+                                                  }];
             }
         }
             break;
@@ -620,6 +697,7 @@
             [self.tableView sendSubviewToBack:self.notView];
         }else{
             [self.notView removeFromSuperview];
+            _notView = nil;
         }
     }else{
         //获取热门项目
@@ -636,10 +714,11 @@
 - (void)checkNotViewShow
 {
     if(_datasource.count == 0){
-        [self.tableView addSubview:_notView];
-        [self.tableView sendSubviewToBack:_notView];
+        [self.tableView addSubview:self.notView];
+        [self.tableView sendSubviewToBack:self.notView];
     }else{
-        [_notView removeFromSuperview];
+        [self.notView removeFromSuperview];
+        _notView = nil;
     }
 }
 

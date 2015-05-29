@@ -77,9 +77,10 @@
     if (index == (self.navTitleImagesArr.count - 1)) {
         self.segmentedControl.sectionImages = @[@"",@"",@"",@"xiangmu_list_funnel_selected"];
         [self.shaixuanView showVC];
-        WEAKSELF
+//        WEAKSELF
         self.shaixuanView.shaixuanBlock = ^(){
-
+            //通知获取搜索数据
+            [KNSNotification postNotificationName:kSearchProjectInfoKey object:nil];
         };
     }else{
         self.segmentedControl.sectionImages = self.navTitleImagesArr;

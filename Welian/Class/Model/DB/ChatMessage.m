@@ -42,6 +42,7 @@
 @dynamic cardIntro;
 @dynamic cardUrl;
 @dynamic cardMsg;
+@dynamic cardRelationId;
 @dynamic rsMyFriendUser;
 
 //创建新的聊天记录
@@ -364,6 +365,7 @@
             NSString *intro = card[@"intro"];
             NSString *url = card[@"url"];
             NSInteger cardType = [card[@"type"] integerValue];
+            NSNumber *relationid = card[@"relationid"];
             
             chatMsg.cardId = cid;
             chatMsg.cardType = @(cardType);
@@ -371,6 +373,7 @@
             chatMsg.cardIntro = intro;
             chatMsg.cardUrl = url;
             chatMsg.cardMsg = msg;
+            chatMsg.cardRelationId = relationid;
             
             /*
              索要项目

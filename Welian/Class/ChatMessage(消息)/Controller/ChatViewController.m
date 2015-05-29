@@ -1206,7 +1206,7 @@
                 case WLBubbleMessageCardTypeInvestorGet:
                 {
                     //索要项目
-                    InvestorUserInfoController *investorUserInfoVC = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeUID andUserData:message.cardId];
+                    InvestorUserInfoController *investorUserInfoVC = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeUID andUserData:@[message.cardId,message.cardRelationId]];
                     [self.navigationController pushViewController:investorUserInfoVC animated:YES];
                 }
                     break;

@@ -42,6 +42,7 @@
 @property (nonatomic, retain) NSString * cardIntro;//卡片详情
 @property (nonatomic, retain) NSString * cardUrl;//卡片链接
 @property (nonatomic, retain) NSString * cardMsg;//卡片评论消息
+@property (nonatomic, retain) NSNumber * cardRelationId;//卡片相关的关键Id
 @property (nonatomic, retain) MyFriendUser *rsMyFriendUser;
 
 //创建新的聊天记录
