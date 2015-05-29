@@ -25,6 +25,7 @@ NSString *const kMyActivityInfoChanged = @"MyActivityInfoChanged";//我的活动
 NSString *const kNeedReloadActivityUI = @"NeedReloadActivityUI";//重新加载活动UI
 NSString *const kUpdateJoinedUI = @"UpdateJoinedUI";//更新报名的活动列表
 NSString *const kUpdateProjectListUI = @"UpdateProjectListUI";//更新项目列表
+NSString *const kSearchProjectInfoKey = @"SearchProjectInfo";//重新搜索项目信息
 
 //------ 支付宝支付通知
 NSString *const kAlipayPaySuccess = @"AlipayPaySuccess";//支付成功

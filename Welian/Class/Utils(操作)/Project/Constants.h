@@ -26,6 +26,7 @@ extern NSString *const kMyActivityInfoChanged;//我的活动信息改变
 extern NSString *const kNeedReloadActivityUI;//重新加载活动UI
 extern NSString *const kUpdateJoinedUI;//更新报名的活动列表
 extern NSString *const kUpdateProjectListUI;//更新项目列表
+extern NSString *const kSearchProjectInfoKey;//重新搜索项目信息
 
 //------ 支付宝支付通知
 extern NSString *const kAlipayPaySuccess;//支付成功
