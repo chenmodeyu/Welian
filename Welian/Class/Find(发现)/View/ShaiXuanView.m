@@ -151,11 +151,11 @@ static NSString *shaixuanHeaderid = @"ShaiXuanHeaderView";
             //项目 投资阶段条件
             searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kProjectSearchStageKey,loginUser.uid]];
         }else if (type == ShaiXuanTypeInvestorUser){
-            //项目 领域搜索条件
+            //投资人领域搜索条件
             searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchIndustryKey,loginUser.uid]];
-            //项目 投资阶段条件
+            //投资人 投资阶段条件
             searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
-            //项目 地区条件
+            //投资人 地区条件
             searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
         }
         if (searchIndustryinfo) {

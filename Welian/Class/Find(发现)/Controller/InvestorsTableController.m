@@ -75,6 +75,25 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
         } Failed:^(NSError *error) {
             
         }];
+    }else if (invType == InvestorsTypeShaiXuan){
+        NSMutableDictionary *paramsDic = [NSMutableDictionary dictionary];
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        //投资人领域搜索条件
+       NSDictionary *searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchIndustryKey,loginUser.uid]];
+        //投资人 投资阶段条件
+        NSDictionary *searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
+        //投资人 地区条件
+        NSDictionary *searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
+        if (searchIndustryinfo||searchStage||searchCity) {
+            if (searchIndustryinfo) {
+//                paramsDic setObject:<#(id)#> forKey:<#(id<NSCopying>)#>
+            }
+            [WeLianClient investorSearchPersonWithParams:@{} Success:^(id resultInfo) {
+                
+            } Failed:^(NSError *error) {
+                
+            }];
+        }
     }
 }
 

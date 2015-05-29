@@ -128,11 +128,9 @@
                              Failed:(FailedBlock)failed;
 
 //投资人筛选
-+ (void)investorSearchPersonWithIndustryid:(NSNumber *)industryid
-                                     Stage:(NSNumber *)stage
-                                    Cityid:(NSNumber *)cityid
-                                   Success:(SuccessBlock)success
-                                    Failed:(FailedBlock)failed;
++ (void)investorSearchPersonWithParams:(NSDictionary *)params
+                               Success:(SuccessBlock)success
+                                Failed:(FailedBlock)failed;
 
 //项目投递反馈
 + (void)investorFankuiWithPid:(NSNumber *)pid
