@@ -71,7 +71,7 @@
 //查看投资人
 #define kInvestorGetPath kInvestorUrl(@"get")
 //不同意投递bp
-#define kInvestorNoToudiPath kInvestorUrl(@"notoudi")
+#define kInvestorNoToudiPath kInvestorUrl(@"requiredstatus")
 //取投资机构
 #define kInvestorJigouPath kInvestorUrl(@"firms")
 //取投资机构的投资人

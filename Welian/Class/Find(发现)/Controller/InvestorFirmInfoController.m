@@ -98,7 +98,9 @@ static NSString *casecellid = @"casecellid";
 - (void)getOneInvestorJigouData
 {
     [WeLianClient getOneInvestorJigouWithFirmid:_firmID Success:^(id resultInfo) {
-        DLog(@"%@",resultInfo);
+        _touziJiGouM = [TouzijigouModel objectWithDict:resultInfo];
+        [self loadTableViewHeaderV];
+        [self.tableView reloadData];
     } Failed:^(NSError *error) {
         
     }];

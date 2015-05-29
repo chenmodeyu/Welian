@@ -384,10 +384,11 @@
 //拒绝发送bp
 + (void)investorNoToudiWithUid:(NSNumber *)uid
                            Pid:(NSNumber *)pid
+                        status:(NSNumber *)status
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"uid":uid,@"pid":pid};
+    NSDictionary *params = @{@"uid":uid,@"pid":pid,@"status":status};
     [self reqestPostWithParams:params
                           Path:kInvestorNoToudiPath
                        Success:^(id resultInfo) {

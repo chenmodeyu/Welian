@@ -66,10 +66,10 @@ static NSString *shaixuanHeaderid = @"ShaiXuanHeaderView";
 {
     if (_collectionView == nil) {
         UICollectionViewLeftAlignedLayout *layout = [[UICollectionViewLeftAlignedLayout alloc] init];
-        layout.minimumLineSpacing = 10;
-        layout.minimumInteritemSpacing = 10;
+        layout.minimumLineSpacing = 8;
+        layout.minimumInteritemSpacing = 8;
         [layout setHeaderReferenceSize:CGSizeMake(SuperSize.width-KleftW, 40)];
-        [layout setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+        [layout setSectionInset:UIEdgeInsetsMake(10, 10, 20, 10)];
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         [_collectionView setBackgroundColor:[UIColor whiteColor]];
         _collectionView.alwaysBounceVertical = YES;
@@ -198,7 +198,7 @@ static NSString *shaixuanHeaderid = @"ShaiXuanHeaderView";
             break;
     }
    CGSize titSize = [titStr sizeWithCustomFont:WLFONT(15) constrainedToSize:CGSizeMake(MAXFLOAT, 20)];
-    return CGSizeMake(titSize.width+20, 35);
+    return CGSizeMake(titSize.width+15, 32);
 }
 
 

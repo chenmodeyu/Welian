@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSNumber *feedback;   //反馈的
 @property (nonatomic, strong) NSNumber *interview;  // 约谈
 
+// 0 未处理， 1 不同意 ，2 同意，3 已发送。 -1 标示只查看投资人
+@property (nonatomic, strong) NSNumber *status;
+
 @property (nonatomic, strong) TouzijigouModel *firm;
 
 @property (nonatomic, strong) NSArray *stages;

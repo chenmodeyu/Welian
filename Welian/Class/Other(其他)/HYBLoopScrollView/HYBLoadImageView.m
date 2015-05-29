@@ -66,7 +66,10 @@
     animation.removedOnCompletion = YES;
     [self.layer addAnimation:animation forKey:@"transition"];
   }
-  self.contentMode = UIViewContentModeScaleAspectFill;
+    // UIViewContentModeScaleAspectFill 拉伸图片大小到跟imageView尺寸一致，只显示最中间的内容，会保持图片原来的宽高比
+    // UIViewContentModeScaleAspectFit 拉伸图片大小，但是会保持图片原来的宽高比
+    // UIViewContentModeScaleToFill  (默认)拉伸图片至填充整个imageView
+  self.contentMode = UIViewContentModeScaleToFill;
 }
 
 - (void)setAnimated:(BOOL)animated {

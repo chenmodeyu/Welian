@@ -97,6 +97,7 @@
 //拒绝发送bp
 + (void)investorNoToudiWithUid:(NSNumber *)uid
                            Pid:(NSNumber *)pid
+                        status:(NSNumber *)status
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed;
 

@@ -76,10 +76,12 @@
         _firmIconImage = [[UIImageView alloc] init];
         [_firmView addSubview:_firmIconImage];
         _firmNameLabel = [[UILabel alloc] init];
+        [_firmNameLabel setFont:WLFONT(15)];
         [_firmNameLabel setTextColor:WLRGB(51, 51, 51)];
         [_firmView addSubview:_firmNameLabel];
         _firmIntroLabel = [[UILabel alloc] init];
         [_firmIntroLabel setTextColor:WLRGB(178, 178, 178)];
+        [_firmIntroLabel setFont:WLFONT(15)];
         [_firmView addSubview:_firmIntroLabel];
         _firmBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_firmView addSubview:_firmBut];
@@ -98,53 +100,43 @@
 {
     _investorUserM = investorUserM;
     
-    CGFloat titeLabelW = 88;
-    CGFloat labelY = 15;
+    CGFloat titeLabelW = 78;
+    CGFloat labelY = 10;
     CGSize labelSize = CGSizeMake(SuperSize.width-60-titeLabelW-2*10, MAXFLOAT);
     CGFloat labelX = titeLabelW+10;
     CGFloat viewWidth = SuperSize.width - 60;
-    CGSize indusSize = [investorUserM.industrysStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
-    CGSize stageSize = [investorUserM.stagesStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
-    CGSize itemSize = [investorUserM.itemsStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
     
-    [_industryView setHidden:!investorUserM.industrysStr];
-    if (investorUserM.industrysStr) {
-        [_industryLabel setFrame:CGRectMake(labelX, labelY, indusSize.width, indusSize.height)];
-        [_industryTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, indusSize.height+2*labelY)];
-        [_industryView setFrame:CGRectMake(0, 0, viewWidth, _industryTiteLabel.height)];
-        [_line1 setLeft:0];
-        [_line1 setTop:_industryTiteLabel.bottom-0.5];
-        [_industryLabel setText:investorUserM.industrysStr];
-    }else{
-        [_industryView setFrame:CGRectZero];
-    }
-    [_stageView setHidden:!investorUserM.stagesStr];
-    if (investorUserM.stagesStr) {
-        [_stageLabel setFrame:CGRectMake(labelX, labelY, stageSize.width, stageSize.height)];
-        [_stageTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, stageSize.height+2*labelY)];
-        [_stageView setFrame:CGRectMake(0, _industryView.bottom, viewWidth, _stageTiteLabel.height)];
-        [_line2 setLeft:0];
-        [_line2 setTop:_stageTiteLabel.bottom-0.5];
-        [_stageLabel setText:investorUserM.stagesStr];
-    }else{
-        [_stageView setFrame:CGRectZero];
-        _stageView.top = _industryView.bottom;
-    }
-    [_itemView setHidden:!investorUserM.itemsStr];
-    if (investorUserM.itemsStr) {
-        [_itemLabel setFrame:CGRectMake(labelX, labelY, itemSize.width, itemSize.height)];
-        [_itemTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, _itemLabel.height+2*labelY)];
-        [_itemView setFrame:CGRectMake(0, _stageView.bottom, viewWidth, _itemTiteLabel.height)];
-        [_line3 setLeft:0];
-        [_line3 setTop:_itemTiteLabel.bottom-0.5];
-        [_itemLabel setText:investorUserM.itemsStr];
-    }else{
-        [_itemView setFrame:CGRectZero];
-        _itemView.top = _stageView.bottom;
-    }
+    NSString *industryStr = investorUserM.industrysStr?:@"暂无";
+    NSString *stagesStr = investorUserM.stagesStr?:@"暂无";
+    NSString *itemsStr = investorUserM.itemsStr?:@"暂无";
+    
+    CGSize indusSize = [industryStr sizeWithCustomFont:WLFONT(14) constrainedToSize:labelSize];
+    CGSize stageSize = [stagesStr sizeWithCustomFont:WLFONT(14) constrainedToSize:labelSize];
+    CGSize itemSize = [itemsStr sizeWithCustomFont:WLFONT(14) constrainedToSize:labelSize];
+   
+    [_industryLabel setFrame:CGRectMake(labelX, labelY, indusSize.width, indusSize.height)];
+    [_industryTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, indusSize.height+2*labelY)];
+    [_industryView setFrame:CGRectMake(0, 0, viewWidth, _industryTiteLabel.height)];
+    [_line1 setLeft:0];
+    [_line1 setTop:_industryTiteLabel.bottom-0.5];
+    [_industryLabel setText:industryStr];
+    
+    [_stageLabel setFrame:CGRectMake(labelX, labelY, stageSize.width, stageSize.height)];
+    [_stageTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, stageSize.height+2*labelY)];
+    [_stageView setFrame:CGRectMake(0, _industryView.bottom, viewWidth, _stageTiteLabel.height)];
+    [_line2 setLeft:0];
+    [_line2 setTop:_stageTiteLabel.bottom-0.5];
+    [_stageLabel setText:stagesStr];
+
+    [_itemLabel setFrame:CGRectMake(labelX, labelY, itemSize.width, itemSize.height)];
+    [_itemTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, _itemLabel.height+2*labelY)];
+    [_itemView setFrame:CGRectMake(0, _stageView.bottom, viewWidth, _itemTiteLabel.height)];
+    [_line3 setLeft:0];
+    [_line3 setTop:_itemTiteLabel.bottom-0.5];
+    [_itemLabel setText:itemsStr];
+    
     
     CGFloat firmViewH = 70;
-    _firmView.hidden = !investorUserM.firm.firmid;
     if (investorUserM.firm.firmid) {
         [_firmNameLabel setText:investorUserM.firm.title];
         [_firmIconImage sd_setImageWithURL:[NSURL URLWithString:investorUserM.firm.logo] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageLowPriority];
@@ -171,32 +163,25 @@
 
 + (CGFloat)getCellHeightWith:(InvestorUserModel *)investorUserM
 {
-    CGFloat titeLabelW = 88;
-    CGFloat labelY = 15;
+    CGFloat titeLabelW = 78;
+    CGFloat labelY = 10;
     CGSize labelSize = CGSizeMake(SuperSize.width-60-titeLabelW-2*10, MAXFLOAT);
     CGSize indusSize = CGSizeZero;
     CGSize stageSize = CGSizeZero;
     CGSize itemSize = CGSizeZero;
     CGFloat firmH = 0.0;
-    NSInteger count = 0;
-    if (investorUserM.industrysStr) {
-        indusSize = [investorUserM.industrysStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
-        count += 2;
-    }
-    if (investorUserM.stagesStr) {
-        stageSize = [investorUserM.stagesStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
-        count += 2;
-    }
-    if (investorUserM.itemsStr) {
-         itemSize = [investorUserM.itemsStr sizeWithCustomFont:WLFONT(16) constrainedToSize:labelSize];
-        count += 2;
-    }
+    NSInteger count = 9;
+    
+    indusSize = [investorUserM.industrysStr?:@"暂无" sizeWithCustomFont:WLFONT(14) constrainedToSize:labelSize];
+    
+    stageSize = [investorUserM.stagesStr?:@"暂无" sizeWithCustomFont:WLFONT(14) constrainedToSize:labelSize];
+
+    itemSize = [investorUserM.itemsStr?:@"暂无" sizeWithCustomFont:WLFONT(14) constrainedToSize:labelSize];
+
     if (investorUserM.firm.firmid) {
         firmH = 70;
     }
-    count+=2;
     CGFloat cellHeigh = indusSize.height+stageSize.height+itemSize.height+count*labelY+firmH;
-    
     return cellHeigh;
 }
 
@@ -205,7 +190,7 @@
 {
     UILabel *titeLabel = [[UILabel alloc] init];
     [titeLabel setText:text];
-    [titeLabel setFont:WLFONT(14)];
+    [titeLabel setFont:WLFONT(13)];
     [titeLabel setTextAlignment:NSTextAlignmentCenter];
     [titeLabel setTextColor:WLRGB(69, 69, 69)];
     [titeLabel setBackgroundColor:WLRGB(242, 242, 242)];
@@ -216,7 +201,7 @@
 - (UILabel *)loadInfoLabel
 {
     UILabel *titeLabel = [[UILabel alloc] init];
-    [titeLabel setFont:WLFONT(16)];
+    [titeLabel setFont:WLFONT(14)];
     [titeLabel setNumberOfLines:0];
     [titeLabel setTextAlignment:NSTextAlignmentLeft];
     [titeLabel setTextColor:WLRGB(69, 69, 69)];

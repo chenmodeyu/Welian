@@ -40,7 +40,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
 - (HYBLoopScrollView *)loopView
 {
     if (_loopView == nil) {
-        _loopView = [[HYBLoopScrollView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, kBannerHeight)];
+        _loopView = [[HYBLoopScrollView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, SuperSize.width*270/640)];
         _loopView.pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:0.9 alpha:0.7];
         _loopView.pageControl.currentPageIndicatorTintColor = KBasesColor;
     }

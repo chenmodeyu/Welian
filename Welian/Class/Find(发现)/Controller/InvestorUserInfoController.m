@@ -10,6 +10,7 @@
 #import "ProjectsMailingView.h"
 #import "ProjectTouDiModel.h"
 #import "InvestorInfoCell.h"
+#import "InvestorFirmInfoController.h"
 
 @interface InvestorUserInfoController ()
 {
@@ -17,6 +18,9 @@
     InvestorUserModel *_investorUserM;
     NSNumber *_userID;
 }
+
+@property (nonatomic, strong) InvestorInfoHeadView *invesHeadView;
+
 @end
 
 @implementation InvestorUserInfoController
@@ -53,7 +57,10 @@
     [invesHeadView setInvestorUserModel:_investorUserM];
     [invesHeadView setUserType:_userType];
     [invesHeadView.mailingBut addTarget:self action:@selector(mailingInvestorClick) forControlEvents:UIControlEventTouchUpInside];
+    [invesHeadView.agreeBut addTarget:self action:@selector(mailingInvestorClick) forControlEvents:UIControlEventTouchUpInside];
+    [invesHeadView.rejectBut addTarget:self action:@selector(refusedMailingClick) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView setTableHeaderView:invesHeadView];
+    self.invesHeadView = invesHeadView;
 }
 
 
@@ -93,13 +100,29 @@
 // 跳转投资机构
 - (void)firmButClick
 {
-    DLog(@"fdas");
+    InvestorFirmInfoController *firmInfoVC = [[InvestorFirmInfoController alloc] initWithType:FirmInfoTypeFirmID andFirmData:_investorUserM.firm.firmid];
+    [self.navigationController pushViewController:firmInfoVC animated:YES];
 }
+
+// 拒绝发送BP
+- (void)refusedMailingClick
+{
+    [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:@(2) status:@(1) Success:^(id resultInfo) {
+        
+    } Failed:^(NSError *error) {
+        
+    }];
+}
+
+
+
+
 
 // 投递
 - (void)mailingInvestorClick
 {
     IBaseUserM *meModel = [IBaseUserM getLoginUserBaseInfo];
+    WEAKSELF
     [WeLianClient getInvestorProjectsListPid:meModel.uid Success:^(id resultInfo) {
         NSArray *projectArray = [ProjectTouDiModel objectsWithInfo:resultInfo];
         
@@ -107,6 +130,12 @@
         __weak ProjectsMailingView *weakProView = projectsMailingView;
         projectsMailingView.mailingProBlock = ^(ProjectTouDiModel *touDiModel){
             [WeLianClient investorToudiWithPid:touDiModel.pid Uid:_investorUserM.user.uid Success:^(id resultInfo) {
+                if (_userType == InvestorUserTypeUID) {
+                    
+                }else if (_userType == InvestorUserTypeModel){
+                
+                    
+                }
                 [WLHUDView showSuccessHUD:@"投递成功！"];
                 [weakProView cancelSelfVC];
             } Failed:^(NSError *error) {

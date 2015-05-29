@@ -81,6 +81,7 @@
         [_mailingBut setBackgroundImage:[UIImage resizedImage:@"login_my_button"] forState:UIControlStateNormal];
         [_mailingBut setBackgroundImage:[UIImage resizedImage:@"login_my_button_pre"] forState:UIControlStateHighlighted];
         [_mailingBut setImage:[UIImage imageNamed:@"touziren_detail_toudi_button.png"] forState:UIControlStateNormal];
+        [_mailingBut setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 8)];
         [self addSubview:_mailingBut];
         
         _agreeView = [[UIView alloc] initWithFrame:CGRectMake(30, _interviewView.bottom+15, SuperSize.width-60, _mailingBut.height)];
