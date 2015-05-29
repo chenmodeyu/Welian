@@ -474,15 +474,10 @@
 }
 
 //投资人筛选
-+ (void)investorSearchPersonWithIndustryid:(NSNumber *)industryid
-                                     Stage:(NSNumber *)stage
-                                    Cityid:(NSNumber *)cityid
++ (void)investorSearchPersonWithParams:(NSDictionary *)params
                                    Success:(SuccessBlock)success
                                     Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"industryid":industryid,
-                             @"stage":stage,
-                             @"cityid":cityid};
     [self reqestPostWithParams:params
                           Path:kInvestorSearchPath
                        Success:^(id resultInfo) {

@@ -59,7 +59,7 @@
 @dynamic rsProjectClassInfos;
 
 
-//获取当前登陆的账户
+//** 获取当前登陆的账户 **//
 + (LogInUser *)getCurrentLoginUser
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
