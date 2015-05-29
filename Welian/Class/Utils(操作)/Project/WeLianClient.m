@@ -367,10 +367,11 @@
 
 //查看投资人
 + (void)investorGetInfoWithUid:(NSNumber *)uid
+                           pid:(NSNumber *)pid
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"uid":uid};
+    NSDictionary *params = @{@"uid":uid,@"pid":pid?:@(0)};
     [self reqestPostWithParams:params
                           Path:kInvestorGetPath
                        Success:^(id resultInfo) {

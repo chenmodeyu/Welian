@@ -129,24 +129,6 @@
     } Failed:^(NSError *error) {
         
     }];
-//    [WLHttpTool checkMobileCodeParameterDic:@{@"code":self.authCodeTF.text} success:^(id JSON) {
-//        if ([JSON objectForKey:@"flag"]) {
-//            [WLHUDView showSuccessHUD:[JSON objectForKey:@"msg"]];
-//            if ([[JSON objectForKey:@"flag"] integerValue]==0) {
-//                [LogInUser setUserMobile:self.phoneTF.text];
-//                [LogInUser setUserChecked:@(1)];
-//                if (weakSelf.phoneChangeBlcok) {
-//                    weakSelf.phoneChangeBlcok();
-//                }
-//                [self.navigationController popViewControllerAnimated:YES];
-//            }else{
-//                
-//            }
-//        }
-//    } fail:^(NSError *error) {
-//        
-//    }];
-    
 }
 
 

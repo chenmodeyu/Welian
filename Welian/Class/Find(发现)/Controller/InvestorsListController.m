@@ -36,6 +36,7 @@
     self = [super init];
     if (self) {
         self.navTitlesArr = @[@"最新",@"投资机构",@"筛选"];
+        self.navTitleImagesArr = @[@"",@"",@"xiangmu_list_funnel"];
         self.dataSource = self;
         self.delegate = self;
     }

@@ -306,6 +306,11 @@
 
 #define KWLDataDBName @"wlDataDBName.db"
 
+// 1.8.0
+// 广告位数据
+#define KBannerDataTableName [NSString stringWithFormat:@"Banner%@",[LogInUser getCurrentLoginUser].uid]
+
+
 // 首页数据
 #define KHomeDataTableName [NSString stringWithFormat:@"home%@",[LogInUser getCurrentLoginUser].uid]
 //首页数据 重新发送

@@ -93,12 +93,9 @@
         [_rejectBut setFrame:CGRectMake(0, 0, (_agreeView.width-20)*0.5, _agreeView.height)];
         [_rejectBut setTitleColor:WLRGB(52, 116, 186) forState:UIControlStateNormal];
         [_rejectBut setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
-        _rejectBut.layer.borderWidth = 0.6;
-        _rejectBut.layer.masksToBounds = YES;
-        _rejectBut.layer.cornerRadius = 5;
-        _rejectBut.layer.borderColor = [WLRGB(52, 116, 186) CGColor];
+        [_rejectBut setBackgroundImage:[UIImage resizedImage:@"shaixuan_bg_selected.png"] forState:UIControlStateNormal];
+        [_rejectBut setBackgroundImage:[UIImage resizedImage:@"shaixuan_bg.png"] forState:UIControlStateDisabled];
         [_agreeView addSubview:_rejectBut];
-        
         
         _agreeBut = [UIButton buttonWithType:UIButtonTypeCustom];
         [_agreeBut setTitle:@"同意发送BP" forState:UIControlStateNormal];
@@ -106,6 +103,7 @@
         [_agreeBut setFrame:CGRectMake(_rejectBut.right+20, 0, (_agreeView.width-20)*0.5, _agreeView.height)];
         [_agreeBut setBackgroundImage:[UIImage resizedImage:@"login_my_button"] forState:UIControlStateNormal];
         [_agreeBut setBackgroundImage:[UIImage resizedImage:@"login_my_button_pre"] forState:UIControlStateHighlighted];
+        [_agreeBut setBackgroundImage:[UIImage resizedImage:@"shaixuan_bg.png"] forState:UIControlStateDisabled];
         [_agreeView addSubview:_agreeBut];
     }
     return self;
@@ -165,8 +163,14 @@
                 [_agreeBut setEnabled:NO];
                 break;
             case 3:  // 3 已发送
-                [_mailingBut setHidden:NO];
-                [_agreeView setHidden:YES];
+                [_mailingBut setHidden:YES];
+                [_agreeView setHidden:NO];
+                [_rejectBut setTitle:@"拒绝发送BP" forState:UIControlStateDisabled];
+                [_rejectBut setEnabled:NO];
+                [_agreeBut setTitle:@"已同意" forState:UIControlStateDisabled];
+                [_agreeBut setEnabled:NO];
+//                [_mailingBut setHidden:NO];
+//                [_agreeView setHidden:YES];
                 break;
             case -1: // -1 标示只查看投资人
                 [_mailingBut setHidden:NO];
@@ -175,6 +179,9 @@
             default:
                 break;
         }
+    }else{
+        [_agreeView setHidden:YES];
+        [_mailingBut setHidden:NO];
     }
     
 }
@@ -182,13 +189,13 @@
 - (void)setUserType:(InvestorUserInfoType)userType
 {
     _userType = userType;
-    if (userType == InvestorUserTypeUID) {
-        [_agreeView setHidden:NO];
-        [_mailingBut setHidden:YES];
-    }else if (userType ==InvestorUserTypeModel){
-        [_agreeView setHidden:YES];
-        [_mailingBut setHidden:NO];
-    }
+//    if (userType == InvestorUserTypeUID) {
+//        [_agreeView setHidden:NO];
+//        [_mailingBut setHidden:YES];
+//    }else if (userType ==InvestorUserTypeModel){
+//        [_agreeView setHidden:YES];
+//        [_mailingBut setHidden:NO];
+//    }
 }
 
 @end

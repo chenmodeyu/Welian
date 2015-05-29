@@ -3585,10 +3585,6 @@
 		F564B0251B16C64800923A1B /* ShaiXuanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0231B16C64800923A1B /* ShaiXuanCell.m */; };
 		F564B0261B16C64800923A1B /* ShaiXuanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0231B16C64800923A1B /* ShaiXuanCell.m */; };
 		F564B0271B16C64800923A1B /* ShaiXuanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0231B16C64800923A1B /* ShaiXuanCell.m */; };
-		F564B0311B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0301B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m */; };
-		F564B0321B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0301B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m */; };
-		F564B0331B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0301B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m */; };
-		F564B0341B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0301B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m */; };
 		F564B0381B16F58300923A1B /* ShaiXuanHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0361B16F58300923A1B /* ShaiXuanHeaderView.m */; };
 		F564B0391B16F58300923A1B /* ShaiXuanHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0361B16F58300923A1B /* ShaiXuanHeaderView.m */; };
 		F564B03A1B16F58300923A1B /* ShaiXuanHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F564B0361B16F58300923A1B /* ShaiXuanHeaderView.m */; };
@@ -4952,6 +4948,10 @@
 		F5D04E641AC1056F004DE412 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D04CED1AC1056F004DE412 /* TTTAttributedLabel.m */; };
 		F5D04E651AC1056F004DE412 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D04CED1AC1056F004DE412 /* TTTAttributedLabel.m */; };
 		F5D0753C1A4593C900D31157 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F646BC1A43C2FB002E66FC /* CoreMotion.framework */; };
+		F5D384FE1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */; };
+		F5D384FF1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */; };
+		F5D385001B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */; };
+		F5D385011B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */; };
 		F5D858EB1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
 		F5D858EC1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
 		F5D858ED1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
@@ -6389,8 +6389,6 @@
 		F564B0081B16B56200923A1B /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
 		F564B0221B16C64800923A1B /* ShaiXuanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaiXuanCell.h; sourceTree = "<group>"; };
 		F564B0231B16C64800923A1B /* ShaiXuanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaiXuanCell.m; sourceTree = "<group>"; };
-		F564B02F1B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
-		F564B0301B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		F564B0351B16F58300923A1B /* ShaiXuanHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaiXuanHeaderView.h; sourceTree = "<group>"; };
 		F564B0361B16F58300923A1B /* ShaiXuanHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaiXuanHeaderView.m; sourceTree = "<group>"; };
 		F564B0371B16F58300923A1B /* ShaiXuanHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShaiXuanHeaderView.xib; sourceTree = "<group>"; };
@@ -6902,6 +6900,8 @@
 		F5D356831A260F75005EF094 /* M80AttributedLabelURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80AttributedLabelURL.m; sourceTree = "<group>"; };
 		F5D356841A260F75005EF094 /* NSMutableAttributedString+M80.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+M80.h"; sourceTree = "<group>"; };
 		F5D356851A260F75005EF094 /* NSMutableAttributedString+M80.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+M80.m"; sourceTree = "<group>"; };
+		F5D384FC1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_link_logo@2x.png"; sourceTree = "<group>"; };
 		F5E13A351A7B3062001BB786 /* MyProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectViewController.h; sourceTree = "<group>"; };
 		F5E13A361A7B3062001BB786 /* MyProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectViewController.m; sourceTree = "<group>"; };
@@ -9521,15 +9521,6 @@
 			path = DACircularProgress;
 			sourceTree = "<group>";
 		};
-		F564B02E1B16EDF100923A1B /* UICollectionViewLeftAlignedLayout */ = {
-			isa = PBXGroup;
-			children = (
-				F564B02F1B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.h */,
-				F564B0301B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m */,
-			);
-			path = UICollectionViewLeftAlignedLayout;
-			sourceTree = "<group>";
-		};
 		F56972481B0ED0DE004E86AC /* XZPageViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -10397,7 +10388,7 @@
 		F5CE864119BFF44100A9D14C /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
-				F564B02E1B16EDF100923A1B /* UICollectionViewLeftAlignedLayout */,
+				F5D384FB1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout */,
 				F564B0041B16B56200923A1B /* DACircularProgress */,
 				F56972481B0ED0DE004E86AC /* XZPageViewController */,
 				A4FDF3BE1B0A041800A487A9 /* HYBLoopScrollView */,
@@ -10720,6 +10711,15 @@
 				F5D356851A260F75005EF094 /* NSMutableAttributedString+M80.m */,
 			);
 			path = M80AttributedLabel;
+			sourceTree = "<group>";
+		};
+		F5D384FB1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout */ = {
+			isa = PBXGroup;
+			children = (
+				F5D384FC1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.h */,
+				F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */,
+			);
+			path = UICollectionViewLeftAlignedLayout;
 			sourceTree = "<group>";
 		};
 		F5E13A341A7B2AD0001BB786 /* 我的项目 */ = {
@@ -13631,6 +13631,7 @@
 				A49C7C281A70D42700F2AEC5 /* XHPathCover.m in Sources */,
 				A49C7C291A70D42700F2AEC5 /* FMDatabaseAdditions.m in Sources */,
 				A49C7C2A1A70D42700F2AEC5 /* WLMessageSpecialView.m in Sources */,
+				F5D385011B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A49C7C2B1A70D42700F2AEC5 /* ShareEngine.m in Sources */,
 				A45923B11B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A49C7C2E1A70D42700F2AEC5 /* AddWorkOrEducationController.m in Sources */,
@@ -14018,7 +14019,6 @@
 				A49C7D501A70D42700F2AEC5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				A49C7D531A70D42700F2AEC5 /* UIImage+GIF.m in Sources */,
 				A49C7D541A70D42700F2AEC5 /* PinyinFormatter.m in Sources */,
-				F564B0341B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A49C7D551A70D42700F2AEC5 /* StaurCell.m in Sources */,
 				A49C7D561A70D42700F2AEC5 /* MJTypeEncoding.m in Sources */,
 				A493C2521ADD0BB00056BD52 /* UIColor+_6jinzhi.m in Sources */,
@@ -14191,6 +14191,7 @@
 				A437CEF71A541BF300B54E68 /* WLMessageSpecialView.m in Sources */,
 				F53DC2DF1A49192600F5F712 /* ShareEngine.m in Sources */,
 				F53DC2E21A49192600F5F712 /* AddWorkOrEducationController.m in Sources */,
+				F5D385001B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A4A2EAE11A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				A45923AF1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A4C1446A1A4C271900C9BAB5 /* WLBubblePhotoImageView.m in Sources */,
@@ -14578,7 +14579,6 @@
 				A4C141281A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				F53DC3981A49192600F5F712 /* UIImage+GIF.m in Sources */,
 				A49235491ADE693A009E0B8C /* JKAssetsGroupsView.m in Sources */,
-				F564B0331B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				F53DC3991A49192600F5F712 /* PinyinFormatter.m in Sources */,
 				F53DC39A1A49192600F5F712 /* StaurCell.m in Sources */,
 				F53DC39B1A49192600F5F712 /* MJTypeEncoding.m in Sources */,
@@ -14751,6 +14751,7 @@
 				A4C141741A4BEF5700C9BAB5 /* XHSoundManager.m in Sources */,
 				F55078F41A80C70C009CE4F7 /* ProjectBaseModel.m in Sources */,
 				A4C144741A4C370100C9BAB5 /* WLMessageVoiceFactory.m in Sources */,
+				F5D384FE1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A48CA6B01A4D044B009EBD04 /* NSDate+DateTools.m in Sources */,
 				A45923AD1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				F534DB641A5119A000B6A725 /* InvestItems.m in Sources */,
@@ -15138,7 +15139,6 @@
 				F5664A611A2AFD56008A5830 /* MJTypeEncoding.m in Sources */,
 				F534DB5F1A5119A000B6A725 /* InvestStages.m in Sources */,
 				F53D4E331A4AABE700CA06C8 /* MyFriendUser.m in Sources */,
-				F564B0311B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				F5664A631A2AFD56008A5830 /* NoListView.m in Sources */,
 				A493C24E1ADD0BB00056BD52 /* UIColor+_6jinzhi.m in Sources */,
 				F534DAE21A4EAA5800B6A725 /* InvestCollectionVC.m in Sources */,
@@ -15311,6 +15311,7 @@
 				A437CEF61A541BF300B54E68 /* WLMessageSpecialView.m in Sources */,
 				F5664C721A2AFDD5008A5830 /* ShareEngine.m in Sources */,
 				F5664C751A2AFDD5008A5830 /* AddWorkOrEducationController.m in Sources */,
+				F5D384FF1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A4A2EAE01A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				A45923AE1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A4C144691A4C271900C9BAB5 /* WLBubblePhotoImageView.m in Sources */,
@@ -15698,7 +15699,6 @@
 				A4C141271A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				F5664D181A2AFDD5008A5830 /* UIImage+GIF.m in Sources */,
 				A49235481ADE693A009E0B8C /* JKAssetsGroupsView.m in Sources */,
-				F564B0321B16EDF100923A1B /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				F5664D191A2AFDD5008A5830 /* PinyinFormatter.m in Sources */,
 				F5664D1A1A2AFDD5008A5830 /* StaurCell.m in Sources */,
 				F5664D1B1A2AFDD5008A5830 /* MJTypeEncoding.m in Sources */,

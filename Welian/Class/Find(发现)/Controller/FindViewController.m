@@ -12,7 +12,6 @@
 #import "MainViewController.h"
 #import "ProjectListViewController.h"
 #import "ProjectMainViewController.h"
-//#import "InvestorUsersListController.h"
 #import "InvestorsListController.h"
 #import "ActivityListViewController.h"
 #import "NewsListViewController.h"
@@ -21,6 +20,8 @@
 #import "HYBLoopScrollView.h"
 #import "BannerModel.h"
 #import "ProjectDetailsViewController.h"
+#import "ActivityDetailInfoViewController.h"
+#import "ProjcetClassViewController.h"
 
 #define kBannerHeight 135.f
 
@@ -43,6 +44,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
         _loopView = [[HYBLoopScrollView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, SuperSize.width*270/640)];
         _loopView.pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:0.9 alpha:0.7];
         _loopView.pageControl.currentPageIndicatorTintColor = KBasesColor;
+        _loopView.timeInterval = 5.0;
     }
     return _loopView;
 }
@@ -62,12 +64,11 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     [super viewDidLoad];
     [KNSNotification addObserver:self selector:@selector(reloadNewactivit) name:KNewactivitNotif object:nil];
     [KNSNotification addObserver:self selector:@selector(reloadProject) name:KProjectstateNotif object:nil];
+    // 加载页面
+    [self loadUIview];
     // 加载数据
     [self loadLoopViewData];
     [self loadDatalist];
-    // 加载页面
-    [self loadUIview];
-    
 }
 
 
@@ -100,37 +101,41 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
 // 加载发现头部
 - (void)loadLoopViewData
 {
+  YTKKeyValueItem *item = [[WLDataDBTool sharedService] getYTKKeyValueItemById:@"Banner" fromTable:KBannerDataTableName];
+    NSArray *bannerArray = item.itemObject;
+    [self showBannerViewWith:bannerArray];
     WEAKSELF
     [WeLianClient adBannerWithSuccess:^(id resultInfo) {
-//        NSArray *bannerArray = [BannerModel objectsWithInfo:resultInfo];
-        NSMutableArray *bannerArray = [NSMutableArray array];
-        NSMutableArray *images = [NSMutableArray array];
-        for (NSDictionary *bannerDic in resultInfo) {
-            BannerModel *bModel = [BannerModel objectWithDict:bannerDic];
-            [bannerArray addObject:bModel];
-            [images addObject:bModel.photo];
-        }
-        DLog(@"%@",resultInfo);
-        if (bannerArray.count) {
-            [weakSelf.loopView setImageUrls:images];
-            [weakSelf.tableView setTableHeaderView:self.loopView];
-//            [weakSelf.tableView setParallaxHeaderView:self.loopView
-//                                                 mode:VGParallaxHeaderModeFill
-//                                               height:kBannerHeight];
-            
-            weakSelf.loopView.timeInterval = 5;
-            weakSelf.loopView.didSelectItemBlock = ^(NSInteger atIndex, HYBLoadImageView *sender) {
-                BannerModel *baModel = bannerArray[atIndex];
-                [weakSelf pushBannerControllerWithBanner:baModel];
-            };
-        }else{
-            
-        }
+        [[WLDataDBTool sharedService] putObject:resultInfo withId:@"Banner" intoTable:KBannerDataTableName];
+        [weakSelf showBannerViewWith:resultInfo];
         
     } Failed:^(NSError *error) {
         
     }];
 }
+
+- (void)showBannerViewWith:(NSArray *)bArray
+{
+    NSMutableArray *bannerArray = [NSMutableArray array];
+    NSMutableArray *images = [NSMutableArray array];
+    for (NSDictionary *bannerDic in bArray) {
+        BannerModel *bModel = [BannerModel objectWithDict:bannerDic];
+        [bannerArray addObject:bModel];
+        [images addObject:bModel.photo];
+    }
+    if (bannerArray.count) {
+        [self.loopView setImageUrls:images];
+        [self.tableView setTableHeaderView:self.loopView];
+        WEAKSELF
+        self.loopView.didSelectItemBlock = ^(NSInteger atIndex, HYBLoadImageView *sender) {
+            BannerModel *baModel = bannerArray[atIndex];
+            [weakSelf pushBannerControllerWithBanner:baModel];
+        };
+    }else{
+        
+    }
+}
+
 
 // 通过广告位跳转到指定页
 - (void)pushBannerControllerWithBanner:(BannerModel *)bannerM
@@ -139,7 +144,12 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     NSInteger type = bannerM.type.integerValue;
     switch (type) {
         case 0:
-            
+        {
+            TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:bannerM.url];
+            webVC.navigationButtonsHidden = NO;//隐藏底部操作栏目
+            webVC.showRightShareBtn = YES;//现实右上角分享按钮
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
             break;
         case 1:
         {
@@ -148,10 +158,17 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
         }
             break;
         case 2:
-            
+        {
+            ActivityDetailInfoViewController *activityInfoVC = [[ActivityDetailInfoViewController alloc] initWIthActivityId:bannerM.bid];
+            [self.navigationController pushViewController:activityInfoVC animated:YES];
+        }
             break;
         case 3:
-            
+        {
+            //项目集
+//            ProjcetClassViewController *projcetClassVC = [[ProjcetClassViewController alloc] initWithProjectClassInfo:<#(ProjectClassInfo *)#>];
+//            [self.navigationController pushViewController:projcetClassVC animated:YES];
+        }
             break;
         default:
             break;

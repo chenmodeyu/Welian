@@ -91,6 +91,7 @@
 
 //查看投资人
 + (void)investorGetInfoWithUid:(NSNumber *)uid
+                           pid:(NSNumber *)pid
                        Success:(SuccessBlock)success
                         Failed:(FailedBlock)failed;
 

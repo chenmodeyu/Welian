@@ -28,6 +28,7 @@ static WLDataDBTool *wlDataDBTool;
     [wlDataDBTool createTableWithName:KWLUserInfoTableName];
     [wlDataDBTool createTableWithName:KWLSamefriendsTableName];
     [wlDataDBTool createTableWithName:KSendAgainDataTableName];
+    [wlDataDBTool createTableWithName:KBannerDataTableName];
     return wlDataDBTool;
 }
 

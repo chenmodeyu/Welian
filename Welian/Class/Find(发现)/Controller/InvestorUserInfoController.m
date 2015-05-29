@@ -34,8 +34,8 @@
         if (userType == InvestorUserTypeUID) {
             _userID = [userData objectAtIndex:0];
             _pID = [userData objectAtIndex:1];
-            [WLHUDView showCustomHUD:@"" imageview:nil];
-            [WeLianClient investorGetInfoWithUid:_userID Success:^(id resultInfo) {
+            [WLHUDView showHUDWithStr:@"" dim:NO];
+            [WeLianClient investorGetInfoWithUid:_userID pid:_pID Success:^(id resultInfo) {
                 _investorUserM = [InvestorUserModel objectWithDict:resultInfo];
                 [WLHUDView hiddenHud];
                 [self reloadUserDataView];
@@ -109,8 +109,11 @@
 // 拒绝发送BP
 - (void)refusedMailingClick
 {
+    // // 0 未处理， 1 不同意 ，2 同意，3 已发送。 -1 标示只查看投资人
+    WEAKSELF
     [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(1) Success:^(id resultInfo) {
-        DLog(@"fdsa");
+        [_investorUserM setStatus:@(1)];
+        [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
     } Failed:^(NSError *error) {
         
     }];
@@ -123,19 +126,19 @@
 // 投递
 - (void)mailingInvestorClick
 {
-    IBaseUserM *meModel = [IBaseUserM getLoginUserBaseInfo];
     WEAKSELF
-    [WeLianClient getInvestorProjectsListPid:meModel.uid Success:^(id resultInfo) {
+    [WeLianClient getInvestorProjectsListPid:_investorUserM.user.uid Success:^(id resultInfo) {
         NSArray *projectArray = [ProjectTouDiModel objectsWithInfo:resultInfo];
         
         ProjectsMailingView *projectsMailingView = [[ProjectsMailingView alloc] initWithFrame:[UIScreen mainScreen].bounds andProjects:projectArray];
         __weak ProjectsMailingView *weakProView = projectsMailingView;
         projectsMailingView.mailingProBlock = ^(ProjectTouDiModel *touDiModel){
             [WeLianClient investorToudiWithPid:touDiModel.pid Uid:_investorUserM.user.uid Success:^(id resultInfo) {
+                [_investorUserM setStatus:@(2)];
                 if (_userType == InvestorUserTypeUID) {
-                    
+                    [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
                 }else if (_userType == InvestorUserTypeModel){
-                
+                    
                     
                 }
                 [WLHUDView showSuccessHUD:@"投递成功！"];
