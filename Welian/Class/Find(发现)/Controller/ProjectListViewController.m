@@ -45,7 +45,7 @@
 {
     if (!_notView) {
         if (_projectType == 4) {
-            _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitStr:@"无筛选结果" andImageName:@"xiangmu_list_funnel_big"];
+            _notView = [[NotstringView alloc] initWithFrame:Rect(0, 0, self.view.width, ScreenHeight) withTitStr:@"无筛选结果" andImageName:@"xiangmu_list_funnel_big"];
         }else{
             _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitleStr:@"暂无创业项目"];
         }
