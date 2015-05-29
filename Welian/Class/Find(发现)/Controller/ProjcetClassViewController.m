@@ -144,38 +144,6 @@
                                      Success:^(id resultInfo) {
                                          //异步保存数据到数据库
                                          [self saveProjectInfoWithResultInfo:resultInfo Type:@(_projectClassInfo.cid.integerValue + 100)];
-                                         
-                                         //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除  other:对应项目集的id
-//                                         if (_pageIndex == 1) {
-//                                             //第一页
-//                                             [ProjectInfo deleteAllProjectInfoWithType:@(_projectClassInfo.cid.integerValue + 100)];
-//                                         }
-//                                         NSArray *projects = resultInfo;
-//                                         if (projects.count > 0) {
-//                                             
-//                                             for (IProjectInfo *iProjectInfo in projects) {
-//                                                 [ProjectInfo createProjectInfoWith:iProjectInfo withType:@(_projectClassInfo.cid.integerValue + 100)];
-//                                             }
-//                                         }
-//                                         
-//                                         //获取数据
-//                                         self.datasource = [ProjectInfo allMyProjectInfoWithType:@(_projectClassInfo.cid.integerValue + 100)];
-//                                         
-//                                         [self.tableView reloadData];
-//                                         
-//                                         //设置是否可以下拉刷新
-//                                         if ([resultInfo count] != _pageSize) {
-//                                             self.tableView.footer.hidden = YES;
-//                                         }else{
-//                                             self.tableView.footer.hidden = NO;
-//                                         }
-                                         
-//                                         if(_datasource.count == 0){
-//                                             [self.tableView addSubview:self.notView];
-//                                             [self.tableView sendSubviewToBack:self.notView];
-//                                         }else{
-//                                             [_notView removeFromSuperview];
-//                                         }
                                      } Failed:^(NSError *error) {
                                          [self.tableView.header endRefreshing];
                                          [self.tableView.footer endRefreshing];
