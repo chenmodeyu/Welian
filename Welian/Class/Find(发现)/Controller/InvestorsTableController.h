@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSInteger, InvestorsType) {
     InvestorsTypeUser,                  // 投资人
-    InvestorsTypeOrganization                 // 投资机构
+    InvestorsTypeOrganization,          // 投资机构
+    InvestorsTypeShaiXuan               // 筛选
 };
 
 @interface InvestorsTableController : UITableViewController

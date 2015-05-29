@@ -36,12 +36,12 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Me(%E6%88%91%E7%9A%84)/Controller/PhoneChangeVC.m"
-                  timestampString = "454573057.489986"
+                  timestampString = "454579290.08068"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
                   endingLineNumber = "115"
-                  offsetFromSymbolStart = "1400">
+                  offsetFromSymbolStart = "1104">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,12 +51,12 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/Class/Me(%E6%88%91%E7%9A%84)/Controller/PhoneChangeVC.m"
-                  timestampString = "454573057.490172"
+                  timestampString = "454579290.080818"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
                   endingLineNumber = "115"
-                  offsetFromSymbolStart = "54">
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>

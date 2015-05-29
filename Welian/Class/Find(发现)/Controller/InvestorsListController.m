@@ -14,7 +14,7 @@
 @interface InvestorsListController () <XZPageViewControllerDataSource,XZPageViewControllerDelegate>
 
 @property (nonatomic, strong) ShaiXuanView *shaixuanView;
-@property (nonatomic, assign) NSInteger selectIndex;
+//@property (nonatomic, assign) NSInteger selectIndex;
 @property (nonatomic, strong) NSArray *titArray;
 
 @end
@@ -51,18 +51,10 @@
         if (index == self.navTitlesArr.count-1) {
             [weakSelf.shaixuanView showVC];
             weakSelf.shaixuanView.shaixuanBlock = ^(){
-                [weakSelf transitionToViewControllerAtIndex:index];
-                weakSelf.selectIndex = index;
-                [weakSelf.segmentedControl setSelectedSegmentIndex:weakSelf.selectIndex];
+                
             };
-            weakSelf.shaixuanView.cancelBlock = ^(){
-                [weakSelf.segmentedControl setSelectedSegmentIndex:weakSelf.selectIndex];
-            };
-        }else{
-            [weakSelf transitionToViewControllerAtIndex:index];
-            weakSelf.selectIndex = index;
-            [weakSelf.segmentedControl setSelectedSegmentIndex:weakSelf.selectIndex];
         }
+        [weakSelf transitionToViewControllerAtIndex:index];
     }];
 }
 
@@ -75,19 +67,13 @@
         InvestorsTableController *investOrgTableVC = [[InvestorsTableController alloc] initWithInvestorsType:InvestorsTypeOrganization];
         return investOrgTableVC;
     }else if (index ==2){
-        InvestorsTableController *investOrgTableVC = [[InvestorsTableController alloc] initWithInvestorsType:InvestorsTypeUser];
+        InvestorsTableController *investOrgTableVC = [[InvestorsTableController alloc] initWithInvestorsType:InvestorsTypeShaiXuan];
         return investOrgTableVC;
     }
     return nil;
     
 
 }
-
-- (void)viewPageController:(XZPageViewController *)pageViewController pageViewControllerChangedAtIndex:(NSInteger)index
-{
-    
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

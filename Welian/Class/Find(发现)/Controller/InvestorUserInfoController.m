@@ -17,6 +17,7 @@
     InvestorUserInfoType _userType;
     InvestorUserModel *_investorUserM;
     NSNumber *_userID;
+    NSNumber *_pID;
 }
 
 @property (nonatomic, strong) InvestorInfoHeadView *invesHeadView;
@@ -31,7 +32,8 @@
     if (self) {
         _userType = userType;
         if (userType == InvestorUserTypeUID) {
-            _userID = userData;
+            _userID = [userData objectAtIndex:0];
+            _pID = [userData objectAtIndex:1];
             [WLHUDView showCustomHUD:@"" imageview:nil];
             [WeLianClient investorGetInfoWithUid:_userID Success:^(id resultInfo) {
                 _investorUserM = [InvestorUserModel objectWithDict:resultInfo];
@@ -107,8 +109,8 @@
 // 拒绝发送BP
 - (void)refusedMailingClick
 {
-    [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:@(2) status:@(1) Success:^(id resultInfo) {
-        
+    [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(1) Success:^(id resultInfo) {
+        DLog(@"fdsa");
     } Failed:^(NSError *error) {
         
     }];
