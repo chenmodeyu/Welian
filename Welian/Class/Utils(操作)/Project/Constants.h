@@ -66,5 +66,6 @@ extern NSString *const kInvestorSearchIndustryKey;//投资人 领域搜索条件
 extern NSString *const kInvestorSearchCityKey;//投资人 地区条件
 extern NSString *const kInvestorSearchStageKey;//投资人 投资阶段条件
 
+extern NSString *const kSearchInvestorUserKey; //重新搜索投资人信息
 
 

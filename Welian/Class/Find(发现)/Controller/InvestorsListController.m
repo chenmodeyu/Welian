@@ -51,7 +51,8 @@
         if (index == self.navTitlesArr.count-1) {
             [weakSelf.shaixuanView showVC];
             weakSelf.shaixuanView.shaixuanBlock = ^(){
-                
+                //通知获取搜索数据
+                [KNSNotification postNotificationName:kSearchInvestorUserKey object:nil];
             };
         }
         [weakSelf transitionToViewControllerAtIndex:index];

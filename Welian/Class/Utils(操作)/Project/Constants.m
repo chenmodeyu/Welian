@@ -63,5 +63,8 @@ NSString *const kInvestorSearchCityKey = @"InvestorSearchCity_%@";//投资人 �
 NSString *const kInvestorSearchStageKey = @"InvestorSearchStage_%@";//投资人 投资阶段条件
 
 
+NSString *const kSearchInvestorUserKey = @"SearchInvestorUser";//重新搜索投资人信息
+
+
 
 

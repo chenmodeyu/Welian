@@ -276,7 +276,6 @@ static NSString *shaixuanHeaderid = @"ShaiXuanHeaderView";
 #pragma mark - 代理方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectItemAtIndexPath");
     switch (indexPath.section) {
         case 0:
             if (_oneIndex) {
@@ -308,12 +307,10 @@ static NSString *shaixuanHeaderid = @"ShaiXuanHeaderView";
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didHighlightItemAtIndexPath");
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didDeselectItemAtIndexPath");
     switch (indexPath.section) {
         case 0:
             _oneIndex = nil;

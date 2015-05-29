@@ -21,12 +21,69 @@
     NSInteger _page;
 }
 
+@property (nonatomic, strong) UIView *headerView;
+
 @end
 
 static NSString *identifier = @"InvestorCell";
 static NSString *investorOrgCellid = @"InvestorOrgCell";
 
 @implementation InvestorsTableController
+
+- (UIView *)headerView
+{
+    if (_headerView == nil) {
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, 22.f)];
+    }
+    for (UIView *label in _headerView.subviews) {
+        [label removeFromSuperview];
+    }
+    NSMutableArray *selectInfos = [NSMutableArray array];
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSDictionary *searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchIndustryKey,loginUser.uid]];
+    NSDictionary *searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
+    NSDictionary *searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
+    if (searchIndustryinfo) {
+        [selectInfos addObject:searchIndustryinfo[@"industryname"]];
+    }
+    if (searchStage) {
+        [selectInfos addObject:searchStage[@"stagename"]];
+    }
+    if (searchCity) {
+        [selectInfos addObject:searchCity[@"name"]];
+    }
+    if (selectInfos.count > 0) {
+        CGFloat leftWith = 15.f;
+        for (int i = 0; i < selectInfos.count; i++) {
+            UILabel *titleLabel = [[UILabel alloc] init];
+            titleLabel.backgroundColor = [UIColor whiteColor];
+            titleLabel.textColor = kNormalTextColor;
+            titleLabel.font = kNormal12Font;
+            titleLabel.text = selectInfos[i];
+            titleLabel.textAlignment = NSTextAlignmentCenter;
+            titleLabel.layer.cornerRadius = 3.f;
+            titleLabel.layer.masksToBounds = YES;
+            titleLabel.layer.borderColor = kNormalLineColor.CGColor;
+            titleLabel.layer.borderWidth = 0.6f;
+            [titleLabel sizeToFit];
+            titleLabel.width = titleLabel.width + 10.f;
+            titleLabel.height = 22.f;
+            titleLabel.left = leftWith;
+            titleLabel.centerY = _headerView.height-3;
+            leftWith = titleLabel.right + 5.f;
+            [_headerView addSubview:titleLabel];
+        }
+    }
+    return _headerView;
+}
+
+
+- (void)dealloc
+{
+    if (invType == InvestorsTypeShaiXuan) {
+        [KNSNotification removeObserver:self];
+    }
+}
 
 - (instancetype)initWithInvestorsType:(InvestorsType)investorsType
 {
@@ -84,15 +141,31 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
         NSDictionary *searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
         //投资人 地区条件
         NSDictionary *searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
+        
+        
+        
         if (searchIndustryinfo||searchStage||searchCity) {
             if (searchIndustryinfo) {
-//                paramsDic setObject:<#(id)#> forKey:<#(id<NSCopying>)#>
+                [paramsDic setObject:[searchIndustryinfo objectForKey:@"industryid"] forKey:@"industryid"];
             }
-            [WeLianClient investorSearchPersonWithParams:@{} Success:^(id resultInfo) {
-                
+            if (searchStage) {
+                [paramsDic setObject:[searchStage objectForKey:@"stage"] forKey:@"stage"];
+            }
+            if (searchCity) {
+                [paramsDic setObject:[searchCity objectForKey:@"cityid"] forKey:@"cityid"];
+            }
+            [WeLianClient investorSearchPersonWithParams:paramsDic Success:^(id resultInfo) {
+                NSArray *investorUM = [InvestorUserModel objectsWithInfo:resultInfo];
+                [_dataArray removeAllObjects];
+                [_dataArray addObjectsFromArray:investorUM];
+                [weakSelf hideRefreshViewWithCount:0];
+                [weakSelf.tableView reloadData];
             } Failed:^(NSError *error) {
                 
             }];
+            [self.tableView setTableHeaderView:self.headerView];
+        }else{
+            [self hideRefreshViewWithCount:0];
         }
     }
 }
@@ -143,8 +216,13 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     }
     
     if (invType == InvestorsTypeShaiXuan) {
-        
+        [KNSNotification addObserver:self selector:@selector(updataUsersList) name:kSearchInvestorUserKey object:nil];
     }
+}
+
+- (void)updataUsersList
+{
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -169,7 +247,7 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (invType == InvestorsTypeUser) {
+    if (invType == InvestorsTypeUser||invType == InvestorsTypeShaiXuan) {
       InvestorCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (cell == nil) {
             cell = [[InvestorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
