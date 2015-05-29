@@ -137,7 +137,7 @@
     
     [_interviewView setProgress:investorUserModel.received.floatValue?investorUserModel.interview.floatValue/investorUserModel.received.floatValue:0.0 animated:YES];
     [_interviewView.progressLabel setText:[NSString stringWithFormat:@"%d%@",investorUserModel.interview.integerValue*100/investorUserModel.received.integerValue,@"%"]];
-    
+
     [_mailingBut setHidden:!investorUserModel.status];
     [_agreeView setHidden:!investorUserModel.status];
     if (investorUserModel.status) {
@@ -182,13 +182,13 @@
 - (void)setUserType:(InvestorUserInfoType)userType
 {
     _userType = userType;
-//    if (userType == InvestorUserTypeUID) {
-//        [_agreeView setHidden:NO];
-//        [_mailingBut setHidden:YES];
-//    }else if (userType ==InvestorUserTypeModel){
-//        [_agreeView setHidden:YES];
-//        [_mailingBut setHidden:NO];
-//    }
+    if (userType == InvestorUserTypeUID) {
+        [_agreeView setHidden:NO];
+        [_mailingBut setHidden:YES];
+    }else if (userType ==InvestorUserTypeModel){
+        [_agreeView setHidden:YES];
+        [_mailingBut setHidden:NO];
+    }
 }
 
 @end

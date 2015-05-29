@@ -103,7 +103,6 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
             
         }];
     }
-
 }
 
 - (void)viewDidLoad {
@@ -122,6 +121,10 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
 
     if (invType == InvestorsTypeOrganization){
         [self.tableView registerNib:[UINib nibWithNibName:@"InvestorOrgCell" bundle:nil] forCellReuseIdentifier:investorOrgCellid];
+    }
+    
+    if (invType == InvestorsTypeShaiXuan) {
+        
     }
 }
 
@@ -167,7 +170,7 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    if (invType == InvestorsTypeUser) {
+    if (invType == InvestorsTypeUser||invType == InvestorsTypeShaiXuan) {
         InvestorUserModel *invesUserM = [_dataArray objectAtIndex:indexPath.row];
         InvestorUserInfoController *invesInfo = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeModel andUserData:invesUserM];
         [self.navigationController pushViewController:invesInfo animated:YES];
