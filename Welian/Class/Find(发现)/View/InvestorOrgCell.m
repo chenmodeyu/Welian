@@ -21,11 +21,11 @@
     
     [self.nameLabel setText:touziJiGouM.title];
     [self.logoImage sd_setImageWithURL:[NSURL URLWithString:touziJiGouM.logo] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageLowPriority];
-    [self.logoImage setBackgroundColor:[UIColor lightGrayColor]];
     [self.stageLabel setText:[NSString stringWithFormat:@"投资阶段：%@",touziJiGouM.stagesStr?:@"暂无"]];
     [self.industryLabel setText:[NSString stringWithFormat:@"投资领域：%@",touziJiGouM.industrysStr?:@"暂无"]];
-    [self.userAndCaseLabel setText:[NSString stringWithFormat:@"入驻投资人 %ld 投资案例 %ld",(long)touziJiGouM.membercount.integerValue,(long)touziJiGouM.casecount.integerValue]];
     
+    NSMutableAttributedString *oneAttributedText = [NSObject getAttributedInfoString:[NSString stringWithFormat:@"入驻投资人 %ld  投资案例 %ld",(long)touziJiGouM.membercount.integerValue,(long)touziJiGouM.casecount.integerValue] searchArray:@[touziJiGouM.membercount.stringValue,touziJiGouM.casecount.stringValue] color:KBlueTextColor font:WLFONT(15)];
+    [self.userAndCaseLabel setAttributedText:oneAttributedText];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

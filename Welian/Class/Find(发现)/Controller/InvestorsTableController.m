@@ -13,6 +13,7 @@
 #import "InvestorUserInfoController.h"
 #import "TouzijigouModel.h"
 #import "InvestorFirmInfoController.h"
+#import "NotstringView.h"
 
 @interface InvestorsTableController ()
 {
@@ -23,12 +24,23 @@
 
 @property (nonatomic, strong) UIView *headerView;
 
+@property (strong, nonatomic) NotstringView *notView;
+
 @end
 
 static NSString *identifier = @"InvestorCell";
 static NSString *investorOrgCellid = @"InvestorOrgCell";
 
 @implementation InvestorsTableController
+
+- (NotstringView *)notView
+{
+    if (_notView == nil) {
+        _notView = [[NotstringView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, SuperSize.height) withTitStr:@"无筛选结果" andImageName:@"xiangmu_list_funnel_big.png"];
+    }
+    return _notView;
+}
+
 
 - (UIView *)headerView
 {
@@ -116,6 +128,11 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     if (count>=KCellConut) {
         _page++;
     }
+    if (!_dataArray.count) {
+        [self.tableView addSubview:self.notView];
+    }else{
+        [self.notView removeFromSuperview];
+    }
     self.tableView.footer.hidden = count<KCellConut;
 }
 
@@ -179,6 +196,7 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
             [self.tableView setTableHeaderView:self.headerView];
         }else{
             [self hideRefreshViewWithCount:0];
+            [self.tableView addSubview:self.notView];
         }
     }
 }

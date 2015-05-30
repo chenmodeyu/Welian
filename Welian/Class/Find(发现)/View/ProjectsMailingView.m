@@ -15,7 +15,7 @@
 }
 @property (strong, nonatomic) UIView *tapGestureView;
 @property (strong, nonatomic) NSIndexPath *seletIndex;
-
+@property (nonatomic, strong) UIButton *toudiBut;
 @end
 
 @implementation ProjectsMailingView
@@ -59,9 +59,12 @@
         
         UIButton *toudiBut = [[UIButton alloc] initWithFrame:CGRectMake(backGuView.width*0.5, backGuView.height-50, backGuView.width*0.5, 50)];
         [toudiBut setTitleColor:self.tintColor forState:UIControlStateNormal];
+        [toudiBut setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
         [toudiBut setTitle:@"投递" forState:UIControlStateNormal];
         [toudiBut addTarget:self action:@selector(mailingInvestorHttpClick) forControlEvents:UIControlEventTouchUpInside];
+        [toudiBut setEnabled:NO];
         [backGuView addSubview:toudiBut];
+        self.toudiBut = toudiBut;
         
         UIView *bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, cancelBut.top, backGuView.width, 0.5)];
         [bottomLine setBackgroundColor:WLRGB(125, 125, 125)];
@@ -86,16 +89,19 @@
             [backGuView addSubview:noProject];
             UILabel *noLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, noProject.width, 20)];
             [noLabel setText:@"还没有项目哦~"];
+            [noLabel setFont:WLFONT(15)];
             [noLabel setTextAlignment:NSTextAlignmentCenter];
             [noLabel setTextColor:WLRGB(125, 125, 125)];
             noLabel.centerY = noProject.centery-50;
             [noProject addSubview:noLabel];
             
             UIButton *addProjectBut = [UIButton buttonWithType:UIButtonTypeCustom];
-            [addProjectBut setFrame:CGRectMake(58, noLabel.bottom+10, noProject.width-2*58, 44)];
+            [addProjectBut setFrame:CGRectMake(58, noLabel.bottom+10, noProject.width-2*58, 40)];
             [addProjectBut setTitle:@"创建项目" forState:UIControlStateNormal];
+            [addProjectBut setImage:[UIImage imageNamed:@"me_button_add"] forState:UIControlStateNormal];
             [addProjectBut setBackgroundImage:[UIImage resizedImage:@"login_my_button"] forState:UIControlStateNormal];
             [addProjectBut setBackgroundImage:[UIImage resizedImage:@"login_my_button_pre"] forState:UIControlStateHighlighted];
+            [addProjectBut addTarget:self action:@selector(addNewProjectClick) forControlEvents:UIControlEventTouchUpInside];
             [noProject addSubview:addProjectBut];
         }
     }
@@ -123,6 +129,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"projectcellid"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"projectcellid"];
+        [cell.textLabel setFont:WLFONT(16)];
+        [cell.textLabel setTextColor:kTitleNormalTextColor];
+        [cell.detailTextLabel setTextColor:kNormalTextColor];
+        cell.detailTextLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
     }
     ProjectTouDiModel *projectM = _dataArray[indexPath.row];
     [cell.textLabel setText:projectM.name];
@@ -145,8 +155,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:self.seletIndex animated:NO];
-    
     self.seletIndex = indexPath;
+    [self.toudiBut setEnabled:YES];
     
     DLog(@"添加一项");
    
@@ -156,6 +166,8 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     DLog(@"取消一项");
     self.seletIndex = nil;
+    [self.toudiBut setEnabled:NO];
+    
 
 }
 
@@ -168,6 +180,15 @@
             self.mailingProBlock(projectM);
         }
     }
+}
+
+// 创建项目
+- (void)addNewProjectClick
+{
+    if (self.addProjectBlock) {
+        self.addProjectBlock();
+    }
+    [self cancelSelfVC];
 }
 
 

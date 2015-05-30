@@ -18,8 +18,10 @@
 
 
 //设置特殊颜色
+// 数组
++ (NSMutableAttributedString *)getAttributedInfoString:(NSString *)str searchArray:(NSArray *)searchArray color:(UIColor *)sColor font:(UIFont *)sFont;
+// 单个
 + (NSMutableAttributedString *)getAttributedInfoString:(NSString *)str searchStr:(NSString *)searchStr color:(UIColor *)sColor font:(UIFont *)sFont;
-
 
 //传入的参数：1、生成图片的大小 2、压缩比 3、存放图片的路径
 + (void)createThumbImage:(UIImage *)image size:(CGSize )thumbSize percent:(float)percent toPath:(NSString *)thumbPath;

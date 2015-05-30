@@ -142,7 +142,11 @@
             [titleLabel setFont:_font];
             [titleLabel setTextColor:_textColor];
         }
-        titleLabel.text = obj;
+        if ([obj isKindOfClass:[NSString class]]) {
+            titleLabel.text = obj;
+        }else if ([obj isKindOfClass:[NSMutableAttributedString class]]){
+            [titleLabel setAttributedText:obj];
+        }
         [titleLabel sizeToFit];
         titleLabel.centerX = (_segmentWidth / 2.f) + _segmentWidth * idx;
         titleLabel.centerY = (self.height - _selectionIndicatorHeight) / 2.f;

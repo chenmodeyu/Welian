@@ -10,13 +10,13 @@
 #import "ProjectTouDiModel.h"
 
 typedef void(^MailingProjectBlock)(ProjectTouDiModel *projectModel);
+typedef void(^AddProjectBlock)(void);
 
 @interface ProjectsMailingView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame andProjects:(NSArray *)projects;
-- (void)cancelSelfVC;
-
+@property (nonatomic, copy) AddProjectBlock addProjectBlock;
 @property (nonatomic,copy) MailingProjectBlock mailingProBlock;
 
-
+- (instancetype)initWithFrame:(CGRect)frame andProjects:(NSArray *)projects;
+- (void)cancelSelfVC;
 @end

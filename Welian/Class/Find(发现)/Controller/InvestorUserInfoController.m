@@ -11,6 +11,7 @@
 #import "ProjectTouDiModel.h"
 #import "InvestorInfoCell.h"
 #import "InvestorFirmInfoController.h"
+#import "CreateProjectController.h"
 
 @interface InvestorUserInfoController ()
 {
@@ -58,9 +59,9 @@
     InvestorInfoHeadView *invesHeadView = [[InvestorInfoHeadView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, 280)];
     [invesHeadView setInvestorUserModel:_investorUserM];
     [invesHeadView setUserType:_userType];
-    [invesHeadView.mailingBut addTarget:self action:@selector(mailingInvestorClick) forControlEvents:UIControlEventTouchUpInside];
-    [invesHeadView.agreeBut addTarget:self action:@selector(mailingInvestorClick) forControlEvents:UIControlEventTouchUpInside];
-    [invesHeadView.rejectBut addTarget:self action:@selector(refusedMailingClick) forControlEvents:UIControlEventTouchUpInside];
+    [invesHeadView.mailingBut addTarget:self action:@selector(mailingInvestorClick:) forControlEvents:UIControlEventTouchUpInside];
+    [invesHeadView.agreeBut addTarget:self action:@selector(mailingInvestorClick:) forControlEvents:UIControlEventTouchUpInside];
+    [invesHeadView.rejectBut addTarget:self action:@selector(refusedMailingClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView setTableHeaderView:invesHeadView];
     self.invesHeadView = invesHeadView;
 }
@@ -107,15 +108,20 @@
 }
 
 // 拒绝发送BP
-- (void)refusedMailingClick
+- (void)refusedMailingClick:(UIButton*)button
 {
     // // 0 未处理， 1 不同意 ，2 同意，3 已发送。 -1 标示只查看投资人
     WEAKSELF
+    [button setEnabled:NO];
+    [WLHUDView showHUDWithStr:@"" dim:NO];
     [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(1) Success:^(id resultInfo) {
+        [button setEnabled:YES];
+        [WLHUDView hiddenHud];
         [_investorUserM setStatus:@(1)];
         [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
     } Failed:^(NSError *error) {
-        
+        [button setEnabled:YES];
+        [WLHUDView hiddenHud];
     }];
 }
 
@@ -124,16 +130,27 @@
 
 
 // 投递
-- (void)mailingInvestorClick
+- (void)mailingInvestorClick:(UIButton*)button
 {
+    [button setEnabled:NO];
+    [WLHUDView showHUDWithStr:@"" dim:NO];
     WEAKSELF
     [WeLianClient getInvestorProjectsListPid:_investorUserM.user.uid Success:^(id resultInfo) {
+        [button setEnabled:YES];
+        [WLHUDView hiddenHud];
         NSArray *projectArray = [ProjectTouDiModel objectsWithInfo:resultInfo];
-        
         ProjectsMailingView *projectsMailingView = [[ProjectsMailingView alloc] initWithFrame:[UIScreen mainScreen].bounds andProjects:projectArray];
         __weak ProjectsMailingView *weakProView = projectsMailingView;
+        projectsMailingView.addProjectBlock = ^(){
+            CreateProjectController *newProjectVC = [[CreateProjectController alloc] initIsEdit:NO withData:nil];
+            [weakSelf.navigationController pushViewController:newProjectVC animated:YES];
+        };
         projectsMailingView.mailingProBlock = ^(ProjectTouDiModel *touDiModel){
+            [button setEnabled:NO];
+            [WLHUDView showHUDWithStr:@"" dim:NO];
             [WeLianClient investorToudiWithPid:touDiModel.pid Uid:_investorUserM.user.uid Success:^(id resultInfo) {
+                [button setEnabled:YES];
+                [WLHUDView hiddenHud];
                 [_investorUserM setStatus:@(2)];
                 if (_userType == InvestorUserTypeUID) {
                     [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
@@ -144,13 +161,15 @@
                 [WLHUDView showSuccessHUD:@"投递成功！"];
                 [weakProView cancelSelfVC];
             } Failed:^(NSError *error) {
-                
+                [button setEnabled:YES];
+                [WLHUDView hiddenHud];
             }];
         };
         [self.view.window addSubview:projectsMailingView];
         DLog(@"%@",resultInfo);
     } Failed:^(NSError *error) {
-        
+        [button setEnabled:YES];
+        [WLHUDView hiddenHud];
     }];
 }
 

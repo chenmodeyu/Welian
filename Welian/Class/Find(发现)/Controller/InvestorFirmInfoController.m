@@ -216,10 +216,16 @@ static NSString *casecellid = @"casecellid";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    if (_touziJiGouM) {
+        NSMutableAttributedString *userCountStr = [NSObject getAttributedInfoString:[NSString stringWithFormat:@"投资人 %ld",(long)_touziJiGouM.membercount.integerValue] searchArray:@[_touziJiGouM.membercount.stringValue] color:KBlueTextColor font:WLFONT(15)];
+        NSMutableAttributedString *caseCountStr = [NSObject getAttributedInfoString:[NSString stringWithFormat:@"投资案例 %ld",(long)_touziJiGouM.casecount.integerValue] searchArray:@[_touziJiGouM.casecount.stringValue] color:KBlueTextColor font:WLFONT(15)];
+        [self.wlSegmentedControl setSectionTitles:@[userCountStr,caseCountStr]];
+    }else{
+        NSString *userCountStr = [NSString stringWithFormat:@"投资人 %ld",(long)_touziJiGouM.membercount.integerValue];
+        NSString *caseCountStr = [NSString stringWithFormat:@"投资案例 %ld",(long)_touziJiGouM.casecount.integerValue];
+        [self.wlSegmentedControl setSectionTitles:@[userCountStr,caseCountStr]];
+    }
     WEAKSELF
-    NSString *userCountStr = [NSString stringWithFormat:@"投资人 %ld",(long)_touziJiGouM.membercount.integerValue];
-    NSString *caseCountStr = [NSString stringWithFormat:@"投资案例 %ld",(long)_touziJiGouM.casecount.integerValue];
-    [self.wlSegmentedControl setSectionTitles:@[userCountStr,caseCountStr]];
     [self.wlSegmentedControl setIndexChangeBlock:^(NSInteger index) {
         if (index ==0) {
             if (weakSelf.usersArray.count) {
