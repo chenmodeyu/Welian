@@ -308,8 +308,11 @@
 
 // 1.8.0
 // 广告位数据
-#define KBannerDataTableName [NSString stringWithFormat:@"Banner%@",[LogInUser getCurrentLoginUser].uid]
-
+#define KBannerDataTableName [NSString stringWithFormat:@"Banner"]
+// 投资人
+#define KInvestrUserTableName [NSString stringWithFormat:@"InvestrUsers"]
+// 投资机构
+#define KInvestrJiGouTableName [NSString stringWithFormat:@"InvestrJiGou"]
 
 // 首页数据
 #define KHomeDataTableName [NSString stringWithFormat:@"home%@",[LogInUser getCurrentLoginUser].uid]

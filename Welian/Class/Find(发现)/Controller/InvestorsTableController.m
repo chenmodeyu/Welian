@@ -92,6 +92,19 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
         invType = investorsType;
         _dataArray = [NSMutableArray array];
         _page = 1;
+
+        if (investorsType == InvestorsTypeUser) {
+            YTKKeyValueItem *usersItem = [[WLDataDBTool sharedService] getYTKKeyValueItemById:KInvestrUserTableName fromTable:KInvestrUserTableName];
+            NSArray *investArray = [InvestorUserModel objectsWithInfo:usersItem.itemObject];
+            [_dataArray removeAllObjects];
+            [_dataArray addObjectsFromArray:investArray];
+        }else if (investorsType == InvestorsTypeOrganization){
+            YTKKeyValueItem *usersItem = [[WLDataDBTool sharedService] getYTKKeyValueItemById:KInvestrJiGouTableName fromTable:KInvestrJiGouTableName];
+            NSArray *investArray = [TouzijigouModel objectsWithInfo:usersItem.itemObject];
+            [_dataArray removeAllObjects];
+            [_dataArray addObjectsFromArray:investArray];
+        }
+        
     }
     return self;
 }
@@ -113,6 +126,7 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     WEAKSELF
     if (invType == InvestorsTypeUser) {
         [WeLianClient getInvestorListWithType:@(0) Page:@(_page) Size:@(KCellConut) Success:^(id resultInfo) {
+            [[WLDataDBTool sharedService] putObject:resultInfo withId:KInvestrUserTableName intoTable:KInvestrUserTableName];
             NSArray *investorUM = [InvestorUserModel objectsWithInfo:resultInfo];
             [_dataArray removeAllObjects];
             [_dataArray addObjectsFromArray:investorUM];
@@ -122,8 +136,8 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
             
         }];
     }else if (invType == InvestorsTypeOrganization){
-        
         [WeLianClient getInvestorJigouWithPage:@(_page) Size:@(KCellConut) Success:^(id resultInfo) {
+            [[WLDataDBTool sharedService] putObject:resultInfo withId:KInvestrJiGouTableName intoTable:KInvestrJiGouTableName];
             NSArray *investorJiGou = [TouzijigouModel objectsWithInfo:resultInfo];
             [_dataArray removeAllObjects];
             [_dataArray addObjectsFromArray:investorJiGou];
@@ -141,7 +155,6 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
         NSDictionary *searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
         //投资人 地区条件
         NSDictionary *searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
-        
         
         
         if (searchIndustryinfo||searchStage||searchCity) {

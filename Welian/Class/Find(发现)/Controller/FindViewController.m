@@ -101,12 +101,12 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
 // 加载发现头部
 - (void)loadLoopViewData
 {
-  YTKKeyValueItem *item = [[WLDataDBTool sharedService] getYTKKeyValueItemById:@"Banner" fromTable:KBannerDataTableName];
+  YTKKeyValueItem *item = [[WLDataDBTool sharedService] getYTKKeyValueItemById:KBannerDataTableName fromTable:KBannerDataTableName];
     NSArray *bannerArray = item.itemObject;
     [self showBannerViewWith:bannerArray];
     WEAKSELF
     [WeLianClient adBannerWithSuccess:^(id resultInfo) {
-        [[WLDataDBTool sharedService] putObject:resultInfo withId:@"Banner" intoTable:KBannerDataTableName];
+        [[WLDataDBTool sharedService] putObject:resultInfo withId:KBannerDataTableName intoTable:KBannerDataTableName];
         [weakSelf showBannerViewWith:resultInfo];
         
     } Failed:^(NSError *error) {
