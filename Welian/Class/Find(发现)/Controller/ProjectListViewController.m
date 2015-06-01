@@ -44,10 +44,16 @@
 - (NotstringView *)notView
 {
     if (!_notView) {
-        if (_projectType == 4) {
-            _notView = [[NotstringView alloc] initWithFrame:Rect(0, 0, self.view.width, ScreenHeight) withTitStr:@"无筛选结果" andImageName:@"xiangmu_list_funnel_big"];
-        }else{
-            _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitleStr:@"暂无创业项目"];
+        switch (_projectType) {
+            case 3:
+                _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitleStr:@"暂无项目集"];
+                break;
+            case 4:
+                _notView = [[NotstringView alloc] initWithFrame:Rect(0, 0, self.view.width, ScreenHeight) withTitStr:@"无筛选结果" andImageName:@"xiangmu_list_funnel_big"];
+                break;
+            default:
+                _notView = [[NotstringView alloc] initWithFrame:self.tableView.frame withTitleStr:@"暂无创业项目"];
+                break;
         }
     }
     return _notView;
@@ -56,7 +62,7 @@
 //标题设置
 - (NSString *)title
 {
-    return @"创业项目44";
+    return @"创业项目";
 }
 
 //1：最新   2：热门  3：项目集 4：筛选
@@ -543,6 +549,16 @@
                         [self checkNotViewShow];
                         [self checkFooterViewWith:resultInfo];
                     }];
+                }else{
+                    [self.tableView.header endRefreshing];
+                    [self.tableView.footer endRefreshing];
+                    
+                    //获取项目集
+                    self.datasource = [ProjectClassInfo getAllProjectClassInfos];
+                    [self.tableView reloadData];
+                    
+                    [self checkNotViewShow];
+                    [self checkFooterViewWith:resultInfo];
                 }
                 
 //                WEAKSELF
