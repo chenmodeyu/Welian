@@ -206,8 +206,8 @@
 - (void)talkNowBtnClicked:(UIButton *)sender
 {
     MyFriendUser *myFriendUser = [[LogInUser getCurrentLoginUser] getMyfriendUserWithUid:_iProjectDetailInfo.user.uid];
-    //status  0:默认状态  1：已不感兴趣 2:已约谈
-    if (myFriendUser && _iProjectDetailInfo.status.integerValue == 2) {
+    //status  0:默认状态  1：已不感兴趣 2:已约谈 3:拒绝过又再次约谈
+    if (myFriendUser && _iProjectDetailInfo.feedback.integerValue > 1) {
         //已经是好友，并且约谈过
         [self linkUserToChatUi];
     }else{
