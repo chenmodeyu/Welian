@@ -106,4 +106,24 @@
     return industIDArray;
 }
 
+//转换模型
+- (IProjectInfo *)toIProjectInfoModel
+{
+    //项目信息不为空的时候，可以查看详情
+    IProjectInfo *iProjectInfo = [[IProjectInfo alloc ] init];
+    iProjectInfo.pid = self.pid;
+    iProjectInfo.name = self.name;
+    iProjectInfo.intro = self.intro;
+    iProjectInfo.des = self.des;
+    iProjectInfo.zancount = self.zancount;
+    iProjectInfo.commentcount = self.commentcount;
+    iProjectInfo.membercount = self.membercount;
+    iProjectInfo.iszan = self.iszan;
+    iProjectInfo.date = self.date;
+    iProjectInfo.status = self.status;
+    iProjectInfo.industrys = self.industrys;
+    iProjectInfo.user = self.user;
+    return iProjectInfo;
+}
+
 @end

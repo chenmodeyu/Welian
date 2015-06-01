@@ -12,6 +12,7 @@
 #import "WebViewLookBPViewController.h"
 #import "ChatViewController.h"
 #import "MessagesViewController.h"
+#import "ProjectDetailsViewController.h"
 
 #import "ProjectInfoViewCell.h"
 #import "FinancingInfoView.h"
@@ -145,10 +146,11 @@
 - (void)checkNoLikeBtnUI
 {
     //status  0:默认状态  1：已不感兴趣 2:已约谈
-    _noLikeBtn.enabled = _iProjectDetailInfo.status > 0 ? NO : YES;
-    _noLikeBtn.backgroundColor = _iProjectDetailInfo.status > 0 ? KBgGrayColor : [UIColor whiteColor];
-    _noLikeBtn.layer.borderColor = _iProjectDetailInfo.status > 0 ? KBgGrayColor.CGColor : KBlueTextColor.CGColor;
-    _noLikeBtn.imageEdgeInsets = _iProjectDetailInfo.status > 0 ? UIEdgeInsetsMake(0.f, -10.f, 0.f, 0.f) : UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+    _noLikeBtn.enabled = _iProjectDetailInfo.feedback.integerValue > 0 ? NO : YES;
+    _noLikeBtn.backgroundColor = _iProjectDetailInfo.feedback.integerValue > 0 ? KBgGrayColor : [UIColor whiteColor];
+    _noLikeBtn.layer.borderColor = _iProjectDetailInfo.feedback.integerValue > 0 ? KBgGrayColor.CGColor : KBlueTextColor.CGColor;
+    _noLikeBtn.imageEdgeInsets = _iProjectDetailInfo.feedback.integerValue > 0 ? UIEdgeInsetsMake(0.f, -10.f, 0.f, 0.f) : UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+    [_noLikeBtn setTitleColor:_iProjectDetailInfo.feedback.integerValue > 0 ? [UIColor whiteColor] : KBlueTextColor forState:UIControlStateNormal];
 }
 
 - (void)initProjectDetailInfo
@@ -187,7 +189,7 @@
                                         [WLHUDView showSuccessHUD:@"已反馈"];
                                         
                                         //status  0:默认状态  1：已不感兴趣 2:已约谈
-                                        self.iProjectDetailInfo.status = @(1);
+                                        self.iProjectDetailInfo.feedback = @(1);
                                         [self checkNoLikeBtnUI];
                                     } Failed:^(NSError *error) {
                                         if (error) {
@@ -324,7 +326,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(_iProjectDetailInfo){
-        return _datasource.count ? _datasource.count + 2 : 3;
+        return _datasource.count ? _datasource.count + (_iProjectDetailInfo.status.boolValue ? 2 : 1 ) : (_iProjectDetailInfo.status.boolValue ? 3 : 2 );
     }else{
         return 0;
     }
@@ -350,63 +352,71 @@
             return cell;
         }
             break;
-        case 1:
-        {
-            static NSString *cellIdentifier = @"FinancingInfo_View_Cell";
-            FinancingInfoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-            if (!cell) {
-                cell = [[FinancingInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-            }
-            cell.iProjectDetailInfo = _iProjectDetailInfo;
-            return cell;
-        }
-            break;
         default:
         {
-            //评论列表
-            if (_datasource.count > 0) {
-                static NSString *cellIdentifier = @"FinancingInfo_List_View_Cell";
-                ProjectBPViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (_iProjectDetailInfo.status.boolValue && indexPath.row == 1) {
+                //正在融资
+                static NSString *cellIdentifier = @"FinancingInfo_View_Cell";
+                FinancingInfoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
                 if (!cell) {
-                    cell = [[ProjectBPViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+                    cell = [[FinancingInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
                 }
-                IProjectBPModel *bpModel = _datasource[indexPath.row - 2];
-                cell.fineName = bpModel.bpname;// @"微链商业计划书.pdf";
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.iProjectDetailInfo = _iProjectDetailInfo;
                 return cell;
             }else{
-                static NSString *cellIdentifier = @"FinancingInfo_Not_View_Cell";
-                NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-                if (!cell) {
-                    cell = [[NoteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+                //评论列表
+                if (_datasource.count > 0) {
+                    static NSString *cellIdentifier = @"FinancingInfo_List_View_Cell";
+                    ProjectBPViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                    if (!cell) {
+                        cell = [[ProjectBPViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+                    }
+                    IProjectBPModel *bpModel = _datasource[indexPath.row - (_iProjectDetailInfo.status.boolValue ? 2 : 1)];
+                    cell.fineName = bpModel.bpname;// @"微链商业计划书.pdf";
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    return cell;
+                }else{
+                    static NSString *cellIdentifier = @"FinancingInfo_Not_View_Cell";
+                    NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                    if (!cell) {
+                        cell = [[NoteTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+                    }
+                    cell.noteInfo = @"该项目暂未上传BP文件";
+                    return cell;
                 }
-                cell.noteInfo = @"该项目暂未上传BP文件";
-                return cell;
             }
         }
             break;
     }
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    if (_datasource.count > 0 && indexPath.row >= 2) {
-        IProjectBPModel *bpModel = _datasource[indexPath.row - 2];
-        [WeLianClient investorDownloadWithPid:bpModel.bpid
-                                      Success:^(id resultInfo) {
-                                          //BP地址url
-                                          NSString *url = resultInfo[@"url"];
-                                          [self downloadBPAndLook:url];
-                                      } Failed:^(NSError *error) {
-                                          if (error) {
-                                              [WLHUDView showErrorHUD:error.localizedDescription];
-                                          }else{
-                                              [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
-                                          }
-                                      }];
+    if (_iProjectDetailInfo && indexPath.row == 0) {
+        //项目信息不为空的时候，可以查看详情
+        IProjectInfo *iProjectInfo = [_iProjectDetailInfo toIProjectInfoModel];
+        ProjectDetailsViewController *projectDetialVC = [[ProjectDetailsViewController alloc] initWithIProjectInfo:iProjectInfo];
+        [self.navigationController pushViewController:projectDetialVC animated:YES];
+    }
+    
+    if (_datasource.count > 0) {
+        if((_iProjectDetailInfo.status.boolValue && indexPath.row >= 2) || (!_iProjectDetailInfo.status.boolValue && indexPath.row >= 1)){
+            IProjectBPModel *bpModel = _datasource[indexPath.row - (_iProjectDetailInfo.status.boolValue ? 2 : 1)];
+            [WeLianClient investorDownloadWithPid:bpModel.bpid
+                                          Success:^(id resultInfo) {
+                                              //BP地址url
+                                              NSString *url = resultInfo[@"url"];
+                                              [self downloadBPAndLook:url];
+                                          } Failed:^(NSError *error) {
+                                              if (error) {
+                                                  [WLHUDView showErrorHUD:error.localizedDescription];
+                                              }else{
+                                                  [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                              }
+                                          }];
+        }
     }
 }
 
@@ -429,16 +439,16 @@
             return kProjectInfoViewHeight;
         }
             break;
-        case 1:
-        {
-            //融资信息
-            return [FinancingInfoView configureWithIProjectInfo:_iProjectDetailInfo];
-        }
-            break;
         default:
         {
-            //评论列表
-            return 43.f;
+            if (_iProjectDetailInfo.status.boolValue && indexPath.row == 1) {
+                //正在融资
+                //融资信息
+                return [FinancingInfoView configureWithIProjectInfo:_iProjectDetailInfo];
+            }else{
+                //评论列表
+                return 43.f;
+            }
         }
             break;
     }
@@ -453,16 +463,16 @@
             return kProjectInfoViewHeight;
         }
             break;
-        case 1:
-        {
-            //融资信息
-            return [FinancingInfoView configureWithIProjectInfo:_iProjectDetailInfo];
-        }
-            break;
         default:
         {
-            //评论列表
-            return 43.f;
+            if (_iProjectDetailInfo.status.boolValue && indexPath.row == 1) {
+                //正在融资
+                //融资信息
+                return [FinancingInfoView configureWithIProjectInfo:_iProjectDetailInfo];
+            }else{
+                //评论列表
+                return 43.f;
+            }
         }
             break;
     }

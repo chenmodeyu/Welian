@@ -54,7 +54,7 @@
 + (NSArray *)getAllTouTiaos
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isShow",@(YES)];
-    NSArray *all = [TouTiaoInfo MR_findAllSortedBy:@"touTiaoId" ascending:NO withPredicate:pre];
+    NSArray *all = [TouTiaoInfo MR_findAllSortedBy:@"created" ascending:NO withPredicate:pre];
     return all;
 }
 

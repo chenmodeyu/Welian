@@ -499,7 +499,7 @@
     //1 不感兴趣，2约谈
     NSDictionary *params = @{@"pid":pid,
                              @"status":type,
-                             @"msg":msg};
+                             @"msg":msg.length > 0 ? msg : @""};
     [self reqestPostWithParams:params
                           Path:kInvestorFankuiPath
                        Success:^(id resultInfo) {
