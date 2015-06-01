@@ -51,7 +51,7 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isShow",@(YES)];
     NSArray *all = [ProjectClassInfo MR_findAllSortedBy:@"orders" ascending:NO withPredicate:pre];
-    NSArray *all = [ProjectClassInfo MR_findAllWithPredicate:pre];
+//    NSArray *all = [ProjectClassInfo MR_findAllWithPredicate:pre];
     return all;
 }
 
