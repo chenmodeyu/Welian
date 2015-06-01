@@ -7,6 +7,7 @@
 //
 
 #import "IFBase.h"
+#import "IProjectClassModel.h"
 
 @interface BannerModel : IFBase
 
@@ -16,5 +17,6 @@
 @property (nonatomic, strong) NSString *photo;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) IProjectClassModel *classification;
 
 @end

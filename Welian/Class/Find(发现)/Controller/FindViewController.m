@@ -106,6 +106,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     [self showBannerViewWith:bannerArray];
     WEAKSELF
     [WeLianClient adBannerWithSuccess:^(id resultInfo) {
+        DLog(@"%@",resultInfo);
         [[WLDataDBTool sharedService] putObject:resultInfo withId:KBannerDataTableName intoTable:KBannerDataTableName];
         [weakSelf showBannerViewWith:resultInfo];
         
@@ -166,8 +167,9 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
         case 3:
         {
             //项目集
-//            ProjcetClassViewController *projcetClassVC = [[ProjcetClassViewController alloc] initWithProjectClassInfo:<#(ProjectClassInfo *)#>];
-//            [self.navigationController pushViewController:projcetClassVC animated:YES];
+            ProjectClassInfo *projectInfo = [ProjectClassInfo createProjectClassInfoWith:bannerM.classification];
+            ProjcetClassViewController *projcetClassVC = [[ProjcetClassViewController alloc] initWithProjectClassInfo:projectInfo];
+            [self.navigationController pushViewController:projcetClassVC animated:YES];
         }
             break;
         default:

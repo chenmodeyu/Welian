@@ -10,4 +10,9 @@
 
 @implementation BannerModel
 
+- (void)customOperation:(NSDictionary *)dict
+{
+    self.classification = [IProjectClassModel objectWithDict:[dict objectForKey:@"classification"]];
+}
+
 @end

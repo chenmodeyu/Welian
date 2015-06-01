@@ -4960,6 +4960,18 @@
 		F5D385091B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */; };
 		F5D3850A1B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */; };
 		F5D3850B1B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */; };
+		F5D3850F1B1C31E4003A5B53 /* ProjectBPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3850D1B1C31E4003A5B53 /* ProjectBPCell.m */; };
+		F5D385101B1C31E4003A5B53 /* ProjectBPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3850D1B1C31E4003A5B53 /* ProjectBPCell.m */; };
+		F5D385111B1C31E4003A5B53 /* ProjectBPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3850D1B1C31E4003A5B53 /* ProjectBPCell.m */; };
+		F5D385121B1C31E4003A5B53 /* ProjectBPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D3850D1B1C31E4003A5B53 /* ProjectBPCell.m */; };
+		F5D385131B1C31E4003A5B53 /* ProjectBPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D3850E1B1C31E4003A5B53 /* ProjectBPCell.xib */; };
+		F5D385141B1C31E4003A5B53 /* ProjectBPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D3850E1B1C31E4003A5B53 /* ProjectBPCell.xib */; };
+		F5D385151B1C31E4003A5B53 /* ProjectBPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D3850E1B1C31E4003A5B53 /* ProjectBPCell.xib */; };
+		F5D385161B1C31E4003A5B53 /* ProjectBPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D3850E1B1C31E4003A5B53 /* ProjectBPCell.xib */; };
+		F5D385181B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385171B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png */; };
+		F5D385191B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385171B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png */; };
+		F5D3851A1B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385171B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png */; };
+		F5D3851B1B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385171B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png */; };
 		F5D858EB1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
 		F5D858EC1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
 		F5D858ED1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
@@ -6912,6 +6924,10 @@
 		F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		F5D385021B1C0331003A5B53 /* touziren_jujue_button_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_jujue_button_no@2x.png"; sourceTree = "<group>"; };
 		F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_jujue_button@2x.png"; sourceTree = "<group>"; };
+		F5D3850C1B1C31E4003A5B53 /* ProjectBPCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectBPCell.h; sourceTree = "<group>"; };
+		F5D3850D1B1C31E4003A5B53 /* ProjectBPCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectBPCell.m; sourceTree = "<group>"; };
+		F5D3850E1B1C31E4003A5B53 /* ProjectBPCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectBPCell.xib; sourceTree = "<group>"; };
+		F5D385171B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_detail_toudi_noselect@2x.png"; sourceTree = "<group>"; };
 		F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_link_logo@2x.png"; sourceTree = "<group>"; };
 		F5E13A351A7B3062001BB786 /* MyProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectViewController.h; sourceTree = "<group>"; };
 		F5E13A361A7B3062001BB786 /* MyProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectViewController.m; sourceTree = "<group>"; };
@@ -9116,6 +9132,7 @@
 		F51FB9ED19EF6C3E00D85D7F /* 发现images */ = {
 			isa = PBXGroup;
 			children = (
+				F5D385171B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png */,
 				F5D385021B1C0331003A5B53 /* touziren_jujue_button_no@2x.png */,
 				F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */,
 				F564B0401B170A1C00923A1B /* shaixuan_bg_selected@2x.png */,
@@ -9221,6 +9238,9 @@
 				F50B63041B141353002259B2 /* InvestorInfoCell.m */,
 				F50B62EC1B1308E0002259B2 /* ProjectsMailingView.h */,
 				F50B62ED1B1308E0002259B2 /* ProjectsMailingView.m */,
+				F5D3850C1B1C31E4003A5B53 /* ProjectBPCell.h */,
+				F5D3850D1B1C31E4003A5B53 /* ProjectBPCell.m */,
+				F5D3850E1B1C31E4003A5B53 /* ProjectBPCell.xib */,
 				F50B63191B1585D6002259B2 /* FirmInfoHeaderView.h */,
 				F50B631A1B1585D6002259B2 /* FirmInfoHeaderView.m */,
 				F5B4A1751B15D6D300C70794 /* FirmCasesCell.h */,
@@ -11440,6 +11460,7 @@
 				A49C7F291A70D42700F2AEC5 /* InfoPlist.strings in Resources */,
 				A49C7F2B1A70D42700F2AEC5 /* MultiSelectTableViewCell.xib in Resources */,
 				A409A1ED1AC2E1AF0033A31D /* me_circle_chat_picture@2x.png in Resources */,
+				F5D3851B1B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png in Resources */,
 				A471FE091ACE3C9D00339ED0 /* activity_share@2x.png in Resources */,
 				A49235B91ADE693A009E0B8C /* compose_photo_original_highlighted@2x.png in Resources */,
 				A49C7F2E1A70D42700F2AEC5 /* home_picture_enlarge_download_bg@2x.png in Resources */,
@@ -11526,6 +11547,7 @@
 				A49C7F6D1A70D42700F2AEC5 /* icon_timeline-8.png in Resources */,
 				F5CBE47A1AC4351A00F4C884 /* Expression_67@2x.png in Resources */,
 				F5CBE42A1AC4351A00F4C884 /* Expression_47@2x.png in Resources */,
+				F5D385161B1C31E4003A5B53 /* ProjectBPCell.xib in Resources */,
 				A49C7F6E1A70D42700F2AEC5 /* section0_emotion12@2x.png in Resources */,
 				A409A2E11AC2E1AF0033A31D /* tabbar_home_selected@2x.png in Resources */,
 				A47D41F31A8B6E430070BFD8 /* discovery_activity_list_ choose@2x.png in Resources */,
@@ -12055,6 +12077,7 @@
 				F53DC5001A49192600F5F712 /* icon_session@2x.png in Resources */,
 				A409A2601AC2E1AF0033A31D /* me_mywriten_location@2x.png in Resources */,
 				A4C144111A4C0A6B00C9BAB5 /* voice_HL@2x.png in Resources */,
+				F5D3851A1B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png in Resources */,
 				A47BA6651A81C1020000EC48 /* discovery_xiangmu_detail_nolink@2x.png in Resources */,
 				A49235B71ADE693A009E0B8C /* compose_photo_original_highlighted@2x.png in Resources */,
 				A471FE081ACE3C9D00339ED0 /* activity_share@2x.png in Resources */,
@@ -12141,6 +12164,7 @@
 				F53DC5381A49192600F5F712 /* login_information@2x.png in Resources */,
 				F5CBE4791AC4351A00F4C884 /* Expression_67@2x.png in Resources */,
 				F5CBE4291AC4351A00F4C884 /* Expression_47@2x.png in Resources */,
+				F5D385151B1C31E4003A5B53 /* ProjectBPCell.xib in Resources */,
 				F500B2201AAEB16800A7AD35 /* share_welianfriend@2x.png in Resources */,
 				F53DC53E1A49192600F5F712 /* tui@2x.png in Resources */,
 				A409A1B41AC2E1AF0033A31D /* investor_attestation_eg_add@2x.png in Resources */,
@@ -12436,6 +12460,7 @@
 				F550790B1A80EA16009CE4F7 /* ProjectIndustryCell.xib in Resources */,
 				F5CBE3771AC4351A00F4C884 /* Expression_3@2x.png in Resources */,
 				F58CA95D1A5BF3AE00988A61 /* leida2@2x.png in Resources */,
+				F5D385181B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png in Resources */,
 				A409A1B21AC2E1AF0033A31D /* investor_attestation_eg_add@2x.png in Resources */,
 				A49235921ADE693A009E0B8C /* camera_edit_cut_cancel@2x.png in Resources */,
 				A49C7FC41A70D63C00F2AEC5 /* weLianAppDev-Info.plist in Resources */,
@@ -12715,6 +12740,7 @@
 				A493C3EA1ADD14A60056BD52 /* settingPlist.plist in Resources */,
 				A41CE1D01A6F9E25004F17E7 /* me_circle_chat_card@2x.png in Resources */,
 				F5CBE3FB1AC4351A00F4C884 /* Expression_36@2x.png in Resources */,
+				F5D385131B1C31E4003A5B53 /* ProjectBPCell.xib in Resources */,
 				F569A8171A31B36D00B677B0 /* me_mywriten_repeat_no@2x.png in Resources */,
 				F5CBE4EF1AC4351A00F4C884 /* Expression_97@2x.png in Resources */,
 				A409A1BA1AC2E1AF0033A31D /* investor_attestation_to_select@2x.png in Resources */,
@@ -13026,6 +13052,7 @@
 				A409A2331AC2E1AF0033A31D /* me_myfriend_add_phone_logo@2x.png in Resources */,
 				F5D04C641AC104A6004DE412 /* keyboard_popup@2x.png in Resources */,
 				A4C143E91A4C0A6B00C9BAB5 /* input-bar-background.png in Resources */,
+				F5D385191B1C39BF003A5B53 /* touziren_detail_toudi_noselect@2x.png in Resources */,
 				A409A2871AC2E1AF0033A31D /* me_touzi@2x.png in Resources */,
 				F5664DB81A2AFDD5008A5830 /* discovery_person@2x.png in Resources */,
 				F55773261A5AB04200693279 /* login_guide4@2x.png in Resources */,
@@ -13313,6 +13340,7 @@
 				A4C144551A4C0A6B00C9BAB5 /* RecordingSignal003@2x.png in Resources */,
 				F50CB0A21ACE8CF10003DA8E /* home_repost_huodong_no@2x.png in Resources */,
 				A409A2771AC2E1AF0033A31D /* me_renzheng_tou@2x.png in Resources */,
+				F5D385141B1C31E4003A5B53 /* ProjectBPCell.xib in Resources */,
 				A4C1442E1A4C0A6B00C9BAB5 /* MultiSelectedPanelBkg@2x.png in Resources */,
 				F5664E821A2AFDD5008A5830 /* MeinfoCell.xib in Resources */,
 				A409A1DB1AC2E1AF0033A31D /* me_circle_chat_card@2x.png in Resources */,
@@ -13650,6 +13678,7 @@
 				A49C7C271A70D42700F2AEC5 /* SignInPWDController.m in Sources */,
 				A49C7C281A70D42700F2AEC5 /* XHPathCover.m in Sources */,
 				A49C7C291A70D42700F2AEC5 /* FMDatabaseAdditions.m in Sources */,
+				F5D385121B1C31E4003A5B53 /* ProjectBPCell.m in Sources */,
 				A49C7C2A1A70D42700F2AEC5 /* WLMessageSpecialView.m in Sources */,
 				F5D385011B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A49C7C2B1A70D42700F2AEC5 /* ShareEngine.m in Sources */,
@@ -14210,6 +14239,7 @@
 				F53DC2DE1A49192600F5F712 /* FMDatabaseAdditions.m in Sources */,
 				A437CEF71A541BF300B54E68 /* WLMessageSpecialView.m in Sources */,
 				F53DC2DF1A49192600F5F712 /* ShareEngine.m in Sources */,
+				F5D385111B1C31E4003A5B53 /* ProjectBPCell.m in Sources */,
 				F53DC2E21A49192600F5F712 /* AddWorkOrEducationController.m in Sources */,
 				F5D385001B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A4A2EAE11A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
@@ -14770,6 +14800,7 @@
 				A48465BC1ADF900A0041BBCE /* WLSegmentedControl.m in Sources */,
 				A4C141741A4BEF5700C9BAB5 /* XHSoundManager.m in Sources */,
 				F55078F41A80C70C009CE4F7 /* ProjectBaseModel.m in Sources */,
+				F5D3850F1B1C31E4003A5B53 /* ProjectBPCell.m in Sources */,
 				A4C144741A4C370100C9BAB5 /* WLMessageVoiceFactory.m in Sources */,
 				F5D384FE1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A48CA6B01A4D044B009EBD04 /* NSDate+DateTools.m in Sources */,
@@ -15330,6 +15361,7 @@
 				F5664C711A2AFDD5008A5830 /* FMDatabaseAdditions.m in Sources */,
 				A437CEF61A541BF300B54E68 /* WLMessageSpecialView.m in Sources */,
 				F5664C721A2AFDD5008A5830 /* ShareEngine.m in Sources */,
+				F5D385101B1C31E4003A5B53 /* ProjectBPCell.m in Sources */,
 				F5664C751A2AFDD5008A5830 /* AddWorkOrEducationController.m in Sources */,
 				F5D384FF1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A4A2EAE01A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,

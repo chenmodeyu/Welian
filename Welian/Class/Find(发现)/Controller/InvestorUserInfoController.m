@@ -151,12 +151,13 @@
             [WeLianClient investorToudiWithPid:touDiModel.pid Uid:_investorUserM.user.uid Success:^(id resultInfo) {
                 [button setEnabled:YES];
                 [WLHUDView hiddenHud];
+                NSInteger receiv = _investorUserM.received.integerValue+1;
+                [_investorUserM setReceived:@(receiv)];
                 if (_userType == InvestorUserTypeUID) {
                     [_investorUserM setStatus:@(2)];
-                    [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
                 }else if (_userType == InvestorUserTypeModel){
-                    
                 }
+                [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
                 [WLHUDView showSuccessHUD:@"投递成功！"];
                 [weakProView cancelSelfVC];
             } Failed:^(NSError *error) {

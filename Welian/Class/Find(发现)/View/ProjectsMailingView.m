@@ -8,6 +8,7 @@
 
 #import "ProjectsMailingView.h"
 #import "UIImage+ImageEffects.h"
+#import "ProjectBPCell.h"
 
 @interface ProjectsMailingView () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -17,6 +18,8 @@
 @property (strong, nonatomic) NSIndexPath *seletIndex;
 @property (nonatomic, strong) UIButton *toudiBut;
 @end
+
+static NSString *projectBPcellid = @"projectBPcellid";
 
 @implementation ProjectsMailingView
 
@@ -79,9 +82,10 @@
             UITableView *tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
             [tableView setDelegate:self];
             [tableView setDataSource:self];
-            [tableView setEditing:YES];
+//            [tableView setEditing:YES];
             [tableView setTableFooterView:[UIView new]];
             [tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+            [tableView registerNib:[UINib nibWithNibName:@"ProjectBPCell" bundle:nil] forCellReuseIdentifier:projectBPcellid];
             [backGuView addSubview:tableView];
         }else{
             UIView *noProject = [[UIView alloc] initWithFrame:tableFrame];
@@ -126,49 +130,47 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"projectcellid"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"projectcellid"];
-        [cell.textLabel setFont:WLFONT(16)];
-        [cell.textLabel setTextColor:kTitleNormalTextColor];
-        [cell.detailTextLabel setTextColor:kNormalTextColor];
-        cell.detailTextLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
-    }
+    ProjectBPCell *cell = [tableView dequeueReusableCellWithIdentifier:projectBPcellid];
     ProjectTouDiModel *projectM = _dataArray[indexPath.row];
-    [cell.textLabel setText:projectM.name];
-    [cell.detailTextLabel setText:projectM.notes];
-    return cell;
-}
-
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ProjectTouDiModel *projectM = _dataArray[indexPath.row];
-    
-    if (projectM.state&&projectM.state.integerValue ==0) {
-        return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+    [cell.projectNameLabel setText:projectM.name];
+    [cell.bPNameLabel setText:projectM.notes];
+    cell.userInteractionEnabled = YES;
+    //  0,可以投递，1没bp，2 已投递
+    if (projectM.state&&projectM.state.integerValue !=0) {
+        cell.userInteractionEnabled = NO;
+//        [cell.selectBut setEnabled:NO];
+    }else if(self.seletIndex == indexPath){
+        [cell.selectBut setSelected:YES];
     }else{
-        return UITableViewCellEditingStyleNone;
+        [cell.selectBut setSelected:NO];
     }
+    [cell.selectBut setEnabled:cell.userInteractionEnabled];
+    return cell;
 }
 
 //添加一项
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    ProjectTouDiModel *projectM = _dataArray[indexPath.row];
+    if (projectM.state &&projectM.state.integerValue!=0) {
+        return;
+    }
+    ProjectBPCell *cell = (ProjectBPCell *)[tableView cellForRowAtIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:self.seletIndex animated:NO];
-    self.seletIndex = indexPath;
-    [self.toudiBut setEnabled:YES];
-    
-    DLog(@"添加一项");
-   
+    if (indexPath == self.seletIndex) {
+        [cell.selectBut setSelected:NO];
+        self.seletIndex = nil;
+        [self.toudiBut setEnabled:NO];
+    }else{
+        [cell.selectBut setSelected:YES];
+        self.seletIndex = indexPath;
+        [self.toudiBut setEnabled:YES];
+    }
 }
 
-//取消一项
+////取消一项
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DLog(@"取消一项");
-    self.seletIndex = nil;
-    [self.toudiBut setEnabled:NO];
-    
-
+    ProjectBPCell *cell = (ProjectBPCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell.selectBut setSelected:NO];
 }
 
 // 投递项目

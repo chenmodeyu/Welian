@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="projectBPcellid" id="KGk-i7-Jjw" customClass="ProjectBPCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXT-hM-HgI">
+                        <rect key="frame" x="42" y="8" width="270" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="0rL-4n-VuB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kd5-mY-XEI">
+                        <rect key="frame" x="42" y="30" width="270" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFG-Gk-cap">
+                        <rect key="frame" x="15" y="13" width="55" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="B3J-VZ-2ZI"/>
+                            <constraint firstAttribute="height" constant="17" id="sdW-XV-oCa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" image="investor_attestation_to_select.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="disabled" image="touziren_detail_toudi_noselect.png"/>
+                        <state key="selected" image="investor_attestation_selected.png"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Kd5-mY-XEI" secondAttribute="trailing" constant="8" id="30O-T0-eHL"/>
+                    <constraint firstItem="gXT-hM-HgI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7Yw-o4-JMq"/>
+                    <constraint firstAttribute="trailing" secondItem="gXT-hM-HgI" secondAttribute="trailing" constant="8" id="IHQ-Bq-1cn"/>
+                    <constraint firstItem="Kd5-mY-XEI" firstAttribute="top" secondItem="gXT-hM-HgI" secondAttribute="bottom" constant="1" id="b0A-Ol-BjU"/>
+                    <constraint firstItem="gXT-hM-HgI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="42" id="ksU-K8-9M1"/>
+                    <constraint firstItem="jFG-Gk-cap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="nOi-o8-aTa"/>
+                    <constraint firstAttribute="centerY" secondItem="jFG-Gk-cap" secondAttribute="centerY" id="sYG-0U-8g7"/>
+                    <constraint firstAttribute="bottom" secondItem="Kd5-mY-XEI" secondAttribute="bottom" constant="8" id="xmO-Uf-t9K"/>
+                    <constraint firstItem="Kd5-mY-XEI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="42" id="xyk-ko-TJ4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bPNameLabel" destination="Kd5-mY-XEI" id="PSq-xw-Fwe"/>
+                <outlet property="projectNameLabel" destination="gXT-hM-HgI" id="iHj-fB-hBu"/>
+                <outlet property="selectBut" destination="jFG-Gk-cap" id="o3c-ey-6po"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="investor_attestation_selected.png" width="15" height="15"/>
+        <image name="investor_attestation_to_select.png" width="16" height="16"/>
+        <image name="touziren_detail_toudi_noselect.png" width="16" height="16"/>
+    </resources>
+</document>
