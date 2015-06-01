@@ -17,6 +17,7 @@
 @dynamic photo;
 @dynamic projectCount;
 @dynamic isShow;
+@dynamic orders;
 @dynamic rsLoginUser;
 
 + (ProjectClassInfo *)createProjectClassInfoWith:(IProjectClassModel *)iProjectClassModel
@@ -29,6 +30,7 @@
     projectClassInfo.title = iProjectClassModel.title;
     projectClassInfo.photo = iProjectClassModel.photo;
     projectClassInfo.projectCount = iProjectClassModel.projectCount;
+    projectClassInfo.orders = iProjectClassModel.orders;
     projectClassInfo.isShow = @(YES);
     
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
@@ -48,7 +50,7 @@
 + (NSArray *)getAllProjectClassInfos
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isShow",@(YES)];
-//    NSArray *all = [ProjectClassInfo MR_findAllSortedBy:@"cid" ascending:NO withPredicate:pre];
+    NSArray *all = [ProjectClassInfo MR_findAllSortedBy:@"orders" ascending:NO withPredicate:pre];
     NSArray *all = [ProjectClassInfo MR_findAllWithPredicate:pre];
     return all;
 }
