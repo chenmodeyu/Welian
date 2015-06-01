@@ -239,12 +239,12 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
         switch (indexPath.row) {
             case 0:
             {
-                [cell.deputLabel setHidden:!meinfo.toutiaocount.integerValue];
+                [cell.deputLabel setHidden:!meinfo.toutiaonewcount.integerValue];
                 [cell.badgeImage setHidden:!meinfo.istoutiaobadge.boolValue];
-                if (meinfo.toutiaocount.integerValue > 0) {
+                if (meinfo.toutiaonewcount.integerValue > 0) {
                     [cell.deputLabel setHidden:NO];
-                    [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"您有%@篇文章未读",meinfo.toutiaocount.stringValue]
-                                                                               searchStr:meinfo.toutiaocount.stringValue
+                    [cell.deputLabel setAttributedText:[NSObject getAttributedInfoString:[NSString stringWithFormat:@"您有%@篇文章未读",meinfo.toutiaonewcount.stringValue]
+                                                                               searchStr:meinfo.toutiaonewcount.stringValue
                                                                                    color:KBlueTextColor
                                                                                     font:WLFONTBLOD(15)]];
                 }
@@ -315,7 +315,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                     [self.navigationController pushViewController:newListVC animated:YES];
                     
                     [LogInUser updateToutiaoBadge:NO];
-                    [LogInUser updateToutiaoCount:@(0)];
+                    [LogInUser updateToutiaoNewCount:@(0)];
                     [[MainViewController sharedMainViewController] loadNewStustupdata];
                     [self reloadToutiao];
                 }

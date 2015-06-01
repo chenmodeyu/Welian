@@ -155,8 +155,8 @@ static NSString *projectBPcellid = @"projectBPcellid";
         return;
     }
     ProjectBPCell *cell = (ProjectBPCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [tableView deselectRowAtIndexPath:self.seletIndex animated:NO];
-    if (indexPath == self.seletIndex) {
+//    [tableView deselectRowAtIndexPath:self.seletIndex animated:NO];
+    if (indexPath.row == self.seletIndex.row&&self.seletIndex) {
         [cell.selectBut setSelected:NO];
         self.seletIndex = nil;
         [self.toudiBut setEnabled:NO];

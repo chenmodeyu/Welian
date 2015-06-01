@@ -42,6 +42,7 @@
 @dynamic istoutiaobadge;
 @dynamic lastGetTime;
 @dynamic isfindinvestorbadge;
+@dynamic toutiaonewcount;
 
 @dynamic rsCompanys;
 @dynamic rsSchools;
@@ -231,6 +232,13 @@
     loginUser.toutiaocount = count;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
+
++ (void)updateToutiaoNewCount:(NSNumber *)count
+{
+    LogInUser *loginUser = [self getCurrentLoginUser];
+    loginUser.toutiaonewcount = count;
+    [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
+}
 + (void)updateToutiaoBadge:(BOOL)badge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
@@ -288,6 +296,7 @@
     loginUser.investorcount = newFeedModel.investorcount;
     loginUser.projectcount = newFeedModel.projectcount;
     loginUser.toutiaocount = newFeedModel.toutiaocount;
+    loginUser.toutiaonewcount = newFeedModel.toutiaonewcount;
     //是否有新的信息
     loginUser.isactivebadge = loginUser.isactivebadge.boolValue ? @(YES): (newFeedModel.activenewcount.integerValue > 0 ? @(YES) : @(NO));
     loginUser.isprojectbadge = loginUser.isprojectbadge.boolValue ? @(YES): (newFeedModel.projectnewcount.integerValue > 0 ? @(YES) : @(NO));

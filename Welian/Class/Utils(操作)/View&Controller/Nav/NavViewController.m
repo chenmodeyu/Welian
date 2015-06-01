@@ -18,8 +18,6 @@
 + (void)initialize
 {
     UINavigationBar *navBar = [UINavigationBar appearance];
-    [navBar setBarTintColor:[UIColor colorWithRed:43/255.0 green:94/255.0 blue:171/255.0 alpha:0.01]];
-
     [navBar setTintColor:[UIColor whiteColor]];
     // 3.设置文字样式
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
@@ -31,13 +29,14 @@
     [barItem setTintColor:[UIColor whiteColor]];
 
     NSMutableDictionary *disableAttrs = [NSMutableDictionary dictionary];
-    disableAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    disableAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
     [barItem setTitleTextAttributes:disableAttrs forState:UIControlStateDisabled];
     
     NSMutableDictionary *itemAttrs = [NSMutableDictionary dictionary];
     itemAttrs[NSForegroundColorAttributeName] =[UIColor whiteColor];
     [barItem setTitleTextAttributes:itemAttrs forState:UIControlStateNormal];
     
+    [navBar setBarTintColor:[UIColor colorWithRed:43/255.0 green:94/255.0 blue:171/255.0 alpha:0.1]];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

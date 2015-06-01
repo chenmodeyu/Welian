@@ -152,6 +152,7 @@
 @property (nonatomic, retain) NSNumber * activecount;
 //头条
 @property (nonatomic, retain) NSNumber * toutiaocount;
+@property (retain,nonatomic) NSNumber *toutiaonewcount;
 @property (nonatomic, retain) NSNumber * istoutiaobadge;
 
 @property (nonatomic, retain) NSString * lastGetTime;//最后一次请求接口的时间
@@ -163,6 +164,7 @@
 + (void)setUserProjectcount:(NSNumber *)projectcount;
 + (void)setUserActivecount:(NSNumber *)activecount;
 + (void)updateToutiaoCount:(NSNumber *)count;
++ (void)updateToutiaoNewCount:(NSNumber *)count;
 + (void)updateToutiaoBadge:(BOOL)badge;
 + (void)updateFindInvestorBadge:(BOOL)badge;
 + (void)setUserIsactivebadge:(BOOL)isactivebadge;
