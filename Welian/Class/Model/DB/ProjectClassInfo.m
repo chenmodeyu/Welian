@@ -48,7 +48,8 @@
 + (NSArray *)getAllProjectClassInfos
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isShow",@(YES)];
-    NSArray *all = [ProjectClassInfo MR_findAllSortedBy:@"cid" ascending:NO withPredicate:pre];
+//    NSArray *all = [ProjectClassInfo MR_findAllSortedBy:@"cid" ascending:NO withPredicate:pre];
+    NSArray *all = [ProjectClassInfo MR_findAllWithPredicate:pre];
     return all;
 }
 
