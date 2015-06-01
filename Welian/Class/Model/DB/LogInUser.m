@@ -296,7 +296,7 @@
     loginUser.investorcount = newFeedModel.investorcount;
     loginUser.projectcount = newFeedModel.projectcount;
     loginUser.toutiaocount = newFeedModel.toutiaocount;
-    loginUser.toutiaonewcount = newFeedModel.toutiaonewcount;
+    loginUser.toutiaonewcount = @(loginUser.toutiaonewcount.integerValue + newFeedModel.toutiaonewcount.integerValue);
     //是否有新的信息
     loginUser.isactivebadge = loginUser.isactivebadge.boolValue ? @(YES): (newFeedModel.activenewcount.integerValue > 0 ? @(YES) : @(NO));
     loginUser.isprojectbadge = loginUser.isprojectbadge.boolValue ? @(YES): (newFeedModel.projectnewcount.integerValue > 0 ? @(YES) : @(NO));
