@@ -66,5 +66,5 @@ NSString *const kInvestorSearchStageKey = @"InvestorSearchStage_%@";//投资人 
 NSString *const kSearchInvestorUserKey = @"SearchInvestorUser";//重新搜索投资人信息
 
 
-
+NSString *const kChangeBannerKey = @"kChangeBannerKey";//banner数据改变
 

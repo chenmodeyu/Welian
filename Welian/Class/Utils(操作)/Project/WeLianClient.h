@@ -64,7 +64,7 @@
                          Failed:(FailedBlock)failed;
 
 //获取投资人的项目列表
-+ (void)getInvestorProjectsListPid:(NSNumber *)pid
++ (void)getInvestorProjectsListUid:(NSNumber *)uid
                            Success:(SuccessBlock)success
                             Failed:(FailedBlock)failed;
 

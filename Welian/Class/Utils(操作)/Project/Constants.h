@@ -68,4 +68,4 @@ extern NSString *const kInvestorSearchStageKey;//投资人 投资阶段条件
 
 extern NSString *const kSearchInvestorUserKey; //重新搜索投资人信息
 
-
+extern NSString *const kChangeBannerKey;//banner数据改变

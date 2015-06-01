@@ -64,6 +64,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     [super viewDidLoad];
     [KNSNotification addObserver:self selector:@selector(reloadNewactivit) name:KNewactivitNotif object:nil];
     [KNSNotification addObserver:self selector:@selector(reloadProject) name:KProjectstateNotif object:nil];
+    [KNSNotification addObserver:self selector:@selector(loadLoopViewData) name:kChangeBannerKey object:nil];
     // 加载页面
     [self loadUIview];
     // 加载数据
