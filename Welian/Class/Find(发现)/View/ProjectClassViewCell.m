@@ -77,7 +77,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     CSLoadingImageView *bgImageView = [[CSLoadingImageView alloc] init];
-    bgImageView.layer.cornerRadius = 5.f;
+    bgImageView.layer.cornerRadius = 2.f;
     bgImageView.layer.masksToBounds = YES;
     bgImageView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];// [UIColor whiteColor];
     [self addSubview:bgImageView];

@@ -77,6 +77,31 @@
     self.tableView = tableView;
     //    [tableView setDebug:YES];
     
+    CSLoadingImageView *headerView = [[CSLoadingImageView alloc] initWithFrame:Rect(0, 0, _tableView.width, kHeaderImageHeight)];
+    headerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+    
+    //标题
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = kNormalBlod19Font;
+    titleLabel.text = _projectClassInfo.title;
+    [titleLabel sizeToFit];
+    titleLabel.centerX = headerView.width / 2.f;
+    titleLabel.centerY = headerView.height / 2.f - 10.f;
+    [headerView addSubview:titleLabel];
+    
+    //副标题
+    UILabel *detailTitleLabel = [[UILabel alloc] init];
+    detailTitleLabel.textColor = [UIColor whiteColor];
+    detailTitleLabel.font = kNormal12Font;
+    detailTitleLabel.text = [NSString stringWithFormat:@"%d个项目",_projectClassInfo.projectCount.integerValue];
+    [detailTitleLabel sizeToFit];
+    detailTitleLabel.centerX = titleLabel.centerX;
+    detailTitleLabel.top = titleLabel.bottom + 10.f;
+    [headerView addSubview:detailTitleLabel];
+    
+    [self.tableView setTableHeaderView:headerView];
+    
     //设置底部空白区域
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 40.f)];
     [tableView setTableFooterView:footerView];
@@ -94,8 +119,6 @@
     //    [self loadReflshData];
     [self.tableView.header beginRefreshing];
     
-    CSLoadingImageView *headerView = [[CSLoadingImageView alloc] init];
-    headerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
     //设置图片
     [headerView sd_setImageWithURL:[NSURL URLWithString:_projectClassInfo.photo]
                       placeholderImage:nil
@@ -104,35 +127,35 @@
                                  //图片进行染色（Tinting）、增加亮度（lightening）以及降低亮度（darkening）
                                  [headerView setImage:[image rt_darkenWithLevel:0.5f]];
                              }];
-    [_tableView setParallaxHeaderView:headerView
-                                 mode:VGParallaxHeaderModeFill
-                               height:kHeaderImageHeight];
+//    [_tableView setParallaxHeaderView:headerView
+//                                 mode:VGParallaxHeaderModeFill
+//                               height:kHeaderImageHeight];
     
-    UIView *stickyView = [[UIView alloc] initWithFrame:Rect(0, 0, _tableView.width, kHeaderImageHeight)];
-    //标题
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = kNormalBlod19Font;
-    titleLabel.text = _projectClassInfo.title;
-    [titleLabel sizeToFit];
-    titleLabel.centerX = stickyView.width / 2.f;
-    titleLabel.centerY = stickyView.height / 2.f - 10.f;
-    [stickyView addSubview:titleLabel];
-    
-    //副标题
-    UILabel *detailTitleLabel = [[UILabel alloc] init];
-    detailTitleLabel.textColor = [UIColor whiteColor];
-    detailTitleLabel.font = kNormal12Font;
-    detailTitleLabel.text = [NSString stringWithFormat:@"%d个项目",_projectClassInfo.projectCount.integerValue];
-    [detailTitleLabel sizeToFit];
-    detailTitleLabel.centerX = titleLabel.centerX;
-    detailTitleLabel.top = titleLabel.bottom + 10.f;
-    [stickyView addSubview:detailTitleLabel];
+//    UIView *stickyView = [[UIView alloc] initWithFrame:Rect(0, 0, _tableView.width, kHeaderImageHeight)];
+//    //标题
+//    UILabel *titleLabel = [[UILabel alloc] init];
+//    titleLabel.textColor = [UIColor whiteColor];
+//    titleLabel.font = kNormalBlod19Font;
+//    titleLabel.text = _projectClassInfo.title;
+//    [titleLabel sizeToFit];
+//    titleLabel.centerX = stickyView.width / 2.f;
+//    titleLabel.centerY = stickyView.height / 2.f - 10.f;
+//    [stickyView addSubview:titleLabel];
+//    
+//    //副标题
+//    UILabel *detailTitleLabel = [[UILabel alloc] init];
+//    detailTitleLabel.textColor = [UIColor whiteColor];
+//    detailTitleLabel.font = kNormal12Font;
+//    detailTitleLabel.text = [NSString stringWithFormat:@"%d个项目",_projectClassInfo.projectCount.integerValue];
+//    [detailTitleLabel sizeToFit];
+//    detailTitleLabel.centerX = titleLabel.centerX;
+//    detailTitleLabel.top = titleLabel.bottom + 10.f;
+//    [stickyView addSubview:detailTitleLabel];
 //    [stickyView setDebug:YES];
     
-    self.tableView.parallaxHeader.stickyViewPosition = VGParallaxHeaderStickyViewPositionTop;
-    [self.tableView.parallaxHeader setStickyView:stickyView
-                                      withHeight:kHeaderImageHeight];
+//    self.tableView.parallaxHeader.stickyViewPosition = VGParallaxHeaderStickyViewPositionTop;
+//    [self.tableView.parallaxHeader setStickyView:stickyView
+//                                      withHeight:kHeaderImageHeight];
 }
 
 #pragma mark - Private
