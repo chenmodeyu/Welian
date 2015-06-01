@@ -166,7 +166,7 @@
                                                   if (error) {
                                                       [WLHUDView showErrorHUD:error.localizedDescription];
                                                   }else{
-                                                      [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                                      [WLHUDView showErrorHUD:@"获取项目信息失败，请重试！"];
                                                   }
                                               }];
 }
@@ -195,7 +195,7 @@
                                         if (error) {
                                             [WLHUDView showErrorHUD:error.localizedDescription];
                                         }else{
-                                            [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                            [WLHUDView showErrorHUD:@"反馈失败，请重试！"];
                                         }
                                     }];
     }];
@@ -241,7 +241,7 @@
                                     if (error) {
                                         [WLHUDView showErrorHUD:error.localizedDescription];
                                     }else{
-                                        [WLHUDView showErrorHUD:@"网络连接失败，请重试！"];
+                                        [WLHUDView showErrorHUD:@"约谈失败，请重试！"];
                                     }
                                 }];
 }
@@ -404,8 +404,10 @@
     if (_datasource.count > 0) {
         if((_iProjectDetailInfo.status.boolValue && indexPath.row >= 2) || (!_iProjectDetailInfo.status.boolValue && indexPath.row >= 1)){
             IProjectBPModel *bpModel = _datasource[indexPath.row - (_iProjectDetailInfo.status.boolValue ? 2 : 1)];
+            [WLHUDView showHUDWithStr:@"" dim:YES];
             [WeLianClient investorDownloadWithPid:bpModel.bpid
                                           Success:^(id resultInfo) {
+                                              [WLHUDView hiddenHud];
                                               //BP地址url
                                               NSString *url = resultInfo[@"url"];
                                               [self downloadBPAndLook:url];

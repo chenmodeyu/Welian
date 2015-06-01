@@ -196,8 +196,10 @@
         //自己的项目
         if (_datasource.count > 0) {
             IProjectBPModel *bpModel = _datasource[indexPath.row];
+            [WLHUDView showHUDWithStr:@"" dim:YES];
             [WeLianClient investorDownloadWithPid:bpModel.bpid
                                           Success:^(id resultInfo) {
+                                              [WLHUDView hiddenHud];
                                               //BP地址url
                                               NSString *url = resultInfo[@"url"];
                                               [self downloadBPAndLook:url];
