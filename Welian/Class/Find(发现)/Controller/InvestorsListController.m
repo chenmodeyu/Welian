@@ -46,17 +46,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"认证投资人" style:UIBarButtonItemStyleBordered target:self action:@selector(goToInvestor)];
-    self.segmentedControl.sectionImages = @[@"",@"",@"",@"xiangmu_list_funnel_selected"];
+    
     WEAKSELF
     [self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
         if (index == self.navTitlesArr.count-1) {
+            weakSelf.segmentedControl.sectionImages = @[@"",@"",@"xiangmu_list_funnel_selected"];
             [weakSelf.shaixuanView showVC];
             weakSelf.shaixuanView.shaixuanBlock = ^(){
                 //通知获取搜索数据
                 [KNSNotification postNotificationName:kSearchInvestorUserKey object:nil];
             };
+        }else{
+            weakSelf.segmentedControl.sectionImages = weakSelf.navTitleImagesArr;
         }
         [weakSelf transitionToViewControllerAtIndex:index];
+        
     }];
 }
 

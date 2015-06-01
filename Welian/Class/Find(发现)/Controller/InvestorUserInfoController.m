@@ -151,11 +151,10 @@
             [WeLianClient investorToudiWithPid:touDiModel.pid Uid:_investorUserM.user.uid Success:^(id resultInfo) {
                 [button setEnabled:YES];
                 [WLHUDView hiddenHud];
-                [_investorUserM setStatus:@(2)];
                 if (_userType == InvestorUserTypeUID) {
+                    [_investorUserM setStatus:@(2)];
                     [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
                 }else if (_userType == InvestorUserTypeModel){
-                    
                     
                 }
                 [WLHUDView showSuccessHUD:@"投递成功！"];

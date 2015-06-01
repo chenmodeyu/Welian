@@ -4952,6 +4952,14 @@
 		F5D384FF1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */; };
 		F5D385001B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */; };
 		F5D385011B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */; };
+		F5D385041B1C0331003A5B53 /* touziren_jujue_button_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385021B1C0331003A5B53 /* touziren_jujue_button_no@2x.png */; };
+		F5D385051B1C0331003A5B53 /* touziren_jujue_button_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385021B1C0331003A5B53 /* touziren_jujue_button_no@2x.png */; };
+		F5D385061B1C0331003A5B53 /* touziren_jujue_button_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385021B1C0331003A5B53 /* touziren_jujue_button_no@2x.png */; };
+		F5D385071B1C0331003A5B53 /* touziren_jujue_button_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385021B1C0331003A5B53 /* touziren_jujue_button_no@2x.png */; };
+		F5D385081B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */; };
+		F5D385091B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */; };
+		F5D3850A1B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */; };
+		F5D3850B1B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */; };
 		F5D858EB1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
 		F5D858EC1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
 		F5D858ED1AE9F2B300534756 /* home_link_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */; };
@@ -6902,6 +6910,8 @@
 		F5D356851A260F75005EF094 /* NSMutableAttributedString+M80.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+M80.m"; sourceTree = "<group>"; };
 		F5D384FC1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
 		F5D384FD1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
+		F5D385021B1C0331003A5B53 /* touziren_jujue_button_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_jujue_button_no@2x.png"; sourceTree = "<group>"; };
+		F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_jujue_button@2x.png"; sourceTree = "<group>"; };
 		F5D858EA1AE9F2B300534756 /* home_link_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_link_logo@2x.png"; sourceTree = "<group>"; };
 		F5E13A351A7B3062001BB786 /* MyProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectViewController.h; sourceTree = "<group>"; };
 		F5E13A361A7B3062001BB786 /* MyProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectViewController.m; sourceTree = "<group>"; };
@@ -9106,6 +9116,8 @@
 		F51FB9ED19EF6C3E00D85D7F /* 发现images */ = {
 			isa = PBXGroup;
 			children = (
+				F5D385021B1C0331003A5B53 /* touziren_jujue_button_no@2x.png */,
+				F5D385031B1C0331003A5B53 /* touziren_jujue_button@2x.png */,
 				F564B0401B170A1C00923A1B /* shaixuan_bg_selected@2x.png */,
 				F564B0411B170A1C00923A1B /* shaixuan_bg@2x.png */,
 				A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */,
@@ -11004,6 +11016,7 @@
 				A4E7BBDD1AAEE419006BB52A /* weChatBubble_Receiving_Solid1@2x.png in Resources */,
 				A49C7DAF1A70D42700F2AEC5 /* weChatBubble_Receiving_Solid@2x.png in Resources */,
 				A409A1CD1AC2E1AF0033A31D /* me_button_chat@2x.png in Resources */,
+				F5D3850B1B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */,
 				F5CBE4361AC4351A00F4C884 /* Expression_50@2x.png in Resources */,
 				A409A23D1AC2E1AF0033A31D /* me_myfriend_add_wechat_logo@2x.png in Resources */,
 				F5CBE44E1AC4351A00F4C884 /* Expression_56@2x.png in Resources */,
@@ -11445,6 +11458,7 @@
 				A409A2251AC2E1AF0033A31D /* me_mycard_phonelogo@2x.png in Resources */,
 				A49C7F3B1A70D42700F2AEC5 /* input-bar-flat.png in Resources */,
 				F500B2051AAEB16800A7AD35 /* share_detail@2x.png in Resources */,
+				F5D385071B1C0331003A5B53 /* touziren_jujue_button_no@2x.png in Resources */,
 				A493C3C61ADD14A60056BD52 /* FinancingStagePlist.plist in Resources */,
 				F5CBE3B61AC4351A00F4C884 /* Expression_18@2x.png in Resources */,
 				A49C7F3C1A70D42700F2AEC5 /* navbar_remind@2x.png in Resources */,
@@ -11617,6 +11631,7 @@
 				F5A7D5A71AB292F30060AE1F /* xiugai@2x.png in Resources */,
 				F53DC3D81A49192600F5F712 /* login_right@2x.png in Resources */,
 				A4C143C01A4C0A6B00C9BAB5 /* MessageVideoPlay@2x.png in Resources */,
+				F5D3850A1B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */,
 				A4E7BBDC1AAEE419006BB52A /* weChatBubble_Receiving_Solid1@2x.png in Resources */,
 				F5CBE4351AC4351A00F4C884 /* Expression_50@2x.png in Resources */,
 				A4C143601A4C0A6B00C9BAB5 /* weChatBubble_Receiving_Solid@2x.png in Resources */,
@@ -12058,6 +12073,7 @@
 				A4C141311A4BEF5700C9BAB5 /* MultiSelectTableViewCell.xib in Resources */,
 				A409A24C1AC2E1AF0033A31D /* me_myfriend_wechat_logo@2x.png in Resources */,
 				A409A2181AC2E1AF0033A31D /* me_mycard_cardlogo@2x.png in Resources */,
+				F5D385061B1C0331003A5B53 /* touziren_jujue_button_no@2x.png in Resources */,
 				A493C3C41ADD14A60056BD52 /* FinancingStagePlist.plist in Resources */,
 				F5CBE3B51AC4351A00F4C884 /* Expression_18@2x.png in Resources */,
 				A409A2001AC2E1AF0033A31D /* me_empty@2x.png in Resources */,
@@ -12329,6 +12345,7 @@
 				A409A2061AC2E1AF0033A31D /* me_lvli_add@2x.png in Resources */,
 				F587965C1AE8C008002C414F /* button_blue_pre@2x.png in Resources */,
 				F5CBE4431AC4351A00F4C884 /* Expression_54@2x.png in Resources */,
+				F5D385041B1C0331003A5B53 /* touziren_jujue_button_no@2x.png in Resources */,
 				F5664ACF1A2AFD56008A5830 /* repost_bg@2x.png in Resources */,
 				A4C144541A4C0A6B00C9BAB5 /* RecordingSignal003@2x.png in Resources */,
 				F5664AD21A2AFD56008A5830 /* navbar_mail@2x.png in Resources */,
@@ -12372,6 +12389,7 @@
 				A41CE1CA1A6F9E25004F17E7 /* me_circle_chat_camera@2x.png in Resources */,
 				A409A2661AC2E1AF0033A31D /* me_mywriten_with.@2xpng.png in Resources */,
 				F5CBE4B71AC4351A00F4C884 /* Expression_83@2x.png in Resources */,
+				F5D385081B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */,
 				F5CBE4231AC4351A00F4C884 /* Expression_46@2x.png in Resources */,
 				F5933F861AD4F4030088C70D /* MJRefresh.bundle in Resources */,
 				A409A2AA1AC2E1AF0033A31D /* remind_big_nostring@2x.png in Resources */,
@@ -12910,6 +12928,7 @@
 				A4E7BBEA1AAEF1B3006BB52A /* weChatBubble_pre_Sending_Solid@2x.png in Resources */,
 				A409A27B1AC2E1AF0033A31D /* me_right@2x.png in Resources */,
 				F5664D711A2AFDD5008A5830 /* enroll_button@2x.png in Resources */,
+				F5D385091B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */,
 				F5CBE38C1AC4351A00F4C884 /* Expression_8@2x.png in Resources */,
 				F569A8091A31B33C00B677B0 /* osusume_add_bg_pressed@2x.png in Resources */,
 				F5664D751A2AFDD5008A5830 /* discovery_circle_ administrator_bg@2x.png in Resources */,
@@ -12937,6 +12956,7 @@
 				A4C144281A4C0A6B00C9BAB5 /* CellRedSelected@2x.png in Resources */,
 				F5664D8C1A2AFDD5008A5830 /* navbar_mail@2x.png in Resources */,
 				A409A2131AC2E1AF0033A31D /* me_myactivity_time@2x.png in Resources */,
+				F5D385051B1C0331003A5B53 /* touziren_jujue_button_no@2x.png in Resources */,
 				A4C144401A4C0A6B00C9BAB5 /* contacts_add_scan@2x.png in Resources */,
 				F5CBE43C1AC4351A00F4C884 /* Expression_52@2x.png in Resources */,
 				F50B630B1B149E93002259B2 /* touziren_list_friend@2x.png in Resources */,

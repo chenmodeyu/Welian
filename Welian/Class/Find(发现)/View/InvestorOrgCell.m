@@ -13,6 +13,11 @@
 
 - (void)awakeFromNib {
 //    self.selectedBackgroundView = [UIView new];
+    [self.logoImage setBackgroundColor:KBgLightGrayColor];
+    self.logoImage.layer.borderWidth = 1;
+    self.logoImage.layer.masksToBounds = YES;
+    self.logoImage.layer.borderColor = [kNormalLineColor CGColor];
+    self.selectedBackgroundView = [UIView new];
 }
 
 - (void)setTouziJiGouM:(TouzijigouModel *)touziJiGouM

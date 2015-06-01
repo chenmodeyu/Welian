@@ -12,6 +12,7 @@
 #import "InvestorUserModel.h"
 #import "CasesModel.h"
 #import "FirmCasesCell.h"
+#import "InvestorUserInfoController.h"
 
 #define SegmentedH 50.0f
 
@@ -283,6 +284,16 @@ static NSString *casecellid = @"casecellid";
     }
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.wlSegmentedControl.selectedSegmentIndex==0) {
+        InvestorUserModel *userM = _usersArray[indexPath.row];
+        InvestorUserInfoController *userInfoVC = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeModel andUserData:userM];
+        [self.navigationController pushViewController:userInfoVC animated:YES];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

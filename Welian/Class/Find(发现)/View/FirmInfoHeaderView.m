@@ -39,9 +39,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         _backgImage = [[UIImageView alloc] init];
+        [_backgImage setBackgroundColor:kNormalGrayTextColor];
         [self addSubview:_backgImage];
         
         _logoImage = [[UIImageView alloc] initWithFrame:CGRectMake(ImageX, ImageX, ImageW, ImageW)];
+        [_logoImage setBackgroundColor:KBgLightGrayColor];
         [_backgImage addSubview:_logoImage];
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(LabelX, ImageX, SuperSize.width-LabelX-ImageX, NameLabelH)];
         [_nameLabel setTextColor:[UIColor whiteColor]];
