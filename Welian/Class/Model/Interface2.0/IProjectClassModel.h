@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *title;//标题
 @property (nonatomic, strong) NSString *photo;//照片
 @property (nonatomic, strong) NSNumber *projectCount;//包含的项目数量
+@property (nonatomic, strong) NSNumber *orders;
 
 @end
 

@@ -153,7 +153,8 @@
     //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除  other:对应项目集的id
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"type",type,@"rsLoginUser",loginUser];
-    NSArray *all = type.integerValue == 3 ? [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre];
+//    NSArray *all = type.integerValue == 3 ? [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre];
+    NSArray *all = (type.integerValue == 1 || type.integerValue == 2) ? [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre];
     return all;
 }
 

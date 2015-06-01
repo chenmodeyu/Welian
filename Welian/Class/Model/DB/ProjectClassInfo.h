@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * photo;
 @property (nonatomic, retain) NSNumber * projectCount;
 @property (nonatomic, retain) NSNumber * isShow;//是否显示
+@property (nonatomic, retain) NSNumber * orders;//排序方式
 @property (nonatomic, retain) LogInUser *rsLoginUser;
 
 + (ProjectClassInfo *)createProjectClassInfoWith:(IProjectClassModel *)iProjectClassModel;
