@@ -69,7 +69,8 @@ static NSString *casecellid = @"casecellid";
         self.usersArray = [NSMutableArray array];
         self.casesArray = [NSMutableArray array];
         [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(getNewInvestorListData)];
-        
+        [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(getMoreInvestorListData)];
+        [self.tableView.footer setHidden:YES];
         if (firmType == FirmInfoTypeFirmID) {
             _firmID = firmdata;
         }else if (firmType == FirmInfoTypeModel){
@@ -92,8 +93,11 @@ static NSString *casecellid = @"casecellid";
         }else{
             _casePage++;
         }
+        self.tableView.footer.hidden = NO;
+    }else{
+        self.tableView.footer.hidden = YES;
     }
-    self.tableView.footer.hidden = count<KCellConut;
+
 }
 // 取投资机构信息
 - (void)getOneInvestorJigouData
@@ -197,8 +201,13 @@ static NSString *casecellid = @"casecellid";
     [super viewDidLoad];
     [self.tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [self.tableView registerNib:[UINib nibWithNibName:@"FirmCasesCell" bundle:nil] forCellReuseIdentifier:casecellid];
-    [self.tableView setTableFooterView:[UIView new]];
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

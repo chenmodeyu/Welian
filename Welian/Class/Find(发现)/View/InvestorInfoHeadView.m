@@ -46,7 +46,7 @@
         [_nameLabel setCenterX:self.centerX];
         [_nameLabel setTextAlignment:NSTextAlignmentCenter];
         [_nameLabel setTextColor:WLRGB(51, 51, 51)];
-        [_nameLabel setFont:WLFONT(16)];
+        [_nameLabel setFont:WLFONT(17)];
         [self addSubview:_nameLabel];
         
         _positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, _nameLabel.bottom+5, SuperSize.width-60, 16)];
@@ -133,7 +133,7 @@
     [_iconImage sd_setImageWithURL:[NSURL URLWithString:userM.avatar] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageLowPriority];
     
     CGSize citySize =[investorUserModel.cityname sizeWithCustomFont:WLFONT(12)];
-    CGSize nameSize = [userM.name sizeWithCustomFont:WLFONT(16)];
+    CGSize nameSize = [userM.name sizeWithCustomFont:WLFONT(17)];
    CGFloat nameX = (SuperSize.width-citySize.width-20-nameSize.width)*0.5;
     [_nameLabel setFrame:CGRectMake(nameX+10, _iconImage.bottom+10, nameSize.width, nameSize.height)];
     [_cityBut setFrame:CGRectMake(_nameLabel.right+5, _nameLabel.top+2, citySize.width+15, citySize.height)];

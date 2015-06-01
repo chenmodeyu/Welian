@@ -126,11 +126,16 @@ static NSString *shaixuanHeaderid = @"ShaiXuanHeaderView";
     
     if (_oneIndex||_twoIndex||_threeIndex) {
         [confirmBut setEnabled:YES];
+        if (_oneIndex) {
+            [self.collectionView selectItemAtIndexPath:_oneIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+        }
+        if (_twoIndex) {
+            [self.collectionView selectItemAtIndexPath:_twoIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+        }
+        if (_threeIndex) {
+            [self.collectionView selectItemAtIndexPath:_threeIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+        }
     }
-    
-    [self.collectionView selectItemAtIndexPath:_oneIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-    [self.collectionView selectItemAtIndexPath:_twoIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-    [self.collectionView selectItemAtIndexPath:_threeIndex animated:YES scrollPosition:UICollectionViewScrollPositionNone];
 }
 
 

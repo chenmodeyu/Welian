@@ -74,6 +74,11 @@
         _firmTiteLabel = [self getTiteLabelWithText:@"投资机构："];
         [_firmView addSubview:_firmTiteLabel];
         _firmIconImage = [[UIImageView alloc] init];
+        [_firmIconImage setBackgroundColor:KBgLightGrayColor];
+        _firmIconImage.layer.borderWidth = 1;
+        _firmIconImage.layer.masksToBounds = YES;
+        _firmIconImage.layer.borderColor = [kNormalLineColor CGColor];
+        
         [_firmView addSubview:_firmIconImage];
         _firmNameLabel = [[UILabel alloc] init];
         [_firmNameLabel setFont:WLFONT(15)];
@@ -144,7 +149,7 @@
         
         [_firmView setFrame:CGRectMake(0, _itemView.bottom, viewWidth, firmViewH)];
         [_firmTiteLabel setFrame:CGRectMake(0, 0, titeLabelW, firmViewH)];
-        [_firmIconImage setFrame:CGRectMake(labelX, labelY, 40, 40)];
+        [_firmIconImage setFrame:CGRectMake(labelX, labelY, 45, 45)];
         [_firmNameLabel setFrame:CGRectMake(_firmIconImage.right+labelY, labelY, labelSize.width-50, 20)];
         [_firmIntroLabel setFrame:CGRectMake(_firmNameLabel.left, _firmNameLabel.bottom+5, _firmNameLabel.width, 20)];
         [_firmBut setFrame:CGRectMake(0, 0, SuperSize.width-30*2, firmViewH)];
