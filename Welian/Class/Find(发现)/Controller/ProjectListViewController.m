@@ -25,7 +25,7 @@
 
 @property (assign,nonatomic) NSInteger pageIndex;
 @property (assign,nonatomic) NSInteger pageSize;
-@property (assign,nonatomic) NSInteger projectType;//1：最新   2：热门  3：项目集 4：筛选
+@property (assign,nonatomic) NSInteger projectType;//1：推荐   2：热门  3：项目集 4：筛选
 @property (strong, nonatomic) NotstringView *notView;
 
 @end
@@ -127,7 +127,7 @@
 #pragma mark - UITableView Datasource&Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //1：最新   2：热门  3：项目集 4：筛选
+    //1：推荐   2：热门  3：项目集 4：筛选
     switch (_projectType) {
         case 1:
             return _headDatasource.count;
@@ -140,7 +140,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //1：最新   2：热门  3：项目集 4：筛选
+    //1：推荐   2：热门  3：项目集 4：筛选
     switch (_projectType) {
         case 1:
             return [_datasource[section] count];
@@ -153,7 +153,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    //1：最新   2：热门 3：项目集 4筛选
+    //1：推荐   2：热门 3：项目集 4筛选
     if (_projectType == 1 || _projectType == 4) {
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 32.f)];
         headerView.backgroundColor = RGB(236.f, 238.f, 241.f);
@@ -224,7 +224,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //1：最新   2：热门  3：项目集 4：筛选
+    //1：推荐   2：热门  3：项目集 4：筛选
     switch (_projectType) {
         case 3:
         {
@@ -260,7 +260,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    //1：最新   2：热门  3：项目集 4：筛选
+    //1：推荐   2：热门  3：项目集 4：筛选
     switch (_projectType) {
         case 3:
         {
@@ -284,7 +284,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    //1：最新   2：热门  3：项目集 4：筛选
+    //1：推荐   2：热门  3：项目集 4：筛选
     switch (_projectType) {
         case 1:
             return 32.f;

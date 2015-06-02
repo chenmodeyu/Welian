@@ -40,7 +40,7 @@
 {
     self = [super init];
     if (self) {
-        self.navTitlesArr = @[@"最新",@"热门",@"项目集",@"筛选"];
+        self.navTitlesArr = @[@"推荐",@"热门",@"项目集",@"筛选"];
         self.navTitleImagesArr = @[@"",@"",@"",@"xiangmu_list_funnel"];
         self.dataSource = self;
         self.delegate = self;
@@ -90,7 +90,7 @@
 #pragma mark - XZPageViewControllerDataSource Delegate
 - (UIViewController *)viewPageController:(XZPageViewController *)pageViewController contentViewControllerForNavAtIndex:(NSInteger)index
 {
-    //项目 //1：最新   2：热门  3：项目集 4：筛选
+    //项目 //1：推荐   2：热门  3：项目集 4：筛选
     ProjectListViewController *projectListVC = [[ProjectListViewController alloc] initWithProjectType:index + 1];
     return projectListVC;
 }

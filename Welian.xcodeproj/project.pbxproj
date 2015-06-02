@@ -1723,7 +1723,6 @@
 		A49C7D8B1A70D42700F2AEC5 /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F520EDF419D02CCA00E753E4 /* libc++abi.dylib */; };
 		A49C7D8C1A70D42700F2AEC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE85FD19BFF2AB00A9D14C /* Foundation.framework */; };
 		A49C7D8D1A70D42700F2AEC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE85FF19BFF2AB00A9D14C /* CoreGraphics.framework */; };
-		A49C7D8E1A70D42700F2AEC5 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F57D8F761A0CC5F3009195FF /* libMobClickLibrary.a */; };
 		A49C7D8F1A70D42700F2AEC5 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1239B19E7CE8F002B9E58 /* libWeChatSDK.a */; };
 		A49C7D901A70D42700F2AEC5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F532FD4519C89B3D005B887D /* CFNetwork.framework */; };
 		A49C7D911A70D42700F2AEC5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE868C19BFF4E900A9D14C /* OpenGLES.framework */; };
@@ -3306,7 +3305,6 @@
 		F53DC3BA1A49192600F5F712 /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F520EDF419D02CCA00E753E4 /* libc++abi.dylib */; };
 		F53DC3BB1A49192600F5F712 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE85FD19BFF2AB00A9D14C /* Foundation.framework */; };
 		F53DC3BC1A49192600F5F712 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE85FF19BFF2AB00A9D14C /* CoreGraphics.framework */; };
-		F53DC3BD1A49192600F5F712 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F57D8F761A0CC5F3009195FF /* libMobClickLibrary.a */; };
 		F53DC3BE1A49192600F5F712 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1239B19E7CE8F002B9E58 /* libWeChatSDK.a */; };
 		F53DC3BF1A49192600F5F712 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE868819BFF4BC00A9D14C /* Security.framework */; };
 		F53DC3C01A49192600F5F712 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE868A19BFF4DE00A9D14C /* SystemConfiguration.framework */; };
@@ -3769,7 +3767,6 @@
 		F5664A761A2AFD56008A5830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE85FD19BFF2AB00A9D14C /* Foundation.framework */; };
 		F5664A771A2AFD56008A5830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE85FF19BFF2AB00A9D14C /* CoreGraphics.framework */; };
 		F5664A781A2AFD56008A5830 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F532FD4E19C952E9005B887D /* AddressBookUI.framework */; };
-		F5664A791A2AFD56008A5830 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F57D8F761A0CC5F3009195FF /* libMobClickLibrary.a */; };
 		F5664A7A1A2AFD56008A5830 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1239B19E7CE8F002B9E58 /* libWeChatSDK.a */; };
 		F5664A7B1A2AFD56008A5830 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F532FD4C19C952E3005B887D /* AddressBook.framework */; };
 		F5664A7C1A2AFD56008A5830 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE868819BFF4BC00A9D14C /* Security.framework */; };
@@ -4039,7 +4036,6 @@
 		F5664D301A2AFDD5008A5830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE85FD19BFF2AB00A9D14C /* Foundation.framework */; };
 		F5664D311A2AFDD5008A5830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE85FF19BFF2AB00A9D14C /* CoreGraphics.framework */; };
 		F5664D321A2AFDD5008A5830 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F532FD4E19C952E9005B887D /* AddressBookUI.framework */; };
-		F5664D331A2AFDD5008A5830 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F57D8F761A0CC5F3009195FF /* libMobClickLibrary.a */; };
 		F5664D341A2AFDD5008A5830 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1239B19E7CE8F002B9E58 /* libWeChatSDK.a */; };
 		F5664D351A2AFDD5008A5830 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F532FD4C19C952E3005B887D /* AddressBook.framework */; };
 		F5664D361A2AFDD5008A5830 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE868819BFF4BC00A9D14C /* Security.framework */; };
@@ -4385,6 +4381,50 @@
 		F596A56F1AFB337A000C03C6 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F596A56C1AFB337A000C03C6 /* libGexinSdk-1.1.1.a */; };
 		F596A5701AFB337A000C03C6 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F596A56C1AFB337A000C03C6 /* libGexinSdk-1.1.1.a */; };
 		F596A5711AFB337A000C03C6 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F596A56C1AFB337A000C03C6 /* libGexinSdk-1.1.1.a */; };
+		F598F5461B1D851A00579F1D /* LCNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F598F5431B1D851A00579F1D /* LCNewFeatureVC.m */; };
+		F598F5471B1D851A00579F1D /* LCNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F598F5431B1D851A00579F1D /* LCNewFeatureVC.m */; };
+		F598F5481B1D851A00579F1D /* LCNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F598F5431B1D851A00579F1D /* LCNewFeatureVC.m */; };
+		F598F5491B1D851A00579F1D /* LCNewFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F598F5431B1D851A00579F1D /* LCNewFeatureVC.m */; };
+		F598F54A1B1D851A00579F1D /* UIImage+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = F598F5451B1D851A00579F1D /* UIImage+LC.m */; };
+		F598F54B1B1D851A00579F1D /* UIImage+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = F598F5451B1D851A00579F1D /* UIImage+LC.m */; };
+		F598F54C1B1D851A00579F1D /* UIImage+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = F598F5451B1D851A00579F1D /* UIImage+LC.m */; };
+		F598F54D1B1D851A00579F1D /* UIImage+LC.m in Sources */ = {isa = PBXBuildFile; fileRef = F598F5451B1D851A00579F1D /* UIImage+LC.m */; };
+		F598F5801B1D991400579F1D /* new_feature_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F5781B1D991400579F1D /* new_feature_1@2x.png */; };
+		F598F5811B1D991400579F1D /* new_feature_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F5781B1D991400579F1D /* new_feature_1@2x.png */; };
+		F598F5821B1D991400579F1D /* new_feature_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F5781B1D991400579F1D /* new_feature_1@2x.png */; };
+		F598F5831B1D991400579F1D /* new_feature_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F5781B1D991400579F1D /* new_feature_1@2x.png */; };
+		F598F5841B1D991400579F1D /* new_feature_1_568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F5791B1D991400579F1D /* new_feature_1_568h@2x.png */; };
+		F598F5851B1D991400579F1D /* new_feature_1_568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F5791B1D991400579F1D /* new_feature_1_568h@2x.png */; };
+		F598F5861B1D991400579F1D /* new_feature_1_568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F5791B1D991400579F1D /* new_feature_1_568h@2x.png */; };
+		F598F5871B1D991400579F1D /* new_feature_1_568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F5791B1D991400579F1D /* new_feature_1_568h@2x.png */; };
+		F598F5881B1D991400579F1D /* new_feature_1_iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57A1B1D991400579F1D /* new_feature_1_iphone6@2x.png */; };
+		F598F5891B1D991400579F1D /* new_feature_1_iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57A1B1D991400579F1D /* new_feature_1_iphone6@2x.png */; };
+		F598F58A1B1D991400579F1D /* new_feature_1_iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57A1B1D991400579F1D /* new_feature_1_iphone6@2x.png */; };
+		F598F58B1B1D991400579F1D /* new_feature_1_iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57A1B1D991400579F1D /* new_feature_1_iphone6@2x.png */; };
+		F598F58C1B1D991400579F1D /* new_feature_1_iphone6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57B1B1D991400579F1D /* new_feature_1_iphone6p@3x.png */; };
+		F598F58D1B1D991400579F1D /* new_feature_1_iphone6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57B1B1D991400579F1D /* new_feature_1_iphone6p@3x.png */; };
+		F598F58E1B1D991400579F1D /* new_feature_1_iphone6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57B1B1D991400579F1D /* new_feature_1_iphone6p@3x.png */; };
+		F598F58F1B1D991400579F1D /* new_feature_1_iphone6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57B1B1D991400579F1D /* new_feature_1_iphone6p@3x.png */; };
+		F598F5901B1D991400579F1D /* new_feature_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57C1B1D991400579F1D /* new_feature_2@2x.png */; };
+		F598F5911B1D991400579F1D /* new_feature_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57C1B1D991400579F1D /* new_feature_2@2x.png */; };
+		F598F5921B1D991400579F1D /* new_feature_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57C1B1D991400579F1D /* new_feature_2@2x.png */; };
+		F598F5931B1D991400579F1D /* new_feature_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57C1B1D991400579F1D /* new_feature_2@2x.png */; };
+		F598F5941B1D991400579F1D /* new_feature_2_iphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57D1B1D991400579F1D /* new_feature_2_iphone5@2x.png */; };
+		F598F5951B1D991400579F1D /* new_feature_2_iphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57D1B1D991400579F1D /* new_feature_2_iphone5@2x.png */; };
+		F598F5961B1D991400579F1D /* new_feature_2_iphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57D1B1D991400579F1D /* new_feature_2_iphone5@2x.png */; };
+		F598F5971B1D991400579F1D /* new_feature_2_iphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57D1B1D991400579F1D /* new_feature_2_iphone5@2x.png */; };
+		F598F5981B1D991400579F1D /* new_feature_2_iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57E1B1D991400579F1D /* new_feature_2_iphone6@2x.png */; };
+		F598F5991B1D991400579F1D /* new_feature_2_iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57E1B1D991400579F1D /* new_feature_2_iphone6@2x.png */; };
+		F598F59A1B1D991400579F1D /* new_feature_2_iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57E1B1D991400579F1D /* new_feature_2_iphone6@2x.png */; };
+		F598F59B1B1D991400579F1D /* new_feature_2_iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57E1B1D991400579F1D /* new_feature_2_iphone6@2x.png */; };
+		F598F59C1B1D991400579F1D /* new_feature_2_iphone6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57F1B1D991400579F1D /* new_feature_2_iphone6p@3x.png */; };
+		F598F59D1B1D991400579F1D /* new_feature_2_iphone6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57F1B1D991400579F1D /* new_feature_2_iphone6p@3x.png */; };
+		F598F59E1B1D991400579F1D /* new_feature_2_iphone6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57F1B1D991400579F1D /* new_feature_2_iphone6p@3x.png */; };
+		F598F59F1B1D991400579F1D /* new_feature_2_iphone6p@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F598F57F1B1D991400579F1D /* new_feature_2_iphone6p@3x.png */; };
+		F598F5A41B1DAB5700579F1D /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F598F5A11B1DAB5700579F1D /* libMobClickLibrary.a */; };
+		F598F5A51B1DAB5700579F1D /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F598F5A11B1DAB5700579F1D /* libMobClickLibrary.a */; };
+		F598F5A61B1DAB5800579F1D /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F598F5A11B1DAB5700579F1D /* libMobClickLibrary.a */; };
+		F598F5A71B1DAB5800579F1D /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F598F5A11B1DAB5700579F1D /* libMobClickLibrary.a */; };
 		F59D20081AE4AC31008F3943 /* Shape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D20071AE4AC31008F3943 /* Shape@2x.png */; };
 		F59D20091AE4AC31008F3943 /* Shape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D20071AE4AC31008F3943 /* Shape@2x.png */; };
 		F59D200A1AE4AC31008F3943 /* Shape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D20071AE4AC31008F3943 /* Shape@2x.png */; };
@@ -6475,9 +6515,6 @@
 		F57909A319C2E3F2009DB1B2 /* tabbar_b_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_b_selected@2x.png"; sourceTree = "<group>"; };
 		F57909EC19C2E9C3009DB1B2 /* PublishStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishStatusController.h; sourceTree = "<group>"; };
 		F57909ED19C2E9C3009DB1B2 /* PublishStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishStatusController.m; sourceTree = "<group>"; };
-		F57D8F761A0CC5F3009195FF /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
-		F57D8F771A0CC5F3009195FF /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
-		F57D8F781A0CC5F3009195FF /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		F57EB54E19C5BC6700AA3396 /* MeInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeInfoController.h; sourceTree = "<group>"; };
 		F57EB54F19C5BC6700AA3396 /* MeInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeInfoController.m; sourceTree = "<group>"; };
 		F57EB55119C5BC9E00AA3396 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
@@ -6563,6 +6600,21 @@
 		F596A56A1AFB337A000C03C6 /* GexinSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GexinSdk.h; sourceTree = "<group>"; };
 		F596A56B1AFB337A000C03C6 /* GXSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXSdkError.h; sourceTree = "<group>"; };
 		F596A56C1AFB337A000C03C6 /* libGexinSdk-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGexinSdk-1.1.1.a"; sourceTree = "<group>"; };
+		F598F5421B1D851A00579F1D /* LCNewFeatureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNewFeatureVC.h; sourceTree = "<group>"; };
+		F598F5431B1D851A00579F1D /* LCNewFeatureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCNewFeatureVC.m; sourceTree = "<group>"; };
+		F598F5441B1D851A00579F1D /* UIImage+LC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LC.h"; sourceTree = "<group>"; };
+		F598F5451B1D851A00579F1D /* UIImage+LC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LC.m"; sourceTree = "<group>"; };
+		F598F5781B1D991400579F1D /* new_feature_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_1@2x.png"; sourceTree = "<group>"; };
+		F598F5791B1D991400579F1D /* new_feature_1_568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_1_568h@2x.png"; sourceTree = "<group>"; };
+		F598F57A1B1D991400579F1D /* new_feature_1_iphone6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_1_iphone6@2x.png"; sourceTree = "<group>"; };
+		F598F57B1B1D991400579F1D /* new_feature_1_iphone6p@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_1_iphone6p@3x.png"; sourceTree = "<group>"; };
+		F598F57C1B1D991400579F1D /* new_feature_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_2@2x.png"; sourceTree = "<group>"; };
+		F598F57D1B1D991400579F1D /* new_feature_2_iphone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_2_iphone5@2x.png"; sourceTree = "<group>"; };
+		F598F57E1B1D991400579F1D /* new_feature_2_iphone6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_2_iphone6@2x.png"; sourceTree = "<group>"; };
+		F598F57F1B1D991400579F1D /* new_feature_2_iphone6p@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_2_iphone6p@3x.png"; sourceTree = "<group>"; };
+		F598F5A11B1DAB5700579F1D /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		F598F5A21B1DAB5700579F1D /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		F598F5A31B1DAB5700579F1D /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		F59D20071AE4AC31008F3943 /* Shape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shape@2x.png"; sourceTree = "<group>"; };
 		F59E760A1A405D170028FBAF /* weLian.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weLian.xcdatamodel; sourceTree = "<group>"; };
 		F59E760D1A4071320028FBAF /* SchoolCompanyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolCompanyDate.h; sourceTree = "<group>"; };
@@ -7048,6 +7100,7 @@
 				A49C7D7C1A70D42700F2AEC5 /* AddressBookUI.framework in Frameworks */,
 				A49C7D7E1A70D42700F2AEC5 /* AVFoundation.framework in Frameworks */,
 				A49C7D7F1A70D42700F2AEC5 /* CoreLocation.framework in Frameworks */,
+				F598F5A71B1DAB5800579F1D /* libMobClickLibrary.a in Frameworks */,
 				A49C7D801A70D42700F2AEC5 /* MediaPlayer.framework in Frameworks */,
 				A49C7D811A70D42700F2AEC5 /* QuartzCore.framework in Frameworks */,
 				A49C7D821A70D42700F2AEC5 /* MobileCoreServices.framework in Frameworks */,
@@ -7063,7 +7116,6 @@
 				A49C7D8B1A70D42700F2AEC5 /* libc++abi.dylib in Frameworks */,
 				A49C7D8C1A70D42700F2AEC5 /* Foundation.framework in Frameworks */,
 				A49C7D8D1A70D42700F2AEC5 /* CoreGraphics.framework in Frameworks */,
-				A49C7D8E1A70D42700F2AEC5 /* libMobClickLibrary.a in Frameworks */,
 				A49C7D8F1A70D42700F2AEC5 /* libWeChatSDK.a in Frameworks */,
 				A49C7D901A70D42700F2AEC5 /* CFNetwork.framework in Frameworks */,
 				A49C7D911A70D42700F2AEC5 /* OpenGLES.framework in Frameworks */,
@@ -7096,6 +7148,7 @@
 				F53DC3AD1A49192600F5F712 /* AudioToolbox.framework in Frameworks */,
 				F53DC3AE1A49192600F5F712 /* AVFoundation.framework in Frameworks */,
 				F53DC3AF1A49192600F5F712 /* CoreLocation.framework in Frameworks */,
+				F598F5A61B1DAB5800579F1D /* libMobClickLibrary.a in Frameworks */,
 				F53DC3B01A49192600F5F712 /* MediaPlayer.framework in Frameworks */,
 				F53DC3B11A49192600F5F712 /* QuartzCore.framework in Frameworks */,
 				F53DC3B21A49192600F5F712 /* MobileCoreServices.framework in Frameworks */,
@@ -7111,7 +7164,6 @@
 				F53DC3BA1A49192600F5F712 /* libc++abi.dylib in Frameworks */,
 				F53DC3BB1A49192600F5F712 /* Foundation.framework in Frameworks */,
 				F53DC3BC1A49192600F5F712 /* CoreGraphics.framework in Frameworks */,
-				F53DC3BD1A49192600F5F712 /* libMobClickLibrary.a in Frameworks */,
 				F53DC3BE1A49192600F5F712 /* libWeChatSDK.a in Frameworks */,
 				F53DC3C11A49192600F5F712 /* CFNetwork.framework in Frameworks */,
 				F53DC3C21A49192600F5F712 /* OpenGLES.framework in Frameworks */,
@@ -7138,6 +7190,7 @@
 				A4F646B91A43C2D5002E66FC /* AVFoundation.framework in Frameworks */,
 				F5B5FE681A596D4A007FE11B /* WeChatConnection.framework in Frameworks */,
 				A4F646B71A43C2B9002E66FC /* MediaPlayer.framework in Frameworks */,
+				F598F5A41B1DAB5700579F1D /* libMobClickLibrary.a in Frameworks */,
 				A4F646B51A43C2B0002E66FC /* QuartzCore.framework in Frameworks */,
 				F5B5FE741A596D4B007FE11B /* ShareSDKCoreService.framework in Frameworks */,
 				A4F646B31A43C29F002E66FC /* MobileCoreServices.framework in Frameworks */,
@@ -7154,7 +7207,6 @@
 				F5664A771A2AFD56008A5830 /* CoreGraphics.framework in Frameworks */,
 				F596A56D1AFB337A000C03C6 /* libGexinSdk-1.1.1.a in Frameworks */,
 				F5664A781A2AFD56008A5830 /* AddressBookUI.framework in Frameworks */,
-				F5664A791A2AFD56008A5830 /* libMobClickLibrary.a in Frameworks */,
 				F5664A7A1A2AFD56008A5830 /* libWeChatSDK.a in Frameworks */,
 				F5664A7B1A2AFD56008A5830 /* AddressBook.framework in Frameworks */,
 				F5664A7E1A2AFD56008A5830 /* CFNetwork.framework in Frameworks */,
@@ -7184,6 +7236,7 @@
 				F5664D321A2AFDD5008A5830 /* AddressBookUI.framework in Frameworks */,
 				F5B5FE691A596D4A007FE11B /* WeChatConnection.framework in Frameworks */,
 				A4776ACC1A44288B0022E211 /* AudioToolbox.framework in Frameworks */,
+				F598F5A51B1DAB5700579F1D /* libMobClickLibrary.a in Frameworks */,
 				A4776ACB1A4428830022E211 /* AVFoundation.framework in Frameworks */,
 				F5B5FE751A596D4B007FE11B /* ShareSDKCoreService.framework in Frameworks */,
 				F5664D391A2AFDD5008A5830 /* CoreLocation.framework in Frameworks */,
@@ -7201,7 +7254,6 @@
 				F596A56E1AFB337A000C03C6 /* libGexinSdk-1.1.1.a in Frameworks */,
 				F5664D301A2AFDD5008A5830 /* Foundation.framework in Frameworks */,
 				F5664D311A2AFDD5008A5830 /* CoreGraphics.framework in Frameworks */,
-				F5664D331A2AFDD5008A5830 /* libMobClickLibrary.a in Frameworks */,
 				F5664D341A2AFDD5008A5830 /* libWeChatSDK.a in Frameworks */,
 				F5664D361A2AFDD5008A5830 /* Security.framework in Frameworks */,
 				F5C779361A52F0650098BC29 /* libBlocksKit.a in Frameworks */,
@@ -9640,16 +9692,6 @@
 			path = "首页images";
 			sourceTree = "<group>";
 		};
-		F57D8F751A0CC5F3009195FF /* UMAnalytics_Sdk_3.1.8 */ = {
-			isa = PBXGroup;
-			children = (
-				F57D8F761A0CC5F3009195FF /* libMobClickLibrary.a */,
-				F57D8F771A0CC5F3009195FF /* MobClick.h */,
-				F57D8F781A0CC5F3009195FF /* MobClickSocialAnalytics.h */,
-			);
-			path = UMAnalytics_Sdk_3.1.8;
-			sourceTree = "<group>";
-		};
 		F57F31DF1AA7F00000B8EF72 /* 分享 */ = {
 			isa = PBXGroup;
 			children = (
@@ -9723,6 +9765,58 @@
 				F596A56B1AFB337A000C03C6 /* GXSdkError.h */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		F598F53F1B1D819700579F1D /* Introduction(更新特性提示) */ = {
+			isa = PBXGroup;
+			children = (
+				F598F5411B1D851A00579F1D /* LCNewFeature */,
+				F598F5401B1D81B800579F1D /* Controller */,
+			);
+			path = "Introduction(更新特性提示)";
+			sourceTree = "<group>";
+		};
+		F598F5401B1D81B800579F1D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F598F5411B1D851A00579F1D /* LCNewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				F598F5421B1D851A00579F1D /* LCNewFeatureVC.h */,
+				F598F5431B1D851A00579F1D /* LCNewFeatureVC.m */,
+				F598F5441B1D851A00579F1D /* UIImage+LC.h */,
+				F598F5451B1D851A00579F1D /* UIImage+LC.m */,
+			);
+			path = LCNewFeature;
+			sourceTree = "<group>";
+		};
+		F598F5771B1D991400579F1D /* 更新特性提示image */ = {
+			isa = PBXGroup;
+			children = (
+				F598F5781B1D991400579F1D /* new_feature_1@2x.png */,
+				F598F5791B1D991400579F1D /* new_feature_1_568h@2x.png */,
+				F598F57A1B1D991400579F1D /* new_feature_1_iphone6@2x.png */,
+				F598F57B1B1D991400579F1D /* new_feature_1_iphone6p@3x.png */,
+				F598F57C1B1D991400579F1D /* new_feature_2@2x.png */,
+				F598F57D1B1D991400579F1D /* new_feature_2_iphone5@2x.png */,
+				F598F57E1B1D991400579F1D /* new_feature_2_iphone6@2x.png */,
+				F598F57F1B1D991400579F1D /* new_feature_2_iphone6p@3x.png */,
+			);
+			path = "更新特性提示image";
+			sourceTree = "<group>";
+		};
+		F598F5A01B1DAB5700579F1D /* UMAnalytics_Sdk_3.5.8 */ = {
+			isa = PBXGroup;
+			children = (
+				F598F5A11B1DAB5700579F1D /* libMobClickLibrary.a */,
+				F598F5A21B1DAB5700579F1D /* MobClick.h */,
+				F598F5A31B1DAB5700579F1D /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.5.8;
 			sourceTree = "<group>";
 		};
 		F59E76061A405CE70028FBAF /* Model */ = {
@@ -10171,6 +10265,7 @@
 		F5CE862C19BFF44100A9D14C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F598F53F1B1D819700579F1D /* Introduction(更新特性提示) */,
 				F53D4E4A1A4AAE4700CA06C8 /* ChatMessage(消息) */,
 				F5CE869419BFF67500A9D14C /* Login(登陆) */,
 				F5CE862D19BFF44100A9D14C /* Find(发现) */,
@@ -10420,6 +10515,7 @@
 		F5CE864119BFF44100A9D14C /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
+				F598F5A01B1DAB5700579F1D /* UMAnalytics_Sdk_3.5.8 */,
 				F5D384FB1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout */,
 				F564B0041B16B56200923A1B /* DACircularProgress */,
 				F56972481B0ED0DE004E86AC /* XZPageViewController */,
@@ -10442,7 +10538,6 @@
 				F5D3567C1A260F75005EF094 /* M80AttributedLabel */,
 				F5874C211A1DA5F7009F7D83 /* GETUI_IOS_SDK */,
 				F5EE260E1A14D19600B0E836 /* UIBarButtonItem-Badge */,
-				F57D8F751A0CC5F3009195FF /* UMAnalytics_Sdk_3.1.8 */,
 				F5BCDEB01A03BF7200183F64 /* HBVLinkedTextView */,
 				F5BCDE6B1A038B2000183F64 /* BaiduMap_IOSSDK_v2.5.0_Lib */,
 				F5C2D10519F9F7F8000610A1 /* YTFMDB */,
@@ -10467,6 +10562,7 @@
 		F5CE864219BFF44100A9D14C /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				F598F5771B1D991400579F1D /* 更新特性提示image */,
 				A409A12F1AC2E1AE0033A31D /* 我的images */,
 				A464614A1AAD424D00D2687B /* NavImages */,
 				F557729B1A5AA3E200693279 /* 登录images */,
@@ -11024,6 +11120,7 @@
 				A493C3EE1ADD14A60056BD52 /* settingPlist.plist in Resources */,
 				A49C7D9D1A70D42700F2AEC5 /* weChatBubble_Sending_Solid@2x.png in Resources */,
 				A49C7D9E1A70D42700F2AEC5 /* tabbar_circle_selected_prompt@2x.png in Resources */,
+				F598F58F1B1D991400579F1D /* new_feature_1_iphone6p@3x.png in Resources */,
 				A49C7D9F1A70D42700F2AEC5 /* weLianDev-Info.plist in Resources */,
 				F5CBE3B21AC4351A00F4C884 /* Expression_17@2x.png in Resources */,
 				A409A2891AC2E1AF0033A31D /* me_touzi@2x.png in Resources */,
@@ -11059,12 +11156,14 @@
 				A49C7DC01A70D42700F2AEC5 /* weChatBubble_Receiving_Solid2@2x.png in Resources */,
 				A49C7DC31A70D42700F2AEC5 /* navbar_search@2x.png in Resources */,
 				A49C7DC41A70D42700F2AEC5 /* me_mywriten_comment_small@2x.png in Resources */,
+				F598F5971B1D991400579F1D /* new_feature_2_iphone5@2x.png in Resources */,
 				A49C7DC51A70D42700F2AEC5 /* picture_loading@2x.png in Resources */,
 				F5CBE3EA1AC4351A00F4C884 /* Expression_31@2x.png in Resources */,
 				A49236311ADE693A009E0B8C /* picker_alert_sigh@2x.png in Resources */,
 				A49C7DC61A70D42700F2AEC5 /* leida6@2x.png in Resources */,
 				A49C7DC71A70D42700F2AEC5 /* me_mycard_chuang@2x.png in Resources */,
 				A49C7DC81A70D42700F2AEC5 /* NewFriendsCell.xib in Resources */,
+				F598F5931B1D991400579F1D /* new_feature_2@2x.png in Resources */,
 				F5CBE3A61AC4351A00F4C884 /* Expression_14@2x.png in Resources */,
 				A409A18D1AC2E1AF0033A31D /* about_welian_logo@2x.png in Resources */,
 				A409A22D1AC2E1AF0033A31D /* me_mycard_tou_big2@2x.png in Resources */,
@@ -11168,6 +11267,7 @@
 				A49C7E221A70D42700F2AEC5 /* leida5@2x.png in Resources */,
 				A493C3DF1ADD14A60056BD52 /* meplist.plist in Resources */,
 				F5CBE41E1AC4351A00F4C884 /* Expression_44@2x.png in Resources */,
+				F598F59F1B1D991400579F1D /* new_feature_2_iphone6p@3x.png in Resources */,
 				F58796701AE8C1C6002C414F /* button_white@2x.png in Resources */,
 				F5CBE4BE1AC4351A00F4C884 /* Expression_84@2x.png in Resources */,
 				A492358C1ADE693A009E0B8C /* assets_placeholder_picture@2x.png in Resources */,
@@ -11176,6 +11276,7 @@
 				A4675D2E1AC16F4100E556B2 /* msg_dian@2x.png in Resources */,
 				A409A2811AC2E1AF0033A31D /* me_setting@2x.png in Resources */,
 				A49FF3D01AC29A1B009982E2 /* navbar_set@2x.png in Resources */,
+				F598F59B1B1D991400579F1D /* new_feature_2_iphone6@2x.png in Resources */,
 				A49C7E251A70D42700F2AEC5 /* InvestCollectionCell.xib in Resources */,
 				A493C3B71ADD14A60056BD52 /* city.db in Resources */,
 				A49C7E261A70D42700F2AEC5 /* RecordingSignal007@2x.png in Resources */,
@@ -11249,6 +11350,7 @@
 				A49C7E5A1A70D42700F2AEC5 /* home_label_point@2x.png in Resources */,
 				A49C7E5C1A70D42700F2AEC5 /* remind_big_logo@2x.png in Resources */,
 				A49C7E5D1A70D42700F2AEC5 /* home_grc_background@2x.png in Resources */,
+				F598F58B1B1D991400579F1D /* new_feature_1_iphone6@2x.png in Resources */,
 				F5CBE3C21AC4351A00F4C884 /* Expression_21@2x.png in Resources */,
 				A4B07C361B12FBF0008A3702 /* xiangmu_list_funnel_big@2x.png in Resources */,
 				A409A2791AC2E1AF0033A31D /* me_renzheng_tou@2x.png in Resources */,
@@ -11271,6 +11373,7 @@
 				A4E731A61A8C972700980676 /* discovery_activity_detail_more@2x.png in Resources */,
 				A493C3C11ADD14A60056BD52 /* citys.plist in Resources */,
 				A49C7E6F1A70D42700F2AEC5 /* discovery_tou@2x.png in Resources */,
+				F598F5871B1D991400579F1D /* new_feature_1_568h@2x.png in Resources */,
 				F500B1EF1AAEAB5B00A7AD35 /* home_repost_xiangmu@2x.png in Resources */,
 				A49C7E731A70D42700F2AEC5 /* home_picture_add_selected@2x.png in Resources */,
 				A49C7E741A70D42700F2AEC5 /* VoiceBtn_Black@2x.png in Resources */,
@@ -11432,6 +11535,7 @@
 				F500B1EA1AAEAB4C00A7AD35 /* home_repost_huodong@2x.png in Resources */,
 				A49235A01ADE693A009E0B8C /* camera_edit_cut_cancel_highlighted@2x.png in Resources */,
 				A49C7F081A70D42700F2AEC5 /* notification_badge2@2x.png in Resources */,
+				F598F5831B1D991400579F1D /* new_feature_1@2x.png in Resources */,
 				F5472DB81A8DCE8E002C9B35 /* backItem@2x.png in Resources */,
 				F5CBE3721AC4351A00F4C884 /* Expression_1@2x.png in Resources */,
 				A49C7F111A70D42700F2AEC5 /* RecordingSignal006@2x.png in Resources */,
@@ -11641,6 +11745,7 @@
 				A493C3EC1ADD14A60056BD52 /* settingPlist.plist in Resources */,
 				F53DC3CA1A49192600F5F712 /* icon_session-8@2x.png in Resources */,
 				A409A1B81AC2E1AF0033A31D /* investor_attestation_selected@2x.png in Resources */,
+				F598F58E1B1D991400579F1D /* new_feature_1_iphone6p@3x.png in Resources */,
 				F53DC3CB1A49192600F5F712 /* home_picture_add_camera@2x.png in Resources */,
 				A4C143661A4C0A6B00C9BAB5 /* weChatBubble_Sending_Solid@2x.png in Resources */,
 				F5CBE3B11AC4351A00F4C884 /* Expression_17@2x.png in Resources */,
@@ -11676,12 +11781,14 @@
 				A4C1449D1A4C3EC600C9BAB5 /* home_loading_30px@2x.png in Resources */,
 				A41CE1DB1A6F9E25004F17E7 /* me_circle_chat_picture_pressed@2x.png in Resources */,
 				A4C144A81A4C3F5500C9BAB5 /* weChatBubble_Receiving_Solid2@2x.png in Resources */,
+				F598F5961B1D991400579F1D /* new_feature_2_iphone5@2x.png in Resources */,
 				F53DC3E51A49192600F5F712 /* navbar_search@2x.png in Resources */,
 				F53DC3E61A49192600F5F712 /* me_mywriten_comment_small@2x.png in Resources */,
 				A492362F1ADE693A009E0B8C /* picker_alert_sigh@2x.png in Resources */,
 				F5CBE3E91AC4351A00F4C884 /* Expression_31@2x.png in Resources */,
 				F53DC3E71A49192600F5F712 /* picture_loading@2x.png in Resources */,
 				F58CA96B1A5BF3AE00988A61 /* leida6@2x.png in Resources */,
+				F598F5921B1D991400579F1D /* new_feature_2@2x.png in Resources */,
 				F53DC3E81A49192600F5F712 /* me_mycard_chuang@2x.png in Resources */,
 				F5CBE3A51AC4351A00F4C884 /* Expression_14@2x.png in Resources */,
 				F50CB0A71ACE8CF10003DA8E /* home_repost_xiangmu_no@2x.png in Resources */,
@@ -11785,6 +11892,7 @@
 				F53DC4331A49192600F5F712 /* tabbar_me_selected_prompt@2x.png in Resources */,
 				A493C3DD1ADD14A60056BD52 /* meplist.plist in Resources */,
 				F5CBE4F11AC4351A00F4C884 /* Expression_97@2x.png in Resources */,
+				F598F59E1B1D991400579F1D /* new_feature_2_iphone6p@3x.png in Resources */,
 				F587966E1AE8C1C6002C414F /* button_white@2x.png in Resources */,
 				A4675D2D1AC16F4100E556B2 /* msg_dian@2x.png in Resources */,
 				A492358A1ADE693A009E0B8C /* assets_placeholder_picture@2x.png in Resources */,
@@ -11793,6 +11901,7 @@
 				A49FF3CF1AC29A1B009982E2 /* navbar_set@2x.png in Resources */,
 				F534DAED1A4EAF2900B6A725 /* InvestCollectionCell.xib in Resources */,
 				A4C144621A4C0A6B00C9BAB5 /* RecordingSignal007@2x.png in Resources */,
+				F598F59A1B1D991400579F1D /* new_feature_2_iphone6@2x.png in Resources */,
 				A409A2301AC2E1AF0033A31D /* me_mycard_tou_big@2x.png in Resources */,
 				A493C3B51ADD14A60056BD52 /* city.db in Resources */,
 				A409A2F01AC2E1AF0033A31D /* yellowbutton_pressed@2x.png in Resources */,
@@ -11866,6 +11975,7 @@
 				F5CBE46D1AC4351A00F4C884 /* Expression_64@2x.png in Resources */,
 				A409A2AC1AC2E1AF0033A31D /* remind_big_nostring@2x.png in Resources */,
 				F53DC45E1A49192600F5F712 /* home_new_upload_picture_add@2x.png in Resources */,
+				F598F58A1B1D991400579F1D /* new_feature_1_iphone6@2x.png in Resources */,
 				F53DC4601A49192600F5F712 /* home_label_point@2x.png in Resources */,
 				A4B07C341B12FBF0008A3702 /* xiangmu_list_funnel_big@2x.png in Resources */,
 				F53DC4621A49192600F5F712 /* remind_big_logo@2x.png in Resources */,
@@ -11888,6 +11998,7 @@
 				A409A2801AC2E1AF0033A31D /* me_setting@2x.png in Resources */,
 				A493C3BF1ADD14A60056BD52 /* citys.plist in Resources */,
 				A4C1449A1A4C3EC600C9BAB5 /* circle_chat_sendfailed@2x.png in Resources */,
+				F598F5861B1D991400579F1D /* new_feature_1_568h@2x.png in Resources */,
 				A4E731A51A8C972700980676 /* discovery_activity_detail_more@2x.png in Resources */,
 				F53DC46F1A49192600F5F712 /* discovery_tou@2x.png in Resources */,
 				A409A2381AC2E1AF0033A31D /* me_myfriend_add_renda_logo@2x.png in Resources */,
@@ -12049,6 +12160,7 @@
 				A409A2E01AC2E1AF0033A31D /* tabbar_home_selected@2x.png in Resources */,
 				A492359E1ADE693A009E0B8C /* camera_edit_cut_cancel_highlighted@2x.png in Resources */,
 				F53DC4E31A49192600F5F712 /* InvestorUserCell.xib in Resources */,
+				F598F5821B1D991400579F1D /* new_feature_1@2x.png in Resources */,
 				A4C143811A4C0A6B00C9BAB5 /* section0_emotion15@2x.png in Resources */,
 				A4C144501A4C0A6B00C9BAB5 /* RecordingSignal001@2x.png in Resources */,
 				F5CBE3711AC4351A00F4C884 /* Expression_1@2x.png in Resources */,
@@ -12279,6 +12391,7 @@
 				A4C1441E1A4C0A6B00C9BAB5 /* CellBlueSelected@2x.png in Resources */,
 				F5F818AA1A69493B00E98CB6 /* login_phone_logo@2x.png in Resources */,
 				F5664A9B1A2AFD56008A5830 /* Icon-60@3x.png in Resources */,
+				F598F5981B1D991400579F1D /* new_feature_2_iphone6@2x.png in Resources */,
 				F5CBE45B1AC4351A00F4C884 /* Expression_60@2x.png in Resources */,
 				F557863E1A63749500630A46 /* BadgeBaseCell.xib in Resources */,
 				A471FE021ACE3C9D00339ED0 /* activity_back@2x.png in Resources */,
@@ -12363,6 +12476,7 @@
 				F500B1FE1AAEB16800A7AD35 /* share_delete@2x.png in Resources */,
 				F55772F71A5AA3E200693279 /* login_research@2x.png in Resources */,
 				F53328ED1A5E3015001F48FA /* research_bg@2x.png in Resources */,
+				F598F58C1B1D991400579F1D /* new_feature_1_iphone6p@3x.png in Resources */,
 				F5318EFF1A63E986009B6635 /* weLianDev-Info.plist in Resources */,
 				A4C144331A4C0A6B00C9BAB5 /* SearchIcon@2x.png in Resources */,
 				A4C143A61A4C0A6B00C9BAB5 /* sharemore_myfav@2x.png in Resources */,
@@ -12399,6 +12513,7 @@
 				A4C144421A4C0A6B00C9BAB5 /* contacts_add_voip@2x.png in Resources */,
 				A409A1F21AC2E1AF0033A31D /* me_cirle_chat_lasttime_bg@2x.png in Resources */,
 				F5CBE46F1AC4351A00F4C884 /* Expression_65@2x.png in Resources */,
+				F598F5841B1D991400579F1D /* new_feature_1_568h@2x.png in Resources */,
 				A4C143701A4C0A6B00C9BAB5 /* section0_emotion10@2x.png in Resources */,
 				F5D04E5A1AC1056F004DE412 /* expressionImage_custom.plist in Resources */,
 				F5664AED1A2AFD56008A5830 /* discovery_chuang@2x.png in Resources */,
@@ -12448,6 +12563,7 @@
 				A4C143DC1A4C0A6B00C9BAB5 /* SenderVoiceNodePlaying@2x.png in Resources */,
 				F587966C1AE8C1C6002C414F /* button_white@2x.png in Resources */,
 				F5664B0A1A2AFD56008A5830 /* login_user_pre@2x.png in Resources */,
+				F598F5941B1D991400579F1D /* new_feature_2_iphone5@2x.png in Resources */,
 				F5CBE4531AC4351A00F4C884 /* Expression_58@2x.png in Resources */,
 				F5664B0C1A2AFD56008A5830 /* icon_timeline.png in Resources */,
 				A409A26E1AC2E1AF0033A31D /* me_phone_yes@2x.png in Resources */,
@@ -12617,6 +12733,7 @@
 				A409A2AE1AC2E1AF0033A31D /* searchbar_bg@2x.png in Resources */,
 				F500B2061AAEB16800A7AD35 /* share_friendcircle@2x.png in Resources */,
 				A409A2321AC2E1AF0033A31D /* me_myfriend_add_phone_logo@2x.png in Resources */,
+				F598F5881B1D991400579F1D /* new_feature_1_iphone6@2x.png in Resources */,
 				A409A2CA1AC2E1AF0033A31D /* tabbar_discovery@2x.png in Resources */,
 				F51BA4501A444DA2009E5CDF /* tabbar_me_selected_prompt@2x.png in Resources */,
 				F58480401AE10629002C2722 /* me_play@2x.png in Resources */,
@@ -12710,6 +12827,7 @@
 				F5664BD01A2AFD56008A5830 /* home_empty_logo@2x.png in Resources */,
 				F500B2021AAEB16800A7AD35 /* share_detail@2x.png in Resources */,
 				A409A1AA1AC2E1AF0033A31D /* home_picture_enlarge_download@2x.png in Resources */,
+				F598F5801B1D991400579F1D /* new_feature_1@2x.png in Resources */,
 				A4C770AA1A8069CF005ABC7F /* me_mywriten_shoucang@2x.png in Resources */,
 				A409A2221AC2E1AF0033A31D /* me_mycard_phonelogo@2x.png in Resources */,
 				F55772F41A5AA3E200693279 /* login_register_btn_pre@2x.png in Resources */,
@@ -12722,6 +12840,7 @@
 				A409A22E1AC2E1AF0033A31D /* me_mycard_tou_big@2x.png in Resources */,
 				A409A2621AC2E1AF0033A31D /* me_mywriten_more@2x.png in Resources */,
 				A49236231ADE693A009E0B8C /* photo_check_selected@3x.png in Resources */,
+				F598F59C1B1D991400579F1D /* new_feature_2_iphone6p@3x.png in Resources */,
 				A49236051ADE693A009E0B8C /* navigationbar_title_highlighted@2x.png in Resources */,
 				A409A2BE1AC2E1AF0033A31D /* tabbar_chat_selected_prompt@2x.png in Resources */,
 				F5CBE3F31AC4351A00F4C884 /* Expression_34@2x.png in Resources */,
@@ -12751,6 +12870,7 @@
 				F5CAB7761B0DCDDF00937E63 /* Settings.bundle in Resources */,
 				F58796611AE8C008002C414F /* button_blue@2x.png in Resources */,
 				A4C144301A4C0A6B00C9BAB5 /* MultiSelectedPanelConfirmBtnbKG@2x.png in Resources */,
+				F598F5901B1D991400579F1D /* new_feature_2@2x.png in Resources */,
 				A409A2821AC2E1AF0033A31D /* me_tip_yirenzheng@2x.png in Resources */,
 				F56C30741AC4034500EDF054 /* MobileInfoCell.xib in Resources */,
 				F500B1F11AAEAF0D00A7AD35 /* home_repost_link@2x.png in Resources */,
@@ -12882,6 +13002,7 @@
 				F5B4A17D1B15D6D300C70794 /* FirmCasesCell.xib in Resources */,
 				A46D5E9E1ABFFC1900FF0554 /* circle_chat_line@2x.png in Resources */,
 				A409A18B1AC2E1AF0033A31D /* about_welian_logo@2x.png in Resources */,
+				F598F5811B1D991400579F1D /* new_feature_1@2x.png in Resources */,
 				A4C1441C1A4C0A6B00C9BAB5 /* AddGroupMemberBtnHL@2x.png in Resources */,
 				A4C144221A4C0A6B00C9BAB5 /* CellGraySelected@2x.png in Resources */,
 				F5A7D5A61AB292F30060AE1F /* xiugai@2x.png in Resources */,
@@ -12956,7 +13077,9 @@
 				F5664D711A2AFDD5008A5830 /* enroll_button@2x.png in Resources */,
 				F5D385091B1C0331003A5B53 /* touziren_jujue_button@2x.png in Resources */,
 				F5CBE38C1AC4351A00F4C884 /* Expression_8@2x.png in Resources */,
+				F598F5851B1D991400579F1D /* new_feature_1_568h@2x.png in Resources */,
 				F569A8091A31B33C00B677B0 /* osusume_add_bg_pressed@2x.png in Resources */,
+				F598F5911B1D991400579F1D /* new_feature_2@2x.png in Resources */,
 				F5664D751A2AFDD5008A5830 /* discovery_circle_ administrator_bg@2x.png in Resources */,
 				F5CBE3AC1AC4351A00F4C884 /* Expression_16@2x.png in Resources */,
 				F5CBE3801AC4351A00F4C884 /* Expression_5@2x.png in Resources */,
@@ -13162,6 +13285,7 @@
 				F5664DF51A2AFDD5008A5830 /* enroll_button_pre@2x.png in Resources */,
 				F5CBE3981AC4351A00F4C884 /* Expression_11@2x.png in Resources */,
 				F51BA4491A444DA2009E5CDF /* tabbar_friend_selected_prompt@2x.png in Resources */,
+				F598F5991B1D991400579F1D /* new_feature_2_iphone6@2x.png in Resources */,
 				F53328EB1A5E3015001F48FA /* research_bg_pre@2x.png in Resources */,
 				F5CBE4601AC4351A00F4C884 /* Expression_61@2x.png in Resources */,
 				A409A19B1AC2E1AF0033A31D /* cellbackground_normal@2x.png in Resources */,
@@ -13191,6 +13315,7 @@
 				F58796621AE8C008002C414F /* button_blue@2x.png in Resources */,
 				A409A2931AC2E1AF0033A31D /* me_xiangmu@2x.png in Resources */,
 				F53328EE1A5E3015001F48FA /* research_bg@2x.png in Resources */,
+				F598F5951B1D991400579F1D /* new_feature_2_iphone5@2x.png in Resources */,
 				A4C1438F1A4C0A6B00C9BAB5 /* section0_emotion5@2x.png in Resources */,
 				A4C143E61A4C0A6B00C9BAB5 /* msg_chat_voice_unread@2x.png in Resources */,
 				F56C305F1AC3E01D00EDF054 /* PhoneChangeVC.xib in Resources */,
@@ -13200,6 +13325,7 @@
 				F5CBE3741AC4351A00F4C884 /* Expression_2@2x.png in Resources */,
 				F5CBE3BC1AC4351A00F4C884 /* Expression_20@2x.png in Resources */,
 				A4C143AA1A4C0A6B00C9BAB5 /* sharemore_openapi@2x.png in Resources */,
+				F598F59D1B1D991400579F1D /* new_feature_2_iphone6p@3x.png in Resources */,
 				A409A1BF1AC2E1AF0033A31D /* label@2x.png in Resources */,
 				F5D04E571AC1056F004DE412 /* expression_custom.plist in Resources */,
 				A4C770B51A806A2D005ABC7F /* discovery_good@2x.png in Resources */,
@@ -13250,6 +13376,7 @@
 				A409A1AF1AC2E1AF0033A31D /* investor_attestation_add@2x.png in Resources */,
 				F5664E371A2AFDD5008A5830 /* common_card_background@2x.png in Resources */,
 				F500B2071AAEB16800A7AD35 /* share_friendcircle@2x.png in Resources */,
+				F598F5891B1D991400579F1D /* new_feature_1_iphone6@2x.png in Resources */,
 				F5664E381A2AFDD5008A5830 /* home_new_picture@2x.png in Resources */,
 				A4C1435C1A4C0A6B00C9BAB5 /* weChatBubble_Receiving_Cavern@2x.png in Resources */,
 				F5664E3A1A2AFDD5008A5830 /* discovery_circle_owner_bg@2x.png in Resources */,
@@ -13349,6 +13476,7 @@
 				A4C143EC1A4C0A6B00C9BAB5 /* input-bar-background@2x.png in Resources */,
 				A4C143EF1A4C0A6B00C9BAB5 /* input-bar-flat.png in Resources */,
 				F500B2031AAEB16800A7AD35 /* share_detail@2x.png in Resources */,
+				F598F58D1B1D991400579F1D /* new_feature_1_iphone6p@3x.png in Resources */,
 				F5664E841A2AFDD5008A5830 /* navbar_remind@2x.png in Resources */,
 				A4C770AB1A8069CF005ABC7F /* me_mywriten_shoucang@2x.png in Resources */,
 				A409A2A71AC2E1AF0033A31D /* notification_badge1@2x.png in Resources */,
@@ -13735,6 +13863,7 @@
 				A49C80531A71041000F2AEC5 /* DataVerifier.m in Sources */,
 				A49C7C511A70D42700F2AEC5 /* ZBExpressionSectionBar.m in Sources */,
 				F5E13A471A7B5329001BB786 /* CreateProjectController.m in Sources */,
+				F598F5491B1D851A00579F1D /* LCNewFeatureVC.m in Sources */,
 				A4E322EE1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				A49C7C521A70D42700F2AEC5 /* SWLongPressGestureRecognizer.m in Sources */,
 				F5D04C6E1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
@@ -14070,6 +14199,7 @@
 				A49C7D541A70D42700F2AEC5 /* PinyinFormatter.m in Sources */,
 				A49C7D551A70D42700F2AEC5 /* StaurCell.m in Sources */,
 				A49C7D561A70D42700F2AEC5 /* MJTypeEncoding.m in Sources */,
+				F598F54D1B1D851A00579F1D /* UIImage+LC.m in Sources */,
 				A493C2521ADD0BB00056BD52 /* UIColor+_6jinzhi.m in Sources */,
 				A49C7D581A70D42700F2AEC5 /* NoListView.m in Sources */,
 				A493C3441ADD14A60056BD52 /* FeedAndZanFrameM.m in Sources */,
@@ -14296,6 +14426,7 @@
 				A49C80521A71041000F2AEC5 /* DataVerifier.m in Sources */,
 				A49235621ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
 				F53DC2F51A49192600F5F712 /* ZBExpressionSectionBar.m in Sources */,
+				F598F5481B1D851A00579F1D /* LCNewFeatureVC.m in Sources */,
 				A4E322EC1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				F5E13A461A7B5329001BB786 /* CreateProjectController.m in Sources */,
 				F53DC2F71A49192600F5F712 /* SWLongPressGestureRecognizer.m in Sources */,
@@ -14631,6 +14762,7 @@
 				A49235491ADE693A009E0B8C /* JKAssetsGroupsView.m in Sources */,
 				F53DC3991A49192600F5F712 /* PinyinFormatter.m in Sources */,
 				F53DC39A1A49192600F5F712 /* StaurCell.m in Sources */,
+				F598F54C1B1D851A00579F1D /* UIImage+LC.m in Sources */,
 				F53DC39B1A49192600F5F712 /* MJTypeEncoding.m in Sources */,
 				A493C2501ADD0BB00056BD52 /* UIColor+_6jinzhi.m in Sources */,
 				F53DC39D1A49192600F5F712 /* NoListView.m in Sources */,
@@ -14857,6 +14989,7 @@
 				F56649CE1A2AFD56008A5830 /* ZBExpressionSectionBar.m in Sources */,
 				F56649CF1A2AFD56008A5830 /* SWLongPressGestureRecognizer.m in Sources */,
 				A49C80501A71041000F2AEC5 /* DataVerifier.m in Sources */,
+				F598F5461B1D851A00579F1D /* LCNewFeatureVC.m in Sources */,
 				A4E322EA1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				F5D04C6B1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
 				F56649D11A2AFD56008A5830 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
@@ -15192,6 +15325,7 @@
 				F53D4E331A4AABE700CA06C8 /* MyFriendUser.m in Sources */,
 				F5664A631A2AFD56008A5830 /* NoListView.m in Sources */,
 				A493C24E1ADD0BB00056BD52 /* UIColor+_6jinzhi.m in Sources */,
+				F598F54A1B1D851A00579F1D /* UIImage+LC.m in Sources */,
 				F534DAE21A4EAA5800B6A725 /* InvestCollectionVC.m in Sources */,
 				A4C140771A4BEA8500C9BAB5 /* UIImage+RoundedCorner.m in Sources */,
 				A493C3401ADD14A60056BD52 /* FeedAndZanFrameM.m in Sources */,
@@ -15418,6 +15552,7 @@
 				A49C80511A71041000F2AEC5 /* DataVerifier.m in Sources */,
 				A49235611ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
 				F5664C881A2AFDD5008A5830 /* ZBExpressionSectionBar.m in Sources */,
+				F598F5471B1D851A00579F1D /* LCNewFeatureVC.m in Sources */,
 				A4E322EB1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				F5E13A451A7B5329001BB786 /* CreateProjectController.m in Sources */,
 				F5664C891A2AFDD5008A5830 /* SWLongPressGestureRecognizer.m in Sources */,
@@ -15753,6 +15888,7 @@
 				A49235481ADE693A009E0B8C /* JKAssetsGroupsView.m in Sources */,
 				F5664D191A2AFDD5008A5830 /* PinyinFormatter.m in Sources */,
 				F5664D1A1A2AFDD5008A5830 /* StaurCell.m in Sources */,
+				F598F54B1B1D851A00579F1D /* UIImage+LC.m in Sources */,
 				F5664D1B1A2AFDD5008A5830 /* MJTypeEncoding.m in Sources */,
 				A493C24F1ADD0BB00056BD52 /* UIColor+_6jinzhi.m in Sources */,
 				F5664D1D1A2AFDD5008A5830 /* NoListView.m in Sources */,
@@ -16015,6 +16151,7 @@
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/alipay",
+					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.5.8",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -16064,6 +16201,7 @@
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/alipay",
+					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.5.8",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -16112,6 +16250,7 @@
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/alipay",
+					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.5.8",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -16161,6 +16300,7 @@
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/alipay",
+					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.5.8",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -16209,6 +16349,7 @@
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/alipay",
+					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.5.8",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -16258,6 +16399,7 @@
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/alipay",
+					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.5.8",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -16306,6 +16448,7 @@
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/alipay",
+					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.5.8",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -16355,6 +16498,7 @@
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/alipay",
+					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.5.8",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
