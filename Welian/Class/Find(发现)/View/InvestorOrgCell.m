@@ -18,6 +18,7 @@
     self.logoImage.layer.masksToBounds = YES;
     self.logoImage.layer.borderColor = [kNormalLineColor CGColor];
     self.selectedBackgroundView = [UIView new];
+    self.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
 - (void)setTouziJiGouM:(TouzijigouModel *)touziJiGouM

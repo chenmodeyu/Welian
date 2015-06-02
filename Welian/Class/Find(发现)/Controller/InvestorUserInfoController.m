@@ -135,7 +135,7 @@
     [button setEnabled:NO];
     [WLHUDView showHUDWithStr:@"" dim:NO];
     WEAKSELF
-    [WeLianClient getInvestorProjectsListPid:_investorUserM.user.uid Success:^(id resultInfo) {
+    [WeLianClient getInvestorProjectsListUid:_investorUserM.user.uid Success:^(id resultInfo) {
         [button setEnabled:YES];
         [WLHUDView hiddenHud];
         NSArray *projectArray = [ProjectTouDiModel objectsWithInfo:resultInfo];

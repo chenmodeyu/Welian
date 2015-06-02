@@ -577,7 +577,7 @@ BMKMapManager* _mapManager;
     }
     //获取聊天消息记录 和好友请求消息
     [self getServiceChatMsgInfo];
-    
+    [KNSNotification postNotificationName:kChangeBannerKey object:self];
     [KNSNotification postNotificationName:KNEWStustUpdate object:self];
 }
 
