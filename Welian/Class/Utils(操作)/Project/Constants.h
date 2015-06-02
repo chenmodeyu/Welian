@@ -40,6 +40,7 @@ extern NSString *const KMessageHomeNotif;// 首页消息通知
 extern NSString *const KNewactivitNotif;// 新活动的通知
 extern NSString *const KInvestorstateNotif;// 投资人状态通知
 extern NSString *const KProjectstateNotif;// 项目通知
+extern NSString *const KNewTouTiaoNotif;//头条通知
 extern NSString *const KRefreshMyProjectNotif;//刷新个人项目列表
 extern NSString *const KNEWStustUpdate;// 首页动态有 更新通知
 

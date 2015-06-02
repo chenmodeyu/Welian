@@ -304,6 +304,13 @@
     //投资人
     loginUser.isfindinvestorbadge = loginUser.isfindinvestorbadge.boolValue ? @(YES): (newFeedModel.investornewcount.integerValue > 0 ? @(YES) : @(NO));
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
+    
+    //通知刷新头条提醒
+    [KNSNotification postNotificationName:KNewTouTiaoNotif object:nil];
+    //通知刷新活动
+    [KNSNotification postNotificationName:KNewactivitNotif object:self];
+    //通知新的项目
+    [KNSNotification postNotificationName:KProjectstateNotif object:self];
 }
 
 

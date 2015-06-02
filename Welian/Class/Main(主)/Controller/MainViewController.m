@@ -175,12 +175,11 @@ single_implementation(MainViewController)
     //如果是从好友列表进入聊天，首页变换
     [KNSNotification addObserver:self selector:@selector(changeTapToChatList:) name:kChangeTapToChatList object:nil];
     
-    // 新的活动提示
-    [KNSNotification addObserver:self selector:@selector(updataItembadge) name:KNewactivitNotif object:nil];
-    
     // 我的认证投资人状态改变
     [KNSNotification addObserver:self selector:@selector(updataItembadge) name:KInvestorstateNotif object:nil];
     
+    // 新的活动提示
+    [KNSNotification addObserver:self selector:@selector(updataItembadge) name:KNewactivitNotif object:nil];
     // 新的项目提示
     [KNSNotification addObserver:self selector:@selector(updataItembadge) name:KProjectstateNotif object:nil];
     
