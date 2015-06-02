@@ -90,7 +90,7 @@
         [self.view addSubview:self.tableView];
         [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(beginPullDownRefreshing)];
         self.tableView.header.updatedTimeHidden = YES;
-//        [self.tableView.header beginRefreshing];
+        [self.tableView.header beginRefreshing];
         [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
         self.tableView.footer.hidden = YES;
 
@@ -223,29 +223,6 @@
     } Failed:^(NSError *error) {
         [self endRefreshing];
     }];
-//    [WLHttpTool loadFeedsParameterDic:darDic andLoadType:_uid success:^(id JSON) {
-//        NSArray *jsonarray = [NSArray arrayWithArray:JSON];
-//        
-//        // 1.在拿到最新微博数据的同时计算它的frame
-//        NSMutableArray *newFrames = [NSMutableArray array];
-//        
-//        for (NSDictionary *dic in jsonarray) {
-//            WLStatusFrame *sf = [self dataFrameWith:dic];
-//            [newFrames addObject:sf];
-//        }
-//        // 2.将newFrames整体插入到旧数据的后面
-//        [_dataArry addObjectsFromArray:newFrames];
-//        _page++;
-//        [self.tableView reloadData];
-//        
-//        [self endRefreshing];
-//        if (jsonarray.count<KCellConut) {
-//            [self.tableView.footer setHidden:YES];
-//        }
-//    } fail:^(NSError *error) {
-//        [self endRefreshing];
-//    }];
-
 }
 
 

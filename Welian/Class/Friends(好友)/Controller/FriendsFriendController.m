@@ -65,7 +65,6 @@ static NSString *identifier = @"investorcellid";
     [super viewDidLoad];
     [self setTitle:@"好友的好友"];
     [self loadNewDataArray];
-    
 }
 
 - (void)hideRefreshView

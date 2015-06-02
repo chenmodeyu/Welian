@@ -27,6 +27,7 @@
 #import <ShareSDK/ShareSDK.h>
 #import <AlipaySDK/AlipaySDK.h>
 #import "MsgPlaySound.h"
+#import "LCNewFeatureVC.h"
 
 @interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate>
 {
@@ -35,13 +36,40 @@
     NSString *_msg;  // 更新提示语
     UIAlertView *_updataalert;
 }
+    /** 新特性界面(如果是通过Block方式进入主界面则不需要声明该属性) */
+@property (nonatomic, strong)  LCNewFeatureVC *newFeatureVC;
+
 @end
 
 @implementation AppDelegate
-//single_implementation(AppDelegate)
 BMKMapManager* _mapManager;
 
-
+- (LCNewFeatureVC *)newFeatureVC
+{
+    if (_newFeatureVC == nil) {
+        // 进入主界面按钮
+        UIButton *enterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [enterBtn setTitle:@"进入微链2.0" forState:UIControlStateNormal];
+        [enterBtn setFrame:(CGRect){84.0f, SuperSize.height * 0.85f, SuperSize.width - 2*84.0f, 40.0f}];
+        //        [enterBtn setBackgroundColor:IWGlobalBg];
+        enterBtn.titleLabel.font = WLFONT(21);
+        enterBtn.layer.borderWidth = 1;
+        enterBtn.layer.masksToBounds = YES;
+        enterBtn.layer.cornerRadius = 8;
+        enterBtn.layer.borderColor = [KBlueTextColor CGColor];
+        [enterBtn setTitleColor:KBlueTextColor forState:UIControlStateNormal];
+        [enterBtn addTarget:self action:@selector(didClickedBtn) forControlEvents:UIControlEventTouchUpInside];
+        
+        _newFeatureVC = [LCNewFeatureVC newFeatureWithImageName:@"new_feature"
+                                                                    imageCount:2
+                                                               showPageControl:YES
+                                                                   enterButton:enterBtn];
+        _newFeatureVC.statusBarStyle = LCStatusBarStyleWhite;
+        _newFeatureVC.pointOtherColor = KBgGrayColor;
+        _newFeatureVC.pointCurrentColor = KBlueTextColor;
+    }
+    return _newFeatureVC;
+}
 
 - (void)registerRemoteNotification
 {
@@ -117,11 +145,46 @@ BMKMapManager* _mapManager;
                            wechatCls:[WXApi class]];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    /**
-     *  设置状态栏颜色
-     */
+#pragma mark 1. 是否应该显示新特性界面
+    BOOL showNewFeature = [LCNewFeatureVC shouldShowNewFeature];
+    showNewFeature = YES;
+    if (showNewFeature) {
+#pragma mark  设置新特性界面为当前窗口的根视图控制器
+        self.window.rootViewController = self.newFeatureVC;
+    }else{
+        [self enterMainVC];
+    }
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    // 设置状态栏颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    // [1]:使用APPID/APPKEY/APPSECRENT创建个推实例
+    [self startSdkWith:KGTAppId appKey:KGTAppKey appSecret:kGTAppSecret];
+    
+    // [2]:注册APNS
+    [self registerRemoteNotification];
+    
+    DLog(@"====沙盒路径=======%@",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));
+    
+    return YES;
+}
 
+#pragma mark - 点击了进入主界面的按钮
+- (void)didClickedBtn {
+    [UIView animateWithDuration:0.25f animations:^{
+        _newFeatureVC.view.transform = CGAffineTransformMakeScale(2, 2);
+        [_newFeatureVC.view setAlpha:0.0];
+    } completion:^(BOOL finished) {
+        
+        [self enterMainVC];
+    }];
+}
+
+#pragma mark - 进入主界面
+- (void)enterMainVC {
+    
     if ([UserDefaults objectForKey:kSessionId]) {
         /** 已登陆 */
         self.mainVC = [[MainViewController alloc] init];
@@ -132,28 +195,8 @@ BMKMapManager* _mapManager;
         self.loginGuideVC = [[LoginGuideController alloc] init];
         [self.window setRootViewController:self.loginGuideVC];
     }
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    DLog(@"====沙盒路径=======%@",paths);
-    
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    
-    // [1]:使用APPID/APPKEY/APPSECRENT创建个推实例
-    [self startSdkWith:KGTAppId appKey:KGTAppKey appSecret:kGTAppSecret];
-    
-    // [2]:注册APNS
-    [self registerRemoteNotification];
-    
-    // [2-EXT]: 获取启动时收到的APN
-    NSDictionary* message = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if (message) {
-        NSString *payloadMsg = [message objectForKey:@"payload"];
-    }
-
-    
-    return YES;
 }
+
 
 #pragma mark - 检测版本更新
 - (void)detectionUpdataVersionDic
@@ -181,28 +224,6 @@ BMKMapManager* _mapManager;
                                   } Failed:^(NSError *error) {
                                       
                                   }];
-    
-//    [WLTool updateVersions:^(NSDictionary *versionDic) {
-//        if ([[versionDic objectForKey:@"flag"] integerValue]==1) {
-//            NSString *msg = [versionDic objectForKey:@"msg"];
-//            _upURL = [versionDic objectForKey:@"url"];
-//            _update = [[versionDic objectForKey:@"update"] integerValue];
-//            _msg = msg;
-//            if (_update==0) { //自己检测
-//                
-//                
-//            }else if(_update == 1){  // 弹出提示
-//                
-//                _updataalert = [[UIAlertView alloc] initWithTitle:@"更新提示" message:msg  delegate:self cancelButtonTitle:@"暂不更新" otherButtonTitles:@"立即更新", nil];
-//                [_updataalert show];
-//            }else if (_update == 2){  // 强制更新
-//               _updataalert = [[UIAlertView alloc] initWithTitle:@"更新提示" message:msg  delegate:self cancelButtonTitle:nil otherButtonTitles:@"立即更新", nil];
-//                [_updataalert show];
-//            }
-//            
-//        }else{
-//        }
-//    }];
 }
 
 #pragma mark - 版本更新跳转- 退出登录
