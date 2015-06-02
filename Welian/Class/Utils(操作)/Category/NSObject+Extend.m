@@ -134,4 +134,13 @@
     return newImage;
 }
 
+//计算同等比例的宽度  在不同设备上的高度
++ (CGFloat)getHeightWithMaxWidth:(CGFloat)maxWidth In4ScreWidth:(CGFloat)in4ScreWith In4ScreeHeight:(CGFloat)in4ScreeHeight
+{
+    CGFloat thisHeight = in4ScreeHeight;
+    CGFloat withCale = maxWidth/in4ScreWith;
+    thisHeight = withCale * in4ScreeHeight;
+    return thisHeight;
+}
+
 @end

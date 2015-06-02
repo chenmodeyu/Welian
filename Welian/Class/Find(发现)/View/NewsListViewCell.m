@@ -14,7 +14,7 @@
 #define kDetailMarginEdge 10.f
 #define kBottomHeight 37.f
 #define kTimeLabelHeight 19.f
-#define kImageViewHeight 145.f
+#define kImageViewHeight [NSObject getHeightWithMaxWidth:maxWidth In4ScreWidth:260.f In4ScreeHeight:145.f]
 
 @interface NewsListViewCell ()
 
@@ -177,7 +177,7 @@
     
     CGFloat titleHeight = (titleStr.length > 0 ? (size1.height + kTitleMarginEdge * 2.f) : kTitleMarginEdge);
     CGFloat detailHeight = (detailStr.length > 0 ? (size2.height + kDetailMarginEdge * 2.f) : kDetailMarginEdge);
-    CGFloat height = titleHeight + detailHeight + kImageViewHeight + kBottomHeight + kTimeLabelHeight + kMarginLeft * 2.f;
+    CGFloat height = titleHeight + detailHeight + kBottomHeight + kTimeLabelHeight + kMarginLeft * 2.f + kImageViewHeight;
     if (height > 60.f) {
         return height;
     }else{

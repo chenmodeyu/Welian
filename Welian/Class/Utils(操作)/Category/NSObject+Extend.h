@@ -29,5 +29,9 @@
 + (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize;
 
 
+//计算同等比例的宽度  在不同设备上的高度
++ (CGFloat)getHeightWithMaxWidth:(CGFloat)maxWidth In4ScreWidth:(CGFloat)in4ScreWith In4ScreeHeight:(CGFloat)in4ScreeHeight;
+
+
 
 @end
