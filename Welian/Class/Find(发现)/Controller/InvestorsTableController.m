@@ -128,10 +128,12 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     if (count>=KCellConut) {
         _page++;
     }
-    if (!_dataArray.count) {
-        [self.tableView addSubview:self.notView];
-    }else{
-        [self.notView removeFromSuperview];
+    if (invType == InvestorsTypeShaiXuan) {
+        if (!_dataArray.count) {
+            [self.tableView addSubview:self.notView];
+        }else{
+            [self.notView removeFromSuperview];
+        }
     }
     self.tableView.footer.hidden = count<KCellConut;
 }
