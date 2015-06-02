@@ -97,9 +97,11 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     //隐藏导航条
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    _wlSegmentedControl.sectionDetailTitles = @[loginUser.friendcount ? loginUser.friendcount.stringValue : @"0",loginUser.friend2count ? loginUser.friend2count.stringValue : @"0"];
-    //设置用户信息
-    _userInfoView.loginUser = loginUser;
+    if (loginUser) {
+        _wlSegmentedControl.sectionDetailTitles = @[loginUser.friendcount ? loginUser.friendcount.stringValue : @"0",loginUser.friend2count ? loginUser.friend2count.stringValue : @"0"];
+        //设置用户信息
+        _userInfoView.loginUser = loginUser;
+    }
     
     //获取用户信息
     [self initUserInfo];
@@ -205,14 +207,21 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     UserInfoView *userInfoView = [[UserInfoView alloc] initWithFrame:CGRectMake(0, 0, _tableView.width, kTableViewHeaderViewHeight - 60.f)];
 //    userInfoView.backgroundColor = [UIColor clearColor];
-    userInfoView.loginUser = loginUser;
+    if (loginUser) {
+        userInfoView.loginUser = loginUser;
+    }
     self.userInfoView = userInfoView;
     [headerView addSubview:userInfoView];
 //    [userInfoView setDebug:YES];
     
     //切换按钮
     [headerView addSubview:self.wlSegmentedControl];
-    _wlSegmentedControl.sectionDetailTitles = @[loginUser.friendcount ? loginUser.friendcount.stringValue : @"0",loginUser.friend2count ? loginUser.friend2count.stringValue : @"0"];
+    
+    if (loginUser) {
+        _wlSegmentedControl.sectionDetailTitles = @[loginUser.friendcount ? loginUser.friendcount.stringValue : @"0",loginUser.friend2count ? loginUser.friend2count.stringValue : @"0"];
+    }else{
+        _wlSegmentedControl.sectionDetailTitles = @[@"0",@"0"];
+    }
     
     [_tableView setTableHeaderView:headerView];
 //    _tableView.tableHeaderView.backgroundColor = [UIColor clearColor];
@@ -535,10 +544,14 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
 {
     //保存到数据库
     LogInUser *loginUser = [LogInUser createLogInUserModel:loginUserModel];
-    //设置用户信息
-    _userInfoView.loginUser = loginUser;
-    //设置好友数量
-    _wlSegmentedControl.sectionDetailTitles = @[loginUser.friendcount ? loginUser.friendcount.stringValue : @"0",loginUser.friend2count ? loginUser.friend2count.stringValue : @"0"];
+    if(loginUser){
+        //设置用户信息
+        _userInfoView.loginUser = loginUser;
+        //设置好友数量
+        _wlSegmentedControl.sectionDetailTitles = @[loginUser.friendcount ? loginUser.friendcount.stringValue : @"0",loginUser.friend2count ? loginUser.friend2count.stringValue : @"0"];
+    }else{
+        _wlSegmentedControl.sectionDetailTitles = @[@"0",@"0"];
+    }
 }
 
 - (void)initUserInfo
