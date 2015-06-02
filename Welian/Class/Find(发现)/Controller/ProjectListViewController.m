@@ -321,7 +321,7 @@
    //1：最新   2：热门  3：项目集 4：筛选
     switch (_projectType) {
         case 3:
-            return 110.f;
+            return [NSObject getHeightWithMaxWidth:ScreenWidth - 20.f In4ScreWidth:300.f In4ScreeHeight:110.f];
             break;
         default:
             return 70.f;
@@ -334,7 +334,7 @@
     //1：最新   2：热门  3：项目集 4：筛选
     switch (_projectType) {
         case 3:
-            return 110.f;
+            return [NSObject getHeightWithMaxWidth:ScreenWidth - 20.f In4ScreWidth:300.f In4ScreeHeight:110.f];
             break;
         default:
             return 70.f;

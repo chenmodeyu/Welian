@@ -29,7 +29,7 @@
 #import "SEImageCache.h"
 #import "CardStatuModel.h"
 
-#define kHeaderImageHeight 238.f
+#define kHeaderImageHeight [NSObject getHeightWithMaxWidth:ScreenWidth In4ScreWidth:320.f In4ScreeHeight:238.f]// 238.f
 #define kTableViewHeaderHeight 45.f
 #define kOperateButtonHeight 35.f
 #define kmarginLeft 10.f

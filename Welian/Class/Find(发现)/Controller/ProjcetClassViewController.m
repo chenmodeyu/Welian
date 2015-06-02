@@ -14,7 +14,7 @@
 #import "NoteTableViewCell.h"
 #import "CSLoadingImageView.h"
 
-#define kHeaderImageHeight 100.f
+#define kHeaderImageHeight [NSObject getHeightWithMaxWidth:ScreenWidth In4ScreWidth:320.f In4ScreeHeight:100.f]//100.f
 
 @interface ProjcetClassViewController ()<UITableViewDelegate,UITableViewDataSource>
 
