@@ -233,17 +233,22 @@ fprintf(stderr, "-----------------------------------\n");                       
 
 //iphone5适配
 // 1.判断是否为iPhone5的宏
-#define Iphone5Size [[UIScreen mainScreen] bounds].size
-//检测iphone5(bool)
-#define Iphone5 (Iphone5Size.height==568)
+#define IphoneSize [[UIScreen mainScreen] bounds].size
+#define IPhone4 [[NSString getCurrentDeviceModel] isEqualToString:@"iPhone4"]
+
+#define Iphone5 [[NSString getCurrentDeviceModel] isEqualToString:@"iPhone5"]
 //检测iphone6(bool)
-#define Iphone6 (Iphone5Size.height==667)
+#define Iphone6 [[NSString getCurrentDeviceModel] isEqualToString:@"iPhone6"]
 //检测iphone6p(bool)
-#define Iphone6plus (Iphone5Size.height==736)
+#define Iphone6plus [[NSString getCurrentDeviceModel] isEqualToString:@"iPhone6Plus"]
 
-#define iPhone5 ([UIScreen mainScreen].bounds.size.height == 568)
-
-#define iPhone4 ([UIScreen mainScreen].bounds.size.height == 480)
+//#define iPhone4 (IphoneSize.height == 480)
+//
+//#define Iphone5 (IphoneSize.height == 568)
+////检测iphone6(bool)
+//#define Iphone6 (IphoneSize.height == 667)
+////检测iphone6p(bool)
+//#define Iphone6plus (IphoneSize.height == 736)
 
 
 /////////////////////////////////////////////////////////////////////////////////////

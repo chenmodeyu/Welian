@@ -23,19 +23,19 @@
     NSString *realImageName = imageName;
     
     // 当前设备是iPhone5\iPhone5S
-    if (IPHONE5 && iphone5) {
+    if (Iphone5 && iphone5) {
         
         realImageName = [NSString stringWithFormat:@"%@_iphone5", realImageName];
     }
     
     // 当前设备是iPhone6
-    if (IPHONE6 && iphone6) {
+    if (Iphone6 && iphone6) {
         
         realImageName = [NSString stringWithFormat:@"%@_iphone6", realImageName];
     }
     
     // 当前设备是iPhone6P
-    if (IPHONE6P && iphone6p) {
+    if (Iphone6plus && iphone6p) {
         
         realImageName = [NSString stringWithFormat:@"%@_iphone6p", realImageName];
     }

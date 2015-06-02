@@ -43,4 +43,7 @@
 
 // 字节长度
 -(int)charNumber;
+
+//获得设备型号
++ (NSString *)getCurrentDeviceModel;
 @end
