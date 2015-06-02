@@ -39,6 +39,7 @@ NSString *const KMessageHomeNotif = @"KMessageHomeNotif";// 首页消息通知
 NSString *const KNewactivitNotif = @"KNewactivitNotif";// 新活动的通知
 NSString *const KInvestorstateNotif = @"KInvestorstateNotif";// 投资人状态通知
 NSString *const KProjectstateNotif = @"ProjectstateNotif";// 项目通知
+NSString *const KNewTouTiaoNotif = @"NewTouTiaoNotif";// 头条通知
 NSString *const KRefreshMyProjectNotif = @"RefreshMyProjectNotif";//刷新个人项目列表
 NSString *const KNEWStustUpdate = @"KNEWStustUpdate";// 首页动态有 更新通知
 
