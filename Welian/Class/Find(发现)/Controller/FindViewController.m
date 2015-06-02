@@ -170,9 +170,12 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
         case 3:
         {
             //项目集
-            ProjectClassInfo *projectInfo = [ProjectClassInfo createProjectClassInfoWith:bannerM.classification];
-            ProjcetClassViewController *projcetClassVC = [[ProjcetClassViewController alloc] initWithProjectClassInfo:projectInfo];
-            [self.navigationController pushViewController:projcetClassVC animated:YES];
+            if (bannerM.classification.cid) {
+                ProjectClassInfo *projectInfo = [ProjectClassInfo createProjectClassInfoWith:bannerM.classification];
+                ProjcetClassViewController *projcetClassVC = [[ProjcetClassViewController alloc] initWithProjectClassInfo:projectInfo];
+                [self.navigationController pushViewController:projcetClassVC animated:YES];
+
+            }
         }
             break;
         default:
