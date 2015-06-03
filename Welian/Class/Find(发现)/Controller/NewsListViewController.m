@@ -126,6 +126,7 @@
     TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:touTiao.url];
     webVC.navigationButtonsHidden = NO;//隐藏底部操作栏目
     webVC.showRightShareBtn = YES;//现实右上角分享按钮
+    webVC.isTouTiao = YES;
     [self.navigationController pushViewController:webVC animated:YES];
 }
 

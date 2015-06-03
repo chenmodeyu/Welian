@@ -59,6 +59,12 @@
  */
 @property (nonatomic,readonly)  UIWebView *webView;
 
+/**  
+ 是否创业头条
+ 默认为 NO
+*/
+@property (nonatomic,assign)    BOOL isTouTiao;
+
 /** 
  Shows a loading progress bar underneath the top navigation bar. 
  
