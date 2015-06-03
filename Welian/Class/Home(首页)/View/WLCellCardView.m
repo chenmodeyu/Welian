@@ -25,7 +25,6 @@
     self.isHidLine = NO;
     
     _iconImage = [[UIImageView alloc] initWithFrame:CGRectMake(8, 8, 40, 40)];
-//    [_iconImage setBackgroundColor:[UIColor lightGrayColor]];
     [self addSubview:_iconImage];
     
     _titLabel = [[UILabel alloc] init];
@@ -38,16 +37,35 @@
     [self addSubview:_detailLabel];
     
     _tapBut = [[UIButton alloc] init];
+    _tapBut.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    _tapBut.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     [self addSubview:_tapBut];
 }
 
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
-    _tapBut.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-    _titLabel.frame = CGRectMake(55, 8, frame.size.width-55-8, 21);
-    _detailLabel.frame = CGRectMake(55, CGRectGetMaxY(_titLabel.frame), frame.size.width-55-8, 21);
+    if (self.cardM) {
+        [self setCardM:_cardM];
+    }
 }
+
+//- (void)layoutSubviews
+//{
+//    [super layoutSubviews];
+//    
+////    if (self.cardM.type.integerValue==11) {
+////        [_titLabel setNumberOfLines:2];
+////        _titLabel.frame = CGRectMake(55, 8, self.frame.size.width-55-8, 42);
+////        [_detailLabel setHidden:YES];
+////    }else{
+////        [_titLabel setNumberOfLines:1];
+////        [_detailLabel setHidden:NO];
+////        _titLabel.frame = CGRectMake(55, 8, self.frame.size.width-55-8, 21);
+////        _detailLabel.frame = CGRectMake(55, CGRectGetMaxY(_titLabel.frame), self.frame.size.width-55-8, 21);
+////    }
+//}
+
 
 - (void)setIsHidLine:(BOOL)isHidLine
 {
@@ -66,8 +84,19 @@
 {
     //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
     _iconImage.layer.cornerRadius = 0;
-    
     _cardM = cardM;
+    
+    if (cardM.type.integerValue==11) {
+        [_titLabel setNumberOfLines:2];
+        _titLabel.frame = CGRectMake(55, 8, self.frame.size.width-55-8, 42);
+        [_detailLabel setHidden:YES];
+    }else{
+        [_titLabel setNumberOfLines:1];
+        [_detailLabel setHidden:NO];
+        _titLabel.frame = CGRectMake(55, 8, self.frame.size.width-55-8, 21);
+        _detailLabel.frame = CGRectMake(55, CGRectGetMaxY(_titLabel.frame), self.frame.size.width-55-8, 21);
+    }
+    
     NSInteger typeint = cardM.type.integerValue;
     NSString *imageName = @"";
     BOOL cidBool = cardM.cid.boolValue;
@@ -98,6 +127,11 @@
         {
             // 网页
             imageName = @"home_repost_link";
+            NSRange range = [cardM.url rangeOfString:@"toutiao"];
+            if (range.length > 0 ) {
+                imageName = @"home_repost_toutiao";
+            }
+
         }
             break;
 //        case 13:

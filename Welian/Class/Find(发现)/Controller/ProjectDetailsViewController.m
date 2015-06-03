@@ -653,7 +653,7 @@ static NSString *noCommentCell = @"NoCommentCell";
             case ShareTypeWeixinFriend:
             {
                 NSString *desc = [NSString stringWithFormat:@"%@\n%@",_projectDetailInfo.name,_projectDetailInfo.intro];
-                UIImage *shareImage = [UIImage imageNamed:@"discovery_xiangmu"];
+                UIImage *shareImage = [UIImage imageNamed:@"home_repost_xiangmu"];
                 NSString *link = _projectDetailInfo.shareurl.length == 0 ? @"http://www.welian.com/" : _projectDetailInfo.shareurl;
                 
                 [[ShareEngine sharedShareEngine] sendWeChatMessage:@"推荐一个好项目" andDescription:desc WithUrl:link andImage:shareImage WithScene:weChat];
@@ -662,7 +662,7 @@ static NSString *noCommentCell = @"NoCommentCell";
             case ShareTypeWeixinCircle:
             {
                 NSString *desc = [NSString stringWithFormat:@"%@\n%@",_projectDetailInfo.name,_projectDetailInfo.intro];
-                UIImage *shareImage = [UIImage imageNamed:@"discovery_xiangmu"];
+                UIImage *shareImage = [UIImage imageNamed:@"home_repost_xiangmu"];
                 NSString *link = _projectDetailInfo.shareurl.length == 0 ? @"http://www.welian.com/" : _projectDetailInfo.shareurl;
                 NSString *title = [NSString stringWithFormat:@"%@ | %@",_projectDetailInfo.name,_projectDetailInfo.intro];
                 [[ShareEngine sharedShareEngine] sendWeChatMessage:title andDescription:desc WithUrl:link andImage:shareImage WithScene:weChatFriend];

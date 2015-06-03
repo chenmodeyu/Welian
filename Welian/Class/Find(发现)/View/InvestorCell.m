@@ -69,7 +69,7 @@
         [_backgView addSubview:_jobLabel];
         
         UIView *lienView = [[UIView alloc] initWithFrame:CGRectMake(labelX, _jobLabel.bottom+5, SuperSize.width-labelX, 0.5)];
-        [lienView setBackgroundColor:WLRGB(175, 175, 175)];
+        [lienView setBackgroundColor:WLRGB(225, 225, 225)];
         [_backgView addSubview:lienView];
         
         
