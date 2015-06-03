@@ -534,6 +534,7 @@
                             projectClassInfo.title = iProjectClassModel.title;
                             projectClassInfo.photo = iProjectClassModel.photo;
                             projectClassInfo.projectCount = iProjectClassModel.projectCount;
+                            projectClassInfo.orders = iProjectClassModel.orders;
                             projectClassInfo.isShow = @(YES);
                             
                             [loginUser addRsProjectClassInfosObject:projectClassInfo];
