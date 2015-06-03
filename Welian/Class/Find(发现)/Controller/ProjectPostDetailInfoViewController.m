@@ -144,6 +144,8 @@
 - (void)checkNoLikeBtnUI
 {
     //status  0:默认状态  1：已不感兴趣 2:已约谈 3:拒绝过又再次约谈
+    [_talkNowBtn setTitle:(_iProjectDetailInfo.feedback.integerValue > 1 ? @"再次约谈" : @"立即约谈") forState:UIControlStateNormal];
+    
     _noLikeBtn.enabled = _iProjectDetailInfo.feedback.integerValue > 0 ? NO : YES;
     if (_iProjectDetailInfo.feedback.integerValue > 0) {
         if (_iProjectDetailInfo.feedback.integerValue == 2) {
