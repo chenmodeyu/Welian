@@ -534,6 +534,7 @@
                             projectClassInfo.title = iProjectClassModel.title;
                             projectClassInfo.photo = iProjectClassModel.photo;
                             projectClassInfo.projectCount = iProjectClassModel.projectCount;
+                            projectClassInfo.orders = iProjectClassModel.orders;
                             projectClassInfo.isShow = @(YES);
                             
                             [loginUser addRsProjectClassInfosObject:projectClassInfo];
@@ -604,8 +605,8 @@
             }else{
                 //检索项目 -1  //不限制
                 [WeLianClient searchProcjetWithIndustryid:searchIndustryinfo ? @([searchIndustryinfo[@"industryid"] integerValue]) : @(-1) //领域
-                                                    Stage:searchStage ? @([searchStage[@"cityid"] integerValue]) : @(-1) //投资阶段
-                                                   Cityid:searchCity ? @([searchCity[@"stage"] integerValue]) : @(-1) //地区
+                                                    Stage:searchStage ? @([searchStage[@"stage"] integerValue]) : @(-1) //投资阶段
+                                                   Cityid:searchCity ? @([searchCity[@"cityid"] integerValue]) : @(-1) //地区
                                                   Success:^(id resultInfo) {
                                                       //保存数据
                                                       [self saveProjectInfoWithResultInfo:resultInfo Type:@(4)];
