@@ -48,6 +48,25 @@
 }
 
 
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated
+{
+    [WLHUDView hiddenHud];
+    return [super popViewControllerAnimated:animated];
+}
+
+- (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [WLHUDView hiddenHud];
+    return [super popToViewController:viewController animated:animated];
+}
+
+- (NSArray *)popToRootViewControllerAnimated:(BOOL)animated
+{
+
+    [WLHUDView hiddenHud];
+    return [super popToRootViewControllerAnimated:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

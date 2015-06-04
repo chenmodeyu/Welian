@@ -83,21 +83,26 @@ static NSString *casecellid = @"casecellid";
     return self;
 }
 
-- (void)hideRefreshViewWithCount:(NSInteger)count
+- (void)hideRefreshViewWithCount
 {
     [self.tableView.header endRefreshing];
     [self.tableView.footer endRefreshing];
-    if (count>=KCellConut) {
-        if (self.wlSegmentedControl.selectedSegmentIndex==0) {
+    if (self.wlSegmentedControl.selectedSegmentIndex==0) {
+        if(_usersArray.count >= _userPage*KCellConut){
+            self.tableView.footer.hidden = NO;
             _userPage++;
         }else{
-            _casePage++;
+            self.tableView.footer.hidden = YES;
         }
-        self.tableView.footer.hidden = NO;
     }else{
-        self.tableView.footer.hidden = YES;
-    }
+        if (_casesArray.count>= _casePage*KCellConut) {
+            self.tableView.footer.hidden = NO;
+            _casePage++;
+        }else{
+            self.tableView.footer.hidden = YES;
+        }
 
+    }
 }
 // 取投资机构信息
 - (void)getOneInvestorJigouData
@@ -118,7 +123,7 @@ static NSString *casecellid = @"casecellid";
     [WeLianClient getInvestorJigouPersonWithJigouid:_firmID Page:@(_userPage) Size:@(KCellConut) Success:^(id resultInfo) {
         [_usersArray removeAllObjects];
         _usersArray = [NSMutableArray arrayWithArray:[InvestorUserModel objectsWithInfo:resultInfo]];
-        [self hideRefreshViewWithCount:_usersArray.count];
+        [self hideRefreshViewWithCount];
         [self.tableView reloadData];
     } Failed:^(NSError *error) {
         
@@ -130,7 +135,7 @@ static NSString *casecellid = @"casecellid";
     [WeLianClient getInvestorJigouPersonWithJigouid:_firmID Page:@(_userPage) Size:@(KCellConut) Success:^(id resultInfo) {
         NSArray *moreUser = [InvestorUserModel objectsWithInfo:resultInfo];
         [_usersArray addObjectsFromArray:moreUser];
-        [self hideRefreshViewWithCount:moreUser.count];
+        [self hideRefreshViewWithCount];
         [self.tableView reloadData];
     } Failed:^(NSError *error) {
         
@@ -144,7 +149,7 @@ static NSString *casecellid = @"casecellid";
     [WeLianClient getInvestorCasesWithJigouid:_firmID Page:@(_casePage) Size:@(KCellConut) Success:^(id resultInfo) {
         [_casesArray removeAllObjects];
         _casesArray = [NSMutableArray arrayWithArray:[CasesModel objectsWithInfo:resultInfo]];
-        [self hideRefreshViewWithCount:_casesArray.count];
+        [self hideRefreshViewWithCount];
         [self.tableView reloadData];
     } Failed:^(NSError *error) {
         
@@ -156,7 +161,7 @@ static NSString *casecellid = @"casecellid";
     [WeLianClient getInvestorCasesWithJigouid:_firmID Page:@(_casePage) Size:@(KCellConut) Success:^(id resultInfo) {
         NSArray *moreCases = [CasesModel objectsWithInfo:resultInfo];
         [_casesArray addObjectsFromArray:moreCases];
-        [self hideRefreshViewWithCount:moreCases.count];
+        [self hideRefreshViewWithCount];
         [self.tableView reloadData];
     } Failed:^(NSError *error) {
         
@@ -238,14 +243,16 @@ static NSString *casecellid = @"casecellid";
     WEAKSELF
     [self.wlSegmentedControl setIndexChangeBlock:^(NSInteger index) {
         if (index ==0) {
+            [weakSelf.tableView reloadData];
             if (weakSelf.usersArray.count) {
-                [weakSelf.tableView reloadData];
+                [weakSelf hideRefreshViewWithCount];
             }else{
                 [weakSelf getNewInvestorListData];
             }
         }else if (index ==1){
+            [weakSelf.tableView reloadData];
             if (weakSelf.casesArray.count) {
-                [weakSelf.tableView reloadData];
+                [weakSelf hideRefreshViewWithCount];
             }else{
                 [weakSelf getNewInvestorListData];
             }

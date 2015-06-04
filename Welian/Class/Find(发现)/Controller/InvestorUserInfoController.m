@@ -113,6 +113,23 @@
     [self.invesHeadView.rejectBut setEnabled:enabled];
 }
 
+
+// 反馈
+- (void)fankuiBP:(NSInteger)status
+{
+    [self setButEnabled:NO];
+    [WLHUDView showHUDWithStr:@"" dim:NO];
+    [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(status) Success:^(id resultInfo) {
+        [self setButEnabled:YES];
+        [WLHUDView hiddenHud];
+        [_investorUserM setStatus:@(1)];
+        [self.invesHeadView setInvestorUserModel:_investorUserM];
+    } Failed:^(NSError *error) {
+        [self setButEnabled:YES];
+        [WLHUDView hiddenHud];
+    }];
+}
+
 // 拒绝发送BP
 - (void)refusedMailingClick:(UIButton*)button
 {
@@ -121,17 +138,7 @@
     UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"确定拒绝发送BP？"];
     [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
     [alert bk_addButtonWithTitle:@"拒绝" handler:^{
-        [weakSelf setButEnabled:NO];
-        [WLHUDView showHUDWithStr:@"" dim:NO];
-        [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(1) Success:^(id resultInfo) {
-            [weakSelf setButEnabled:YES];
-            [WLHUDView hiddenHud];
-            [_investorUserM setStatus:@(1)];
-            [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
-        } Failed:^(NSError *error) {
-            [weakSelf setButEnabled:YES];
-            [WLHUDView hiddenHud];
-        }];
+        [weakSelf fankuiBP:1];
     }];
     [alert show];
 }
@@ -145,17 +152,7 @@
     UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"确定同意发送BP？"];
     [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
     [alert bk_addButtonWithTitle:@"同意" handler:^{
-        [weakSelf setButEnabled:NO];
-        [WLHUDView showHUDWithStr:@"" dim:NO];
-        [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(2) Success:^(id resultInfo) {
-            [weakSelf setButEnabled:YES];
-            [WLHUDView hiddenHud];
-            [_investorUserM setStatus:@(2)];
-            [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
-        } Failed:^(NSError *error) {
-            [weakSelf setButEnabled:YES];
-            [WLHUDView hiddenHud];
-        }];
+        [weakSelf fankuiBP:2];
     }];
     [alert show];
 }
@@ -201,32 +198,6 @@
         [button setEnabled:YES];
         [WLHUDView hiddenHud];
     }];
-
-//    if (_userType == InvestorUserTypeUID) {
-//        UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"确定同意发送BP？"];
-//        [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
-//        [alert bk_addButtonWithTitle:@"同意" handler:^{
-//            [button setEnabled:NO];
-//            [WLHUDView showHUDWithStr:@"" dim:NO];
-//            [WeLianClient investorToudiWithPid:_pID Uid:_investorUserM.user.uid Success:^(id resultInfo) {
-//                [button setEnabled:YES];
-//                [WLHUDView hiddenHud];
-//                NSInteger receiv = _investorUserM.received.integerValue+1;
-//                [_investorUserM setReceived:@(receiv)];
-//                [_investorUserM setStatus:@(2)];
-//                [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
-//                [WLHUDView showSuccessHUD:@"投递成功！"];
-//            } Failed:^(NSError *error) {
-//                [button setEnabled:YES];
-//                [WLHUDView hiddenHud];
-//            }];
-//        }];
-//        [alert show];
-//    }else if (_userType == InvestorUserTypeModel){
-//    
-//    }
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
