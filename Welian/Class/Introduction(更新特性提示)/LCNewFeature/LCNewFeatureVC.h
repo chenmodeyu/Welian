@@ -180,4 +180,21 @@ typedef NS_ENUM(NSInteger, LCStatusBarStyle) {
                   showPageControl:(BOOL)showPageControl
                       finishBlock:(finishBlock)finishBlock;
 
+/**
+ *  初始化新特性视图控制器, 实例方法
+ *
+ *  @param imageName 图片名, 请将原图名称修改为该格式: `<imageName>_1`, `<imageName>_2`... 如: `NewFeature_1@2x.png`
+ *
+ *  @param imageCount 图片个数
+ *
+ *  @param showPageControl 是否显示分页控制器
+ *
+ *  @param finishBlock 完成新特性界面展示后的回调
+ *
+ *  @return 初始化的控制器实例
+ */
+- (instancetype)initWithImageName:(NSString *)imageName
+                       imageCount:(NSInteger)imageCount
+                      finishBlock:(finishBlock)finishBlock;
+
 @end

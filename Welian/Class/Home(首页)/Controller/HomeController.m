@@ -27,6 +27,8 @@
 #import "WLPhoto.h"
 #import "IPhotoUp.h"
 
+//#import "LCNewFeatureVC.h"
+
 @interface HomeController () <UITableViewDelegate,UITableViewDataSource>
 {
    __block NSMutableArray *_dataArry;
@@ -40,9 +42,19 @@
 
 @property (nonatomic, strong) NotstringView *notDataView;
 
+///** 新特性界面(如果是通过Block方式进入主界面则不需要声明该属性) */
+//@property (nonatomic, strong)  LCNewFeatureVC *newFeatureVC;
+
 @end
 
 @implementation HomeController
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+}
 
 - (NotstringView *)notDataView
 {
@@ -83,6 +95,7 @@
     _uid = uid;
     self = [super init];
     if (self) {
+
         self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self.tableView setDataSource:self];

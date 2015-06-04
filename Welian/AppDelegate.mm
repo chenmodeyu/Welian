@@ -47,24 +47,18 @@ BMKMapManager* _mapManager;
 - (LCNewFeatureVC *)newFeatureVC
 {
     if (_newFeatureVC == nil) {
-        // 进入主界面按钮
-        UIButton *enterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [enterBtn setTitle:@"进入微链2.0" forState:UIControlStateNormal];
-        [enterBtn setFrame:(CGRect){84.0f, SuperSize.height * 0.85f, SuperSize.width - 2*84.0f, 40.0f}];
-        //        [enterBtn setBackgroundColor:IWGlobalBg];
-        enterBtn.titleLabel.font = WLFONT(21);
-        enterBtn.layer.borderWidth = 1;
-        enterBtn.layer.masksToBounds = YES;
-        enterBtn.layer.cornerRadius = 8;
-        enterBtn.layer.borderColor = [KBlueTextColor CGColor];
-        [enterBtn setTitleColor:KBlueTextColor forState:UIControlStateNormal];
-        [enterBtn addTarget:self action:@selector(didClickedBtn) forControlEvents:UIControlEventTouchUpInside];
-        
-        _newFeatureVC = [LCNewFeatureVC newFeatureWithImageName:@"new_feature"
-                                                                    imageCount:2
-                                                               showPageControl:YES
-                                                                   enterButton:enterBtn];
-        _newFeatureVC.statusBarStyle = LCStatusBarStyleWhite;
+        WEAKSELF
+        _newFeatureVC = [[LCNewFeatureVC alloc] initWithImageName:@"new_feature" imageCount:2 finishBlock:^{
+            [weakSelf enterMainVC];
+//            [UIView animateWithDuration:0.05f animations:^{
+//                _newFeatureVC.view.transform = CGAffineTransformMakeScale(2, 2);
+//                [_newFeatureVC.view setAlpha:0.0];
+//
+//            } completion:^(BOOL finished) {
+//                
+//
+//            }];
+        }];
         _newFeatureVC.pointOtherColor = KBgGrayColor;
         _newFeatureVC.pointCurrentColor = KBlueTextColor;
     }
@@ -169,17 +163,6 @@ BMKMapManager* _mapManager;
     DLog(@"====沙盒路径=======%@",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));
     
     return YES;
-}
-
-#pragma mark - 点击了进入主界面的按钮
-- (void)didClickedBtn {
-    [UIView animateWithDuration:0.25f animations:^{
-        _newFeatureVC.view.transform = CGAffineTransformMakeScale(2, 2);
-        [_newFeatureVC.view setAlpha:0.0];
-    } completion:^(BOOL finished) {
-        
-        [self enterMainVC];
-    }];
 }
 
 #pragma mark - 进入主界面

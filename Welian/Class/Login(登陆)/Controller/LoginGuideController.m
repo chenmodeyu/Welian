@@ -26,8 +26,16 @@
 
 @implementation LoginGuideController
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self.view setBackgroundColor:WLRGB(245, 244, 242)];
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [scrollView setPagingEnabled:YES];

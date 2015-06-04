@@ -24,6 +24,7 @@
 #import "NewFriendUser.h"
 #import "MJExtension.h"
 
+//#import "LCNewFeatureVC.h"
 
 @interface MainViewController () <UINavigationControllerDelegate>
 {
@@ -42,6 +43,11 @@
 @implementation MainViewController
 
 single_implementation(MainViewController)
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
 
 - (instancetype)init
 {
