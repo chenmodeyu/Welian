@@ -194,6 +194,10 @@ static NSString *fridcellid = @"fridcellid";
                                           NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
                                           LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre inContext:localContext];
                                           
+                                          if (!loginUser) {
+                                              return;
+                                          }
+                                          
                                           //循环添加数据库数据
                                           for (IBaseUserM *baseUser in resultInfo) {
                                               baseUser.friendship = @(1);//设置为好友关系

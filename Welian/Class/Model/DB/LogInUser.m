@@ -17,6 +17,7 @@
 #import "InvestIndustry.h"
 #import "InvestStages.h"
 #import "InvestItems.h"
+//#import "AppDelegate.h"
 
 @implementation LogInUser
 
@@ -65,6 +66,11 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+//    if (!loginUser) {
+//        //监听用户退出，还收到消息
+//        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+//        [appDelegate logout];
+//    }
     return loginUser;
 }
 
@@ -178,6 +184,9 @@
 + (void)setUserFirststustid:(NSNumber *)firststustid
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.firststustid = firststustid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -187,6 +196,9 @@
 + (void)setUserNewstustcount:(NSNumber *)newstustcount
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.newstustcount = newstustcount;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -196,6 +208,9 @@
 + (void)setUserHomemessagebadge:(NSNumber *)homemessagebadge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.homemessagebadge = homemessagebadge;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -205,6 +220,9 @@
 + (void)setUserInvestorcount:(NSNumber *)investorcount
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.investorcount = investorcount;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -214,12 +232,18 @@
 + (void)setUserProjectcount:(NSNumber *)projectcount
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.projectcount = projectcount;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
 + (void)setUserActivecount:(NSNumber *)activecount
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.activecount = activecount;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -229,6 +253,9 @@
 + (void)updateToutiaoCount:(NSNumber *)count
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.toutiaocount = count;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
@@ -236,24 +263,36 @@
 + (void)updateToutiaoNewCount:(NSNumber *)count
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.toutiaonewcount = count;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
 + (void)updateToutiaoBadge:(BOOL)badge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.istoutiaobadge = @(badge);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
 + (void)updateFindInvestorBadge:(BOOL)badge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.isfindinvestorbadge = @(badge);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
 + (void)setUserIsactivebadge:(BOOL)isactivebadge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.isactivebadge = @(isactivebadge);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -263,6 +302,9 @@
 + (void)setUserIsinvestorbadge:(BOOL)isinvestorbadge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.isinvestorbadge = @(isinvestorbadge);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -272,12 +314,18 @@
 + (void)setUserIsProjectBadge:(BOOL)isprojectbadge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.isprojectbadge = @(isprojectbadge);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
 + (void)setUserNewfriendbadge:(NSNumber *)newfriendbadge
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.newfriendbadge = newfriendbadge;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -290,6 +338,9 @@
 {
     //设置发现中的对应数量信息
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.lastGetTime = newFeedModel.time;
     loginUser.newstustcount = newFeedModel.feedcount;
     loginUser.activecount = newFeedModel.activecount;
@@ -317,6 +368,9 @@
 + (void)setUserUid:(NSNumber *)uid
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.uid = uid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -327,6 +381,9 @@
 + (void)setUserMobile:(NSString *)mobile
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.mobile = mobile;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
@@ -334,6 +391,9 @@
 + (void)setUserChecked:(NSNumber *)checked
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.checked = checked;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
@@ -341,6 +401,9 @@
 + (void)setUserPosition:(NSString*)position
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.position = position;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -351,6 +414,9 @@
 + (void)setUserProvinceid:(NSNumber *)provinceid
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.provinceid = provinceid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -361,6 +427,9 @@
 + (void)setUserProvincename:(NSString *)provincename
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.provincename = provincename;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -371,6 +440,9 @@
 + (void)setUserCityid:(NSNumber *)cityid
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.cityid = cityid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -381,6 +453,9 @@
 + (void)setUserCityname:(NSString *)cityname
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.cityname = cityname;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -391,6 +466,9 @@
 + (void)setUserFriendship:(NSNumber *)friendship
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.friendship = friendship;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -401,6 +479,9 @@
 + (void)setUserShareurl:(NSString *)shareurl
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.shareurl = shareurl;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -411,6 +492,9 @@
 + (void)setUserAvatar:(NSString *)avatar
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.avatar = avatar;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -421,6 +505,9 @@
 + (void)setUserName:(NSString *)name
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.name = name;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -431,6 +518,9 @@
 + (void)setUserAddress:(NSString *)address
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.address = address;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -441,6 +531,9 @@
 + (void)setUserEmail:(NSString *)email
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.email = email;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -451,6 +544,9 @@
 + (void)setUserinvestorauth:(NSNumber *)investorauth
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.investorauth = investorauth;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -461,6 +557,9 @@
 + (void)setUserstartupauth:(NSNumber *)startupauth
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.startupauth = startupauth;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -471,6 +570,9 @@
 + (void)setUsercompany:(NSString *)company
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.company = company;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -501,6 +603,9 @@
 + (void)setUserisNow:(BOOL)isnow
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.isNow = @(isnow);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -511,6 +616,9 @@
 + (void)setUserUrl:(NSString *)url
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.url = url;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -527,6 +635,9 @@
 + (void)setUseropenid:(NSString *)openid
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.openid = openid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -536,6 +647,9 @@
 + (void)setUserunionid:(NSString *)unionid
 {
     LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.unionid = unionid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     
@@ -711,8 +825,12 @@
         newFriend = [sortMessages lastObject];
     }
     
-    if (newFriend.messageid.length > 0) {
-        return newFriend.messageid;
+    if (newFriend) {
+        if (newFriend.messageid.length > 0) {
+            return newFriend.messageid;
+        }else{
+            return @"0";
+        }
     }else{
         return @"0";
     }

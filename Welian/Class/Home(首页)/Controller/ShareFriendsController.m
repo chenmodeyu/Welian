@@ -164,6 +164,10 @@ static NSString *fridcellid = @"fridcellid";
         modeIM = self.filterArray[indexPath.row];
     }
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
+    
     MyFriendUser *friendUser = [loginUser getMyfriendUserWithUid:modeIM.uid];
     if (!friendUser) {
         friendUser = [MyFriendUser createMyFriendUserModel:(FriendsUserModel *)modeIM];

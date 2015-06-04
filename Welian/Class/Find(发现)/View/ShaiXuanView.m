@@ -344,6 +344,9 @@ static NSString *shaixuanHeaderid = @"ShaiXuanHeaderView";
 - (void)confirmButClick
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     if (_type == ShaiXuanTypeProject) {
         if (_oneIndex) {
             //项目 领域搜索条件

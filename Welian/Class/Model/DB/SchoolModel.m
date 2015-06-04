@@ -29,6 +29,9 @@
 + (SchoolModel *)createSchoolModel:(ISchoolResult *)iSchool
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return nil;
+    }
     SchoolModel *schoolM = [loginUser getSchoolModelWithUcid:iSchool.usid];
     if (!schoolM) {
         schoolM = [SchoolModel MR_createEntityInContext:loginUser.managedObjectContext];

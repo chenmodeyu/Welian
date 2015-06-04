@@ -782,6 +782,9 @@ static NSString *fridcellid = @"fridcellid";
                                  [WLHUDView hiddenHud];
                                  
                                  LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+                                 if (!loginUser) {
+                                     return ;
+                                 }
                                  //更新数据库好友的数量
                                  loginUser.friendcount = @(loginUser.friendcount.integerValue - 1);
                                  
@@ -1161,6 +1164,9 @@ static NSString *fridcellid = @"fridcellid";
                 //加好友
                 //添加好友，发送添加成功，状态变成待验证
                 LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+                if (!loginUser) {
+                    return ;
+                }
                 UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"好友验证" message:[NSString stringWithFormat:@"发送至好友：%@",_baseUserModel.name]];
                 [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
                 [[alert textFieldAtIndex:0] setText:[NSString stringWithFormat:@"我是%@的%@",loginUser.company,loginUser.position]];
@@ -1258,6 +1264,9 @@ static NSString *fridcellid = @"fridcellid";
     //已经是好友，雷达页面  不用进入消息页面  ////操作类型0：添加 1：接受  2:已添加 3：待验证   10:隐藏操作按钮
     if(_baseUserModel.friendship.integerValue == 1 && _hidRightBtn){
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (!loginUser) {
+            return ;
+        }
         MyFriendUser *user = [loginUser getMyfriendUserWithUid:_baseUserModel.uid];
         ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
         [self.navigationController pushViewController:chatVC animated:YES];
@@ -1268,6 +1277,9 @@ static NSString *fridcellid = @"fridcellid";
             [KNSNotification postNotificationName:kCurrentChatFromUserInfo object:self userInfo:@{@"uid":_baseUserModel.uid.stringValue}];
             
             LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+            if (!loginUser) {
+                return ;
+            }
             MyFriendUser *user = [loginUser getMyfriendUserWithUid:_baseUserModel.uid];
             ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
             [self.navigationController pushViewController:chatVC animated:YES];

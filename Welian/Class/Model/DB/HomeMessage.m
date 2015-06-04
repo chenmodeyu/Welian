@@ -28,7 +28,11 @@
 //创建新收据
 + (HomeMessage *)createHomeMessageModel:(MessageHomeModel *)messageM
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+    if (!loginUser) {
+        return nil;
+    }
     HomeMessage *homeMessage = [loginUser getHomeMessageWithUid:messageM.commentid];
     if (!homeMessage) {
         homeMessage = [HomeMessage MR_createEntityInContext:loginUser.managedObjectContext];
@@ -67,7 +71,11 @@
      "projectintro":"创业者社交平台",//项目介绍
      ”projectname“:"微链"
      */
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+    if (!loginUser) {
+        return nil;
+    }
     
     HomeMessage *homeMessage = [HomeMessage MR_createEntityInContext:loginUser.managedObjectContext];
 //    homeMessage.commentid = messageM.commentid;

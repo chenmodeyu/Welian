@@ -205,9 +205,11 @@
     
     NSNumber *uid = @([[[notification userInfo] objectForKey:@"uid"] integerValue]);
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    MyFriendUser *user = [loginUser getMyfriendUserWithUid:uid];
-    ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
-    [self.navigationController pushViewController:chatVC animated:YES];
+    if (loginUser) {
+        MyFriendUser *user = [loginUser getMyfriendUserWithUid:uid];
+        ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
+        [self.navigationController pushViewController:chatVC animated:YES];
+    }
 }
 
 @end

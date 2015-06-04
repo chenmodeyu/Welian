@@ -368,15 +368,17 @@ BMKMapManager* _mapManager;
     NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithDictionary:[userInfo objectForKey:@"data"]];
     [dataDic setObject:type forKey:@"type"];
     
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     if ([type isEqualToString:@"feedZan"]||[type isEqualToString:@"feedComment"]||[type isEqualToString:@"feedForward"]) {     // 动态消息推送
-
-        [HomeMessage createHomeMessageModel:[MessageHomeModel objectWithDict:dataDic]];
-        NSInteger badge = [[LogInUser getCurrentLoginUser].homemessagebadge integerValue];
-        badge++;
-        [LogInUser setUserHomemessagebadge:@(badge)];
-//        [UserDefaults setObject:[NSString stringWithFormat:@"%d",badge] forKey:KMessagebadge];
-        [KNSNotification postNotificationName:KMessageHomeNotif object:self];
-        
+        if(loginUser){
+            //添加消息数据
+            [HomeMessage createHomeMessageModel:[MessageHomeModel objectWithDict:dataDic]];
+            NSInteger badge = [loginUser.homemessagebadge integerValue];
+            badge++;
+            [LogInUser setUserHomemessagebadge:@(badge)];
+            //        [UserDefaults setObject:[NSString stringWithFormat:@"%d",badge] forKey:KMessagebadge];
+            [KNSNotification postNotificationName:KMessageHomeNotif object:self];
+        }
     }else if([type isEqualToString:@"friendRequest"]||[type isEqualToString:@"friendAdd"]||[type isEqualToString:@"friendCommand"]){
         /*
          data =     {
@@ -390,40 +392,53 @@ BMKMapManager* _mapManager;
          };
          type = friendRequest;
          */
-        // 好友消息推送
-        [self getNewFriendMessage:dataDic LoginUserId:nil];
+        if(loginUser){
+            // 好友消息推送
+            [self getNewFriendMessage:dataDic LoginUserId:nil];
+        }
         // 振动和声音提示
 //        [[MsgPlaySound sharedMsgPlaySound] playSystemShakeAndSoundWithName:@"1"];
     }else if([type isEqualToString:@"IM"]){
-        //接收的聊天消息
-        [self getIMGTMessage:userInfo[@"data"]];
+        if (loginUser) {
+            //接收的聊天消息
+            [self getIMGTMessage:userInfo[@"data"]];
+        }
         // 振动和声音提示
 //        [[MsgPlaySound sharedMsgPlaySound] playSystemShakeAndSoundWithName:@"1"];
     } else if ([type isEqualToString:@"logout"]){
         // 退出登录
         [self logout];
     }else if ([type isEqualToString:@"activeCommand"]){  // 活动推荐
-        
-        [LogInUser setUserIsactivebadge:YES];
-        [KNSNotification postNotificationName:KNewactivitNotif object:self];
+        if (loginUser) {
+            [LogInUser setUserIsactivebadge:YES];
+            [KNSNotification postNotificationName:KNewactivitNotif object:self];
+        }
     }else if ([type isEqualToString:@"investorResult"]){  // 后台认证投资人
-        
-        [LogInUser setUserinvestorauth:[dataDic objectForKey:@"state"]];
-        [LogInUser setUserIsinvestorbadge:YES];
-        [KNSNotification postNotificationName:KInvestorstateNotif object:self];
+        if (loginUser) {
+            [LogInUser setUserinvestorauth:[dataDic objectForKey:@"state"]];
+            [LogInUser setUserIsinvestorbadge:YES];
+            [KNSNotification postNotificationName:KInvestorstateNotif object:self];
+        }
     }else if ([type isEqualToString:@"projectComment"]){  // 项目评论
         NSDictionary *infoDic = [userInfo objectForKey:@"data"];
-        [HomeMessage createHomeMessageProjectModel:infoDic];
-        //发现
-        NSInteger badge = [[LogInUser getCurrentLoginUser].homemessagebadge integerValue];
-        badge++;
-        //设置首页
-        [LogInUser setUserHomemessagebadge:@(badge)];
-        [KNSNotification postNotificationName:KMessageHomeNotif object:self];
+        if (loginUser) {
+            [HomeMessage createHomeMessageProjectModel:infoDic];
+            //发现
+            LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+            if (loginUser) {
+                NSInteger badge = [loginUser.homemessagebadge integerValue];
+                badge++;
+                //设置首页
+                [LogInUser setUserHomemessagebadge:@(badge)];
+            }
+            [KNSNotification postNotificationName:KMessageHomeNotif object:self];
+        }
     }else if ([type isEqualToString:@"projectCommand"]){  // 新项目推荐
-        //设置有新的项目未查看
-        [LogInUser setUserIsProjectBadge:YES];
-        [KNSNotification postNotificationName:KProjectstateNotif object:self];
+        if (loginUser) {
+            //设置有新的项目未查看
+            [LogInUser setUserIsProjectBadge:YES];
+            [KNSNotification postNotificationName:KProjectstateNotif object:self];
+        }
     }
 }
 
@@ -443,8 +458,6 @@ BMKMapManager* _mapManager;
     if (loginUser == nil) {
         return;
     }
-    //判断当前是否已经是好友
-    NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];
     if ([type isEqualToString:@"friendAdd"]) {
         // 别人同意添加我为好友，直接加入好友列表，并改变新的好友里状态为已添加
         [newfrendM setIsAgree:@(1)];
@@ -453,10 +466,14 @@ BMKMapManager* _mapManager;
         
         //创建本地数据库好友
         MyFriendUser *friendUser = [MyFriendUser createMyFriendNewFriendModel:newfrendM LogInUser:loginUser];
-        
+        if (!friendUser) {
+            return;
+        }
         //修改需要添加的用户的状态
         NeedAddUser *needAddUser = [loginUser getNeedAddUserWithUid:friendUser.uid];
-        [needAddUser updateFriendShip:1];
+        if (needAddUser) {
+            [needAddUser updateFriendShip:1];
+        }
         
         //接受后，本地创建一条消息
         WLMessage *textMessage = [[WLMessage alloc] initWithText:[NSString stringWithFormat:@"我已经通过你的好友请求，现在我们可以开始聊聊创业那些事了"] sender:newfrendM.name timestamp:[NSDate date]];
@@ -471,7 +488,9 @@ BMKMapManager* _mapManager;
         
         //本地聊天数据库添加
         ChatMessage *chatMessage = [ChatMessage createChatMessageWithWLMessage:textMessage FriendUser:friendUser];
-        textMessage.msgId = chatMessage.msgId.stringValue;
+        if (chatMessage) {
+            textMessage.msgId = chatMessage.msgId.stringValue;
+        }
         
         //更新聊天消息数量
         [friendUser updateUnReadMessageNumber:@(friendUser.unReadChatMsg.integerValue + 1)];
@@ -511,6 +530,8 @@ BMKMapManager* _mapManager;
             }
         }
         
+        //判断当前是否已经是好友
+        NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];
         if (!([newFriendUser.operateType integerValue]==2)) {
             //不是好友，添加角标
             NSInteger badge = [loginUser.newfriendbadge integerValue];
@@ -751,20 +772,19 @@ BMKMapManager* _mapManager;
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     if (loginUser) {
-        NSString *localMaxChatNum = [ChatMessage getMaxChatMessageId];// [UserDefaults objectForKey:kMaxChatMessageId];
+        NSString *localMaxChatNum = [ChatMessage getMaxChatMessageId];//[UserDefaults objectForKey:kMaxChatMessageId];
         NSString *maxChatNum = localMaxChatNum.length > 0 ? localMaxChatNum : @"0";
         [WLHttpTool getServiceMessagesParameterDic:@{@"type":@(0),@"topid":maxChatNum}//0 聊天消息，1 好友请求
                                            success:^(id JSON) {
                                                if ([JSON count] > 0) {
                                                    for(NSDictionary *chatDic in JSON){
-                                                       NSNumber *toUser = chatDic[@"uid"];
-                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
+//                                                       NSNumber *toUser = chatDic[@"uid"];
+//                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
                                                        //如果本地数据库没有当前登陆用户，不处理
-                                                       if (loginUser == nil) {
-                                                           return;
+                                                       LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+                                                       if (loginUser) {
+                                                           [self getIMGTMessage:chatDic];
                                                        }
-                                                       
-                                                       [self getIMGTMessage:chatDic];
                                                    }
                                                }
                                                //                                               NSString *maxChatNum = [ChatMessage getMaxChatMessageId];
@@ -786,6 +806,10 @@ BMKMapManager* _mapManager;
          type = friendRequest;
          uid = 10019;
          */
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (!loginUser) {
+            return;
+        }
         NSString *localMaxNewFriendId = [loginUser getMaxNewFriendUserMessageId];//[UserDefaults objectForKey:kMaxNewFriendId];
         NSString *maxNewFriendId = localMaxNewFriendId.length > 0 ? localMaxNewFriendId : @"0";
         [WLHttpTool getServiceMessagesParameterDic:@{@"type":@(1),@"topid":maxNewFriendId}//0 聊天消息，1 好友请求
@@ -793,27 +817,24 @@ BMKMapManager* _mapManager;
                                                if ([JSON count] > 0) {
                                                    for(NSDictionary *newFriendDic in JSON){
                                                        NSMutableDictionary *dictData = [NSMutableDictionary dictionaryWithDictionary:newFriendDic];
-                                                       
                                                        NSNumber *toUser = dictData[@"uid"];
-                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
+//                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
                                                        //如果本地数据库没有当前登陆用户，不处理
-                                                       if (loginUser == nil) {
-                                                           return;
+                                                       LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+                                                       if (loginUser) {
+                                                           //设置请求方式
+                                                           [dictData setObject:@"friendRequest" forKey:@"type"];
+                                                           //设置用户信息
+                                                           NSDictionary *userDict = dictData[@"fromuser"];
+                                                           [dictData setObject:userDict[@"uid"] forKey:@"uid"];
+                                                           [dictData setObject:userDict[@"name"] forKey:@"name"];
+                                                           [dictData setObject:userDict[@"avatar"] forKey:@"avatar"];
+                                                           
+                                                           //别人请求的
+                                                           [self getNewFriendMessage:dictData LoginUserId:toUser];
                                                        }
-                                                       
-                                                       //设置请求方式
-                                                       [dictData setObject:@"friendRequest" forKey:@"type"];
-                                                       //设置用户信息
-                                                       NSDictionary *userDict = dictData[@"fromuser"];
-                                                       [dictData setObject:userDict[@"uid"] forKey:@"uid"];
-                                                       [dictData setObject:userDict[@"name"] forKey:@"name"];
-                                                       [dictData setObject:userDict[@"avatar"] forKey:@"avatar"];
-                                                       
-                                                       //别人请求的
-                                                       [self getNewFriendMessage:dictData LoginUserId:toUser];
                                                    }
                                                }
-                                               
 //                                               //保存最新的最大id
 //                                               NSString *maxNewFriendId = [loginUser getMaxNewFriendUserMessageId];
 //                                               [UserDefaults setObject:maxNewFriendId forKey:kMaxNewFriendId];

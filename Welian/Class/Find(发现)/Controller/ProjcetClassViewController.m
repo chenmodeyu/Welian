@@ -186,6 +186,9 @@
         [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
             NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
             LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre inContext:localContext];
+            if (!loginUser) {
+                return;
+            }
             
             for (IProjectInfo *iProjectInfo in resultInfo) {
                 NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"type",type,@"pid",iProjectInfo.pid];

@@ -34,6 +34,8 @@
 @property (strong,nonatomic) IProjectDetailInfo *iProjectDetailInfo;
 @property (strong,nonatomic) NSNumber *localPid;
 
+@property (assign,nonatomic) NoteMsgView *noteView;
+@property (assign,nonatomic) UIView *operateToolView;
 @property (assign,nonatomic) UIButton *noLikeBtn;
 @property (assign,nonatomic) UIButton *talkNowBtn;
 
@@ -100,15 +102,19 @@
     //设置提醒
     NoteMsgView *noteView = [[NoteMsgView alloc] initWithFrame:Rect(0, tableView.bottom, self.view.width, kNotViewHeight)];
     noteView.noteInfo = @"创业不易，每一次项目的投递，都是一次等待!";
+//    noteView.hidden = YES;
     [self.view addSubview:noteView];
+    self.noteView = noteView;
     
     //设置底部操作栏
     UIView *operateToolView = [[UIView alloc] initWithFrame:CGRectMake(0.f, noteView.bottom, self.view.width, ToolBarHeight)];
     operateToolView.backgroundColor = RGB(247.f, 247.f, 247.f);
     operateToolView.layer.borderColorFromUIColor = kNormalTextColor;
     operateToolView.layer.borderWidths = @"{0.6,0,0,0}";
+//    operateToolView.hidden = YES;
     [self.view addSubview:operateToolView];
     [self.view bringSubviewToFront:operateToolView];
+    self.operateToolView = operateToolView;
     
     //不感兴趣
     CGFloat btnWidth = (self.view.width - kmarginLeft * 3.f) / 2.f;
@@ -136,7 +142,6 @@
     [operateToolView addSubview:talkNowBtn];
     self.talkNowBtn = talkNowBtn;
     
-    //初始化页面数据
     [self checkNoLikeBtnUI];
     
     //获取信息
@@ -148,8 +153,11 @@
 - (void)checkNoLikeBtnUI
 {
     if (_iProjectDetailInfo) {
-        _talkNowBtn.enabled = YES;
+//        _noteView.hidden = NO;
+//        _operateToolView.hidden = NO;
+        
         //status  0:默认状态  1：已不感兴趣 2:已约谈 3:拒绝过又再次约谈
+        _talkNowBtn.enabled = YES;
         [_talkNowBtn setTitle:(_iProjectDetailInfo.feedback.integerValue > 1 ? @"再次约谈" : @"立即约谈") forState:UIControlStateNormal];
         
         _noLikeBtn.enabled = _iProjectDetailInfo.feedback.integerValue > 0 ? NO : YES;
@@ -165,12 +173,10 @@
             }
         }
     }else{
-        //默认设置都不能点击
-        _talkNowBtn.enabled = NO;
         _noLikeBtn.enabled = NO;
+        _talkNowBtn.enabled = NO;
     }
     
-    //设置立即约谈的按钮背景颜色
     _talkNowBtn.backgroundColor = _talkNowBtn.enabled == NO ? KBgGrayColor : KBlueTextColor;
     
     _noLikeBtn.backgroundColor = _noLikeBtn.enabled == NO ? KBgGrayColor : [UIColor whiteColor];
@@ -184,6 +190,8 @@
     [WLHUDView showHUDWithStr:@"获取项目信息中..." dim:NO];
     [WeLianClient getInvestorProjectDetailInfoWithPid:_localPid
                                               Success:^(id resultInfo) {
+                                                  [WLHUDView hiddenHud];
+                                                  
                                                   self.iProjectDetailInfo = resultInfo;
                                                   self.datasource = self.iProjectDetailInfo.bp.bpid ? @[self.iProjectDetailInfo.bp] : nil;
                                                   [self checkNoLikeBtnUI];

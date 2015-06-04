@@ -345,6 +345,9 @@
     [UserDefaults setBool:NO forKey:kIsLookAtNewFriendVC];
     //改变普通消息的查看状态
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     if (_isLookedMessage) {
         //更新状态
         [loginUser updateALLNotLookMessages];
@@ -478,6 +481,9 @@
     
     NSNumber *uid = @([[[notification userInfo] objectForKey:@"uid"] integerValue]);
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     MyFriendUser *user = [loginUser getMyfriendUserWithUid:uid];
     ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
     [self.navigationController pushViewController:chatVC animated:YES];
@@ -529,6 +535,9 @@
     if (type == FriendOperateTypeAdd) {
         //添加好友，发送添加成功，状态变成待验证
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (!loginUser) {
+            return;
+        }
         UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"好友验证" message:[NSString stringWithFormat:@"发送至好友：%@",newFriendUser.name]];
         [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
         [[alert textFieldAtIndex:0] setText:[NSString stringWithFormat:@"我是%@的%@",loginUser.company,loginUser.position]];

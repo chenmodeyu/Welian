@@ -52,6 +52,9 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     }
     NSMutableArray *selectInfos = [NSMutableArray array];
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return _headerView;
+    }
     NSDictionary *searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchIndustryKey,loginUser.uid]];
     NSDictionary *searchStage = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchStageKey,loginUser.uid]];
     NSDictionary *searchCity = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchCityKey,loginUser.uid]];
@@ -168,6 +171,9 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     }else if (invType == InvestorsTypeShaiXuan){
         NSMutableDictionary *paramsDic = [NSMutableDictionary dictionary];
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (!loginUser) {
+            return;
+        }
         //投资人领域搜索条件
        NSDictionary *searchIndustryinfo = [UserDefaults objectForKey:[NSString stringWithFormat:kInvestorSearchIndustryKey,loginUser.uid]];
         //投资人 投资阶段条件

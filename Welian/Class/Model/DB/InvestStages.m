@@ -19,7 +19,11 @@
 //创建新收据
 + (InvestStages *)createInvestStages:(IInvestStageModel *)investItemM
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+    if (!loginUser) {
+        return nil;
+    }
     InvestStages *investitem = [loginUser getInvestStagesWithStage:investItemM.stagename];
     if (!investitem) {
         investitem = [InvestStages MR_createEntityInContext:loginUser.managedObjectContext];

@@ -48,9 +48,6 @@
 //创建新的聊天记录
 + (ChatMessage *)createChatMessageWithWLMessage:(WLMessage *)wlMessage FriendUser:(MyFriendUser *)friendUser
 {
-    //是否显示时间戳
-    ChatMessage *lastChatMsg = [friendUser getTheLastChatMessage];
-    
     ChatMessage *chatMsg = [ChatMessage MR_createEntityInContext:friendUser.managedObjectContext];
     chatMsg.msgId = @([friendUser getMaxChatMessageId].integerValue + 1);
     switch (wlMessage.messageMediaType) {
@@ -89,6 +86,8 @@
     friendUser.unReadChatMsg = @(0);
     
     //是否显示时间戳
+    //是否显示时间戳
+    ChatMessage *lastChatMsg = [friendUser getTheLastChatMessage];
     if (lastChatMsg) {
         double min = [chatMsg.timestamp minutesLaterThan:lastChatMsg.timestamp];
         if (min > 2) {
@@ -118,9 +117,6 @@
 //创建新的卡片聊天记录
 + (ChatMessage *)createChatMessageWithCard:(CardStatuModel *)cardModel FriendUser:(MyFriendUser *)friendUser
 {
-    //是否显示时间戳
-    ChatMessage *lastChatMsg = [friendUser getTheLastChatMessage];
-    
     ChatMessage *chatMsg = [ChatMessage MR_createEntityInContext:friendUser.managedObjectContext];
     chatMsg.msgId = @([friendUser getMaxChatMessageId].integerValue + 1);
     
@@ -158,6 +154,8 @@
     friendUser.unReadChatMsg = @(0);
     
     //是否显示时间戳
+    //是否显示时间戳
+    ChatMessage *lastChatMsg = [friendUser getTheLastChatMessage];
     if (lastChatMsg) {
         double min = [chatMsg.timestamp minutesLaterThan:lastChatMsg.timestamp];
         if (min > 2) {
@@ -559,7 +557,11 @@
 //获取对应messageId的消息
 + (ChatMessage *)getChatMsgWithMessageId:(NSString *)messageId
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre1];
+    if (!loginUser) {
+        return nil;
+    }
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsMyFriendUser.rsLogInUser",loginUser,@"messageid",messageId];
     ChatMessage *chatMessage = [ChatMessage MR_findFirstWithPredicate:pre inContext:loginUser.managedObjectContext];
     return chatMessage;
@@ -568,7 +570,11 @@
 //获取当前最大的消息ID
 + (NSString *)getMaxChatMessageId
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre1];
+    if (!loginUser) {
+        return @"0";
+    }
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"rsMyFriendUser.rsLogInUser",loginUser];
     NSArray *chatMsgs = [ChatMessage MR_findAllWithPredicate:pre inContext:loginUser.managedObjectContext];
     ChatMessage *chatMessage = nil;
@@ -579,8 +585,12 @@
         chatMessage = [sortMessages lastObject];
     }
 //    ChatMessage *chatMessage = [ChatMessage MR_findFirstWithPredicate:pre sortedBy:@"messageid" ascending:NO inContext:loginUser.managedObjectContext];
-    if (chatMessage.messageid.length > 0) {
-        return chatMessage.messageid;
+    if (chatMessage) {
+        if (chatMessage.messageid.length > 0) {
+            return chatMessage.messageid;
+        }else{
+            return @"0";
+        }
     }else{
         return @"0";
     }
