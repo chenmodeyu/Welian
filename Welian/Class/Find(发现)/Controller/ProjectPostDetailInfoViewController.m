@@ -131,9 +131,13 @@
     talkNowBtn.centerY = operateToolView.height / 2.f;
     talkNowBtn.backgroundColor = KBlueTextColor;
     [talkNowBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [talkNowBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
     [talkNowBtn addTarget:self action:@selector(talkNowBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [operateToolView addSubview:talkNowBtn];
     self.talkNowBtn = talkNowBtn;
+    
+    //初始化页面数据
+    [self checkNoLikeBtnUI];
     
     //获取信息
     [self initProjectDetailInfo];
@@ -143,25 +147,36 @@
 //设置不感兴趣按钮
 - (void)checkNoLikeBtnUI
 {
-    //status  0:默认状态  1：已不感兴趣 2:已约谈 3:拒绝过又再次约谈
-    [_talkNowBtn setTitle:(_iProjectDetailInfo.feedback.integerValue > 1 ? @"再次约谈" : @"立即约谈") forState:UIControlStateNormal];
-    
-    _noLikeBtn.enabled = _iProjectDetailInfo.feedback.integerValue > 0 ? NO : YES;
-    if (_iProjectDetailInfo.feedback.integerValue > 0) {
-        if (_iProjectDetailInfo.feedback.integerValue == 2) {
-            //直接点击约谈，则按钮“不感兴趣”不能点击灰掉
-            [_noLikeBtn setTitle:@"不感兴趣" forState:UIControlStateDisabled];
-            [_noLikeBtn setImage:nil forState:UIControlStateDisabled];
-        }else{
-            //先不感兴趣   还可以约谈
-            [_noLikeBtn setTitle:@"已不感兴趣" forState:UIControlStateDisabled];
-            [_noLikeBtn setImage:[UIImage imageNamed:@"touziren_detail_already"] forState:UIControlStateDisabled];
+    if (_iProjectDetailInfo) {
+        _talkNowBtn.enabled = YES;
+        //status  0:默认状态  1：已不感兴趣 2:已约谈 3:拒绝过又再次约谈
+        [_talkNowBtn setTitle:(_iProjectDetailInfo.feedback.integerValue > 1 ? @"再次约谈" : @"立即约谈") forState:UIControlStateNormal];
+        
+        _noLikeBtn.enabled = _iProjectDetailInfo.feedback.integerValue > 0 ? NO : YES;
+        if (_iProjectDetailInfo.feedback.integerValue > 0) {
+            if (_iProjectDetailInfo.feedback.integerValue == 2) {
+                //直接点击约谈，则按钮“不感兴趣”不能点击灰掉
+                [_noLikeBtn setTitle:@"不感兴趣" forState:UIControlStateDisabled];
+                [_noLikeBtn setImage:nil forState:UIControlStateDisabled];
+            }else{
+                //先不感兴趣   还可以约谈
+                [_noLikeBtn setTitle:@"已不感兴趣" forState:UIControlStateDisabled];
+                [_noLikeBtn setImage:[UIImage imageNamed:@"touziren_detail_already"] forState:UIControlStateDisabled];
+            }
         }
+    }else{
+        //默认设置都不能点击
+        _talkNowBtn.enabled = NO;
+        _noLikeBtn.enabled = NO;
     }
-    _noLikeBtn.backgroundColor = _iProjectDetailInfo.feedback.integerValue > 0 ? KBgGrayColor : [UIColor whiteColor];
-    _noLikeBtn.layer.borderColor = _iProjectDetailInfo.feedback.integerValue > 0 ? KBgGrayColor.CGColor : KBlueTextColor.CGColor;
-    _noLikeBtn.imageEdgeInsets = _iProjectDetailInfo.feedback.integerValue > 0 ? UIEdgeInsetsMake(0.f, -10.f, 0.f, 0.f) : UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
-    [_noLikeBtn setTitleColor:_iProjectDetailInfo.feedback.integerValue > 0 ? [UIColor whiteColor] : KBlueTextColor forState:UIControlStateNormal];
+    
+    //设置立即约谈的按钮背景颜色
+    _talkNowBtn.backgroundColor = _talkNowBtn.enabled == NO ? KBgGrayColor : KBlueTextColor;
+    
+    _noLikeBtn.backgroundColor = _noLikeBtn.enabled == NO ? KBgGrayColor : [UIColor whiteColor];
+    _noLikeBtn.layer.borderColor = _noLikeBtn.enabled == NO ? KBgGrayColor.CGColor : KBlueTextColor.CGColor;
+    _noLikeBtn.imageEdgeInsets = _noLikeBtn.enabled == NO ? UIEdgeInsetsMake(0.f, -10.f, 0.f, 0.f) : UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+    [_noLikeBtn setTitleColor:_noLikeBtn.enabled == NO ? [UIColor whiteColor] : KBlueTextColor forState:UIControlStateNormal];
 }
 
 - (void)initProjectDetailInfo
