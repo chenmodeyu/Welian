@@ -778,14 +778,13 @@ BMKMapManager* _mapManager;
                                            success:^(id JSON) {
                                                if ([JSON count] > 0) {
                                                    for(NSDictionary *chatDic in JSON){
-                                                       NSNumber *toUser = chatDic[@"uid"];
-                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
+//                                                       NSNumber *toUser = chatDic[@"uid"];
+                                                       LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+//                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
                                                        //如果本地数据库没有当前登陆用户，不处理
-                                                       if (loginUser == nil) {
-                                                           return;
+                                                       if (loginUser) {
+                                                           [self getIMGTMessage:chatDic];
                                                        }
-                                                       
-                                                       [self getIMGTMessage:chatDic];
                                                    }
                                                }
                                                //                                               NSString *maxChatNum = [ChatMessage getMaxChatMessageId];
@@ -807,6 +806,10 @@ BMKMapManager* _mapManager;
          type = friendRequest;
          uid = 10019;
          */
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (!loginUser) {
+            return;
+        }
         NSString *localMaxNewFriendId = [loginUser getMaxNewFriendUserMessageId];//[UserDefaults objectForKey:kMaxNewFriendId];
         NSString *maxNewFriendId = localMaxNewFriendId.length > 0 ? localMaxNewFriendId : @"0";
         [WLHttpTool getServiceMessagesParameterDic:@{@"type":@(1),@"topid":maxNewFriendId}//0 聊天消息，1 好友请求
@@ -816,25 +819,23 @@ BMKMapManager* _mapManager;
                                                        NSMutableDictionary *dictData = [NSMutableDictionary dictionaryWithDictionary:newFriendDic];
                                                        
                                                        NSNumber *toUser = dictData[@"uid"];
-                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
+//                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
+                                                       LogInUser *loginUser = [LogInUser getCurrentLoginUser];
                                                        //如果本地数据库没有当前登陆用户，不处理
-                                                       if (loginUser == nil) {
-                                                           return;
+                                                       if (loginUser) {
+                                                           //设置请求方式
+                                                           [dictData setObject:@"friendRequest" forKey:@"type"];
+                                                           //设置用户信息
+                                                           NSDictionary *userDict = dictData[@"fromuser"];
+                                                           [dictData setObject:userDict[@"uid"] forKey:@"uid"];
+                                                           [dictData setObject:userDict[@"name"] forKey:@"name"];
+                                                           [dictData setObject:userDict[@"avatar"] forKey:@"avatar"];
+                                                           
+                                                           //别人请求的
+                                                           [self getNewFriendMessage:dictData LoginUserId:toUser];
                                                        }
-                                                       
-                                                       //设置请求方式
-                                                       [dictData setObject:@"friendRequest" forKey:@"type"];
-                                                       //设置用户信息
-                                                       NSDictionary *userDict = dictData[@"fromuser"];
-                                                       [dictData setObject:userDict[@"uid"] forKey:@"uid"];
-                                                       [dictData setObject:userDict[@"name"] forKey:@"name"];
-                                                       [dictData setObject:userDict[@"avatar"] forKey:@"avatar"];
-                                                       
-                                                       //别人请求的
-                                                       [self getNewFriendMessage:dictData LoginUserId:toUser];
                                                    }
                                                }
-                                               
 //                                               //保存最新的最大id
 //                                               NSString *maxNewFriendId = [loginUser getMaxNewFriendUserMessageId];
 //                                               [UserDefaults setObject:maxNewFriendId forKey:kMaxNewFriendId];
