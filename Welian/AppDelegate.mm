@@ -779,9 +779,9 @@ BMKMapManager* _mapManager;
                                                if ([JSON count] > 0) {
                                                    for(NSDictionary *chatDic in JSON){
 //                                                       NSNumber *toUser = chatDic[@"uid"];
-                                                       LogInUser *loginUser = [LogInUser getCurrentLoginUser];
 //                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
                                                        //如果本地数据库没有当前登陆用户，不处理
+                                                       LogInUser *loginUser = [LogInUser getCurrentLoginUser];
                                                        if (loginUser) {
                                                            [self getIMGTMessage:chatDic];
                                                        }
@@ -817,11 +817,10 @@ BMKMapManager* _mapManager;
                                                if ([JSON count] > 0) {
                                                    for(NSDictionary *newFriendDic in JSON){
                                                        NSMutableDictionary *dictData = [NSMutableDictionary dictionaryWithDictionary:newFriendDic];
-                                                       
                                                        NSNumber *toUser = dictData[@"uid"];
 //                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
-                                                       LogInUser *loginUser = [LogInUser getCurrentLoginUser];
                                                        //如果本地数据库没有当前登陆用户，不处理
+                                                       LogInUser *loginUser = [LogInUser getCurrentLoginUser];
                                                        if (loginUser) {
                                                            //设置请求方式
                                                            [dictData setObject:@"friendRequest" forKey:@"type"];
