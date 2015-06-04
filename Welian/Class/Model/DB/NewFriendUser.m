@@ -24,7 +24,11 @@
 //创建新收据
 + (NewFriendUser *)createNewFriendUserModel:(NewFriendModel *)userInfoM
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+    if (!loginUser) {
+        return nil;
+    }
     NewFriendUser *newFriend = [loginUser getNewFriendUserWithUid:userInfoM.uid];
     if (!newFriend) {
         newFriend = [NewFriendUser MR_createEntityInContext:loginUser.managedObjectContext];

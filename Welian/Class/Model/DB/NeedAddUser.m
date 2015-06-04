@@ -77,6 +77,10 @@
 {
     //friendship /**  好友关系，1好友，2好友的好友,-1自己，0没关系   */
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return [NSMutableArray array];
+    }
+    
     //系统非好友联系人
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != nil && %K != %@", @"rsLoginUser",loginUser,@"userType",@(type),@"uid", @"friendship",@(1)];
 //     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != %@", @"rsLoginUser",loginUser,@"userType",@(type), @"friendship",@(1)];

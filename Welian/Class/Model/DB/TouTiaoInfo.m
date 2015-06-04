@@ -38,7 +38,9 @@
     touTiaoInfo.isShow = @(YES);
     
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    [loginUser addRsTouTiaoInfosObject:touTiaoInfo];
+    if (loginUser) {
+        [loginUser addRsTouTiaoInfosObject:touTiaoInfo];
+    }
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return touTiaoInfo;

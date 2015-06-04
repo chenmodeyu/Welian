@@ -55,6 +55,9 @@
     [_messageDataArray removeAllObjects];
     _allMessgeArray = nil;
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     _allMessgeArray = [loginUser getAllMessages];
     for (HomeMessage *mesitme in _allMessgeArray) {
         MessageFrameModel *messageFrameM = [[MessageFrameModel alloc] init];
@@ -75,6 +78,9 @@
 - (void)cleacMessage
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     loginUser.rsHomeMessages = nil;
 //    [MOC save];
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];

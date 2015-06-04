@@ -437,7 +437,9 @@
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
         NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
         LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre inContext:localContext];
-        
+        if (!loginUser) {
+            return;
+        }
         for (IBaseUserM *userInfo in users) {
 //            NSNumber *uid = info[@"uid"] == nil ? nil : @([info[@"uid"] integerValue]);
 //            NSString *name = info[@"name"];
@@ -572,6 +574,9 @@
             DLog(@"添加好友");
             //添加好友，发送添加成功，状态变成待验证
             LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+            if (!loginUser) {
+                return;
+            }
             UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"好友验证" message:[NSString stringWithFormat:@"发送至好友：%@",needAddUser.wlname]];
             [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
             [[alert textFieldAtIndex:0] setText:[NSString stringWithFormat:@"我是%@的%@",loginUser.company,loginUser.position]];

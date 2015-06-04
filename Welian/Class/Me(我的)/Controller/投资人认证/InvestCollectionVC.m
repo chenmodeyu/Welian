@@ -51,6 +51,9 @@ static NSString * const reuseIdentifier = @"Cell";
     [_alldataArray removeAllObjects];
     [_selectCells removeAllObjects];
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     InvestIndustry *firstIndustry = [loginUser getInvestIndustryWithName:@"不限"];
     if (firstIndustry) {
         for (NSDictionary *indDic in dataarray) {

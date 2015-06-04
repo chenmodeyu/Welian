@@ -34,7 +34,9 @@
     projectClassInfo.isShow = @(YES);
     
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    [loginUser addRsProjectClassInfosObject:projectClassInfo];
+    if (loginUser) {
+        [loginUser addRsProjectClassInfosObject:projectClassInfo];
+    }
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return projectClassInfo;

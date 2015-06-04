@@ -26,7 +26,12 @@
 //创建新收据
 + (MyFriendUser *)createMyFriendUserModel:(FriendsUserModel *)userInfoM
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+    if (!loginUser) {
+        return nil;
+    }
+    
     MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:userInfoM.uid];
     if (!myFriend) {
         myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
@@ -59,7 +64,11 @@
 
 + (MyFriendUser *)createOrUpddateMyFriendUserModel:(IBaseUserM *)iBaseUserM
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+    if (!loginUser) {
+        return nil;
+    }
     MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:iBaseUserM.uid];
     if (!myFriend) {
         myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
@@ -118,7 +127,11 @@
 
 + (MyFriendUser *)createWithNewFriendUser:(NewFriendUser *)newFriendUser
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+    if (!loginUser) {
+        return nil;
+    }
     MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:newFriendUser.uid];
     if (!myFriend) {
         myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
@@ -154,6 +167,9 @@
 {
     NSDictionary *fromuser = dict[@"fromuser"];
     LogInUser *loginUser = [LogInUser getLogInUserWithUid:dict[@"uid"]];
+    if (!loginUser) {
+        return nil;
+    }
     NSNumber *fromUid = [fromuser objectForKey:@"uid"];
     MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:fromUid];
     if (!myFriend) {

@@ -56,6 +56,9 @@ single_implementation(MainViewController)
 {
     if ([UserDefaults objectForKey:kSessionId]) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (!loginUser) {
+            return;
+        }
         //获取最新动态数量
         [WeLianClient getNewFeedCountsWithID:loginUser.firststustid ? : @(0)
                                         Time:loginUser.lastGetTime.length > 0 ? loginUser.lastGetTime : @""
@@ -139,6 +142,9 @@ single_implementation(MainViewController)
 - (void)updateChatMessageBadge:(NSNotification *)notification
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     //聊天
     NSInteger unReadChatMsg = [loginUser allUnReadChatMessageNum];
     //消息

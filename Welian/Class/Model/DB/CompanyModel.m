@@ -22,7 +22,11 @@
 //创建新收据
 + (CompanyModel*)createCompanyModel:(ICompanyResult *)iCompany
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
+    LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+    if (!loginUser) {
+        return nil;
+    }
     CompanyModel *company = [loginUser getCompanyModelWithUcid:iCompany.ucid];
     if (!company) {
         company = [CompanyModel MR_createEntityInContext:loginUser.managedObjectContext];

@@ -60,7 +60,9 @@
     
     if (activityType != 0) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-        [loginUser addRsActivityInfosObject:activityInfo];
+        if (loginUser) {
+            [loginUser addRsActivityInfosObject:activityInfo];
+        }
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
@@ -95,7 +97,9 @@
     
     if (activityType != 0) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-        [loginUser addRsActivityInfosObject:activityInfo];
+        if (loginUser) {
+            [loginUser addRsActivityInfosObject:activityInfo];
+        }
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
@@ -167,19 +171,23 @@
 + (NSArray *)allMyActivityInfoWithType:(NSNumber *)activityType
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    //未开始  //0：普通   1：收藏  2：我参加的
-    NSString *serchType = activityType.integerValue == 1 ? @"isfavorite" : @"isjoined";
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@ && %K != %@", @"activeType",activityType,serchType,@(YES),@"rsLoginUser",loginUser,@"status",@(2)];
-    NSArray *unStartArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:YES withPredicate:pre];
-    //已结束
-    NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@ && %K == %@", @"activeType",activityType,serchType,@(YES),@"rsLoginUser",loginUser,@"status",@(2)];
-    NSArray *endArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:NO withPredicate:pre1];
-    
-    NSMutableArray *allArray = [NSMutableArray array];
-    [allArray addObjectsFromArray:unStartArray];
-    [allArray addObjectsFromArray:endArray];
-    
-    return [NSArray arrayWithArray:allArray];
+    if (loginUser) {
+        //未开始  //0：普通   1：收藏  2：我参加的
+        NSString *serchType = activityType.integerValue == 1 ? @"isfavorite" : @"isjoined";
+        NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@ && %K != %@", @"activeType",activityType,serchType,@(YES),@"rsLoginUser",loginUser,@"status",@(2)];
+        NSArray *unStartArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:YES withPredicate:pre];
+        //已结束
+        NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@ && %K == %@", @"activeType",activityType,serchType,@(YES),@"rsLoginUser",loginUser,@"status",@(2)];
+        NSArray *endArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:NO withPredicate:pre1];
+        
+        NSMutableArray *allArray = [NSMutableArray array];
+        [allArray addObjectsFromArray:unStartArray];
+        [allArray addObjectsFromArray:endArray];
+        
+        return [NSArray arrayWithArray:allArray];
+    }else{
+        return [NSArray array];
+    }
 }
 
 //更新收藏状态

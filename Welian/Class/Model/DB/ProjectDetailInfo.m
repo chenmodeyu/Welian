@@ -137,7 +137,9 @@
     if(!detailInfo.rsProjectUser){
         //如果不存在，创建
         ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectDetailInfo.user];
-        detailInfo.rsProjectUser = projectUser;
+        if (projectUser) {
+            detailInfo.rsProjectUser = projectUser;
+        }
     }
     
     //设置领域
@@ -146,7 +148,9 @@
     }
     for (IInvestIndustryModel *investIndustryModel in iProjectDetailInfo.industrys) {
         InvestIndustry *investIndustry = [InvestIndustry createInvestIndustryWith:investIndustryModel];
-        [detailInfo addRsIndustrysObject:investIndustry];
+        if (investIndustry) {
+            [detailInfo addRsIndustrysObject:investIndustry];
+        }
     }
     
     //先删除
@@ -156,7 +160,9 @@
     //设置照片信息
     for (IPhotoInfo *iPhotoInfo in iProjectDetailInfo.photos) {
         PhotoInfos *photoInfo = [PhotoInfos createWithPhoto:iPhotoInfo];
-        [detailInfo addRsPhotoInfosObject:photoInfo];
+        if (photoInfo) {
+            [detailInfo addRsPhotoInfosObject:photoInfo];
+        }
     }
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];

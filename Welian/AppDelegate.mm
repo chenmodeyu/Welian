@@ -415,10 +415,13 @@ BMKMapManager* _mapManager;
         NSDictionary *infoDic = [userInfo objectForKey:@"data"];
         [HomeMessage createHomeMessageProjectModel:infoDic];
         //发现
-        NSInteger badge = [[LogInUser getCurrentLoginUser].homemessagebadge integerValue];
-        badge++;
-        //设置首页
-        [LogInUser setUserHomemessagebadge:@(badge)];
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (loginUser) {
+            NSInteger badge = [loginUser.homemessagebadge integerValue];
+            badge++;
+            //设置首页
+            [LogInUser setUserHomemessagebadge:@(badge)];
+        }
         [KNSNotification postNotificationName:KMessageHomeNotif object:self];
     }else if ([type isEqualToString:@"projectCommand"]){  // 新项目推荐
         //设置有新的项目未查看
@@ -443,8 +446,6 @@ BMKMapManager* _mapManager;
     if (loginUser == nil) {
         return;
     }
-    //判断当前是否已经是好友
-    NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];
     if ([type isEqualToString:@"friendAdd"]) {
         // 别人同意添加我为好友，直接加入好友列表，并改变新的好友里状态为已添加
         [newfrendM setIsAgree:@(1)];
@@ -453,10 +454,14 @@ BMKMapManager* _mapManager;
         
         //创建本地数据库好友
         MyFriendUser *friendUser = [MyFriendUser createMyFriendNewFriendModel:newfrendM LogInUser:loginUser];
-        
+        if (!friendUser) {
+            return;
+        }
         //修改需要添加的用户的状态
         NeedAddUser *needAddUser = [loginUser getNeedAddUserWithUid:friendUser.uid];
-        [needAddUser updateFriendShip:1];
+        if (needAddUser) {
+            [needAddUser updateFriendShip:1];
+        }
         
         //接受后，本地创建一条消息
         WLMessage *textMessage = [[WLMessage alloc] initWithText:[NSString stringWithFormat:@"我已经通过你的好友请求，现在我们可以开始聊聊创业那些事了"] sender:newfrendM.name timestamp:[NSDate date]];
@@ -471,7 +476,9 @@ BMKMapManager* _mapManager;
         
         //本地聊天数据库添加
         ChatMessage *chatMessage = [ChatMessage createChatMessageWithWLMessage:textMessage FriendUser:friendUser];
-        textMessage.msgId = chatMessage.msgId.stringValue;
+        if (chatMessage) {
+            textMessage.msgId = chatMessage.msgId.stringValue;
+        }
         
         //更新聊天消息数量
         [friendUser updateUnReadMessageNumber:@(friendUser.unReadChatMsg.integerValue + 1)];
@@ -511,6 +518,8 @@ BMKMapManager* _mapManager;
             }
         }
         
+        //判断当前是否已经是好友
+        NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];
         if (!([newFriendUser.operateType integerValue]==2)) {
             //不是好友，添加角标
             NSInteger badge = [loginUser.newfriendbadge integerValue];
@@ -751,7 +760,7 @@ BMKMapManager* _mapManager;
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     if (loginUser) {
-        NSString *localMaxChatNum = [ChatMessage getMaxChatMessageId];// [UserDefaults objectForKey:kMaxChatMessageId];
+        NSString *localMaxChatNum = [ChatMessage getMaxChatMessageId];//[UserDefaults objectForKey:kMaxChatMessageId];
         NSString *maxChatNum = localMaxChatNum.length > 0 ? localMaxChatNum : @"0";
         [WLHttpTool getServiceMessagesParameterDic:@{@"type":@(0),@"topid":maxChatNum}//0 聊天消息，1 好友请求
                                            success:^(id JSON) {

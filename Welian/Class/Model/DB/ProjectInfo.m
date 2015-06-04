@@ -49,12 +49,16 @@
     if(!projectInfo.rsProjectUser){
         //如果不存在，创建
         ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectInfo.user];
-        projectInfo.rsProjectUser = projectUser;
+        if (projectUser) {
+            projectInfo.rsProjectUser = projectUser;
+        }
     }
     
     if (type != 0) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-        [loginUser addRsProjectInfosObject:projectInfo];
+        if (loginUser) {
+            [loginUser addRsProjectInfosObject:projectInfo];
+        }
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
@@ -152,6 +156,9 @@
 {
     //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除  other:对应项目集的id
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return [NSArray array];
+    }
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"type",type,@"rsLoginUser",loginUser];
 //    NSArray *all = type.integerValue == 3 ? [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre];
     NSArray *all = (type.integerValue == 1 || type.integerValue == 2) ? [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre];

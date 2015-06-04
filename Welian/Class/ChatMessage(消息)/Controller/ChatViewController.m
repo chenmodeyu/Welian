@@ -730,6 +730,9 @@
     photo = [photo thumbImageWithScaleSize:200];
     
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     WLMessage *photoMessage = [[WLMessage alloc] initWithPhoto:photo thumbnailUrl:nil originPhotoUrl:nil sender:sender timestamp:date];
     photoMessage.avatorUrl = loginUser.avatar;
     photoMessage.sender = loginUser.name;
@@ -1040,6 +1043,9 @@
             DLog(@"聊天 发送好友请求 >>>");
             //发送好友请求
             LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+            if (!loginUser) {
+                return;
+            }
             NSString *msg = [NSString stringWithFormat:@"我是%@的%@",loginUser.company,loginUser.position];
             //    [[alert textFieldAtIndex:0] setText:[NSString stringWithFormat:@"我是%@的%@",mode.company,mode.position]];
             //发送好友请求
@@ -1297,6 +1303,9 @@
     IBaseUserM *userMode = [[IBaseUserM alloc] init];
     //自己发送
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
     if (message.bubbleMessageType == WLBubbleMessageTypeSending) {
 //        userMode.uid = loginUser.uid;
 //        userMode.name = loginUser.name;
