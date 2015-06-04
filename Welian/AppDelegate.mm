@@ -185,7 +185,7 @@ BMKMapManager* _mapManager;
 #pragma mark - 进入主界面
 - (void)enterMainVC {
     
-    if ([UserDefaults objectForKey:kSessionId]) {
+    if ([LogInUser getCurrentLoginUser]) {
         /** 已登陆 */
         self.mainVC = [[MainViewController alloc] init];
         [self.mainVC setDelegate:self];
@@ -538,7 +538,7 @@ BMKMapManager* _mapManager;
     [ChatMessage createReciveMessageWithDict:dataDic];
 }
 
-// 退出登录
+#pragma mark - 退出登录
 - (void)logout
 {
     if ([self.window.rootViewController isKindOfClass:[LoginGuideController class]])

@@ -64,13 +64,42 @@
     }
 }
 
+//#pragma mark - 初始化新特性视图控制器
+//+ (instancetype)newFeatureWithImageName:(NSString *)imageName
+//                             imageCount:(NSInteger)imageCount
+//                            finishBlock:(finishBlock)finishBlock
+//{
+//    // 进入主界面按钮
+//    UIButton *enterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [enterBtn setTitle:@"进入微链2.0" forState:UIControlStateNormal];
+//    [enterBtn setFrame:(CGRect){84.0f, SuperSize.height * 0.85f, SuperSize.width - 2*84.0f, 40.0f}];
+//    enterBtn.titleLabel.font = WLFONT(21);
+//    enterBtn.layer.borderWidth = 1;
+//    enterBtn.layer.masksToBounds = YES;
+//    enterBtn.layer.cornerRadius = 8;
+//    enterBtn.layer.borderColor = [KBlueTextColor CGColor];
+//    [enterBtn setTitleColor:KBlueTextColor forState:UIControlStateNormal];
+//    [enterBtn addTarget:self action:@selector(didClickedBtn) forControlEvents:UIControlEventTouchUpInside];
+//    return [self newFeatureWithImageName:imageName imageCount:imageCount showPageControl:YES enterButton:enterBtn];
+//}
+//
+//#pragma mark - 点击了进入主界面的按钮
+//- (void)didClickedBtn {
+//    if (_finishBlock) {
+//        [self dismissViewControllerAnimated:YES completion:^{
+//            _finishBlock();
+//        }];
+//    }
+//}
+
+
 #pragma mark - 初始化新特性视图控制器
 
 + (instancetype)newFeatureWithImageName:(NSString *)imageName
                              imageCount:(NSInteger)imageCount
                         showPageControl:(BOOL)showPageControl
                             enterButton:(UIButton *)enterButton {
-    
+
     return [[self alloc] initWithImageName:imageName
                                 imageCount:imageCount
                            showPageControl:showPageControl
@@ -127,7 +156,7 @@
 #pragma mark 设置主界面
 
 - (void)setupMainView {
-    
+    [self.view setBackgroundColor:[UIColor redColor]];
     // 默认状态栏样式为黑色
     self.statusBarStyle = LCStatusBarStyleBlack;
     
