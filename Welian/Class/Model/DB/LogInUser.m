@@ -17,6 +17,7 @@
 #import "InvestIndustry.h"
 #import "InvestStages.h"
 #import "InvestItems.h"
+//#import "AppDelegate.h"
 
 @implementation LogInUser
 
@@ -65,6 +66,11 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
+//    if (!loginUser) {
+//        //监听用户退出，还收到消息
+//        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+//        [appDelegate logout];
+//    }
     return loginUser;
 }
 
