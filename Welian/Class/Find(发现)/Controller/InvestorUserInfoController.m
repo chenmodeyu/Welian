@@ -60,7 +60,7 @@
     [invesHeadView setInvestorUserModel:_investorUserM];
     [invesHeadView setUserType:_userType];
     [invesHeadView.mailingBut addTarget:self action:@selector(mailingInvestorClick:) forControlEvents:UIControlEventTouchUpInside];
-    [invesHeadView.agreeBut addTarget:self action:@selector(mailingInvestorClick:) forControlEvents:UIControlEventTouchUpInside];
+    [invesHeadView.agreeBut addTarget:self action:@selector(agreeMailingBPClick:) forControlEvents:UIControlEventTouchUpInside];
     [invesHeadView.rejectBut addTarget:self action:@selector(refusedMailingClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView setTableHeaderView:invesHeadView];
     self.invesHeadView = invesHeadView;
@@ -107,6 +107,12 @@
     [self.navigationController pushViewController:firmInfoVC animated:YES];
 }
 
+- (void)setButEnabled:(BOOL)enabled
+{
+    [self.invesHeadView.agreeBut setEnabled:enabled];
+    [self.invesHeadView.rejectBut setEnabled:enabled];
+}
+
 // 拒绝发送BP
 - (void)refusedMailingClick:(UIButton*)button
 {
@@ -115,15 +121,15 @@
     UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"确定拒绝发送BP？"];
     [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
     [alert bk_addButtonWithTitle:@"拒绝" handler:^{
-        [button setEnabled:NO];
+        [weakSelf setButEnabled:NO];
         [WLHUDView showHUDWithStr:@"" dim:NO];
         [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(1) Success:^(id resultInfo) {
-            [button setEnabled:YES];
+            [weakSelf setButEnabled:YES];
             [WLHUDView hiddenHud];
             [_investorUserM setStatus:@(1)];
             [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
         } Failed:^(NSError *error) {
-            [button setEnabled:YES];
+            [weakSelf setButEnabled:YES];
             [WLHUDView hiddenHud];
         }];
     }];
@@ -131,69 +137,94 @@
 }
 
 
+// 同意
+- (void)agreeMailingBPClick:(UIButton *)button
+{
+    // // 0 未处理， 1 不同意 ，2 同意，3 已发送。 -1 标示只查看投资人
+    WEAKSELF
+    UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"确定同意发送BP？"];
+    [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
+    [alert bk_addButtonWithTitle:@"同意" handler:^{
+        [weakSelf setButEnabled:NO];
+        [WLHUDView showHUDWithStr:@"" dim:NO];
+        [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(2) Success:^(id resultInfo) {
+            [weakSelf setButEnabled:YES];
+            [WLHUDView hiddenHud];
+            [_investorUserM setStatus:@(2)];
+            [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
+        } Failed:^(NSError *error) {
+            [weakSelf setButEnabled:YES];
+            [WLHUDView hiddenHud];
+        }];
+    }];
+    [alert show];
+}
+
 
 // 投递
 - (void)mailingInvestorClick:(UIButton*)button
 {
     WEAKSELF
-    if (_userType == InvestorUserTypeUID) {
-        UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"确定同意发送BP？"];
-        [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
-        [alert bk_addButtonWithTitle:@"同意" handler:^{
+    [button setEnabled:NO];
+    [WLHUDView showHUDWithStr:@"" dim:NO];
+    [WeLianClient getInvestorProjectsListUid:_investorUserM.user.uid Success:^(id resultInfo) {
+        [button setEnabled:YES];
+        [WLHUDView hiddenHud];
+        NSArray *projectArray = [ProjectTouDiModel objectsWithInfo:resultInfo];
+        ProjectsMailingView *projectsMailingView = [[ProjectsMailingView alloc] initWithFrame:[UIScreen mainScreen].bounds andProjects:projectArray];
+        __weak ProjectsMailingView *weakProView = projectsMailingView;
+        projectsMailingView.addProjectBlock = ^(){
+            CreateProjectController *newProjectVC = [[CreateProjectController alloc] initIsEdit:NO withData:nil];
+            [weakSelf.navigationController pushViewController:newProjectVC animated:YES];
+        };
+        projectsMailingView.mailingProBlock = ^(ProjectTouDiModel *touDiModel){
             [button setEnabled:NO];
             [WLHUDView showHUDWithStr:@"" dim:NO];
-            [WeLianClient investorToudiWithPid:_pID Uid:_investorUserM.user.uid Success:^(id resultInfo) {
+            [WeLianClient investorToudiWithPid:touDiModel.pid Uid:_investorUserM.user.uid Success:^(id resultInfo) {
                 [button setEnabled:YES];
                 [WLHUDView hiddenHud];
                 NSInteger receiv = _investorUserM.received.integerValue+1;
                 [_investorUserM setReceived:@(receiv)];
-                [_investorUserM setStatus:@(2)];
                 [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
                 [WLHUDView showSuccessHUD:@"投递成功！"];
+                [weakProView cancelSelfVC];
             } Failed:^(NSError *error) {
                 [button setEnabled:YES];
                 [WLHUDView hiddenHud];
             }];
-        }];
-        [alert show];
-    }else if (_userType == InvestorUserTypeModel){
-        [button setEnabled:NO];
-        [WLHUDView showHUDWithStr:@"" dim:NO];
-        [WeLianClient getInvestorProjectsListUid:_investorUserM.user.uid Success:^(id resultInfo) {
-            [button setEnabled:YES];
-            [WLHUDView hiddenHud];
-            NSArray *projectArray = [ProjectTouDiModel objectsWithInfo:resultInfo];
-            ProjectsMailingView *projectsMailingView = [[ProjectsMailingView alloc] initWithFrame:[UIScreen mainScreen].bounds andProjects:projectArray];
-            __weak ProjectsMailingView *weakProView = projectsMailingView;
-            projectsMailingView.addProjectBlock = ^(){
-                CreateProjectController *newProjectVC = [[CreateProjectController alloc] initIsEdit:NO withData:nil];
-                [weakSelf.navigationController pushViewController:newProjectVC animated:YES];
-            };
-            projectsMailingView.mailingProBlock = ^(ProjectTouDiModel *touDiModel){
-                [button setEnabled:NO];
-                [WLHUDView showHUDWithStr:@"" dim:NO];
-                [WeLianClient investorToudiWithPid:touDiModel.pid Uid:_investorUserM.user.uid Success:^(id resultInfo) {
-                    [button setEnabled:YES];
-                    [WLHUDView hiddenHud];
-                    NSInteger receiv = _investorUserM.received.integerValue+1;
-                    [_investorUserM setReceived:@(receiv)];
-                    [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
-                    [WLHUDView showSuccessHUD:@"投递成功！"];
-                    [weakProView cancelSelfVC];
-                } Failed:^(NSError *error) {
-                    [button setEnabled:YES];
-                    [WLHUDView hiddenHud];
-                }];
+            
+            
+        };
+        [self.view.window addSubview:projectsMailingView];
+        DLog(@"%@",resultInfo);
+    } Failed:^(NSError *error) {
+        [button setEnabled:YES];
+        [WLHUDView hiddenHud];
+    }];
 
-                
-            };
-            [self.view.window addSubview:projectsMailingView];
-            DLog(@"%@",resultInfo);
-        } Failed:^(NSError *error) {
-            [button setEnabled:YES];
-            [WLHUDView hiddenHud];
-        }];
-    }
+//    if (_userType == InvestorUserTypeUID) {
+//        UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"" message:@"确定同意发送BP？"];
+//        [alert bk_setCancelButtonWithTitle:@"取消" handler:nil];
+//        [alert bk_addButtonWithTitle:@"同意" handler:^{
+//            [button setEnabled:NO];
+//            [WLHUDView showHUDWithStr:@"" dim:NO];
+//            [WeLianClient investorToudiWithPid:_pID Uid:_investorUserM.user.uid Success:^(id resultInfo) {
+//                [button setEnabled:YES];
+//                [WLHUDView hiddenHud];
+//                NSInteger receiv = _investorUserM.received.integerValue+1;
+//                [_investorUserM setReceived:@(receiv)];
+//                [_investorUserM setStatus:@(2)];
+//                [weakSelf.invesHeadView setInvestorUserModel:_investorUserM];
+//                [WLHUDView showSuccessHUD:@"投递成功！"];
+//            } Failed:^(NSError *error) {
+//                [button setEnabled:YES];
+//                [WLHUDView hiddenHud];
+//            }];
+//        }];
+//        [alert show];
+//    }else if (_userType == InvestorUserTypeModel){
+//    
+//    }
     
 
 }

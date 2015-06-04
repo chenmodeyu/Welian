@@ -61,7 +61,7 @@
   
   if (!isFromCache && _isAnimated) {
     CATransition *animation = [CATransition animation];
-    [animation setDuration:0.65f];
+    [animation setDuration:0.15f];
     [animation setType:kCATransitionFade];
     animation.removedOnCompletion = YES;
     [self.layer addAnimation:animation forKey:@"transition"];

@@ -26,7 +26,7 @@ NSString * const kCellIdentifier = @"ReuseCellIdentifier";
   if (self = [super initWithFrame:frame]) {
     self.imageView = [[HYBLoadImageView alloc] init];
     [self addSubview:self.imageView];
-    
+      [self.imageView setAnimated:NO];
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     self.titleLabel.hidden = YES;
