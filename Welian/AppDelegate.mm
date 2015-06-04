@@ -368,15 +368,17 @@ BMKMapManager* _mapManager;
     NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithDictionary:[userInfo objectForKey:@"data"]];
     [dataDic setObject:type forKey:@"type"];
     
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     if ([type isEqualToString:@"feedZan"]||[type isEqualToString:@"feedComment"]||[type isEqualToString:@"feedForward"]) {     // 动态消息推送
-
-        [HomeMessage createHomeMessageModel:[MessageHomeModel objectWithDict:dataDic]];
-        NSInteger badge = [[LogInUser getCurrentLoginUser].homemessagebadge integerValue];
-        badge++;
-        [LogInUser setUserHomemessagebadge:@(badge)];
-//        [UserDefaults setObject:[NSString stringWithFormat:@"%d",badge] forKey:KMessagebadge];
-        [KNSNotification postNotificationName:KMessageHomeNotif object:self];
-        
+        if(loginUser){
+            //添加消息数据
+            [HomeMessage createHomeMessageModel:[MessageHomeModel objectWithDict:dataDic]];
+            NSInteger badge = [loginUser.homemessagebadge integerValue];
+            badge++;
+            [LogInUser setUserHomemessagebadge:@(badge)];
+            //        [UserDefaults setObject:[NSString stringWithFormat:@"%d",badge] forKey:KMessagebadge];
+            [KNSNotification postNotificationName:KMessageHomeNotif object:self];
+        }
     }else if([type isEqualToString:@"friendRequest"]||[type isEqualToString:@"friendAdd"]||[type isEqualToString:@"friendCommand"]){
         /*
          data =     {
@@ -390,43 +392,53 @@ BMKMapManager* _mapManager;
          };
          type = friendRequest;
          */
-        // 好友消息推送
-        [self getNewFriendMessage:dataDic LoginUserId:nil];
+        if(loginUser){
+            // 好友消息推送
+            [self getNewFriendMessage:dataDic LoginUserId:nil];
+        }
         // 振动和声音提示
 //        [[MsgPlaySound sharedMsgPlaySound] playSystemShakeAndSoundWithName:@"1"];
     }else if([type isEqualToString:@"IM"]){
-        //接收的聊天消息
-        [self getIMGTMessage:userInfo[@"data"]];
+        if (loginUser) {
+            //接收的聊天消息
+            [self getIMGTMessage:userInfo[@"data"]];
+        }
         // 振动和声音提示
 //        [[MsgPlaySound sharedMsgPlaySound] playSystemShakeAndSoundWithName:@"1"];
     } else if ([type isEqualToString:@"logout"]){
         // 退出登录
         [self logout];
     }else if ([type isEqualToString:@"activeCommand"]){  // 活动推荐
-        
-        [LogInUser setUserIsactivebadge:YES];
-        [KNSNotification postNotificationName:KNewactivitNotif object:self];
+        if (loginUser) {
+            [LogInUser setUserIsactivebadge:YES];
+            [KNSNotification postNotificationName:KNewactivitNotif object:self];
+        }
     }else if ([type isEqualToString:@"investorResult"]){  // 后台认证投资人
-        
-        [LogInUser setUserinvestorauth:[dataDic objectForKey:@"state"]];
-        [LogInUser setUserIsinvestorbadge:YES];
-        [KNSNotification postNotificationName:KInvestorstateNotif object:self];
+        if (loginUser) {
+            [LogInUser setUserinvestorauth:[dataDic objectForKey:@"state"]];
+            [LogInUser setUserIsinvestorbadge:YES];
+            [KNSNotification postNotificationName:KInvestorstateNotif object:self];
+        }
     }else if ([type isEqualToString:@"projectComment"]){  // 项目评论
         NSDictionary *infoDic = [userInfo objectForKey:@"data"];
-        [HomeMessage createHomeMessageProjectModel:infoDic];
-        //发现
-        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
         if (loginUser) {
-            NSInteger badge = [loginUser.homemessagebadge integerValue];
-            badge++;
-            //设置首页
-            [LogInUser setUserHomemessagebadge:@(badge)];
+            [HomeMessage createHomeMessageProjectModel:infoDic];
+            //发现
+            LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+            if (loginUser) {
+                NSInteger badge = [loginUser.homemessagebadge integerValue];
+                badge++;
+                //设置首页
+                [LogInUser setUserHomemessagebadge:@(badge)];
+            }
+            [KNSNotification postNotificationName:KMessageHomeNotif object:self];
         }
-        [KNSNotification postNotificationName:KMessageHomeNotif object:self];
     }else if ([type isEqualToString:@"projectCommand"]){  // 新项目推荐
-        //设置有新的项目未查看
-        [LogInUser setUserIsProjectBadge:YES];
-        [KNSNotification postNotificationName:KProjectstateNotif object:self];
+        if (loginUser) {
+            //设置有新的项目未查看
+            [LogInUser setUserIsProjectBadge:YES];
+            [KNSNotification postNotificationName:KProjectstateNotif object:self];
+        }
     }
 }
 
