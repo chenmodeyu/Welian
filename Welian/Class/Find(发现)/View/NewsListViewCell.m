@@ -122,7 +122,7 @@
     
     //标题
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.textColor = kTitleNormalTextColor;
+    titleLabel.textColor = [UIColor blackColor];//kTitleNormalTextColor;
     titleLabel.font = WLFONT(18);
     titleLabel.text = @"";
     titleLabel.numberOfLines = 2.f;
