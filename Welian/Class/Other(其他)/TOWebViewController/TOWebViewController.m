@@ -163,6 +163,8 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 /* See if we need to revert the navigation bar to 'hidden' when we pop from a navigation controller */
 @property (nonatomic,assign) BOOL hideNavBarOnClose;
 
+@property (nonatomic,strong) NSString *shareTitle;//分享的标题
+
 /* Perform all common setup steps */
 - (void)setup;
 
@@ -236,6 +238,11 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 {
     if (self = [self init]){
         _url = [self cleanURL:url];
+        NSRange range = [self.url.relativeString rangeOfString:@"toutiao"];
+        if (range.length > 0 ) {
+            self.isTouTiao = YES;
+//            self.title = @"";
+        }
 //        NSRange range = [url.relativeString rangeOfString:@"toutiao"];
 //        if (range.length > 0 ) {
 //            self.isTouTiao = YES;
@@ -790,18 +797,23 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
     [self handleLoadRequestCompletion];
     [self refreshButtonsState];
 
-    NSRange range = [self.url.relativeString rangeOfString:@"toutiao"];
-    if (range.length > 0 ) {
-        self.isTouTiao = YES;
-    }
-    
     //see if we can set the proper page title at this point
-    if (self.showPageTitles)
+    self.shareTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
+//    NSRange range = [self.url.relativeString rangeOfString:@"toutiao"];
+//    if (range.length > 0 ) {
+//        self.isTouTiao = YES;
+//        self.title = @"";
+//    }
+    
+    if (self.showPageTitles && !_isTouTiao)
         self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     
-    if ([[self.webView stringByEvaluatingJavaScriptFromString:@"document.title"] length] > 0 && self.showRightShareBtn) {
+    if (self.shareTitle.length > 0 && self.showRightShareBtn) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more"] style:UIBarButtonItemStyleBordered target:self action:@selector(shareBtnClicked)];
     }
+    
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -814,14 +826,13 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 #pragma mark - 分享
 - (void)shareBtnClicked
 {
-    NSString *titleStr = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     WLActivityView  *shareView = [[WLActivityView alloc] initWithOneSectionArray:@[@(ShareTypeWLFriend),@(ShareTypeWLCircle),@(ShareTypeWeixinFriend),@(ShareTypeWeixinCircle)] andTwoArray:nil];
     [shareView show];
     CardStatuModel *newCardM = [[CardStatuModel alloc] init];
     newCardM.cid = @(0);
     newCardM.type = @(11);//网页类型
     newCardM.url = self.url.relativeString;
-    newCardM.title = titleStr;
+    newCardM.title = _shareTitle;//self.title;
     NSString *bodyStr = [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.innerText"];
     newCardM.intro = bodyStr.length > 50 ? [bodyStr substringToIndex:50] : bodyStr;
     
@@ -836,7 +847,7 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
             case ShareTypeWLFriend://微链好友
             {
                 if (self.isTouTiao) {
-                    newCardM.title = [NSString stringWithFormat:@"创业头条 | %@",titleStr];
+                    newCardM.title = [NSString stringWithFormat:@"创业头条 | %@",_shareTitle];
                 }
                 ShareFriendsController *shareFVC = [[ShareFriendsController alloc] init];
                 shareFVC.cardM = newCardM;
@@ -856,7 +867,7 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
             case ShareTypeWLCircle://微链创业圈
             {
                 if (self.isTouTiao) {
-                    newCardM.title = [NSString stringWithFormat:@"创业头条 | %@",titleStr];
+                    newCardM.title = [NSString stringWithFormat:@"创业头条 | %@",_shareTitle];
                 }
                 PublishStatusController *publishShareVC = [[PublishStatusController alloc] initWithType:PublishTypeForward];
                 publishShareVC.statusCard = newCardM;
@@ -872,13 +883,13 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
             case ShareTypeWeixinFriend://微信好友
                 if (self.isTouTiao) {
                     newCardM.title = @"微链创业头条";
-                    newCardM.intro = titleStr;
+                    newCardM.intro = _shareTitle;//self.title;
                 }
                 [weakSelf shareToWX:weChat card:newCardM];
                 break;
             case ShareTypeWeixinCircle://微信朋友圈
                 if (self.isTouTiao) {
-                    newCardM.title = [NSString stringWithFormat:@"微链创业头条 | %@",titleStr];
+                    newCardM.title = [NSString stringWithFormat:@"微链创业头条 | %@",_shareTitle];
                 }
                 [weakSelf shareToWX:weChatFriend card:newCardM];
                 break;
@@ -1213,11 +1224,11 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         
         //set the title to the URL until we load the page properly
-        if (self.showPageTitles && self.showUrlWhileLoading) {
+        if (self.showPageTitles && !_isTouTiao && self.showUrlWhileLoading) {
             NSString *url = [self.url absoluteString];
             url = [url stringByReplacingOccurrencesOfString:@"http://" withString:@""];
             url = [url stringByReplacingOccurrencesOfString:@"https://" withString:@""];
-            self.title = url;
+            self.title = @"";// url;
         } 
         
         if (self.reloadStopButton)
@@ -1243,7 +1254,8 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
     [self setLoadingProgress:1.0f];
     
     //in case it didn't succeed yet, try setting the page title again
-    if (self.showPageTitles)
+    self.shareTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    if (self.showPageTitles && !_isTouTiao)
         self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     
     if (self.reloadStopButton)
@@ -1306,7 +1318,8 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
         [self.webView stringByEvaluatingJavaScriptFromString:waitForCompleteJS];
         
         //see if we can set the proper page title yet
-        if (self.showPageTitles)
+        self.shareTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+        if (self.showPageTitles && !_isTouTiao)
             self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
         
         //if we're matching the view BG to the web view, update the background colour now
