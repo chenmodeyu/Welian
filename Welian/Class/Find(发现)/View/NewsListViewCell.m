@@ -123,7 +123,7 @@
     //标题
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.textColor = kTitleNormalTextColor;
-    titleLabel.font = kNormal16Font;
+    titleLabel.font = WLFONT(18);
     titleLabel.text = @"";
     titleLabel.numberOfLines = 2.f;
     [cardView addSubview:titleLabel];
@@ -139,7 +139,7 @@
     //简介
     UILabel *detailLabel = [[UILabel alloc] init];
     detailLabel.textColor = kTitleTextColor;
-    detailLabel.font = kNormal12Font;
+    detailLabel.font = kNormal14Font;
     detailLabel.text = @"";
     detailLabel.numberOfLines = 2.f;
     [cardView addSubview:detailLabel];
@@ -172,8 +172,8 @@
     NSString *titleStr = newInfo.title;
     NSString *detailStr = newInfo.intro;
     //计算第一个label的高度
-    CGSize size1 = [titleStr calculateSize:CGSizeMake(maxWidth, 40.f) font:kNormal16Font];
-    CGSize size2 = [detailStr calculateSize:CGSizeMake(maxWidth, 30.f) font:kNormal12Font];
+    CGSize size1 = [titleStr calculateSize:CGSizeMake(maxWidth, 44.f) font:WLFONT(18)];
+    CGSize size2 = [detailStr calculateSize:CGSizeMake(maxWidth, 35.f) font:kNormal14Font];
     
     CGFloat titleHeight = (titleStr.length > 0 ? (size1.height + kTitleMarginEdge * 2.f) : kTitleMarginEdge);
     CGFloat detailHeight = (detailStr.length > 0 ? (size2.height + kDetailMarginEdge * 2.f) : kDetailMarginEdge);
