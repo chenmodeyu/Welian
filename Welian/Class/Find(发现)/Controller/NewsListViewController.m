@@ -127,7 +127,7 @@
     webVC.navigationButtonsHidden = NO;//隐藏底部操作栏目
     webVC.showRightShareBtn = YES;//现实右上角分享按钮
     webVC.isTouTiao = YES;
-    webVC.showPageTitles = NO;//隐藏标题
+//    webVC.showPageTitles = NO;//隐藏标题
     [self.navigationController pushViewController:webVC animated:YES];
 }
 
