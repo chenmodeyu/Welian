@@ -14,7 +14,7 @@
 
 // 服务器地址
 //测试环境
-#define WLHttpTestServer  @"http://test.welian.com:8080"
+#define WLHttpTestServer  @"http://test.welian.com:8091"
 //#define WLHttpServer @"http://test.welian.com:8080"
 //正式环境
 #define WLHttpServer @"http://sev.welian.com:80"

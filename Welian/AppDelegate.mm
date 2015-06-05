@@ -547,6 +547,8 @@ BMKMapManager* _mapManager;
 {
     if ([self.window.rootViewController isKindOfClass:[LoginGuideController class]])
         return;
+    if ([self.window.rootViewController isKindOfClass:[LCNewFeatureVC class]])
+        return;
     [self.window setRootViewController:[[LoginGuideController alloc] init]];
     [[[UIAlertView alloc] initWithTitle:@"提示" message:@"您的账号长时间未登录或在其他设备上登录"  delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
     if ([LogInUser getCurrentLoginUser]) {

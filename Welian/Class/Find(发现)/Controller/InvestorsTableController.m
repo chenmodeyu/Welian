@@ -247,7 +247,11 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
     [self.tableView addLegendFooterWithRefreshingBlock:^{
         [weakSelf httpGetMoreInvestorlist];
     }];
-    [self.tableView.header beginRefreshing];
+    if (_dataArray.count) {
+        [self httpGetInvestorlist];
+    }else{
+        [self.tableView.header beginRefreshing];
+    }
     [self.tableView.footer setHidden:YES];
 
     if (invType == InvestorsTypeOrganization){
