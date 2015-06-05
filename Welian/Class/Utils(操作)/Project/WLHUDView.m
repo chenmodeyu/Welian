@@ -56,7 +56,7 @@ MBProgressHUD *HUD;
 
 + (MBProgressHUD*)showHUDWithStr:(NSString*)title dim:(BOOL)dim
 {
-    [self hiddenHud];
+//    [self hiddenHud];
     HUD = [MBProgressHUD showHUDAddedTo:[self window] animated:YES];
     [HUD setUserInteractionEnabled:dim];
     [HUD setLabelText:title];

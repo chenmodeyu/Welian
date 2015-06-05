@@ -234,9 +234,17 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 
 - (instancetype)initWithURL:(NSURL *)url
 {
-    if (self = [self init])
+    if (self = [self init]){
         _url = [self cleanURL:url];
-    
+//        NSRange range = [url.relativeString rangeOfString:@"toutiao"];
+//        if (range.length > 0 ) {
+//            self.isTouTiao = YES;
+//            _showPageTitles = NO;
+//            self.title = @"创业头条";
+//        }else{
+//            _showPageTitles = YES;
+//        }
+    }
     return self;
 }
 
@@ -265,7 +273,6 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
     _showLoadingBar   = YES;
     _showUrlWhileLoading = YES;
     _showPageTitles   = YES;
-    
     _isTouTiao = NO;
     
     //Set the initial default style as full screen (But this can be easily overridden)
@@ -613,7 +620,6 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 {
     if (self.url == url)
         return;
-    
     _url = [self cleanURL:url];
     
     if (self.webView.loading)
@@ -784,11 +790,16 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
     [self handleLoadRequestCompletion];
     [self refreshButtonsState];
 
+    NSRange range = [self.url.relativeString rangeOfString:@"toutiao"];
+    if (range.length > 0 ) {
+        self.isTouTiao = YES;
+    }
+    
     //see if we can set the proper page title at this point
     if (self.showPageTitles)
         self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     
-    if (self.title.length > 0 && self.showRightShareBtn) {
+    if ([[self.webView stringByEvaluatingJavaScriptFromString:@"document.title"] length] > 0 && self.showRightShareBtn) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more"] style:UIBarButtonItemStyleBordered target:self action:@selector(shareBtnClicked)];
     }
 }
@@ -803,13 +814,14 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 #pragma mark - 分享
 - (void)shareBtnClicked
 {
+    NSString *titleStr = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     WLActivityView  *shareView = [[WLActivityView alloc] initWithOneSectionArray:@[@(ShareTypeWLFriend),@(ShareTypeWLCircle),@(ShareTypeWeixinFriend),@(ShareTypeWeixinCircle)] andTwoArray:nil];
     [shareView show];
     CardStatuModel *newCardM = [[CardStatuModel alloc] init];
     newCardM.cid = @(0);
     newCardM.type = @(11);//网页类型
     newCardM.url = self.url.relativeString;
-    newCardM.title = self.title;
+    newCardM.title = titleStr;
     NSString *bodyStr = [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.innerText"];
     newCardM.intro = bodyStr.length > 50 ? [bodyStr substringToIndex:50] : bodyStr;
     
@@ -824,7 +836,7 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
             case ShareTypeWLFriend://微链好友
             {
                 if (self.isTouTiao) {
-                    newCardM.title = [NSString stringWithFormat:@"创业头条 | %@",self.title];
+                    newCardM.title = [NSString stringWithFormat:@"创业头条 | %@",titleStr];
                 }
                 ShareFriendsController *shareFVC = [[ShareFriendsController alloc] init];
                 shareFVC.cardM = newCardM;
@@ -844,7 +856,7 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
             case ShareTypeWLCircle://微链创业圈
             {
                 if (self.isTouTiao) {
-                    newCardM.title = [NSString stringWithFormat:@"创业头条 | %@",self.title];
+                    newCardM.title = [NSString stringWithFormat:@"创业头条 | %@",titleStr];
                 }
                 PublishStatusController *publishShareVC = [[PublishStatusController alloc] initWithType:PublishTypeForward];
                 publishShareVC.statusCard = newCardM;
@@ -860,13 +872,13 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
             case ShareTypeWeixinFriend://微信好友
                 if (self.isTouTiao) {
                     newCardM.title = @"微链创业头条";
-                    newCardM.intro = self.title;
+                    newCardM.intro = titleStr;
                 }
                 [weakSelf shareToWX:weChat card:newCardM];
                 break;
             case ShareTypeWeixinCircle://微信朋友圈
                 if (self.isTouTiao) {
-                    newCardM.title = [NSString stringWithFormat:@"微链创业头条 | %@",self.title];
+                    newCardM.title = [NSString stringWithFormat:@"微链创业头条 | %@",titleStr];
                 }
                 [weakSelf shareToWX:weChatFriend card:newCardM];
                 break;

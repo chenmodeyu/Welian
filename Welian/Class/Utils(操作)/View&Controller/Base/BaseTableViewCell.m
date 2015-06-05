@@ -27,7 +27,7 @@
         
         //cell下面的分割线
         UIView *bottomLineView = [[UIView alloc] init];
-        bottomLineView.backgroundColor = RGB(231.f, 231.f, 231.f);
+        bottomLineView.backgroundColor = KBgGrayColor;
         [self addSubview:bottomLineView];
         self.bottomLineView = bottomLineView;
     }

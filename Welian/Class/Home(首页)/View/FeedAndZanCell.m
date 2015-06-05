@@ -22,8 +22,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _feedAndZanView = [[FeedAndZanView alloc] init];
-        [self.contentView addSubview:_feedAndZanView];
-        
+        [self.contentView insertSubview:_feedAndZanView belowSubview:self.bottomLineView];
+        [self.bottomLineView setHidden:NO];
     }
     return self;
 }

@@ -13,6 +13,7 @@
 {
     //    /** 内容 */
     WLContentCellView *_contentView;
+    UIView *_lineView;
 }
 @end
 
@@ -43,6 +44,11 @@
             }
         };
         [self addSubview:_contentView];
+        UIView *lineView = [[UIView alloc] init];
+        [lineView setBackgroundColor:KBgGrayColor];
+        lineView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin;
+        [self addSubview:lineView];
+        _lineView = lineView;
     }
     return self;
 }
@@ -60,6 +66,7 @@
     
     [_contentView setCommentFrame:commHeadFrame];
     [_contentView setFrame:CGRectMake(0, 60, [UIScreen mainScreen].bounds.size.width, contenFrame.cellHeight)];
+    [_lineView setFrame:CGRectMake(0, commHeadFrame.cellHigh-0.5, SuperSize.width, 0.5)];
     [_contentView setHomeVC:self.homeVC];
 }
 

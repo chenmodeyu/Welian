@@ -46,8 +46,11 @@
 - (void)setAsset:(ALAsset *)asset{
     if (_asset != asset) {
         _asset = asset;
-        
-        self.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
+// [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage] scale:1.0 orientation:UIImageOrientationUp];
+   self.image =  [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage
+                            scale:asset.defaultRepresentation.scale
+                      orientation:(UIImageOrientation)asset.defaultRepresentation.orientation];
+//     self.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
     }
 }
 
@@ -72,7 +75,7 @@
         self.imageView.image = image;
         
         [self.scrollView setMinimumZoomScale:initialZoom];
-        [self.scrollView setMaximumZoomScale:5];
+        [self.scrollView setMaximumZoomScale:9];
         [self.scrollView setZoomScale:1.0];
     }
 }

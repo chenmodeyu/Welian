@@ -59,7 +59,6 @@
 //    [scrollView setDelegate:self];
     scrollView.dataSource           = self.dataSource;
     scrollView.index                = self.pageIndex;
-    
     self.view = scrollView;
 }
 
