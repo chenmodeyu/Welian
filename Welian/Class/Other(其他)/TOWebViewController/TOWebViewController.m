@@ -236,9 +236,17 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 
 - (instancetype)initWithURL:(NSURL *)url
 {
-    if (self = [self init])
+    if (self = [self init]){
         _url = [self cleanURL:url];
-    
+//        NSRange range = [url.relativeString rangeOfString:@"toutiao"];
+//        if (range.length > 0 ) {
+//            self.isTouTiao = YES;
+//            _showPageTitles = NO;
+//            self.title = @"创业头条";
+//        }else{
+//            _showPageTitles = YES;
+//        }
+    }
     return self;
 }
 
@@ -267,7 +275,6 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
     _showLoadingBar   = YES;
     _showUrlWhileLoading = YES;
     _showPageTitles   = YES;
-    
     _isTouTiao = NO;
     
     //Set the initial default style as full screen (But this can be easily overridden)
@@ -615,7 +622,6 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 {
     if (self.url == url)
         return;
-    
     _url = [self cleanURL:url];
     
     if (self.webView.loading)
@@ -786,6 +792,11 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
     [self handleLoadRequestCompletion];
     [self refreshButtonsState];
 
+    NSRange range = [self.url.relativeString rangeOfString:@"toutiao"];
+    if (range.length > 0 ) {
+        self.isTouTiao = YES;
+    }
+    
     //see if we can set the proper page title at this point
     self.shareTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     if (self.showPageTitles)
@@ -806,6 +817,7 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
 #pragma mark - 分享
 - (void)shareBtnClicked
 {
+    NSString *titleStr = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     WLActivityView  *shareView = [[WLActivityView alloc] initWithOneSectionArray:@[@(ShareTypeWLFriend),@(ShareTypeWLCircle),@(ShareTypeWeixinFriend),@(ShareTypeWeixinCircle)] andTwoArray:nil];
     [shareView show];
     CardStatuModel *newCardM = [[CardStatuModel alloc] init];

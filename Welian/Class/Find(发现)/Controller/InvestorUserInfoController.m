@@ -122,7 +122,7 @@
     [WeLianClient investorNoToudiWithUid:_investorUserM.user.uid Pid:_pID status:@(status) Success:^(id resultInfo) {
         [self setButEnabled:YES];
         [WLHUDView hiddenHud];
-        [_investorUserM setStatus:@(1)];
+        [_investorUserM setStatus:@(status)];
         [self.invesHeadView setInvestorUserModel:_investorUserM];
     } Failed:^(NSError *error) {
         [self setButEnabled:YES];

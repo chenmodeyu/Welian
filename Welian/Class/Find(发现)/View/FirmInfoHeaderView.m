@@ -114,10 +114,11 @@
         [_industryStrLabel setFrame:CGRectZero];
         _industryStrLabel.top = _stageStrLabel.bottom;
     }
-    CGRect backgFrame = CGRectMake(0, 0, SuperSize.width, _industryStrLabel.bottom+ImageX);
+    CGRect backgFrame = CGRectMake(-3, 0, SuperSize.width+3, _industryStrLabel.bottom+ImageX);
     [_backgImage setFrame:backgFrame];
     [_logoImage sd_setImageWithURL:[NSURL URLWithString:touziJiGouM.logo] placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [_backgImage setImage:[image applyLightEffect]];
+//            [_backgImage setImage:image];
     }];
 }
 

@@ -123,8 +123,8 @@ static NSString *noCommentCell = @"NoCommentCell";
 {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-50) style:UITableViewStyleGrouped];
-        [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-        [_tableView setSeparatorInset:UIEdgeInsetsZero];
+        [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+//        [_tableView setSeparatorInset:UIEdgeInsetsZero];
         [_tableView setBackgroundColor:[UIColor whiteColor]];
         [_tableView setDataSource:self];
         [_tableView setDelegate:self];
@@ -465,6 +465,7 @@ static NSString *noCommentCell = @"NoCommentCell";
                 CommentCell *cell = [CommentCell cellWithTableView:tableView];
                 // 传递的模型：文字数据 + 子控件frame数据
                 cell.commentCellFrame = _dataArrayM[indexPath.row-1];
+                cell.showBottomLine = YES;
                 cell.commentVC = self;
                 return cell;
                 

@@ -98,7 +98,7 @@
     
     //cell下面的分割线
     _bottomLineView = [[UIView alloc] init];
-    _bottomLineView.backgroundColor = RGB(231.f, 231.f, 231.f);
+    _bottomLineView.backgroundColor = KBgGrayColor;
     [self.contentView addSubview:_bottomLineView];
 }
 
@@ -148,7 +148,7 @@
  
     if (_showBottomLine) {
         //最下面的线
-        _bottomLineView.frame = CGRectMake(_nameLabel.left, commentCellFrame.cellHeight - 0.8, SuperSize.width - _nameLabel.left, 0.8);
+        _bottomLineView.frame = CGRectMake(_nameLabel.left, commentCellFrame.cellHeight - 0.5, SuperSize.width - _nameLabel.left, 0.5);
     }
 }
 

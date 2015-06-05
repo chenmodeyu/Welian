@@ -147,7 +147,6 @@ NSString * const CTAssetScrollViewTappedNotification = @"CTAssetScrollViewTapped
         
         // reset our zoomScale to 1.0 before doing any further calculations
         self.zoomScale = 1.0;
-        
         // make a new UIImageView for the new image
         self.imageView = [[UIImageView alloc] initWithImage:image];
         
@@ -180,10 +179,10 @@ NSString * const CTAssetScrollViewTappedNotification = @"CTAssetScrollViewTapped
     CGFloat yScale = boundsSize.height / self.imageSize.height;   // the scale needed to perfectly fit the image height-wise
     
     CGFloat minScale = MIN(xScale, yScale);
-    CGFloat maxScale = 2.0 * minScale;
+    CGFloat maxScale = 9.0 * minScale;
     
     self.minimumZoomScale = minScale;
-    self.maximumZoomScale = maxScale;
+    self.maximumZoomScale = self.imageSize.width/boundsSize.width;
 }
 
 

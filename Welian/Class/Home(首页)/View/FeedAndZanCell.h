@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 chuansongmen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewCell.h"
 #import "FeedAndZanFrameM.h"
 
-@interface FeedAndZanCell : UITableViewCell
+@interface FeedAndZanCell : BaseTableViewCell
 
 @property (nonatomic, strong) FeedAndZanFrameM *feedAndZanFrame;
 
