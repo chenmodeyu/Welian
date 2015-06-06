@@ -92,8 +92,13 @@
     // 隐藏当前的上拉刷新控件
     _tableView.footer.hidden = YES;
     
-    //初始化数据
-    [_tableView.header beginRefreshing];
+    if (_datasource.count > 0) {
+        //默认加载数据
+        [self loadNewDataInfo];
+    }else{
+        //下拉刷新数据
+        [_tableView.header beginRefreshing];
+    }
 }
 
 #pragma mark - UITableView Datasource&Delegate
