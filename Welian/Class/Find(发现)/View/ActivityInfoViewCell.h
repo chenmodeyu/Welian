@@ -14,6 +14,7 @@ typedef void(^ActivityDetailInfoBlock)(void);
 
 @property (strong,nonatomic) ActivityDetailInfoBlock block;
 @property (assign,nonatomic) UITextView *detailTextView;
+@property (assign,nonatomic) UIButton *detailBtn;
 
 
 //返回cell的高度

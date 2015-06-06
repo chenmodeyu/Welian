@@ -30,6 +30,7 @@
 
 //创建项目
 + (void)createProjectInfoWith:(IProjectInfo *)iProjectInfo withType:(NSNumber *)type;
++ (ProjectInfo *)createProjectInfosWith:(IProjectDetailInfo *)iProjectDetailInfo withType:(NSNumber *)type;
 //获取项目
 + (ProjectInfo *)getProjectInfoWithPid:(NSNumber *)pid Type:(NSNumber *)type;
 

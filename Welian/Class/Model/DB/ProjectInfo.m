@@ -63,6 +63,43 @@
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
++ (ProjectInfo *)createProjectInfosWith:(IProjectDetailInfo *)iProjectDetailInfo withType:(NSNumber *)type
+{
+    ProjectInfo *projectInfo = [self getProjectInfoWithPid:iProjectDetailInfo.pid Type:type];
+    if (!projectInfo) {
+        projectInfo = [ProjectInfo MR_createEntity];
+    }
+    projectInfo.pid = iProjectDetailInfo.pid;
+    projectInfo.name = iProjectDetailInfo.name;
+    projectInfo.intro = iProjectDetailInfo.intro;
+    projectInfo.des = iProjectDetailInfo.des;
+    projectInfo.date = iProjectDetailInfo.date;
+    projectInfo.membercount = iProjectDetailInfo.membercount;
+    projectInfo.commentcount = iProjectDetailInfo.commentcount;
+    projectInfo.status = iProjectDetailInfo.status;
+    projectInfo.zancount = iProjectDetailInfo.zancount;
+    projectInfo.iszan = iProjectDetailInfo.iszan;
+    projectInfo.industrys = [iProjectDetailInfo displayIndustrys];
+    projectInfo.type = type;
+    //设置用户
+    if(!projectInfo.rsProjectUser){
+        //如果不存在，创建
+        ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectDetailInfo.user];
+        if (projectUser) {
+            projectInfo.rsProjectUser = projectUser;
+        }
+    }
+    
+    if (type != 0) {
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (loginUser) {
+            [loginUser addRsProjectInfosObject:projectInfo];
+        }
+    }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    return projectInfo;
+}
+
 //获取项目
 + (ProjectInfo *)getProjectInfoWithPid:(NSNumber *)pid Type:(NSNumber *)type
 {

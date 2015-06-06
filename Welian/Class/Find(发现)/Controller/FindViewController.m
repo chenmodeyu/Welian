@@ -157,14 +157,32 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
             break;
         case 1:
         {
-            ProjectDetailsViewController *projectVc = [[ProjectDetailsViewController alloc] initWithProjectPid:bannerM.bid];
-            [self.navigationController pushViewController:projectVc animated:YES];
+            //查询数据库是否存在
+            ProjectInfo *projectInfo = [ProjectInfo getProjectInfoWithPid:bannerM.bid Type:@(0)];
+            ProjectDetailsViewController *projectDetailVC = nil;
+            if (projectInfo) {
+                projectDetailVC = [[ProjectDetailsViewController alloc] initWithProjectInfo:projectInfo];
+            }else{
+                projectDetailVC = [[ProjectDetailsViewController alloc] initWithProjectPid:bannerM.bid];
+            }
+            if (projectDetailVC) {
+                [self.navigationController pushViewController:projectDetailVC animated:YES];
+            }
         }
             break;
         case 2:
         {
-            ActivityDetailInfoViewController *activityInfoVC = [[ActivityDetailInfoViewController alloc] initWIthActivityId:bannerM.bid];
-            [self.navigationController pushViewController:activityInfoVC animated:YES];
+            //0：普通   1：收藏  2：我参加的   -1：已经删除的活动
+            ActivityInfo *activityInfo = [ActivityInfo getActivityInfoWithActiveId:bannerM.bid Type:@(0)];
+            ActivityDetailInfoViewController *activityInfoVC = nil;
+            if(activityInfo){
+                activityInfoVC = [[ActivityDetailInfoViewController alloc] initWithActivityInfo:activityInfo];
+            }else{
+                activityInfoVC = [[ActivityDetailInfoViewController alloc] initWIthActivityId:bannerM.bid];
+            }
+            if (activityInfoVC) {
+                [self.navigationController pushViewController:activityInfoVC animated:YES];
+            }
         }
             break;
         case 3:
