@@ -152,6 +152,12 @@
         //有就把数据添加进去
         if ([headerKeys containsObject:project.date]) {
             [tempFroGroup addObject:project];
+            //对每组内容排序 // 降序  // 10 --> 0
+            if(tempFroGroup.count > 1){
+                [tempFroGroup sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                    return [[obj1 pid] integerValue] < [[obj2 pid] integerValue];
+                }];
+            }
             if (checkValueAtIndex == NO) {
                 [arrayForArrays addObject:tempFroGroup];
                 checkValueAtIndex = YES;
