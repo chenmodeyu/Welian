@@ -46,6 +46,9 @@
         
         [loginUser addRsSchoolsObject:schoolM];
         [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        
+        //    schoolM.rsLogInUser = [LogInUser getCurrentLoginUser];
+        //    [MOC save];
         return schoolM;
     }
     return nil;

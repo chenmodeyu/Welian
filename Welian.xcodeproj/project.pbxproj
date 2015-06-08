@@ -11062,7 +11062,7 @@
 						DevelopmentTeam = V6JKEEZATW;
 					};
 					F566497A1A2AFD56008A5830 = {
-						DevelopmentTeam = V6JKEEZATW;
+						DevelopmentTeam = SYMR4TKBFN;
 					};
 					F5664C341A2AFDD5008A5830 = {
 						DevelopmentTeam = SYMR4TKBFN;
@@ -16145,7 +16145,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BaiduMap_IOSSDK_v2.5.0_Lib",
-					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.1.8",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/GETUI_IOS_SDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BlocksKit",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
@@ -16195,7 +16194,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BaiduMap_IOSSDK_v2.5.0_Lib",
-					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.1.8",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/GETUI_IOS_SDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BlocksKit",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
@@ -16244,7 +16242,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BaiduMap_IOSSDK_v2.5.0_Lib",
-					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.1.8",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/GETUI_IOS_SDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BlocksKit",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
@@ -16294,7 +16291,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BaiduMap_IOSSDK_v2.5.0_Lib",
-					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.1.8",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/GETUI_IOS_SDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BlocksKit",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
@@ -16343,7 +16339,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BaiduMap_IOSSDK_v2.5.0_Lib",
-					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.1.8",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/GETUI_IOS_SDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BlocksKit",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
@@ -16393,7 +16388,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BaiduMap_IOSSDK_v2.5.0_Lib",
-					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.1.8",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/GETUI_IOS_SDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BlocksKit",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
@@ -16442,7 +16436,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BaiduMap_IOSSDK_v2.5.0_Lib",
-					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.1.8",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/GETUI_IOS_SDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BlocksKit",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",
@@ -16492,7 +16485,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BaiduMap_IOSSDK_v2.5.0_Lib",
-					"$(PROJECT_DIR)/Welian/Class/Other(其他)/UMAnalytics_Sdk_3.1.8",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/GETUI_IOS_SDK",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/BlocksKit",
 					"$(PROJECT_DIR)/Welian/Class/Other(其他)/ShareSDK/Extend/WeChatSDK",

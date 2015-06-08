@@ -41,6 +41,8 @@
         
         [loginUser addRsCompanysObject:company];
         [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        //    company.rsLogInUser = [LogInUser getCurrentLoginUser];
+        //    [MOC save];
         return company;
     }
     return nil;
