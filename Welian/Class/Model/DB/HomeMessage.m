@@ -32,30 +32,31 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        HomeMessage *homeMessage = [loginUser getHomeMessageWithUid:messageM.commentid];
+        if (!homeMessage) {
+            homeMessage = [HomeMessage MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        
+        homeMessage.commentid = messageM.commentid;
+        homeMessage.isLook = messageM.isLook != nil?messageM.isLook:@(NO);
+        homeMessage.avatar = messageM.avatar;
+        homeMessage.name = messageM.name;
+        homeMessage.uid = messageM.uid;
+        homeMessage.feedcontent = messageM.feedcontent;
+        homeMessage.feedid = messageM.feedid;
+        homeMessage.feedpic = messageM.feedpic;
+        homeMessage.msg = messageM.msg;
+        homeMessage.type = messageM.type;
+        //    homeMessage.created = messageM.created;
+        homeMessage.created = messageM.created.length > 0 ? messageM.created : [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        [loginUser addRsHomeMessagesObject:homeMessage];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        //    homeMessage.rsLogInUser = [LogInUser getCurrentLoginUser];
+        //    [MOC save];
+        return homeMessage;
     }
-    HomeMessage *homeMessage = [loginUser getHomeMessageWithUid:messageM.commentid];
-    if (!homeMessage) {
-        homeMessage = [HomeMessage MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    
-    homeMessage.commentid = messageM.commentid;
-    homeMessage.isLook = messageM.isLook != nil?messageM.isLook:@(NO);
-    homeMessage.avatar = messageM.avatar;
-    homeMessage.name = messageM.name;
-    homeMessage.uid = messageM.uid;
-    homeMessage.feedcontent = messageM.feedcontent;
-    homeMessage.feedid = messageM.feedid;
-    homeMessage.feedpic = messageM.feedpic;
-    homeMessage.msg = messageM.msg;
-    homeMessage.type = messageM.type;
-//    homeMessage.created = messageM.created;
-    homeMessage.created = messageM.created.length > 0 ? messageM.created : [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
-    [loginUser addRsHomeMessagesObject:homeMessage];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-//    homeMessage.rsLogInUser = [LogInUser getCurrentLoginUser];
-//    [MOC save];
-    return homeMessage;
 }
 
 //创建项目推送数据
@@ -75,26 +76,25 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        HomeMessage *homeMessage = [HomeMessage MR_createEntityInContext:loginUser.managedObjectContext];
+        //    homeMessage.commentid = messageM.commentid;
+        homeMessage.isLook = @(NO);
+        homeMessage.avatar = dict[@"avatar"];
+        homeMessage.name = dict[@"name"];
+        homeMessage.uid = @([dict[@"uid"] integerValue]);
+        homeMessage.feedcontent = [NSString stringWithFormat:@"%@:%@",dict[@"projectname"],dict[@"projectintro"]];
+        homeMessage.feedid = dict[@"projectid"];
+        //    homeMessage.feedpic = messageM.feedpic;
+        homeMessage.msg = dict[@"msg"];
+        homeMessage.type = [dict[@"type"] integerValue] == 0 ? @"projectComment" : @"projectCommentZan";
+        homeMessage.created = dict[@"created"];
+        
+        [loginUser addRsHomeMessagesObject:homeMessage];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        
+        return homeMessage;
     }
-    
-    HomeMessage *homeMessage = [HomeMessage MR_createEntityInContext:loginUser.managedObjectContext];
-//    homeMessage.commentid = messageM.commentid;
-    homeMessage.isLook = @(NO);
-    homeMessage.avatar = dict[@"avatar"];
-    homeMessage.name = dict[@"name"];
-    homeMessage.uid = @([dict[@"uid"] integerValue]);
-    homeMessage.feedcontent = [NSString stringWithFormat:@"%@:%@",dict[@"projectname"],dict[@"projectintro"]];
-    homeMessage.feedid = dict[@"projectid"];
-//    homeMessage.feedpic = messageM.feedpic;
-    homeMessage.msg = dict[@"msg"];
-    homeMessage.type = [dict[@"type"] integerValue] == 0 ? @"projectComment" : @"projectCommentZan";
-    homeMessage.created = dict[@"created"];
-    
-    [loginUser addRsHomeMessagesObject:homeMessage];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-    
-    return homeMessage;
-    
 }
 
 //改变所有未读消息状态为已读

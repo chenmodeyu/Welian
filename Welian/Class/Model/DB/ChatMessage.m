@@ -561,10 +561,11 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre1];
     if (!loginUser) {
         return nil;
+    }else{
+        NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsMyFriendUser.rsLogInUser",loginUser,@"messageid",messageId];
+        ChatMessage *chatMessage = [ChatMessage MR_findFirstWithPredicate:pre inContext:loginUser.managedObjectContext];
+        return chatMessage;
     }
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsMyFriendUser.rsLogInUser",loginUser,@"messageid",messageId];
-    ChatMessage *chatMessage = [ChatMessage MR_findFirstWithPredicate:pre inContext:loginUser.managedObjectContext];
-    return chatMessage;
 }
 
 //获取当前最大的消息ID
@@ -574,25 +575,26 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre1];
     if (!loginUser) {
         return @"0";
-    }
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"rsMyFriendUser.rsLogInUser",loginUser];
-    NSArray *chatMsgs = [ChatMessage MR_findAllWithPredicate:pre inContext:loginUser.managedObjectContext];
-    ChatMessage *chatMessage = nil;
-    if (chatMsgs.count > 0) {
-        NSArray *sortMessages = [chatMsgs sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            return [[obj1 messageid] integerValue] > [[obj2 messageid] integerValue];
-        }];
-        chatMessage = [sortMessages lastObject];
-    }
-//    ChatMessage *chatMessage = [ChatMessage MR_findFirstWithPredicate:pre sortedBy:@"messageid" ascending:NO inContext:loginUser.managedObjectContext];
-    if (chatMessage) {
-        if (chatMessage.messageid.length > 0) {
-            return chatMessage.messageid;
+    }else{
+        NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"rsMyFriendUser.rsLogInUser",loginUser];
+        NSArray *chatMsgs = [ChatMessage MR_findAllWithPredicate:pre inContext:loginUser.managedObjectContext];
+        ChatMessage *chatMessage = nil;
+        if (chatMsgs.count > 0) {
+            NSArray *sortMessages = [chatMsgs sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                return [[obj1 messageid] integerValue] > [[obj2 messageid] integerValue];
+            }];
+            chatMessage = [sortMessages lastObject];
+        }
+        //    ChatMessage *chatMessage = [ChatMessage MR_findFirstWithPredicate:pre sortedBy:@"messageid" ascending:NO inContext:loginUser.managedObjectContext];
+        if (chatMessage) {
+            if (chatMessage.messageid.length > 0) {
+                return chatMessage.messageid;
+            }else{
+                return @"0";
+            }
         }else{
             return @"0";
         }
-    }else{
-        return @"0";
     }
 }
 

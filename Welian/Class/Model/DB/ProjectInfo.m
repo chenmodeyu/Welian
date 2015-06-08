@@ -201,11 +201,12 @@
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     if (!loginUser) {
         return [NSArray array];
+    }else{
+        NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"type",type,@"rsLoginUser",loginUser];
+        //    NSArray *all = type.integerValue == 3 ? [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre];
+        NSArray *all = (type.integerValue == 1 || type.integerValue == 2) ? [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre];
+        return all;
     }
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"type",type,@"rsLoginUser",loginUser];
-//    NSArray *all = type.integerValue == 3 ? [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre];
-    NSArray *all = (type.integerValue == 1 || type.integerValue == 2) ? [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre];
-    return all;
 }
 
 @end

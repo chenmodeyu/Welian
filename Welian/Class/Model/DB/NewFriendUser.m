@@ -28,41 +28,42 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        NewFriendUser *newFriend = [loginUser getNewFriendUserWithUid:userInfoM.uid];
+        if (!newFriend) {
+            newFriend = [NewFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        
+        newFriend.messageid = userInfoM.messageid;
+        newFriend.uid = userInfoM.uid;
+        newFriend.mobile = userInfoM.mobile;
+        newFriend.position = userInfoM.position;
+        newFriend.provinceid = userInfoM.provinceid;
+        newFriend.provincename = userInfoM.provincename;
+        newFriend.cityid = userInfoM.cityid;
+        newFriend.cityname = userInfoM.cityname;
+        newFriend.friendship = userInfoM.friendship;
+        newFriend.shareurl = userInfoM.shareurl;
+        newFriend.avatar = userInfoM.avatar;
+        newFriend.name = userInfoM.name;
+        newFriend.address = userInfoM.address;
+        newFriend.email = userInfoM.email;
+        newFriend.investorauth = userInfoM.investorauth;
+        //    newFriend.startupauth = userInfoM.startupauth;
+        newFriend.company = userInfoM.company;
+        newFriend.created = userInfoM.created;
+        newFriend.isLook = userInfoM.isLook;
+        newFriend.pushType = userInfoM.type;
+        newFriend.msg = userInfoM.msg;
+        newFriend.isAgree = userInfoM.isAgree;
+        newFriend.operateType = userInfoM.operateType;
+        
+        [loginUser addRsNewFriendsObject:newFriend];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        //    newFriend.rsLogInUser = [LogInUser getCurrentLoginUser];
+        //    [MOC save];
+        return newFriend;
     }
-    NewFriendUser *newFriend = [loginUser getNewFriendUserWithUid:userInfoM.uid];
-    if (!newFriend) {
-        newFriend = [NewFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    
-    newFriend.messageid = userInfoM.messageid;
-    newFriend.uid = userInfoM.uid;
-    newFriend.mobile = userInfoM.mobile;
-    newFriend.position = userInfoM.position;
-    newFriend.provinceid = userInfoM.provinceid;
-    newFriend.provincename = userInfoM.provincename;
-    newFriend.cityid = userInfoM.cityid;
-    newFriend.cityname = userInfoM.cityname;
-    newFriend.friendship = userInfoM.friendship;
-    newFriend.shareurl = userInfoM.shareurl;
-    newFriend.avatar = userInfoM.avatar;
-    newFriend.name = userInfoM.name;
-    newFriend.address = userInfoM.address;
-    newFriend.email = userInfoM.email;
-    newFriend.investorauth = userInfoM.investorauth;
-//    newFriend.startupauth = userInfoM.startupauth;
-    newFriend.company = userInfoM.company;
-    newFriend.created = userInfoM.created;
-    newFriend.isLook = userInfoM.isLook;
-    newFriend.pushType = userInfoM.type;
-    newFriend.msg = userInfoM.msg;
-    newFriend.isAgree = userInfoM.isAgree;
-    newFriend.operateType = userInfoM.operateType;
-    
-    [loginUser addRsNewFriendsObject:newFriend];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-//    newFriend.rsLogInUser = [LogInUser getCurrentLoginUser];
-//    [MOC save];
-    return newFriend;
 }
 
 // //通过uid查询

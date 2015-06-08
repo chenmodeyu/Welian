@@ -24,17 +24,18 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        InvestIndustry *investitem = [loginUser getInvestIndustryWithName:investIndustry.industryname];
+        if (!investitem) {
+            investitem = [InvestIndustry MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        investitem.industryid = investIndustry.industryid;
+        investitem.industryname = [investIndustry.industryname deleteTopAndBottomKonggeAndHuiche];
+        
+        [loginUser addRsInvestIndustrysObject:investitem];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        return investitem;
     }
-    InvestIndustry *investitem = [loginUser getInvestIndustryWithName:investIndustry.industryname];
-    if (!investitem) {
-        investitem = [InvestIndustry MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    investitem.industryid = investIndustry.industryid;
-    investitem.industryname = [investIndustry.industryname deleteTopAndBottomKonggeAndHuiche];
-    
-    [loginUser addRsInvestIndustrysObject:investitem];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-    return investitem;
 }
 
 //创建普通领域
