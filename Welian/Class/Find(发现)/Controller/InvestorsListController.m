@@ -25,7 +25,7 @@
 {
     if (_shaixuanView == nil) {
         _shaixuanView = [[ShaiXuanView alloc] initWithShaiXuanType:ShaiXuanTypeInvestorUser];
-        _shaixuanView.titleText = @"创业项目";
+        _shaixuanView.titleText = @"投资人";
     }
     return _shaixuanView;
 }

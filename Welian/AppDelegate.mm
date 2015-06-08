@@ -50,14 +50,6 @@ BMKMapManager* _mapManager;
         WEAKSELF
         _newFeatureVC = [[LCNewFeatureVC alloc] initWithImageName:@"new_feature" imageCount:2 finishBlock:^{
             [weakSelf enterMainVC];
-//            [UIView animateWithDuration:0.05f animations:^{
-//                _newFeatureVC.view.transform = CGAffineTransformMakeScale(2, 2);
-//                [_newFeatureVC.view setAlpha:0.0];
-//
-//            } completion:^(BOOL finished) {
-//                
-//
-//            }];
         }];
         _newFeatureVC.pointOtherColor = KBgGrayColor;
         _newFeatureVC.pointCurrentColor = KBlueTextColor;

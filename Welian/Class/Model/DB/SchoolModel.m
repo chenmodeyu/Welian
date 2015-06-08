@@ -29,29 +29,26 @@
 + (SchoolModel *)createSchoolModel:(ISchoolResult *)iSchool
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    if (!loginUser) {
-        return nil;
+    if (loginUser) {
+        SchoolModel *schoolM = [loginUser getSchoolModelWithUcid:iSchool.usid];
+        if (!schoolM) {
+            schoolM = [SchoolModel MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        schoolM.schoolname = iSchool.schoolname;
+        schoolM.schoolid = iSchool.schoolid;
+        schoolM.startmonth = iSchool.startmonth;
+        schoolM.startyear = iSchool.startyear;
+        schoolM.endyear = iSchool.endyear;
+        schoolM.endmonth = iSchool.endmonth;
+        schoolM.specialtyname = iSchool.specialtyname;
+        schoolM.specialtyid = iSchool.specialtyid;
+        schoolM.usid = iSchool.usid;
+        
+        [loginUser addRsSchoolsObject:schoolM];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        return schoolM;
     }
-    SchoolModel *schoolM = [loginUser getSchoolModelWithUcid:iSchool.usid];
-    if (!schoolM) {
-        schoolM = [SchoolModel MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    schoolM.schoolname = iSchool.schoolname;
-    schoolM.schoolid = iSchool.schoolid;
-    schoolM.startmonth = iSchool.startmonth;
-    schoolM.startyear = iSchool.startyear;
-    schoolM.endyear = iSchool.endyear;
-    schoolM.endmonth = iSchool.endmonth;
-    schoolM.specialtyname = iSchool.specialtyname;
-    schoolM.specialtyid = iSchool.specialtyid;
-    schoolM.usid = iSchool.usid;
-    
-    [loginUser addRsSchoolsObject:schoolM];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-    
-//    schoolM.rsLogInUser = [LogInUser getCurrentLoginUser];
-//    [MOC save];
-    return schoolM;
+    return nil;
 }
 
 //通过ucid查询

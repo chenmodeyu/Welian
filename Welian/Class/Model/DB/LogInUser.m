@@ -66,11 +66,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isNow",@(YES)];
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
-//    if (!loginUser) {
-//        //监听用户退出，还收到消息
-//        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-//        [appDelegate logout];
-//    }
     return loginUser;
 }
 
@@ -79,7 +74,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"uid",userInfoM.uid];
     LogInUser *loginuser = [LogInUser MR_findFirstWithPredicate:pre];
-//    LogInUser *loginuser = [LogInUser getLogInUserWithUid:userInfoM.uid];
     if (!loginuser) {
         loginuser = [LogInUser MR_createEntity];
     }
@@ -97,19 +91,14 @@
     loginuser.address = userInfoM.address;
     loginuser.email = userInfoM.email;
     loginuser.investorauth = userInfoM.investorauth;
-//    loginuser.startupauth = userInfoM.startupauth;
     loginuser.company = userInfoM.company;
-//    loginuser.checkcode = userInfoM.checkcode != nil ? userInfoM.checkcode : @"";
-//    loginuser.sessionid = userInfoM.sessionid;
     loginuser.inviteurl = userInfoM.inviteurl;
-    loginuser.isNow = @(1);
+    loginuser.isNow = @(YES);
     loginuser.friendcount = userInfoM.friendcount;
     loginuser.feedcount = userInfoM.feedcount;
     loginuser.friend2count = userInfoM.friend2count;
     loginuser.checked = userInfoM.checked;
     loginuser.samefriendscount = userInfoM.samefriendscount;
-    
-//    [MOC save];
     [[loginuser managedObjectContext] MR_saveToPersistentStoreAndWait];
     return loginuser;
 }
@@ -143,8 +132,6 @@
     loginuser.friend2count = userInfoM.friend2count;
     loginuser.checked = userInfoM.checked;
     loginuser.samefriendscount = userInfoM.samefriendscount;
-    
-    //    [MOC save];
     [[loginuser managedObjectContext] MR_saveToPersistentStoreAndWait];
     return loginuser;
 }

@@ -196,7 +196,6 @@
                                            // 进入主页面
                                            MainViewController *mainVC = [[MainViewController alloc] init];
                                            [self.view.window setRootViewController:mainVC];
-//                                           [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
                                        }
                                    } Failed:^(NSError *error) {
                                        [WLHUDView showErrorHUD:error.localizedDescription];
