@@ -156,8 +156,13 @@
     _tableView.footer.hidden = YES;
     
     //初始化数据
-//    [self loadReflshData];
-    [_tableView.header beginRefreshing];
+    if (([_datasource[0] count] + [_datasource[1] count]) > 0) {
+        //后台调用接口刷新
+        [self loadReflshData];
+    }else{
+        //自动下拉刷新数据
+        [_tableView.header beginRefreshing];
+    }
 }
 
 - (void)updateUiInfo

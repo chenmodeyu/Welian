@@ -79,30 +79,30 @@
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     if (!loginUser) {
         return [NSMutableArray array];
+    }else{
+        //系统非好友联系人
+        NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != nil && %K != %@", @"rsLoginUser",loginUser,@"userType",@(type),@"uid", @"friendship",@(1)];
+        //     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != %@", @"rsLoginUser",loginUser,@"userType",@(type), @"friendship",@(1)];
+        NSArray *systemNoFriendArray = [NeedAddUser MR_findAllSortedBy:@"pinyin" ascending:YES withPredicate:pre inContext:[loginUser managedObjectContext]];
+        
+        //系统好友联系人
+        NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != nil && %K == %@", @"rsLoginUser",loginUser,@"userType",@(type),@"uid", @"friendship",@(1)];
+        //    NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@", @"rsLoginUser",loginUser,@"userType",@(type), @"friendship",@(1)];
+        NSArray *systemFriendArray = [NeedAddUser MR_findAllSortedBy:@"pinyin" ascending:YES withPredicate:pre1 inContext:[loginUser managedObjectContext]];
+        
+        //获取按照首字母排序的，非系统的联系人
+        NSPredicate *pre2 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == nil", @"rsLoginUser",loginUser,@"userType",@(type),@"uid"];
+        //    NSPredicate *pre2 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLoginUser",loginUser,@"userType",@(type)];
+        NSArray *otherUserArray = [NeedAddUser MR_findAllSortedBy:@"pinyin" ascending:YES withPredicate:pre2 inContext:[loginUser managedObjectContext]];
+        
+        //排序
+        NSMutableArray *arrayForArrays = [NSMutableArray array];
+        
+        [arrayForArrays addObjectsFromArray:systemNoFriendArray];
+        [arrayForArrays addObjectsFromArray:systemFriendArray];
+        [arrayForArrays addObjectsFromArray:otherUserArray];
+        return arrayForArrays;
     }
-    
-    //系统非好友联系人
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != nil && %K != %@", @"rsLoginUser",loginUser,@"userType",@(type),@"uid", @"friendship",@(1)];
-//     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != %@", @"rsLoginUser",loginUser,@"userType",@(type), @"friendship",@(1)];
-    NSArray *systemNoFriendArray = [NeedAddUser MR_findAllSortedBy:@"pinyin" ascending:YES withPredicate:pre inContext:[loginUser managedObjectContext]];
-    
-    //系统好友联系人
-    NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != nil && %K == %@", @"rsLoginUser",loginUser,@"userType",@(type),@"uid", @"friendship",@(1)];
-//    NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == %@", @"rsLoginUser",loginUser,@"userType",@(type), @"friendship",@(1)];
-    NSArray *systemFriendArray = [NeedAddUser MR_findAllSortedBy:@"pinyin" ascending:YES withPredicate:pre1 inContext:[loginUser managedObjectContext]];
-    
-    //获取按照首字母排序的，非系统的联系人
-    NSPredicate *pre2 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K == nil", @"rsLoginUser",loginUser,@"userType",@(type),@"uid"];
-//    NSPredicate *pre2 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLoginUser",loginUser,@"userType",@(type)];
-    NSArray *otherUserArray = [NeedAddUser MR_findAllSortedBy:@"pinyin" ascending:YES withPredicate:pre2 inContext:[loginUser managedObjectContext]];
-    
-    //排序
-    NSMutableArray *arrayForArrays = [NSMutableArray array];
-    
-    [arrayForArrays addObjectsFromArray:systemNoFriendArray];
-    [arrayForArrays addObjectsFromArray:systemFriendArray];
-    [arrayForArrays addObjectsFromArray:otherUserArray];
-    return arrayForArrays;
 }
 
 

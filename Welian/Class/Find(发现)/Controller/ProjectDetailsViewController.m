@@ -969,9 +969,12 @@ static NSString *noCommentCell = @"NoCommentCell";
                                          //隐藏
                                          [self.tableView.header endRefreshing];
                                          
+                                        
+                                         
                                          IProjectDetailInfo *detailInfo = resultInfo;
                                          self.iProjectDetailInfo = resultInfo;
                                          //存入本地数据库
+                                         self.projectInfo = [ProjectInfo createProjectInfosWith:detailInfo withType:@(0)];
                                          self.projectDetailInfo = [ProjectDetailInfo createWithIProjectDetailInfo:detailInfo];
                                          
                                          //添加分享按钮

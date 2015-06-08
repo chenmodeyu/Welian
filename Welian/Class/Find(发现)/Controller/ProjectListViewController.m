@@ -101,10 +101,6 @@
     //隐藏表格分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-//    self.refreshControl = [[UIRefreshControl alloc] init];
-//    [self.refreshControl addTarget:self action:@selector(loadReflshData) forControlEvents:UIControlEventValueChanged];
-//    [self.tableView addSubview:self.refreshControl];
-    
     //添加分享按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建项目" style:UIBarButtonItemStyleBordered target:self action:@selector(createProject)];
     
@@ -119,9 +115,46 @@
     [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreDataArray)];
     // 隐藏当前的上拉刷新控件
     self.tableView.footer.hidden = YES;
-    [self.tableView.header beginRefreshing];
-    //加载数据
-//    [self loadReflshData];
+    
+    //1：最新   2：热门 3：项目集 4筛选
+    switch (_projectType) {
+        case 1:
+        {
+            NSArray *sortedInfo = [ProjectInfo allNormalProjectInfos];
+            self.headDatasource = sortedInfo[0];
+            self.datasource = sortedInfo[1];
+            self.allDataSource = [NSMutableArray arrayWithArray:_datasource];
+        }
+            break;
+        case 2:
+        {
+            //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
+            self.datasource = [ProjectInfo allMyProjectInfoWithType:@(3)];
+        }
+            break;
+        case 3:
+        {
+            //获取项目集
+            self.datasource = [ProjectClassInfo getAllProjectClassInfos];
+        }
+            break;
+        case 4:
+        {
+            //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
+            self.datasource = [ProjectInfo allMyProjectInfoWithType:@(4)];
+        }
+            break;
+        default:
+            break;
+    }
+    if(_datasource.count > 0){
+        //加载数据
+        [self loadReflshData];
+    }else{
+        //下拉刷新加载数据
+        [self.tableView.header beginRefreshing];
+    }
+    
 }
 
 #pragma mark - UITableView Datasource&Delegate
@@ -389,10 +422,6 @@
 
 - (void)updateUiInfo
 {
-    //获取数据
-//    NSArray *sortedInfo = [ProjectInfo allNormalProjectInfos];
-//    self.headDatasource = sortedInfo[0];
-//    self.datasource = sortedInfo[1];
     //1：最新   2：热门 3：项目集 4筛选
     switch (_projectType) {
         case 1:
@@ -444,33 +473,8 @@
                                            Page:@(_pageIndex)
                                            Size:@(_pageSize)
                                         Success:^(id resultInfo) {
-//                                            [self.tableView.header endRefreshing];
-//                                            [self.tableView.footer endRefreshing];
                                             //保存数据
                                             [self saveProjectInfoWithResultInfo:resultInfo Type:@(0)];
-//                                            WEAKSELF
-//                                            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                                                //0：普通   1：收藏  2：创建  3：热门  4:上次筛选  -1：已删除
-//                                                NSArray *sortedInfo = [ProjectInfo allNormalProjectInfos];
-//                                                weakSelf.headDatasource = sortedInfo[0];
-//                                                weakSelf.datasource = sortedInfo[1];
-//                                                
-//                                                //添加数据
-//                                                [weakSelf.allDataSource addObjectsFromArray:resultInfo];
-//                                                dispatch_async(dispatch_get_main_queue(), ^{
-//                                                    [weakSelf.tableView.header endRefreshing];
-//                                                    [weakSelf.tableView.footer endRefreshing];
-//                                                    [weakSelf.tableView reloadData];
-//                                                    
-//                                                    if(weakSelf.allDataSource.count == 0){
-//                                                        [weakSelf.tableView addSubview:weakSelf.notView];
-//                                                        [weakSelf.tableView sendSubviewToBack:weakSelf.notView];
-//                                                    }else{
-//                                                        [weakSelf.notView removeFromSuperview];
-//                                                    }
-//                                                    [weakSelf checkFooterViewWith:resultInfo];
-//                                                });
-//                                            });
                                         } Failed:^(NSError *error) {
                                             [self.tableView.header endRefreshing];
                                             [self.tableView.footer endRefreshing];
@@ -483,25 +487,8 @@
             [WeLianClient getHotProjectWithPage:@(_pageIndex)
                                            Size:@(_pageSize)
                                         Success:^(id resultInfo) {
-//                                            [self.tableView.header endRefreshing];
-//                                            [self.tableView.footer endRefreshing];
                                             //保存数据
                                             [self saveProjectInfoWithResultInfo:resultInfo Type:@(3)];
-//                                            WEAKSELF
-//                                            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                                                //获取热门项目
-//                                                weakSelf.datasource = [ProjectInfo allMyProjectInfoWithType:@(3)];
-//                                                
-//                                                dispatch_async(dispatch_get_main_queue(), ^{
-//                                                    [weakSelf.tableView.header endRefreshing];
-//                                                    [weakSelf.tableView.footer endRefreshing];
-//                                                    
-//                                                    [weakSelf.tableView reloadData];
-//                                                    
-//                                                    [weakSelf checkNotViewShow];
-//                                                    [weakSelf checkFooterViewWith:resultInfo];
-//                                                });
-//                                            });
                                         } Failed:^(NSError *error) {
                                             [self.tableView.header endRefreshing];
                                             [self.tableView.footer endRefreshing];
@@ -561,20 +548,6 @@
                     [self checkNotViewShow];
                     [self checkFooterViewWith:resultInfo];
                 }
-                
-//                WEAKSELF
-//                dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                    //获取项目集
-//                    weakSelf.datasource = [ProjectClassInfo getAllProjectClassInfos];
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        [weakSelf.tableView.header endRefreshing];
-//                        [weakSelf.tableView.footer endRefreshing];
-//                        [weakSelf.tableView reloadData];
-//                        
-//                        [weakSelf checkNotViewShow];
-//                        [weakSelf checkFooterViewWith:resultInfo];
-//                    });
-//                });
             } Failed:^(NSError *error) {
                 [self.tableView.header endRefreshing];
                 [self.tableView.footer endRefreshing];

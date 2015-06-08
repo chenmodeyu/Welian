@@ -30,36 +30,36 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:userInfoM.uid];
+        if (!myFriend) {
+            myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        myFriend.uid = userInfoM.uid;
+        myFriend.mobile = userInfoM.mobile;
+        myFriend.position = userInfoM.position;
+        myFriend.provinceid = userInfoM.provinceid;
+        myFriend.provincename = userInfoM.provincename;
+        myFriend.cityid = userInfoM.cityid;
+        myFriend.cityname = userInfoM.cityname;
+        myFriend.friendship = userInfoM.friendship;
+        myFriend.shareurl = userInfoM.shareurl;
+        myFriend.avatar = userInfoM.avatar;
+        myFriend.name = userInfoM.name;
+        myFriend.address = userInfoM.address;
+        myFriend.email = userInfoM.email;
+        myFriend.investorauth = userInfoM.investorauth;
+        //    myFriend.startupauth = userInfoM.startupauth;
+        myFriend.company = userInfoM.company;
+        myFriend.unReadChatMsg = @(0);
+        myFriend.isMyFriend = @(YES);
+        //    myFriend.status = userInfoM.status;
+        
+        [loginUser addRsMyFriendsObject:myFriend];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        
+        return myFriend;
     }
-    
-    MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:userInfoM.uid];
-    if (!myFriend) {
-        myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    myFriend.uid = userInfoM.uid;
-    myFriend.mobile = userInfoM.mobile;
-    myFriend.position = userInfoM.position;
-    myFriend.provinceid = userInfoM.provinceid;
-    myFriend.provincename = userInfoM.provincename;
-    myFriend.cityid = userInfoM.cityid;
-    myFriend.cityname = userInfoM.cityname;
-    myFriend.friendship = userInfoM.friendship;
-    myFriend.shareurl = userInfoM.shareurl;
-    myFriend.avatar = userInfoM.avatar;
-    myFriend.name = userInfoM.name;
-    myFriend.address = userInfoM.address;
-    myFriend.email = userInfoM.email;
-    myFriend.investorauth = userInfoM.investorauth;
-//    myFriend.startupauth = userInfoM.startupauth;
-    myFriend.company = userInfoM.company;
-    myFriend.unReadChatMsg = @(0);
-    myFriend.isMyFriend = @(YES);
-//    myFriend.status = userInfoM.status;
-    
-    [loginUser addRsMyFriendsObject:myFriend];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-    
-    return myFriend;
 }
 
 + (MyFriendUser *)createOrUpddateMyFriendUserModel:(IBaseUserM *)iBaseUserM
@@ -68,27 +68,28 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:iBaseUserM.uid];
+        if (!myFriend) {
+            myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        myFriend.uid = iBaseUserM.uid;
+        myFriend.position = iBaseUserM.position;
+        myFriend.friendship = iBaseUserM.friendship;
+        myFriend.avatar = iBaseUserM.avatar;
+        myFriend.name = iBaseUserM.name;
+        myFriend.investorauth = iBaseUserM.investorauth;
+        myFriend.company = iBaseUserM.company;
+        myFriend.unReadChatMsg = @(0);
+        myFriend.isMyFriend = @(YES);
+        
+        if (!myFriend.rsLogInUser) {
+            [loginUser addRsMyFriendsObject:myFriend];
+        }
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        
+        return myFriend;
     }
-    MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:iBaseUserM.uid];
-    if (!myFriend) {
-        myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    myFriend.uid = iBaseUserM.uid;
-    myFriend.position = iBaseUserM.position;
-    myFriend.friendship = iBaseUserM.friendship;
-    myFriend.avatar = iBaseUserM.avatar;
-    myFriend.name = iBaseUserM.name;
-    myFriend.investorauth = iBaseUserM.investorauth;
-    myFriend.company = iBaseUserM.company;
-    myFriend.unReadChatMsg = @(0);
-    myFriend.isMyFriend = @(YES);
-    
-    if (!myFriend.rsLogInUser) {
-        [loginUser addRsMyFriendsObject:myFriend];
-    }
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-    
-    return myFriend;
 }
 
 //创建新的同意好意请求数据
@@ -131,34 +132,35 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:newFriendUser.uid];
+        if (!myFriend) {
+            myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        myFriend.uid = newFriendUser.uid;
+        myFriend.mobile = newFriendUser.mobile;
+        myFriend.position = newFriendUser.position;
+        myFriend.provinceid = newFriendUser.provinceid;
+        myFriend.provincename = newFriendUser.provincename;
+        myFriend.cityid = newFriendUser.cityid;
+        myFriend.cityname = newFriendUser.cityname;
+        myFriend.friendship = newFriendUser.friendship;
+        myFriend.shareurl = newFriendUser.shareurl;
+        myFriend.avatar = newFriendUser.avatar;
+        myFriend.name = newFriendUser.name;
+        myFriend.address = newFriendUser.address;
+        myFriend.email = newFriendUser.email;
+        myFriend.investorauth = newFriendUser.investorauth;
+        myFriend.startupauth = newFriendUser.startupauth;
+        myFriend.company = newFriendUser.company;
+        myFriend.unReadChatMsg = @(0);
+        myFriend.isMyFriend = @(YES);
+        //    myFriend.status = userInfoM.status;
+        
+        [loginUser addRsMyFriendsObject:myFriend];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        return myFriend;
     }
-    MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:newFriendUser.uid];
-    if (!myFriend) {
-        myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    myFriend.uid = newFriendUser.uid;
-    myFriend.mobile = newFriendUser.mobile;
-    myFriend.position = newFriendUser.position;
-    myFriend.provinceid = newFriendUser.provinceid;
-    myFriend.provincename = newFriendUser.provincename;
-    myFriend.cityid = newFriendUser.cityid;
-    myFriend.cityname = newFriendUser.cityname;
-    myFriend.friendship = newFriendUser.friendship;
-    myFriend.shareurl = newFriendUser.shareurl;
-    myFriend.avatar = newFriendUser.avatar;
-    myFriend.name = newFriendUser.name;
-    myFriend.address = newFriendUser.address;
-    myFriend.email = newFriendUser.email;
-    myFriend.investorauth = newFriendUser.investorauth;
-    myFriend.startupauth = newFriendUser.startupauth;
-    myFriend.company = newFriendUser.company;
-    myFriend.unReadChatMsg = @(0);
-    myFriend.isMyFriend = @(YES);
-    //    myFriend.status = userInfoM.status;
-    
-    [loginUser addRsMyFriendsObject:myFriend];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-    return myFriend;
 }
 
 
@@ -169,31 +171,32 @@
     LogInUser *loginUser = [LogInUser getLogInUserWithUid:dict[@"uid"]];
     if (!loginUser) {
         return nil;
-    }
-    NSNumber *fromUid = [fromuser objectForKey:@"uid"];
-    MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:fromUid];
-    if (!myFriend) {
-        myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    myFriend.uid = fromuser[@"uid"];
-    myFriend.avatar = fromuser[@"avatar"];
-    myFriend.name = fromuser[@"name"];
-    
-    if (fromUid.integerValue <= 100) {
-        //系统定义的好友，推来消息，自动设置好友关系
-         myFriend.isMyFriend = @(YES);
     }else{
-        //其他的不设置聊天信息
-         myFriend.isMyFriend = @(NO);
+        NSNumber *fromUid = [fromuser objectForKey:@"uid"];
+        MyFriendUser *myFriend = [loginUser getMyfriendUserWithUid:fromUid];
+        if (!myFriend) {
+            myFriend = [MyFriendUser MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        myFriend.uid = fromuser[@"uid"];
+        myFriend.avatar = fromuser[@"avatar"];
+        myFriend.name = fromuser[@"name"];
+        
+        if (fromUid.integerValue <= 100) {
+            //系统定义的好友，推来消息，自动设置好友关系
+            myFriend.isMyFriend = @(YES);
+        }else{
+            //其他的不设置聊天信息
+            myFriend.isMyFriend = @(NO);
+        }
+        
+        myFriend.isChatNow = @(YES);
+        
+        [loginUser addRsMyFriendsObject:myFriend];
+        
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        
+        return myFriend;
     }
-    
-    myFriend.isChatNow = @(YES);
-    
-    [loginUser addRsMyFriendsObject:myFriend];
-    
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-    
-    return myFriend;
 }
 
 //更新好友状态为 不是我的好友

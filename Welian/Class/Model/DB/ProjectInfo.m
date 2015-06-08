@@ -63,6 +63,43 @@
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
++ (ProjectInfo *)createProjectInfosWith:(IProjectDetailInfo *)iProjectDetailInfo withType:(NSNumber *)type
+{
+    ProjectInfo *projectInfo = [self getProjectInfoWithPid:iProjectDetailInfo.pid Type:type];
+    if (!projectInfo) {
+        projectInfo = [ProjectInfo MR_createEntity];
+    }
+    projectInfo.pid = iProjectDetailInfo.pid;
+    projectInfo.name = iProjectDetailInfo.name;
+    projectInfo.intro = iProjectDetailInfo.intro;
+    projectInfo.des = iProjectDetailInfo.des;
+    projectInfo.date = iProjectDetailInfo.date;
+    projectInfo.membercount = iProjectDetailInfo.membercount;
+    projectInfo.commentcount = iProjectDetailInfo.commentcount;
+    projectInfo.status = iProjectDetailInfo.status;
+    projectInfo.zancount = iProjectDetailInfo.zancount;
+    projectInfo.iszan = iProjectDetailInfo.iszan;
+    projectInfo.industrys = [iProjectDetailInfo displayIndustrys];
+    projectInfo.type = type;
+    //设置用户
+    if(!projectInfo.rsProjectUser){
+        //如果不存在，创建
+        ProjectUser *projectUser = [ProjectUser createWithIBaseUserM:iProjectDetailInfo.user];
+        if (projectUser) {
+            projectInfo.rsProjectUser = projectUser;
+        }
+    }
+    
+    if (type != 0) {
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        if (loginUser) {
+            [loginUser addRsProjectInfosObject:projectInfo];
+        }
+    }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    return projectInfo;
+}
+
 //获取项目
 + (ProjectInfo *)getProjectInfoWithPid:(NSNumber *)pid Type:(NSNumber *)type
 {
@@ -115,6 +152,12 @@
         //有就把数据添加进去
         if ([headerKeys containsObject:project.date]) {
             [tempFroGroup addObject:project];
+            //对每组内容排序 // 降序  // 10 --> 0
+            if(tempFroGroup.count > 1){
+                [tempFroGroup sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                    return [[obj1 pid] integerValue] < [[obj2 pid] integerValue];
+                }];
+            }
             if (checkValueAtIndex == NO) {
                 [arrayForArrays addObject:tempFroGroup];
                 checkValueAtIndex = YES;
@@ -158,11 +201,12 @@
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     if (!loginUser) {
         return [NSArray array];
+    }else{
+        NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"type",type,@"rsLoginUser",loginUser];
+        //    NSArray *all = type.integerValue == 3 ? [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre];
+        NSArray *all = (type.integerValue == 1 || type.integerValue == 2) ? [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre];
+        return all;
     }
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"type",type,@"rsLoginUser",loginUser];
-//    NSArray *all = type.integerValue == 3 ? [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre];
-    NSArray *all = (type.integerValue == 1 || type.integerValue == 2) ? [ProjectInfo MR_findAllSortedBy:@"date" ascending:NO withPredicate:pre] : [ProjectInfo MR_findAllSortedBy:@"zancount" ascending:NO withPredicate:pre];
-    return all;
 }
 
 @end

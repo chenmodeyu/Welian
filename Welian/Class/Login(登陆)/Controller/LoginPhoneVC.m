@@ -156,6 +156,7 @@
         [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
         
     } Failed:^(NSError *error) {
+        [WLHUDView hiddenHud];
         [WLHUDView showErrorHUD:error.localizedDescription];
     }];
     

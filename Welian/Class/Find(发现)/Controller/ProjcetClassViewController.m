@@ -116,8 +116,12 @@
     self.tableView.footer.hidden = YES;
     
     //加载数据
-    //    [self loadReflshData];
-    [self.tableView.header beginRefreshing];
+    if (_datasource.count > 0) {
+        [self loadInitData];
+    }else{
+        //下拉动画加载数据
+        [self.tableView.header beginRefreshing];
+    }
     
     //设置图片
     [headerView sd_setImageWithURL:[NSURL URLWithString:_projectClassInfo.photo]

@@ -23,19 +23,20 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        InvestStages *investitem = [loginUser getInvestStagesWithStage:investItemM.stagename];
+        if (!investitem) {
+            investitem = [InvestStages MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        investitem.stagename = investItemM.stagename;
+        investitem.stage = investItemM.stage;
+        
+        [loginUser addRsInvestStagesObject:investitem];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        //    investitem.rsLogInUser = [LogInUser getCurrentLoginUser];
+        //    [MOC save];
+        return investitem;
     }
-    InvestStages *investitem = [loginUser getInvestStagesWithStage:investItemM.stagename];
-    if (!investitem) {
-        investitem = [InvestStages MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    investitem.stagename = investItemM.stagename;
-    investitem.stage = investItemM.stage;
-    
-    [loginUser addRsInvestStagesObject:investitem];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-//    investitem.rsLogInUser = [LogInUser getCurrentLoginUser];
-//    [MOC save];
-    return investitem;
 }
 
 // //通过item查询

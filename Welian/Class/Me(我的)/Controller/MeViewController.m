@@ -277,7 +277,6 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    
     BadgeBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:BadgeBaseCellid];
     // 1.取出这行对应的字典数据
     NSDictionary *dict = _data[indexPath.section][indexPath.row];
@@ -287,16 +286,21 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     [cell.iconImage setImage:[UIImage imageNamed:dict[@"icon"]]];
     if (indexPath.section==1 && indexPath.row==0) {
         //        [cell.deputLabel setHidden:NO];
-//        [cell.badgeImage setHidden:YES];
-        [cell.badgeImage setHidden:!loginUser.isinvestorbadge.boolValue];
-        //            0 默认状态  1  认证成功  -2 正在审核  -1 认证失败
-        if (loginUser.investorauth.integerValue==1) {
-            [cell.deputLabel setText:@"认证成功"];
-        }else if (loginUser.investorauth.integerValue ==-2){
-            [cell.deputLabel setText:@"正在审核"];
-        }else if (loginUser.investorauth.integerValue ==-1){
-            [cell.deputLabel setText:@"认证失败"];
+        //        [cell.badgeImage setHidden:YES];
+        if (loginUser) {
+            [cell.badgeImage setHidden:!loginUser.isinvestorbadge.boolValue];
+            //            0 默认状态  1  认证成功  -2 正在审核  -1 认证失败
+            if (loginUser.investorauth.integerValue==1) {
+                [cell.deputLabel setText:@"认证成功"];
+            }else if (loginUser.investorauth.integerValue ==-2){
+                [cell.deputLabel setText:@"正在审核"];
+            }else if (loginUser.investorauth.integerValue ==-1){
+                [cell.deputLabel setText:@"认证失败"];
+            }else{
+                cell.deputLabel.text = @"";
+            }
         }else{
+            cell.badgeImage.hidden = YES;
             cell.deputLabel.text = @"";
         }
     }
@@ -344,7 +348,11 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
                 case 1:
                 {
                     //我的履历
-                    detailInfo = [loginUser displayMyNewLvliInfo];//@"杭州传送门网络技术有限公司/iOS";
+                    if (loginUser) {
+                        detailInfo = [loginUser displayMyNewLvliInfo];//@"杭州传送门网络技术有限公司/iOS";
+                    }else{
+                        detailInfo = @"";
+                    }
                 }
                     break;
                 default:

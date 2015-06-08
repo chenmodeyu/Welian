@@ -48,6 +48,7 @@
 @property (strong,nonatomic) ActivityInfo *activityInfo;
 @property (strong,nonatomic) NSNumber *activityId;
 @property (strong,nonatomic) ActivityWebDetailInfoView *activityWebInfoView;
+@property (assign,nonatomic) UIView *operateToolView;
 
 @end
 
@@ -57,6 +58,8 @@
 {
     _datasource = nil;
     _activityInfo = nil;
+    _activityId = nil;
+    _activityWebInfoView = nil;
     [KNSNotification removeObserver:self];
 }
 
@@ -208,6 +211,7 @@
     operateToolView.layer.borderWidths = @"{0.6,0,0,0}";
     [self.view addSubview:operateToolView];
     [self.view bringSubviewToFront:operateToolView];
+    self.operateToolView = operateToolView;
     
     //收藏
     UIButton *favorteBtn = [UIView getBtnWithTitle:@"收藏" image:[UIImage imageNamed:@"me_mywriten_shoucang"]];
@@ -247,6 +251,9 @@
         
         //检测分享按钮是否显示
         [self checkShareBtn];
+    }else{
+        //隐藏下方操作栏
+        _operateToolView.hidden = _activityInfo ? NO : YES;
     }
     
     //获取详情信息
@@ -395,6 +402,7 @@
 //                cell.layer.borderWidths = @"{0.6,0,0,0}";
                 cell.textLabel.text = @"";
                 cell.detailTextLabel.text = [_activityInfo displayActivityInfo];
+                cell.detailBtn.hidden = _activityInfo.url.length > 0 ? NO : YES;
                 WEAKSELF
                 [cell setBlock:^(void){
                     [weakSelf showActivityWebDetailInfo];
@@ -997,10 +1005,13 @@
                                             if (isFromList) {
                                                 self.activityInfo = [ActivityInfo updateActivityInfoWith:iActivity withType:_activityInfo.activeType];
                                             }else{
-                                                self.activityInfo = [ActivityInfo createActivityInfoWith:iActivity withType:0];
+                                                self.activityInfo = [ActivityInfo createActivityInfoWith:iActivity withType:@(0)];
                                                 [self initActivityUIInfo];
                                             }
                                             self.datasource = iActivity.guests;
+                                            
+                                            //隐藏下方操作栏
+                                            _operateToolView.hidden = _activityInfo ? NO : YES;
                                             
                                             //更页面
                                             [self updateUI];

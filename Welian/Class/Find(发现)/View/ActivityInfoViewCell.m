@@ -14,8 +14,6 @@
 
 @interface ActivityInfoViewCell ()
 
-@property (assign,nonatomic) UIButton *detailBtn;
-
 @end
 
 @implementation ActivityInfoViewCell
@@ -94,6 +92,7 @@
 //    detailBtn.imageEdgeInsets = UIEdgeInsetsMake(0,180,0,0);
 //    detailBtn.titleEdgeInsets = UIEdgeInsetsMake(0,-50, 0, 0);
     [detailBtn addTarget:self action:@selector(detailBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    detailBtn.hidden = YES;
     [self.contentView addSubview:detailBtn];
     self.detailBtn = detailBtn;
 //    [detailBtn setDebug:YES];

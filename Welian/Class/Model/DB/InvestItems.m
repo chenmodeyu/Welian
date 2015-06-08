@@ -24,21 +24,22 @@
     LogInUser *loginUser = [LogInUser MR_findFirstWithPredicate:pre];
     if (!loginUser) {
         return nil;
+    }else{
+        InvestItems *investitem = [loginUser getInvestItemsWithItem:investItemM.item];
+        if (!investitem) {
+            investitem = [InvestItems MR_createEntityInContext:loginUser.managedObjectContext];
+        }
+        investitem.item = investItemM.item;
+        investitem.itemid = investItemM.itemid;
+        if (investItemM.time) {
+            investitem.time = investItemM.time;
+        }
+        [loginUser addRsInvestItemsObject:investitem];
+        [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
+        //    investitem.rsLogInUser = [LogInUser getCurrentLoginUser];
+        //    [MOC save];
+        return investitem;
     }
-    InvestItems *investitem = [loginUser getInvestItemsWithItem:investItemM.item];
-    if (!investitem) {
-        investitem = [InvestItems MR_createEntityInContext:loginUser.managedObjectContext];
-    }
-    investitem.item = investItemM.item;
-    investitem.itemid = investItemM.itemid;
-    if (investItemM.time) {
-        investitem.time = investItemM.time;
-    }
-    [loginUser addRsInvestItemsObject:investitem];
-    [loginUser.managedObjectContext MR_saveToPersistentStoreAndWait];
-//    investitem.rsLogInUser = [LogInUser getCurrentLoginUser];
-//    [MOC save];
-    return investitem;
 }
 
 //// 获取全部消息
