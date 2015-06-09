@@ -255,6 +255,11 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet ]];
 }
 
+- (NSString *)deleteBottomHuiChe
+{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+}
+
 //汉字首字母转换
 - (NSString *)getHanziFirstString
 {

@@ -314,6 +314,24 @@
     NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[self.intro dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     NSString *text = attrStr.string;
     return text.length > 250 ? [text substringToIndex:250] : text;
+//    //去除多余的换行
+//    NSMutableString *infoText = [NSMutableString string];
+//    if (text.length > 0) {
+//        NSArray *infoArray = [text componentsSeparatedByString:@"\n"];
+//        if (infoArray.count > 1) {
+//            for (NSString *str in infoArray) {
+//                DLog(@"str---->%@",[str deleteBottomHuiChe]);
+//                if ([str deleteBottomHuiChe].length > 0) {
+//                    [infoText appendString:str];
+//                    [infoText appendString:@"\n"];
+//                }
+//            }
+//        }else{
+//            [infoText appendString:[text deleteBottomHuiChe]];
+//        }
+//    }
+//    NSString *infoStr = infoText.length > 250 ? [infoText substringToIndex:250] : infoText;
+//    return infoStr;
 }
 
 //分享到微信的内容
