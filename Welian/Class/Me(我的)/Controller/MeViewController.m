@@ -315,20 +315,26 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
                 case 0:
                 {
                     //动态
-                    WLStatusM *feedM = [_infoDict objectForKey:@"feed"];
-                    detailInfo = feedM.content;
+                    if (_infoDict) {
+                        WLStatusM *feedM = [_infoDict objectForKey:@"feed"];
+                        detailInfo = feedM.content;
+                    }
                 }
                     break;
                 case 1:
                 {
-                    //活动
-                    detailInfo = [_infoDict objectForKey:@"active"];
+                    if (_infoDict) {
+                        //活动
+                        detailInfo = [_infoDict objectForKey:@"active"];
+                    }
                 }
                     break;
                 case 2:
                 {
-                    //项目
-                    detailInfo = [_infoDict objectForKey:@"project"];
+                    if (_infoDict) {
+                        //项目
+                        detailInfo = [_infoDict objectForKey:@"project"];
+                    }
                 }
                     break;
                 default:
@@ -342,9 +348,11 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
                 case 0:
                 {
                     //投资案例
-                    IIMeInvestAuthModel *investorM = [_infoDict objectForKey:@"investor"];
-                    InvestItemM *investItemM = [investorM.items firstObject];
-                    detailInfo = investItemM.item;
+                    if (_infoDict) {
+                        IIMeInvestAuthModel *investorM = [_infoDict objectForKey:@"investor"];
+                        InvestItemM *investItemM = [investorM.items firstObject];
+                        detailInfo = investItemM.item;
+                    }
                 }
                     break;
                 case 1:
