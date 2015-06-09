@@ -518,6 +518,9 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     NSDictionary *profile = [dataDic objectForKey:@"profile"];
     ILoginUserModel *profileM = [ILoginUserModel objectWithDict:profile];
     
+    //保存到sqlite数据库
+    [[WLDataDBTool sharedService] putObject:dataDic withId:profileM.uid.stringValue intoTable:KWLUserInfoTableName];
+    
     // 动态
     NSDictionary *feed = [dataDic objectForKey:@"feed"];
     WLStatusM *feedM = [WLStatusM objectWithDict:feed];
@@ -574,6 +577,8 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
 
 - (void)initUserInfo
 {
+    //获取本地数据库用户信息
+    [self updateLocalSqlUserInfo];
     //获取用户详细信息
     [WeLianClient getUserDetailInfoWithUid:@(0) Success:^(id resultInfo) {
         DLog(@"getUserDetailInfo -- %@",resultInfo);
@@ -587,8 +592,29 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
             });
         });
     } Failed:^(NSError *error) {
-        
+        DLog(@"getUserDetailInfo error");
     }];
+}
+
+//获取本地数据库用户信息
+- (void)updateLocalSqlUserInfo
+{
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (loginUser) {
+        //取sqlite数据库用户信息
+        YTKKeyValueItem *item = [[WLDataDBTool sharedService] getYTKKeyValueItemById:loginUser.uid.stringValue fromTable:KWLUserInfoTableName];
+        if (item) {
+            //初始化数据
+            NSDictionary *resultInfo = item.itemObject;
+            self.infoDict = [self getUserInfoWith:resultInfo];
+            
+            //重置用户信息
+            [self reSetUserInfo:[self.infoDict objectForKey:@"profile"]];
+            [self.tableView reloadData];
+
+        }
+    }
+    
 }
 
 @end
