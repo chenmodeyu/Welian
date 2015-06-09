@@ -22,6 +22,7 @@
 
 - (void)dealloc{
     _datasource = nil;
+    [KNSNotification removeObserver:self];
 }
 
 //没有聊天记录提醒

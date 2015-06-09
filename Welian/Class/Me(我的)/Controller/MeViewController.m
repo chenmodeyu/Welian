@@ -37,7 +37,7 @@
 @property (assign,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) WLCustomSegmentedControl *wlSegmentedControl;
 @property (strong,nonatomic) NSDictionary *infoDict;
-@property (assign,nonatomic) UserInfoView *userInfoView;
+@property (strong,nonatomic) UserInfoView *userInfoView;
 
 @end
 
@@ -50,6 +50,8 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     _header = nil;
     _wlSegmentedControl = nil;
     _infoDict = nil;
+    _userInfoView = nil;
+    [KNSNotification removeObserver:self];
 }
 
 - (NSString *)title

@@ -49,6 +49,12 @@
 
 @implementation HomeController
 
+- (void)dealloc
+{
+    _homeView = nil;
+    _notDataView = nil;
+    [KNSNotification removeObserver:self];
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -259,11 +265,6 @@
 //    [self loadAcitvityCitys];
     //获取默认筛选条件
     [self loadCommonSelectInfos];
-}
-
-- (void)dealloc
-{
-    [KNSNotification removeObserver:self];
 }
 
 #pragma mark - 来了新消息

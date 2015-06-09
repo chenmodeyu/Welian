@@ -38,6 +38,13 @@
 static NSString *CellIdentifier = @"BadgeBaseCellid";
 @implementation FindViewController
 
+- (void)dealloc
+{
+    [KNSNotification removeObserver:self];
+    _tableView = nil;
+    _loopView = nil;
+}
+
 - (HYBLoopScrollView *)loopView
 {
     if (_loopView == nil) {
