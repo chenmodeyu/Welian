@@ -10,7 +10,8 @@
 #define Welian_Other_h
 
 #define MR_ENABLE_ACTIVE_RECORD_LOGGING 0
-#import "CoreData+MagicalRecord.h"
+//#import "CoreData+MagicalRecord.h"
+#import "MagicalRecord.h"
 
 #pragma mark - Categorys
 #import "NSObject+MJKeyValue.h"

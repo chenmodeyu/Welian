@@ -1418,9 +1418,7 @@
 		A49C7BE41A70D42700F2AEC5 /* ICompanyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E761E1A411E4C0028FBAF /* ICompanyResult.m */; };
 		A49C7BE61A70D42700F2AEC5 /* NeedAddUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A482A2461A5FD16F004AABE5 /* NeedAddUser.m */; };
 		A49C7BE71A70D42700F2AEC5 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E419D3BACE003987CC /* MJPhotoProgressView.m */; };
-		A49C7BE81A70D42700F2AEC5 /* NSManagedObject+MagicalAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAF1A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m */; };
 		A49C7BEB1A70D42700F2AEC5 /* MyFriendsOperateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A403560E1A5D2259006AE52C /* MyFriendsOperateViewCell.m */; };
-		A49C7BED1A70D42700F2AEC5 /* NSManagedObjectContext+MagicalObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABC1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m */; };
 		A49C7BF01A70D42700F2AEC5 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F56254EE19C01C0800809D0B /* FindViewController.m */; };
 		A49C7BF11A70D42700F2AEC5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F520ED8619CFC13C00E753E4 /* MBProgressHUD.m */; };
 		A49C7BF21A70D42700F2AEC5 /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C88F19D2AA6000110C07 /* MJMember.m */; };
@@ -1428,14 +1426,12 @@
 		A49C7BF41A70D42700F2AEC5 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57EB55219C5BC9E00AA3396 /* SettingController.m */; };
 		A49C7BF51A70D42700F2AEC5 /* InvestCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F534DAE11A4EAA5800B6A725 /* InvestCollectionVC.m */; };
 		A49C7BF61A70D42700F2AEC5 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F5188ABC19CF017600FE9273 /* SDWebImagePrefetcher.m */; };
-		A49C7BF81A70D42700F2AEC5 /* NSManagedObject+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB51A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m */; };
 		A49C7BFA1A70D42700F2AEC5 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FD0019C8694B005B887D /* UIButton+AFNetworking.m */; };
 		A49C7BFB1A70D42700F2AEC5 /* MultiSelectedPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140D11A4BEF5700C9BAB5 /* MultiSelectedPanel.m */; };
 		A49C7BFC1A70D42700F2AEC5 /* AddCaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F534DAFA1A4F1BB100B6A725 /* AddCaseCell.m */; };
 		A49C7BFE1A70D42700F2AEC5 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = A48CA69D1A4D044B009EBD04 /* NSDate+DateTools.m */; };
 		A49C7C001A70D42700F2AEC5 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B5319F4B4D700D9E696 /* FriendCell.m */; };
 		A49C7C011A70D42700F2AEC5 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B9A19F684BF00D9E696 /* SWUtilityButtonView.m */; };
-		A49C7C041A70D42700F2AEC5 /* MagicalRecord+ErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACD1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m */; };
 		A49C7C081A70D42700F2AEC5 /* FeedAndZanView.m in Sources */ = {isa = PBXBuildFile; fileRef = F53CF4941A206B7B00AB19E8 /* FeedAndZanView.m */; };
 		A49C7C091A70D42700F2AEC5 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5CE860D19BFF2AB00A9D14C /* AppDelegate.mm */; };
 		A49C7C0A1A70D42700F2AEC5 /* TQRichTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C87619D2961600110C07 /* TQRichTextView.m */; };
@@ -1443,8 +1439,6 @@
 		A49C7C0C1A70D42700F2AEC5 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EE26101A14D19600B0E836 /* UIBarButtonItem+Badge.m */; };
 		A49C7C0E1A70D42700F2AEC5 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B5D19F4EDC700D9E696 /* ChineseString.m */; };
 		A49C7C0F1A70D42700F2AEC5 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677DD19D3BACE003987CC /* MJPhoto.m */; };
-		A49C7C101A70D42700F2AEC5 /* NSManagedObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB11A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m */; };
-		A49C7C121A70D42700F2AEC5 /* NSManagedObjectContext+MagicalThreading.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC21A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m */; };
 		A49C7C131A70D42700F2AEC5 /* WeixinActivityBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B123A119E7CE8F002B9E58 /* WeixinActivityBase.m */; };
 		A49C7C141A70D42700F2AEC5 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FCFC19C8694B005B887D /* UIActivityIndicatorView+AFNetworking.m */; };
 		A49C7C151A70D42700F2AEC5 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F5188AB519CF017600FE9273 /* SDWebImageDownloader.m */; };
@@ -1463,11 +1457,9 @@
 		A49C7C2A1A70D42700F2AEC5 /* WLMessageSpecialView.m in Sources */ = {isa = PBXBuildFile; fileRef = A437CEF41A541BF300B54E68 /* WLMessageSpecialView.m */; };
 		A49C7C2B1A70D42700F2AEC5 /* ShareEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = F51FB9EB19EE948F00D85D7F /* ShareEngine.m */; };
 		A49C7C2E1A70D42700F2AEC5 /* AddWorkOrEducationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57EB55C19C5F3E500AA3396 /* AddWorkOrEducationController.m */; };
-		A49C7C301A70D42700F2AEC5 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA21A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m */; };
 		A49C7C311A70D42700F2AEC5 /* WLBubblePhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C144671A4C271900C9BAB5 /* WLBubblePhotoImageView.m */; };
 		A49C7C321A70D42700F2AEC5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5188AC819CF017600FE9273 /* UIImageView+WebCache.m */; };
 		A49C7C331A70D42700F2AEC5 /* InvestInfoListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F52F966D1A56EA0A00BAA77B /* InvestInfoListVC.m */; };
-		A49C7C341A70D42700F2AEC5 /* NSPersistentStore+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC61A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m */; };
 		A49C7C351A70D42700F2AEC5 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FCF719C8694B005B887D /* AFURLSessionManager.m */; };
 		A49C7C361A70D42700F2AEC5 /* UIView+XHBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1404A1A4BEA8500C9BAB5 /* UIView+XHBadgeView.m */; };
 		A49C7C371A70D42700F2AEC5 /* SchoolCompanyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E760E1A4071320028FBAF /* SchoolCompanyDate.m */; };
@@ -1481,7 +1473,6 @@
 		A49C7C411A70D42700F2AEC5 /* LKBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140C81A4BEF5700C9BAB5 /* LKBadgeView.m */; };
 		A49C7C421A70D42700F2AEC5 /* InvestIndustry.m in Sources */ = {isa = PBXBuildFile; fileRef = F534DB591A5119A000B6A725 /* InvestIndustry.m */; };
 		A49C7C431A70D42700F2AEC5 /* WLLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CE1E51A6FA64C004F17E7 /* WLLocationHelper.m */; };
-		A49C7C451A70D42700F2AEC5 /* MagicalRecord+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACB1A6CF7C8006ADA55 /* MagicalRecord+Actions.m */; };
 		A49C7C471A70D42700F2AEC5 /* InvestCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F534DAD41A4E929500B6A725 /* InvestCardCell.m */; };
 		A49C7C491A70D42700F2AEC5 /* WLMessageBubbleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1446D1A4C2D3B00C9BAB5 /* WLMessageBubbleHelper.m */; };
 		A49C7C4A1A70D42700F2AEC5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D10E19F9F7F8000610A1 /* FMDatabaseQueue.m */; };
@@ -1493,11 +1484,9 @@
 		A49C7C511A70D42700F2AEC5 /* ZBExpressionSectionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F511F0D319ECFF5500B1A356 /* ZBExpressionSectionBar.m */; };
 		A49C7C521A70D42700F2AEC5 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B9419F684BF00D9E696 /* SWLongPressGestureRecognizer.m */; };
 		A49C7C531A70D42700F2AEC5 /* WLMessageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1405D1A4BEA8500C9BAB5 /* WLMessageTableView.m */; };
-		A49C7C561A70D42700F2AEC5 /* MagicalRecord+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACF1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m */; };
 		A49C7C571A70D42700F2AEC5 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D0FA19F8E1A2000610A1 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		A49C7C581A70D42700F2AEC5 /* MJType.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C89319D2AA6000110C07 /* MJType.m */; };
 		A49C7C591A70D42700F2AEC5 /* XHZoomingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C141061A4BEF5700C9BAB5 /* XHZoomingImageView.m */; };
-		A49C7C5B1A70D42700F2AEC5 /* NSManagedObjectContext+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABE1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m */; };
 		A49C7C5C1A70D42700F2AEC5 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FD0919C8694B005B887D /* UIWebView+AFNetworking.m */; };
 		A49C7C5D1A70D42700F2AEC5 /* DaiDodgeKeyboard+AccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F58CA98E1A5D4F9100988A61 /* DaiDodgeKeyboard+AccessObject.m */; };
 		A49C7C5E1A70D42700F2AEC5 /* DaiDodgeKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = F58CA9921A5D4F9100988A61 /* DaiDodgeKeyboard.m */; };
@@ -1514,24 +1503,19 @@
 		A49C7C6F1A70D42700F2AEC5 /* ForgetPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E4BB851A01D714007BEBD2 /* ForgetPhoneController.m */; };
 		A49C7C711A70D42700F2AEC5 /* PerfectInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55772931A5A8E9600693279 /* PerfectInfoController.m */; };
 		A49C7C731A70D42700F2AEC5 /* MultiSelectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140D41A4BEF5700C9BAB5 /* MultiSelectItem.m */; };
-		A49C7C751A70D42700F2AEC5 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA01A6CF7C8006ADA55 /* MagicalImportFunctions.m */; };
 		A49C7C771A70D42700F2AEC5 /* NewFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B4E19F4B17200D9E696 /* NewFriendsCell.m */; };
 		A49C7C781A70D42700F2AEC5 /* NameController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BA194019C18FE6005F91BE /* NameController.m */; };
 		A49C7C791A70D42700F2AEC5 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5188AC619CF017600FE9273 /* UIImageView+HighlightedWebCache.m */; };
-		A49C7C7A1A70D42700F2AEC5 /* NSManagedObjectModel+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC41A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m */; };
 		A49C7C7C1A70D42700F2AEC5 /* FriendsFriendController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5382B6119FFB1F000FAA5B6 /* FriendsFriendController.m */; };
 		A49C7C7D1A70D42700F2AEC5 /* WeixinActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B1239F19E7CE8F002B9E58 /* WeixinActivity.m */; };
-		A49C7C7E1A70D42700F2AEC5 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD31A6CF7C8006ADA55 /* MagicalRecord+Setup.m */; };
 		A49C7C7F1A70D42700F2AEC5 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C89B19D2AA6000110C07 /* NSObject+MJMember.m */; };
 		A49C7C801A70D42700F2AEC5 /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D11319F9F7F8000610A1 /* YTKKeyValueStore.m */; };
 		A49C7C811A70D42700F2AEC5 /* UIScrollView+XHkeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140471A4BEA8500C9BAB5 /* UIScrollView+XHkeyboardControl.m */; };
-		A49C7C821A70D42700F2AEC5 /* NSRelationshipDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAA1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m */; };
 		A49C7C831A70D42700F2AEC5 /* UIImage+XHRounded.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140441A4BEA8500C9BAB5 /* UIImage+XHRounded.m */; };
 		A49C7C841A70D42700F2AEC5 /* WLPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C8AF19D2BE8200110C07 /* WLPhotoView.m */; };
 		A49C7C851A70D42700F2AEC5 /* BadgeBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F55786391A63749500630A46 /* BadgeBaseCell.m */; };
 		A49C7C861A70D42700F2AEC5 /* BindingPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58CA96D1A5CE3CD00988A61 /* BindingPhoneController.m */; };
 		A49C7C891A70D42700F2AEC5 /* InvestItemM.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C779731A53935F0098BC29 /* InvestItemM.m */; };
-		A49C7C8B1A70D42700F2AEC5 /* NSObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m */; };
 		A49C7C8D1A70D42700F2AEC5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1403E1A4BEA8500C9BAB5 /* UIImage+RoundedCorner.m */; };
 		A49C7C8E1A70D42700F2AEC5 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C677E219D3BACE003987CC /* MJPhotoLoadingView.m */; };
 		A49C7C8F1A70D42700F2AEC5 /* NSString+XHDiskSizeTransfrom.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140321A4BEA8500C9BAB5 /* NSString+XHDiskSizeTransfrom.m */; };
@@ -1540,10 +1524,8 @@
 		A49C7C941A70D42700F2AEC5 /* SameFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B8519F63EE800D9E696 /* SameFriendsCell.m */; };
 		A49C7C951A70D42700F2AEC5 /* XHSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1410B1A4BEF5700C9BAB5 /* XHSoundManager.m */; };
 		A49C7C961A70D42700F2AEC5 /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140C31A4BEF5700C9BAB5 /* FLAnimatedImage.m */; };
-		A49C7C981A70D42700F2AEC5 /* NSString+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAC1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m */; };
 		A49C7C991A70D42700F2AEC5 /* WeixinSessionActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B123A319E7CE8F002B9E58 /* WeixinSessionActivity.m */; };
 		A49C7C9C1A70D42700F2AEC5 /* InvestorUsersListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51FBA2C19EF973600D85D7F /* InvestorUsersListController.m */; };
-		A49C7C9D1A70D42700F2AEC5 /* NSManagedObjectContext+MagicalSaves.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC01A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m */; };
 		A49C7C9E1A70D42700F2AEC5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5188AAF19CF017600FE9273 /* SDImageCache.m */; };
 		A49C7CA21A70D42700F2AEC5 /* InvestorUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E69B361A42D263001B19E5 /* InvestorUser.m */; };
 		A49C7CA41A70D42700F2AEC5 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A48CA69B1A4D044B009EBD04 /* DTTimePeriodGroup.m */; };
@@ -1566,7 +1548,6 @@
 		A49C7CBB1A70D42700F2AEC5 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FCF519C8694B005B887D /* AFURLResponseSerialization.m */; };
 		A49C7CBC1A70D42700F2AEC5 /* WLMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140551A4BEA8500C9BAB5 /* WLMessage.m */; };
 		A49C7CBF1A70D42700F2AEC5 /* WLContentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = F53CF4911A20561300AB19E8 /* WLContentCellView.m */; };
-		A49C7CC11A70D42700F2AEC5 /* NSManagedObject+MagicalFinders.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB31A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m */; };
 		A49C7CC21A70D42700F2AEC5 /* BaseUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F53D4DFB1A4A771300CA06C8 /* BaseUser.m */; };
 		A49C7CC31A70D42700F2AEC5 /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A4272FC61A4E8AAD0019E440 /* ChatMessage.m */; };
 		A49C7CC41A70D42700F2AEC5 /* HaderInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B7F19F6207700D9E696 /* HaderInfoCell.m */; };
@@ -1590,7 +1571,6 @@
 		A49C7CDB1A70D42700F2AEC5 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = F5188AB119CF017600FE9273 /* SDWebImageCompat.m */; };
 		A49C7CDC1A70D42700F2AEC5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C2D10819F9F7F8000610A1 /* FMDatabase.m */; };
 		A49C7CDF1A70D42700F2AEC5 /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = F5239B6019F4EDC700D9E696 /* ChineseToPinyinResource.m */; };
-		A49C7CE11A70D42700F2AEC5 /* NSManagedObjectContext+MagicalChainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABA1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m */; };
 		A49C7CE21A70D42700F2AEC5 /* CityLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A1A71719E9543C003773F1 /* CityLocationController.m */; };
 		A49C7CE41A70D42700F2AEC5 /* NSString+XHMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140341A4BEA8500C9BAB5 /* NSString+XHMD5.m */; };
 		A49C7CE61A70D42700F2AEC5 /* MessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EE260C1A14BCF600B0E836 /* MessageController.m */; };
@@ -1607,7 +1587,6 @@
 		A49C7CF31A70D42700F2AEC5 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FD0719C8694B005B887D /* UIRefreshControl+AFNetworking.m */; };
 		A49C7CF61A70D42700F2AEC5 /* PictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F520EDC319CFF94200E753E4 /* PictureCell.m */; };
 		A49C7CF81A70D42700F2AEC5 /* UIButton+XHButtonTitlePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140371A4BEA8500C9BAB5 /* UIButton+XHButtonTitlePosition.m */; };
-		A49C7CF91A70D42700F2AEC5 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA41A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m */; };
 		A49C7CFC1A70D42700F2AEC5 /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C88D19D2AA6000110C07 /* MJIvar.m */; };
 		A49C7CFD1A70D42700F2AEC5 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = A48CA6991A4D044B009EBD04 /* DTTimePeriodCollection.m */; };
 		A49C7CFF1A70D42700F2AEC5 /* CompotAndPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58CA97D1A5CFCB800988A61 /* CompotAndPostController.m */; };
@@ -1623,7 +1602,6 @@
 		A49C7D0E1A70D42700F2AEC5 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5188ABE19CF017600FE9273 /* UIButton+WebCache.m */; };
 		A49C7D0F1A70D42700F2AEC5 /* AddFriendTypeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C5F531A5E663100E63737 /* AddFriendTypeListViewController.m */; };
 		A49C7D101A70D42700F2AEC5 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5324CDE19EB794200A1D066 /* CommentCell.m */; };
-		A49C7D111A70D42700F2AEC5 /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m */; };
 		A49C7D121A70D42700F2AEC5 /* WLBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1405A1A4BEA8500C9BAB5 /* WLBaseTableViewCell.m */; };
 		A49C7D131A70D42700F2AEC5 /* DaiDodgeKeyboard+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = F58CA9901A5D4F9100988A61 /* DaiDodgeKeyboard+Animation.m */; };
 		A49C7D161A70D42700F2AEC5 /* MeinfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F53C6EC119C5910D00FE9AE6 /* MeinfoCell.m */; };
@@ -1656,12 +1634,10 @@
 		A49C7D381A70D42700F2AEC5 /* BiaoqainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F58CA9871A5D0BD900988A61 /* BiaoqainCell.m */; };
 		A49C7D3A1A70D42700F2AEC5 /* CompanyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E76121A4071330028FBAF /* CompanyModel.m */; };
 		A49C7D3B1A70D42700F2AEC5 /* InvestItems.m in Sources */ = {isa = PBXBuildFile; fileRef = F534DB631A5119A000B6A725 /* InvestItems.m */; };
-		A49C7D3C1A70D42700F2AEC5 /* NSManagedObject+MagicalRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB71A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m */; };
 		A49C7D3D1A70D42700F2AEC5 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50C896A1A08F2050007BE52 /* AboutViewController.m */; };
 		A49C7D3E1A70D42700F2AEC5 /* WLMessageVoiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C144731A4C370100C9BAB5 /* WLMessageVoiceFactory.m */; };
 		A49C7D3F1A70D42700F2AEC5 /* UIView+FirstResponderNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = F58CA9961A5D4F9100988A61 /* UIView+FirstResponderNotify.m */; };
 		A49C7D401A70D42700F2AEC5 /* CommonFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E4BB941A023E78007BEBD2 /* CommonFriendsController.m */; };
-		A49C7D421A70D42700F2AEC5 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */; };
 		A49C7D431A70D42700F2AEC5 /* InvestStages.m in Sources */ = {isa = PBXBuildFile; fileRef = F534DB5E1A5119A000B6A725 /* InvestStages.m */; };
 		A49C7D451A70D42700F2AEC5 /* WLPhotoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F3C87D19D296B600110C07 /* WLPhotoListView.m */; };
 		A49C7D461A70D42700F2AEC5 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F532FCEA19C8694B005B887D /* AFHTTPSessionManager.m */; };
@@ -1669,7 +1645,6 @@
 		A49C7D4B1A70D42700F2AEC5 /* HomeMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F562728F1A4D474E002A9B88 /* HomeMessage.m */; };
 		A49C7D4C1A70D42700F2AEC5 /* XHWaterDropRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1410D1A4BEF5700C9BAB5 /* XHWaterDropRefresh.m */; };
 		A49C7D4D1A70D42700F2AEC5 /* BSearchFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58CA9501A5BE6E400988A61 /* BSearchFriendsController.m */; };
-		A49C7D4E1A70D42700F2AEC5 /* MagicalRecord+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD11A6CF7C8006ADA55 /* MagicalRecord+Options.m */; };
 		A49C7D4F1A70D42700F2AEC5 /* XHImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C141021A4BEF5700C9BAB5 /* XHImageViewer.m */; };
 		A49C7D501A70D42700F2AEC5 /* MultiSelectSearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140D61A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m */; };
 		A49C7D531A70D42700F2AEC5 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = F5188AC019CF017600FE9273 /* UIImage+GIF.m */; };
@@ -1688,9 +1663,7 @@
 		A49C7D631A70D42700F2AEC5 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = A48CA6931A4D044B009EBD04 /* DTError.m */; };
 		A49C7D641A70D42700F2AEC5 /* XHHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C140B11A4BEF0E00C9BAB5 /* XHHTTPClient.m */; };
 		A49C7D661A70D42700F2AEC5 /* WLMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1404F1A4BEA8500C9BAB5 /* WLMessageTableViewController.m */; };
-		A49C7D671A70D42700F2AEC5 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD51A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m */; };
 		A49C7D681A70D42700F2AEC5 /* UIColor+HBVHarmonies.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BCDEB41A03BF7200183F64 /* UIColor+HBVHarmonies.m */; };
-		A49C7D691A70D42700F2AEC5 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC81A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m */; };
 		A49C7D6C1A70D42700F2AEC5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A1A70B19E908C9003773F1 /* MapKit.framework */; };
 		A49C7D6D1A70D42700F2AEC5 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C60B3F1A5936A600F1F965 /* CoreText.framework */; };
 		A49C7D6E1A70D42700F2AEC5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CE868819BFF4BC00A9D14C /* Security.framework */; };
@@ -2081,87 +2054,6 @@
 		A49FF4011AC2B1A3009982E2 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A49FF3FF1AC2B1A3009982E2 /* UserInfoViewController.m */; };
 		A49FF4021AC2B1A3009982E2 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A49FF3FF1AC2B1A3009982E2 /* UserInfoViewController.m */; };
 		A49FF4031AC2B1A3009982E2 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A49FF3FF1AC2B1A3009982E2 /* UserInfoViewController.m */; };
-		A4A2EADC1A6CF7C8006ADA55 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA01A6CF7C8006ADA55 /* MagicalImportFunctions.m */; };
-		A4A2EADD1A6CF7C8006ADA55 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA01A6CF7C8006ADA55 /* MagicalImportFunctions.m */; };
-		A4A2EADE1A6CF7C8006ADA55 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA01A6CF7C8006ADA55 /* MagicalImportFunctions.m */; };
-		A4A2EADF1A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA21A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m */; };
-		A4A2EAE01A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA21A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m */; };
-		A4A2EAE11A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA21A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m */; };
-		A4A2EAE21A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA41A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m */; };
-		A4A2EAE31A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA41A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m */; };
-		A4A2EAE41A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA41A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m */; };
-		A4A2EAE51A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m */; };
-		A4A2EAE61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m */; };
-		A4A2EAE71A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m */; };
-		A4A2EAE81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m */; };
-		A4A2EAE91A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m */; };
-		A4A2EAEA1A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAA81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m */; };
-		A4A2EAEB1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAA1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m */; };
-		A4A2EAEC1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAA1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m */; };
-		A4A2EAED1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAA1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m */; };
-		A4A2EAEE1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAC1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m */; };
-		A4A2EAEF1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAC1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m */; };
-		A4A2EAF01A6CF7C8006ADA55 /* NSString+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAC1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m */; };
-		A4A2EAF11A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAF1A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m */; };
-		A4A2EAF21A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAF1A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m */; };
-		A4A2EAF31A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAAF1A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m */; };
-		A4A2EAF41A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB11A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m */; };
-		A4A2EAF51A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB11A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m */; };
-		A4A2EAF61A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB11A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m */; };
-		A4A2EAF71A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB31A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m */; };
-		A4A2EAF81A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB31A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m */; };
-		A4A2EAF91A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB31A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m */; };
-		A4A2EAFA1A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB51A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m */; };
-		A4A2EAFB1A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB51A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m */; };
-		A4A2EAFC1A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB51A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m */; };
-		A4A2EAFD1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB71A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m */; };
-		A4A2EAFE1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB71A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m */; };
-		A4A2EAFF1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAB71A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m */; };
-		A4A2EB001A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABA1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m */; };
-		A4A2EB011A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABA1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m */; };
-		A4A2EB021A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABA1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m */; };
-		A4A2EB031A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABC1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m */; };
-		A4A2EB041A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABC1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m */; };
-		A4A2EB051A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABC1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m */; };
-		A4A2EB061A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABE1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m */; };
-		A4A2EB071A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABE1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m */; };
-		A4A2EB081A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EABE1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m */; };
-		A4A2EB091A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC01A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m */; };
-		A4A2EB0A1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC01A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m */; };
-		A4A2EB0B1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC01A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m */; };
-		A4A2EB0C1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC21A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m */; };
-		A4A2EB0D1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC21A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m */; };
-		A4A2EB0E1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC21A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m */; };
-		A4A2EB0F1A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC41A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m */; };
-		A4A2EB101A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC41A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m */; };
-		A4A2EB111A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC41A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m */; };
-		A4A2EB121A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC61A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m */; };
-		A4A2EB131A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC61A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m */; };
-		A4A2EB141A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC61A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m */; };
-		A4A2EB151A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC81A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m */; };
-		A4A2EB161A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC81A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m */; };
-		A4A2EB171A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAC81A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m */; };
-		A4A2EB181A6CF7C8006ADA55 /* MagicalRecord+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACB1A6CF7C8006ADA55 /* MagicalRecord+Actions.m */; };
-		A4A2EB191A6CF7C8006ADA55 /* MagicalRecord+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACB1A6CF7C8006ADA55 /* MagicalRecord+Actions.m */; };
-		A4A2EB1A1A6CF7C8006ADA55 /* MagicalRecord+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACB1A6CF7C8006ADA55 /* MagicalRecord+Actions.m */; };
-		A4A2EB1B1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACD1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m */; };
-		A4A2EB1C1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACD1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m */; };
-		A4A2EB1D1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACD1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m */; };
-		A4A2EB1E1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACF1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m */; };
-		A4A2EB1F1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACF1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m */; };
-		A4A2EB201A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EACF1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m */; };
-		A4A2EB211A6CF7C8006ADA55 /* MagicalRecord+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD11A6CF7C8006ADA55 /* MagicalRecord+Options.m */; };
-		A4A2EB221A6CF7C8006ADA55 /* MagicalRecord+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD11A6CF7C8006ADA55 /* MagicalRecord+Options.m */; };
-		A4A2EB231A6CF7C8006ADA55 /* MagicalRecord+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD11A6CF7C8006ADA55 /* MagicalRecord+Options.m */; };
-		A4A2EB241A6CF7C8006ADA55 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD31A6CF7C8006ADA55 /* MagicalRecord+Setup.m */; };
-		A4A2EB251A6CF7C8006ADA55 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD31A6CF7C8006ADA55 /* MagicalRecord+Setup.m */; };
-		A4A2EB261A6CF7C8006ADA55 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD31A6CF7C8006ADA55 /* MagicalRecord+Setup.m */; };
-		A4A2EB271A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD51A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m */; };
-		A4A2EB281A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD51A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m */; };
-		A4A2EB291A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD51A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m */; };
-		A4A2EB2A1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */; };
-		A4A2EB2B1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */; };
-		A4A2EB2C1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */; };
 		A4A57EC51B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */; };
 		A4A57EC61B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */; };
 		A4A57EC71B15634C00AE10CD /* touziren_detail_already@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */; };
@@ -4488,6 +4380,114 @@
 		F5B5FE7A1A596D4B007FE11B /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE671A596D4A007FE11B /* ShareSDK.framework */; };
 		F5B5FE7B1A596D4B007FE11B /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE671A596D4A007FE11B /* ShareSDK.framework */; };
 		F5B5FE7C1A596D4B007FE11B /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B5FE671A596D4A007FE11B /* ShareSDK.framework */; };
+		F5C09E0F1B26B2220068559A /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD31B26B2220068559A /* MagicalImportFunctions.m */; };
+		F5C09E101B26B2220068559A /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD31B26B2220068559A /* MagicalImportFunctions.m */; };
+		F5C09E111B26B2220068559A /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD31B26B2220068559A /* MagicalImportFunctions.m */; };
+		F5C09E121B26B2220068559A /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD31B26B2220068559A /* MagicalImportFunctions.m */; };
+		F5C09E131B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD51B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m */; };
+		F5C09E141B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD51B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m */; };
+		F5C09E151B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD51B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m */; };
+		F5C09E161B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD51B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m */; };
+		F5C09E171B26B2220068559A /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD71B26B2220068559A /* NSEntityDescription+MagicalDataImport.m */; };
+		F5C09E181B26B2220068559A /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD71B26B2220068559A /* NSEntityDescription+MagicalDataImport.m */; };
+		F5C09E191B26B2220068559A /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD71B26B2220068559A /* NSEntityDescription+MagicalDataImport.m */; };
+		F5C09E1A1B26B2220068559A /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD71B26B2220068559A /* NSEntityDescription+MagicalDataImport.m */; };
+		F5C09E1B1B26B2220068559A /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD91B26B2220068559A /* NSNumber+MagicalDataImport.m */; };
+		F5C09E1C1B26B2220068559A /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD91B26B2220068559A /* NSNumber+MagicalDataImport.m */; };
+		F5C09E1D1B26B2220068559A /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD91B26B2220068559A /* NSNumber+MagicalDataImport.m */; };
+		F5C09E1E1B26B2220068559A /* NSNumber+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DD91B26B2220068559A /* NSNumber+MagicalDataImport.m */; };
+		F5C09E1F1B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDB1B26B2220068559A /* NSObject+MagicalDataImport.m */; };
+		F5C09E201B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDB1B26B2220068559A /* NSObject+MagicalDataImport.m */; };
+		F5C09E211B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDB1B26B2220068559A /* NSObject+MagicalDataImport.m */; };
+		F5C09E221B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDB1B26B2220068559A /* NSObject+MagicalDataImport.m */; };
+		F5C09E231B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDD1B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m */; };
+		F5C09E241B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDD1B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m */; };
+		F5C09E251B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDD1B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m */; };
+		F5C09E261B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDD1B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m */; };
+		F5C09E271B26B2220068559A /* NSString+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDF1B26B2220068559A /* NSString+MagicalDataImport.m */; };
+		F5C09E281B26B2220068559A /* NSString+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDF1B26B2220068559A /* NSString+MagicalDataImport.m */; };
+		F5C09E291B26B2220068559A /* NSString+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDF1B26B2220068559A /* NSString+MagicalDataImport.m */; };
+		F5C09E2A1B26B2220068559A /* NSString+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DDF1B26B2220068559A /* NSString+MagicalDataImport.m */; };
+		F5C09E2B1B26B2220068559A /* NSManagedObject+MagicalAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE21B26B2220068559A /* NSManagedObject+MagicalAggregation.m */; };
+		F5C09E2C1B26B2220068559A /* NSManagedObject+MagicalAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE21B26B2220068559A /* NSManagedObject+MagicalAggregation.m */; };
+		F5C09E2D1B26B2220068559A /* NSManagedObject+MagicalAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE21B26B2220068559A /* NSManagedObject+MagicalAggregation.m */; };
+		F5C09E2E1B26B2220068559A /* NSManagedObject+MagicalAggregation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE21B26B2220068559A /* NSManagedObject+MagicalAggregation.m */; };
+		F5C09E2F1B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE41B26B2220068559A /* NSManagedObject+MagicalDataImport.m */; };
+		F5C09E301B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE41B26B2220068559A /* NSManagedObject+MagicalDataImport.m */; };
+		F5C09E311B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE41B26B2220068559A /* NSManagedObject+MagicalDataImport.m */; };
+		F5C09E321B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE41B26B2220068559A /* NSManagedObject+MagicalDataImport.m */; };
+		F5C09E331B26B2220068559A /* NSManagedObject+MagicalFinders.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE61B26B2220068559A /* NSManagedObject+MagicalFinders.m */; };
+		F5C09E341B26B2220068559A /* NSManagedObject+MagicalFinders.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE61B26B2220068559A /* NSManagedObject+MagicalFinders.m */; };
+		F5C09E351B26B2220068559A /* NSManagedObject+MagicalFinders.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE61B26B2220068559A /* NSManagedObject+MagicalFinders.m */; };
+		F5C09E361B26B2220068559A /* NSManagedObject+MagicalFinders.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE61B26B2220068559A /* NSManagedObject+MagicalFinders.m */; };
+		F5C09E371B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE81B26B2220068559A /* NSManagedObject+MagicalRecord.m */; };
+		F5C09E381B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE81B26B2220068559A /* NSManagedObject+MagicalRecord.m */; };
+		F5C09E391B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE81B26B2220068559A /* NSManagedObject+MagicalRecord.m */; };
+		F5C09E3A1B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DE81B26B2220068559A /* NSManagedObject+MagicalRecord.m */; };
+		F5C09E3B1B26B2220068559A /* NSManagedObject+MagicalRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DEA1B26B2220068559A /* NSManagedObject+MagicalRequests.m */; };
+		F5C09E3C1B26B2220068559A /* NSManagedObject+MagicalRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DEA1B26B2220068559A /* NSManagedObject+MagicalRequests.m */; };
+		F5C09E3D1B26B2220068559A /* NSManagedObject+MagicalRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DEA1B26B2220068559A /* NSManagedObject+MagicalRequests.m */; };
+		F5C09E3E1B26B2220068559A /* NSManagedObject+MagicalRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DEA1B26B2220068559A /* NSManagedObject+MagicalRequests.m */; };
+		F5C09E3F1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DED1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m */; };
+		F5C09E401B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DED1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m */; };
+		F5C09E411B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DED1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m */; };
+		F5C09E421B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DED1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m */; };
+		F5C09E431B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DEF1B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m */; };
+		F5C09E441B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DEF1B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m */; };
+		F5C09E451B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DEF1B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m */; };
+		F5C09E461B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DEF1B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m */; };
+		F5C09E471B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF11B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m */; };
+		F5C09E481B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF11B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m */; };
+		F5C09E491B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF11B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m */; };
+		F5C09E4A1B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF11B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m */; };
+		F5C09E4B1B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF31B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m */; };
+		F5C09E4C1B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF31B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m */; };
+		F5C09E4D1B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF31B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m */; };
+		F5C09E4E1B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF31B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m */; };
+		F5C09E4F1B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF51B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m */; };
+		F5C09E501B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF51B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m */; };
+		F5C09E511B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF51B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m */; };
+		F5C09E521B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF51B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m */; };
+		F5C09E531B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF71B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m */; };
+		F5C09E541B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF71B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m */; };
+		F5C09E551B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF71B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m */; };
+		F5C09E561B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF71B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m */; };
+		F5C09E571B26B2220068559A /* NSPersistentStore+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF91B26B2220068559A /* NSPersistentStore+MagicalRecord.m */; };
+		F5C09E581B26B2220068559A /* NSPersistentStore+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF91B26B2220068559A /* NSPersistentStore+MagicalRecord.m */; };
+		F5C09E591B26B2220068559A /* NSPersistentStore+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF91B26B2220068559A /* NSPersistentStore+MagicalRecord.m */; };
+		F5C09E5A1B26B2220068559A /* NSPersistentStore+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DF91B26B2220068559A /* NSPersistentStore+MagicalRecord.m */; };
+		F5C09E5B1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DFB1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m */; };
+		F5C09E5C1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DFB1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m */; };
+		F5C09E5D1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DFB1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m */; };
+		F5C09E5E1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DFB1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m */; };
+		F5C09E5F1B26B2220068559A /* MagicalRecord+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DFE1B26B2220068559A /* MagicalRecord+Actions.m */; };
+		F5C09E601B26B2220068559A /* MagicalRecord+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DFE1B26B2220068559A /* MagicalRecord+Actions.m */; };
+		F5C09E611B26B2220068559A /* MagicalRecord+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DFE1B26B2220068559A /* MagicalRecord+Actions.m */; };
+		F5C09E621B26B2220068559A /* MagicalRecord+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09DFE1B26B2220068559A /* MagicalRecord+Actions.m */; };
+		F5C09E631B26B2220068559A /* MagicalRecord+ErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E001B26B2220068559A /* MagicalRecord+ErrorHandling.m */; };
+		F5C09E641B26B2220068559A /* MagicalRecord+ErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E001B26B2220068559A /* MagicalRecord+ErrorHandling.m */; };
+		F5C09E651B26B2220068559A /* MagicalRecord+ErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E001B26B2220068559A /* MagicalRecord+ErrorHandling.m */; };
+		F5C09E661B26B2220068559A /* MagicalRecord+ErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E001B26B2220068559A /* MagicalRecord+ErrorHandling.m */; };
+		F5C09E671B26B2220068559A /* MagicalRecord+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E021B26B2220068559A /* MagicalRecord+iCloud.m */; };
+		F5C09E681B26B2220068559A /* MagicalRecord+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E021B26B2220068559A /* MagicalRecord+iCloud.m */; };
+		F5C09E691B26B2220068559A /* MagicalRecord+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E021B26B2220068559A /* MagicalRecord+iCloud.m */; };
+		F5C09E6A1B26B2220068559A /* MagicalRecord+iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E021B26B2220068559A /* MagicalRecord+iCloud.m */; };
+		F5C09E6B1B26B2220068559A /* MagicalRecord+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E041B26B2220068559A /* MagicalRecord+Options.m */; };
+		F5C09E6C1B26B2220068559A /* MagicalRecord+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E041B26B2220068559A /* MagicalRecord+Options.m */; };
+		F5C09E6D1B26B2220068559A /* MagicalRecord+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E041B26B2220068559A /* MagicalRecord+Options.m */; };
+		F5C09E6E1B26B2220068559A /* MagicalRecord+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E041B26B2220068559A /* MagicalRecord+Options.m */; };
+		F5C09E6F1B26B2220068559A /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E061B26B2220068559A /* MagicalRecord+Setup.m */; };
+		F5C09E701B26B2220068559A /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E061B26B2220068559A /* MagicalRecord+Setup.m */; };
+		F5C09E711B26B2220068559A /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E061B26B2220068559A /* MagicalRecord+Setup.m */; };
+		F5C09E721B26B2220068559A /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E061B26B2220068559A /* MagicalRecord+Setup.m */; };
+		F5C09E731B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E081B26B2220068559A /* MagicalRecord+ShorthandMethods.m */; };
+		F5C09E741B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E081B26B2220068559A /* MagicalRecord+ShorthandMethods.m */; };
+		F5C09E751B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E081B26B2220068559A /* MagicalRecord+ShorthandMethods.m */; };
+		F5C09E761B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E081B26B2220068559A /* MagicalRecord+ShorthandMethods.m */; };
+		F5C09E771B26B2220068559A /* MagicalRecordInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E0B1B26B2220068559A /* MagicalRecordInternal.m */; };
+		F5C09E781B26B2220068559A /* MagicalRecordInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E0B1B26B2220068559A /* MagicalRecordInternal.m */; };
+		F5C09E791B26B2220068559A /* MagicalRecordInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E0B1B26B2220068559A /* MagicalRecordInternal.m */; };
+		F5C09E7A1B26B2220068559A /* MagicalRecordInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C09E0B1B26B2220068559A /* MagicalRecordInternal.m */; };
 		F5C566891A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
 		F5C5668A1A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
 		F5C5668B1A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
@@ -5691,64 +5691,6 @@
 		A49FF3C81AC29A1B009982E2 /* navbar_set@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_set@2x.png"; sourceTree = "<group>"; };
 		A49FF3FE1AC2B1A3009982E2 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		A49FF3FF1AC2B1A3009982E2 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		A4A2EA9F1A6CF7C8006ADA55 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
-		A4A2EAA01A6CF7C8006ADA55 /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
-		A4A2EAA11A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
-		A4A2EAA21A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributeDescription+MagicalDataImport.m"; sourceTree = "<group>"; };
-		A4A2EAA31A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
-		A4A2EAA41A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+MagicalDataImport.m"; sourceTree = "<group>"; };
-		A4A2EAA51A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+MagicalDataImport.h"; sourceTree = "<group>"; };
-		A4A2EAA61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+MagicalDataImport.m"; sourceTree = "<group>"; };
-		A4A2EAA71A6CF7C8006ADA55 /* NSObject+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MagicalDataImport.h"; sourceTree = "<group>"; };
-		A4A2EAA81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MagicalDataImport.m"; sourceTree = "<group>"; };
-		A4A2EAA91A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRelationshipDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
-		A4A2EAAA1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRelationshipDescription+MagicalDataImport.m"; sourceTree = "<group>"; };
-		A4A2EAAB1A6CF7C8006ADA55 /* NSString+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MagicalDataImport.h"; sourceTree = "<group>"; };
-		A4A2EAAC1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MagicalDataImport.m"; sourceTree = "<group>"; };
-		A4A2EAAE1A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalAggregation.h"; sourceTree = "<group>"; };
-		A4A2EAAF1A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalAggregation.m"; sourceTree = "<group>"; };
-		A4A2EAB01A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalDataImport.h"; sourceTree = "<group>"; };
-		A4A2EAB11A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalDataImport.m"; sourceTree = "<group>"; };
-		A4A2EAB21A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalFinders.h"; sourceTree = "<group>"; };
-		A4A2EAB31A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalFinders.m"; sourceTree = "<group>"; };
-		A4A2EAB41A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalRecord.h"; sourceTree = "<group>"; };
-		A4A2EAB51A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalRecord.m"; sourceTree = "<group>"; };
-		A4A2EAB61A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalRequests.h"; sourceTree = "<group>"; };
-		A4A2EAB71A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalRequests.m"; sourceTree = "<group>"; };
-		A4A2EAB91A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalChainSave.h"; sourceTree = "<group>"; };
-		A4A2EABA1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalChainSave.m"; sourceTree = "<group>"; };
-		A4A2EABB1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalObserving.h"; sourceTree = "<group>"; };
-		A4A2EABC1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalObserving.m"; sourceTree = "<group>"; };
-		A4A2EABD1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalRecord.h"; sourceTree = "<group>"; };
-		A4A2EABE1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalRecord.m"; sourceTree = "<group>"; };
-		A4A2EABF1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalSaves.h"; sourceTree = "<group>"; };
-		A4A2EAC01A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalSaves.m"; sourceTree = "<group>"; };
-		A4A2EAC11A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalThreading.h"; sourceTree = "<group>"; };
-		A4A2EAC21A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalThreading.m"; sourceTree = "<group>"; };
-		A4A2EAC31A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectModel+MagicalRecord.h"; sourceTree = "<group>"; };
-		A4A2EAC41A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+MagicalRecord.m"; sourceTree = "<group>"; };
-		A4A2EAC51A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStore+MagicalRecord.h"; sourceTree = "<group>"; };
-		A4A2EAC61A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStore+MagicalRecord.m"; sourceTree = "<group>"; };
-		A4A2EAC71A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+MagicalRecord.h"; sourceTree = "<group>"; };
-		A4A2EAC81A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+MagicalRecord.m"; sourceTree = "<group>"; };
-		A4A2EACA1A6CF7C8006ADA55 /* MagicalRecord+Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Actions.h"; sourceTree = "<group>"; };
-		A4A2EACB1A6CF7C8006ADA55 /* MagicalRecord+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Actions.m"; sourceTree = "<group>"; };
-		A4A2EACC1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+ErrorHandling.h"; sourceTree = "<group>"; };
-		A4A2EACD1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+ErrorHandling.m"; sourceTree = "<group>"; };
-		A4A2EACE1A6CF7C8006ADA55 /* MagicalRecord+iCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+iCloud.h"; sourceTree = "<group>"; };
-		A4A2EACF1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+iCloud.m"; sourceTree = "<group>"; };
-		A4A2EAD01A6CF7C8006ADA55 /* MagicalRecord+Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Options.h"; sourceTree = "<group>"; };
-		A4A2EAD11A6CF7C8006ADA55 /* MagicalRecord+Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Options.m"; sourceTree = "<group>"; };
-		A4A2EAD21A6CF7C8006ADA55 /* MagicalRecord+Setup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Setup.h"; sourceTree = "<group>"; };
-		A4A2EAD31A6CF7C8006ADA55 /* MagicalRecord+Setup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Setup.m"; sourceTree = "<group>"; };
-		A4A2EAD41A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+ShorthandSupport.h"; sourceTree = "<group>"; };
-		A4A2EAD51A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+ShorthandSupport.m"; sourceTree = "<group>"; };
-		A4A2EAD61A6CF7C8006ADA55 /* MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecord.h; sourceTree = "<group>"; };
-		A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalRecord.m; sourceTree = "<group>"; };
-		A4A2EAD81A6CF7C8006ADA55 /* MagicalRecordDeprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordDeprecated.h; sourceTree = "<group>"; };
-		A4A2EAD91A6CF7C8006ADA55 /* MagicalRecordLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordLogging.h; sourceTree = "<group>"; };
-		A4A2EADA1A6CF7C8006ADA55 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
-		A4A2EADB1A6CF7C8006ADA55 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_detail_already@2x.png"; sourceTree = "<group>"; };
 		A4A888B71AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Sending_Card@2x.png"; sourceTree = "<group>"; };
 		A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Receiving_Card@2x.png"; sourceTree = "<group>"; };
@@ -6748,6 +6690,64 @@
 		F5BCDEB31A03BF7200183F64 /* UIColor+HBVHarmonies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HBVHarmonies.h"; sourceTree = "<group>"; };
 		F5BCDEB41A03BF7200183F64 /* UIColor+HBVHarmonies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HBVHarmonies.m"; sourceTree = "<group>"; };
 		F5BCDF221A04E60900183F64 /* me_mywriten_comment_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me_mywriten_comment_small@2x.png"; sourceTree = "<group>"; };
+		F5C09DD21B26B2220068559A /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
+		F5C09DD31B26B2220068559A /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
+		F5C09DD41B26B2220068559A /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
+		F5C09DD51B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributeDescription+MagicalDataImport.m"; sourceTree = "<group>"; };
+		F5C09DD61B26B2220068559A /* NSEntityDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
+		F5C09DD71B26B2220068559A /* NSEntityDescription+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+MagicalDataImport.m"; sourceTree = "<group>"; };
+		F5C09DD81B26B2220068559A /* NSNumber+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+MagicalDataImport.h"; sourceTree = "<group>"; };
+		F5C09DD91B26B2220068559A /* NSNumber+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+MagicalDataImport.m"; sourceTree = "<group>"; };
+		F5C09DDA1B26B2220068559A /* NSObject+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MagicalDataImport.h"; sourceTree = "<group>"; };
+		F5C09DDB1B26B2220068559A /* NSObject+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MagicalDataImport.m"; sourceTree = "<group>"; };
+		F5C09DDC1B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRelationshipDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
+		F5C09DDD1B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRelationshipDescription+MagicalDataImport.m"; sourceTree = "<group>"; };
+		F5C09DDE1B26B2220068559A /* NSString+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MagicalDataImport.h"; sourceTree = "<group>"; };
+		F5C09DDF1B26B2220068559A /* NSString+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MagicalDataImport.m"; sourceTree = "<group>"; };
+		F5C09DE11B26B2220068559A /* NSManagedObject+MagicalAggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalAggregation.h"; sourceTree = "<group>"; };
+		F5C09DE21B26B2220068559A /* NSManagedObject+MagicalAggregation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalAggregation.m"; sourceTree = "<group>"; };
+		F5C09DE31B26B2220068559A /* NSManagedObject+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalDataImport.h"; sourceTree = "<group>"; };
+		F5C09DE41B26B2220068559A /* NSManagedObject+MagicalDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalDataImport.m"; sourceTree = "<group>"; };
+		F5C09DE51B26B2220068559A /* NSManagedObject+MagicalFinders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalFinders.h"; sourceTree = "<group>"; };
+		F5C09DE61B26B2220068559A /* NSManagedObject+MagicalFinders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalFinders.m"; sourceTree = "<group>"; };
+		F5C09DE71B26B2220068559A /* NSManagedObject+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalRecord.h"; sourceTree = "<group>"; };
+		F5C09DE81B26B2220068559A /* NSManagedObject+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalRecord.m"; sourceTree = "<group>"; };
+		F5C09DE91B26B2220068559A /* NSManagedObject+MagicalRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MagicalRequests.h"; sourceTree = "<group>"; };
+		F5C09DEA1B26B2220068559A /* NSManagedObject+MagicalRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MagicalRequests.m"; sourceTree = "<group>"; };
+		F5C09DEC1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalChainSave.h"; sourceTree = "<group>"; };
+		F5C09DED1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalChainSave.m"; sourceTree = "<group>"; };
+		F5C09DEE1B26B2220068559A /* NSManagedObjectContext+MagicalObserving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalObserving.h"; sourceTree = "<group>"; };
+		F5C09DEF1B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalObserving.m"; sourceTree = "<group>"; };
+		F5C09DF01B26B2220068559A /* NSManagedObjectContext+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalRecord.h"; sourceTree = "<group>"; };
+		F5C09DF11B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalRecord.m"; sourceTree = "<group>"; };
+		F5C09DF21B26B2220068559A /* NSManagedObjectContext+MagicalSaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalSaves.h"; sourceTree = "<group>"; };
+		F5C09DF31B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalSaves.m"; sourceTree = "<group>"; };
+		F5C09DF41B26B2220068559A /* NSManagedObjectContext+MagicalThreading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MagicalThreading.h"; sourceTree = "<group>"; };
+		F5C09DF51B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MagicalThreading.m"; sourceTree = "<group>"; };
+		F5C09DF61B26B2220068559A /* NSManagedObjectModel+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectModel+MagicalRecord.h"; sourceTree = "<group>"; };
+		F5C09DF71B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+MagicalRecord.m"; sourceTree = "<group>"; };
+		F5C09DF81B26B2220068559A /* NSPersistentStore+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStore+MagicalRecord.h"; sourceTree = "<group>"; };
+		F5C09DF91B26B2220068559A /* NSPersistentStore+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStore+MagicalRecord.m"; sourceTree = "<group>"; };
+		F5C09DFA1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+MagicalRecord.h"; sourceTree = "<group>"; };
+		F5C09DFB1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+MagicalRecord.m"; sourceTree = "<group>"; };
+		F5C09DFD1B26B2220068559A /* MagicalRecord+Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Actions.h"; sourceTree = "<group>"; };
+		F5C09DFE1B26B2220068559A /* MagicalRecord+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Actions.m"; sourceTree = "<group>"; };
+		F5C09DFF1B26B2220068559A /* MagicalRecord+ErrorHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+ErrorHandling.h"; sourceTree = "<group>"; };
+		F5C09E001B26B2220068559A /* MagicalRecord+ErrorHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+ErrorHandling.m"; sourceTree = "<group>"; };
+		F5C09E011B26B2220068559A /* MagicalRecord+iCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+iCloud.h"; sourceTree = "<group>"; };
+		F5C09E021B26B2220068559A /* MagicalRecord+iCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+iCloud.m"; sourceTree = "<group>"; };
+		F5C09E031B26B2220068559A /* MagicalRecord+Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Options.h"; sourceTree = "<group>"; };
+		F5C09E041B26B2220068559A /* MagicalRecord+Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Options.m"; sourceTree = "<group>"; };
+		F5C09E051B26B2220068559A /* MagicalRecord+Setup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Setup.h"; sourceTree = "<group>"; };
+		F5C09E061B26B2220068559A /* MagicalRecord+Setup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Setup.m"; sourceTree = "<group>"; };
+		F5C09E071B26B2220068559A /* MagicalRecord+ShorthandMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+ShorthandMethods.h"; sourceTree = "<group>"; };
+		F5C09E081B26B2220068559A /* MagicalRecord+ShorthandMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+ShorthandMethods.m"; sourceTree = "<group>"; };
+		F5C09E091B26B2220068559A /* MagicalRecordDeprecationMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordDeprecationMacros.h; sourceTree = "<group>"; };
+		F5C09E0A1B26B2220068559A /* MagicalRecordInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordInternal.h; sourceTree = "<group>"; };
+		F5C09E0B1B26B2220068559A /* MagicalRecordInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalRecordInternal.m; sourceTree = "<group>"; };
+		F5C09E0C1B26B2220068559A /* MagicalRecordLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordLogging.h; sourceTree = "<group>"; };
+		F5C09E0D1B26B2220068559A /* MagicalRecordShorthandMethodAliases.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthandMethodAliases.h; sourceTree = "<group>"; };
+		F5C09E0E1B26B2220068559A /* MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecord.h; sourceTree = "<group>"; };
 		F5C2D0F919F8E1A2000610A1 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		F5C2D0FA19F8E1A2000610A1 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		F5C2D0FC19F8FA6B000610A1 /* AddImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddImageCollectionCell.h; sourceTree = "<group>"; };
@@ -8351,111 +8351,6 @@
 				A49C80331A71040F00F2AEC5 /* RSADataVerifier.m */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		A4A2EA9C1A6CF7C8006ADA55 /* MagicalRecord */ = {
-			isa = PBXGroup;
-			children = (
-				A4A2EA9D1A6CF7C8006ADA55 /* Categories */,
-				A4A2EAC91A6CF7C8006ADA55 /* Core */,
-				A4A2EADB1A6CF7C8006ADA55 /* CoreData+MagicalRecord.h */,
-			);
-			path = MagicalRecord;
-			sourceTree = "<group>";
-		};
-		A4A2EA9D1A6CF7C8006ADA55 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				A4A2EA9E1A6CF7C8006ADA55 /* DataImport */,
-				A4A2EAAD1A6CF7C8006ADA55 /* NSManagedObject */,
-				A4A2EAB81A6CF7C8006ADA55 /* NSManagedObjectContext */,
-				A4A2EAC31A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.h */,
-				A4A2EAC41A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m */,
-				A4A2EAC51A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.h */,
-				A4A2EAC61A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m */,
-				A4A2EAC71A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.h */,
-				A4A2EAC81A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		A4A2EA9E1A6CF7C8006ADA55 /* DataImport */ = {
-			isa = PBXGroup;
-			children = (
-				A4A2EA9F1A6CF7C8006ADA55 /* MagicalImportFunctions.h */,
-				A4A2EAA01A6CF7C8006ADA55 /* MagicalImportFunctions.m */,
-				A4A2EAA11A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.h */,
-				A4A2EAA21A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m */,
-				A4A2EAA31A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.h */,
-				A4A2EAA41A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m */,
-				A4A2EAA51A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.h */,
-				A4A2EAA61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m */,
-				A4A2EAA71A6CF7C8006ADA55 /* NSObject+MagicalDataImport.h */,
-				A4A2EAA81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m */,
-				A4A2EAA91A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.h */,
-				A4A2EAAA1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m */,
-				A4A2EAAB1A6CF7C8006ADA55 /* NSString+MagicalDataImport.h */,
-				A4A2EAAC1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m */,
-			);
-			path = DataImport;
-			sourceTree = "<group>";
-		};
-		A4A2EAAD1A6CF7C8006ADA55 /* NSManagedObject */ = {
-			isa = PBXGroup;
-			children = (
-				A4A2EAAE1A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.h */,
-				A4A2EAAF1A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m */,
-				A4A2EAB01A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.h */,
-				A4A2EAB11A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m */,
-				A4A2EAB21A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.h */,
-				A4A2EAB31A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m */,
-				A4A2EAB41A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.h */,
-				A4A2EAB51A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m */,
-				A4A2EAB61A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.h */,
-				A4A2EAB71A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m */,
-			);
-			path = NSManagedObject;
-			sourceTree = "<group>";
-		};
-		A4A2EAB81A6CF7C8006ADA55 /* NSManagedObjectContext */ = {
-			isa = PBXGroup;
-			children = (
-				A4A2EAB91A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.h */,
-				A4A2EABA1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m */,
-				A4A2EABB1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.h */,
-				A4A2EABC1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m */,
-				A4A2EABD1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.h */,
-				A4A2EABE1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m */,
-				A4A2EABF1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.h */,
-				A4A2EAC01A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m */,
-				A4A2EAC11A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.h */,
-				A4A2EAC21A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m */,
-			);
-			path = NSManagedObjectContext;
-			sourceTree = "<group>";
-		};
-		A4A2EAC91A6CF7C8006ADA55 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				A4A2EACA1A6CF7C8006ADA55 /* MagicalRecord+Actions.h */,
-				A4A2EACB1A6CF7C8006ADA55 /* MagicalRecord+Actions.m */,
-				A4A2EACC1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.h */,
-				A4A2EACD1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m */,
-				A4A2EACE1A6CF7C8006ADA55 /* MagicalRecord+iCloud.h */,
-				A4A2EACF1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m */,
-				A4A2EAD01A6CF7C8006ADA55 /* MagicalRecord+Options.h */,
-				A4A2EAD11A6CF7C8006ADA55 /* MagicalRecord+Options.m */,
-				A4A2EAD21A6CF7C8006ADA55 /* MagicalRecord+Setup.h */,
-				A4A2EAD31A6CF7C8006ADA55 /* MagicalRecord+Setup.m */,
-				A4A2EAD41A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.h */,
-				A4A2EAD51A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m */,
-				A4A2EAD61A6CF7C8006ADA55 /* MagicalRecord.h */,
-				A4A2EAD71A6CF7C8006ADA55 /* MagicalRecord.m */,
-				A4A2EAD81A6CF7C8006ADA55 /* MagicalRecordDeprecated.h */,
-				A4A2EAD91A6CF7C8006ADA55 /* MagicalRecordLogging.h */,
-				A4A2EADA1A6CF7C8006ADA55 /* MagicalRecordShorthand.h */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		A4C1402C1A4BEA8500C9BAB5 /* ChatGroups */ = {
@@ -10097,6 +9992,111 @@
 			path = HBVLinkedTextView;
 			sourceTree = "<group>";
 		};
+		F5C09DCF1B26B2220068559A /* MagicalRecord */ = {
+			isa = PBXGroup;
+			children = (
+				F5C09DD01B26B2220068559A /* Categories */,
+				F5C09DFC1B26B2220068559A /* Core */,
+				F5C09E0E1B26B2220068559A /* MagicalRecord.h */,
+			);
+			path = MagicalRecord;
+			sourceTree = "<group>";
+		};
+		F5C09DD01B26B2220068559A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F5C09DD11B26B2220068559A /* DataImport */,
+				F5C09DE01B26B2220068559A /* NSManagedObject */,
+				F5C09DEB1B26B2220068559A /* NSManagedObjectContext */,
+				F5C09DF61B26B2220068559A /* NSManagedObjectModel+MagicalRecord.h */,
+				F5C09DF71B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m */,
+				F5C09DF81B26B2220068559A /* NSPersistentStore+MagicalRecord.h */,
+				F5C09DF91B26B2220068559A /* NSPersistentStore+MagicalRecord.m */,
+				F5C09DFA1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.h */,
+				F5C09DFB1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		F5C09DD11B26B2220068559A /* DataImport */ = {
+			isa = PBXGroup;
+			children = (
+				F5C09DD21B26B2220068559A /* MagicalImportFunctions.h */,
+				F5C09DD31B26B2220068559A /* MagicalImportFunctions.m */,
+				F5C09DD41B26B2220068559A /* NSAttributeDescription+MagicalDataImport.h */,
+				F5C09DD51B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m */,
+				F5C09DD61B26B2220068559A /* NSEntityDescription+MagicalDataImport.h */,
+				F5C09DD71B26B2220068559A /* NSEntityDescription+MagicalDataImport.m */,
+				F5C09DD81B26B2220068559A /* NSNumber+MagicalDataImport.h */,
+				F5C09DD91B26B2220068559A /* NSNumber+MagicalDataImport.m */,
+				F5C09DDA1B26B2220068559A /* NSObject+MagicalDataImport.h */,
+				F5C09DDB1B26B2220068559A /* NSObject+MagicalDataImport.m */,
+				F5C09DDC1B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.h */,
+				F5C09DDD1B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m */,
+				F5C09DDE1B26B2220068559A /* NSString+MagicalDataImport.h */,
+				F5C09DDF1B26B2220068559A /* NSString+MagicalDataImport.m */,
+			);
+			path = DataImport;
+			sourceTree = "<group>";
+		};
+		F5C09DE01B26B2220068559A /* NSManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				F5C09DE11B26B2220068559A /* NSManagedObject+MagicalAggregation.h */,
+				F5C09DE21B26B2220068559A /* NSManagedObject+MagicalAggregation.m */,
+				F5C09DE31B26B2220068559A /* NSManagedObject+MagicalDataImport.h */,
+				F5C09DE41B26B2220068559A /* NSManagedObject+MagicalDataImport.m */,
+				F5C09DE51B26B2220068559A /* NSManagedObject+MagicalFinders.h */,
+				F5C09DE61B26B2220068559A /* NSManagedObject+MagicalFinders.m */,
+				F5C09DE71B26B2220068559A /* NSManagedObject+MagicalRecord.h */,
+				F5C09DE81B26B2220068559A /* NSManagedObject+MagicalRecord.m */,
+				F5C09DE91B26B2220068559A /* NSManagedObject+MagicalRequests.h */,
+				F5C09DEA1B26B2220068559A /* NSManagedObject+MagicalRequests.m */,
+			);
+			path = NSManagedObject;
+			sourceTree = "<group>";
+		};
+		F5C09DEB1B26B2220068559A /* NSManagedObjectContext */ = {
+			isa = PBXGroup;
+			children = (
+				F5C09DEC1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.h */,
+				F5C09DED1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m */,
+				F5C09DEE1B26B2220068559A /* NSManagedObjectContext+MagicalObserving.h */,
+				F5C09DEF1B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m */,
+				F5C09DF01B26B2220068559A /* NSManagedObjectContext+MagicalRecord.h */,
+				F5C09DF11B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m */,
+				F5C09DF21B26B2220068559A /* NSManagedObjectContext+MagicalSaves.h */,
+				F5C09DF31B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m */,
+				F5C09DF41B26B2220068559A /* NSManagedObjectContext+MagicalThreading.h */,
+				F5C09DF51B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m */,
+			);
+			path = NSManagedObjectContext;
+			sourceTree = "<group>";
+		};
+		F5C09DFC1B26B2220068559A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F5C09DFD1B26B2220068559A /* MagicalRecord+Actions.h */,
+				F5C09DFE1B26B2220068559A /* MagicalRecord+Actions.m */,
+				F5C09DFF1B26B2220068559A /* MagicalRecord+ErrorHandling.h */,
+				F5C09E001B26B2220068559A /* MagicalRecord+ErrorHandling.m */,
+				F5C09E011B26B2220068559A /* MagicalRecord+iCloud.h */,
+				F5C09E021B26B2220068559A /* MagicalRecord+iCloud.m */,
+				F5C09E031B26B2220068559A /* MagicalRecord+Options.h */,
+				F5C09E041B26B2220068559A /* MagicalRecord+Options.m */,
+				F5C09E051B26B2220068559A /* MagicalRecord+Setup.h */,
+				F5C09E061B26B2220068559A /* MagicalRecord+Setup.m */,
+				F5C09E071B26B2220068559A /* MagicalRecord+ShorthandMethods.h */,
+				F5C09E081B26B2220068559A /* MagicalRecord+ShorthandMethods.m */,
+				F5C09E091B26B2220068559A /* MagicalRecordDeprecationMacros.h */,
+				F5C09E0A1B26B2220068559A /* MagicalRecordInternal.h */,
+				F5C09E0B1B26B2220068559A /* MagicalRecordInternal.m */,
+				F5C09E0C1B26B2220068559A /* MagicalRecordLogging.h */,
+				F5C09E0D1B26B2220068559A /* MagicalRecordShorthandMethodAliases.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		F5C2D0F819F8E1A2000610A1 /* ALAssetsLibrary+CustomPhotoAlbum */ = {
 			isa = PBXGroup;
 			children = (
@@ -10515,6 +10515,7 @@
 		F5CE864119BFF44100A9D14C /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
+				F5C09DCF1B26B2220068559A /* MagicalRecord */,
 				F598F5A01B1DAB5700579F1D /* UMAnalytics_Sdk_3.5.8 */,
 				F5D384FB1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout */,
 				F564B0041B16B56200923A1B /* DACircularProgress */,
@@ -10529,7 +10530,6 @@
 				F5D04C8B1AC1056F004DE412 /* MLEmoji */,
 				F5E13A3B1A7B45EF001BB786 /* HMSegmentedControl */,
 				A49C7FCF1A71040F00F2AEC5 /* alipay */,
-				A4A2EA9C1A6CF7C8006ADA55 /* MagicalRecord */,
 				F58CA98C1A5D4F9100988A61 /* DaiDodgeKeyboard */,
 				F5B5FE581A596D4A007FE11B /* ShareSDK */,
 				A4C60B391A590F9100F1F965 /* ACETelPrompt */,
@@ -13722,17 +13722,17 @@
 				A49C7BE31A70D42700F2AEC5 /* PinyinHelper.m in Sources */,
 				F50B63181B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				A49C7BE41A70D42700F2AEC5 /* ICompanyResult.m in Sources */,
+				F5C09E621B26B2220068559A /* MagicalRecord+Actions.m in Sources */,
+				F5C09E321B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A49C7BE61A70D42700F2AEC5 /* NeedAddUser.m in Sources */,
 				A49C7BE71A70D42700F2AEC5 /* MJPhotoProgressView.m in Sources */,
 				A4C0E11B1B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				A493C3711ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
-				A49C7BE81A70D42700F2AEC5 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				F5D04C7A1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItem.m in Sources */,
 				A49C7BEB1A70D42700F2AEC5 /* MyFriendsOperateViewCell.m in Sources */,
 				A49C7FCE1A70F07B00F2AEC5 /* WLDisplayMediaViewController.m in Sources */,
 				F569725A1B0ED1E9004E86AC /* ShaiXuanView.m in Sources */,
 				A49235871ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
-				A49C7BED1A70D42700F2AEC5 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A492356E1ADE693A009E0B8C /* JKUtil.m in Sources */,
 				A47F1B291A7F2AF200CB4D9F /* ProjectViewCell.m in Sources */,
 				A49C7BF01A70D42700F2AEC5 /* FindViewController.m in Sources */,
@@ -13749,7 +13749,6 @@
 				A49C7BF41A70D42700F2AEC5 /* SettingController.m in Sources */,
 				A49C7BF51A70D42700F2AEC5 /* InvestCollectionVC.m in Sources */,
 				A49C7BF61A70D42700F2AEC5 /* SDWebImagePrefetcher.m in Sources */,
-				A49C7BF81A70D42700F2AEC5 /* NSManagedObject+MagicalRecord.m in Sources */,
 				A49C7BFA1A70D42700F2AEC5 /* UIButton+AFNetworking.m in Sources */,
 				A49C7BFB1A70D42700F2AEC5 /* MultiSelectedPanel.m in Sources */,
 				A492355A1ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
@@ -13760,8 +13759,8 @@
 				A49C7C001A70D42700F2AEC5 /* FriendCell.m in Sources */,
 				A49C7C011A70D42700F2AEC5 /* SWUtilityButtonView.m in Sources */,
 				A4C770E31A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
-				A49C7C041A70D42700F2AEC5 /* MagicalRecord+ErrorHandling.m in Sources */,
 				F564B0271B16C64800923A1B /* ShaiXuanCell.m in Sources */,
+				F5C09E461B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A49C7C081A70D42700F2AEC5 /* FeedAndZanView.m in Sources */,
 				F5CAB77D1B0DF77E00937E63 /* BannerModel.m in Sources */,
 				A489E7D31AA5980C00F7BE9F /* ActivityInfo.m in Sources */,
@@ -13776,10 +13775,8 @@
 				A493C3761ADD14A60056BD52 /* WLStatusM.m in Sources */,
 				A49C7C0F1A70D42700F2AEC5 /* MJPhoto.m in Sources */,
 				A492357D1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
-				A49C7C101A70D42700F2AEC5 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A493C2481ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
 				A49C80471A71041000F2AEC5 /* Order.m in Sources */,
-				A49C7C121A70D42700F2AEC5 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				A49C7C131A70D42700F2AEC5 /* WeixinActivityBase.m in Sources */,
 				A47D41D91A8B50320070BFD8 /* ProjectUser.m in Sources */,
 				F56972821B0F254D004E86AC /* TouzijigouModel.m in Sources */,
@@ -13793,6 +13790,7 @@
 				A48846071B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				A49C7C1C1A70D42700F2AEC5 /* HomeView.m in Sources */,
 				A4717C3A1AA7F8370054289D /* IActivityTicket.m in Sources */,
+				F5C09E1A1B26B2220068559A /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				A49C7C1D1A70D42700F2AEC5 /* IBaseUserM.m in Sources */,
 				A49C7C1E1A70D42700F2AEC5 /* LocationprovinceController.m in Sources */,
 				F50B62D51B12D752002259B2 /* InvestorUserInfoController.m in Sources */,
@@ -13812,15 +13810,15 @@
 				A49C7C2B1A70D42700F2AEC5 /* ShareEngine.m in Sources */,
 				A45923B11B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A49C7C2E1A70D42700F2AEC5 /* AddWorkOrEducationController.m in Sources */,
-				A49C7C301A70D42700F2AEC5 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
+				F5C09E3A1B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */,
 				A49C7C311A70D42700F2AEC5 /* WLBubblePhotoImageView.m in Sources */,
 				A493C2701ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
 				F50B631E1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				A49C7C321A70D42700F2AEC5 /* UIImageView+WebCache.m in Sources */,
 				A49C7C331A70D42700F2AEC5 /* InvestInfoListVC.m in Sources */,
-				A49C7C341A70D42700F2AEC5 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				A49C7C351A70D42700F2AEC5 /* AFURLSessionManager.m in Sources */,
 				F5E13A3A1A7B3062001BB786 /* MyProjectViewController.m in Sources */,
+				F5C09E6A1B26B2220068559A /* MagicalRecord+iCloud.m in Sources */,
 				A49C7C361A70D42700F2AEC5 /* UIView+XHBadgeView.m in Sources */,
 				A493C3B21ADD14A60056BD52 /* WLTool.m in Sources */,
 				A4743EB21A7F7BCE00645998 /* ProjectDetailsViewController.m in Sources */,
@@ -13845,7 +13843,6 @@
 				F583996D1AD7CDC7008A1A48 /* UCZProgressView.m in Sources */,
 				F50B63021B1347EF002259B2 /* CasesJiGouModel.m in Sources */,
 				F5933F8D1AD4F4030088C70D /* MJRefreshComponent.m in Sources */,
-				A49C7C451A70D42700F2AEC5 /* MagicalRecord+Actions.m in Sources */,
 				A49C805F1A71041000F2AEC5 /* openssl_wrapper.m in Sources */,
 				A49C7C471A70D42700F2AEC5 /* InvestCardCell.m in Sources */,
 				A49C7C491A70D42700F2AEC5 /* WLMessageBubbleHelper.m in Sources */,
@@ -13869,14 +13866,12 @@
 				F5D04C6E1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
 				A49C7C531A70D42700F2AEC5 /* WLMessageTableView.m in Sources */,
 				A472DBE81A85F0F3003EF296 /* ActivityListViewCell.m in Sources */,
-				A49C7C561A70D42700F2AEC5 /* MagicalRecord+iCloud.m in Sources */,
 				A4743EB81A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				A49C7C571A70D42700F2AEC5 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				A49C7C581A70D42700F2AEC5 /* MJType.m in Sources */,
 				F5D04C821AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
 				A49C7C591A70D42700F2AEC5 /* XHZoomingImageView.m in Sources */,
 				A4D43ABB1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
-				A49C7C5B1A70D42700F2AEC5 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				A4C0E1371B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
 				A49C7C5C1A70D42700F2AEC5 /* UIWebView+AFNetworking.m in Sources */,
 				F564B00C1B16B56200923A1B /* DACircularProgressView.m in Sources */,
@@ -13890,9 +13885,11 @@
 				A49C7C5F1A70D42700F2AEC5 /* ChatViewController.m in Sources */,
 				F56972671B0EF60A004E86AC /* InvestorCell.m in Sources */,
 				A49C7C611A70D42700F2AEC5 /* UIButton+Badge.m in Sources */,
+				F5C09E2E1B26B2220068559A /* NSManagedObject+MagicalAggregation.m in Sources */,
 				A4E3230A1B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				A49C7C621A70D42700F2AEC5 /* UIAlertView+AFNetworking.m in Sources */,
 				A49235461ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
+				F5C09E661B26B2220068559A /* MagicalRecord+ErrorHandling.m in Sources */,
 				A48173AA1B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
 				A49235731ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
 				A49235641ADE693A009E0B8C /* JKPhotoBrowserCell.m in Sources */,
@@ -13909,26 +13906,25 @@
 				A49C7C6B1A70D42700F2AEC5 /* MessageCell.m in Sources */,
 				A49C7C6D1A70D42700F2AEC5 /* MeViewController.m in Sources */,
 				A49C7C6E1A70D42700F2AEC5 /* ForgetCoderController.m in Sources */,
+				F5C09E561B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				A49C7C6F1A70D42700F2AEC5 /* ForgetPhoneController.m in Sources */,
 				A49C7C711A70D42700F2AEC5 /* PerfectInfoController.m in Sources */,
 				A49C7C731A70D42700F2AEC5 /* MultiSelectItem.m in Sources */,
-				A49C7C751A70D42700F2AEC5 /* MagicalImportFunctions.m in Sources */,
+				F5C09E2A1B26B2220068559A /* NSString+MagicalDataImport.m in Sources */,
 				A49C7C771A70D42700F2AEC5 /* NewFriendsCell.m in Sources */,
 				A405159A1AE777E300A3CA3F /* ILoginUserModel.m in Sources */,
 				A49C7C781A70D42700F2AEC5 /* NameController.m in Sources */,
 				A49C7C791A70D42700F2AEC5 /* UIImageView+HighlightedWebCache.m in Sources */,
-				A49C7C7A1A70D42700F2AEC5 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				A493C1D61ADD0A0C0056BD52 /* WLHUDView.m in Sources */,
 				A49235411ADE693A009E0B8C /* JKAssetsCollectionFooterView.m in Sources */,
 				A49C7C7C1A70D42700F2AEC5 /* FriendsFriendController.m in Sources */,
 				A493C3941ADD14A60056BD52 /* FriendsAddressBook.m in Sources */,
 				A49C7C7D1A70D42700F2AEC5 /* WeixinActivity.m in Sources */,
 				A493C22A1ADD0BB00056BD52 /* NSString+MD5.m in Sources */,
-				A49C7C7E1A70D42700F2AEC5 /* MagicalRecord+Setup.m in Sources */,
 				A49C7C7F1A70D42700F2AEC5 /* NSObject+MJMember.m in Sources */,
+				F5C09E521B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				A49C7C801A70D42700F2AEC5 /* YTKKeyValueStore.m in Sources */,
 				A49C7C811A70D42700F2AEC5 /* UIScrollView+XHkeyboardControl.m in Sources */,
-				A49C7C821A70D42700F2AEC5 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				A49C7C831A70D42700F2AEC5 /* UIImage+XHRounded.m in Sources */,
 				A49C7C841A70D42700F2AEC5 /* WLPhotoView.m in Sources */,
 				A4948E771B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
@@ -13936,15 +13932,16 @@
 				A49C7C851A70D42700F2AEC5 /* BadgeBaseCell.m in Sources */,
 				A49C7C861A70D42700F2AEC5 /* BindingPhoneController.m in Sources */,
 				A49C7C891A70D42700F2AEC5 /* InvestItemM.m in Sources */,
-				A49C7C8B1A70D42700F2AEC5 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731B21A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F5D04C761AC104A6004DE412 /* WUEmoticonsKeyboardKeyCell.m in Sources */,
 				A49C7C8D1A70D42700F2AEC5 /* UIImage+RoundedCorner.m in Sources */,
 				A49C7C8E1A70D42700F2AEC5 /* MJPhotoLoadingView.m in Sources */,
 				A49C7C8F1A70D42700F2AEC5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
+				F5C09E4A1B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				F50B62CF1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239D1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				A493C2571ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
+				F5C09E5E1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				A49C7C911A70D42700F2AEC5 /* MJPhotoView.m in Sources */,
 				A49C7C921A70D42700F2AEC5 /* WLStatusCell.m in Sources */,
 				A4FA35001B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
@@ -13952,10 +13949,8 @@
 				A49C7C951A70D42700F2AEC5 /* XHSoundManager.m in Sources */,
 				A49C7C961A70D42700F2AEC5 /* FLAnimatedImage.m in Sources */,
 				A49C804B1A71041000F2AEC5 /* base64.m in Sources */,
-				A49C7C981A70D42700F2AEC5 /* NSString+MagicalDataImport.m in Sources */,
 				A49C7C991A70D42700F2AEC5 /* WeixinSessionActivity.m in Sources */,
 				A49C7C9C1A70D42700F2AEC5 /* InvestorUsersListController.m in Sources */,
-				A49C7C9D1A70D42700F2AEC5 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				A49C7C9E1A70D42700F2AEC5 /* SDImageCache.m in Sources */,
 				A493C2251ADD0BB00056BD52 /* NSData+MD5Digest.m in Sources */,
 				A4E731A11A8C94B900980676 /* ActivityInfoViewCell.m in Sources */,
@@ -14000,8 +13995,8 @@
 				A4EFA6D21A89E75D00CB5A4D /* PhotoInfos.m in Sources */,
 				A49C7CBF1A70D42700F2AEC5 /* WLContentCellView.m in Sources */,
 				A40515871AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
-				A49C7CC11A70D42700F2AEC5 /* NSManagedObject+MagicalFinders.m in Sources */,
 				A493C3261ADD14A60056BD52 /* NewFriendModel.m in Sources */,
+				F5C09E221B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */,
 				A49C7CC21A70D42700F2AEC5 /* BaseUser.m in Sources */,
 				A49235781ADE693A009E0B8C /* UIView+JKPicker.m in Sources */,
 				A49C7CC31A70D42700F2AEC5 /* ChatMessage.m in Sources */,
@@ -14030,7 +14025,6 @@
 				A49C7CDC1A70D42700F2AEC5 /* FMDatabase.m in Sources */,
 				A493C36C1ADD14A60056BD52 /* WLPhoto.m in Sources */,
 				A49C7CDF1A70D42700F2AEC5 /* ChineseToPinyinResource.m in Sources */,
-				A49C7CE11A70D42700F2AEC5 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				A49C7CE21A70D42700F2AEC5 /* CityLocationController.m in Sources */,
 				A493C2B11ADD0BB00056BD52 /* WLNoteInfoView.m in Sources */,
 				A48A36601AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
@@ -14050,6 +14044,7 @@
 				F587964C1AE889EE002C414F /* UITextField+LeftRightView.m in Sources */,
 				A49C7CEC1A70D42700F2AEC5 /* DaiDodgeKeyboardObjects.m in Sources */,
 				F5933FAD1AD4F4030088C70D /* UIScrollView+MJExtension.m in Sources */,
+				F5C09E161B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				A49C7CED1A70D42700F2AEC5 /* WLShareMenuItem.m in Sources */,
 				A493C2431ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
 				A486EBE21B16BA6A00A591EE /* IGetNewFeedResultModel.m in Sources */,
@@ -14057,13 +14052,14 @@
 				A49C7CF01A70D42700F2AEC5 /* HanyuPinyinOutputFormat.m in Sources */,
 				A49C7CF11A70D42700F2AEC5 /* AFHTTPRequestOperationManager.m in Sources */,
 				A49235821ADE693A009E0B8C /* CTAssetScrollView.m in Sources */,
+				F5C09E361B26B2220068559A /* NSManagedObject+MagicalFinders.m in Sources */,
+				F5C09E7A1B26B2220068559A /* MagicalRecordInternal.m in Sources */,
 				A49235691ADE693A009E0B8C /* JKPromptView.m in Sources */,
 				A49C7CF21A70D42700F2AEC5 /* WLMessageBubbleFactory.m in Sources */,
 				A49C7CF31A70D42700F2AEC5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A46FAE5E1A8DE82A005EB34E /* ActivityOrderInfoViewController.m in Sources */,
 				A49C7CF61A70D42700F2AEC5 /* PictureCell.m in Sources */,
 				A49C7CF81A70D42700F2AEC5 /* UIButton+XHButtonTitlePosition.m in Sources */,
-				A49C7CF91A70D42700F2AEC5 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				F5933FA91AD4F4030088C70D /* MJRefreshLegendHeader.m in Sources */,
 				A49C805B1A71041000F2AEC5 /* NSDataEx.m in Sources */,
 				A472DBE21A85EE2E003EF296 /* ActivityListViewController.m in Sources */,
@@ -14099,11 +14095,11 @@
 				A49C7D0F1A70D42700F2AEC5 /* AddFriendTypeListViewController.m in Sources */,
 				F56972721B0F01C6004E86AC /* InvestorOrgCell.m in Sources */,
 				A49C7D101A70D42700F2AEC5 /* CommentCell.m in Sources */,
-				A49C7D111A70D42700F2AEC5 /* NSNumber+MagicalDataImport.m in Sources */,
 				F55EB1151ACB9FE400FFB3BE /* HPTextViewInternal.m in Sources */,
 				A49C7D121A70D42700F2AEC5 /* WLBaseTableViewCell.m in Sources */,
 				A47F1B391A7F54E300CB4D9F /* ProjectInfoView.m in Sources */,
 				A49C7D131A70D42700F2AEC5 /* DaiDodgeKeyboard+Animation.m in Sources */,
+				F5C09E3E1B26B2220068559A /* NSManagedObject+MagicalRequests.m in Sources */,
 				F550787B1A7F1B2C009CE4F7 /* TextFieldCell.m in Sources */,
 				A4D43AB31AC55A7200713295 /* NSArray+PureLayout.m in Sources */,
 				A49234D11ADE3E0C009E0B8C /* UserCardController.m in Sources */,
@@ -14124,7 +14120,9 @@
 				A47F1B1E1A7F215E00CB4D9F /* ProjectListViewController.m in Sources */,
 				A489E7C11AA1A54400F7BE9F /* MyActivityViewController.m in Sources */,
 				F57F31DD1AA71A4E00B8EF72 /* ListItem.m in Sources */,
+				F5C09E1E1B26B2220068559A /* NSNumber+MagicalDataImport.m in Sources */,
 				A49C7D201A70D42700F2AEC5 /* SWTableViewCell.m in Sources */,
+				F5C09E6E1B26B2220068559A /* MagicalRecord+Options.m in Sources */,
 				A49C7D211A70D42700F2AEC5 /* AFSecurityPolicy.m in Sources */,
 				A493C1D11ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
 				A49C7D221A70D42700F2AEC5 /* WLMessageVideoConverPhotoFactory.m in Sources */,
@@ -14133,6 +14131,7 @@
 				A49C7D251A70D42700F2AEC5 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C081AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A49C7D281A70D42700F2AEC5 /* AddFriendViewController.m in Sources */,
+				F5C09E761B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
 				A49C7D291A70D42700F2AEC5 /* AddFriendsController.m in Sources */,
 				F50B62FC1B132928002259B2 /* ProjectTouDiModel.m in Sources */,
 				A49C7D2A1A70D42700F2AEC5 /* MJMethod.m in Sources */,
@@ -14158,25 +14157,27 @@
 				A49C7D371A70D42700F2AEC5 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F569727C1B0F2459004E86AC /* InvestorUserModel.m in Sources */,
 				A493C34E1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
+				F5C09E5A1B26B2220068559A /* NSPersistentStore+MagicalRecord.m in Sources */,
 				A49C7D381A70D42700F2AEC5 /* BiaoqainCell.m in Sources */,
 				A49C7D3A1A70D42700F2AEC5 /* CompanyModel.m in Sources */,
 				A49C7D3B1A70D42700F2AEC5 /* InvestItems.m in Sources */,
 				A49236661ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A40515921AE61FE500A3CA3F /* IBaseModel.m in Sources */,
 				A48845F81B0B10860053B92F /* NewsListViewController.m in Sources */,
+				F5C09E721B26B2220068559A /* MagicalRecord+Setup.m in Sources */,
 				A46A283E1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
-				A49C7D3C1A70D42700F2AEC5 /* NSManagedObject+MagicalRequests.m in Sources */,
 				A49C7D3D1A70D42700F2AEC5 /* AboutViewController.m in Sources */,
 				A49C7D3E1A70D42700F2AEC5 /* WLMessageVoiceFactory.m in Sources */,
 				A4C0E1291B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A49236701ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				A49C7D3F1A70D42700F2AEC5 /* UIView+FirstResponderNotify.m in Sources */,
 				A49C7D401A70D42700F2AEC5 /* CommonFriendsController.m in Sources */,
-				A49C7D421A70D42700F2AEC5 /* MagicalRecord.m in Sources */,
 				A49C7D431A70D42700F2AEC5 /* InvestStages.m in Sources */,
+				F5C09E261B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				A49C7D451A70D42700F2AEC5 /* WLPhotoListView.m in Sources */,
 				F50B63081B141353002259B2 /* InvestorInfoCell.m in Sources */,
 				A49C7D461A70D42700F2AEC5 /* AFHTTPSessionManager.m in Sources */,
+				F5C09E4E1B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				F50B62F11B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5D04C5E1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
 				A49C7D471A70D42700F2AEC5 /* IWTextView.m in Sources */,
@@ -14188,11 +14189,11 @@
 				A49C7D4C1A70D42700F2AEC5 /* XHWaterDropRefresh.m in Sources */,
 				A49C7D4D1A70D42700F2AEC5 /* BSearchFriendsController.m in Sources */,
 				A493C2661ADD0BB00056BD52 /* UIView+Size.m in Sources */,
-				A49C7D4E1A70D42700F2AEC5 /* MagicalRecord+Options.m in Sources */,
 				A49C7D4F1A70D42700F2AEC5 /* XHImageViewer.m in Sources */,
 				A493C3A81ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F550790A1A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C2201ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
+				F5C09E121B26B2220068559A /* MagicalImportFunctions.m in Sources */,
 				F57F31E51AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A49C7D501A70D42700F2AEC5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				A49C7D531A70D42700F2AEC5 /* UIImage+GIF.m in Sources */,
@@ -14215,6 +14216,7 @@
 				F5D04C6A1AC104A6004DE412 /* WUDemoKeyboardBuilder.m in Sources */,
 				A49C7D5F1A70D42700F2AEC5 /* AddWXFriendCell.m in Sources */,
 				A49C7D601A70D42700F2AEC5 /* UIImage+ImageEffects.m in Sources */,
+				F5C09E421B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				A49C7D611A70D42700F2AEC5 /* AuthTypeView.m in Sources */,
 				F56972541B0ED17A004E86AC /* InvestorsListController.m in Sources */,
 				A49C7D621A70D42700F2AEC5 /* M80AttributedLabel.m in Sources */,
@@ -14225,10 +14227,8 @@
 				F5933FA11AD4F4030088C70D /* MJRefreshHeader.m in Sources */,
 				A493C29D1ADD0BB00056BD52 /* IFBase.m in Sources */,
 				A49C7D661A70D42700F2AEC5 /* WLMessageTableViewController.m in Sources */,
-				A49C7D671A70D42700F2AEC5 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				A49C7D681A70D42700F2AEC5 /* UIColor+HBVHarmonies.m in Sources */,
 				A493C3CB1ADD14A60056BD52 /* InvestAuthModel.m in Sources */,
-				A49C7D691A70D42700F2AEC5 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -14285,17 +14285,17 @@
 				F53DC2B21A49192600F5F712 /* PinyinHelper.m in Sources */,
 				F50B63171B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				F53DC2B41A49192600F5F712 /* ICompanyResult.m in Sources */,
+				F5C09E611B26B2220068559A /* MagicalRecord+Actions.m in Sources */,
+				F5C09E311B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A482A2491A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				A49235581ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
 				A4C0E1191B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				F53DC2B61A49192600F5F712 /* MJPhotoProgressView.m in Sources */,
 				A493C36F1ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
-				A4A2EAF31A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				F5D04C791AC104A6004DE412 /* WUEmoticonsKeyboardKeyItem.m in Sources */,
 				A40356111A5D2259006AE52C /* MyFriendsOperateViewCell.m in Sources */,
 				F56972591B0ED1E9004E86AC /* ShaiXuanView.m in Sources */,
 				A49C7FCD1A70F07B00F2AEC5 /* WLDisplayMediaViewController.m in Sources */,
-				A4A2EB051A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A47F1B281A7F2AF200CB4D9F /* ProjectViewCell.m in Sources */,
 				F53DC2BA1A49192600F5F712 /* FindViewController.m in Sources */,
 				A49C804E1A71041000F2AEC5 /* DataSigner.m in Sources */,
@@ -14312,7 +14312,6 @@
 				F534DAE41A4EAA5800B6A725 /* InvestCollectionVC.m in Sources */,
 				A492353A1ADE693A009E0B8C /* JKAssets.m in Sources */,
 				F53DC2BF1A49192600F5F712 /* SDWebImagePrefetcher.m in Sources */,
-				A4A2EAFC1A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m in Sources */,
 				F53DC2C11A49192600F5F712 /* UIButton+AFNetworking.m in Sources */,
 				A4C1411F1A4BEF5700C9BAB5 /* MultiSelectedPanel.m in Sources */,
 				F534DAFE1A4F1BB100B6A725 /* AddCaseCell.m in Sources */,
@@ -14322,9 +14321,9 @@
 				F53DC2C41A49192600F5F712 /* FriendCell.m in Sources */,
 				F53DC2C51A49192600F5F712 /* SWUtilityButtonView.m in Sources */,
 				A4C770E21A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
-				A4A2EB1D1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */,
 				F53DC2CA1A49192600F5F712 /* FeedAndZanView.m in Sources */,
 				F564B0261B16C64800923A1B /* ShaiXuanCell.m in Sources */,
+				F5C09E451B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A489E7D21AA5980C00F7BE9F /* ActivityInfo.m in Sources */,
 				F5CAB77C1B0DF77E00937E63 /* BannerModel.m in Sources */,
 				F53DC2CB1A49192600F5F712 /* AppDelegate.mm in Sources */,
@@ -14337,10 +14336,8 @@
 				A493C3741ADD14A60056BD52 /* WLStatusM.m in Sources */,
 				F569725F1B0EF2B4004E86AC /* InvestorsTableController.m in Sources */,
 				F53DC2CF1A49192600F5F712 /* MJPhoto.m in Sources */,
-				A4A2EAF61A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A493C2461ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
 				A49C80461A71041000F2AEC5 /* Order.m in Sources */,
-				A4A2EB0E1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				F53DC2D11A49192600F5F712 /* WeixinActivityBase.m in Sources */,
 				A47D41D81A8B50320070BFD8 /* ProjectUser.m in Sources */,
 				F53DC2D21A49192600F5F712 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -14356,6 +14353,7 @@
 				A48846051B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				F562728D1A4C4FE9002A9B88 /* IBaseUserM.m in Sources */,
 				F53DC2D81A49192600F5F712 /* LocationprovinceController.m in Sources */,
+				F5C09E191B26B2220068559A /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				A4C141371A4BEF5700C9BAB5 /* UIView+Convenience.m in Sources */,
 				A47D41DE1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
 				F50B62D41B12D752002259B2 /* InvestorUserInfoController.m in Sources */,
@@ -14372,18 +14370,18 @@
 				F5D385111B1C31E4003A5B53 /* ProjectBPCell.m in Sources */,
 				F53DC2E21A49192600F5F712 /* AddWorkOrEducationController.m in Sources */,
 				F5D385001B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
-				A4A2EAE11A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				A45923AF1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A4C1446A1A4C271900C9BAB5 /* WLBubblePhotoImageView.m in Sources */,
 				A493C26E1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
+				F5C09E391B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */,
 				F53DC2E41A49192600F5F712 /* UIImageView+WebCache.m in Sources */,
 				F52F96701A56EA0A00BAA77B /* InvestInfoListVC.m in Sources */,
 				F50B631D1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
-				A4A2EB141A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				F53DC2E51A49192600F5F712 /* AFURLSessionManager.m in Sources */,
 				F5E13A391A7B3062001BB786 /* MyProjectViewController.m in Sources */,
 				A4C140881A4BEA8500C9BAB5 /* UIView+XHBadgeView.m in Sources */,
 				A493C3B01ADD14A60056BD52 /* WLTool.m in Sources */,
+				F5C09E691B26B2220068559A /* MagicalRecord+iCloud.m in Sources */,
 				A4743EB11A7F7BCE00645998 /* ProjectDetailsViewController.m in Sources */,
 				F53DC2E61A49192600F5F712 /* SchoolCompanyDate.m in Sources */,
 				F53DC2E71A49192600F5F712 /* weLian.xcdatamodeld in Sources */,
@@ -14408,7 +14406,6 @@
 				A49235851ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
 				F50B63011B1347EF002259B2 /* CasesJiGouModel.m in Sources */,
 				F5933F8C1AD4F4030088C70D /* MJRefreshComponent.m in Sources */,
-				A4A2EB1A1A6CF7C8006ADA55 /* MagicalRecord+Actions.m in Sources */,
 				A49C805E1A71041000F2AEC5 /* openssl_wrapper.m in Sources */,
 				F534DAD81A4E929500B6A725 /* InvestCardCell.m in Sources */,
 				A4C144701A4C2D3B00C9BAB5 /* WLMessageBubbleHelper.m in Sources */,
@@ -14433,7 +14430,6 @@
 				F5D04C6D1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
 				A4C1409A1A4BEA8500C9BAB5 /* WLMessageTableView.m in Sources */,
 				A472DBE71A85F0F3003EF296 /* ActivityListViewCell.m in Sources */,
-				A4A2EB201A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */,
 				A4743EB71A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				F53DC2FA1A49192600F5F712 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				F53DC2FB1A49192600F5F712 /* MJType.m in Sources */,
@@ -14441,7 +14437,6 @@
 				A4C141701A4BEF5700C9BAB5 /* XHZoomingImageView.m in Sources */,
 				A4D43ABA1AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
 				A4C0E1351B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
-				A4A2EB081A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				F564B00B1B16B56200923A1B /* DACircularProgressView.m in Sources */,
 				A48A36651AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
 				A4C0E12E1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
@@ -14453,9 +14448,11 @@
 				A4C140011A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */,
 				F56972661B0EF60A004E86AC /* InvestorCell.m in Sources */,
 				F53DC2FE1A49192600F5F712 /* UIButton+Badge.m in Sources */,
+				F5C09E2D1B26B2220068559A /* NSManagedObject+MagicalAggregation.m in Sources */,
 				A4E323081B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				F53DC2FF1A49192600F5F712 /* UIAlertView+AFNetworking.m in Sources */,
 				F53D4E3A1A4AABE800CA06C8 /* LogInUser.m in Sources */,
+				F5C09E651B26B2220068559A /* MagicalRecord+ErrorHandling.m in Sources */,
 				A48173A81B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
 				F53DC3011A49192600F5F712 /* UIImage+MultiFormat.m in Sources */,
 				F53DC3021A49192600F5F712 /* FMResultSet.m in Sources */,
@@ -14472,31 +14469,29 @@
 				F53DC30A1A49192600F5F712 /* ForgetPhoneController.m in Sources */,
 				F55772971A5A8E9600693279 /* PerfectInfoController.m in Sources */,
 				A4C141251A4BEF5700C9BAB5 /* MultiSelectItem.m in Sources */,
-				A4A2EADE1A6CF7C8006ADA55 /* MagicalImportFunctions.m in Sources */,
+				F5C09E551B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				F53DC30E1A49192600F5F712 /* NewFriendsCell.m in Sources */,
 				A49235801ADE693A009E0B8C /* CTAssetScrollView.m in Sources */,
 				F53DC30F1A49192600F5F712 /* NameController.m in Sources */,
+				F5C09E291B26B2220068559A /* NSString+MagicalDataImport.m in Sources */,
 				F53DC3101A49192600F5F712 /* UIImageView+HighlightedWebCache.m in Sources */,
 				A40515981AE777E300A3CA3F /* ILoginUserModel.m in Sources */,
-				A4A2EB111A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				A493C1D41ADD0A0C0056BD52 /* WLHUDView.m in Sources */,
 				F53DC3121A49192600F5F712 /* FriendsFriendController.m in Sources */,
 				A493C3921ADD14A60056BD52 /* FriendsAddressBook.m in Sources */,
 				F53DC3131A49192600F5F712 /* WeixinActivity.m in Sources */,
 				A493C2281ADD0BB00056BD52 /* NSString+MD5.m in Sources */,
-				A4A2EB261A6CF7C8006ADA55 /* MagicalRecord+Setup.m in Sources */,
 				F53DC3141A49192600F5F712 /* NSObject+MJMember.m in Sources */,
 				F53DC3151A49192600F5F712 /* YTKKeyValueStore.m in Sources */,
 				A4C140851A4BEA8500C9BAB5 /* UIScrollView+XHkeyboardControl.m in Sources */,
-				A4A2EAED1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				A4C140821A4BEA8500C9BAB5 /* UIImage+XHRounded.m in Sources */,
+				F5C09E511B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				F53DC3161A49192600F5F712 /* WLPhotoView.m in Sources */,
 				A493C3AB1ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
 				F557863D1A63749500630A46 /* BadgeBaseCell.m in Sources */,
 				F58CA9701A5CE3CD00988A61 /* BindingPhoneController.m in Sources */,
 				A4948E751B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				F5C779761A53935F0098BC29 /* InvestItemM.m in Sources */,
-				A4A2EAEA1A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731B11A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F5D04C751AC104A6004DE412 /* WUEmoticonsKeyboardKeyCell.m in Sources */,
 				A4C140791A4BEA8500C9BAB5 /* UIImage+RoundedCorner.m in Sources */,
@@ -14505,20 +14500,20 @@
 				A49235531ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A492354E1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C2551ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
+				F5C09E491B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				F50B62CE1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239B1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				F53DC31D1A49192600F5F712 /* MJPhotoView.m in Sources */,
+				F5C09E5D1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				F53DC31E1A49192600F5F712 /* WLStatusCell.m in Sources */,
 				F53DC3201A49192600F5F712 /* SameFriendsCell.m in Sources */,
 				A4FA34FE1B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
 				A4C141761A4BEF5700C9BAB5 /* XHSoundManager.m in Sources */,
 				A4C141101A4BEF5700C9BAB5 /* FLAnimatedImage.m in Sources */,
 				A49C804A1A71041000F2AEC5 /* base64.m in Sources */,
-				A4A2EAF01A6CF7C8006ADA55 /* NSString+MagicalDataImport.m in Sources */,
 				F53DC3221A49192600F5F712 /* WeixinSessionActivity.m in Sources */,
 				F53DC3251A49192600F5F712 /* InvestorUsersListController.m in Sources */,
 				A492356C1ADE693A009E0B8C /* JKUtil.m in Sources */,
-				A4A2EB0B1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				F53DC3261A49192600F5F712 /* SDImageCache.m in Sources */,
 				A493C2231ADD0BB00056BD52 /* NSData+MD5Digest.m in Sources */,
 				A4E731A01A8C94B900980676 /* ActivityInfoViewCell.m in Sources */,
@@ -14564,9 +14559,9 @@
 				A4C140941A4BEA8500C9BAB5 /* WLMessage.m in Sources */,
 				A40515851AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
 				A49235671ADE693A009E0B8C /* JKPromptView.m in Sources */,
+				F5C09E211B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */,
 				A4EFA6D11A89E75D00CB5A4D /* PhotoInfos.m in Sources */,
 				F53DC33D1A49192600F5F712 /* WLContentCellView.m in Sources */,
-				A4A2EAF91A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m in Sources */,
 				A493C3241ADD14A60056BD52 /* NewFriendModel.m in Sources */,
 				F53D4DFE1A4A771300CA06C8 /* BaseUser.m in Sources */,
 				A4272FC91A4E8AAD0019E440 /* ChatMessage.m in Sources */,
@@ -14597,7 +14592,6 @@
 				A493C36A1ADD14A60056BD52 /* WLPhoto.m in Sources */,
 				F53DC3551A49192600F5F712 /* ChineseToPinyinResource.m in Sources */,
 				A48A365E1AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
-				A4A2EB021A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				F53DC3571A49192600F5F712 /* CityLocationController.m in Sources */,
 				A4948E981B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */,
 				A493C2AF1ADD0BB00056BD52 /* WLNoteInfoView.m in Sources */,
@@ -14613,6 +14607,7 @@
 				F587964A1AE889EE002C414F /* UITextField+LeftRightView.m in Sources */,
 				F557728C1A5A790300693279 /* LoginGuideController.m in Sources */,
 				F53DC35C1A49192600F5F712 /* SDWebImageManager.m in Sources */,
+				F5C09E151B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				F53DC35D1A49192600F5F712 /* AFURLConnectionOperation.m in Sources */,
 				F58CA9A21A5D4F9100988A61 /* DaiDodgeKeyboardObjects.m in Sources */,
 				A486EBE01B16BA6A00A591EE /* IGetNewFeedResultModel.m in Sources */,
@@ -14620,6 +14615,8 @@
 				A41CE1B91A6F8EA0004F17E7 /* WLShareMenuItem.m in Sources */,
 				A493C2411ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
 				F53DC35F1A49192600F5F712 /* NSObject+MJCoding.m in Sources */,
+				F5C09E351B26B2220068559A /* NSManagedObject+MagicalFinders.m in Sources */,
+				F5C09E791B26B2220068559A /* MagicalRecordInternal.m in Sources */,
 				F53DC3601A49192600F5F712 /* HanyuPinyinOutputFormat.m in Sources */,
 				F53DC3611A49192600F5F712 /* AFHTTPRequestOperationManager.m in Sources */,
 				A4C140911A4BEA8500C9BAB5 /* WLMessageBubbleFactory.m in Sources */,
@@ -14627,7 +14624,6 @@
 				A46FAE5D1A8DE82A005EB34E /* ActivityOrderInfoViewController.m in Sources */,
 				F53DC3641A49192600F5F712 /* PictureCell.m in Sources */,
 				A4C140701A4BEA8500C9BAB5 /* UIButton+XHButtonTitlePosition.m in Sources */,
-				A4A2EAE41A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				F5933FA81AD4F4030088C70D /* MJRefreshLegendHeader.m in Sources */,
 				A49C805A1A71041000F2AEC5 /* NSDataEx.m in Sources */,
 				A472DBE11A85EE2E003EF296 /* ActivityListViewController.m in Sources */,
@@ -14662,11 +14658,11 @@
 				A47C5F561A5E663100E63737 /* AddFriendTypeListViewController.m in Sources */,
 				F56972711B0F01C6004E86AC /* InvestorOrgCell.m in Sources */,
 				F53DC3741A49192600F5F712 /* CommentCell.m in Sources */,
-				A4A2EAE71A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */,
 				F55EB1141ACB9FE400FFB3BE /* HPTextViewInternal.m in Sources */,
 				A4C140971A4BEA8500C9BAB5 /* WLBaseTableViewCell.m in Sources */,
 				A47F1B381A7F54E300CB4D9F /* ProjectInfoView.m in Sources */,
 				F58CA99C1A5D4F9100988A61 /* DaiDodgeKeyboard+Animation.m in Sources */,
+				F5C09E3D1B26B2220068559A /* NSManagedObject+MagicalRequests.m in Sources */,
 				F550787A1A7F1B2C009CE4F7 /* TextFieldCell.m in Sources */,
 				A4D43AB21AC55A7200713295 /* NSArray+PureLayout.m in Sources */,
 				A49234CF1ADE3E0C009E0B8C /* UserCardController.m in Sources */,
@@ -14687,7 +14683,9 @@
 				A47F1B1D1A7F215E00CB4D9F /* ProjectListViewController.m in Sources */,
 				A489E7C01AA1A54400F7BE9F /* MyActivityViewController.m in Sources */,
 				F57F31DC1AA71A4E00B8EF72 /* ListItem.m in Sources */,
+				F5C09E1D1B26B2220068559A /* NSNumber+MagicalDataImport.m in Sources */,
 				F53DC37D1A49192600F5F712 /* SWTableViewCell.m in Sources */,
+				F5C09E6D1B26B2220068559A /* MagicalRecord+Options.m in Sources */,
 				F53DC37E1A49192600F5F712 /* AFSecurityPolicy.m in Sources */,
 				A493C1CF1ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
 				A41CE1ED1A6FA750004F17E7 /* WLMessageVideoConverPhotoFactory.m in Sources */,
@@ -14696,6 +14694,7 @@
 				F53DC3811A49192600F5F712 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C071AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A47C5F501A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
+				F5C09E751B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
 				A492357B1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				F50B62FB1B132928002259B2 /* ProjectTouDiModel.m in Sources */,
 				F53DC3841A49192600F5F712 /* AddFriendsController.m in Sources */,
@@ -14721,25 +14720,27 @@
 				F53519B01A8C90A0004488EE /* CreateHeaderView.m in Sources */,
 				F569727B1B0F2459004E86AC /* InvestorUserModel.m in Sources */,
 				F53DC38B1A49192600F5F712 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F5C09E591B26B2220068559A /* NSPersistentStore+MagicalRecord.m in Sources */,
 				A493C34C1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
 				F58CA98A1A5D0BD900988A61 /* BiaoqainCell.m in Sources */,
 				F53DC38D1A49192600F5F712 /* CompanyModel.m in Sources */,
 				A49236641ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A40515901AE61FE500A3CA3F /* IBaseModel.m in Sources */,
 				A48845F61B0B10860053B92F /* NewsListViewController.m in Sources */,
+				F5C09E711B26B2220068559A /* MagicalRecord+Setup.m in Sources */,
 				F534DB661A5119A000B6A725 /* InvestItems.m in Sources */,
 				A46A283D1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
-				A4A2EAFF1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */,
 				F53DC38E1A49192600F5F712 /* AboutViewController.m in Sources */,
 				A4C0E1271B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A492366E1ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				A4C144761A4C370100C9BAB5 /* WLMessageVoiceFactory.m in Sources */,
 				F58CA9A51A5D4F9100988A61 /* UIView+FirstResponderNotify.m in Sources */,
 				F53DC38F1A49192600F5F712 /* CommonFriendsController.m in Sources */,
-				A4A2EB2C1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */,
+				F5C09E251B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				F534DB611A5119A000B6A725 /* InvestStages.m in Sources */,
 				F50B63071B141353002259B2 /* InvestorInfoCell.m in Sources */,
 				F53DC3911A49192600F5F712 /* WLPhotoListView.m in Sources */,
+				F5C09E4D1B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				F50B62F01B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F53DC3921A49192600F5F712 /* AFHTTPSessionManager.m in Sources */,
 				F5D04C5D1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
@@ -14751,11 +14752,11 @@
 				A4C141791A4BEF5700C9BAB5 /* XHWaterDropRefresh.m in Sources */,
 				F58CA9531A5BE6E400988A61 /* BSearchFriendsController.m in Sources */,
 				A493C2641ADD0BB00056BD52 /* UIView+Size.m in Sources */,
-				A4A2EB231A6CF7C8006ADA55 /* MagicalRecord+Options.m in Sources */,
 				A4C1416A1A4BEF5700C9BAB5 /* XHImageViewer.m in Sources */,
 				A493C3A61ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F55079091A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C21E1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
+				F5C09E111B26B2220068559A /* MagicalImportFunctions.m in Sources */,
 				F57F31E41AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A4C141281A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				F53DC3981A49192600F5F712 /* UIImage+GIF.m in Sources */,
@@ -14778,6 +14779,7 @@
 				F5D04C691AC104A6004DE412 /* WUDemoKeyboardBuilder.m in Sources */,
 				F53DC3A21A49192600F5F712 /* AddWXFriendCell.m in Sources */,
 				F53DC3A31A49192600F5F712 /* UIImage+ImageEffects.m in Sources */,
+				F5C09E411B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				F53DC3A41A49192600F5F712 /* AuthTypeView.m in Sources */,
 				F56972531B0ED17A004E86AC /* InvestorsListController.m in Sources */,
 				F53DC3A51A49192600F5F712 /* M80AttributedLabel.m in Sources */,
@@ -14788,10 +14790,8 @@
 				F5933FA01AD4F4030088C70D /* MJRefreshHeader.m in Sources */,
 				A493C29B1ADD0BB00056BD52 /* IFBase.m in Sources */,
 				A4C1408E1A4BEA8500C9BAB5 /* WLMessageTableViewController.m in Sources */,
-				A4A2EB291A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				F53DC3A71A49192600F5F712 /* UIColor+HBVHarmonies.m in Sources */,
 				A493C3C91ADD14A60056BD52 /* InvestAuthModel.m in Sources */,
-				A4A2EB171A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -14848,13 +14848,14 @@
 				F566498F1A2AFD56008A5830 /* PinyinHelper.m in Sources */,
 				F50B63151B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				A4C140B41A4BEF0E00C9BAB5 /* XHCacheManager.m in Sources */,
+				F5C09E5F1B26B2220068559A /* MagicalRecord+Actions.m in Sources */,
+				F5C09E2F1B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A4C8E9471A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */,
 				A4C1446E1A4C2D3B00C9BAB5 /* WLMessageBubbleHelper.m in Sources */,
 				A4C0E1171B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				A493C36D1ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
 				A482A2471A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				F56649921A2AFD56008A5830 /* MJPhotoProgressView.m in Sources */,
-				A4A2EAF11A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				A49235831ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
 				F56972571B0ED1E9004E86AC /* ShaiXuanView.m in Sources */,
 				F5D04C771AC104A6004DE412 /* WUEmoticonsKeyboardKeyItem.m in Sources */,
@@ -14864,7 +14865,6 @@
 				A403560F1A5D2259006AE52C /* MyFriendsOperateViewCell.m in Sources */,
 				A49C7FCB1A70F07B00F2AEC5 /* WLDisplayMediaViewController.m in Sources */,
 				F5B4A1781B15D6D300C70794 /* FirmCasesCell.m in Sources */,
-				A4A2EB031A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A47F1B261A7F2AF100CB4D9F /* ProjectViewCell.m in Sources */,
 				A4B07C181B12D09D008A3702 /* IProjectBPModel.m in Sources */,
 				A493C2801ADD0BB00056BD52 /* DKManagedObjectQuery.m in Sources */,
@@ -14883,15 +14883,14 @@
 				A493C28F1ADD0BB00056BD52 /* NSArray+ArrayQuery.m in Sources */,
 				F566499B1A2AFD56008A5830 /* UIButton+AFNetworking.m in Sources */,
 				A493C34F1ADD14A60056BD52 /* MessageHomeModel.m in Sources */,
-				A4A2EAFA1A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m in Sources */,
 				F534DB4F1A51082F00B6A725 /* IInvestStageModel.m in Sources */,
 				A4C1408C1A4BEA8500C9BAB5 /* WLMessageTableViewController.m in Sources */,
 				F566499E1A2AFD56008A5830 /* FriendCell.m in Sources */,
+				F5C09E431B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				F564B0241B16C64800923A1B /* ShaiXuanCell.m in Sources */,
 				F566499F1A2AFD56008A5830 /* SWUtilityButtonView.m in Sources */,
 				F5CAB77A1B0DF77E00937E63 /* BannerModel.m in Sources */,
 				A4C770E01A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
-				A4A2EB1B1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */,
 				A4C13FFF1A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */,
 				F53D4E471A4AABE800CA06C8 /* NewFriendUser.m in Sources */,
 				F56649A41A2AFD56008A5830 /* FeedAndZanView.m in Sources */,
@@ -14906,12 +14905,10 @@
 				F56649A61A2AFD56008A5830 /* TQRichTextView.m in Sources */,
 				A493C2441ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
 				F56649A71A2AFD56008A5830 /* UIBarButtonItem+Badge.m in Sources */,
-				A4A2EAF41A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				F56649A81A2AFD56008A5830 /* ChineseString.m in Sources */,
 				F569727F1B0F254D004E86AC /* TouzijigouModel.m in Sources */,
 				F564B00D1B16B56200923A1B /* DALabeledCircularProgressView.m in Sources */,
 				A49C80441A71041000F2AEC5 /* Order.m in Sources */,
-				A4A2EB0C1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				A47D41D61A8B50320070BFD8 /* ProjectUser.m in Sources */,
 				F56649A91A2AFD56008A5830 /* MJPhoto.m in Sources */,
 				A493C2301ADD0BB00056BD52 /* NSError+Extend.m in Sources */,
@@ -14919,6 +14916,7 @@
 				A48846031B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				F56649AC1A2AFD56008A5830 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F56649AD1A2AFD56008A5830 /* SDWebImageDownloader.m in Sources */,
+				F5C09E171B26B2220068559A /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				A4C141111A4BEF5700C9BAB5 /* FLAnimatedImageView.m in Sources */,
 				F56649AE1A2AFD56008A5830 /* IconTableViewCell.m in Sources */,
 				F50B62D21B12D752002259B2 /* InvestorUserInfoController.m in Sources */,
@@ -14938,6 +14936,7 @@
 				A48CA6B01A4D044B009EBD04 /* NSDate+DateTools.m in Sources */,
 				A45923AD1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				F534DB641A5119A000B6A725 /* InvestItems.m in Sources */,
+				F5C09E371B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */,
 				F56649B61A2AFD56008A5830 /* SignInPWDController.m in Sources */,
 				A437CEF51A541BF300B54E68 /* WLMessageSpecialView.m in Sources */,
 				A493C26C1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
@@ -14945,12 +14944,11 @@
 				F56649B71A2AFD56008A5830 /* FMDatabaseAdditions.m in Sources */,
 				F56649B81A2AFD56008A5830 /* ShareEngine.m in Sources */,
 				A4C141351A4BEF5700C9BAB5 /* UIView+Convenience.m in Sources */,
+				F5C09E671B26B2220068559A /* MagicalRecord+iCloud.m in Sources */,
 				F59E76131A4071330028FBAF /* CompanyModel.m in Sources */,
-				A4A2EADF1A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				F56649BB1A2AFD56008A5830 /* AddWorkOrEducationController.m in Sources */,
 				A493C3AE1ADD14A60056BD52 /* WLTool.m in Sources */,
 				F52F966E1A56EA0A00BAA77B /* InvestInfoListVC.m in Sources */,
-				A4A2EB121A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				F53D4E501A4AAEA100CA06C8 /* ChatMessageController.m in Sources */,
 				A493C3131ADD14A60056BD52 /* InvestorUserM.m in Sources */,
 				F5E13A371A7B3062001BB786 /* MyProjectViewController.m in Sources */,
@@ -14977,7 +14975,6 @@
 				A41CE1E61A6FA64C004F17E7 /* WLLocationHelper.m in Sources */,
 				A493C23A1ADD0BB00056BD52 /* NSObject+Extend.m in Sources */,
 				A493C2761ADD0BB00056BD52 /* NSManagedObjectContext+e0571.m in Sources */,
-				A4A2EB181A6CF7C8006ADA55 /* MagicalRecord+Actions.m in Sources */,
 				A49C805C1A71041000F2AEC5 /* openssl_wrapper.m in Sources */,
 				F56649C91A2AFD56008A5830 /* FMDatabaseQueue.m in Sources */,
 				F5D04C7B1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
@@ -14998,7 +14995,6 @@
 				F56649D41A2AFD56008A5830 /* UIWebView+AFNetworking.m in Sources */,
 				A472DBE51A85F0F3003EF296 /* ActivityListViewCell.m in Sources */,
 				A4C1406E1A4BEA8500C9BAB5 /* UIButton+XHButtonTitlePosition.m in Sources */,
-				A4A2EB1E1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */,
 				F5D04C7F1AC104A6004DE412 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
 				A4743EB51A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				F53D4E381A4AABE800CA06C8 /* LogInUser.m in Sources */,
@@ -15009,16 +15005,17 @@
 				F56649D51A2AFD56008A5830 /* UIButton+Badge.m in Sources */,
 				A4C0E12C1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
 				A48A36631AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
-				A4A2EB061A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				A492355B1ADE693A009E0B8C /* JKPhotoBrowser.m in Sources */,
 				F569724B1B0ED0DE004E86AC /* XZPageViewController.m in Sources */,
 				F58CA9971A5D4F9100988A61 /* DaiDodgeKeyboard+AccessObject.m in Sources */,
 				A4C770E61A80A3D1005ABC7F /* IUserInfo.m in Sources */,
 				F56972641B0EF60A004E86AC /* InvestorCell.m in Sources */,
 				F58CA99D1A5D4F9100988A61 /* DaiDodgeKeyboard.m in Sources */,
+				F5C09E2B1B26B2220068559A /* NSManagedObject+MagicalAggregation.m in Sources */,
 				A4E323061B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				F56649D61A2AFD56008A5830 /* UIAlertView+AFNetworking.m in Sources */,
 				F56649D71A2AFD56008A5830 /* UIImage+MultiFormat.m in Sources */,
+				F5C09E631B26B2220068559A /* MagicalRecord+ErrorHandling.m in Sources */,
 				A48173A61B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
 				A49235421ADE693A009E0B8C /* JKAssetsGroupCell.m in Sources */,
 				A492356F1ADE693A009E0B8C /* PhotoAlbumManager.m in Sources */,
@@ -15035,14 +15032,15 @@
 				F56649DC1A2AFD56008A5830 /* MessageCell.m in Sources */,
 				F56649DE1A2AFD56008A5830 /* MeViewController.m in Sources */,
 				F56649DF1A2AFD56008A5830 /* ForgetCoderController.m in Sources */,
+				F5C09E531B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				F56649E01A2AFD56008A5830 /* ForgetPhoneController.m in Sources */,
 				F56649E31A2AFD56008A5830 /* NewFriendsCell.m in Sources */,
 				F56649E41A2AFD56008A5830 /* NameController.m in Sources */,
+				F5C09E271B26B2220068559A /* NSString+MagicalDataImport.m in Sources */,
 				F55772951A5A8E9600693279 /* PerfectInfoController.m in Sources */,
 				F56649E51A2AFD56008A5830 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F56649E71A2AFD56008A5830 /* FriendsFriendController.m in Sources */,
 				A40515961AE777E300A3CA3F /* ILoginUserModel.m in Sources */,
-				A4A2EADC1A6CF7C8006ADA55 /* MagicalImportFunctions.m in Sources */,
 				A493C1D21ADD0A0C0056BD52 /* WLHUDView.m in Sources */,
 				A493C3901ADD14A60056BD52 /* FriendsAddressBook.m in Sources */,
 				F56649E81A2AFD56008A5830 /* WeixinActivity.m in Sources */,
@@ -15050,15 +15048,13 @@
 				F56649E91A2AFD56008A5830 /* NSObject+MJMember.m in Sources */,
 				A493C2261ADD0BB00056BD52 /* NSString+MD5.m in Sources */,
 				A48CA6A71A4D044B009EBD04 /* DTTimePeriodChain.m in Sources */,
+				F5C09E4F1B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				A4C1407D1A4BEA8500C9BAB5 /* UIImage+XHAnimatedFaceGif.m in Sources */,
-				A4A2EB0F1A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				F56649EA1A2AFD56008A5830 /* YTKKeyValueStore.m in Sources */,
 				F56649EB1A2AFD56008A5830 /* WLPhotoView.m in Sources */,
-				A4A2EB241A6CF7C8006ADA55 /* MagicalRecord+Setup.m in Sources */,
 				A493C3A91ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
 				F59E760B1A405D170028FBAF /* weLian.xcdatamodeld in Sources */,
 				A4948E731B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
-				A4A2EAEB1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				F56649EE1A2AFD56008A5830 /* MJPhotoLoadingView.m in Sources */,
 				F557863B1A63749500630A46 /* BadgeBaseCell.m in Sources */,
 				F58CA96E1A5CE3CD00988A61 /* BindingPhoneController.m in Sources */,
@@ -15067,10 +15063,11 @@
 				F5D04C731AC104A6004DE412 /* WUEmoticonsKeyboardKeyCell.m in Sources */,
 				F5C779741A53935F0098BC29 /* InvestItemM.m in Sources */,
 				A493C2531ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
+				F5C09E471B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				A4C140861A4BEA8500C9BAB5 /* UIView+XHBadgeView.m in Sources */,
 				F50B62CC1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A45923991B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
-				A4A2EAE81A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
+				F5C09E5B1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				A4E731AF1A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F56649F21A2AFD56008A5830 /* WLStatusCell.m in Sources */,
 				A4FA34FC1B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
@@ -15080,11 +15077,9 @@
 				A4C1409B1A4BEA8500C9BAB5 /* WLMessageTableViewCell.m in Sources */,
 				F56649F71A2AFD56008A5830 /* SDImageCache.m in Sources */,
 				A49C80481A71041000F2AEC5 /* base64.m in Sources */,
-				A4A2EAEE1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m in Sources */,
 				F56649F91A2AFD56008A5830 /* ZBMessageManagerFaceView.m in Sources */,
 				A493C2211ADD0BB00056BD52 /* NSData+MD5Digest.m in Sources */,
 				A48CA6AA1A4D044B009EBD04 /* DTTimePeriodCollection.m in Sources */,
-				A4A2EB091A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				A4C1416B1A4BEF5700C9BAB5 /* XHViewState.m in Sources */,
 				A4E7319E1A8C94B900980676 /* ActivityInfoViewCell.m in Sources */,
 				F56649FC1A2AFD56008A5830 /* UIImageView+MJWebCache.m in Sources */,
@@ -15127,13 +15122,13 @@
 				F5664A091A2AFD56008A5830 /* WLContentCellView.m in Sources */,
 				F5664A0A1A2AFD56008A5830 /* HaderInfoCell.m in Sources */,
 				A40515831AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
+				F5C09E1F1B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */,
 				F5664A0B1A2AFD56008A5830 /* WLStatusDock.m in Sources */,
 				A493C3221ADD14A60056BD52 /* NewFriendModel.m in Sources */,
 				A4EFA6CF1A89E75D00CB5A4D /* PhotoInfos.m in Sources */,
 				A49235741ADE693A009E0B8C /* UIView+JKPicker.m in Sources */,
 				A4C1406B1A4BEA8500C9BAB5 /* NSString+XHMD5.m in Sources */,
 				F5664A0C1A2AFD56008A5830 /* FeedAndZanCell.m in Sources */,
-				A4A2EAF71A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m in Sources */,
 				F5664A0D1A2AFD56008A5830 /* CommentInfoController.m in Sources */,
 				F5664A0E1A2AFD56008A5830 /* UserInfoController.m in Sources */,
 				F5664A0F1A2AFD56008A5830 /* UIImageView+AFNetworking.m in Sources */,
@@ -15157,7 +15152,6 @@
 				A493C3681ADD14A60056BD52 /* WLPhoto.m in Sources */,
 				A4C1417C1A4BEFBA00C9BAB5 /* WLMessageAvatorFactory.m in Sources */,
 				F5664A211A2AFD56008A5830 /* CityLocationController.m in Sources */,
-				A4A2EB001A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				A493C2AD1ADD0BB00056BD52 /* WLNoteInfoView.m in Sources */,
 				F55EB10E1ACB9FE400FFB3BE /* HPGrowingTextView.m in Sources */,
 				A48A365C1AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
@@ -15176,6 +15170,7 @@
 				F58CA9A01A5D4F9100988A61 /* DaiDodgeKeyboardObjects.m in Sources */,
 				F58796481AE889EE002C414F /* UITextField+LeftRightView.m in Sources */,
 				A41CE1B71A6F8EA0004F17E7 /* WLShareMenuItem.m in Sources */,
+				F5C09E131B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				F5933FAA1AD4F4030088C70D /* UIScrollView+MJExtension.m in Sources */,
 				A493C23F1ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
 				A486EBDE1B16BA6900A591EE /* IGetNewFeedResultModel.m in Sources */,
@@ -15183,13 +15178,14 @@
 				F5664A271A2AFD56008A5830 /* AFURLConnectionOperation.m in Sources */,
 				F5664A291A2AFD56008A5830 /* NSObject+MJCoding.m in Sources */,
 				A492357E1ADE693A009E0B8C /* CTAssetScrollView.m in Sources */,
+				F5C09E331B26B2220068559A /* NSManagedObject+MagicalFinders.m in Sources */,
+				F5C09E771B26B2220068559A /* MagicalRecordInternal.m in Sources */,
 				A49235651ADE693A009E0B8C /* JKPromptView.m in Sources */,
 				F5664A2A1A2AFD56008A5830 /* HanyuPinyinOutputFormat.m in Sources */,
 				F5664A2B1A2AFD56008A5830 /* AFHTTPRequestOperationManager.m in Sources */,
 				F5664A2C1A2AFD56008A5830 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A46FAE5B1A8DE82A005EB34E /* ActivityOrderInfoViewController.m in Sources */,
 				F5664A2E1A2AFD56008A5830 /* PictureCell.m in Sources */,
-				A4A2EAE21A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				A49C80581A71041000F2AEC5 /* NSDataEx.m in Sources */,
 				F5933FA61AD4F4030088C70D /* MJRefreshLegendHeader.m in Sources */,
 				A472DBDF1A85EE2E003EF296 /* ActivityListViewController.m in Sources */,
@@ -15224,12 +15220,12 @@
 				A4948E811B0C2C8500BA6258 /* FinancingInfoView.m in Sources */,
 				F5933FB21AD4F4030088C70D /* UIView+MJExtension.m in Sources */,
 				F569726F1B0F01C6004E86AC /* InvestorOrgCell.m in Sources */,
-				A4A2EAE51A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */,
 				A4C140B71A4BEF0E00C9BAB5 /* XHFileAttribute.m in Sources */,
 				A47F1B361A7F54E300CB4D9F /* ProjectInfoView.m in Sources */,
 				F55EB1121ACB9FE400FFB3BE /* HPTextViewInternal.m in Sources */,
 				F58CA99A1A5D4F9100988A61 /* DaiDodgeKeyboard+Animation.m in Sources */,
 				F55078781A7F1B2C009CE4F7 /* TextFieldCell.m in Sources */,
+				F5C09E3B1B26B2220068559A /* NSManagedObject+MagicalRequests.m in Sources */,
 				F5664A3D1A2AFD56008A5830 /* MyFriendsController.m in Sources */,
 				F5664A3E1A2AFD56008A5830 /* UIButton+WebCache.m in Sources */,
 				F5664A3F1A2AFD56008A5830 /* CommentCell.m in Sources */,
@@ -15250,7 +15246,9 @@
 				A47F1B1B1A7F215E00CB4D9F /* ProjectListViewController.m in Sources */,
 				A489E7BE1AA1A54400F7BE9F /* MyActivityViewController.m in Sources */,
 				F5933F9A1AD4F4030088C70D /* MJRefreshGifHeader.m in Sources */,
+				F5C09E1B1B26B2220068559A /* NSNumber+MagicalDataImport.m in Sources */,
 				F57F31DA1AA71A4E00B8EF72 /* ListItem.m in Sources */,
+				F5C09E6B1B26B2220068559A /* MagicalRecord+Options.m in Sources */,
 				F5664A441A2AFD56008A5830 /* main.m in Sources */,
 				F5664A451A2AFD56008A5830 /* AFURLRequestSerialization.m in Sources */,
 				A41CE1EB1A6FA750004F17E7 /* WLMessageVideoConverPhotoFactory.m in Sources */,
@@ -15259,6 +15257,7 @@
 				F5664A481A2AFD56008A5830 /* AFSecurityPolicy.m in Sources */,
 				F5664A491A2AFD56008A5830 /* NSData+ImageContentType.m in Sources */,
 				F5CA5C051AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
+				F5C09E731B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
 				A47C5F4E1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				F50B62F91B132928002259B2 /* ProjectTouDiModel.m in Sources */,
 				F5664A4A1A2AFD56008A5830 /* NoCommentCell.m in Sources */,
@@ -15284,13 +15283,14 @@
 				F58CA9881A5D0BD900988A61 /* BiaoqainCell.m in Sources */,
 				F56972791B0F2459004E86AC /* InvestorUserModel.m in Sources */,
 				A493C34A1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
+				F5C09E571B26B2220068559A /* NSPersistentStore+MagicalRecord.m in Sources */,
 				F5664A521A2AFD56008A5830 /* LoginPhoneVC.m in Sources */,
 				F562728B1A4C4FE9002A9B88 /* IBaseUserM.m in Sources */,
 				F5664A531A2AFD56008A5830 /* TOActivityChrome.m in Sources */,
 				A49236621ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A405158E1AE61FE500A3CA3F /* IBaseModel.m in Sources */,
 				A48845F41B0B10860053B92F /* NewsListViewController.m in Sources */,
-				A4A2EAFD1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */,
+				F5C09E6F1B26B2220068559A /* MagicalRecord+Setup.m in Sources */,
 				F56272901A4D474E002A9B88 /* HomeMessage.m in Sources */,
 				A46A283B1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
 				F5664A541A2AFD56008A5830 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -15298,11 +15298,12 @@
 				A492366C1ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				F58CA9A31A5D4F9100988A61 /* UIView+FirstResponderNotify.m in Sources */,
 				F5664A561A2AFD56008A5830 /* AboutViewController.m in Sources */,
-				A4A2EB2A1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */,
 				F5664A571A2AFD56008A5830 /* CommonFriendsController.m in Sources */,
+				F5C09E231B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				F5664A591A2AFD56008A5830 /* WLPhotoListView.m in Sources */,
 				F50B63051B141353002259B2 /* InvestorInfoCell.m in Sources */,
 				F5664A5A1A2AFD56008A5830 /* AFHTTPSessionManager.m in Sources */,
+				F5C09E4B1B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				F50B62EE1B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5664A5B1A2AFD56008A5830 /* IWTextView.m in Sources */,
 				F5D04C5B1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
@@ -15312,13 +15313,13 @@
 				F5664A5E1A2AFD56008A5830 /* UIImage+GIF.m in Sources */,
 				A49235471ADE693A009E0B8C /* JKAssetsGroupsView.m in Sources */,
 				F58CA9511A5BE6E400988A61 /* BSearchFriendsController.m in Sources */,
-				A4A2EB211A6CF7C8006ADA55 /* MagicalRecord+Options.m in Sources */,
 				A493C2621ADD0BB00056BD52 /* UIView+Size.m in Sources */,
 				F5664A5F1A2AFD56008A5830 /* PinyinFormatter.m in Sources */,
 				F55079071A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C3A41ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F57F31E21AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A493C21C1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
+				F5C09E0F1B26B2220068559A /* MagicalImportFunctions.m in Sources */,
 				F5664A601A2AFD56008A5830 /* StaurCell.m in Sources */,
 				F5664A611A2AFD56008A5830 /* MJTypeEncoding.m in Sources */,
 				F534DB5F1A5119A000B6A725 /* InvestStages.m in Sources */,
@@ -15341,6 +15342,7 @@
 				F5664A681A2AFD56008A5830 /* AddWXFriendCell.m in Sources */,
 				F5664A691A2AFD56008A5830 /* UIImage+ImageEffects.m in Sources */,
 				F5D04C671AC104A6004DE412 /* WUDemoKeyboardBuilder.m in Sources */,
+				F5C09E3F1B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				F5664A6A1A2AFD56008A5830 /* AuthTypeView.m in Sources */,
 				F56972511B0ED17A004E86AC /* InvestorsListController.m in Sources */,
 				F5664A6B1A2AFD56008A5830 /* M80AttributedLabel.m in Sources */,
@@ -15350,9 +15352,7 @@
 				F5664A6E1A2AFD56008A5830 /* UIColor+HBVHarmonies.m in Sources */,
 				F5933F9E1AD4F4030088C70D /* MJRefreshHeader.m in Sources */,
 				A493C2991ADD0BB00056BD52 /* IFBase.m in Sources */,
-				A4A2EB271A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				F53D4DFC1A4A771300CA06C8 /* BaseUser.m in Sources */,
-				A4A2EB151A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				A493C3C71ADD14A60056BD52 /* InvestAuthModel.m in Sources */,
 				F534DAE81A4EAF2900B6A725 /* InvestCollectionCell.m in Sources */,
 			);
@@ -15411,17 +15411,17 @@
 				F5664C491A2AFDD5008A5830 /* PinyinHelper.m in Sources */,
 				F50B63161B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				F59E76201A411E4C0028FBAF /* ICompanyResult.m in Sources */,
+				F5C09E601B26B2220068559A /* MagicalRecord+Actions.m in Sources */,
+				F5C09E301B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A482A2481A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				A49235571ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
 				A4C0E1181B0EF46800A9929D /* ProjectMainViewController.m in Sources */,
 				F5664C4C1A2AFDD5008A5830 /* MJPhotoProgressView.m in Sources */,
 				A493C36E1ADD14A60056BD52 /* WLStatusFrame.m in Sources */,
-				A4A2EAF21A6CF7C8006ADA55 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				F5D04C781AC104A6004DE412 /* WUEmoticonsKeyboardKeyItem.m in Sources */,
 				A40356101A5D2259006AE52C /* MyFriendsOperateViewCell.m in Sources */,
 				F56972581B0ED1E9004E86AC /* ShaiXuanView.m in Sources */,
 				A49C7FCC1A70F07B00F2AEC5 /* WLDisplayMediaViewController.m in Sources */,
-				A4A2EB041A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A47F1B271A7F2AF200CB4D9F /* ProjectViewCell.m in Sources */,
 				F5664C4F1A2AFDD5008A5830 /* FindViewController.m in Sources */,
 				A49C804D1A71041000F2AEC5 /* DataSigner.m in Sources */,
@@ -15438,7 +15438,6 @@
 				F534DAE31A4EAA5800B6A725 /* InvestCollectionVC.m in Sources */,
 				A49235391ADE693A009E0B8C /* JKAssets.m in Sources */,
 				F5664C541A2AFDD5008A5830 /* SDWebImagePrefetcher.m in Sources */,
-				A4A2EAFB1A6CF7C8006ADA55 /* NSManagedObject+MagicalRecord.m in Sources */,
 				F5664C551A2AFDD5008A5830 /* UIButton+AFNetworking.m in Sources */,
 				A4C1411E1A4BEF5700C9BAB5 /* MultiSelectedPanel.m in Sources */,
 				F534DAFD1A4F1BB100B6A725 /* AddCaseCell.m in Sources */,
@@ -15448,9 +15447,9 @@
 				F5664C581A2AFDD5008A5830 /* FriendCell.m in Sources */,
 				F5664C591A2AFDD5008A5830 /* SWUtilityButtonView.m in Sources */,
 				A4C770E11A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
-				A4A2EB1C1A6CF7C8006ADA55 /* MagicalRecord+ErrorHandling.m in Sources */,
 				F5664C5E1A2AFDD5008A5830 /* FeedAndZanView.m in Sources */,
 				F564B0251B16C64800923A1B /* ShaiXuanCell.m in Sources */,
+				F5C09E441B26B2220068559A /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				A489E7D11AA5980C00F7BE9F /* ActivityInfo.m in Sources */,
 				F5CAB77B1B0DF77E00937E63 /* BannerModel.m in Sources */,
 				F5664C5F1A2AFDD5008A5830 /* AppDelegate.mm in Sources */,
@@ -15463,10 +15462,8 @@
 				A493C3731ADD14A60056BD52 /* WLStatusM.m in Sources */,
 				F569725E1B0EF2B4004E86AC /* InvestorsTableController.m in Sources */,
 				F5664C631A2AFDD5008A5830 /* MJPhoto.m in Sources */,
-				A4A2EAF51A6CF7C8006ADA55 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A493C2451ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
 				A49C80451A71041000F2AEC5 /* Order.m in Sources */,
-				A4A2EB0D1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				F5664C651A2AFDD5008A5830 /* WeixinActivityBase.m in Sources */,
 				A47D41D71A8B50320070BFD8 /* ProjectUser.m in Sources */,
 				F5664C661A2AFDD5008A5830 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -15482,6 +15479,7 @@
 				A48846041B0B2BF50053B92F /* CSLoadingImageView.m in Sources */,
 				F562728C1A4C4FE9002A9B88 /* IBaseUserM.m in Sources */,
 				F5664C6C1A2AFDD5008A5830 /* LocationprovinceController.m in Sources */,
+				F5C09E181B26B2220068559A /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				A4C141361A4BEF5700C9BAB5 /* UIView+Convenience.m in Sources */,
 				A47D41DD1A8B587A0070BFD8 /* ActivityTypeInfoView.m in Sources */,
 				F50B62D31B12D752002259B2 /* InvestorUserInfoController.m in Sources */,
@@ -15498,18 +15496,18 @@
 				F5D385101B1C31E4003A5B53 /* ProjectBPCell.m in Sources */,
 				F5664C751A2AFDD5008A5830 /* AddWorkOrEducationController.m in Sources */,
 				F5D384FF1B187DD1003A5B53 /* UICollectionViewLeftAlignedLayout.m in Sources */,
-				A4A2EAE01A6CF7C8006ADA55 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				A45923AE1B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
 				A4C144691A4C271900C9BAB5 /* WLBubblePhotoImageView.m in Sources */,
 				A493C26D1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
+				F5C09E381B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */,
 				F5664C771A2AFDD5008A5830 /* UIImageView+WebCache.m in Sources */,
 				F52F966F1A56EA0A00BAA77B /* InvestInfoListVC.m in Sources */,
 				F50B631C1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
-				A4A2EB131A6CF7C8006ADA55 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				F5664C781A2AFDD5008A5830 /* AFURLSessionManager.m in Sources */,
 				F5E13A381A7B3062001BB786 /* MyProjectViewController.m in Sources */,
 				A4C140871A4BEA8500C9BAB5 /* UIView+XHBadgeView.m in Sources */,
 				A493C3AF1ADD14A60056BD52 /* WLTool.m in Sources */,
+				F5C09E681B26B2220068559A /* MagicalRecord+iCloud.m in Sources */,
 				A4743EB01A7F7BCE00645998 /* ProjectDetailsViewController.m in Sources */,
 				F59E76101A4071320028FBAF /* SchoolCompanyDate.m in Sources */,
 				F59E760C1A405D170028FBAF /* weLian.xcdatamodeld in Sources */,
@@ -15534,7 +15532,6 @@
 				A49235841ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
 				F50B63001B1347EF002259B2 /* CasesJiGouModel.m in Sources */,
 				F5933F8B1AD4F4030088C70D /* MJRefreshComponent.m in Sources */,
-				A4A2EB191A6CF7C8006ADA55 /* MagicalRecord+Actions.m in Sources */,
 				A49C805D1A71041000F2AEC5 /* openssl_wrapper.m in Sources */,
 				F534DAD71A4E929500B6A725 /* InvestCardCell.m in Sources */,
 				A4C1446F1A4C2D3B00C9BAB5 /* WLMessageBubbleHelper.m in Sources */,
@@ -15559,7 +15556,6 @@
 				F5D04C6C1AC104A6004DE412 /* WUDemoKeyboardPressedCellPopupView.m in Sources */,
 				A4C140991A4BEA8500C9BAB5 /* WLMessageTableView.m in Sources */,
 				A472DBE61A85F0F3003EF296 /* ActivityListViewCell.m in Sources */,
-				A4A2EB1F1A6CF7C8006ADA55 /* MagicalRecord+iCloud.m in Sources */,
 				A4743EB61A7F896E00645998 /* ProjectFavorteViewCell.m in Sources */,
 				F5664C8B1A2AFDD5008A5830 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				F5664C8C1A2AFDD5008A5830 /* MJType.m in Sources */,
@@ -15567,7 +15563,6 @@
 				A4C1416F1A4BEF5700C9BAB5 /* XHZoomingImageView.m in Sources */,
 				A4D43AB91AC55A7200713295 /* UIScrollView+VGParallaxHeader.m in Sources */,
 				A4C0E1341B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
-				A4A2EB071A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				F564B00A1B16B56200923A1B /* DACircularProgressView.m in Sources */,
 				A48A36641AF0AF130099615D /* IAlipayInfoModel.m in Sources */,
 				A4C0E12D1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,
@@ -15579,9 +15574,11 @@
 				A4C140001A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */,
 				F56972651B0EF60A004E86AC /* InvestorCell.m in Sources */,
 				F5664C8F1A2AFDD5008A5830 /* UIButton+Badge.m in Sources */,
+				F5C09E2C1B26B2220068559A /* NSManagedObject+MagicalAggregation.m in Sources */,
 				A4E323071B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				F5664C901A2AFDD5008A5830 /* UIAlertView+AFNetworking.m in Sources */,
 				F53D4E391A4AABE800CA06C8 /* LogInUser.m in Sources */,
+				F5C09E641B26B2220068559A /* MagicalRecord+ErrorHandling.m in Sources */,
 				A48173A71B01D639001346B8 /* ActivityHeaderViewCell.m in Sources */,
 				F5664C911A2AFDD5008A5830 /* UIImage+MultiFormat.m in Sources */,
 				F5664C921A2AFDD5008A5830 /* FMResultSet.m in Sources */,
@@ -15598,31 +15595,29 @@
 				F5664C9A1A2AFDD5008A5830 /* ForgetPhoneController.m in Sources */,
 				F55772961A5A8E9600693279 /* PerfectInfoController.m in Sources */,
 				A4C141241A4BEF5700C9BAB5 /* MultiSelectItem.m in Sources */,
-				A4A2EADD1A6CF7C8006ADA55 /* MagicalImportFunctions.m in Sources */,
+				F5C09E541B26B2220068559A /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				F5664C9D1A2AFDD5008A5830 /* NewFriendsCell.m in Sources */,
 				A492357F1ADE693A009E0B8C /* CTAssetScrollView.m in Sources */,
 				F5664C9E1A2AFDD5008A5830 /* NameController.m in Sources */,
+				F5C09E281B26B2220068559A /* NSString+MagicalDataImport.m in Sources */,
 				F5664C9F1A2AFDD5008A5830 /* UIImageView+HighlightedWebCache.m in Sources */,
 				A40515971AE777E300A3CA3F /* ILoginUserModel.m in Sources */,
-				A4A2EB101A6CF7C8006ADA55 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				A493C1D31ADD0A0C0056BD52 /* WLHUDView.m in Sources */,
 				F5664CA11A2AFDD5008A5830 /* FriendsFriendController.m in Sources */,
 				A493C3911ADD14A60056BD52 /* FriendsAddressBook.m in Sources */,
 				F5664CA21A2AFDD5008A5830 /* WeixinActivity.m in Sources */,
 				A493C2271ADD0BB00056BD52 /* NSString+MD5.m in Sources */,
-				A4A2EB251A6CF7C8006ADA55 /* MagicalRecord+Setup.m in Sources */,
 				F5664CA31A2AFDD5008A5830 /* NSObject+MJMember.m in Sources */,
 				F5664CA41A2AFDD5008A5830 /* YTKKeyValueStore.m in Sources */,
 				A4C140841A4BEA8500C9BAB5 /* UIScrollView+XHkeyboardControl.m in Sources */,
-				A4A2EAEC1A6CF7C8006ADA55 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				A4C140811A4BEA8500C9BAB5 /* UIImage+XHRounded.m in Sources */,
+				F5C09E501B26B2220068559A /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				F5664CA51A2AFDD5008A5830 /* WLPhotoView.m in Sources */,
 				A493C3AA1ADD14A60056BD52 /* WLDataDBTool.m in Sources */,
 				F557863C1A63749500630A46 /* BadgeBaseCell.m in Sources */,
 				F58CA96F1A5CE3CD00988A61 /* BindingPhoneController.m in Sources */,
 				A4948E741B0C2AC500BA6258 /* FinancingInfoViewController.m in Sources */,
 				F5C779751A53935F0098BC29 /* InvestItemM.m in Sources */,
-				A4A2EAE91A6CF7C8006ADA55 /* NSObject+MagicalDataImport.m in Sources */,
 				A4E731B01A8CC94800980676 /* ActivityTicketViewCell.m in Sources */,
 				F5D04C741AC104A6004DE412 /* WUEmoticonsKeyboardKeyCell.m in Sources */,
 				A4C140781A4BEA8500C9BAB5 /* UIImage+RoundedCorner.m in Sources */,
@@ -15631,20 +15626,20 @@
 				A49235521ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
 				A492354D1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C2541ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
+				F5C09E481B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				F50B62CD1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239A1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				F5664CAA1A2AFDD5008A5830 /* MJPhotoView.m in Sources */,
+				F5C09E5C1B26B2220068559A /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				F5664CAC1A2AFDD5008A5830 /* WLStatusCell.m in Sources */,
 				F5664CAD1A2AFDD5008A5830 /* SameFriendsCell.m in Sources */,
 				A4FA34FD1B0DD983006066A6 /* TouTiaoInfo.m in Sources */,
 				A4C141751A4BEF5700C9BAB5 /* XHSoundManager.m in Sources */,
 				A4C1410F1A4BEF5700C9BAB5 /* FLAnimatedImage.m in Sources */,
 				A49C80491A71041000F2AEC5 /* base64.m in Sources */,
-				A4A2EAEF1A6CF7C8006ADA55 /* NSString+MagicalDataImport.m in Sources */,
 				F5664CAE1A2AFDD5008A5830 /* WeixinSessionActivity.m in Sources */,
 				F5664CB01A2AFDD5008A5830 /* InvestorUsersListController.m in Sources */,
 				A492356B1ADE693A009E0B8C /* JKUtil.m in Sources */,
-				A4A2EB0A1A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				F5664CB11A2AFDD5008A5830 /* SDImageCache.m in Sources */,
 				A493C2221ADD0BB00056BD52 /* NSData+MD5Digest.m in Sources */,
 				A4E7319F1A8C94B900980676 /* ActivityInfoViewCell.m in Sources */,
@@ -15690,9 +15685,9 @@
 				A4C140931A4BEA8500C9BAB5 /* WLMessage.m in Sources */,
 				A40515841AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
 				A49235661ADE693A009E0B8C /* JKPromptView.m in Sources */,
+				F5C09E201B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */,
 				A4EFA6D01A89E75D00CB5A4D /* PhotoInfos.m in Sources */,
 				F5664CC31A2AFDD5008A5830 /* WLContentCellView.m in Sources */,
-				A4A2EAF81A6CF7C8006ADA55 /* NSManagedObject+MagicalFinders.m in Sources */,
 				A493C3231ADD14A60056BD52 /* NewFriendModel.m in Sources */,
 				F53D4DFD1A4A771300CA06C8 /* BaseUser.m in Sources */,
 				A4272FC81A4E8AAD0019E440 /* ChatMessage.m in Sources */,
@@ -15723,7 +15718,6 @@
 				A493C3691ADD14A60056BD52 /* WLPhoto.m in Sources */,
 				F5664CD91A2AFDD5008A5830 /* ChineseToPinyinResource.m in Sources */,
 				A48A365D1AF0AE6A0099615D /* IActivityOrderResultModel.m in Sources */,
-				A4A2EB011A6CF7C8006ADA55 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				F5664CDB1A2AFDD5008A5830 /* CityLocationController.m in Sources */,
 				A4948E971B0C7A1200BA6258 /* NoteTableViewCell.m in Sources */,
 				A493C2AE1ADD0BB00056BD52 /* WLNoteInfoView.m in Sources */,
@@ -15739,6 +15733,7 @@
 				F58796491AE889EE002C414F /* UITextField+LeftRightView.m in Sources */,
 				F557728B1A5A790300693279 /* LoginGuideController.m in Sources */,
 				F5664CE01A2AFDD5008A5830 /* SDWebImageManager.m in Sources */,
+				F5C09E141B26B2220068559A /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				F5664CE11A2AFDD5008A5830 /* AFURLConnectionOperation.m in Sources */,
 				F58CA9A11A5D4F9100988A61 /* DaiDodgeKeyboardObjects.m in Sources */,
 				A486EBDF1B16BA6900A591EE /* IGetNewFeedResultModel.m in Sources */,
@@ -15746,6 +15741,8 @@
 				A41CE1B81A6F8EA0004F17E7 /* WLShareMenuItem.m in Sources */,
 				A493C2401ADD0BB00056BD52 /* NSString+Extend.m in Sources */,
 				F5664CE31A2AFDD5008A5830 /* NSObject+MJCoding.m in Sources */,
+				F5C09E341B26B2220068559A /* NSManagedObject+MagicalFinders.m in Sources */,
+				F5C09E781B26B2220068559A /* MagicalRecordInternal.m in Sources */,
 				F5664CE41A2AFDD5008A5830 /* HanyuPinyinOutputFormat.m in Sources */,
 				F5664CE51A2AFDD5008A5830 /* AFHTTPRequestOperationManager.m in Sources */,
 				A4C140901A4BEA8500C9BAB5 /* WLMessageBubbleFactory.m in Sources */,
@@ -15753,7 +15750,6 @@
 				A46FAE5C1A8DE82A005EB34E /* ActivityOrderInfoViewController.m in Sources */,
 				F5664CE81A2AFDD5008A5830 /* PictureCell.m in Sources */,
 				A4C1406F1A4BEA8500C9BAB5 /* UIButton+XHButtonTitlePosition.m in Sources */,
-				A4A2EAE31A6CF7C8006ADA55 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				F5933FA71AD4F4030088C70D /* MJRefreshLegendHeader.m in Sources */,
 				A49C80591A71041000F2AEC5 /* NSDataEx.m in Sources */,
 				A472DBE01A85EE2E003EF296 /* ActivityListViewController.m in Sources */,
@@ -15788,11 +15784,11 @@
 				A47C5F551A5E663100E63737 /* AddFriendTypeListViewController.m in Sources */,
 				F56972701B0F01C6004E86AC /* InvestorOrgCell.m in Sources */,
 				F5664CF91A2AFDD5008A5830 /* CommentCell.m in Sources */,
-				A4A2EAE61A6CF7C8006ADA55 /* NSNumber+MagicalDataImport.m in Sources */,
 				F55EB1131ACB9FE400FFB3BE /* HPTextViewInternal.m in Sources */,
 				A4C140961A4BEA8500C9BAB5 /* WLBaseTableViewCell.m in Sources */,
 				A47F1B371A7F54E300CB4D9F /* ProjectInfoView.m in Sources */,
 				F58CA99B1A5D4F9100988A61 /* DaiDodgeKeyboard+Animation.m in Sources */,
+				F5C09E3C1B26B2220068559A /* NSManagedObject+MagicalRequests.m in Sources */,
 				F55078791A7F1B2C009CE4F7 /* TextFieldCell.m in Sources */,
 				A4D43AB11AC55A7200713295 /* NSArray+PureLayout.m in Sources */,
 				A49234CE1ADE3E0C009E0B8C /* UserCardController.m in Sources */,
@@ -15813,7 +15809,9 @@
 				A47F1B1C1A7F215E00CB4D9F /* ProjectListViewController.m in Sources */,
 				A489E7BF1AA1A54400F7BE9F /* MyActivityViewController.m in Sources */,
 				F57F31DB1AA71A4E00B8EF72 /* ListItem.m in Sources */,
+				F5C09E1C1B26B2220068559A /* NSNumber+MagicalDataImport.m in Sources */,
 				F5664D011A2AFDD5008A5830 /* SWTableViewCell.m in Sources */,
+				F5C09E6C1B26B2220068559A /* MagicalRecord+Options.m in Sources */,
 				F5664D021A2AFDD5008A5830 /* AFSecurityPolicy.m in Sources */,
 				A493C1CE1ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
 				A41CE1EC1A6FA750004F17E7 /* WLMessageVideoConverPhotoFactory.m in Sources */,
@@ -15822,6 +15820,7 @@
 				F5664D051A2AFDD5008A5830 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C061AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A47C5F4F1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
+				F5C09E741B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
 				A492357A1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				F50B62FA1B132928002259B2 /* ProjectTouDiModel.m in Sources */,
 				F5664D071A2AFDD5008A5830 /* AddFriendsController.m in Sources */,
@@ -15847,25 +15846,27 @@
 				F53519AF1A8C90A0004488EE /* CreateHeaderView.m in Sources */,
 				F569727A1B0F2459004E86AC /* InvestorUserModel.m in Sources */,
 				F5664D0E1A2AFDD5008A5830 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F5C09E581B26B2220068559A /* NSPersistentStore+MagicalRecord.m in Sources */,
 				A493C34B1ADD14A60056BD52 /* MessageFrameModel.m in Sources */,
 				F58CA9891A5D0BD900988A61 /* BiaoqainCell.m in Sources */,
 				F59E76141A4071330028FBAF /* CompanyModel.m in Sources */,
 				A49236631ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A405158F1AE61FE500A3CA3F /* IBaseModel.m in Sources */,
 				A48845F51B0B10860053B92F /* NewsListViewController.m in Sources */,
+				F5C09E701B26B2220068559A /* MagicalRecord+Setup.m in Sources */,
 				F534DB651A5119A000B6A725 /* InvestItems.m in Sources */,
 				A46A283C1ABD36AF00BD5EA3 /* WLMessageCardView.m in Sources */,
-				A4A2EAFE1A6CF7C8006ADA55 /* NSManagedObject+MagicalRequests.m in Sources */,
 				F5664D101A2AFDD5008A5830 /* AboutViewController.m in Sources */,
 				A4C0E1261B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A492366D1ADE6AF9009E0B8C /* BasicTableViewController.m in Sources */,
 				A4C144751A4C370100C9BAB5 /* WLMessageVoiceFactory.m in Sources */,
 				F58CA9A41A5D4F9100988A61 /* UIView+FirstResponderNotify.m in Sources */,
 				F5664D111A2AFDD5008A5830 /* CommonFriendsController.m in Sources */,
-				A4A2EB2B1A6CF7C8006ADA55 /* MagicalRecord.m in Sources */,
+				F5C09E241B26B2220068559A /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				F534DB601A5119A000B6A725 /* InvestStages.m in Sources */,
 				F50B63061B141353002259B2 /* InvestorInfoCell.m in Sources */,
 				F5664D131A2AFDD5008A5830 /* WLPhotoListView.m in Sources */,
+				F5C09E4C1B26B2220068559A /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				F50B62EF1B1308E0002259B2 /* ProjectsMailingView.m in Sources */,
 				F5664D141A2AFDD5008A5830 /* AFHTTPSessionManager.m in Sources */,
 				F5D04C5C1AC104A6004DE412 /* ACEExpandableTextCell.m in Sources */,
@@ -15877,11 +15878,11 @@
 				A4C141781A4BEF5700C9BAB5 /* XHWaterDropRefresh.m in Sources */,
 				F58CA9521A5BE6E400988A61 /* BSearchFriendsController.m in Sources */,
 				A493C2631ADD0BB00056BD52 /* UIView+Size.m in Sources */,
-				A4A2EB221A6CF7C8006ADA55 /* MagicalRecord+Options.m in Sources */,
 				A4C141691A4BEF5700C9BAB5 /* XHImageViewer.m in Sources */,
 				A493C3A51ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F55079081A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C21D1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
+				F5C09E101B26B2220068559A /* MagicalImportFunctions.m in Sources */,
 				F57F31E31AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A4C141271A4BEF5700C9BAB5 /* MultiSelectSearchResultTableViewCell.m in Sources */,
 				F5664D181A2AFDD5008A5830 /* UIImage+GIF.m in Sources */,
@@ -15904,6 +15905,7 @@
 				F5D04C681AC104A6004DE412 /* WUDemoKeyboardBuilder.m in Sources */,
 				F5664D221A2AFDD5008A5830 /* AddWXFriendCell.m in Sources */,
 				F5664D231A2AFDD5008A5830 /* UIImage+ImageEffects.m in Sources */,
+				F5C09E401B26B2220068559A /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				F5664D241A2AFDD5008A5830 /* AuthTypeView.m in Sources */,
 				F56972521B0ED17A004E86AC /* InvestorsListController.m in Sources */,
 				F5664D251A2AFDD5008A5830 /* M80AttributedLabel.m in Sources */,
@@ -15914,10 +15916,8 @@
 				F5933F9F1AD4F4030088C70D /* MJRefreshHeader.m in Sources */,
 				A493C29A1ADD0BB00056BD52 /* IFBase.m in Sources */,
 				A4C1408D1A4BEA8500C9BAB5 /* WLMessageTableViewController.m in Sources */,
-				A4A2EB281A6CF7C8006ADA55 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				F5664D281A2AFDD5008A5830 /* UIColor+HBVHarmonies.m in Sources */,
 				A493C3C81ADD14A60056BD52 /* InvestAuthModel.m in Sources */,
-				A4A2EB161A6CF7C8006ADA55 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -16412,7 +16412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou Teleport Networks Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hangzhou Teleport Networks Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -16461,7 +16461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou Teleport Networks Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hangzhou Teleport Networks Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

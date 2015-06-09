@@ -520,7 +520,7 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     NSArray *projects = [dataDic objectForKey:@"projects"];
     NSArray *projectsArrayM = [IProjectInfo objectsWithInfo:projects];
     IProjectInfo *projectM = [projectsArrayM firstObject];
-    NSString *projectName = projectM.name?projectM.name:@"";
+    NSString *projectName = projectM.name.length?projectM.name:@"";
     
     // 工作经历列表
     NSArray *usercompany = [dataDic objectForKey:@"usercompany"];
@@ -543,7 +543,8 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     }
     
     //活动
-    NSString *active = [[dataDic objectForKey:@"active"] objectForKey:@"name"] ? : @"";
+    NSString *actStr = [[dataDic objectForKey:@"active"] objectForKey:@"name"];
+    NSString *active = actStr.length?actStr: @"";
     
     return (@{@"feed":feedM,@"investor":investorM,@"projects":projectsArrayM,@"project":projectName,@"profile":profileM,@"usercompany":companyArrayM,@"userschool":schoolArrayM,@"active":active});
 }
