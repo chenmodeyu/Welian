@@ -36,6 +36,12 @@
 
 - (void)dealloc
 {
+    _collectDataArray = nil;
+    _createDataArray = nil;
+    _segmentedControl = nil;
+    _tableView = nil;
+    _refreshControl = nil;
+    _notstrView = nil;
     [KNSNotification removeObserver:self];
 }
 

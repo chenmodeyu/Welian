@@ -33,6 +33,15 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
 
 @implementation InvestorsTableController
 
+- (void)dealloc
+{
+    _headerView = nil;
+    _notView = nil;
+    if (invType == InvestorsTypeShaiXuan) {
+        [KNSNotification removeObserver:self];
+    }
+}
+
 - (NotstringView *)notView
 {
     if (_notView == nil) {
@@ -90,14 +99,6 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
         }
     }
     return _headerView;
-}
-
-
-- (void)dealloc
-{
-    if (invType == InvestorsTypeShaiXuan) {
-        [KNSNotification removeObserver:self];
-    }
 }
 
 - (instancetype)initWithInvestorsType:(InvestorsType)investorsType

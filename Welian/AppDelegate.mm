@@ -602,13 +602,13 @@ BMKMapManager* _mapManager;
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    //数据库操作
-    [MagicalRecord cleanUp];
-    
     LogInUser *user = [LogInUser getCurrentLoginUser];
     if (user) {
         [UIApplication sharedApplication].applicationIconBadgeNumber = user.newfriendbadge.integerValue+user.homemessagebadge.integerValue+[user allUnReadChatMessageNum];
     }
+    
+    //数据库操作
+    [MagicalRecord cleanUp];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url

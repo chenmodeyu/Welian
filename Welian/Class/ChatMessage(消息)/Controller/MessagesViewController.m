@@ -36,6 +36,9 @@
 
 - (void)dealloc
 {
+    _wlSegmentedControl = nil;
+    _datasource = nil;
+    _notHasDataView = nil;
     [KNSNotification removeObserver:self];
 }
 

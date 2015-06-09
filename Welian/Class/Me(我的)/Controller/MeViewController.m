@@ -37,7 +37,7 @@
 @property (assign,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) WLCustomSegmentedControl *wlSegmentedControl;
 @property (strong,nonatomic) NSDictionary *infoDict;
-@property (assign,nonatomic) UserInfoView *userInfoView;
+@property (strong,nonatomic) UserInfoView *userInfoView;
 
 @end
 
@@ -50,6 +50,8 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     _header = nil;
     _wlSegmentedControl = nil;
     _infoDict = nil;
+    _userInfoView = nil;
+    [KNSNotification removeObserver:self];
 }
 
 - (NSString *)title
@@ -313,20 +315,26 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
                 case 0:
                 {
                     //动态
-                    WLStatusM *feedM = [_infoDict objectForKey:@"feed"];
-                    detailInfo = feedM.content;
+                    if (_infoDict) {
+                        WLStatusM *feedM = [_infoDict objectForKey:@"feed"];
+                        detailInfo = feedM.content;
+                    }
                 }
                     break;
                 case 1:
                 {
-                    //活动
-                    detailInfo = [_infoDict objectForKey:@"active"];
+                    if (_infoDict) {
+                        //活动
+                        detailInfo = [_infoDict objectForKey:@"active"];
+                    }
                 }
                     break;
                 case 2:
                 {
-                    //项目
-                    detailInfo = [_infoDict objectForKey:@"project"];
+                    if (_infoDict) {
+                        //项目
+                        detailInfo = [_infoDict objectForKey:@"project"];
+                    }
                 }
                     break;
                 default:
@@ -340,9 +348,11 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
                 case 0:
                 {
                     //投资案例
-                    IIMeInvestAuthModel *investorM = [_infoDict objectForKey:@"investor"];
-                    InvestItemM *investItemM = [investorM.items firstObject];
-                    detailInfo = investItemM.item;
+                    if (_infoDict) {
+                        IIMeInvestAuthModel *investorM = [_infoDict objectForKey:@"investor"];
+                        InvestItemM *investItemM = [investorM.items firstObject];
+                        detailInfo = investItemM.item;
+                    }
                 }
                     break;
                 case 1:
@@ -508,6 +518,9 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     NSDictionary *profile = [dataDic objectForKey:@"profile"];
     ILoginUserModel *profileM = [ILoginUserModel objectWithDict:profile];
     
+    //保存到sqlite数据库
+    [[WLDataDBTool sharedService] putObject:dataDic withId:profileM.uid.stringValue intoTable:KWLUserInfoTableName];
+    
     // 动态
     NSDictionary *feed = [dataDic objectForKey:@"feed"];
     WLStatusM *feedM = [WLStatusM objectWithDict:feed];
@@ -565,6 +578,8 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
 
 - (void)initUserInfo
 {
+    //获取本地数据库用户信息
+    [self updateLocalSqlUserInfo];
     //获取用户详细信息
     [WeLianClient getUserDetailInfoWithUid:@(0) Success:^(id resultInfo) {
         DLog(@"getUserDetailInfo -- %@",resultInfo);
@@ -578,8 +593,29 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
             });
         });
     } Failed:^(NSError *error) {
-        
+        DLog(@"getUserDetailInfo error");
     }];
+}
+
+//获取本地数据库用户信息
+- (void)updateLocalSqlUserInfo
+{
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (loginUser) {
+        //取sqlite数据库用户信息
+        YTKKeyValueItem *item = [[WLDataDBTool sharedService] getYTKKeyValueItemById:loginUser.uid.stringValue fromTable:KWLUserInfoTableName];
+        if (item) {
+            //初始化数据
+            NSDictionary *resultInfo = item.itemObject;
+            self.infoDict = [self getUserInfoWith:resultInfo];
+            
+            //重置用户信息
+            [self reSetUserInfo:[self.infoDict objectForKey:@"profile"]];
+            [self.tableView reloadData];
+
+        }
+    }
+    
 }
 
 @end

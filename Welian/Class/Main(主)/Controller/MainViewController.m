@@ -44,6 +44,11 @@
 
 single_implementation(MainViewController)
 
+- (void)dealloc
+{
+    [KNSNotification removeObserver:self];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -136,12 +141,6 @@ single_implementation(MainViewController)
         [meItem setImage:[UIImage imageNamed:@"tabbar_me"]];
         [meItem setSelectedImage:[UIImage imageNamed:@"tabbar_me_selected"]];
     }
-}
-
-
-- (void)dealloc
-{
-    [KNSNotification removeObserver:self];
 }
 
 //更新消息数量改变
