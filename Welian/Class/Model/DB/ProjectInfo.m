@@ -73,7 +73,7 @@
     projectInfo.name = iProjectDetailInfo.name;
     projectInfo.intro = iProjectDetailInfo.intro;
     projectInfo.des = iProjectDetailInfo.des;
-    projectInfo.date = iProjectDetailInfo.date;
+    projectInfo.date = projectInfo.date.length > 0 ? projectInfo.date : iProjectDetailInfo.date;//列表有时间，详情不进行修改
     projectInfo.membercount = iProjectDetailInfo.membercount;
     projectInfo.commentcount = iProjectDetailInfo.commentcount;
     projectInfo.status = iProjectDetailInfo.status;
