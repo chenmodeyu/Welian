@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSString *cityname;//城市名称
 @property (nonatomic, strong) NSString *shareurl;//对外分享url
 @property (nonatomic, strong) NSString *inviteurl;//邀请url
+@property (nonatomic, strong) NSString *token;//融云返回的用户Token
 
 /**  投资者认证  0 默认状态  1  认证成功  -2 正在审核  -1 认证失败 */
 @property (nonatomic, strong) NSNumber *investorauth;

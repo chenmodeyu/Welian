@@ -29,7 +29,7 @@
 #import "MsgPlaySound.h"
 #import "LCNewFeatureVC.h"
 
-@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate>
+@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMReceiveMessageDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
      NSString *_upURL; // 更新地址
@@ -114,6 +114,8 @@ BMKMapManager* _mapManager;
     
     // 友盟统计
     [self umengTrack];
+    //初始化融云配置
+    [self initRongInfo];
     
     // 要使用百度地图，请先启动BaiduMapManager
 	_mapManager = [[BMKMapManager alloc]init];
@@ -291,6 +293,191 @@ BMKMapManager* _mapManager;
     
     return [_gexinPusher sendMessage:body error:error];
 }
+
+- (void)initRongInfo
+{
+    NSString *_deviceTokenCache = [[NSUserDefaults standardUserDefaults]objectForKey:kRongCloudDeviceToken];
+    //初始化融云SDK
+    [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:_deviceTokenCache];
+    
+    //设置会话列表头像和会话界面头像
+    //状态监听
+    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
+    //接收消息的监听器。如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。
+    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+    //聊天消息头像
+    if (Iphone6plus) {
+        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(56, 56);
+    }else{
+        NSLog(@"iPhone6 %d", Iphone6);
+        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(60, 60);// CGSizeMake(46, 46);
+    }
+    
+    //外面全局消息头像
+    [RCIM sharedRCIM].globalMessagePortraitSize = CGSizeMake(20, 20);
+    
+    //设置头像形状
+    [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
+    [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
+    
+    //用于返回用户的信息
+    // 设置用户信息提供者。
+    [[RCIM sharedRCIM] setUserInfoDataSource:self];
+    // 设置群组信息提供者。
+    [[RCIM sharedRCIM] setGroupInfoDataSource:self];
+    
+    //保存token
+    //设置当前的用户信息
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    NSString *token = [NSUserDefaults stringForKey:kRongCloudDeviceToken];
+    if (token.length > 0 && loginUser) {
+        //登陆融云服务器  // 快速集成第二步，连接融云服务器
+//        [WLHUDView showHUDWithStr:@"连接融云服务器中..." dim:YES];
+        [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
+            //保存默认用户
+            //            [DEFAULTS setObject:@"liuwu_wuliu@163.com" forKey:@"userName"];
+            //            [DEFAULTS setObject:@"123456" forKey:@"userPwd"];
+            //            [DEFAULTS setObject:token forKey:@"userToken"];
+            //            [DEFAULTS setObject:userId forKey:@"userId"];
+            //            [DEFAULTS synchronize];
+            
+            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
+                                                                        name:loginUser.name
+                                                                    portrait:nil];
+            [RCIMClient sharedRCIMClient].currentUserInfo = _currentUserInfo;
+            
+            //融云同步群组信息
+            //            hud.labelText = @"同步群信息";
+            //            [RCDDataSource syncGroups];
+            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                //                [hud hide:YES];
+//                //                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                //                                           UINavigationController *rootNavi = [storyboard instantiateViewControllerWithIdentifier:@"rootNavi"];
+//                //                MainViewController *mainVC = [[MainViewController alloc] init];
+//                //                UINavigationController *nav = [[UINavigationController alloc ] initWithRootViewController:mainVC];
+//                //                [ShareApplicationDelegate window].rootViewController = nav;
+//                
+//                //进入主页面
+//                //        AppDelegate *deldte = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//                MainViewController *mainVC = [[MainViewController alloc] init];
+//                //        [mainVC setSelectedIndex:0];
+//                //        self.view.window.rootViewController = mainVC;
+//                [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
+//                
+//            });
+            
+            
+        } error:^(RCConnectErrorCode status) {
+            //            [hud hide:YES];
+            // [hud setHidden:YES];
+            NSLog(@"RCConnectErrorCode is %ld",(long)status);
+        } tokenIncorrect:^{
+            //            [hud hide:YES];
+            NSLog(@"IncorrectToken");
+        }];
+    }
+    
+    //消息免通知，默认是NO
+    //    [RCIM sharedRCIM].disableMessageNotificaiton = YES;
+    //关闭新消息提示音，默认值是NO，新消息有提示音.
+    //    [RCIM sharedRCIM].disableMessageAlertSound = YES;
+    
+    
+    
+    /**
+     *  注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
+     *
+     *  @param messageClass   消息类型名称，对应的继承自 RCMessageContent 的消息类型。
+     */
+    
+    //    - (void)registerMessageType:(Class)messageClass;
+    //注册自定义消息类型
+    //    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
+}
+
+/**
+ *  获取用户信息。
+ *
+ *  @param userId     用户 Id。
+ *  @param completion 用户信息
+ */
+- (void)getUserInfoWithUserId:(NSString *)userId
+                   completion:(void (^)(RCUserInfo *userInfo))completion
+{
+    // 此处最终代码逻辑实现需要您从本地缓存或服务器端获取用户信息。
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
+    //自己的用户信息
+    if (userId.integerValue == loginUser.uid.integerValue) {
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = loginUser.uid.stringValue;
+        user.name = loginUser.name;
+        user.portraitUri = loginUser.avatar;
+        
+        return completion(user);
+    }
+    
+    //好友的用户信息
+    MyFriendUser *friendUser = [loginUser getMyfriendUserWithUid:@(userId.integerValue)];
+    if (friendUser) {
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = friendUser.uid.stringValue;
+        user.name = friendUser.name;
+        user.portraitUri = friendUser.avatar;
+        
+        return completion(user);
+    }
+    
+    if ([@"1" isEqual:userId]) {
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = @"1";
+        user.name = @"韩梅梅";
+        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+        
+        return completion(user);
+    }
+    
+    if ([@"2" isEqual:userId]) {
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = @"2";
+        user.name = @"李雷";
+        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+        
+        return completion(user);
+    }
+    
+    return completion(nil);
+}
+
+// 获取群组信息的方法。
+-(void)getGroupInfoWithGroupId:(NSString*)groupId completion:(void (^)(RCGroup *group))completion
+{
+    // 此处最终代码逻辑实现需要您从本地缓存或服务器端获取群组信息。
+    
+    if ([@"1" isEqual:groupId]) {
+        RCGroup *group = [[RCGroup alloc]init];
+        group.groupId = @"1";
+        group.groupName = @"同城交友";
+        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+        
+        return completion(group);
+    }
+    
+    if ([@"2" isEqual:groupId]) {
+        RCGroup *group = [[RCGroup alloc]init];
+        group.groupId = @"2";
+        group.groupName = @"跳蚤市场";
+        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+        
+        return completion(group);
+    }
+    
+    return completion(nil);
+}
+
 
 #pragma mark - 友盟统计
 - (void)umengTrack {
@@ -611,6 +798,14 @@ BMKMapManager* _mapManager;
     [MagicalRecord cleanUp];
 }
 
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    // 清除内存中的图片缓存
+    SDWebImageManager *mgr = [SDWebImageManager sharedManager];
+    [mgr cancelAll];
+    [mgr.imageCache clearMemory];
+}
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     if ([url.description rangeOfString:@"wechat"].length>0) {
@@ -736,12 +931,35 @@ BMKMapManager* _mapManager;
 
 }
 
-- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+#pragma mark - RCIMConnectionStatusDelegate
+
+/**
+ *  网络状态变化。
+ *
+ *  @param status 网络状态。
+ */
+- (void)onRCIMConnectionStatusChanged:(RCConnectionStatus)status
 {
-    // 清除内存中的图片缓存
-    SDWebImageManager *mgr = [SDWebImageManager sharedManager];
-    [mgr cancelAll];
-    [mgr.imageCache clearMemory];
+    if (status == ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的帐号在别的设备上登录，您被迫下线！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alert show];
+//        LoginViewController *loginVC = [[LoginViewController alloc] init];
+//        // [loginVC defaultLogin];
+//        // RCDLoginViewController* loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+//        UINavigationController *_navi = [[UINavigationController alloc] initWithRootViewController:loginVC];
+//        self.window.rootViewController = _navi;
+    }
+}
+
+/**
+ 接收消息到消息后执行。
+ 
+ @param message 接收到的消息。
+ @param left    剩余消息数.
+ */
+- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
+{
+    NSLog(@"接收消息到消息后执行:%@",message);
 }
 
 //获取聊天消息记录 和好友请求消息

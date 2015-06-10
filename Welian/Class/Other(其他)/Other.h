@@ -29,5 +29,8 @@
 #import <BlocksKit/BlocksKit.h>
 #import <BlocksKit/BlocksKit+UIKit.h>
 
+#import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
+
 
 #endif

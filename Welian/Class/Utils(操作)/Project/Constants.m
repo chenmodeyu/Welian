@@ -63,9 +63,14 @@ NSString *const kInvestorSearchIndustryKey = @"InvestorSearchIndustry_%@";//投�
 NSString *const kInvestorSearchCityKey = @"InvestorSearchCity_%@";//投资人 地区条件
 NSString *const kInvestorSearchStageKey = @"InvestorSearchStage_%@";//投资人 投资阶段条件
 
-
 NSString *const kSearchInvestorUserKey = @"SearchInvestorUser";//重新搜索投资人信息
-
-
 NSString *const kChangeBannerKey = @"kChangeBannerKey";//banner数据改变
+
+//融云DeviceToken
+NSString *const kRongCloudDeviceToken = @"RongCloud_SDK_DeviceToken";
+
+
+
+
+
 
