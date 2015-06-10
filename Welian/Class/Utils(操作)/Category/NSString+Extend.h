@@ -34,6 +34,7 @@
 //去除两端空格
 - (NSString *)deleteTopAndBottomKongge;
 - (NSString *)deleteTopAndBottomKonggeAndHuiche;
+- (NSString *)deleteBottomHuiChe;
 
 //汉字首字母转换
 - (NSString *)getHanziFirstString;
