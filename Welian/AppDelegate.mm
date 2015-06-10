@@ -160,7 +160,7 @@ BMKMapManager* _mapManager;
 #pragma mark - 进入主界面
 - (void)enterMainVC {
     
-    if ([LogInUser getCurrentLoginUser]) {
+    if ([UserDefaults objectForKey:kSessionId]) {
         /** 已登陆 */
         self.mainVC = [[MainViewController alloc] init];
         [self.mainVC setDelegate:self];

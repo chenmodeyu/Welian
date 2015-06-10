@@ -99,7 +99,7 @@
     loginuser.friend2count = userInfoM.friend2count;
     loginuser.checked = userInfoM.checked;
     loginuser.samefriendscount = userInfoM.samefriendscount;
-    [[loginuser managedObjectContext] MR_saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return loginuser;
 }
 
