@@ -119,23 +119,28 @@ static NSString *mobileCellid = @"MobileInfoCellid";
     // 1.取出这行对应的字典数据
     NSDictionary *dict = _data[indexPath.section][indexPath.row];
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    
     if (indexPath.section==0) {
        IconTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:iconCellid];
         _iconCell = cell;
         cell.titleLabel.text = dict[@"title"];
-        [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:mode.avatar] placeholderImage:[UIImage imageNamed:@"user_small.png"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+        if (mode) {
+            [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:mode.avatar] placeholderImage:[UIImage imageNamed:@"user_small.png"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+        }else{
+            cell.iconImage.image = [UIImage imageNamed:@"user_small.png"];
+        }
         [cell.iconImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)]];
         return cell;
     }else if(indexPath.section ==2&&indexPath.row==0){
         MobileInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:mobileCellid];
-        if (mode.checked.boolValue) {
-            
-            cell.authImageV.image = [UIImage imageNamed:@"me_renzheng_certification_bg.png"];
-        }else{
-            cell.authImageV.image = [UIImage imageNamed:@"me_renzheng_phone_failed_bg"];
+        if (mode) {
+            if (mode.checked.boolValue) {
+                
+                cell.authImageV.image = [UIImage imageNamed:@"me_renzheng_certification_bg.png"];
+            }else{
+                cell.authImageV.image = [UIImage imageNamed:@"me_renzheng_phone_failed_bg"];
+            }
+            [cell.detailLabel setText:mode.mobile];
         }
-        [cell.detailLabel setText:mode.mobile];
         return cell;
     }else{
         static NSString *reuseIdentifier = @"cellId";

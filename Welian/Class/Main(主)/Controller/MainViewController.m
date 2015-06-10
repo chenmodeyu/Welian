@@ -200,10 +200,13 @@ single_implementation(MainViewController)
     [[UITextView appearance] setTintColor:KBasesColor];
 
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:mode.avatar] options:SDWebImageRetryFailed|SDWebImageLowPriority progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        NSString *avatarStr = [UIImageJPEGRepresentation(image, 0.5) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-        [UserDefaults setObject:avatarStr forKey:@"icon"];
-    }];
+    if(mode){
+        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:mode.avatar] options:SDWebImageRetryFailed|SDWebImageLowPriority progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            NSString *avatarStr = [UIImageJPEGRepresentation(image, 0.5) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+            [UserDefaults setObject:avatarStr forKey:@"icon"];
+        }];
+    }
+    
     
     // 首页
     homeItem = [self itemWithTitle:@"创业圈" imageStr:@"tabbar_home" selectedImageStr:@"tabbar_home_selected"];

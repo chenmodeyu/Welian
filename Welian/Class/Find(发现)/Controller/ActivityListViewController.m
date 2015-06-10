@@ -15,7 +15,7 @@
 #import "MJRefresh.h"
 
 #define kHeaderHeight 43.f
-#define kTableViewCellHeight 98.f
+#define kTableViewCellHeight 116.f
 #define kTableViewHeaderHeight 25.f
 
 @interface ActivityListViewController ()<UITableViewDataSource,UITableViewDelegate,WLSegmentedControlDelegate>

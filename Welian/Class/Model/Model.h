@@ -43,6 +43,7 @@
 #import "ICompanyResult.h"
 #import "ISchoolResult.h"
 #import "InvestItemM.h"
+#import "IAskInfoMdoel.h"
 
 #pragma mark - Interface2.0
 #import "ILoginUserModel.h"

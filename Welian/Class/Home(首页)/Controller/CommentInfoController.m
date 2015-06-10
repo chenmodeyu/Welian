@@ -211,8 +211,10 @@ static NSString *noCommentCell = @"NoCommentCell";
     
     NSArray *twoArray = @[@(ShareTypeReport)];
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    if ([self.statusM.user.uid integerValue]==[mode.uid integerValue]) {
-        twoArray = @[@(ShareTypeReport),@(ShareTypeDelete)];
+    if(mode){
+        if ([self.statusM.user.uid integerValue]==[mode.uid integerValue]) {
+            twoArray = @[@(ShareTypeReport),@(ShareTypeDelete)];
+        }
     }
     
     WEAKSELF
@@ -502,32 +504,37 @@ static NSString *noCommentCell = @"NoCommentCell";
     }
     
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    
-    if ([selecCommF.commentM.user.uid integerValue]==[mode.uid integerValue]) {
-        WEAKSELF
-        UIActionSheet *sheet = [UIActionSheet bk_actionSheetWithTitle:nil];
-        [sheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
-        [sheet bk_setDestructiveButtonWithTitle:@"删除" handler:^{
-            [WeLianClient deleteFeedCommentWithID:selecCommF.commentM.cid Success:^(id resultInfo) {
-                [_dataArrayM removeObject:selecCommF];
-                NSMutableArray *commentAM = [NSMutableArray arrayWithCapacity:_dataArrayM.count];
-                for (CommentCellFrame *comCellF in _dataArrayM) {
-                    [commentAM addObject:comCellF.commentM];
-                }
-                [weakSelf.statusM setComments:commentAM];
-                weakSelf.statusM.commentcount = @(weakSelf.statusM.commentcount.integerValue-1);
-                [weakSelf updataCommentBlock];
-                [weakSelf.tableView reloadData];
-                weakSelf.commentHeadView;
-            } Failed:^(NSError *error) {
-                
+    if(!mode){
+        if ([selecCommF.commentM.user.uid integerValue]==[mode.uid integerValue]) {
+            WEAKSELF
+            UIActionSheet *sheet = [UIActionSheet bk_actionSheetWithTitle:nil];
+            [sheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
+            [sheet bk_setDestructiveButtonWithTitle:@"删除" handler:^{
+                [WeLianClient deleteFeedCommentWithID:selecCommF.commentM.cid Success:^(id resultInfo) {
+                    [_dataArrayM removeObject:selecCommF];
+                    NSMutableArray *commentAM = [NSMutableArray arrayWithCapacity:_dataArrayM.count];
+                    for (CommentCellFrame *comCellF in _dataArrayM) {
+                        [commentAM addObject:comCellF.commentM];
+                    }
+                    [weakSelf.statusM setComments:commentAM];
+                    weakSelf.statusM.commentcount = @(weakSelf.statusM.commentcount.integerValue-1);
+                    [weakSelf updataCommentBlock];
+                    [weakSelf.tableView reloadData];
+                    weakSelf.commentHeadView;
+                } Failed:^(NSError *error) {
+                    
+                }];
             }];
-        }];
-        [sheet showInView:self.view];
+            [sheet showInView:self.view];
+        }else{
+            _selecCommFrame = selecCommF;
+            [self.messageView startCompile:_selecCommFrame.commentM.user];
+        }
     }else{
         _selecCommFrame = selecCommF;
         [self.messageView startCompile:_selecCommFrame.commentM.user];
     }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

@@ -274,11 +274,13 @@ static NSString *fridcellid = @"fridcellid";
                 
 //                UserInfoModel *mode = [[UserInfoTool sharedUserInfoTool] getUserInfoModel];
                 LogInUser *mode = [LogInUser getCurrentLoginUser];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友验证" message:[NSString stringWithFormat:@"发送至好友：%@",_selecFriend.name] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"发送", nil];
-                [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
-
-                [[alert textFieldAtIndex:0] setText:[NSString stringWithFormat:@"我是%@的%@",mode.company,mode.position]];
-                [alert show];
+                if(mode){
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友验证" message:[NSString stringWithFormat:@"发送至好友：%@",_selecFriend.name] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"发送", nil];
+                    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+                    
+                    [[alert textFieldAtIndex:0] setText:[NSString stringWithFormat:@"我是%@的%@",mode.company,mode.position]];
+                    [alert show];
+                }
             }else if ([[dic objectForKey:@"n"] isEqualToString:@"2"]){  // 短信验证
                 
                 [self showMessageView:_selecFriend.mobile title:@"邀请好友" body:@"我正在玩微链，认识了不少投资和创业的朋友，嘿，你也来吧！http://welian.com"];
@@ -300,18 +302,20 @@ static NSString *fridcellid = @"fridcellid";
 {
 //    UserInfoModel *mode = [[UserInfoTool sharedUserInfoTool] getUserInfoModel];
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    NSData *data = [[NSData alloc]initWithBase64EncodedString:[UserDefaults objectForKey:@"icon"] options:NSDataBase64Encoding64CharacterLineLength];
-    
-    UIImage *shareImage = [UIImage imageWithData:data];
-    
-    NSString *messStr = [NSString stringWithFormat:@"%@邀请您一起来玩微链",mode.name];
-    NSString *desStr = @"我正在玩微链，认识了不少投资和创业的朋友，嘿，你也来吧！";
-    
-    if (buttonIndex==0) {
-        [[ShareEngine sharedShareEngine] sendWeChatMessage:messStr andDescription:desStr WithUrl:mode.inviteurl andImage:shareImage WithScene:weChat];
+    if(mode){
+        NSData *data = [[NSData alloc]initWithBase64EncodedString:[UserDefaults objectForKey:@"icon"] options:NSDataBase64Encoding64CharacterLineLength];
         
-    }else if(buttonIndex ==1){
-        [[ShareEngine sharedShareEngine] sendWeChatMessage:messStr andDescription:desStr WithUrl:mode.inviteurl andImage:shareImage WithScene:weChatFriend];
+        UIImage *shareImage = [UIImage imageWithData:data];
+        
+        NSString *messStr = [NSString stringWithFormat:@"%@邀请您一起来玩微链",mode.name];
+        NSString *desStr = @"我正在玩微链，认识了不少投资和创业的朋友，嘿，你也来吧！";
+        
+        if (buttonIndex==0) {
+            [[ShareEngine sharedShareEngine] sendWeChatMessage:messStr andDescription:desStr WithUrl:mode.inviteurl andImage:shareImage WithScene:weChat];
+            
+        }else if(buttonIndex ==1){
+            [[ShareEngine sharedShareEngine] sendWeChatMessage:messStr andDescription:desStr WithUrl:mode.inviteurl andImage:shareImage WithScene:weChatFriend];
+        }
     }
 }
 

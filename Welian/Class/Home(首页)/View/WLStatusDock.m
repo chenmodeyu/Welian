@@ -122,8 +122,17 @@
     }
 //    UserInfoModel *mode = [[UserInfoTool sharedUserInfoTool] getUserInfoModel];
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    if ([status.user.uid integerValue]==[mode.uid integerValue]) {
-        [_repostBtn setEnabled:NO];
+    if (mode) {
+        if ([status.user.uid integerValue]==[mode.uid integerValue]) {
+            [_repostBtn setEnabled:NO];
+        }else{
+            [_repostBtn setEnabled:YES];
+            if (status.isforward.boolValue) { // 已推
+                [_repostBtn setImage:[UIImage imageNamed:@"me_mywriten_repea_pre"] forState:UIControlStateNormal];
+            }else{
+                [_repostBtn setImage:[UIImage imageNamed:@"me_mywriten_repeat"] forState:UIControlStateNormal];
+            }
+        }
     }else{
         [_repostBtn setEnabled:YES];
         if (status.isforward.boolValue) { // 已推
@@ -132,6 +141,7 @@
             [_repostBtn setImage:[UIImage imageNamed:@"me_mywriten_repeat"] forState:UIControlStateNormal];
         }
     }
+    
     // 推荐好友 不进详情
     if (status.type.integerValue==2) {
         [_commentBtn setEnabled:NO];
