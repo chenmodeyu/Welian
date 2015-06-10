@@ -29,7 +29,7 @@
 #import "MsgPlaySound.h"
 #import "LCNewFeatureVC.h"
 
-@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMReceiveMessageDelegate>
+@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMReceiveMessageDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
      NSString *_upURL; // 更新地址
@@ -320,6 +320,12 @@ BMKMapManager* _mapManager;
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
     
+    //用于返回用户的信息
+    // 设置用户信息提供者。
+    [[RCIM sharedRCIM] setUserInfoDataSource:self];
+    // 设置群组信息提供者。
+    [[RCIM sharedRCIM] setGroupInfoDataSource:self];
+    
     //保存token
     //设置当前的用户信息
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
@@ -389,6 +395,89 @@ BMKMapManager* _mapManager;
     //注册自定义消息类型
     //    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
 }
+
+/**
+ *  获取用户信息。
+ *
+ *  @param userId     用户 Id。
+ *  @param completion 用户信息
+ */
+- (void)getUserInfoWithUserId:(NSString *)userId
+                   completion:(void (^)(RCUserInfo *userInfo))completion
+{
+    // 此处最终代码逻辑实现需要您从本地缓存或服务器端获取用户信息。
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
+    //自己的用户信息
+    if (userId.integerValue == loginUser.uid.integerValue) {
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = loginUser.uid.stringValue;
+        user.name = loginUser.name;
+        user.portraitUri = loginUser.avatar;
+        
+        return completion(user);
+    }
+    
+    //好友的用户信息
+    MyFriendUser *friendUser = [loginUser getMyfriendUserWithUid:@(userId.integerValue)];
+    if (friendUser) {
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = friendUser.uid.stringValue;
+        user.name = friendUser.name;
+        user.portraitUri = friendUser.avatar;
+        
+        return completion(user);
+    }
+    
+    if ([@"1" isEqual:userId]) {
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = @"1";
+        user.name = @"韩梅梅";
+        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+        
+        return completion(user);
+    }
+    
+    if ([@"2" isEqual:userId]) {
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = @"2";
+        user.name = @"李雷";
+        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+        
+        return completion(user);
+    }
+    
+    return completion(nil);
+}
+
+// 获取群组信息的方法。
+-(void)getGroupInfoWithGroupId:(NSString*)groupId completion:(void (^)(RCGroup *group))completion
+{
+    // 此处最终代码逻辑实现需要您从本地缓存或服务器端获取群组信息。
+    
+    if ([@"1" isEqual:groupId]) {
+        RCGroup *group = [[RCGroup alloc]init];
+        group.groupId = @"1";
+        group.groupName = @"同城交友";
+        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+        
+        return completion(group);
+    }
+    
+    if ([@"2" isEqual:groupId]) {
+        RCGroup *group = [[RCGroup alloc]init];
+        group.groupId = @"2";
+        group.groupName = @"跳蚤市场";
+        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+        
+        return completion(group);
+    }
+    
+    return completion(nil);
+}
+
 
 #pragma mark - 友盟统计
 - (void)umengTrack {
