@@ -214,28 +214,11 @@ single_implementation(MainViewController)
     [homeNav setDelegate:self];
     [homeNav setTabBarItem:homeItem];
     
-    // 好友
-//    circleItem = [self itemWithTitle:@"好友" imageStr:@"tabbar_friend" selectedImageStr:@"tabbar_friend_selected"];
-//    if ([LogInUser getCurrentLoginUser].newfriendbadge.integerValue) {
-//        
-//        [circleItem setBadgeValue:[NSString stringWithFormat:@"%@",[LogInUser getCurrentLoginUser].newfriendbadge]];
-//    }
-    
-//    MyFriendsController *friendsVC = [[MyFriendsController alloc] initWithStyle:UITableViewStylePlain];
-//    NavViewController *friendsNav = [[NavViewController alloc] initWithRootViewController:friendsVC];
-//    [friendsNav setDelegate:self];
-//    [friendsVC.navigationItem setTitle:@"好友"];
-//    [friendsNav setTabBarItem:circleItem];
-    
-    
     // 聊天消息
     chatMessageItem = [self itemWithTitle:@"消息" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
-//    ChatMessageController *chatMessageVC = [[ChatMessageController alloc] initWithStyle:UITableViewStylePlain];
-//    MessagesViewController *chatMessageVC = [[MessagesViewController alloc] init];
-//    NavViewController *chatMeeageNav = [[NavViewController alloc] initWithRootViewController:chatMessageVC];
-//    [chatMessageVC.navigationItem setTitle:@"消息"];
-    ChatListViewController *chatListVC = [[ChatListViewController alloc] init];
-    NavViewController *chatMeeageNav = [[NavViewController alloc] initWithRootViewController:chatListVC];
+    MessagesViewController *chatMessageVC = [[MessagesViewController alloc] init];
+    NavViewController *chatMeeageNav = [[NavViewController alloc] initWithRootViewController:chatMessageVC];
+    [chatMessageVC.navigationItem setTitle:@"消息"];
     [chatMeeageNav setDelegate:self];
     [chatMeeageNav setTabBarItem:chatMessageItem];
     
@@ -253,8 +236,17 @@ single_implementation(MainViewController)
     NavViewController *meNav = [[NavViewController alloc] initWithRootViewController:meVC];
     [meNav setDelegate:self];
     [meNav setTabBarItem:meItem];
+    
+    // 融云
+    ChatListViewController *chatListVC = [[ChatListViewController alloc] init];
+    NavViewController *ryMeeageNav = [[NavViewController alloc] initWithRootViewController:chatListVC];
+    [ryMeeageNav setDelegate:self];
+    UITabBarItem *ryItem = [self itemWithTitle:@"融云" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
+    [ryMeeageNav setTabBarItem:ryItem];
+    
+    
     //设置底部导航
-    [self setViewControllers:@[homeNav,findNav,chatMeeageNav,meNav]];
+    [self setViewControllers:@[homeNav,findNav,ryMeeageNav,meNav,chatMeeageNav]];
     [self.tabBar setSelectedImageTintColor:KBasesColor];
 
     selectItem = homeItem;

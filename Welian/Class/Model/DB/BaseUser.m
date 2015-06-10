@@ -33,6 +33,7 @@
 @dynamic friend2count;
 @dynamic checked;
 @dynamic samefriendscount;
+@dynamic rongCloudToken;
 
 //将数据库对象转换成接口对象模型
 - (IBaseUserM *)toIBaseUserModelInfo
@@ -60,7 +61,7 @@
     iBaseUserM.friend2count = self.friend2count;
     iBaseUserM.checked = self.checked;
     iBaseUserM.samefriendscount = self.samefriendscount;
-    
+    iBaseUserM.token = self.rongCloudToken;
     return iBaseUserM;
 }
 

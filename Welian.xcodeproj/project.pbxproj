@@ -6558,6 +6558,7 @@
 		F581E7871AF870B900902665 /* IPhotoUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPhotoUp.m; sourceTree = "<group>"; };
 		F58399681AD7CDC7008A1A48 /* UCZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCZProgressView.h; sourceTree = "<group>"; };
 		F58399691AD7CDC7008A1A48 /* UCZProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCZProgressView.m; sourceTree = "<group>"; };
+		F583F0241B28383500DF15B3 /* weLian2.5.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weLian2.5.0.xcdatamodel; sourceTree = "<group>"; };
 		F584803F1AE10629002C2722 /* me_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me_play@2x.png"; sourceTree = "<group>"; };
 		F5874C151A1C842E009F7D83 /* WLCellHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCellHead.h; sourceTree = "<group>"; };
 		F5874C161A1C842E009F7D83 /* WLCellHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLCellHead.m; sourceTree = "<group>"; };
@@ -16879,6 +16880,7 @@
 		F59E76091A405D170028FBAF /* weLian.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F583F0241B28383500DF15B3 /* weLian2.5.0.xcdatamodel */,
 				A4FA34F91B0DD78A006066A6 /* weLian1.8.0.xcdatamodel */,
 				A46D5E9B1ABFE56600FF0554 /* weLian1.1.9.xcdatamodel */,
 				A489E7CD1AA5958E00F7BE9F /* weLian1.1.8.xcdatamodel */,
@@ -16892,7 +16894,7 @@
 				A437CEE71A539DBE00B54E68 /* weLian1.1.1.xcdatamodel */,
 				F59E760A1A405D170028FBAF /* weLian.xcdatamodel */,
 			);
-			currentVersion = A4FA34F91B0DD78A006066A6 /* weLian1.8.0.xcdatamodel */;
+			currentVersion = F583F0241B28383500DF15B3 /* weLian2.5.0.xcdatamodel */;
 			path = weLian.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

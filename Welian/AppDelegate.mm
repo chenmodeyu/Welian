@@ -29,6 +29,8 @@
 #import "MsgPlaySound.h"
 #import "LCNewFeatureVC.h"
 
+#define kDeviceToken @"RongCloud_SDK_DeviceToken"
+
 @interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMReceiveMessageDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
@@ -296,7 +298,7 @@ BMKMapManager* _mapManager;
 
 - (void)initRongInfo
 {
-    NSString *_deviceTokenCache = [[NSUserDefaults standardUserDefaults]objectForKey:kRongCloudDeviceToken];
+    NSString *_deviceTokenCache = [UserDefaults objectForKey:kRongCloudDeviceToken];
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:_deviceTokenCache];
     
@@ -310,7 +312,7 @@ BMKMapManager* _mapManager;
         [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(56, 56);
     }else{
         NSLog(@"iPhone6 %d", Iphone6);
-        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(60, 60);// CGSizeMake(46, 46);
+        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(46, 46);
     }
     
     //外面全局消息头像
@@ -329,52 +331,20 @@ BMKMapManager* _mapManager;
     //保存token
     //设置当前的用户信息
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    NSString *token = [NSUserDefaults stringForKey:kRongCloudDeviceToken];
+    NSString *token = loginUser.rongCloudToken;
     if (token.length > 0 && loginUser) {
         //登陆融云服务器  // 快速集成第二步，连接融云服务器
 //        [WLHUDView showHUDWithStr:@"连接融云服务器中..." dim:YES];
         [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
             //保存默认用户
-            //            [DEFAULTS setObject:@"liuwu_wuliu@163.com" forKey:@"userName"];
-            //            [DEFAULTS setObject:@"123456" forKey:@"userPwd"];
-            //            [DEFAULTS setObject:token forKey:@"userToken"];
-            //            [DEFAULTS setObject:userId forKey:@"userId"];
-            //            [DEFAULTS synchronize];
-            
-            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
-                                                                        name:loginUser.name
-                                                                    portrait:nil];
+            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:nil];
             [RCIMClient sharedRCIMClient].currentUserInfo = _currentUserInfo;
             
-            //融云同步群组信息
-            //            hud.labelText = @"同步群信息";
-            //            [RCDDataSource syncGroups];
-            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                //                [hud hide:YES];
-//                //                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//                //                                           UINavigationController *rootNavi = [storyboard instantiateViewControllerWithIdentifier:@"rootNavi"];
-//                //                MainViewController *mainVC = [[MainViewController alloc] init];
-//                //                UINavigationController *nav = [[UINavigationController alloc ] initWithRootViewController:mainVC];
-//                //                [ShareApplicationDelegate window].rootViewController = nav;
-//                
-//                //进入主页面
-//                //        AppDelegate *deldte = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//                MainViewController *mainVC = [[MainViewController alloc] init];
-//                //        [mainVC setSelectedIndex:0];
-//                //        self.view.window.rootViewController = mainVC;
-//                [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
-//                
-//            });
-            
-            
         } error:^(RCConnectErrorCode status) {
-            //            [hud hide:YES];
-            // [hud setHidden:YES];
             NSLog(@"RCConnectErrorCode is %ld",(long)status);
         } tokenIncorrect:^{
-            //            [hud hide:YES];
-            NSLog(@"IncorrectToken");
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Token已过期，请重新登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];;
+            [alertView show];
         }];
     }
     
@@ -382,18 +352,6 @@ BMKMapManager* _mapManager;
     //    [RCIM sharedRCIM].disableMessageNotificaiton = YES;
     //关闭新消息提示音，默认值是NO，新消息有提示音.
     //    [RCIM sharedRCIM].disableMessageAlertSound = YES;
-    
-    
-    
-    /**
-     *  注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
-     *
-     *  @param messageClass   消息类型名称，对应的继承自 RCMessageContent 的消息类型。
-     */
-    
-    //    - (void)registerMessageType:(Class)messageClass;
-    //注册自定义消息类型
-    //    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
 }
 
 /**
@@ -431,23 +389,23 @@ BMKMapManager* _mapManager;
         return completion(user);
     }
     
-    if ([@"1" isEqual:userId]) {
-        RCUserInfo *user = [[RCUserInfo alloc]init];
-        user.userId = @"1";
-        user.name = @"韩梅梅";
-        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
-        
-        return completion(user);
-    }
-    
-    if ([@"2" isEqual:userId]) {
-        RCUserInfo *user = [[RCUserInfo alloc]init];
-        user.userId = @"2";
-        user.name = @"李雷";
-        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
-        
-        return completion(user);
-    }
+//    if ([@"1" isEqual:userId]) {
+//        RCUserInfo *user = [[RCUserInfo alloc]init];
+//        user.userId = @"1";
+//        user.name = @"韩梅梅";
+//        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+//        
+//        return completion(user);
+//    }
+//    
+//    if ([@"2" isEqual:userId]) {
+//        RCUserInfo *user = [[RCUserInfo alloc]init];
+//        user.userId = @"2";
+//        user.name = @"李雷";
+//        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+//        
+//        return completion(user);
+//    }
     
     return completion(nil);
 }
@@ -500,7 +458,8 @@ BMKMapManager* _mapManager;
 {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     _deviceToken = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
+    [NSUserDefaults setString:_deviceToken forKey:kRongCloudDeviceToken];
+    [[RCIMClient sharedRCIMClient] setDeviceToken:_deviceToken];
     // [3]:向个推服务器注册deviceToken
     if (_gexinPusher) {
         [_gexinPusher registerDeviceToken:_deviceToken];

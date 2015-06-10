@@ -147,19 +147,9 @@
         [WLHUDView hiddenHud];
         ILoginUserModel *loginUserM = resultInfo;
         [LogInUser createLogInUserModel:loginUserM];
-        
-        //保存token
-        [NSUserDefaults setObject:loginUserM.token forKey:kRongCloudDeviceToken];
         //登陆融云服务器  // 快速集成第二步，连接融云服务器
         [WLHUDView showHUDWithStr:@"连接融云服务器中..." dim:YES];
         [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
-            //保存默认用户
-//            [DEFAULTS setObject:@"liuwu_wuliu@163.com" forKey:@"userName"];
-//            [DEFAULTS setObject:@"123456" forKey:@"userPwd"];
-//            [DEFAULTS setObject:token forKey:@"userToken"];
-//            [DEFAULTS setObject:userId forKey:@"userId"];
-//            [DEFAULTS synchronize];
-            
             //设置当前的用户信息
             RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
                                                                         name:loginUserM.name
@@ -171,67 +161,21 @@
 //            [RCDDataSource syncGroups];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-//                [hud hide:YES];
-                //                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                //                                           UINavigationController *rootNavi = [storyboard instantiateViewControllerWithIdentifier:@"rootNavi"];
-//                MainViewController *mainVC = [[MainViewController alloc] init];
-//                UINavigationController *nav = [[UINavigationController alloc ] initWithRootViewController:mainVC];
-//                [ShareApplicationDelegate window].rootViewController = nav;
-                
-                //进入主页面
-                //        AppDelegate *deldte = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
                 MainViewController *mainVC = [[MainViewController alloc] init];
-                //        [mainVC setSelectedIndex:0];
-                //        self.view.window.rootViewController = mainVC;
                 [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
                 
             });
             
-            
         } error:^(RCConnectErrorCode status) {
-//            [hud hide:YES];
-            // [hud setHidden:YES];
             NSLog(@"RCConnectErrorCode is %ld",(long)status);
         } tokenIncorrect:^{
-//            [hud hide:YES];
             NSLog(@"IncorrectToken");
         }];
         
     } Failed:^(NSError *error) {
         [WLHUDView showErrorHUD:error.localizedDescription];
     }];
-    
-//    [WLHttpTool loginParameterDic:reqstDic success:^(id JSON) {
-//        NSDictionary *dataDic = JSON;
-//        if (dataDic) {
-//            UserInfoModel *mode = [UserInfoModel objectWithKeyValues:dataDic];
-//            [mode setCheckcode:self.pwdTextField.text];
-//
-//            [UserDefaults setObject:mode.sessionid forKey:kSessionId];
-//            //记录最后一次登陆的手机号
-//            SaveLoginMobile(self.phoneTextField.text);
-////            SaveLoginPassWD(self.pwdTextField.text);
-//            [LogInUser createLogInUserModel:mode];
-//
-//            //进入主页面
-//            MainViewController *mainVC = [[MainViewController alloc] init];
-//            [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
-//        }
-//
-//    } fail:^(NSError *error) {
-//        if (error.code==1) {
-//            [WLHUDView showErrorHUD:error.domain];
-//        }
-//    } isHUD:YES];
-    
-//    [WeLianClient loginWithMobile:self.phoneTextField.text
-//                          Unionid:@""
-//                         Password:self.pwdTextField.text
-//                          Success:^(id resultInfo) {
-//                              
-//                          } Failed:^(NSError *error) {
-//                              [UIAlertView showWithError:error];
-//                          }];
 }
 
 @end

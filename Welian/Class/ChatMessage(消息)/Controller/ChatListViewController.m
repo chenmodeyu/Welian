@@ -47,7 +47,6 @@
         //设置为不用默认渲染方式
         self.tabBarItem.image = [[UIImage imageNamed:@"icon_chat"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         self.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_chat_hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        
         // _myDataSource = [NSMutableArray new];
         
         // [self setConversationAvatarStyle:RCUserAvatarCycle];
@@ -84,7 +83,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.conversationListTableView.tableFooterView = [UIView new];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     //设置tableView样式

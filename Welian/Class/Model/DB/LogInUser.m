@@ -99,6 +99,7 @@
     loginuser.friend2count = userInfoM.friend2count;
     loginuser.checked = userInfoM.checked;
     loginuser.samefriendscount = userInfoM.samefriendscount;
+    loginuser.rongCloudToken = userInfoM.token;
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return loginuser;
 }
@@ -315,9 +316,16 @@
     }
     loginUser.newfriendbadge = newfriendbadge;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setNewfriendbadge:newfriendbadge];
-//    [MOC save];
+}
+
++ (void)setuserRongCloudToken:(NSString *)rongCloudToken
+{
+    LogInUser *loginUser = [self getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
+    loginUser.rongCloudToken = rongCloudToken;
+    [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
 }
 
 //设置新的动态、项目、活动、头条等数量

@@ -37,6 +37,8 @@
 @property (nonatomic, strong) NSNumber * checked;//手机号码是否验证
 @property (nonatomic, strong) NSNumber * samefriendscount; // 共同好友数量  取自己信息的时候没有
 
+@property (nonatomic, strong) NSString * rongCloudToken; // 融云token
+
 //将数据库对象转换成接口对象模型
 - (IBaseUserM *)toIBaseUserModelInfo;
 

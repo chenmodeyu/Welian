@@ -194,12 +194,11 @@
 + (void)setUserinvestorauth:(NSNumber *)investorauth;
 + (void)setUserstartupauth:(NSNumber *)startupauth;
 + (void)setUsercompany:(NSString *)company;
-//+ (void)setUsercheckcode:(NSString *)checkcode;
-//+ (void)setUserSessionid:(NSString *)sessionid;
 + (void)setUserisNow:(BOOL)isnow;
 + (void)setUserUrl:(NSString *)url;
 + (void)setUseropenid:(NSString *)openid;
 + (void)setUserunionid:(NSString *)unionid;
++ (void)setuserRongCloudToken:(NSString *)rongCloudToken;
 
 @end
 

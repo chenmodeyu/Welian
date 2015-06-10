@@ -7,10 +7,9 @@
 //
 
 #import "WLChatViewController.h"
-
 #import "ChatCell.h"
-
 #import "CustomMessageType.h"
+#import "UserInfoViewController.h"
 
 @interface WLChatViewController ()
 
@@ -130,10 +129,10 @@
  *  @param stauts        0,成功，非0失败
  *  @param messageCotent 消息内容
  */
-- (void)didSendMessage:(NSInteger)stauts content:(RCMessageContent *)messageCotent
-{
-    
-}
+//- (void)didSendMessage:(NSInteger)stauts content:(RCMessageContent *)messageCotent
+//{
+//    
+//}
 
 #pragma mark override
 /**
@@ -143,13 +142,13 @@
  *
  *  @return 返回消息内容
  */
-- (RCMessageContent *)willSendMessage:(RCMessageContent *)messageCotent
-{
-    
-    CustomMessageType *content = [CustomMessageType messageWithContent:[(RCTextMessage *)messageCotent content]];
-    
-    return content;
-}
+//- (RCMessageContent *)willSendMessage:(RCMessageContent *)messageCotent
+//{
+//    
+//    CustomMessageType *content = [CustomMessageType messageWithContent:[(RCTextMessage *)messageCotent content]];
+//    
+//    return content;
+//}
 
 /**
  *  发送消息
@@ -158,27 +157,27 @@
  *
  *  @param pushContent push显示内容
  */
-- (void)sendMessage:(RCMessageContent *)messageContent pushContent:(NSString *)pushContent
-{
-    
-    CustomMessageType *content = [CustomMessageType messageWithContent:[(RCTextMessage *)messageContent content]];
-//    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_CUSTOMERSERVICE
-//                                      targetId:self.targetId
-//                                       content:content//(CustomMessageType *)messageContent//消息内容
-//                                   pushContent:@""//推送消息内容
-//                                       success:^(long messageId) {
-//                                           RCMessage *msg = [[RCMessage alloc] initWithType:ConversationType_CUSTOMERSERVICE
-//                                                                                   targetId:self.targetId
-//                                                                                  direction:MessageDirection_SEND
-//                                                                                  messageId:messageId
-//                                                                                    content:content];
-//                                           RCMessageModel *msgModel = [[RCMessageModel alloc] initWithMessage:msg];
-//                                           [self.conversationDataRepository addObject:msgModel];
-//                                           [self.conversationMessageCollectionView reloadData];
-//                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-//                                           
-//                                       }];
-}
+//- (void)sendMessage:(RCMessageContent *)messageContent pushContent:(NSString *)pushContent
+//{
+//    
+//    CustomMessageType *content = [CustomMessageType messageWithContent:[(RCTextMessage *)messageContent content]];
+////    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_CUSTOMERSERVICE
+////                                      targetId:self.targetId
+////                                       content:content//(CustomMessageType *)messageContent//消息内容
+////                                   pushContent:@""//推送消息内容
+////                                       success:^(long messageId) {
+////                                           RCMessage *msg = [[RCMessage alloc] initWithType:ConversationType_CUSTOMERSERVICE
+////                                                                                   targetId:self.targetId
+////                                                                                  direction:MessageDirection_SEND
+////                                                                                  messageId:messageId
+////                                                                                    content:content];
+////                                           RCMessageModel *msgModel = [[RCMessageModel alloc] initWithMessage:msg];
+////                                           [self.conversationDataRepository addObject:msgModel];
+////                                           [self.conversationMessageCollectionView reloadData];
+////                                       } error:^(RCErrorCode nErrorCode, long messageId) {
+////                                           
+////                                       }];
+//}
 
 /**
  *  发送消息。可以发送任何类型的消息。
@@ -228,10 +227,10 @@
  *
  *  @param pushContent push显示内容
  */
-- (void)sendImageMessage:(RCImageMessage *)imageMessage pushContent:(NSString *)pushContent
-{
-    
-}
+//- (void)sendImageMessage:(RCImageMessage *)imageMessage pushContent:(NSString *)pushContent
+//{
+//    
+//}
 
 #pragma mark override
 /**
@@ -308,10 +307,10 @@
  *
  *  @param locationMessageContent 位置消息
  */
-- (void)presentLocationViewController:(RCLocationMessage *)locationMessageContent
-{
-    
-}
+//- (void)presentLocationViewController:(RCLocationMessage *)locationMessageContent
+//{
+//    
+//}
 
 /**
  *  重写方法实现自定义消息的显示
