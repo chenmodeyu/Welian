@@ -11,6 +11,8 @@
 
 //微链服务电话 now now
 #define kTelNumber @"18658883913"
+//融云Appkey 测试环境： 82hegw5uh95qx
+#define RONGCLOUD_IM_APPKEY @"82hegw5uh95qx"
 
 // 服务器地址
 //测试环境

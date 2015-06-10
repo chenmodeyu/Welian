@@ -12,6 +12,8 @@
 #import "MeViewController.h"
 #import "NavViewController.h"
 #import "MyFriendsController.h"
+#import "ChatListViewController.h"
+
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import "ChatMessageController.h"
@@ -229,9 +231,11 @@ single_implementation(MainViewController)
     // 聊天消息
     chatMessageItem = [self itemWithTitle:@"消息" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
 //    ChatMessageController *chatMessageVC = [[ChatMessageController alloc] initWithStyle:UITableViewStylePlain];
-    MessagesViewController *chatMessageVC = [[MessagesViewController alloc] init];
-    NavViewController *chatMeeageNav = [[NavViewController alloc] initWithRootViewController:chatMessageVC];
+//    MessagesViewController *chatMessageVC = [[MessagesViewController alloc] init];
+//    NavViewController *chatMeeageNav = [[NavViewController alloc] initWithRootViewController:chatMessageVC];
 //    [chatMessageVC.navigationItem setTitle:@"消息"];
+    ChatListViewController *chatListVC = [[ChatListViewController alloc] init];
+    NavViewController *chatMeeageNav = [[NavViewController alloc] initWithRootViewController:chatListVC];
     [chatMeeageNav setDelegate:self];
     [chatMeeageNav setTabBarItem:chatMessageItem];
     
