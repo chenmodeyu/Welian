@@ -2104,21 +2104,6 @@
 		A4B5C2D01B27E17500E0D396 /* release_notes_ios.txt in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C2C41B27E17500E0D396 /* release_notes_ios.txt */; };
 		A4B5C2D11B27E17500E0D396 /* release_notes_ios.txt in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C2C41B27E17500E0D396 /* release_notes_ios.txt */; };
 		A4B5C2D21B27E17500E0D396 /* release_notes_ios.txt in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C2C41B27E17500E0D396 /* release_notes_ios.txt */; };
-		A4B5C2D31B27E17500E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C2C51B27E17500E0D396 /* RongCloud.bundle */; };
-		A4B5C2D41B27E17500E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C2C51B27E17500E0D396 /* RongCloud.bundle */; };
-		A4B5C2D51B27E17500E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C2C51B27E17500E0D396 /* RongCloud.bundle */; };
-		A4B5C2D61B27E17500E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C2C51B27E17500E0D396 /* RongCloud.bundle */; };
-		A4B5C2D71B27E17500E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C2C51B27E17500E0D396 /* RongCloud.bundle */; };
-		A4B5C2D81B27E17500E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C61B27E17500E0D396 /* RongIMKit.framework */; };
-		A4B5C2D91B27E17500E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C61B27E17500E0D396 /* RongIMKit.framework */; };
-		A4B5C2DA1B27E17500E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C61B27E17500E0D396 /* RongIMKit.framework */; };
-		A4B5C2DB1B27E17500E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C61B27E17500E0D396 /* RongIMKit.framework */; };
-		A4B5C2DC1B27E17500E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C61B27E17500E0D396 /* RongIMKit.framework */; };
-		A4B5C2DD1B27E17500E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C71B27E17500E0D396 /* RongIMLib.framework */; };
-		A4B5C2DE1B27E17500E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C71B27E17500E0D396 /* RongIMLib.framework */; };
-		A4B5C2DF1B27E17500E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C71B27E17500E0D396 /* RongIMLib.framework */; };
-		A4B5C2E01B27E17500E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C71B27E17500E0D396 /* RongIMLib.framework */; };
-		A4B5C2E11B27E17500E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C2C71B27E17500E0D396 /* RongIMLib.framework */; };
 		A4B5C2E41B27EDF400E0D396 /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C2E31B27EDF400E0D396 /* ChatListViewController.m */; };
 		A4B5C2E51B27EDF400E0D396 /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C2E31B27EDF400E0D396 /* ChatListViewController.m */; };
 		A4B5C2E61B27EDF400E0D396 /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C2E31B27EDF400E0D396 /* ChatListViewController.m */; };
@@ -2149,6 +2134,21 @@
 		A4B5C3111B281AA400E0D396 /* CustomMessageType.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C30E1B281AA400E0D396 /* CustomMessageType.m */; };
 		A4B5C3121B281AA400E0D396 /* CustomMessageType.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C30E1B281AA400E0D396 /* CustomMessageType.m */; };
 		A4B5C3131B281AA400E0D396 /* CustomMessageType.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C30E1B281AA400E0D396 /* CustomMessageType.m */; };
+		A4B5C3171B281CFC00E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C3141B281CFC00E0D396 /* RongCloud.bundle */; };
+		A4B5C3181B281CFC00E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C3141B281CFC00E0D396 /* RongCloud.bundle */; };
+		A4B5C3191B281CFC00E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C3141B281CFC00E0D396 /* RongCloud.bundle */; };
+		A4B5C31A1B281CFC00E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C3141B281CFC00E0D396 /* RongCloud.bundle */; };
+		A4B5C31B1B281CFC00E0D396 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4B5C3141B281CFC00E0D396 /* RongCloud.bundle */; };
+		A4B5C31C1B281CFC00E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3151B281CFC00E0D396 /* RongIMKit.framework */; };
+		A4B5C31D1B281CFC00E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3151B281CFC00E0D396 /* RongIMKit.framework */; };
+		A4B5C31E1B281CFC00E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3151B281CFC00E0D396 /* RongIMKit.framework */; };
+		A4B5C31F1B281CFC00E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3151B281CFC00E0D396 /* RongIMKit.framework */; };
+		A4B5C3201B281CFC00E0D396 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3151B281CFC00E0D396 /* RongIMKit.framework */; };
+		A4B5C3211B281CFC00E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3161B281CFC00E0D396 /* RongIMLib.framework */; };
+		A4B5C3221B281CFC00E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3161B281CFC00E0D396 /* RongIMLib.framework */; };
+		A4B5C3231B281CFC00E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3161B281CFC00E0D396 /* RongIMLib.framework */; };
+		A4B5C3241B281CFC00E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3161B281CFC00E0D396 /* RongIMLib.framework */; };
+		A4B5C3251B281CFC00E0D396 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5C3161B281CFC00E0D396 /* RongIMLib.framework */; };
 		A4C0E1101B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
 		A4C0E1111B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
 		A4C0E1121B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
@@ -5765,9 +5765,6 @@
 		A4B5C2BF1B27DFAD00E0D396 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		A4B5C2C31B27E17500E0D396 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RongCloudKit.strings; sourceTree = "<group>"; };
 		A4B5C2C41B27E17500E0D396 /* release_notes_ios.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes_ios.txt; sourceTree = "<group>"; };
-		A4B5C2C51B27E17500E0D396 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
-		A4B5C2C61B27E17500E0D396 /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
-		A4B5C2C71B27E17500E0D396 /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
 		A4B5C2C81B27E17500E0D396 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RongCloudKit.strings"; sourceTree = "<group>"; };
 		A4B5C2E21B27EDF400E0D396 /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
 		A4B5C2E31B27EDF400E0D396 /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
@@ -5781,6 +5778,9 @@
 		A4B5C3071B281A6800E0D396 /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		A4B5C30D1B281AA400E0D396 /* CustomMessageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMessageType.h; sourceTree = "<group>"; };
 		A4B5C30E1B281AA400E0D396 /* CustomMessageType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMessageType.m; sourceTree = "<group>"; };
+		A4B5C3141B281CFC00E0D396 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
+		A4B5C3151B281CFC00E0D396 /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
+		A4B5C3161B281CFC00E0D396 /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
 		A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangmu_good@2x.png"; sourceTree = "<group>"; };
 		A4C0E1151B0EF46800A9929D /* ProjectMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectMainViewController.h; sourceTree = "<group>"; };
 		A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectMainViewController.m; sourceTree = "<group>"; };
@@ -7176,8 +7176,8 @@
 				A49C7D7A1A70D42700F2AEC5 /* WeChatConnection.framework in Frameworks */,
 				A49C7D7B1A70D42700F2AEC5 /* AddressBook.framework in Frameworks */,
 				A49C7D7C1A70D42700F2AEC5 /* AddressBookUI.framework in Frameworks */,
-				A4B5C2E11B27E17500E0D396 /* RongIMLib.framework in Frameworks */,
-				A4B5C2DC1B27E17500E0D396 /* RongIMKit.framework in Frameworks */,
+				A4B5C3251B281CFC00E0D396 /* RongIMLib.framework in Frameworks */,
+				A4B5C3201B281CFC00E0D396 /* RongIMKit.framework in Frameworks */,
 				A49C7D7E1A70D42700F2AEC5 /* AVFoundation.framework in Frameworks */,
 				A49C7D7F1A70D42700F2AEC5 /* CoreLocation.framework in Frameworks */,
 				F598F5A71B1DAB5800579F1D /* libMobClickLibrary.a in Frameworks */,
@@ -7224,8 +7224,8 @@
 				F53DC3AB1A49192600F5F712 /* AddressBook.framework in Frameworks */,
 				F53DC3AC1A49192600F5F712 /* AddressBookUI.framework in Frameworks */,
 				F53DC3AD1A49192600F5F712 /* AudioToolbox.framework in Frameworks */,
-				A4B5C2DF1B27E17500E0D396 /* RongIMLib.framework in Frameworks */,
-				A4B5C2DA1B27E17500E0D396 /* RongIMKit.framework in Frameworks */,
+				A4B5C3231B281CFC00E0D396 /* RongIMLib.framework in Frameworks */,
+				A4B5C31E1B281CFC00E0D396 /* RongIMKit.framework in Frameworks */,
 				F53DC3AE1A49192600F5F712 /* AVFoundation.framework in Frameworks */,
 				F53DC3AF1A49192600F5F712 /* CoreLocation.framework in Frameworks */,
 				F598F5A61B1DAB5800579F1D /* libMobClickLibrary.a in Frameworks */,
@@ -7254,7 +7254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5664A811A2AFD56008A5830 /* UIKit.framework in Frameworks */,
-				A4B5C2DD1B27E17500E0D396 /* RongIMLib.framework in Frameworks */,
+				A4B5C3211B281CFC00E0D396 /* RongIMLib.framework in Frameworks */,
 				F5664A7D1A2AFD56008A5830 /* SystemConfiguration.framework in Frameworks */,
 				A4F646B51A43C2B0002E66FC /* QuartzCore.framework in Frameworks */,
 				F5664A801A2AFD56008A5830 /* OpenGLES.framework in Frameworks */,
@@ -7269,7 +7269,7 @@
 				F5664A771A2AFD56008A5830 /* CoreGraphics.framework in Frameworks */,
 				A4B5C2B81B27DF6900E0D396 /* CoreVideo.framework in Frameworks */,
 				F5664A701A2AFD56008A5830 /* CoreTelephony.framework in Frameworks */,
-				A4B5C2D81B27E17500E0D396 /* RongIMKit.framework in Frameworks */,
+				A4B5C31C1B281CFC00E0D396 /* RongIMKit.framework in Frameworks */,
 				A4F646B11A43C290002E66FC /* CoreMedia.framework in Frameworks */,
 				F5664A7F1A2AFD56008A5830 /* CoreLocation.framework in Frameworks */,
 				A4B5C2B61B27DF4F00E0D396 /* CoreAudio.framework in Frameworks */,
@@ -7326,8 +7326,8 @@
 				F598F5A51B1DAB5700579F1D /* libMobClickLibrary.a in Frameworks */,
 				A4776ACB1A4428830022E211 /* AVFoundation.framework in Frameworks */,
 				F5B5FE751A596D4B007FE11B /* ShareSDKCoreService.framework in Frameworks */,
-				A4B5C2DE1B27E17500E0D396 /* RongIMLib.framework in Frameworks */,
-				A4B5C2D91B27E17500E0D396 /* RongIMKit.framework in Frameworks */,
+				A4B5C3221B281CFC00E0D396 /* RongIMLib.framework in Frameworks */,
+				A4B5C31D1B281CFC00E0D396 /* RongIMKit.framework in Frameworks */,
 				F5664D391A2AFDD5008A5830 /* CoreLocation.framework in Frameworks */,
 				A4776ACA1A44285F0022E211 /* MediaPlayer.framework in Frameworks */,
 				F5B5FE7B1A596D4B007FE11B /* ShareSDK.framework in Frameworks */,
@@ -7359,8 +7359,8 @@
 				F5CE861919BFF2AB00A9D14C /* UIKit.framework in Frameworks */,
 				F596A5701AFB337A000C03C6 /* libGexinSdk-1.1.1.a in Frameworks */,
 				F5CE861819BFF2AB00A9D14C /* Foundation.framework in Frameworks */,
-				A4B5C2E01B27E17500E0D396 /* RongIMLib.framework in Frameworks */,
-				A4B5C2DB1B27E17500E0D396 /* RongIMKit.framework in Frameworks */,
+				A4B5C3241B281CFC00E0D396 /* RongIMLib.framework in Frameworks */,
+				A4B5C31F1B281CFC00E0D396 /* RongIMKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8446,11 +8446,11 @@
 		A4B5C2C11B27E17500E0D396 /* Rong_Cloud_iOS_SDK_v2_1_1_stable */ = {
 			isa = PBXGroup;
 			children = (
+				A4B5C3141B281CFC00E0D396 /* RongCloud.bundle */,
+				A4B5C3151B281CFC00E0D396 /* RongIMKit.framework */,
+				A4B5C3161B281CFC00E0D396 /* RongIMLib.framework */,
 				A4B5C2C21B27E17500E0D396 /* RongCloudKit.strings */,
 				A4B5C2C41B27E17500E0D396 /* release_notes_ios.txt */,
-				A4B5C2C51B27E17500E0D396 /* RongCloud.bundle */,
-				A4B5C2C61B27E17500E0D396 /* RongIMKit.framework */,
-				A4B5C2C71B27E17500E0D396 /* RongIMLib.framework */,
 			);
 			path = Rong_Cloud_iOS_SDK_v2_1_1_stable;
 			sourceTree = "<group>";
@@ -11234,7 +11234,7 @@
 			files = (
 				A49C7D951A70D42700F2AEC5 /* InvestCardCell.xib in Resources */,
 				A49C7D971A70D42700F2AEC5 /* login_button_bg@2x.png in Resources */,
-				A4B5C2D71B27E17500E0D396 /* RongCloud.bundle in Resources */,
+				A4B5C31B1B281CFC00E0D396 /* RongCloud.bundle in Resources */,
 				A49FF3CC1AC29A1B009982E2 /* me_add_friend@2x.png in Resources */,
 				F5CBE4CA1AC4351A00F4C884 /* Expression_87@2x.png in Resources */,
 				F51A97761AD3BBF9005EDAF4 /* me_lvli_bianji@2x.png in Resources */,
@@ -11862,7 +11862,7 @@
 			files = (
 				F5933FB71AD65DC90088C70D /* me_lvli_add@2x.png in Resources */,
 				A409A2D01AC2E1AF0033A31D /* tabbar_discovery_selected@2x.png in Resources */,
-				A4B5C2D51B27E17500E0D396 /* RongCloud.bundle in Resources */,
+				A4B5C3191B281CFC00E0D396 /* RongCloud.bundle in Resources */,
 				F534DADB1A4E929500B6A725 /* InvestCardCell.xib in Resources */,
 				F55772BD1A5AA3E200693279 /* login_button_bg@2x.png in Resources */,
 				F51A97751AD3BBF9005EDAF4 /* me_lvli_bianji@2x.png in Resources */,
@@ -12781,7 +12781,7 @@
 				A409A2261AC2E1AF0033A31D /* me_mycard_tou@2x.png in Resources */,
 				F5CBE4D71AC4351A00F4C884 /* Expression_91@2x.png in Resources */,
 				F5664B491A2AFD56008A5830 /* good_small@2x.png in Resources */,
-				A4B5C2D31B27E17500E0D396 /* RongCloud.bundle in Resources */,
+				A4B5C3171B281CFC00E0D396 /* RongCloud.bundle in Resources */,
 				F5CBE4731AC4351A00F4C884 /* Expression_66@2x.png in Resources */,
 				A4B5C2CE1B27E17500E0D396 /* release_notes_ios.txt in Resources */,
 				F5CBE4AF1AC4351A00F4C884 /* Expression_81@2x.png in Resources */,
@@ -13436,7 +13436,7 @@
 				A492361F1ADE693A009E0B8C /* photo_check_selected@2x.png in Resources */,
 				F5664DFF1A2AFDD5008A5830 /* NoCommentCell.xib in Resources */,
 				F57F31EB1AA947F900B8EF72 /* ShareType.plist in Resources */,
-				A4B5C2D41B27E17500E0D396 /* RongCloud.bundle in Resources */,
+				A4B5C3181B281CFC00E0D396 /* RongCloud.bundle in Resources */,
 				F5CBE4901AC4351A00F4C884 /* Expression_73@2x.png in Resources */,
 				A4C1440D1A4C0A6B00C9BAB5 /* voice@2x.png in Resources */,
 				A4C143DD1A4C0A6B00C9BAB5 /* SenderVoiceNodePlaying@2x.png in Resources */,
@@ -13765,7 +13765,7 @@
 				A492C4A41AF9FB72001DB60A /* header_gackground_top@2x.png in Resources */,
 				A49236171ADE693A009E0B8C /* photo_check_default@3x.png in Resources */,
 				A49235B81ADE693A009E0B8C /* compose_photo_original_highlighted@2x.png in Resources */,
-				A4B5C2D61B27E17500E0D396 /* RongCloud.bundle in Resources */,
+				A4B5C31A1B281CFC00E0D396 /* RongCloud.bundle in Resources */,
 				A49236301ADE693A009E0B8C /* picker_alert_sigh@2x.png in Resources */,
 				A4B07C3F1B12FBF0008A3702 /* xiangmu_list_funnel@2x.png in Resources */,
 				A492C4981AF9C3C5001DB60A /* image.png in Resources */,
