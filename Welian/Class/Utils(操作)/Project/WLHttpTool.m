@@ -932,24 +932,25 @@
 + (void)updateClientSuccess:(WLHttpSuccessBlock)succeBlock fail:(WLHttpFailureBlock)failurBlock
 {
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    if (mode.sessionid) {
-        NSMutableDictionary *parameterDic = [NSMutableDictionary dictionary];
-        [parameterDic setObject:KPlatformType forKey:@"platform"];
-        
-        if ([UserDefaults objectForKey:kBPushRequestChannelIdKey]) {
-            [parameterDic setObject:[UserDefaults objectForKey:kBPushRequestChannelIdKey] forKey:@"clientid"];
+    if (mode) {
+        if (mode.sessionid) {
+            NSMutableDictionary *parameterDic = [NSMutableDictionary dictionary];
+            [parameterDic setObject:KPlatformType forKey:@"platform"];
+            
+            if ([UserDefaults objectForKey:kBPushRequestChannelIdKey]) {
+                [parameterDic setObject:[UserDefaults objectForKey:kBPushRequestChannelIdKey] forKey:@"clientid"];
+            }
+            NSDictionary *dic = @{@"type":@"updateClient",@"data":parameterDic};
+            
+            [[HttpTool sharedService] reqestWithSessIDParameters:dic successBlock:^(id JSON) {
+                
+                succeBlock(JSON);
+            } failure:^(NSError *error) {
+                
+                failurBlock(error);
+            } withHUD:NO andDim:NO];
         }
-        NSDictionary *dic = @{@"type":@"updateClient",@"data":parameterDic};
-        
-        [[HttpTool sharedService] reqestWithSessIDParameters:dic successBlock:^(id JSON) {
-            
-            succeBlock(JSON);
-        } failure:^(NSError *error) {
-            
-            failurBlock(error);
-        } withHUD:NO andDim:NO];
     }
-    
 }
 
 

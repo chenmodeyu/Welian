@@ -633,13 +633,15 @@
 - (void)shareWithType:(NSInteger)type
 {
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    NSString *messStr = [NSString stringWithFormat:@"%@邀请您一起来玩微链",mode.name];
-    NSString *desStr = @"我正在玩微链，认识了不少投资和创业的朋友，嘿，你也来吧！";
-    [WLHUDView showHUDWithStr:@"" dim:NO];
-    [[SEImageCache sharedInstance] imageForURL:[NSURL URLWithString:mode.avatar] completionBlock:^(UIImage *image, NSError *error) {
-        [WLHUDView hiddenHud];
-        [[ShareEngine sharedShareEngine] sendWeChatMessage:messStr andDescription:desStr WithUrl:mode.inviteurl andImage:image WithScene:type == 0 ? weChat : weChatFriend];
-    }];
+    if(mode){
+        NSString *messStr = [NSString stringWithFormat:@"%@邀请您一起来玩微链",mode.name];
+        NSString *desStr = @"我正在玩微链，认识了不少投资和创业的朋友，嘿，你也来吧！";
+        [WLHUDView showHUDWithStr:@"" dim:NO];
+        [[SEImageCache sharedInstance] imageForURL:[NSURL URLWithString:mode.avatar] completionBlock:^(UIImage *image, NSError *error) {
+            [WLHUDView hiddenHud];
+            [[ShareEngine sharedShareEngine] sendWeChatMessage:messStr andDescription:desStr WithUrl:mode.inviteurl andImage:image WithScene:type == 0 ? weChat : weChatFriend];
+        }];
+    }
 }
 
 #pragma mark - 短信邀请

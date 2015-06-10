@@ -13,6 +13,7 @@
 - (void)customOperation:(NSDictionary *)dict
 {
     self.guests = [IBaseUserM objectsWithInfo:self.guests];
+    self.confs = [IAskInfoMdoel objectsWithInfo:self.confs];
     //主办方
     NSArray *sponsorsArray = dict[@"sponsors"];
     //类型

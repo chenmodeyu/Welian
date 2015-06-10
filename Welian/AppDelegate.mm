@@ -330,52 +330,54 @@ BMKMapManager* _mapManager;
     //设置当前的用户信息
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     NSString *token = [NSUserDefaults stringForKey:kRongCloudDeviceToken];
-    if (token.length > 0 && loginUser) {
-        //登陆融云服务器  // 快速集成第二步，连接融云服务器
-//        [WLHUDView showHUDWithStr:@"连接融云服务器中..." dim:YES];
-        [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
-            //保存默认用户
-            //            [DEFAULTS setObject:@"liuwu_wuliu@163.com" forKey:@"userName"];
-            //            [DEFAULTS setObject:@"123456" forKey:@"userPwd"];
-            //            [DEFAULTS setObject:token forKey:@"userToken"];
-            //            [DEFAULTS setObject:userId forKey:@"userId"];
-            //            [DEFAULTS synchronize];
-            
-            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
-                                                                        name:loginUser.name
-                                                                    portrait:nil];
-            [RCIMClient sharedRCIMClient].currentUserInfo = _currentUserInfo;
-            
-            //融云同步群组信息
-            //            hud.labelText = @"同步群信息";
-            //            [RCDDataSource syncGroups];
-            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                //                [hud hide:YES];
-//                //                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//                //                                           UINavigationController *rootNavi = [storyboard instantiateViewControllerWithIdentifier:@"rootNavi"];
-//                //                MainViewController *mainVC = [[MainViewController alloc] init];
-//                //                UINavigationController *nav = [[UINavigationController alloc ] initWithRootViewController:mainVC];
-//                //                [ShareApplicationDelegate window].rootViewController = nav;
-//                
-//                //进入主页面
-//                //        AppDelegate *deldte = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//                MainViewController *mainVC = [[MainViewController alloc] init];
-//                //        [mainVC setSelectedIndex:0];
-//                //        self.view.window.rootViewController = mainVC;
-//                [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
-//                
-//            });
-            
-            
-        } error:^(RCConnectErrorCode status) {
-            //            [hud hide:YES];
-            // [hud setHidden:YES];
-            NSLog(@"RCConnectErrorCode is %ld",(long)status);
-        } tokenIncorrect:^{
-            //            [hud hide:YES];
-            NSLog(@"IncorrectToken");
-        }];
+    if (loginUser) {
+        if (token.length > 0) {
+            //登陆融云服务器  // 快速集成第二步，连接融云服务器
+            //        [WLHUDView showHUDWithStr:@"连接融云服务器中..." dim:YES];
+            [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
+                //保存默认用户
+                //            [DEFAULTS setObject:@"liuwu_wuliu@163.com" forKey:@"userName"];
+                //            [DEFAULTS setObject:@"123456" forKey:@"userPwd"];
+                //            [DEFAULTS setObject:token forKey:@"userToken"];
+                //            [DEFAULTS setObject:userId forKey:@"userId"];
+                //            [DEFAULTS synchronize];
+                
+                RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
+                                                                            name:loginUser.name
+                                                                        portrait:nil];
+                [RCIMClient sharedRCIMClient].currentUserInfo = _currentUserInfo;
+                
+                //融云同步群组信息
+                //            hud.labelText = @"同步群信息";
+                //            [RCDDataSource syncGroups];
+                
+                //            dispatch_async(dispatch_get_main_queue(), ^{
+                //                //                [hud hide:YES];
+                //                //                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                //                //                                           UINavigationController *rootNavi = [storyboard instantiateViewControllerWithIdentifier:@"rootNavi"];
+                //                //                MainViewController *mainVC = [[MainViewController alloc] init];
+                //                //                UINavigationController *nav = [[UINavigationController alloc ] initWithRootViewController:mainVC];
+                //                //                [ShareApplicationDelegate window].rootViewController = nav;
+                //
+                //                //进入主页面
+                //                //        AppDelegate *deldte = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                //                MainViewController *mainVC = [[MainViewController alloc] init];
+                //                //        [mainVC setSelectedIndex:0];
+                //                //        self.view.window.rootViewController = mainVC;
+                //                [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
+                //
+                //            });
+                
+                
+            } error:^(RCConnectErrorCode status) {
+                //            [hud hide:YES];
+                // [hud setHidden:YES];
+                NSLog(@"RCConnectErrorCode is %ld",(long)status);
+            } tokenIncorrect:^{
+                //            [hud hide:YES];
+                NSLog(@"IncorrectToken");
+            }];
+        }
     }
     
     //消息免通知，默认是NO

@@ -28,5 +28,9 @@
 @property (nonatomic,strong) NSNumber *type;//1收费，0免费
 @property (nonatomic,strong) NSArray *guests;//嘉宾
 @property (nonatomic,strong) NSString *sponsors;//主办方
+@property (nonatomic,strong) NSNumber *sorttype;//0正常，1:new,2:hot
+@property (nonatomic,strong) NSNumber *canjoined;//0:可以报名，1：认证投资人才可以报名，2创业者可以报名(提交项目上传bp)
+@property (nonatomic,strong) NSString *canjoinedmsg;//提醒消息
+@property (nonatomic,strong) NSArray *confs;////收集信息的内容
 
 @end

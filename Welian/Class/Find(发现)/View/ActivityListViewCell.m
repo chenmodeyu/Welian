@@ -9,16 +9,19 @@
 #import "ActivityListViewCell.h"
 #import "CSLoadingImageView.h"
 
-#define kImageViewWidth 90.f
-#define kImageViewHeight 68.f
-#define kMarginLeft 15.f
+#define kImageViewWidth 115.f
+#define kImageViewHeight 86.f
+#define kMarginLeft 10.f
+#define kMarginTop 15.f
 #define kMarginEdge 10.f
 
 @interface ActivityListViewCell ()
 
 @property (assign,nonatomic) CSLoadingImageView *iconImageView;
+@property (assign,nonatomic) UIImageView *specialImageView;
 @property (assign,nonatomic) UIImageView *joinedImageView;
 @property (assign,nonatomic) UILabel *titleLabel;
+@property (assign,nonatomic) UILabel *detailTitleLabel;
 @property (assign,nonatomic) UIButton *timeBtn;
 @property (assign,nonatomic) UIButton *locationBtn;
 @property (assign,nonatomic) UILabel *statusLabel;
@@ -64,6 +67,7 @@
                                options:SDWebImageRetryFailed|SDWebImageLowPriority
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                  //黑白
+                                 //status 0 还没开始，1进行中。2结束
                                  if (_activityInfo.status.integerValue == 2) {
                                      //压缩原图片的一半大小
                                      image = [image imageByScalingAndCroppingForSize:[self fitsize:image.size]];
@@ -75,7 +79,8 @@
                                      _joinedImageView.image = [UIImage imageNamed:@"discovery_activity_list_already"];
                                  }
                              }];
-    
+    //status 0 还没开始，1进行中。2结束
+    _specialImageView.hidden = _activityInfo.status.integerValue == 2 ? YES : NO;
     _joinedImageView.hidden = !_activityInfo.isjoined.boolValue;
     _titleLabel.text = _activityInfo.name;
     
@@ -115,16 +120,20 @@
     }
     
     //设置字体颜色
-    [_timeBtn setTitleColor:(_activityInfo.status.integerValue == 2 ? kNormalTextColor : KBlueTextColor) forState:UIControlStateNormal];
-    _numLabel.textColor = _activityInfo.status.integerValue == 2 ? kNormalTextColor : KBlueTextColor;
+//    [_timeBtn setTitleColor:(_activityInfo.status.integerValue == 2 ? kNormalTextColor : KBlueTextColor) forState:UIControlStateNormal];
+//    _numLabel.textColor = _activityInfo.status.integerValue == 2 ? kNormalTextColor : KBlueTextColor;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _iconImageView.size = CGSizeMake(kImageViewWidth, self.contentView.height - kMarginLeft * 2.f);
+    _iconImageView.size = CGSizeMake(kImageViewWidth, self.contentView.height - kMarginTop * 2.f);
     _iconImageView.left = kMarginLeft;
     _iconImageView.centerY = self.contentView.height / 2.f;
+    
+    [_specialImageView sizeToFit];
+    _specialImageView.left = _iconImageView.left - 3.f;
+    _specialImageView.top = _iconImageView.top + 6.f;
     
     [_joinedImageView sizeToFit];
     _joinedImageView.right = self.contentView.width;
@@ -134,6 +143,11 @@
     [_titleLabel sizeToFit];
     _titleLabel.left = _iconImageView.right + kMarginEdge;
     _titleLabel.top = _iconImageView.top;
+    
+    [_detailTitleLabel sizeToFit];
+    _detailTitleLabel.width = _titleLabel.width;
+    _detailTitleLabel.left = _titleLabel.left;
+    _detailTitleLabel.top = _titleLabel.bottom + 6.f;
     
     [_timeBtn sizeToFit];
     _timeBtn.width = _timeBtn.width + 5.f;
@@ -166,9 +180,18 @@
     iconImageView.backgroundColor = IWGlobalBg;
     iconImageView.layer.borderColor = kNormalLineColor.CGColor;
     iconImageView.layer.borderWidth = 0.5f;
+    iconImageView.layer.cornerRadius = 3.f;
+    iconImageView.layer.masksToBounds = YES;
     [self.contentView addSubview:iconImageView];
     self.iconImageView = iconImageView;
 //    [iconImageView setDebug:YES];
+    
+    //特殊标记  activity_list_hot_logo    activity_list_new_logo
+    UIImageView *specialImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"activity_list_hot_logo"]];
+    specialImageView.backgroundColor = [UIColor clearColor];
+    [self.contentView addSubview:specialImageView];
+    self.specialImageView = specialImageView;
+//    [_specialImageView setDebug:YES];
     
     //以报名标记
     UIImageView *joinedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discovery_activity_list_already"]];
@@ -187,13 +210,23 @@
     self.titleLabel = titleLabel;
 //    [titleLabel setDebug:YES];
     
+    //副标题
+    UILabel *detailTitleLabel = [[UILabel alloc] init];
+    detailTitleLabel.backgroundColor = [UIColor clearColor];
+    detailTitleLabel.textColor = kNormalTextColor;
+    detailTitleLabel.font = kNormal13Font;
+    detailTitleLabel.text = @"主办方：微链、迭代资本";
+    [self.contentView addSubview:detailTitleLabel];
+    self.detailTitleLabel = detailTitleLabel;
+    
     //时间
     UIButton *timeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     timeBtn.backgroundColor = [UIColor clearColor];
     timeBtn.titleLabel.font = kNormal12Font;
     [timeBtn setTitle:@"6/18" forState:UIControlStateNormal];
-    [timeBtn setTitleColor:KBlueTextColor forState:UIControlStateNormal];
-    [timeBtn setImage:[UIImage imageNamed:@"discovery_activity_list_time"] forState:UIControlStateNormal];
+    [timeBtn setTitleColor:kNormalTextColor forState:UIControlStateNormal];
+    //discovery_activity_list_time
+    [timeBtn setImage:[UIImage imageNamed:@"activity_list_time_logo"] forState:UIControlStateNormal];
     timeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 3, 0, 0);
     [self.contentView addSubview:timeBtn];
     self.timeBtn = timeBtn;
@@ -213,7 +246,9 @@
     locationBtn.titleLabel.font = kNormal12Font;
     [locationBtn setTitle:@"上海" forState:UIControlStateNormal];
     [locationBtn setTitleColor:kNormalTextColor forState:UIControlStateNormal];
-    [locationBtn setImage:[UIImage imageNamed:@"discovery_activity_list_place"] forState:UIControlStateNormal];
+    //discovery_activity_list_place
+    locationBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 3, 0, 0);
+    [locationBtn setImage:[UIImage imageNamed:@"activity_list_place_logo"] forState:UIControlStateNormal];
     [self.contentView addSubview:locationBtn];
     self.locationBtn = locationBtn;
 //    [locationBtn setDebug:YES];
