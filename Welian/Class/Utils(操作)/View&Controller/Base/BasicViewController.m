@@ -69,25 +69,25 @@
     [super viewWillAppear:animated];
     
     //隐藏导航条
-    if (_showCustomNavHeader) {
-//        [self.navigationController setNavigationBarHidden:YES animated:YES];
-        if (self.navigationController.viewControllers.count == 1) {
-            [self.navigationController setNavigationBarHidden:YES animated:YES];
-        }else{
-            if (_isJoindThisVC) {
-                self.navigationController.navigationBarHidden = NO;
-                self.navigationController.navigationBar.hidden = NO;
-            }else{
-                self.navigationController.navigationBarHidden = NO;
-                self.navigationController.navigationBar.hidden = YES;
-            }
-        }
-//        [self.navigationController.navigationBar setDebug:YES];
-    }else{
-        self.navigationController.navigationBarHidden = NO;
-        self.navigationController.navigationBar.hidden = NO;
-//        [self.navigationController setNavigationBarHidden:NO animated:YES];
-    }
+//    if (_showCustomNavHeader) {
+////        [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        if (self.navigationController.viewControllers.count == 1) {
+//            [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        }else{
+//            if (_isJoindThisVC) {
+//                self.navigationController.navigationBarHidden = NO;
+//                self.navigationController.navigationBar.hidden = NO;
+//            }else{
+//                self.navigationController.navigationBarHidden = NO;
+//                self.navigationController.navigationBar.hidden = YES;
+//            }
+//        }
+////        [self.navigationController.navigationBar setDebug:YES];
+//    }else{
+//        self.navigationController.navigationBarHidden = NO;
+//        self.navigationController.navigationBar.hidden = NO;
+////        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -95,18 +95,18 @@
     [super viewDidAppear:animated];
     
     //隐藏导航条//隐藏导航条
-    if (_showCustomNavHeader) {
-        if (self.navigationController.viewControllers.count == 1) {
-            [self.navigationController setNavigationBarHidden:YES animated:YES];
-        }else{
-            self.navigationController.navigationBarHidden = NO;
-            self.navigationController.navigationBar.hidden = YES;
-        }
-    }else{
-        self.navigationController.navigationBarHidden = NO;
-        self.navigationController.navigationBar.hidden = NO;
-        //        [self.navigationController setNavigationBarHidden:NO animated:YES];
-    }
+//    if (_showCustomNavHeader) {
+//        if (self.navigationController.viewControllers.count == 1) {
+//            [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        }else{
+//            self.navigationController.navigationBarHidden = NO;
+//            self.navigationController.navigationBar.hidden = YES;
+//        }
+//    }else{
+//        self.navigationController.navigationBarHidden = NO;
+//        self.navigationController.navigationBar.hidden = NO;
+//        //        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    }
     
 //    if (_isJoindThisVC  && self.navigationController.viewControllers.count > 1) {
 //        //        [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -135,6 +135,8 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
 //    self.navigationController.delegate = self;
     if (_showCustomNavHeader) {
+        self.navigationController.fd_prefersNavigationBarHidden = YES;
+        self.navigationController.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 200;
         WLNavHeaderView *navHeaderView = [[WLNavHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, ViewCtrlTopBarHeight)];
         navHeaderView.backgroundColor = kNavBgColor;
         navHeaderView.titleInfo = self.title;
