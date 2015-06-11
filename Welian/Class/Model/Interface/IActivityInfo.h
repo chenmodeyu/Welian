@@ -33,4 +33,12 @@
 @property (nonatomic,strong) NSString *canjoinedmsg;//提醒消息
 @property (nonatomic,strong) NSArray *confs;////收集信息的内容
 
+
+//获取活动开始是周几
+- (NSString *)displayStartWeekDay;
+//获取活动结束是周几
+- (NSString *)displayEndWeekDay;
+//获取活动时间
+- (NSString *)displayStartTimeInfo;
+
 @end

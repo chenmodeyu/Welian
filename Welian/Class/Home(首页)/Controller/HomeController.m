@@ -92,8 +92,8 @@
 {
     [super viewWillAppear:animated];
     //现实头部导航
-    self.navigationController.navigationBarHidden = NO;
-    self.navigationController.navigationBar.hidden = NO;
+//    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (instancetype)initWithUid:(NSNumber *)uid

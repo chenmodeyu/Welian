@@ -158,6 +158,7 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [KNSNotification addObserver:self selector:@selector(reloadInvestorstate) name:KInvestorstateNotif object:nil];
     
     //tableview头部距离问题

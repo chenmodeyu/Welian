@@ -134,9 +134,17 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
 //    self.navigationController.delegate = self;
+    //设置屏幕手势是否可以使用
+    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
+    //设置是否可以滑动返回pop
+    self.fd_interactivePopDisabled = NO;
+    
     if (_showCustomNavHeader) {
-        self.navigationController.fd_prefersNavigationBarHidden = YES;
-        self.navigationController.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 200;
+        //设置navbar是否隐藏
+        self.fd_prefersNavigationBarHidden = YES;
+        //设置pop的最大
+        self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 200.f;
+        
         WLNavHeaderView *navHeaderView = [[WLNavHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, ViewCtrlTopBarHeight)];
         navHeaderView.backgroundColor = kNavBgColor;
         navHeaderView.titleInfo = self.title;

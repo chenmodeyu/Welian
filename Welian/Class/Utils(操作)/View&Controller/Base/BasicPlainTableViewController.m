@@ -14,24 +14,33 @@
 
 @implementation BasicPlainTableViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //显示导航条
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    self.navigationController.navigationBarHidden = NO;
-    self.navigationController.navigationBar.hidden = NO;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-    self.navigationController.navigationBar.hidden = NO;
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    //显示导航条
+////    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBar.hidden = NO;
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBar.hidden = NO;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //设置屏幕手势是否可以使用
+    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
+    //设置是否可以滑动返回pop
+    self.fd_interactivePopDisabled = NO;
+    //设置navbar是否隐藏
+    self.fd_prefersNavigationBarHidden = NO;
+    //设置pop的最大
+    self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 200.f;
     
     [self.tableView setKeyboardDismissMode:UIScrollViewKeyboardDismissModeOnDrag];
 }

@@ -79,10 +79,18 @@
                                      _joinedImageView.image = [UIImage imageNamed:@"discovery_activity_list_already"];
                                  }
                              }];
+     //特殊标记  activity_list_hot_logo    activity_list_new_logo
+    //0正常，1:new,2:hot
+    if (_activityInfo.sorttype.integerValue == 0) {
+        _specialImageView.image = nil;
+    }else{
+        _specialImageView.image = [UIImage imageNamed:_activityInfo.sorttype.integerValue == 1 ? @"activity_list_new_logo" : @"activity_list_hot_logo"];
+    }
     //status 0 还没开始，1进行中。2结束
     _specialImageView.hidden = _activityInfo.status.integerValue == 2 ? YES : NO;
     _joinedImageView.hidden = !_activityInfo.isjoined.boolValue;
     _titleLabel.text = _activityInfo.name;
+    _detailTitleLabel.text = _activityInfo.sponsor.length > 0 ? [NSString stringWithFormat:@"主办方：%@",_activityInfo.sponsor] : @"";
     
     //设置城市
     [_locationBtn setTitle:(_activityInfo.city.length > 0 ? _activityInfo.city : @"未知") forState:UIControlStateNormal];
@@ -187,7 +195,7 @@
 //    [iconImageView setDebug:YES];
     
     //特殊标记  activity_list_hot_logo    activity_list_new_logo
-    UIImageView *specialImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"activity_list_hot_logo"]];
+    UIImageView *specialImageView = [[UIImageView alloc] init];
     specialImageView.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:specialImageView];
     self.specialImageView = specialImageView;
@@ -204,7 +212,7 @@
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = kTitleNormalTextColor;
     titleLabel.font = kNormal16Font;
-    titleLabel.text = @"杭州布鲁姆斯伯里沙龙咯好哦好哦配合哦好累了据了解";
+//    titleLabel.text = @"杭州布鲁姆斯伯里沙龙咯好哦好哦配合哦好累了据了解";
     titleLabel.numberOfLines = 2;
     [self.contentView addSubview:titleLabel];
     self.titleLabel = titleLabel;
@@ -215,7 +223,7 @@
     detailTitleLabel.backgroundColor = [UIColor clearColor];
     detailTitleLabel.textColor = kNormalTextColor;
     detailTitleLabel.font = kNormal13Font;
-    detailTitleLabel.text = @"主办方：微链、迭代资本";
+//    detailTitleLabel.text = @"主办方：微链、迭代资本";
     [self.contentView addSubview:detailTitleLabel];
     self.detailTitleLabel = detailTitleLabel;
     
@@ -236,7 +244,7 @@
     dateLabel.backgroundColor = [UIColor clearColor];
     dateLabel.textColor = kNormalTextColor;
     dateLabel.font = kNormal12Font;
-    dateLabel.text = @"周日";
+//    dateLabel.text = @"周日";
     [self.contentView addSubview:dateLabel];
     self.dateLabel = dateLabel;
     
@@ -267,7 +275,7 @@
     numLabel.backgroundColor = [UIColor clearColor];
     numLabel.textColor = KBlueTextColor;
     numLabel.font = kNormal12Font;
-    numLabel.text = @"10";
+    numLabel.text = @"0";
     [self.contentView addSubview:numLabel];
     self.numLabel = numLabel;
 }

@@ -31,6 +31,9 @@
 @property (nonatomic, retain) NSNumber * type;//1收费，0免费
 @property (nonatomic, retain) NSString * sponsor;//主办方
 @property (nonatomic, retain) NSNumber * activeType; //0：普通   1：收藏  2：我参加的   -1：已经删除的活动
+@property (nonatomic, retain) NSNumber * sorttype;//0正常，1:new,2:hot
+@property (nonatomic, retain) NSNumber * canjoined;//0:可以报名，1：认证投资人才可以报名，2创业者可以报名(提交项目上传bp)
+@property (nonatomic, retain) NSString * canjoinedmsg;//提醒消息
 @property (nonatomic, retain) LogInUser *rsLoginUser;
 
 //创建活动

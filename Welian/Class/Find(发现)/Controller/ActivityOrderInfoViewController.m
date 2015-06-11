@@ -23,8 +23,9 @@
 
 @interface ActivityOrderInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (strong,nonatomic) ActivityInfo *activityInfo;
+@property (strong,nonatomic) IActivityInfo *iActivityInfo;
 @property (strong,nonatomic) NSArray *tickets;
+@property (strong,nonatomic) NSArray *orderTickets;
 @property (strong,nonatomic) IActivityOrderResultModel *payInfo;
 
 @end
@@ -33,8 +34,10 @@
 
 - (void)dealloc
 {
-    _activityInfo = nil;
+    _iActivityInfo = nil;
     _tickets = nil;
+    _orderTickets = nil;
+    _payInfo = nil;
     [KNSNotification removeObserver:self];
 }
 
@@ -43,12 +46,13 @@
     return @"订单详情";
 }
 
-- (instancetype)initWithActivityInfo:(ActivityInfo *)activityInfo Tickets:(NSArray *)tickets payInfo:(IActivityOrderResultModel *)payInfo
+- (instancetype)initWithIActivityInfo:(IActivityInfo *)iActivityInfo Tickets:(NSArray *)tickets OrderTickets:(NSArray *)orderTickets payInfo:(IActivityOrderResultModel *)payInfo
 {
     self = [super init];
     if (self) {
-        self.activityInfo = activityInfo;
+        self.iActivityInfo = iActivityInfo;
         self.tickets = tickets;
+        self.orderTickets = orderTickets;
         self.payInfo = payInfo;
         
         //添加支付成功监听
@@ -85,7 +89,7 @@
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = kTitleNormalTextColor;
     titleLabel.font = kNormalBlod16Font;
-    titleLabel.text = _activityInfo.name;
+    titleLabel.text = _iActivityInfo.name;
     titleLabel.numberOfLines = 0.f;
     titleLabel.width = headerView.width - kMarginLeft * 2.f;
     [titleLabel sizeToFit];
@@ -97,7 +101,7 @@
     timeLabel.backgroundColor = [UIColor clearColor];
     timeLabel.textColor = kNormalTextColor;
     timeLabel.font = kNormal12Font;
-    timeLabel.text = [_activityInfo displayStartTimeInfo];
+    timeLabel.text = [_iActivityInfo displayStartTimeInfo];
     timeLabel.numberOfLines = 0.f;
     timeLabel.width = headerView.width - kMarginLeft * 2.f;
     [timeLabel sizeToFit];
@@ -245,13 +249,59 @@
     if ([[self displayTotalPrice] floatValue] > 0) {
         UIActionSheet *sheet = [UIActionSheet bk_actionSheetWithTitle:@"在线支付"];
         [sheet bk_addButtonWithTitle:@"支付宝支付" handler:^{
-            [self payByAlipay];
+            [self confirmAliPay];
         }];
         [sheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
         [sheet showInView:self.view];
     }else{
-        //金额为0 直接修改订单状态
-        [self updateOrderSucess];
+        if (_payInfo) {
+            //金额为0 直接修改订单状态
+            [self updateOrderSucess];
+        }else{
+            //未下单
+            //未创建订单
+            [WLHUDView showHUDWithStr:@"下单中..." dim:NO];
+            [WeLianClient orderActiveWithID:_iActivityInfo.activeid
+                                    Tickets:_orderTickets
+                                    Success:^(id resultInfo) {
+                                        [WLHUDView hiddenHud];
+                                        self.payInfo = resultInfo;
+                                        
+                                        //金额为0 直接修改订单状态
+                                        [self updateOrderSucess];
+                                    } Failed:^(NSError *error) {
+                                        if (error) {
+                                            [WLHUDView showErrorHUD:error.localizedDescription];
+                                        }else{
+                                            [WLHUDView showErrorHUD:@"下单失败，请重新尝试！"];
+                                        }
+                                    }];
+
+        }
+    }
+}
+
+- (void)confirmAliPay
+{
+    if (_payInfo) {
+        [self payByAlipay];
+    }else{
+        //未创建订单
+        [WLHUDView showHUDWithStr:@"下单中..." dim:NO];
+        [WeLianClient orderActiveWithID:_iActivityInfo.activeid
+                                Tickets:_orderTickets
+                                Success:^(id resultInfo) {
+                                    [WLHUDView hiddenHud];
+                                    self.payInfo = resultInfo;
+                                    
+                                    [self payByAlipay];
+                                } Failed:^(NSError *error) {
+                                    if (error) {
+                                        [WLHUDView showErrorHUD:error.localizedDescription];
+                                    }else{
+                                        [WLHUDView showErrorHUD:@"下单失败，请重新尝试！"];
+                                    }
+                                }];
     }
 }
 
@@ -295,7 +345,7 @@
     order.partner = partner;
     order.seller = seller;
     order.tradeNO = _payInfo.orderid;//_payInfo[@"orderid"]; //订单ID（由商家自行制定）
-    order.productName = _activityInfo.name; //商品标题
+    order.productName = _iActivityInfo.name; //商品标题
     order.productDescription = [self displayOrderDetail]; //商品描述
     order.amount = [NSString stringWithFormat:@"%.2f",_payInfo.amount.floatValue];//[NSString stringWithFormat:@"%.2f",[_payInfo[@"amount"] floatValue]]; //商品价格
     order.notifyURL = _payInfo.alipay.callbackurl;//kAlipayNotifyURL; //回调URL
@@ -377,33 +427,6 @@
                                                                                }
                                                                            }];
                                         }];
-    
-//    NSDictionary *param = @{@"orderid":_payInfo.orderid};
-//    [WLHttpTool updateTicketOrderStatusParameterDic:param
-//                                            success:^(id JSON) {
-//                                                [WLHUDView hiddenHud];
-//                                                //刷新详情页面
-//                                                [KNSNotification postNotificationName:kNeedReloadActivityUI object:nil];
-//                                                [UIAlertView bk_showAlertViewWithTitle:@""
-//                                                                               message:@"恭喜您，活动报名成功！"
-//                                                                     cancelButtonTitle:@"确定"
-//                                                                     otherButtonTitles:nil
-//                                                                               handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-//                                                                                   [self.navigationController popViewControllerAnimated:YES];
-//                                                                               }];
-//                                            } fail:^(NSError *error) {
-//                                                [UIAlertView bk_showAlertViewWithTitle:@""
-//                                                                               message:[NSString stringWithFormat:@"订单状态修改失败，请联系客服：%@",kTelNumber]
-//                                                                        cancelButtonTitle:@"取消"
-//                                                                     otherButtonTitles:@[@"呼叫"]
-//                                                                               handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-//                                                                                   if(buttonIndex == 0){
-//                                                                                       return ;
-//                                                                                   }else{
-//                                                                                       [self telToWeLian];
-//                                                                                   }
-//                                                                               }];
-//                                            }];
 }
 
 //拨打电话
@@ -421,8 +444,8 @@
 //获取表格头部内容的高度
 - (CGFloat)configureTableHeaderHeight
 {
-    CGSize titleSize = [_activityInfo.name calculateSize:CGSizeMake(self.view.width - kMarginLeft * 2.f, FLT_MAX) font:kNormalBlod16Font];
-    CGSize timeSize = [[_activityInfo displayStartTimeInfo] calculateSize:CGSizeMake(self.view.width - kMarginLeft * 2.f, FLT_MAX) font:kNormal12Font];
+    CGSize titleSize = [_iActivityInfo.name calculateSize:CGSizeMake(self.view.width - kMarginLeft * 2.f, FLT_MAX) font:kNormalBlod16Font];
+    CGSize timeSize = [[_iActivityInfo displayStartTimeInfo] calculateSize:CGSizeMake(self.view.width - kMarginLeft * 2.f, FLT_MAX) font:kNormal12Font];
     return titleSize.height + timeSize.height + kMarginLeft + kMarginEdge;
 }
 
