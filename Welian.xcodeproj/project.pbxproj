@@ -2174,6 +2174,11 @@
 		A4B5C3421B283B3600E0D396 /* IAskInfoMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C33F1B283B3600E0D396 /* IAskInfoMdoel.m */; };
 		A4B5C3431B283B3600E0D396 /* IAskInfoMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C33F1B283B3600E0D396 /* IAskInfoMdoel.m */; };
 		A4B5C3441B283B3600E0D396 /* IAskInfoMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C33F1B283B3600E0D396 /* IAskInfoMdoel.m */; };
+		A4B5C3471B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C3461B28581900E0D396 /* ActivityNoPayConfirmViewController.m */; };
+		A4B5C3481B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C3461B28581900E0D396 /* ActivityNoPayConfirmViewController.m */; };
+		A4B5C3491B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C3461B28581900E0D396 /* ActivityNoPayConfirmViewController.m */; };
+		A4B5C34A1B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C3461B28581900E0D396 /* ActivityNoPayConfirmViewController.m */; };
+		A4B5C34B1B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C3461B28581900E0D396 /* ActivityNoPayConfirmViewController.m */; };
 		A4C0E1101B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
 		A4C0E1111B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
 		A4C0E1121B0EC6F300A9929D /* xiangmu_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */; };
@@ -5812,6 +5817,8 @@
 		A4B5C3291B282A5600E0D396 /* activity_list_time_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity_list_time_logo@2x.png"; sourceTree = "<group>"; };
 		A4B5C33E1B283B3600E0D396 /* IAskInfoMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAskInfoMdoel.h; sourceTree = "<group>"; };
 		A4B5C33F1B283B3600E0D396 /* IAskInfoMdoel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAskInfoMdoel.m; sourceTree = "<group>"; };
+		A4B5C3451B28581900E0D396 /* ActivityNoPayConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityNoPayConfirmViewController.h; sourceTree = "<group>"; };
+		A4B5C3461B28581900E0D396 /* ActivityNoPayConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityNoPayConfirmViewController.m; sourceTree = "<group>"; };
 		A4C0E10F1B0EC6F300A9929D /* xiangmu_good@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangmu_good@2x.png"; sourceTree = "<group>"; };
 		A4C0E1151B0EF46800A9929D /* ProjectMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectMainViewController.h; sourceTree = "<group>"; };
 		A4C0E1161B0EF46800A9929D /* ProjectMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectMainViewController.m; sourceTree = "<group>"; };
@@ -7707,6 +7714,8 @@
 				A45065561A5BD4AF0057F8AA /* ActivityMapViewController.m */,
 				A41CE1A51A6E25CC004F17E7 /* ActivityUserListViewController.h */,
 				A41CE1A61A6E25CC004F17E7 /* ActivityUserListViewController.m */,
+				A4B5C3451B28581900E0D396 /* ActivityNoPayConfirmViewController.h */,
+				A4B5C3461B28581900E0D396 /* ActivityNoPayConfirmViewController.m */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -14392,6 +14401,7 @@
 				A49C7D4D1A70D42700F2AEC5 /* BSearchFriendsController.m in Sources */,
 				A493C2661ADD0BB00056BD52 /* UIView+Size.m in Sources */,
 				A49C7D4F1A70D42700F2AEC5 /* XHImageViewer.m in Sources */,
+				A4B5C34B1B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */,
 				A493C3A81ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F550790A1A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C2201ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
@@ -14962,6 +14972,7 @@
 				F58CA9531A5BE6E400988A61 /* BSearchFriendsController.m in Sources */,
 				A493C2641ADD0BB00056BD52 /* UIView+Size.m in Sources */,
 				A4C1416A1A4BEF5700C9BAB5 /* XHImageViewer.m in Sources */,
+				A4B5C3491B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */,
 				A493C3A61ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F55079091A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C21E1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
@@ -15532,6 +15543,7 @@
 				A493C2621ADD0BB00056BD52 /* UIView+Size.m in Sources */,
 				F5664A5F1A2AFD56008A5830 /* PinyinFormatter.m in Sources */,
 				F55079071A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
+				A4B5C3471B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */,
 				A493C3A41ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F57F31E21AA7F38900B8EF72 /* ShareFriendsController.m in Sources */,
 				A493C21C1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
@@ -16102,6 +16114,7 @@
 				F58CA9521A5BE6E400988A61 /* BSearchFriendsController.m in Sources */,
 				A493C2631ADD0BB00056BD52 /* UIView+Size.m in Sources */,
 				A4C141691A4BEF5700C9BAB5 /* XHImageViewer.m in Sources */,
+				A4B5C3481B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */,
 				A493C3A51ADD14A60056BD52 /* PeopleAddressBook.m in Sources */,
 				F55079081A80EA16009CE4F7 /* ProjectIndustryCell.m in Sources */,
 				A493C21D1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
@@ -16268,6 +16281,7 @@
 				A493C36B1ADD14A60056BD52 /* WLPhoto.m in Sources */,
 				A493C2881ADD0BB00056BD52 /* DKPredicate.m in Sources */,
 				F51484E41B09B28800970AFB /* HYBPageControl.m in Sources */,
+				A4B5C34A1B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */,
 				A493C28D1ADD0BB00056BD52 /* DKPredicateBuilder.m in Sources */,
 				A40515911AE61FE500A3CA3F /* IBaseModel.m in Sources */,
 				A49EA4831AFC5FE100017771 /* ActivityWebDetailInfoView.m in Sources */,

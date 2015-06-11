@@ -4,6 +4,8 @@
         <attribute name="activeid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="activeType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="canjoined" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="canjoinedmsg" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endtime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,6 +16,7 @@
         <attribute name="logo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shareurl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sorttype" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sponsor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -278,7 +281,7 @@
         <relationship name="rsLoginUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LogInUser" inverseName="rsTouTiaoInfos" inverseEntity="LogInUser" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityInfo" positionX="-1350" positionY="-387" width="128" height="328"/>
+        <element name="ActivityInfo" positionX="-1350" positionY="-387" width="128" height="375"/>
         <element name="BaseUser" positionX="-1566" positionY="-244" width="128" height="390"/>
         <element name="ChatMessage" positionX="-423" positionY="-549" width="128" height="510"/>
         <element name="CityInfo" positionX="-1359" positionY="-396" width="128" height="105"/>

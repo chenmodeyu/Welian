@@ -14,6 +14,9 @@
 #import "ShareFriendsController.h"
 #import "NavViewController.h"
 #import "PublishStatusController.h"
+#import "InvestCerVC.h"
+#import "CreateProjectController.h"
+#import "ActivityNoPayConfirmViewController.h"
 
 #import "MessageKeyboardView.h"
 #import "ActivityHeaderViewCell.h"
@@ -46,6 +49,7 @@
 @property (assign,nonatomic) UIButton *joinBtn;
 @property (assign,nonatomic) ActivityTicketView *activityTicketView;
 @property (strong,nonatomic) ActivityInfo *activityInfo;
+@property (strong,nonatomic) IActivityInfo *iActivityInfo;
 @property (strong,nonatomic) NSNumber *activityId;
 @property (strong,nonatomic) ActivityWebDetailInfoView *activityWebInfoView;
 @property (assign,nonatomic) UIView *operateToolView;
@@ -58,6 +62,7 @@
 {
     _datasource = nil;
     _activityInfo = nil;
+    _iActivityInfo = nil;
     _activityId = nil;
     _activityWebInfoView = nil;
     [KNSNotification removeObserver:self];
@@ -209,6 +214,7 @@
     operateToolView.backgroundColor = RGB(247.f, 247.f, 247.f);
     operateToolView.layer.borderColorFromUIColor = RGB(231.f, 231.f, 231.f);
     operateToolView.layer.borderWidths = @"{0.6,0,0,0}";
+    operateToolView.hidden = YES;
     [self.view addSubview:operateToolView];
     [self.view bringSubviewToFront:operateToolView];
     self.operateToolView = operateToolView;
@@ -253,7 +259,7 @@
         [self checkShareBtn];
     }else{
         //隐藏下方操作栏
-        _operateToolView.hidden = _activityInfo ? NO : YES;
+//        _operateToolView.hidden = _activityInfo ? NO : YES;
     }
     
     //获取详情信息
@@ -679,70 +685,142 @@
         default:
         {
             //还没开始
-            //1.已报名
-            if(_activityInfo.isjoined.boolValue){
-                //1收费，0免费
-                if (_activityInfo.type.integerValue == 0) {
-                    //取消报名
-                    [UIAlertView bk_showAlertViewWithTitle:@""
-                                                   message:@"是否取消当前活动的报名？"
-                                         cancelButtonTitle:@"否"
-                                         otherButtonTitles:@[@"是"]
-                                                   handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                                                       if (buttonIndex == 0) {
-                                                           return;
-                                                       }else{
-                                                           [self cancelActivityJoined];
-                                                       }
-                                                   }];
-                }else{
-                    //查看我的门票
-                    [self lookMyTicketsInfo];
-                }
-            }else{
-                //名额未满 //1收费，0免费
-                if(_activityInfo.type.integerValue == 0){
-                    //免费活动
-                    if(_activityInfo.limited.integerValue == 0){
-                        //不限人数，可以报名
-                        [self noPayToJoin];
-                    }else{
-                        if(_activityInfo.limited.integerValue > _activityInfo.joined.integerValue){
-                            //不限人数，可以报名
-                            [self noPayToJoin];
+            //canjoined;//0:可以报名，1：认证投资人才可以报名，2创业者可以报名(提交项目上传bp)
+            switch (_activityInfo.canjoined.integerValue) {
+                case 0:
+                {
+                    //1.已报名
+                    if(_activityInfo.isjoined.boolValue){
+                        //1收费，0免费
+                        if (_activityInfo.type.integerValue == 0) {
+                            //取消报名
+                            [UIAlertView bk_showAlertViewWithTitle:@""
+                                                           message:@"是否取消当前活动的报名？"
+                                                 cancelButtonTitle:@"否"
+                                                 otherButtonTitles:@[@"是"]
+                                                           handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                               if (buttonIndex == 0) {
+                                                                   return;
+                                                               }else{
+                                                                   [self cancelActivityJoined];
+                                                               }
+                                                           }];
                         }else{
-                            
+                            //查看我的门票
+                            [self lookMyTicketsInfo];
+                        }
+                    }else{
+                        //名额未满 //1收费，0免费
+                        if(_activityInfo.type.integerValue == 0){
+                            //免费活动
+                            if(_activityInfo.limited.integerValue == 0){
+                                [self noPayToJoin];
+                            }else{
+                                if(_activityInfo.limited.integerValue > _activityInfo.joined.integerValue){
+                                    //不限人数，可以报名
+                                    [self noPayToJoin];
+                                }else{
+                                    
+                                }
+                            }
+                        }else{
+                            //收费活动
+                            if(_activityInfo.limited.integerValue > 0){
+                                //我要购票
+                                [self loadActivityTickets];
+                            }else{
+                                
+                            }
                         }
                     }
-                }else{
-                    //收费活动
-                    if(_activityInfo.limited.integerValue > 0){
-                        //我要购票
-                        [self loadActivityTickets];
-                    }else{
-                        
-                    }
                 }
+                    break;
+                case 1:
+                {
+                    //1：认证投资人才可以报名 提示：该活动只对认证投资人开放 操作：取消、认证投资人
+                    [self goRenZhenInvestor];
+                }
+                    break;
+                case 2:
+                {
+                    //2创业者可以报名(提交项目上传bp)  提示：报名该活动需要有上传了BP的创业项目（上传BP请登录my.welian.com） 操作：取消、创建项目
+                    [self goCreateProject];
+                }
+                    break;
+                default:
+                    break;
             }
         }
             break;
     }
 }
 
-//免费报名
-- (void)noPayToJoin
+//认证投资人
+- (void)goRenZhenInvestor
 {
+    NSString *msg = _activityInfo.canjoinedmsg.length > 0 ? _activityInfo.canjoinedmsg : @"该活动只对认证投资人开放";
     [UIAlertView bk_showAlertViewWithTitle:@""
-                                   message:@"报名参加当前活动？"
+                                   message:msg
                          cancelButtonTitle:@"取消"
-                         otherButtonTitles:@[@"报名"]
+                         otherButtonTitles:@[@"认证投资人"]
+                                   handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                       if (buttonIndex == 0) {
+                                           return;
+                                       }else{
+                                           //认证投资人
+                                           InvestCerVC *investVC = [[InvestCerVC alloc] initWithStyle:UITableViewStyleGrouped];
+                                           [self.navigationController pushViewController:investVC animated:YES];
+                                       }
+                                   }];
+}
+
+//创建项目
+- (void)goCreateProject
+{
+    NSString *msg = _activityInfo.canjoinedmsg.length > 0 ? _activityInfo.canjoinedmsg : @"报名该活动需要有上传了BP的创业项目（上传BP请登录my.welian.com）";
+    [UIAlertView bk_showAlertViewWithTitle:@""
+                                   message:msg
+                         cancelButtonTitle:@"取消"
+                         otherButtonTitles:@[@"创建项目"]
                                    handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
                                        if (buttonIndex == 0) {
                                            return ;
                                        }else{
-                                           [self createActivityOrderWithType:0 Tickets:nil];
+                                           //创建项目
+                                           [self createProject];
                                        }
                                    }];
+}
+
+/**
+ *  创建项目
+ */
+- (void)createProject
+{
+    CreateProjectController *createProjectVC = [[CreateProjectController alloc] initIsEdit:NO withData:nil];
+    [self.navigationController pushViewController:createProjectVC animated:YES];
+}
+
+//免费报名
+- (void)noPayToJoin
+{
+    //不限人数，可以报名
+    if (_iActivityInfo.confs.count > 0) {
+        //进入确认页面
+        [self goConfirmBuyActivity];
+    }else{
+        [UIAlertView bk_showAlertViewWithTitle:@""
+                                       message:@"报名参加当前活动？"
+                             cancelButtonTitle:@"取消"
+                             otherButtonTitles:@[@"报名"]
+                                       handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                           if (buttonIndex == 0) {
+                                               return ;
+                                           }else{
+                                               [self createActivityOrderWithType:0 Tickets:nil];
+                                           }
+                                       }];
+    }
 }
 
 //创建订单进入购票页面
@@ -780,8 +858,9 @@
 //检测操作按钮状态
 - (void)checkOperateBtnStatus
 {
-    //0 还没开始，1进行中。2结束
     _joinBtn.backgroundColor = [UIColor lightGrayColor];
+    
+    //status 0 还没开始，1进行中。2结束
     switch (_activityInfo.status.integerValue) {
         case 1:
             //进行中
@@ -804,6 +883,7 @@
         default:
         {
             //还没开始
+            //0 可以报名
             //1.已报名
             if(_activityInfo.isjoined.boolValue){
                 //1收费，0免费
@@ -1001,6 +1081,7 @@
                                             [WLHUDView hiddenHud];
                                             
                                             IActivityInfo *iActivity = resultInfo;
+                                            self.iActivityInfo = iActivity;
                                             BOOL isFromList = _activityInfo != nil ? YES : NO;
                                             if (isFromList) {
                                                 self.activityInfo = [ActivityInfo updateActivityInfoWith:iActivity withType:_activityInfo.activeType];
@@ -1053,6 +1134,13 @@
                                    }];
 }
 
+//进入确认报名页面
+- (void)goConfirmBuyActivity
+{
+    ActivityNoPayConfirmViewController *noPayVC = [[ActivityNoPayConfirmViewController alloc] init];
+    [self.navigationController pushViewController:noPayVC animated:YES];
+}
+
 //创建活动报名   type: 0:免费 1：收费
 - (void)createActivityOrderWithType:(NSInteger)type Tickets:(NSArray *)tickets
 {
@@ -1063,31 +1151,38 @@
             [ticketsinfo addObject:@{@"ticketid":ticket.ticketid,@"count":ticket.buyCount}];
         }
     }
-    [WLHUDView showHUDWithStr:@"报名中..." dim:NO];
-    [WeLianClient orderActiveWithID:_activityId
-                            Tickets:ticketsinfo
-                            Success:^(id resultInfo) {
-                                [WLHUDView hiddenHud];
-                                
-                                if (type != 0) {
-                                    //付费
-                                    IActivityOrderResultModel *result = [IActivityOrderResultModel objectWithDict:resultInfo];
-                                    //进入订单页面
-                                    ActivityOrderInfoViewController *activityOrderInfoVC = [[ActivityOrderInfoViewController alloc] initWithActivityInfo:_activityInfo Tickets:tickets payInfo:result];
-                                    [self.navigationController pushViewController:activityOrderInfoVC animated:YES];
-                                }else{
-                                    //免费
-                                    [WLHUDView showSuccessHUD:@"恭喜您，报名成功！"];
-                                    //更页面
-                                    [self updateJoinedInfo:YES];
-                                }
-                            } Failed:^(NSError *error) {
-                                if (error) {
-                                    [WLHUDView showErrorHUD:error.localizedDescription];
-                                }else{
-                                    [WLHUDView showErrorHUD:@"报名失败，请重新尝试！"];
-                                }
-                            }];
+    //收费
+    if (_iActivityInfo.confs.count > 0 && type == 1) {
+        //直接进入确认支付页面
+        ActivityOrderInfoViewController *activityOrderInfoVC = [[ActivityOrderInfoViewController alloc] initWithIActivityInfo:_iActivityInfo Tickets:tickets OrderTickets:ticketsinfo payInfo:nil];
+        [self.navigationController pushViewController:activityOrderInfoVC animated:YES];
+    }else{
+        [WLHUDView showHUDWithStr:@"报名中..." dim:NO];
+        [WeLianClient orderActiveWithID:_activityId
+                                Tickets:ticketsinfo
+                                Success:^(id resultInfo) {
+                                    [WLHUDView hiddenHud];
+                                    
+                                    if (type != 0) {
+                                        //付费
+                                        IActivityOrderResultModel *result = [IActivityOrderResultModel objectWithDict:resultInfo];
+                                        //进入订单页面
+                                        ActivityOrderInfoViewController *activityOrderInfoVC = [[ActivityOrderInfoViewController alloc] initWithIActivityInfo:_iActivityInfo Tickets:tickets OrderTickets:ticketsinfo payInfo:result];
+                                        [self.navigationController pushViewController:activityOrderInfoVC animated:YES];
+                                    }else{
+                                        //免费
+                                        [WLHUDView showSuccessHUD:@"恭喜您，报名成功！"];
+                                        //更页面
+                                        [self updateJoinedInfo:YES];
+                                    }
+                                } Failed:^(NSError *error) {
+                                    if (error) {
+                                        [WLHUDView showErrorHUD:error.localizedDescription];
+                                    }else{
+                                        [WLHUDView showErrorHUD:@"报名失败，请重新尝试！"];
+                                    }
+                                }];
+    }
 }
 
 @end

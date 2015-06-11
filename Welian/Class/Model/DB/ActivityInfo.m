@@ -30,6 +30,9 @@
 @dynamic type;
 @dynamic sponsor;
 @dynamic activeType;
+@dynamic sorttype;
+@dynamic canjoined;
+@dynamic canjoinedmsg;
 @dynamic rsLoginUser;
 
 //创建活动
@@ -57,6 +60,9 @@
     activityInfo.type = iActivityInfo.type;
     activityInfo.sponsor = iActivityInfo.sponsors;
     activityInfo.activeType = activityType;
+    activityInfo.sorttype = iActivityInfo.sorttype;
+    activityInfo.canjoined = iActivityInfo.canjoined;
+    activityInfo.canjoinedmsg = iActivityInfo.canjoinedmsg;
     
     if (activityType != 0) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
@@ -94,6 +100,9 @@
     activityInfo.type = iActivityInfo.type;
     activityInfo.sponsor = iActivityInfo.sponsors;
     activityInfo.activeType = activityType;
+    activityInfo.sorttype = iActivityInfo.sorttype;
+    activityInfo.canjoined = iActivityInfo.canjoined;
+    activityInfo.canjoinedmsg = iActivityInfo.canjoinedmsg;
     
     if (activityType != 0) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
@@ -156,8 +165,13 @@
 //获取所有的普通的项目排序后数据
 + (NSArray *)allNormalActivityInfos
 {
+    //sorttype 0正常，1:new,2:hot  热门排在最前面、新的排在热门后面、其它的最后
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K != %@", @"activeType",@(0),@"status",@(2)];
     NSArray *nowArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:YES withPredicate:pre];
+    //按照是否热门排序
+    [nowArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[obj1 sorttype] integerValue] > [[obj2 sorttype] integerValue];
+    }];
     //0 还没开始，1进行中。2结束
     NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"activeType",@(0),@"status",@(2)];
     NSArray *endArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:NO withPredicate:pre1];
