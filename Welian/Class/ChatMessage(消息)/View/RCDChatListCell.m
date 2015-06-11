@@ -35,12 +35,12 @@
         _lblDetail = [UILabel new];
         [_lblDetail setFont:[UIFont systemFontOfSize:14.f]];
         [_lblDetail setTextColor:HEXCOLOR(0x8c8c8c)];
-        _lblDetail.text = [NSString stringWithFormat:@"来自%@的好友请求",_userName];
+        _lblDetail.text = [NSString stringWithFormat:@"自定义cell"];
         
         _lblName = [UILabel new];
         [_lblName setFont:[UIFont boldSystemFontOfSize:16.f]];
         [_lblName setTextColor:HEXCOLOR(0x252525)];
-        _lblName.text = @"好友消息";
+        _lblName.text = @"自定义cell";
         
         [self addSubview:_ivAva];
         [self addSubview:_lblDetail];
@@ -68,6 +68,11 @@
 
     }
     return self;
+}
+
+- (void)setDataModel:(RCConversationModel *)model
+{
+    DLog(@"%@",model);
 }
 
 @end

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "GexinSdk.h"
-//#import "Singleton.h"
 #import "MainViewController.h"
 #import "LoginGuideController.h"
 
