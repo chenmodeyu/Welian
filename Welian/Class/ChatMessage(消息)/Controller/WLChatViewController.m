@@ -10,6 +10,7 @@
 #import "ChatCell.h"
 #import "CustomMessageType.h"
 #import "UserInfoViewController.h"
+#import "BasicViewController.h"
 
 @interface WLChatViewController ()
 
@@ -22,20 +23,6 @@
     self = [super initWithConversationType:conversationType targetId:targetId];
     if (self) {
         [self registerClass:[ChatCell class] forCellWithReuseIdentifier:@"chatcell"];
-        
-        /**
-         *  设置头像样式,请在viewDidLoad之前调用
-         *
-         *  @param avatarStyle avatarStyle
-         */
-        //    - (void)setMessageAvatarStyle:(RCUserAvatarStyle)avatarStyle;
-        [self setMessageAvatarStyle:RC_USER_AVATAR_CYCLE];
-        /**
-         *  设置头像大小,请在viewDidLoad之前调用
-         *
-         *  @param size size
-         */
-        [self setMessagePortraitSize:CGSizeMake(10.f, 10.f)];
     }
     return self;
 }
@@ -43,22 +30,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    /**
-     *  设置头像样式,请在viewDidLoad之前调用
-     *
-     *  @param avatarStyle avatarStyle
-     */
-    //    - (void)setMessageAvatarStyle:(RCUserAvatarStyle)avatarStyle;
-    [self setMessageAvatarStyle:RC_USER_AVATAR_CYCLE];
-    /**
-     *  设置头像大小,请在viewDidLoad之前调用
-     *
-     *  @param size size
-     */
-    [self setMessagePortraitSize:CGSizeMake(10.f, 10.f)];
-    
-    [self registerClass:[ChatCell class] forCellWithReuseIdentifier:@"chatcell"];
-    //    - (void)setMessagePortraitSize:(CGSize)size;
+    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBarHidden = NO;
 }
 
 
@@ -67,33 +40,12 @@
     // Do any additional setup after loading the view.
     //是否允许保存新拍照片到本地系统
     self.enableSaveNewPhotoToLocalSystem = YES;
-    //    self.conversationMessageCollectionView.dataSource = self;
-    //    self.conversationMessageCollectionView.delegate = self;
-    //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-    //                                              initWithImage:[UIImage imageNamed:@"Setting"]
-    //                                              style:UIBarButtonItemStylePlain
-    //                                              target:self
-    //                                              action:@selector(rightBarButtonItemClicked:)];
-    
     [self notifyUpdateUnreadMessageCount];
     
-    /**
-     *  设置输入栏的样式 可以在viewdidload后，可以设置样式
-     *
-     *  @param style 样式
-     */
-    [self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType
-                                               style:RC_CHAT_INPUT_BAR_STYLE_SWITCH_CONTAINER_EXTENTION];
-    
-    /**
-     *  注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
-     *
-     *  @param messageClass   消息类型名称，对应的继承自 RCMessageContent 的消息类型。
-     */
-    
-    //    - (void)registerMessageType:(Class)messageClass;
-    [[RCIM sharedRCIM] registerMessageType:[CustomMessageType class]];
-    
+//    /**
+//     *  注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
+//     *  @param messageClass   消息类型名称，对应的继承自 RCMessageContent 的消息类型。
+//     */
     [self registerClass:[ChatCell class] forCellWithReuseIdentifier:@"chatcell"];
 }
 
@@ -104,12 +56,11 @@
  *  @param cell      cell
  *  @param indexPath indexPath
  */
-- (void)willDisplayConversationTableCell:(RCMessageBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    //是否显示昵称
-    cell.model.isDisplayNickname = YES;
-    [cell setDataModel:[self.conversationDataRepository objectAtIndex:indexPath.row]];
-}
+//- (void)willDisplayConversationTableCell:(RCMessageBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath
+//{
+//    //是否显示昵称
+////    [cell setDataModel:[self.conversationDataRepository objectAtIndex:indexPath.row]];
+//}
 
 //当编辑完扩展功能后，下一步就是要实现对扩展功能事件的处理，放开被注掉的函数
 - (void)pluginBoardView:(RCPluginBoardView *)pluginBoardView clickedItemWithTag:(NSInteger)tag{
@@ -251,36 +202,33 @@
  */
 - (void)didTapCellPortrait:(NSString *)userId
 {
-    DLog(@"didTapCellPortrait:%@",userId);
-    /**
-     *  获取用户信息。该方法sdk2.0弃用，我们建议您使用自己本地的方法获取
-     *
-     *  如果本地缓存中包含用户信息，则从本地缓存中直接获取，否则将访问融云服务器获取用户登录时注册的信息；<br/>
-     *  但如果该用户如果从来没有登录过融云服务器，返回的用户信息会为空值。
-     *
-     *  @param userId          用户 Id。
-     *  @param successBlock    调用完成的处理。
-     *  @param errorBlock      调用返回的错误信息。
-     */
-    [[RCIMClient sharedRCIMClient] getUserInfo:userId
-                                       success:^(RCUserInfo *userInfo) {
-                                           
-                                           DLog(@"---%@",[NSString stringWithFormat:@"name:%@,id:%@,url:%@",userInfo.name,userInfo.userId,userInfo.portraitUri]);
-                                       } error:^(RCErrorCode status) {
-                                           
-                                       }];
+    IBaseUserM *userMode = [[IBaseUserM alloc] init];
+    //自己发送
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
+    if (userId.integerValue == loginUser.uid.integerValue) {
+        userMode = [loginUser toIBaseUserModelInfo];
+    }else{
+        //好友头像
+        MyFriendUser *friendUser = [loginUser getMyfriendUserWithUid:@(userId.integerValue)];
+        userMode = [friendUser toIBaseUserModelInfo];
+    }
+    UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:userMode OperateType:userMode.friendship.integerValue == 1 ? @(10) : nil HidRightBtn:NO];
+    [self.navigationController pushViewController:userInfoVC animated:YES];
 }
 
 #pragma mark override
-/**
- *  长按消息内容
- *
- *  @param model 数据
- */
-- (void)didLongTouchMessageCell:(RCMessageModel *)model
-{
-    DLog(@"didLongTouchMessageCell:%@",model.content);
-}
+///**
+// *  长按消息内容
+// *
+// *  @param model 数据
+// */
+//- (void)didLongTouchMessageCell:(RCMessageModel *)model
+//{
+//    DLog(@"didLongTouchMessageCell:%@",model.content);
+//}
 
 #pragma mark override
 /**

@@ -122,7 +122,7 @@ static NSString *fridcellid = @"fridcellid";
 {
     [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [self scrollViewDidScroll:_tableView];
+//    [self scrollViewDidScroll:_tableView];
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 ////    self.navigationController.navigationBar.alpha = 1;  //调整navigation bar的透明度
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -182,9 +182,9 @@ static NSString *fridcellid = @"fridcellid";
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     //设置push到当前VC
-    self.isJoindThisVC = YES;
+//    self.isJoindThisVC = YES;
     
-    [self scrollViewDidScroll:_tableView];
+//    [self scrollViewDidScroll:_tableView];
     
     //取sqlite数据库用户信息
     [self updateLocalSqlUserInfo];
@@ -198,18 +198,18 @@ static NSString *fridcellid = @"fridcellid";
 //    }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat offsetY = scrollView.contentOffset.y + kHeaderBgImageHeight;
-    UIColor *color = kNavBgColor;
-//    DLog(@"scroll off Y---%f",offsetY);
-    if (offsetY > 80.f/2) {
-        CGFloat alpha = 1 - ((80.f/2 + 64 - offsetY) / 64);
-        self.navHeaderView.backgroundColor = [color colorWithAlphaComponent:alpha];
-    } else {
-        self.navHeaderView.backgroundColor = [color colorWithAlphaComponent:0];
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    CGFloat offsetY = scrollView.contentOffset.y + kHeaderBgImageHeight;
+//    UIColor *color = kNavBgColor;
+////    DLog(@"scroll off Y---%f",offsetY);
+//    if (offsetY > 80.f/2) {
+//        CGFloat alpha = 1 - ((80.f/2 + 64 - offsetY) / 64);
+//        self.navHeaderView.backgroundColor = [color colorWithAlphaComponent:alpha];
+//    } else {
+//        self.navHeaderView.backgroundColor = [color colorWithAlphaComponent:0];
+//    }
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

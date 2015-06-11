@@ -17,6 +17,8 @@
 #import "NSObject+MJKeyValue.h"
 #import "UIScrollView+VGParallaxHeader.h"
 
+#import "UINavigationController+FDFullscreenPopGesture.h"
+
 #pragma mark - Other
 #import "ACETelPrompt.h"
 #import "UIButton+WebCache.h"
