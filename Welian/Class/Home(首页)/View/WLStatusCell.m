@@ -62,6 +62,7 @@
         [_tuiUserLabel setTextColor:WLRGB(52, 116, 186)];
         _tuiUserLabel.font = WLFONT(13);
         [_tuiUserLabel setUnderLineForLink:NO];
+        [_tuiUserLabel setAutoDetectLinks:NO];
         [_tuiUserLabel setDelegate:self];
         _tuiUserLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_tuiUserLabel];

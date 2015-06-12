@@ -51,29 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/WLChatViewController.m"
-            timestampString = "455631026.209662"
+            filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/ChatListViewController.m"
+            timestampString = "455717016.688781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-pluginBoardView:clickedItemWithTag:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Welian/Class/Utils(&#x64cd;&#x4f5c;)/View&amp;Controller/Base/BasicViewController.m"
-            timestampString = "455686009.440324"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "-didReceiveMessageNotification:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

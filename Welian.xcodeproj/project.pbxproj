@@ -3422,6 +3422,10 @@
 		F5506FF21B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F5506FF01B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m */; };
 		F5506FF31B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F5506FF01B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m */; };
 		F5506FF41B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F5506FF01B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m */; };
+		F5506FFD1B29B02C002ACF5B /* ChatRoomListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5506FFC1B29B02C002ACF5B /* ChatRoomListController.m */; };
+		F5506FFE1B29B02C002ACF5B /* ChatRoomListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5506FFC1B29B02C002ACF5B /* ChatRoomListController.m */; };
+		F5506FFF1B29B02C002ACF5B /* ChatRoomListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5506FFC1B29B02C002ACF5B /* ChatRoomListController.m */; };
+		F55070001B29B02C002ACF5B /* ChatRoomListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5506FFC1B29B02C002ACF5B /* ChatRoomListController.m */; };
 		F55078781A7F1B2C009CE4F7 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F55078771A7F1B2C009CE4F7 /* TextFieldCell.m */; };
 		F55078791A7F1B2C009CE4F7 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F55078771A7F1B2C009CE4F7 /* TextFieldCell.m */; };
 		F550787A1A7F1B2C009CE4F7 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F55078771A7F1B2C009CE4F7 /* TextFieldCell.m */; };
@@ -6460,6 +6464,8 @@
 		F5472DB41A8DCE8E002C9B35 /* backItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backItem@2x.png"; sourceTree = "<group>"; };
 		F5506FEF1B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		F5506FF01B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		F5506FFB1B29B02C002ACF5B /* ChatRoomListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomListController.h; sourceTree = "<group>"; };
+		F5506FFC1B29B02C002ACF5B /* ChatRoomListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomListController.m; sourceTree = "<group>"; };
 		F55078761A7F1B2C009CE4F7 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		F55078771A7F1B2C009CE4F7 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
 		F550787C1A7F2BE0009CE4F7 /* CreateProjectFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProjectFootView.h; sourceTree = "<group>"; };
@@ -9581,6 +9587,8 @@
 				A46A28461ABD72F100BD5EA3 /* MessagesViewController.m */,
 				A4B5C2E21B27EDF400E0D396 /* ChatListViewController.h */,
 				A4B5C2E31B27EDF400E0D396 /* ChatListViewController.m */,
+				F5506FFB1B29B02C002ACF5B /* ChatRoomListController.h */,
+				F5506FFC1B29B02C002ACF5B /* ChatRoomListController.m */,
 				A4B5C2E91B27EF0500E0D396 /* WLChatViewController.h */,
 				A4B5C2EA1B27EF0500E0D396 /* WLChatViewController.m */,
 			);
@@ -14181,6 +14189,7 @@
 				A49C7C8E1A70D42700F2AEC5 /* MJPhotoLoadingView.m in Sources */,
 				A49C7C8F1A70D42700F2AEC5 /* NSString+XHDiskSizeTransfrom.m in Sources */,
 				F5C09E4A1B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				F55070001B29B02C002ACF5B /* ChatRoomListController.m in Sources */,
 				F50B62CF1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239D1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				A493C2571ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
@@ -14755,6 +14764,7 @@
 				A492354E1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C2551ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				F5C09E491B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				F5506FFF1B29B02C002ACF5B /* ChatRoomListController.m in Sources */,
 				F50B62CE1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239B1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				F53DC31D1A49192600F5F712 /* MJPhotoView.m in Sources */,
@@ -15329,6 +15339,7 @@
 				F5C779741A53935F0098BC29 /* InvestItemM.m in Sources */,
 				A493C2531ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				F5C09E471B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				F5506FFD1B29B02C002ACF5B /* ChatRoomListController.m in Sources */,
 				A4C140861A4BEA8500C9BAB5 /* UIView+XHBadgeView.m in Sources */,
 				F50B62CC1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A45923991B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
@@ -15903,6 +15914,7 @@
 				A492354D1ADE693A009E0B8C /* JKAssetsThumbnailView.m in Sources */,
 				A493C2541ADD0BB00056BD52 /* UIImage+FixOrientation.m in Sources */,
 				F5C09E481B26B2220068559A /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				F5506FFE1B29B02C002ACF5B /* ChatRoomListController.m in Sources */,
 				F50B62CD1B11F8FF002259B2 /* InvestorInfoHeadView.m in Sources */,
 				A459239A1B0D7CFB00715F06 /* ITouTiaoModel.m in Sources */,
 				F5664CAA1A2AFDD5008A5830 /* MJPhotoView.m in Sources */,

@@ -79,32 +79,11 @@ single_implementation(MainViewController)
                                          IGetNewFeedResultModel *newFeedModel = resultInfo;
                                          //保存数据
                                          [LogInUser setNewFeedCountInfo:newFeedModel];
-//                                         NSNumber *count = [resultInfo objectForKey:@"count"];
-//                                         NSNumber *activecount = [resultInfo objectForKey:@"activecount"];
-//                                         NSNumber *investorcount = [resultInfo objectForKey:@"investorcount"];
-//                                         NSNumber *projectcount = [resultInfo objectForKey:@"projectcount"];
-//                                         [LogInUser setUserNewstustcount:count];
-//                                         [LogInUser setUserActivecount:activecount];
-//                                         [LogInUser setUserInvestorcount:investorcount];
-//                                         [LogInUser setUserProjectcount:projectcount];
+
                                          [self updataItembadge];
                                      } Failed:^(NSError *error) {
                                          
                                      }];
-        
-//        [WLHttpTool loadNewFeedCountParameterDic:@{@"fid":mode.firststustid} success:^(id JSON) {
-//            NSNumber *count = [JSON objectForKey:@"count"];
-//            NSNumber *activecount = [JSON objectForKey:@"activecount"];
-//            NSNumber *investorcount = [JSON objectForKey:@"investorcount"];
-//            NSNumber *projectcount = [JSON objectForKey:@"projectcount"];
-//            [LogInUser setUserNewstustcount:count];
-//            [LogInUser setUserActivecount:activecount];
-//            [LogInUser setUserInvestorcount:investorcount];
-//            [LogInUser setUserProjectcount:projectcount];
-//            [self updataItembadge];
-//        } fail:^(NSError *error) {
-//            
-//        }];
     }
 }
 
@@ -247,7 +226,6 @@ single_implementation(MainViewController)
     UITabBarItem *ryItem = [self itemWithTitle:@"融云" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
     [ryMeeageNav setTabBarItem:ryItem];
     
-    
     //设置底部导航
     [self setViewControllers:@[homeNav,findNav,ryMeeageNav,meNav,chatMeeageNav]];
     [self.tabBar setSelectedImageTintColor:KBasesColor];
@@ -273,11 +251,7 @@ single_implementation(MainViewController)
                                              } Failed:^(NSError *error) {
                                                  
                                              }];
-//        [WLHttpTool saveProfileParameterDic:@{@"x":x,@"y":y} success:^(id JSON) {
-//            
-//        } fail:^(NSError *error) {
-//            
-//        }];
+
     }];
     
     //获取城市定位

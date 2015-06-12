@@ -27,14 +27,6 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-//    self.navigationController.navigationBar.hidden = NO;
-//    self.navigationController.navigationBarHidden = NO;
-}
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -222,7 +214,6 @@
 #pragma mark override
 ///**
 // *  长按消息内容
-// *
 // *  @param model 数据
 // */
 //- (void)didLongTouchMessageCell:(RCMessageModel *)model
@@ -274,17 +265,9 @@
     ChatCell *cell = [self.conversationMessageCollectionView dequeueReusableCellWithReuseIdentifier:@"chatcell" forIndexPath:indexPath];
     [cell setDebug:YES];
     RCMessageModel *model = self.conversationDataRepository[indexPath.row];
-    //    RCMessage *msg = [[RCMessage alloc] initWithType:ConversationType_CUSTOMERSERVICE
-    //                                            targetId:self.targetId
-    //                                           direction:MessageDirection_SEND
-    //                                           messageId:messageId
-    //                                             content:content];
-    //    RCMessageModel *msgModel = [[RCMessageModel alloc] initWithMessage:msg];
-    //    [self.conversationDataRepository addObject:msgModel];
-    //    cell.model = self.conversationDataRepository[indexPath.row];
+
     DLog(@"info:%@",[(CustomMessageType *)model.content content]);
     [cell setModel:model];
-    //    [cell updateStatusContentView:model];
     return cell;
 }
 

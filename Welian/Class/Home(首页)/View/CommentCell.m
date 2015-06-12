@@ -105,14 +105,6 @@
 - (void)tapiconImage:(UITapGestureRecognizer *)tap
 {
     IBaseUserM *mode = _commentCellFrame.commentM.user;
-    
-//    IBaseUserM *mode = [[IBaseUserM alloc] init];
-//    
-//    [mode setUid:user.uid];
-//    [mode setAvatar:user.avatar];
-//    [mode setName:user.name];
-//    UserInfoBasicVC *userinfoVC = [[UserInfoBasicVC alloc] initWithStyle:UITableViewStyleGrouped andUsermode:mode isAsk:NO];
-//    [self.commentVC.navigationController pushViewController:userinfoVC animated:YES];
     UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:mode OperateType:nil HidRightBtn:NO];
     [self.commentVC.navigationController pushViewController:userInfoVC animated:YES];
 }
@@ -150,6 +142,14 @@
         //最下面的线
         _bottomLineView.frame = CGRectMake(_nameLabel.left, commentCellFrame.cellHeight - 0.5, SuperSize.width - _nameLabel.left, 0.5);
     }
+}
+
+- (void)setShowBottomLine:(BOOL)showBottomLine
+{
+    _showBottomLine = showBottomLine;
+    //最下面的线
+    _bottomLineView.frame = CGRectMake(_nameLabel.left, _commentCellFrame.cellHeight - 0.5, SuperSize.width - _nameLabel.left, 0.5);
+    
 }
 
 - (NSString *)getCreated:(NSString *)created

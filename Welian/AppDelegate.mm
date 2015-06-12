@@ -31,7 +31,7 @@
 
 #define kDeviceToken @"RongCloud_SDK_DeviceToken"
 
-@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMReceiveMessageDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
+@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
      NSString *_upURL; // 更新地址
@@ -306,7 +306,7 @@ BMKMapManager* _mapManager;
     //状态监听
     [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
     //接收消息的监听器。如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。
-    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+//    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
     //聊天消息头像
     if (Iphone6plus) {
         [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(56, 56);
@@ -348,11 +348,19 @@ BMKMapManager* _mapManager;
         }];
     }
     
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(didReceiveMessageNotification:)
+//                                                 name:RCKitDispatchMessageNotification
+//                                               object:nil];
     //消息免通知，默认是NO
     //    [RCIM sharedRCIM].disableMessageNotificaiton = YES;
     //关闭新消息提示音，默认值是NO，新消息有提示音.
     //    [RCIM sharedRCIM].disableMessageAlertSound = YES;
 }
+
+//- (void)didReceiveMessageNotification:(NSNotification *)notification {
+//    [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber+1;
+//}
 
 /**
  *  获取用户信息。
@@ -388,25 +396,6 @@ BMKMapManager* _mapManager;
         
         return completion(user);
     }
-    
-//    if ([@"1" isEqual:userId]) {
-//        RCUserInfo *user = [[RCUserInfo alloc]init];
-//        user.userId = @"1";
-//        user.name = @"韩梅梅";
-//        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
-//        
-//        return completion(user);
-//    }
-//    
-//    if ([@"2" isEqual:userId]) {
-//        RCUserInfo *user = [[RCUserInfo alloc]init];
-//        user.userId = @"2";
-//        user.name = @"李雷";
-//        user.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
-//        
-//        return completion(user);
-//    }
-    
     return completion(nil);
 }
 
@@ -916,10 +905,10 @@ BMKMapManager* _mapManager;
  @param message 接收到的消息。
  @param left    剩余消息数.
  */
-- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
-{
-    NSLog(@"接收消息到消息后执行:%@",message);
-}
+//- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
+//{
+//    NSLog(@"接收消息到消息后执行:%@",message);
+//}
 
 //获取聊天消息记录 和好友请求消息
 - (void)getServiceChatMsgInfo
