@@ -554,6 +554,7 @@
 //报名，购票
 + (void)orderActiveWithID:(NSNumber *)activeid
                   Tickets:(NSArray *)tickets
+                    Confs:(NSArray *)confs
                   Success:(SuccessBlock)success
                    Failed:(FailedBlock)failed;
 

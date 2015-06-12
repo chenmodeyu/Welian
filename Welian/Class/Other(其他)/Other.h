@@ -17,7 +17,7 @@
 #import "NSObject+MJKeyValue.h"
 #import "UIScrollView+VGParallaxHeader.h"
 
-#import "UINavigationController+FDFullscreenPopGesture.h"
+//#import "UINavigationController+FDFullscreenPopGesture.h"
 
 #pragma mark - Other
 #import "ACETelPrompt.h"
@@ -27,6 +27,7 @@
 #import "LocationTool.h"
 #import "MJRefresh.h"
 #import "CExpandHeader.h"
+#import "DaiDodgeKeyboard.h"
 
 #import <BlocksKit/BlocksKit.h>
 #import <BlocksKit/BlocksKit+UIKit.h>

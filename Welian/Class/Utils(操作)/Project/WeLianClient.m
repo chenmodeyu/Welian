@@ -1849,17 +1849,29 @@
 //报名，购票
 + (void)orderActiveWithID:(NSNumber *)activeid
                   Tickets:(NSArray *)tickets
+                    Confs:(NSArray *)confs
                   Success:(SuccessBlock)success
                    Failed:(FailedBlock)failed
 {
     NSDictionary *params = [NSDictionary dictionary];
     if (tickets.count > 0) {
         //1：收费
-        params = @{@"activeid":activeid,
-                   @"tickets":tickets};
+        if (confs.count > 0) {
+            params = @{@"activeid":activeid,
+                       @"tickets":tickets,
+                       @"confs":confs};//收集信息的内容
+        }else{
+            params = @{@"activeid":activeid,
+                       @"tickets":tickets};
+        }
     }else{
         //0:免费
-        params = @{@"activeid":activeid};
+        if (confs.count > 0) {
+            params = @{@"activeid":activeid,
+                       @"confs":confs};//收集信息的内容
+        }else{
+            params = @{@"activeid":activeid};
+        }
     }
 
     [self reqestPostWithParams:params

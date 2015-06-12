@@ -25,6 +25,7 @@
 {
     _address = nil;
     _city = nil;
+    _searcher.delegate = self;
     _searcher = nil;
     _mapView = nil;
 //    _locService = nil;
@@ -61,7 +62,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    _searcher.delegate = nil;
+//    _searcher.delegate = nil;
     [WLHUDView hiddenHud];
 }
 

@@ -10,4 +10,6 @@
 
 @interface ActivityNoPayConfirmViewController : BasicViewController
 
+- (instancetype)initWithIActivityInfo:(IActivityInfo *)iActivityInfo;
+
 @end

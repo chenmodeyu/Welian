@@ -1137,7 +1137,7 @@
 //进入确认报名页面
 - (void)goConfirmBuyActivity
 {
-    ActivityNoPayConfirmViewController *noPayVC = [[ActivityNoPayConfirmViewController alloc] init];
+    ActivityNoPayConfirmViewController *noPayVC = [[ActivityNoPayConfirmViewController alloc] initWithIActivityInfo:_iActivityInfo];
     [self.navigationController pushViewController:noPayVC animated:YES];
 }
 
@@ -1152,36 +1152,42 @@
         }
     }
     //收费
-    if (_iActivityInfo.confs.count > 0 && type == 1) {
+    if(type == 1){
         //直接进入确认支付页面
         ActivityOrderInfoViewController *activityOrderInfoVC = [[ActivityOrderInfoViewController alloc] initWithIActivityInfo:_iActivityInfo Tickets:tickets OrderTickets:ticketsinfo payInfo:nil];
         [self.navigationController pushViewController:activityOrderInfoVC animated:YES];
     }else{
-        [WLHUDView showHUDWithStr:@"报名中..." dim:NO];
-        [WeLianClient orderActiveWithID:_activityId
-                                Tickets:ticketsinfo
-                                Success:^(id resultInfo) {
-                                    [WLHUDView hiddenHud];
-                                    
-                                    if (type != 0) {
-                                        //付费
-                                        IActivityOrderResultModel *result = [IActivityOrderResultModel objectWithDict:resultInfo];
-                                        //进入订单页面
-                                        ActivityOrderInfoViewController *activityOrderInfoVC = [[ActivityOrderInfoViewController alloc] initWithIActivityInfo:_iActivityInfo Tickets:tickets OrderTickets:ticketsinfo payInfo:result];
-                                        [self.navigationController pushViewController:activityOrderInfoVC animated:YES];
-                                    }else{
+        //免费
+        if (type == 0) {
+            //不需要额外填写信息 直接报名
+            [WLHUDView showHUDWithStr:@"报名中..." dim:NO];
+            [WeLianClient orderActiveWithID:_activityId
+                                    Tickets:ticketsinfo
+                                      Confs:[NSArray array]
+                                    Success:^(id resultInfo) {
+                                        [WLHUDView hiddenHud];
+                                        
+//                                        if (type != 0) {
+//                                            //付费
+//                                            IActivityOrderResultModel *result = [IActivityOrderResultModel objectWithDict:resultInfo];
+//                                            //进入订单页面
+//                                            ActivityOrderInfoViewController *activityOrderInfoVC = [[ActivityOrderInfoViewController alloc] initWithIActivityInfo:_iActivityInfo Tickets:tickets OrderTickets:ticketsinfo payInfo:result];
+//                                            [self.navigationController pushViewController:activityOrderInfoVC animated:YES];
+//                                        }else{
+//                                            
+//                                        }
                                         //免费
-                                        [WLHUDView showSuccessHUD:@"恭喜您，报名成功！"];
+                                        [WLHUDView showSuccessHUD:@"恭喜您，活动报名成功！"];
                                         //更页面
                                         [self updateJoinedInfo:YES];
-                                    }
-                                } Failed:^(NSError *error) {
-                                    if (error) {
-                                        [WLHUDView showErrorHUD:error.localizedDescription];
-                                    }else{
-                                        [WLHUDView showErrorHUD:@"报名失败，请重新尝试！"];
-                                    }
-                                }];
+                                    } Failed:^(NSError *error) {
+                                        if (error) {
+                                            [WLHUDView showErrorHUD:error.localizedDescription];
+                                        }else{
+                                            [WLHUDView showErrorHUD:@"报名失败，请重新尝试！"];
+                                        }
+                                    }];
+        }
     }
 }
 

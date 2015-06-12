@@ -2064,6 +2064,16 @@
 		A4A888BE1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */; };
 		A4A888BF1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */; };
 		A4A888C01AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */; };
+		A4AB97351B2961E50078384E /* WLQuestionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB97341B2961E50078384E /* WLQuestionTextView.m */; };
+		A4AB97361B2961E50078384E /* WLQuestionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB97341B2961E50078384E /* WLQuestionTextView.m */; };
+		A4AB97371B2961E50078384E /* WLQuestionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB97341B2961E50078384E /* WLQuestionTextView.m */; };
+		A4AB97381B2961E50078384E /* WLQuestionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB97341B2961E50078384E /* WLQuestionTextView.m */; };
+		A4AB97391B2961E50078384E /* WLQuestionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB97341B2961E50078384E /* WLQuestionTextView.m */; };
+		A4AB973C1B2971190078384E /* ActivityQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB973B1B2971190078384E /* ActivityQuestionView.m */; };
+		A4AB973D1B2971190078384E /* ActivityQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB973B1B2971190078384E /* ActivityQuestionView.m */; };
+		A4AB973E1B2971190078384E /* ActivityQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB973B1B2971190078384E /* ActivityQuestionView.m */; };
+		A4AB973F1B2971190078384E /* ActivityQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB973B1B2971190078384E /* ActivityQuestionView.m */; };
+		A4AB97401B2971190078384E /* ActivityQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB973B1B2971190078384E /* ActivityQuestionView.m */; };
 		A4B07C181B12D09D008A3702 /* IProjectBPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B07C171B12D09D008A3702 /* IProjectBPModel.m */; };
 		A4B07C191B12D09D008A3702 /* IProjectBPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B07C171B12D09D008A3702 /* IProjectBPModel.m */; };
 		A4B07C1A1B12D09D008A3702 /* IProjectBPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B07C171B12D09D008A3702 /* IProjectBPModel.m */; };
@@ -5801,6 +5811,10 @@
 		A4A57EC41B15634C00AE10CD /* touziren_detail_already@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touziren_detail_already@2x.png"; sourceTree = "<group>"; };
 		A4A888B71AB02BFD00588436 /* weChatBubble_Sending_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Sending_Card@2x.png"; sourceTree = "<group>"; };
 		A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Receiving_Card@2x.png"; sourceTree = "<group>"; };
+		A4AB97331B2961E50078384E /* WLQuestionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLQuestionTextView.h; sourceTree = "<group>"; };
+		A4AB97341B2961E50078384E /* WLQuestionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLQuestionTextView.m; sourceTree = "<group>"; };
+		A4AB973A1B2971190078384E /* ActivityQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityQuestionView.h; sourceTree = "<group>"; };
+		A4AB973B1B2971190078384E /* ActivityQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityQuestionView.m; sourceTree = "<group>"; };
 		A4B07C161B12D09D008A3702 /* IProjectBPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IProjectBPModel.h; sourceTree = "<group>"; };
 		A4B07C171B12D09D008A3702 /* IProjectBPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IProjectBPModel.m; sourceTree = "<group>"; };
 		A4B07C2F1B12FBF0008A3702 /* xiangmu_list_funnel_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangmu_list_funnel_big@2x.png"; sourceTree = "<group>"; };
@@ -7727,6 +7741,8 @@
 				A49EA47F1AFC5FE100017771 /* ActivityWebDetailInfoView.m */,
 				A48173A41B01D639001346B8 /* ActivityHeaderViewCell.h */,
 				A48173A51B01D639001346B8 /* ActivityHeaderViewCell.m */,
+				A4AB973A1B2971190078384E /* ActivityQuestionView.h */,
+				A4AB973B1B2971190078384E /* ActivityQuestionView.m */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -8255,6 +8271,8 @@
 				A493C21B1ADD0BB00056BD52 /* WLNoteInfoView.m */,
 				A4948E941B0C7A1200BA6258 /* NoteTableViewCell.h */,
 				A4948E951B0C7A1200BA6258 /* NoteTableViewCell.m */,
+				A4AB97331B2961E50078384E /* WLQuestionTextView.h */,
+				A4AB97341B2961E50078384E /* WLQuestionTextView.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -14393,6 +14411,7 @@
 				F5CA5C081AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				F5506FF41B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				A49C7D281A70D42700F2AEC5 /* AddFriendViewController.m in Sources */,
+				A4AB97401B2971190078384E /* ActivityQuestionView.m in Sources */,
 				F5C09E761B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
 				A49C7D291A70D42700F2AEC5 /* AddFriendsController.m in Sources */,
 				A4B5C2EF1B27EF0500E0D396 /* WLChatViewController.m in Sources */,
@@ -14969,6 +14988,7 @@
 				F5CA5C071AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				F5506FF31B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				A47C5F501A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
+				A4AB973E1B2971190078384E /* ActivityQuestionView.m in Sources */,
 				F5C09E751B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
 				A492357B1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				A4B5C2ED1B27EF0500E0D396 /* WLChatViewController.m in Sources */,
@@ -15545,6 +15565,7 @@
 				F5664A491A2AFD56008A5830 /* NSData+ImageContentType.m in Sources */,
 				F5506FF11B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				F5CA5C051AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
+				A4AB973C1B2971190078384E /* ActivityQuestionView.m in Sources */,
 				F5C09E731B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
 				A47C5F4E1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				A4B5C2EB1B27EF0500E0D396 /* WLChatViewController.m in Sources */,
@@ -16121,6 +16142,7 @@
 				F5CA5C061AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				F5506FF21B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				A47C5F4F1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
+				A4AB973D1B2971190078384E /* ActivityQuestionView.m in Sources */,
 				F5C09E741B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
 				A492357A1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				A4B5C2EC1B27EF0500E0D396 /* WLChatViewController.m in Sources */,
@@ -16271,6 +16293,7 @@
 				A45923A31B0D82C200715F06 /* ProjectInfoViewCell.m in Sources */,
 				A47095721ADD252600329050 /* NavViewController.m in Sources */,
 				A493C3431ADD14A60056BD52 /* FeedAndZanFrameM.m in Sources */,
+				A4AB973F1B2971190078384E /* ActivityQuestionView.m in Sources */,
 				A493C1D01ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
 				A40515991AE777E300A3CA3F /* ILoginUserModel.m in Sources */,
 				A493C2971ADD0BB00056BD52 /* NSManagedObject+ManagedObjectQuery.m in Sources */,
@@ -16347,6 +16370,7 @@
 				A48845F71B0B10860053B92F /* NewsListViewController.m in Sources */,
 				A493C3981ADD14A60056BD52 /* FriendsUserModel.m in Sources */,
 				A493C36B1ADD14A60056BD52 /* WLPhoto.m in Sources */,
+				A4AB97381B2961E50078384E /* WLQuestionTextView.m in Sources */,
 				A493C2881ADD0BB00056BD52 /* DKPredicate.m in Sources */,
 				F51484E41B09B28800970AFB /* HYBPageControl.m in Sources */,
 				A4B5C34A1B28581900E0D396 /* ActivityNoPayConfirmViewController.m in Sources */,

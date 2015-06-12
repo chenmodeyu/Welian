@@ -165,13 +165,26 @@
 //获取所有的普通的项目排序后数据
 + (NSArray *)allNormalActivityInfos
 {
-    //sorttype 0正常，1:new,2:hot  热门排在最前面、新的排在热门后面、其它的最后
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K != %@", @"activeType",@(0),@"status",@(2)];
-    NSArray *nowArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:YES withPredicate:pre];
     //按照是否热门排序
-    [nowArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [[obj1 sorttype] integerValue] > [[obj2 sorttype] integerValue];
-    }];
+    //    [hotArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    //        return [[obj1 sorttype] integerValue] > [[obj2 sorttype] integerValue];
+    //    }];
+    NSMutableArray *nowArray = [NSMutableArray array];
+    //sorttype 0正常，1:new,2:hot  热门排在最前面、新的排在热门后面、其它的最后
+    NSPredicate *hotPre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != %@",@"activeType",@(0),@"sorttype",@(2),@"status",@(2)];
+    NSArray *hotArray = [ActivityInfo MR_findAllSortedBy:@"startime:YES,activeid" ascending:NO withPredicate:hotPre];
+    [nowArray addObjectsFromArray:hotArray];
+    
+    //新的
+    NSPredicate *newPre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != %@",@"activeType",@(0), @"sorttype",@(1),@"status",@(2)];
+    NSArray *newArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:YES withPredicate:newPre];
+    [nowArray addObjectsFromArray:newArray];
+    
+    //普通
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@ && %K != %@",@"sorttype",@(0),@"activeType",@(0),@"status",@(2)];
+    NSArray *normalArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:YES withPredicate:pre];
+    [nowArray addObjectsFromArray:normalArray];
+    
     //0 还没开始，1进行中。2结束
     NSPredicate *pre1 = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"activeType",@(0),@"status",@(2)];
     NSArray *endArray = [ActivityInfo MR_findAllSortedBy:@"startime" ascending:NO withPredicate:pre1];
