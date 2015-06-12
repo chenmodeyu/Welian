@@ -1177,7 +1177,7 @@
 //                                            
 //                                        }
                                         //免费
-                                        [WLHUDView showSuccessHUD:@"恭喜您，报名成功！"];
+                                        [WLHUDView showSuccessHUD:@"恭喜您，活动报名成功！"];
                                         //更页面
                                         [self updateJoinedInfo:YES];
                                     } Failed:^(NSError *error) {

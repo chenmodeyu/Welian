@@ -86,7 +86,7 @@
     mainView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:mainView];
     mainView.contentSize = mainView.bounds.size;
-    [mainView setDebug:YES];
+//    [mainView setDebug:YES];
     
     ActivityQuestionView *questionView = [[ActivityQuestionView alloc] initWithQuestions:_iActivityInfo.confs];
     questionView.frame = CGRectMake(0.f, 20.f, mainView.width, [ActivityQuestionView configureQuestionViewHeight:_iActivityInfo.confs]);
@@ -140,10 +140,9 @@
                                   Confs:_questInfos
                                 Success:^(id resultInfo) {
                                     [WLHUDView hiddenHud];
+                                    [self joinSuccess];
                                     //免费
-                                    [WLHUDView showSuccessHUD:@"恭喜您，报名成功！"];
-                                    //更新报名成功
-                                    [KNSNotification postNotificationName:kNeedReloadActivityUI object:nil];
+//                                    [WLHUDView showSuccessHUD:@"恭喜您，报名成功！"];
                                 } Failed:^(NSError *error) {
                                     if (error) {
                                         [WLHUDView showErrorHUD:error.localizedDescription];
@@ -152,6 +151,19 @@
                                     }
                                 }];
     }
+}
+
+- (void)joinSuccess
+{
+    //更新报名成功
+    [KNSNotification postNotificationName:kNeedReloadActivityUI object:nil];
+    [UIAlertView bk_showAlertViewWithTitle:@""
+                                   message:@"恭喜您，活动报名成功！"
+                         cancelButtonTitle:@"知道了"
+                         otherButtonTitles:nil
+                                   handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                       [self.navigationController popViewControllerAnimated:YES];
+                                   }];
 }
 
 @end
