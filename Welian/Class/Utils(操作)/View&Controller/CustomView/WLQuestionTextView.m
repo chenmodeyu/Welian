@@ -76,6 +76,9 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:)
                                                 name:UITextFieldTextDidChangeNotification
                                               object:answerTF];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:)
+                                                name:UITextFieldTextDidEndEditingNotification
+                                              object:answerTF];
 }
 
 - (void)textFiledEditChanged:(NSNotification *)obj{

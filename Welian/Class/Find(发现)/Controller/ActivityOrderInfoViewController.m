@@ -18,7 +18,7 @@
 #define kMarginEdge 8.f
 #define kMarginLeft 15.f
 #define kTotalPriceViewHeight 58.f
-#define kTableViewBottomHeight 180.f
+#define kTableViewBottomHeight 200.f
 #define kTableViewCellHeight 30.f
 #define kCenterTitleViewHeight 40.f
 
@@ -148,8 +148,9 @@
     
     //底部内容
     CGFloat questHeight = [ActivityQuestionView configureQuestionViewHeight:_iActivityInfo.confs];
-    CGFloat footerHeight = kTableViewBottomHeight + (_payInfo ? questHeight + kCenterTitleViewHeight : 0);
+    CGFloat footerHeight = kTableViewBottomHeight + (_iActivityInfo.confs.count > 0 ? questHeight + kCenterTitleViewHeight : 0);
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width,footerHeight)];
+//    [footerView setDebug:YES];
     
     UIView *totalInfoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, footerView.width, kTotalPriceViewHeight)];
     totalInfoView.backgroundColor = [UIColor whiteColor];
@@ -240,6 +241,7 @@
         UITapGestureRecognizer *tap = [UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
             [[self.view findFirstResponder] resignFirstResponder];
         }];
+//        tap.delegate = self;
         [self.view addGestureRecognizer:tap];
         
         //默认不能点击
@@ -296,6 +298,17 @@
 {
     return kTableViewCellHeight;
 }
+
+//#pragma mark - UIGestureRecognizerDelegate
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+//    
+//    DLog(@"touch.view：%@",[touch.view class]);
+//    ///UITableViewWrapperView
+//    if ([[NSString stringWithFormat:@"%@",[touch.view class]] isEqualToString:@"UITableViewWrapperView"]) {
+//        return NO;
+//    }
+//    return YES;
+//}
 
 #pragma mark - Private
 //获取订单详情
@@ -362,7 +375,7 @@
                                           Confs:_questInfos
                                         Success:^(id resultInfo) {
                                             [WLHUDView hiddenHud];
-                                            self.payInfo = resultInfo;
+                                            self.payInfo = [IActivityOrderResultModel objectWithDict:resultInfo];;
                                             
                                             //金额为0 直接修改订单状态
                                             [self updateOrderSucess];
@@ -392,7 +405,7 @@
                                       Confs:_questInfos
                                     Success:^(id resultInfo) {
                                         [WLHUDView hiddenHud];
-                                        self.payInfo = resultInfo;
+                                        self.payInfo = [IActivityOrderResultModel objectWithDict:resultInfo];
                                         
                                         [self payByAlipay];
                                     } Failed:^(NSError *error) {

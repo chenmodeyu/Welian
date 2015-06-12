@@ -101,7 +101,9 @@
             [postInfos addObject:@{@"field":[_questions[i] field],
                                    @"value":questionTV.answerTF.text}];
         }else{
+            //如果存在一个为空就退出
             canJoin = NO;
+            break;
         }
     }
     if (_checkBlock) {
