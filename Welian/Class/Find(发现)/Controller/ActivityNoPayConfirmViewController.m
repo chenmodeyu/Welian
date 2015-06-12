@@ -133,23 +133,25 @@
 //报名
 - (void)confirmBtnClicked:(UIButton *)sender
 {
-    [WLHUDView showHUDWithStr:@"报名中..." dim:NO];
-    [WeLianClient orderActiveWithID:_iActivityInfo.activeid
-                            Tickets:[NSArray array]
-                              Confs:_questInfos
-                            Success:^(id resultInfo) {
-                                [WLHUDView hiddenHud];
-                                //免费
-                                [WLHUDView showSuccessHUD:@"恭喜您，报名成功！"];
-                                //更新报名成功
-                                [KNSNotification postNotificationName:kNeedReloadActivityUI object:nil];
-                            } Failed:^(NSError *error) {
-                                if (error) {
-                                    [WLHUDView showErrorHUD:error.localizedDescription];
-                                }else{
-                                    [WLHUDView showErrorHUD:@"报名失败，请重新尝试！"];
-                                }
-                            }];
+    if (_questInfos.count == _iActivityInfo.confs.count){
+        [WLHUDView showHUDWithStr:@"报名中..." dim:NO];
+        [WeLianClient orderActiveWithID:_iActivityInfo.activeid
+                                Tickets:[NSArray array]
+                                  Confs:_questInfos
+                                Success:^(id resultInfo) {
+                                    [WLHUDView hiddenHud];
+                                    //免费
+                                    [WLHUDView showSuccessHUD:@"恭喜您，报名成功！"];
+                                    //更新报名成功
+                                    [KNSNotification postNotificationName:kNeedReloadActivityUI object:nil];
+                                } Failed:^(NSError *error) {
+                                    if (error) {
+                                        [WLHUDView showErrorHUD:error.localizedDescription];
+                                    }else{
+                                        [WLHUDView showErrorHUD:@"报名失败，请重新尝试！"];
+                                    }
+                                }];
+    }
 }
 
 @end
