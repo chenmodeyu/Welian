@@ -370,6 +370,9 @@
                                                 activityInfo.type = iActivityInfo.type;
                                                 activityInfo.sponsor = iActivityInfo.sponsors;
                                                 activityInfo.activeType = @(0);
+                                                activityInfo.sorttype = iActivityInfo.sorttype;
+                                                activityInfo.canjoined = iActivityInfo.canjoined;
+                                                activityInfo.canjoinedmsg = iActivityInfo.canjoinedmsg;
                                             }
                                         } completion:^(BOOL contextDidSave, NSError *error) {
                                             [self updateDataAndUIWithResultInfo:resultInfo];

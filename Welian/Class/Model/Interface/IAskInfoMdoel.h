@@ -11,7 +11,7 @@
 @interface IAskInfoMdoel : IFBase
 
 @property (nonatomic,strong) NSNumber *confid;//id 排序
-@property (nonatomic,strong) NSNumber *title;//问题标题
+@property (nonatomic,strong) NSString *title;//问题标题
 @property (nonatomic,strong) NSString *field;//返回的参数名
 
 @end

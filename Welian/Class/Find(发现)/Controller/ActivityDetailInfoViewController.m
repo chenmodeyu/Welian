@@ -815,7 +815,9 @@
                              otherButtonTitles:@[@"报名"]
                                        handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
                                            if (buttonIndex == 0) {
-                                               return ;
+//                                               return ;
+                                               //进入确认页面
+                                               [self goConfirmBuyActivity];
                                            }else{
                                                [self createActivityOrderWithType:0 Tickets:nil];
                                            }
@@ -1137,7 +1139,7 @@
 //进入确认报名页面
 - (void)goConfirmBuyActivity
 {
-    ActivityNoPayConfirmViewController *noPayVC = [[ActivityNoPayConfirmViewController alloc] init];
+    ActivityNoPayConfirmViewController *noPayVC = [[ActivityNoPayConfirmViewController alloc] initWithIActivityInfo:_iActivityInfo];
     [self.navigationController pushViewController:noPayVC animated:YES];
 }
 
@@ -1152,6 +1154,10 @@
         }
     }
     //收费
+    //直接进入确认支付页面
+//    ActivityOrderInfoViewController *activityOrderInfoVC = [[ActivityOrderInfoViewController alloc] initWithIActivityInfo:_iActivityInfo Tickets:tickets OrderTickets:ticketsinfo payInfo:nil];
+//    [self.navigationController pushViewController:activityOrderInfoVC animated:YES];
+    
     if (_iActivityInfo.confs.count > 0 && type == 1) {
         //直接进入确认支付页面
         ActivityOrderInfoViewController *activityOrderInfoVC = [[ActivityOrderInfoViewController alloc] initWithIActivityInfo:_iActivityInfo Tickets:tickets OrderTickets:ticketsinfo payInfo:nil];
@@ -1160,6 +1166,7 @@
         [WLHUDView showHUDWithStr:@"报名中..." dim:NO];
         [WeLianClient orderActiveWithID:_activityId
                                 Tickets:ticketsinfo
+                                  Confs:[NSArray array]
                                 Success:^(id resultInfo) {
                                     [WLHUDView hiddenHud];
                                     

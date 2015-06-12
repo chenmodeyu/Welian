@@ -13,12 +13,14 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "Order.h"
 #import "DataSigner.h"
+#import "ActivityQuestionView.h"
 
 #define kMarginEdge 8.f
 #define kMarginLeft 15.f
 #define kTotalPriceViewHeight 58.f
-#define kTableViewBottomHeight 150.f
+#define kTableViewBottomHeight 180.f
 #define kTableViewCellHeight 30.f
+#define kCenterTitleViewHeight 40.f
 
 
 @interface ActivityOrderInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -27,6 +29,8 @@
 @property (strong,nonatomic) NSArray *tickets;
 @property (strong,nonatomic) NSArray *orderTickets;
 @property (strong,nonatomic) IActivityOrderResultModel *payInfo;
+@property (strong,nonatomic) NSArray *questInfos;
+@property (assign,nonatomic) UIButton *payBtn;
 
 @end
 
@@ -59,6 +63,20 @@
         [KNSNotification addObserver:self selector:@selector(updateOrderSucess) name:kAlipayPaySuccess object:nil];
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //注册键盘
+    [DaiDodgeKeyboard addRegisterTheViewNeedDodgeKeyboard:self.view];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    //移除監控
+    [DaiDodgeKeyboard removeRegisterTheViewNeedDodgeKeyboard];
 }
 
 - (void)viewDidLoad {
@@ -111,8 +129,27 @@
     
     tableView.tableHeaderView = headerView;
     
+//    IAskInfoMdoel *askInfo1 = [[IAskInfoMdoel alloc] init];
+//    askInfo1.confid = @(1);
+//    askInfo1.title = @"邮箱";
+//    askInfo1.field = @"field1";
+//    
+//    IAskInfoMdoel *askInfo2 = [[IAskInfoMdoel alloc] init];
+//    askInfo2.confid = @(2);
+//    askInfo2.title = @"为什么要参加这个活动？";
+//    askInfo2.field = @"field2";
+//    
+//    IAskInfoMdoel *askInfo3 = [[IAskInfoMdoel alloc] init];
+//    askInfo3.confid = @(1);
+//    askInfo3.title = @"为什么要参加这个活动？";
+//    askInfo3.field = @"field3";
+//    NSArray *datasources = @[askInfo1,askInfo2,askInfo3];
+    
+    
     //底部内容
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, kTableViewBottomHeight)];
+    CGFloat questHeight = [ActivityQuestionView configureQuestionViewHeight:_iActivityInfo.confs];
+    CGFloat footerHeight = kTableViewBottomHeight + (_payInfo ? questHeight + kCenterTitleViewHeight : 0);
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width,footerHeight)];
     
     UIView *totalInfoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, footerView.width, kTotalPriceViewHeight)];
     totalInfoView.backgroundColor = [UIColor whiteColor];
@@ -150,9 +187,64 @@
     UIButton *payBtn = [UIView getBtnWithTitle:@"确认支付" image:nil];
     payBtn.frame = CGRectMake(kMarginLeft, contentImageView.bottom + 50.f, footerView.width - kMarginLeft * 2.f, 45.f);
     [payBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [payBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
     payBtn.backgroundColor = KBlueTextColor;
     [payBtn addTarget:self action:@selector(payBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [footerView addSubview:payBtn];
+    self.payBtn = payBtn;
+    
+    if (_iActivityInfo.confs.count > 0) {
+        //标题
+        UIView *centerView = [[UIView alloc] initWithFrame:CGRectMake(0.f, contentImageView.bottom, footerView.width, kCenterTitleViewHeight)];
+        centerView.backgroundColor = [UIColor clearColor];
+        [footerView addSubview:centerView];
+        
+        //标题
+        UILabel *titleLabel = [[UILabel alloc] init];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        titleLabel.textColor = kTitleNormalTextColor;
+        titleLabel.font = kNormalBlod16Font;
+        titleLabel.text = @"确认信息";
+        [titleLabel sizeToFit];
+        titleLabel.centerX = centerView.width / 2.f;
+        titleLabel.centerY = centerView.height / 2.f;
+        [centerView addSubview:titleLabel];
+        
+        //左右两边的线
+        UIView *leftLine = [[UIView alloc] init];
+        leftLine.backgroundColor = RGB(197.f, 197.f, 197.f);
+        leftLine.size = CGSizeMake(titleLabel.left / 2.f, 0.5f);
+        leftLine.right = titleLabel.left - kMarginEdge;
+        leftLine.centerY = titleLabel.centerY;
+        [centerView addSubview:leftLine];
+        
+        UIView *rightLine = [[UIView alloc] init];
+        rightLine.backgroundColor = RGB(197.f, 197.f, 197.f);
+        rightLine.size = CGSizeMake(leftLine.width, 0.5f);
+        rightLine.left = titleLabel.right + kMarginEdge;
+        rightLine.centerY = titleLabel.centerY;
+        [centerView addSubview:rightLine];
+        
+        //问题
+        ActivityQuestionView *questionView = [[ActivityQuestionView alloc] initWithQuestions:_iActivityInfo.confs];
+        questionView.frame = CGRectMake(0.f, centerView.bottom, footerView.width, questHeight);
+        [footerView addSubview:questionView];
+        //    [questionView setDebug:YES];
+        WEAKSELF
+        [questionView setCheckBlock:^(BOOL canJoin,NSArray *questInfos){
+            [weakSelf checkInfoWith:canJoin QuestInfos:questInfos];
+        }];
+        
+        payBtn.frame = CGRectMake(kMarginLeft, questionView.bottom + 50.f, footerView.width - kMarginLeft * 2.f, 45.f);
+        
+        UITapGestureRecognizer *tap = [UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+            [[self.view findFirstResponder] resignFirstResponder];
+        }];
+        [self.view addGestureRecognizer:tap];
+        
+        //默认不能点击
+        [self checkConfirmBtnEnable:NO];
+    }
     
     //支付说明
     UIButton *payAboutBtn = [UIView getBtnWithTitle:@"付款说明" image:nil];
@@ -263,6 +355,7 @@
             [WLHUDView showHUDWithStr:@"下单中..." dim:NO];
             [WeLianClient orderActiveWithID:_iActivityInfo.activeid
                                     Tickets:_orderTickets
+                                      Confs:_questInfos
                                     Success:^(id resultInfo) {
                                         [WLHUDView hiddenHud];
                                         self.payInfo = resultInfo;
@@ -290,6 +383,7 @@
         [WLHUDView showHUDWithStr:@"下单中..." dim:NO];
         [WeLianClient orderActiveWithID:_iActivityInfo.activeid
                                 Tickets:_orderTickets
+                                  Confs:_questInfos
                                 Success:^(id resultInfo) {
                                     [WLHUDView hiddenHud];
                                     self.payInfo = resultInfo;
@@ -427,6 +521,21 @@
                                                                                }
                                                                            }];
                                         }];
+}
+
+- (void)checkInfoWith:(BOOL)canJoin QuestInfos:(NSArray *)questInfos
+{
+    self.questInfos = questInfos;
+    [self checkConfirmBtnEnable:canJoin];
+}
+
+- (void)checkConfirmBtnEnable:(BOOL)enable
+{
+    _payBtn.enabled = enable;
+    
+    _payBtn.backgroundColor = _payBtn.enabled == NO ? KBgGrayColor : KBlueTextColor;
+    _payBtn.layer.borderColor = _payBtn.enabled == NO ? KBgGrayColor.CGColor : KBlueTextColor.CGColor;
+    [_payBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 //拨打电话
