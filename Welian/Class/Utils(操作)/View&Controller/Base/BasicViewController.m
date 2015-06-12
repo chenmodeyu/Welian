@@ -135,9 +135,9 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
 //    self.navigationController.delegate = self;
     //设置屏幕手势是否可以使用
-    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
-    //设置是否可以滑动返回pop
-    self.fd_interactivePopDisabled = NO;
+//    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
+//    //设置是否禁用可以滑动返回pop
+//    self.fd_interactivePopDisabled = NO;
     
     if (_showCustomNavHeader) {
         //设置navbar是否隐藏

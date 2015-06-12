@@ -4397,6 +4397,18 @@
 		F59E76181A4071330028FBAF /* SchoolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E76161A4071330028FBAF /* SchoolModel.m */; };
 		F59E761F1A411E4C0028FBAF /* ICompanyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E761E1A411E4C0028FBAF /* ICompanyResult.m */; };
 		F59E76201A411E4C0028FBAF /* ICompanyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E761E1A411E4C0028FBAF /* ICompanyResult.m */; };
+		F5A0867E1B2A7AA800136210 /* WLChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */; };
+		F5A0867F1B2A7AA800136210 /* WLChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */; };
+		F5A086801B2A7AA800136210 /* WLChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */; };
+		F5A086811B2A7AA800136210 /* WLChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */; };
+		F5A086841B2AA1BE00136210 /* ChatRoomTextf.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */; };
+		F5A086851B2AA1BE00136210 /* ChatRoomTextf.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */; };
+		F5A086861B2AA1BE00136210 /* ChatRoomTextf.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */; };
+		F5A086871B2AA1BE00136210 /* ChatRoomTextf.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */; };
+		F5A086951B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */; };
+		F5A086961B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */; };
+		F5A086971B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */; };
+		F5A086981B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */; };
 		F5A3F8F61A41855900F06DDD /* ISchoolResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A3F8F51A41855900F06DDD /* ISchoolResult.m */; };
 		F5A7D5A51AB292F30060AE1F /* xiugai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A7D5A41AB292F30060AE1F /* xiugai@2x.png */; };
 		F5A7D5A61AB292F30060AE1F /* xiugai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A7D5A41AB292F30060AE1F /* xiugai@2x.png */; };
@@ -6690,6 +6702,12 @@
 		F59E76161A4071330028FBAF /* SchoolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolModel.m; sourceTree = "<group>"; };
 		F59E761D1A411E4C0028FBAF /* ICompanyResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompanyResult.h; sourceTree = "<group>"; };
 		F59E761E1A411E4C0028FBAF /* ICompanyResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICompanyResult.m; sourceTree = "<group>"; };
+		F5A0867C1B2A7AA800136210 /* WLChatRoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLChatRoomController.h; sourceTree = "<group>"; };
+		F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLChatRoomController.m; sourceTree = "<group>"; };
+		F5A086821B2AA1BE00136210 /* ChatRoomTextf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomTextf.h; sourceTree = "<group>"; };
+		F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomTextf.m; sourceTree = "<group>"; };
+		F5A086931B2AE8AF00136210 /* ChatRoomHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomHeaderView.h; sourceTree = "<group>"; };
+		F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomHeaderView.m; sourceTree = "<group>"; };
 		F5A1A70919E8FF62003773F1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F5A1A70B19E908C9003773F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5A1A71619E9543C003773F1 /* CityLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityLocationController.h; sourceTree = "<group>"; };
@@ -9571,6 +9589,8 @@
 				A4B5C2E31B27EDF400E0D396 /* ChatListViewController.m */,
 				F5506FFB1B29B02C002ACF5B /* ChatRoomListController.h */,
 				F5506FFC1B29B02C002ACF5B /* ChatRoomListController.m */,
+				F5A0867C1B2A7AA800136210 /* WLChatRoomController.h */,
+				F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */,
 				A4B5C2E91B27EF0500E0D396 /* WLChatViewController.h */,
 				A4B5C2EA1B27EF0500E0D396 /* WLChatViewController.m */,
 			);
@@ -9586,10 +9606,14 @@
 				A4C8E9461A4ACA1A003A5A72 /* ChatMessageViewCell.m */,
 				A4B5C2F81B28089000E0D396 /* RCDChatListCell.h */,
 				A4B5C2F91B28089000E0D396 /* RCDChatListCell.m */,
+				F5A086931B2AE8AF00136210 /* ChatRoomHeaderView.h */,
+				F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */,
 				A4B5C3061B281A6800E0D396 /* ChatCell.h */,
 				A4B5C3071B281A6800E0D396 /* ChatCell.m */,
 				A4B5C30D1B281AA400E0D396 /* CustomMessageType.h */,
 				A4B5C30E1B281AA400E0D396 /* CustomMessageType.m */,
+				F5A086821B2AA1BE00136210 /* ChatRoomTextf.h */,
+				F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -13952,6 +13976,7 @@
 				F50B63181B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				A49C7BE41A70D42700F2AEC5 /* ICompanyResult.m in Sources */,
 				F5C09E621B26B2220068559A /* MagicalRecord+Actions.m in Sources */,
+				F5A086811B2A7AA800136210 /* WLChatRoomController.m in Sources */,
 				F5C09E321B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A49C7BE61A70D42700F2AEC5 /* NeedAddUser.m in Sources */,
 				A49C7BE71A70D42700F2AEC5 /* MJPhotoProgressView.m in Sources */,
@@ -14316,6 +14341,7 @@
 				A49C80631A71041000F2AEC5 /* RSADataSigner.m in Sources */,
 				A49C7D081A70D42700F2AEC5 /* NSString+PinYin4Cocoa.m in Sources */,
 				A4D43AAF1AC55A7200713295 /* ALView+PureLayout.m in Sources */,
+				F5A086981B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */,
 				A49C7D091A70D42700F2AEC5 /* InvestCollectionCell.m in Sources */,
 				A49C7D0B1A70D42700F2AEC5 /* SignInPhoneController.m in Sources */,
 				A493C3671ADD14A60056BD52 /* WLContentCellFrame.m in Sources */,
@@ -14342,6 +14368,7 @@
 				A49C7D171A70D42700F2AEC5 /* SEImageCache.m in Sources */,
 				A49C7D181A70D42700F2AEC5 /* CommentHeadView.m in Sources */,
 				A49C7D1A1A70D42700F2AEC5 /* main.m in Sources */,
+				F5A086871B2AA1BE00136210 /* ChatRoomTextf.m in Sources */,
 				A493C2611ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				F5D04E651AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
 				A49C7D1B1A70D42700F2AEC5 /* AFURLRequestSerialization.m in Sources */,
@@ -14525,6 +14552,7 @@
 				F50B63171B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				F53DC2B41A49192600F5F712 /* ICompanyResult.m in Sources */,
 				F5C09E611B26B2220068559A /* MagicalRecord+Actions.m in Sources */,
+				F5A086801B2A7AA800136210 /* WLChatRoomController.m in Sources */,
 				F5C09E311B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A482A2491A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				A49235581ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
@@ -14889,6 +14917,7 @@
 				A489E7CB1AA587ED00F7BE9F /* IActivityInfo.m in Sources */,
 				A49C80621A71041000F2AEC5 /* RSADataSigner.m in Sources */,
 				F53DC36F1A49192600F5F712 /* NSString+PinYin4Cocoa.m in Sources */,
+				F5A086971B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */,
 				A4D43AAE1AC55A7200713295 /* ALView+PureLayout.m in Sources */,
 				F534DAEA1A4EAF2900B6A725 /* InvestCollectionCell.m in Sources */,
 				F53DC3711A49192600F5F712 /* SignInPhoneController.m in Sources */,
@@ -14915,6 +14944,7 @@
 				A45065511A5BCE990057F8AA /* SEImageCache.m in Sources */,
 				F53DC3781A49192600F5F712 /* CommentHeadView.m in Sources */,
 				F53DC3791A49192600F5F712 /* main.m in Sources */,
+				F5A086861B2AA1BE00136210 /* ChatRoomTextf.m in Sources */,
 				A493C25F1ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				F5D04E641AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
 				F53DC37A1A49192600F5F712 /* AFURLRequestSerialization.m in Sources */,
@@ -15098,6 +15128,7 @@
 				F50B63151B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				A4C140B41A4BEF0E00C9BAB5 /* XHCacheManager.m in Sources */,
 				F5C09E5F1B26B2220068559A /* MagicalRecord+Actions.m in Sources */,
+				F5A0867E1B2A7AA800136210 /* WLChatRoomController.m in Sources */,
 				F5C09E2F1B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A4C8E9471A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */,
 				A4C1446E1A4C2D3B00C9BAB5 /* WLMessageBubbleHelper.m in Sources */,
@@ -15462,6 +15493,7 @@
 				F5664A331A2AFD56008A5830 /* ZBFaceView.m in Sources */,
 				A489E7C91AA587ED00F7BE9F /* IActivityInfo.m in Sources */,
 				A49C80601A71041000F2AEC5 /* RSADataSigner.m in Sources */,
+				F5A086951B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */,
 				A4D43AAC1AC55A7200713295 /* ALView+PureLayout.m in Sources */,
 				F5664A381A2AFD56008A5830 /* MJPhotoBrowser.m in Sources */,
 				F5664A391A2AFD56008A5830 /* ForwardPublishView.m in Sources */,
@@ -15488,6 +15520,7 @@
 				A4D43AB01AC55A7200713295 /* NSArray+PureLayout.m in Sources */,
 				F5933F961AD4F4030088C70D /* MJRefreshGifFooter.m in Sources */,
 				F5664A421A2AFD56008A5830 /* MeinfoCell.m in Sources */,
+				F5A086841B2AA1BE00136210 /* ChatRoomTextf.m in Sources */,
 				A493C25D1ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				A4C141171A4BEF5700C9BAB5 /* MLLetterIndexNavigationItem.m in Sources */,
 				F5D04E621AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
@@ -15671,6 +15704,7 @@
 				F50B63161B1575C3002259B2 /* InvestorFirmInfoController.m in Sources */,
 				F59E76201A411E4C0028FBAF /* ICompanyResult.m in Sources */,
 				F5C09E601B26B2220068559A /* MagicalRecord+Actions.m in Sources */,
+				F5A0867F1B2A7AA800136210 /* WLChatRoomController.m in Sources */,
 				F5C09E301B26B2220068559A /* NSManagedObject+MagicalDataImport.m in Sources */,
 				A482A2481A5FD16F004AABE5 /* NeedAddUser.m in Sources */,
 				A49235571ADE693A009E0B8C /* JKImagePickerController.m in Sources */,
@@ -16035,6 +16069,7 @@
 				A489E7CA1AA587ED00F7BE9F /* IActivityInfo.m in Sources */,
 				A49C80611A71041000F2AEC5 /* RSADataSigner.m in Sources */,
 				F5664CF41A2AFDD5008A5830 /* NSString+PinYin4Cocoa.m in Sources */,
+				F5A086961B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */,
 				A4D43AAD1AC55A7200713295 /* ALView+PureLayout.m in Sources */,
 				F534DAE91A4EAF2900B6A725 /* InvestCollectionCell.m in Sources */,
 				F5664CF61A2AFDD5008A5830 /* SignInPhoneController.m in Sources */,
@@ -16061,6 +16096,7 @@
 				A45065501A5BCE990057F8AA /* SEImageCache.m in Sources */,
 				F5664CFD1A2AFDD5008A5830 /* CommentHeadView.m in Sources */,
 				F5664CFE1A2AFDD5008A5830 /* main.m in Sources */,
+				F5A086851B2AA1BE00136210 /* ChatRoomTextf.m in Sources */,
 				A493C25E1ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				F5D04E631AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
 				F5664CFF1A2AFDD5008A5830 /* AFURLRequestSerialization.m in Sources */,

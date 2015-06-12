@@ -84,6 +84,7 @@
         
         //如果是从当前VC进入聊天
         [KNSNotification addObserver:self selector:@selector(currentChatFromUserInfo:) name:kCurrentChatFromUserInfo object:nil];
+        
     }
     return self;
 }
@@ -91,11 +92,20 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置屏幕手势是否可以使用
+//    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
+    //设置是否可以滑动返回pop
+    self.fd_interactivePopDisabled = YES;
+        //设置navbar是否隐藏
+    self.fd_prefersNavigationBarHidden = YES;
+        //设置pop的最大
+    self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 200.f;
+    
     //初始化数据
     self.selectType= 0;
     self.datasource = [[LogInUser getCurrentLoginUser] chatUsers];

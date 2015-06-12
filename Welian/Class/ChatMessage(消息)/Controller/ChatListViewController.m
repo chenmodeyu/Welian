@@ -12,6 +12,7 @@
 #import "RCDChatListCell.h"
 #import "RCDUserInfo.h"
 #import "ChatRoomListController.h"
+#import "ChatRoomHeaderView.h"
 
 @interface ChatListViewController ()
 
@@ -26,10 +27,6 @@
 
 /**
  *  此处使用storyboard初始化，代码初始化当前类时*****必须要设置会话类型和聚合类型*****
- *
- *  @param aDecoder aDecoder description
- *
- *  @return return value description
  */
 -(id)init
 {
@@ -39,9 +36,9 @@
         [KNSNotification addObserver:self selector:@selector(chatFromUserInfo:) name:kChatFromUserInfo object:nil];
         //设置要显示的会话类型
         [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),@(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP),@(ConversationType_SYSTEM)]];
-        
         //聚合会话类型
         [self setCollectionConversationType:@[@(ConversationType_GROUP),@(ConversationType_DISCUSSION)]];
+        
     }
     return self;
 }
@@ -73,9 +70,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.conversationListTableView.tableFooterView = [UIView new];
+    ChatRoomHeaderView *chatRoomHeader = [[ChatRoomHeaderView alloc] init];
+    [chatRoomHeader setFrame:CGRectMake(0, 0, SuperSize.width, 80)];
+    [chatRoomHeader.clickBut addTarget:self action:@selector(enterChatRoomListVC) forControlEvents:UIControlEventTouchUpInside];
+    self.conversationListTableView.tableHeaderView = chatRoomHeader;
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
+- (void)enterChatRoomListVC
+{
+    ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
+    [self.navigationController pushViewController:chatRoomListVC animated:YES];
+}
 
 - (void)updateBadgeValueForTabBarItem
 {
@@ -129,37 +135,29 @@
         RCConversationModel *model = self.conversationListDataSource[indexPath.row];
         ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
         [self.navigationController pushViewController:chatRoomListVC animated:YES];
-//        RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)model.lastestMessage;
-//        RCDUserInfo *userinfo = [RCDUserInfo new];
-//        
-//        NSDictionary *_cache_userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:_contactNotificationMsg.sourceUserId];
-//        if (_cache_userinfo) {
-//            userinfo.userName       = _cache_userinfo[@"username"];
-//            userinfo.portraitUri    = _cache_userinfo[@"portraitUri"];
-//            userinfo.userId         = _contactNotificationMsg.sourceUserId;
-//        }
     }
     
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-    
-    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;//默认没有编辑风格
-    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL) {
-        result = UITableViewCellEditingStyleDelete;//设置编辑风格为删除风格
-    }
-    return result;
-}
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+//    
+//    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;//默认没有编辑风格
+//    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL) {
+//        result = UITableViewCellEditingStyleDelete;//设置编辑风格为删除风格
+//    }
+//    return result;
+//}
 
 
 //*********************插入自定义Cell*********************//
 //插入自定义会话model
 -(NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource
 {
-    RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION  exntend:nil];
-    [dataSource insertObject:model atIndex:0];
+//    RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION  exntend:nil];
+//    model.isTop = YES;
+//    [dataSource insertObject:model atIndex:0];
     return dataSource;
 }
 
@@ -171,41 +169,19 @@
 }
 
 //高度
--(CGFloat)rcConversationListTableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 80.0f;
-}
+//-(CGFloat)rcConversationListTableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 80.0f;
+//}
 
 //自定义cell
 -(RCConversationBaseCell *)rcConversationListTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
-        RCDChatListCell *cell = [[RCDChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
-        return cell;
-    }
-//    __block NSString *userName    = nil;
-//    __block NSString *portraitUri = nil;
-//    
-//    //此处需要添加根据userid来获取用户信息的逻辑，extend字段不存在于DB中，当数据来自db时没有extend字段内容，只有userid
-//    if (nil == model.extend) {
-//        // Not finished yet, To Be Continue...
-//        RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)model.lastestMessage;
-//        NSDictionary *_cache_userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:_contactNotificationMsg.sourceUserId];
-//        if (_cache_userinfo) {
-//            userName = _cache_userinfo[@"username"];
-//            portraitUri = _cache_userinfo[@"portraitUri"];
-//        }
-//        
-//    }else{
-//        RCDUserInfo *user = (RCDUserInfo *)model.extend;
-//        userName    = user.userName;
-//        portraitUri = user.portraitUri;
+//    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+//    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
+//        RCDChatListCell *cell = [[RCDChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+//        return cell;
 //    }
-//    
-//    RCDChatListCell *cell = [[RCDChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
-//    cell.lblDetail.text =[NSString stringWithFormat:@"来自%@的好友请求",userName];
-//    [cell.ivAva sd_setImageWithURL:[NSURL URLWithString:portraitUri] placeholderImage:[UIImage imageNamed:@"system_notice"]];
     return nil;
 }
 
@@ -270,15 +246,5 @@
 {
     [KNSNotification removeObserver:self name:kChatFromUserInfo object:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

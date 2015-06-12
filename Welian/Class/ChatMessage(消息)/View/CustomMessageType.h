@@ -8,7 +8,7 @@
 
 #import <RongIMLib/RongIMLib.h>
 
-#define RCCustomMessageTypeIdentifier @"WL:CustomMsg"
+#define RCCustomMessageTypeIdentifier @"WL:NoticeMsg"
 
 @interface CustomMessageType : RCMessageContent
 

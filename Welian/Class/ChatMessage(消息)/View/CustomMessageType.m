@@ -20,6 +20,7 @@
     return text;
 }
 
+
 /**
  编码将当前对象转成JSON数据
  @return 编码后的JSON数据

@@ -28,6 +28,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "MsgPlaySound.h"
 #import "LCNewFeatureVC.h"
+#import "CustomMessageType.h"
 
 #define kDeviceToken @"RongCloud_SDK_DeviceToken"
 
@@ -301,7 +302,7 @@ BMKMapManager* _mapManager;
     NSString *_deviceTokenCache = [UserDefaults objectForKey:kRongCloudDeviceToken];
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:_deviceTokenCache];
-    
+    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
     //设置会话列表头像和会话界面头像
     //状态监听
     [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
@@ -314,7 +315,6 @@ BMKMapManager* _mapManager;
         NSLog(@"iPhone6 %d", Iphone6);
         [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(46, 46);
     }
-    
     //外面全局消息头像
     [RCIM sharedRCIM].globalMessagePortraitSize = CGSizeMake(20, 20);
     

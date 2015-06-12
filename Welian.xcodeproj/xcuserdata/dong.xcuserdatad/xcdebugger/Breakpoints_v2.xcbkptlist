@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/Class/Login(&#x767b;&#x9646;)/Controller/LoginGuideController.m"
-            timestampString = "455533742.087575"
+            filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/WLChatViewController.m"
+            timestampString = "455781800.947561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "-authButClickWexing"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-rcConversationCollectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/ChatListViewController.m"
-            timestampString = "455717016.688781"
+            timestampString = "455803297.880157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-didReceiveMessageNotification:"
             landmarkType = "5">
          </BreakpointContent>
