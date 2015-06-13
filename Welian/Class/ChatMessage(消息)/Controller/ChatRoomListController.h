@@ -10,6 +10,4 @@
 
 @interface ChatRoomListController : RCBaseViewController
 
-@property (nonatomic,strong) UITableView *tableView;
-
 @end

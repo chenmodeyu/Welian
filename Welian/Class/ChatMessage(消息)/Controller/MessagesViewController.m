@@ -100,11 +100,11 @@
     //设置屏幕手势是否可以使用
 //    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
     //设置是否可以滑动返回pop
-    self.fd_interactivePopDisabled = YES;
-        //设置navbar是否隐藏
-    self.fd_prefersNavigationBarHidden = YES;
-        //设置pop的最大
-    self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 200.f;
+//    self.fd_interactivePopDisabled = YES;
+//        //设置navbar是否隐藏
+//    self.fd_prefersNavigationBarHidden = YES;
+//        //设置pop的最大
+//    self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 200.f;
     
     //初始化数据
     self.selectType= 0;
