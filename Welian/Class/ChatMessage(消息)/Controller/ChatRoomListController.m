@@ -13,40 +13,36 @@
 #define KPasswordH 50
 
 @interface ChatRoomListController () <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
-@property (nonatomic, strong) ChatRoomTextf *roomIDTextf;
+
+//@property (nonatomic,assign) UITableView *tableView;
+//@property (nonatomic,assign) ChatRoomTextf *roomIDTextf;
+
 @end
 
 @implementation ChatRoomListController
 
-- (ChatRoomTextf *)roomIDTextf
+- (NSString *)title
 {
-    if (_roomIDTextf == nil) {
-        _roomIDTextf = [[ChatRoomTextf alloc] initWithFrame:CGRectMake(0, SuperSize.height-KPasswordH, SuperSize.width, KPasswordH)];
-        [_roomIDTextf.textF setPlaceholder:@"输入口令，快速进入聊天室"];
-        [_roomIDTextf.textF setDelegate:self];
-    }
-    return _roomIDTextf;
-}
-
-- (UITableView *)tableView
-{
-    if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, SuperSize.height-KPasswordH) style:UITableViewStylePlain];
-        [_tableView setSeparatorInset:UIEdgeInsetsZero];
-        [_tableView setTableFooterView:[UIView new]];
-        [_tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-        [_tableView setDataSource:self];
-        [_tableView setDelegate:self];
-    }
-    return _tableView;
+    return @"聊天室";
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"聊天室";
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, SuperSize.height-KPasswordH) style:UITableViewStylePlain];
+    [tableView setSeparatorInset:UIEdgeInsetsZero];
+    [tableView setTableFooterView:[UIView new]];
+    [tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [tableView setDataSource:self];
+    [tableView setDelegate:self];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self.view addSubview:self.tableView];
-    [self.view addSubview:self.roomIDTextf];
+    [self.view addSubview:tableView];
+    
+    ChatRoomTextf *roomIDTextf = [[ChatRoomTextf alloc] initWithFrame:CGRectMake(0, SuperSize.height-KPasswordH, SuperSize.width, KPasswordH)];
+    [roomIDTextf.textF setPlaceholder:@"输入口令，快速进入聊天室"];
+    [roomIDTextf.textF setDelegate:self];
+    [self.view addSubview:roomIDTextf];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
