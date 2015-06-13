@@ -8,8 +8,10 @@
 
 #import "WLChatRoomController.h"
 #import "UserInfoViewController.h"
+#import "ChatRoomSettingViewController.h"
 
 @interface WLChatRoomController ()
+
 
 @end
 
@@ -25,6 +27,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIBarButtonItem *userItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_member"]
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self action:@selector(chatRoomUserItemClicked)];
+    UIBarButtonItem *moreItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more"]
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self action:@selector(shareItemClicked)];
+    
+    //添加创建活动按钮
+    self.navigationItem.rightBarButtonItems = @[moreItem,userItem];
+    
+    
+}
+
+#pragma mark - Private
+//查看聊天室人员
+- (void)chatRoomUserItemClicked
+{
+    
+}
+
+//更多操作按钮
+- (void)shareItemClicked
+{
+    ChatRoomSettingViewController *roomSettingVC = [[ChatRoomSettingViewController alloc] initWithRoomType:ChatRoomSetTypeChange];
+    [self.navigationController pushViewController:roomSettingVC animated:YES];
 }
 
 #pragma mark override

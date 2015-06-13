@@ -2069,6 +2069,36 @@
 		A4AA99681B2BF655004DB1A8 /* WLQuestionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99651B2BF655004DB1A8 /* WLQuestionTextView.m */; };
 		A4AA99691B2BF655004DB1A8 /* WLQuestionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99651B2BF655004DB1A8 /* WLQuestionTextView.m */; };
 		A4AA996A1B2BF655004DB1A8 /* WLQuestionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99651B2BF655004DB1A8 /* WLQuestionTextView.m */; };
+		A4AA996C1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA996B1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png */; };
+		A4AA996D1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA996B1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png */; };
+		A4AA996E1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA996B1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png */; };
+		A4AA996F1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA996B1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png */; };
+		A4AA99701B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA996B1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png */; };
+		A4AA99731B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99721B2C027F004DB1A8 /* ChatRoomListViewCell.m */; };
+		A4AA99741B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99721B2C027F004DB1A8 /* ChatRoomListViewCell.m */; };
+		A4AA99751B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99721B2C027F004DB1A8 /* ChatRoomListViewCell.m */; };
+		A4AA99761B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99721B2C027F004DB1A8 /* ChatRoomListViewCell.m */; };
+		A4AA99771B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99721B2C027F004DB1A8 /* ChatRoomListViewCell.m */; };
+		A4AA99791B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA99781B2C05CB004DB1A8 /* navbar_member@2x.png */; };
+		A4AA997A1B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA99781B2C05CB004DB1A8 /* navbar_member@2x.png */; };
+		A4AA997B1B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA99781B2C05CB004DB1A8 /* navbar_member@2x.png */; };
+		A4AA997C1B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA99781B2C05CB004DB1A8 /* navbar_member@2x.png */; };
+		A4AA997D1B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AA99781B2C05CB004DB1A8 /* navbar_member@2x.png */; };
+		A4AA99801B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA997F1B2C08B0004DB1A8 /* ChatRoomSettingViewController.m */; };
+		A4AA99811B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA997F1B2C08B0004DB1A8 /* ChatRoomSettingViewController.m */; };
+		A4AA99821B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA997F1B2C08B0004DB1A8 /* ChatRoomSettingViewController.m */; };
+		A4AA99831B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA997F1B2C08B0004DB1A8 /* ChatRoomSettingViewController.m */; };
+		A4AA99841B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA997F1B2C08B0004DB1A8 /* ChatRoomSettingViewController.m */; };
+		A4AA998B1B2C1650004DB1A8 /* NSDate+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99871B2C1650004DB1A8 /* NSDate+YU.m */; };
+		A4AA998C1B2C1651004DB1A8 /* NSDate+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99871B2C1650004DB1A8 /* NSDate+YU.m */; };
+		A4AA998D1B2C1651004DB1A8 /* NSDate+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99871B2C1650004DB1A8 /* NSDate+YU.m */; };
+		A4AA998E1B2C1651004DB1A8 /* NSDate+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99871B2C1650004DB1A8 /* NSDate+YU.m */; };
+		A4AA998F1B2C1651004DB1A8 /* NSDate+YU.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA99871B2C1650004DB1A8 /* NSDate+YU.m */; };
+		A4AA99901B2C1651004DB1A8 /* YUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA998A1B2C1650004DB1A8 /* YUDatePicker.m */; };
+		A4AA99911B2C1651004DB1A8 /* YUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA998A1B2C1650004DB1A8 /* YUDatePicker.m */; };
+		A4AA99921B2C1651004DB1A8 /* YUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA998A1B2C1650004DB1A8 /* YUDatePicker.m */; };
+		A4AA99931B2C1651004DB1A8 /* YUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA998A1B2C1650004DB1A8 /* YUDatePicker.m */; };
+		A4AA99941B2C1651004DB1A8 /* YUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA998A1B2C1650004DB1A8 /* YUDatePicker.m */; };
 		A4AB973C1B2971190078384E /* ActivityQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB973B1B2971190078384E /* ActivityQuestionView.m */; };
 		A4AB973D1B2971190078384E /* ActivityQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB973B1B2971190078384E /* ActivityQuestionView.m */; };
 		A4AB973E1B2971190078384E /* ActivityQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AB973B1B2971190078384E /* ActivityQuestionView.m */; };
@@ -4411,10 +4441,6 @@
 		F5A0867F1B2A7AA800136210 /* WLChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */; };
 		F5A086801B2A7AA800136210 /* WLChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */; };
 		F5A086811B2A7AA800136210 /* WLChatRoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */; };
-		F5A086841B2AA1BE00136210 /* ChatRoomTextf.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */; };
-		F5A086851B2AA1BE00136210 /* ChatRoomTextf.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */; };
-		F5A086861B2AA1BE00136210 /* ChatRoomTextf.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */; };
-		F5A086871B2AA1BE00136210 /* ChatRoomTextf.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */; };
 		F5A086951B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */; };
 		F5A086961B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */; };
 		F5A086971B2AE8AF00136210 /* ChatRoomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */; };
@@ -5813,6 +5839,17 @@
 		A4A888BC1AB030DE00588436 /* weChatBubble_Receiving_Card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weChatBubble_Receiving_Card@2x.png"; sourceTree = "<group>"; };
 		A4AA99641B2BF655004DB1A8 /* WLQuestionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLQuestionTextView.h; sourceTree = "<group>"; };
 		A4AA99651B2BF655004DB1A8 /* WLQuestionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLQuestionTextView.m; sourceTree = "<group>"; };
+		A4AA996B1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_list_go_logo@2x.png"; sourceTree = "<group>"; };
+		A4AA99711B2C027F004DB1A8 /* ChatRoomListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomListViewCell.h; sourceTree = "<group>"; };
+		A4AA99721B2C027F004DB1A8 /* ChatRoomListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomListViewCell.m; sourceTree = "<group>"; };
+		A4AA99781B2C05CB004DB1A8 /* navbar_member@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_member@2x.png"; sourceTree = "<group>"; };
+		A4AA997E1B2C08B0004DB1A8 /* ChatRoomSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomSettingViewController.h; sourceTree = "<group>"; };
+		A4AA997F1B2C08B0004DB1A8 /* ChatRoomSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomSettingViewController.m; sourceTree = "<group>"; };
+		A4AA99861B2C1650004DB1A8 /* NSDate+YU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YU.h"; sourceTree = "<group>"; };
+		A4AA99871B2C1650004DB1A8 /* NSDate+YU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YU.m"; sourceTree = "<group>"; };
+		A4AA99881B2C1650004DB1A8 /* YUDateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDateConfig.h; sourceTree = "<group>"; };
+		A4AA99891B2C1650004DB1A8 /* YUDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDatePicker.h; sourceTree = "<group>"; };
+		A4AA998A1B2C1650004DB1A8 /* YUDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDatePicker.m; sourceTree = "<group>"; };
 		A4AB973A1B2971190078384E /* ActivityQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityQuestionView.h; sourceTree = "<group>"; };
 		A4AB973B1B2971190078384E /* ActivityQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityQuestionView.m; sourceTree = "<group>"; };
 		A4B07C161B12D09D008A3702 /* IProjectBPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IProjectBPModel.h; sourceTree = "<group>"; };
@@ -6718,8 +6755,6 @@
 		F59E761E1A411E4C0028FBAF /* ICompanyResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICompanyResult.m; sourceTree = "<group>"; };
 		F5A0867C1B2A7AA800136210 /* WLChatRoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLChatRoomController.h; sourceTree = "<group>"; };
 		F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLChatRoomController.m; sourceTree = "<group>"; };
-		F5A086821B2AA1BE00136210 /* ChatRoomTextf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomTextf.h; sourceTree = "<group>"; };
-		F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomTextf.m; sourceTree = "<group>"; };
 		F5A086931B2AE8AF00136210 /* ChatRoomHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomHeaderView.h; sourceTree = "<group>"; };
 		F5A086941B2AE8AF00136210 /* ChatRoomHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomHeaderView.m; sourceTree = "<group>"; };
 		F5A1A70919E8FF62003773F1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -7666,6 +7701,7 @@
 			children = (
 				A471FE001ACE3C9D00339ED0 /* activity_back@2x.png */,
 				A471FE011ACE3C9D00339ED0 /* activity_share@2x.png */,
+				A4AA99781B2C05CB004DB1A8 /* navbar_member@2x.png */,
 				A46934921ACAC69900B87D87 /* navbar_left@2x.png */,
 				A49FF3C71AC29A1B009982E2 /* me_add_friend@2x.png */,
 				A49FF3C81AC29A1B009982E2 /* navbar_set@2x.png */,
@@ -8532,6 +8568,18 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		A4AA99851B2C1650004DB1A8 /* YUDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				A4AA99861B2C1650004DB1A8 /* NSDate+YU.h */,
+				A4AA99871B2C1650004DB1A8 /* NSDate+YU.m */,
+				A4AA99881B2C1650004DB1A8 /* YUDateConfig.h */,
+				A4AA99891B2C1650004DB1A8 /* YUDatePicker.h */,
+				A4AA998A1B2C1650004DB1A8 /* YUDatePicker.m */,
+			);
+			path = YUDatePicker;
+			sourceTree = "<group>";
+		};
 		A4B5C2C11B27E17500E0D396 /* Rong_Cloud_iOS_SDK_v2_1_1_stable */ = {
 			isa = PBXGroup;
 			children = (
@@ -9100,6 +9148,7 @@
 		A4C144771A4C3EC600C9BAB5 /* Chat_images */ = {
 			isa = PBXGroup;
 			children = (
+				A4AA996B1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png */,
 				A46D5E9C1ABFFC1900FF0554 /* circle_chat_line@2x.png */,
 				F5472DB41A8DCE8E002C9B35 /* backItem@2x.png */,
 				A41CE1BF1A6F9E25004F17E7 /* me_circle_chat_camera_pressed@2x.png */,
@@ -9609,6 +9658,8 @@
 				F5506FFC1B29B02C002ACF5B /* ChatRoomListController.m */,
 				F5A0867C1B2A7AA800136210 /* WLChatRoomController.h */,
 				F5A0867D1B2A7AA800136210 /* WLChatRoomController.m */,
+				A4AA997E1B2C08B0004DB1A8 /* ChatRoomSettingViewController.h */,
+				A4AA997F1B2C08B0004DB1A8 /* ChatRoomSettingViewController.m */,
 				A4B5C2E91B27EF0500E0D396 /* WLChatViewController.h */,
 				A4B5C2EA1B27EF0500E0D396 /* WLChatViewController.m */,
 			);
@@ -9630,8 +9681,8 @@
 				A4B5C3071B281A6800E0D396 /* ChatCell.m */,
 				A4B5C30D1B281AA400E0D396 /* CustomMessageType.h */,
 				A4B5C30E1B281AA400E0D396 /* CustomMessageType.m */,
-				F5A086821B2AA1BE00136210 /* ChatRoomTextf.h */,
-				F5A086831B2AA1BE00136210 /* ChatRoomTextf.m */,
+				A4AA99711B2C027F004DB1A8 /* ChatRoomListViewCell.h */,
+				A4AA99721B2C027F004DB1A8 /* ChatRoomListViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -10748,6 +10799,7 @@
 		F5CE864119BFF44100A9D14C /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
+				A4AA99851B2C1650004DB1A8 /* YUDatePicker */,
 				F5506FEE1B2932DA002ACF5B /* FDFullscreenPopGesture */,
 				10389B611A3EC8E3001A785C /* Other.h */,
 				A4B5C2C11B27E17500E0D396 /* Rong_Cloud_iOS_SDK_v2_1_1_stable */,
@@ -11361,6 +11413,7 @@
 				F5CBE3B21AC4351A00F4C884 /* Expression_17@2x.png in Resources */,
 				A409A2891AC2E1AF0033A31D /* me_touzi@2x.png in Resources */,
 				A46D5EA01ABFFC1900FF0554 /* circle_chat_line@2x.png in Resources */,
+				A4AA997D1B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */,
 				A49C7DA41A70D42700F2AEC5 /* AddGroupMemberBtnHL@2x.png in Resources */,
 				A49C7DA51A70D42700F2AEC5 /* CellGraySelected@2x.png in Resources */,
 				F5A7D5A81AB292F30060AE1F /* xiugai@2x.png in Resources */,
@@ -11620,6 +11673,7 @@
 				A49C7E731A70D42700F2AEC5 /* home_picture_add_selected@2x.png in Resources */,
 				A49C7E741A70D42700F2AEC5 /* VoiceBtn_Black@2x.png in Resources */,
 				A49C7E751A70D42700F2AEC5 /* icon_timeline-8@2x.png in Resources */,
+				A4AA99701B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */,
 				F5CBE4DE1AC4351A00F4C884 /* Expression_92@2x.png in Resources */,
 				A49C7E761A70D42700F2AEC5 /* login_my_button_pre@2x.png in Resources */,
 				A49C7E791A70D42700F2AEC5 /* osusume@2x.png in Resources */,
@@ -11993,6 +12047,7 @@
 				A4C143661A4C0A6B00C9BAB5 /* weChatBubble_Sending_Solid@2x.png in Resources */,
 				F5CBE3B11AC4351A00F4C884 /* Expression_17@2x.png in Resources */,
 				F53DC3CC1A49192600F5F712 /* tabbar_circle_selected_prompt@2x.png in Resources */,
+				A4AA997B1B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */,
 				F5318F011A63E986009B6635 /* weLianDev-Info.plist in Resources */,
 				A46D5E9F1ABFFC1900FF0554 /* circle_chat_line@2x.png in Resources */,
 				A409A18C1AC2E1AF0033A31D /* about_welian_logo@2x.png in Resources */,
@@ -12252,6 +12307,7 @@
 				F53DC46F1A49192600F5F712 /* discovery_tou@2x.png in Resources */,
 				A409A2381AC2E1AF0033A31D /* me_myfriend_add_renda_logo@2x.png in Resources */,
 				F500B1EE1AAEAB5B00A7AD35 /* home_repost_xiangmu@2x.png in Resources */,
+				A4AA996E1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */,
 				F53DC4721A49192600F5F712 /* home_picture_add_selected@2x.png in Resources */,
 				F5CBE4DD1AC4351A00F4C884 /* Expression_92@2x.png in Resources */,
 				A4C144141A4C0A6B00C9BAB5 /* VoiceBtn_Black@2x.png in Resources */,
@@ -12728,6 +12784,7 @@
 				F53328ED1A5E3015001F48FA /* research_bg@2x.png in Resources */,
 				F5AA69F91B26887E0084A976 /* new_feature_1_iphone6p@3x.png in Resources */,
 				F5318EFF1A63E986009B6635 /* weLianDev-Info.plist in Resources */,
+				A4AA996C1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */,
 				A4C144331A4C0A6B00C9BAB5 /* SearchIcon@2x.png in Resources */,
 				A4C143A61A4C0A6B00C9BAB5 /* sharemore_myfav@2x.png in Resources */,
 				A409A2061AC2E1AF0033A31D /* me_lvli_add@2x.png in Resources */,
@@ -12852,6 +12909,7 @@
 				A41CE1CD1A6F9E25004F17E7 /* me_circle_chat_card_pressed@2x.png in Resources */,
 				A409A2761AC2E1AF0033A31D /* me_renzheng_tou@2x.png in Resources */,
 				F5664B2A1A2AFD56008A5830 /* discovery_tou@2x.png in Resources */,
+				A4AA99791B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */,
 				A49236141ADE693A009E0B8C /* photo_check_default@3x.png in Resources */,
 				A4C144631A4C0A6B00C9BAB5 /* RecordingSignal008@2x.png in Resources */,
 				A493C3D61ADD14A60056BD52 /* meinfoPlist.plist in Resources */,
@@ -13397,6 +13455,7 @@
 				F51BA4511A444DA2009E5CDF /* tabbar_me_selected_prompt@2x.png in Resources */,
 				A493C3DC1ADD14A60056BD52 /* meplist.plist in Resources */,
 				F5CBE4F01AC4351A00F4C884 /* Expression_97@2x.png in Resources */,
+				A4AA996D1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */,
 				F587966D1AE8C1C6002C414F /* button_white@2x.png in Resources */,
 				A4675D2C1AC16F4100E556B2 /* msg_dian@2x.png in Resources */,
 				A49235891ADE693A009E0B8C /* assets_placeholder_picture@2x.png in Resources */,
@@ -13645,6 +13704,7 @@
 				F5664E3B1A2AFDD5008A5830 /* list_selected@2x.png in Resources */,
 				F51BA44F1A444DA2009E5CDF /* tabbar_me_prompt@2x.png in Resources */,
 				F55773201A5AB04200693279 /* login_guide2@2x.png in Resources */,
+				A4AA997A1B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */,
 				F5664E3C1A2AFDD5008A5830 /* navbar_write@2x.png in Resources */,
 				F5664E3E1A2AFDD5008A5830 /* NoListView.xib in Resources */,
 				F5664E3F1A2AFDD5008A5830 /* MJPhotoBrowser.bundle in Resources */,
@@ -13873,6 +13933,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4AA997C1B2C05CB004DB1A8 /* navbar_member@2x.png in Resources */,
 				A49236441ADE693A009E0B8C /* picker_button_orange_highlighted@2x.png in Resources */,
 				A49234D51ADE3E0C009E0B8C /* UserCardController.xib in Resources */,
 				A492358B1ADE693A009E0B8C /* assets_placeholder_picture@2x.png in Resources */,
@@ -13917,6 +13978,7 @@
 				A49236081ADE693A009E0B8C /* navigationbar_title_highlighted@2x.png in Resources */,
 				A49235E01ADE693A009E0B8C /* compose_photograph_highlighted@2x.png in Resources */,
 				A492359F1ADE693A009E0B8C /* camera_edit_cut_cancel_highlighted@2x.png in Resources */,
+				A4AA996F1B2BFAB8004DB1A8 /* chat_list_go_logo@2x.png in Resources */,
 				F587966F1AE8C1C6002C414F /* button_white@2x.png in Resources */,
 				A49235D61ADE693A009E0B8C /* compose_photograph_background@2x.png in Resources */,
 				A49235F41ADE693A009E0B8C /* navigationbar_arrow_down@2x.png in Resources */,
@@ -14047,6 +14109,7 @@
 				F56972601B0EF2B4004E86AC /* InvestorsTableController.m in Sources */,
 				A493C3761ADD14A60056BD52 /* WLStatusM.m in Sources */,
 				A49C7C0F1A70D42700F2AEC5 /* MJPhoto.m in Sources */,
+				A4AA99841B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */,
 				A492357D1ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				A493C2481ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
 				A49C80471A71041000F2AEC5 /* Order.m in Sources */,
@@ -14235,6 +14298,7 @@
 				A49C7CA41A70D42700F2AEC5 /* DTTimePeriodGroup.m in Sources */,
 				A49C7CA51A70D42700F2AEC5 /* InvestCerVC.m in Sources */,
 				A49C7CA61A70D42700F2AEC5 /* ZBMessageManagerFaceView.m in Sources */,
+				A4AA99941B2C1651004DB1A8 /* YUDatePicker.m in Sources */,
 				A49C7CA81A70D42700F2AEC5 /* DTTimePeriodChain.m in Sources */,
 				A49C7CAA1A70D42700F2AEC5 /* WLMessageTableViewCell.m in Sources */,
 				F5933FB11AD4F4030088C70D /* UIScrollView+MJRefresh.m in Sources */,
@@ -14273,6 +14337,7 @@
 				A49C7CBF1A70D42700F2AEC5 /* WLContentCellView.m in Sources */,
 				A40515871AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
 				A493C3261ADD14A60056BD52 /* NewFriendModel.m in Sources */,
+				A4AA998F1B2C1651004DB1A8 /* NSDate+YU.m in Sources */,
 				F5C09E221B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */,
 				A49C7CC21A70D42700F2AEC5 /* BaseUser.m in Sources */,
 				A49235781ADE693A009E0B8C /* UIView+JKPicker.m in Sources */,
@@ -14386,7 +14451,6 @@
 				A49C7D171A70D42700F2AEC5 /* SEImageCache.m in Sources */,
 				A49C7D181A70D42700F2AEC5 /* CommentHeadView.m in Sources */,
 				A49C7D1A1A70D42700F2AEC5 /* main.m in Sources */,
-				F5A086871B2AA1BE00136210 /* ChatRoomTextf.m in Sources */,
 				A493C2611ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				F5D04E651AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
 				A49C7D1B1A70D42700F2AEC5 /* AFURLRequestSerialization.m in Sources */,
@@ -14410,6 +14474,7 @@
 				A49C7D251A70D42700F2AEC5 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C081AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				F5506FF41B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				A4AA99771B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */,
 				A49C7D281A70D42700F2AEC5 /* AddFriendViewController.m in Sources */,
 				A4AB97401B2971190078384E /* ActivityQuestionView.m in Sources */,
 				F5C09E761B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
@@ -14625,6 +14690,7 @@
 				F569725F1B0EF2B4004E86AC /* InvestorsTableController.m in Sources */,
 				F53DC2CF1A49192600F5F712 /* MJPhoto.m in Sources */,
 				A493C2461ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
+				A4AA99821B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */,
 				A49C80461A71041000F2AEC5 /* Order.m in Sources */,
 				F53DC2D11A49192600F5F712 /* WeixinActivityBase.m in Sources */,
 				A47D41D81A8B50320070BFD8 /* ProjectUser.m in Sources */,
@@ -14813,6 +14879,7 @@
 				A48CA6AF1A4D044B009EBD04 /* DTTimePeriodGroup.m in Sources */,
 				F5C779711A5392E10098BC29 /* InvestCerVC.m in Sources */,
 				F53DC32A1A49192600F5F712 /* ZBMessageManagerFaceView.m in Sources */,
+				A4AA99921B2C1651004DB1A8 /* YUDatePicker.m in Sources */,
 				A48CA6A91A4D044B009EBD04 /* DTTimePeriodChain.m in Sources */,
 				A4C1409D1A4BEA8500C9BAB5 /* WLMessageTableViewCell.m in Sources */,
 				F5933FB01AD4F4030088C70D /* UIScrollView+MJRefresh.m in Sources */,
@@ -14851,6 +14918,7 @@
 				A4C140941A4BEA8500C9BAB5 /* WLMessage.m in Sources */,
 				A40515851AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
 				A49235671ADE693A009E0B8C /* JKPromptView.m in Sources */,
+				A4AA998D1B2C1651004DB1A8 /* NSDate+YU.m in Sources */,
 				F5C09E211B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */,
 				A4EFA6D11A89E75D00CB5A4D /* PhotoInfos.m in Sources */,
 				F53DC33D1A49192600F5F712 /* WLContentCellView.m in Sources */,
@@ -14964,7 +15032,6 @@
 				A45065511A5BCE990057F8AA /* SEImageCache.m in Sources */,
 				F53DC3781A49192600F5F712 /* CommentHeadView.m in Sources */,
 				F53DC3791A49192600F5F712 /* main.m in Sources */,
-				F5A086861B2AA1BE00136210 /* ChatRoomTextf.m in Sources */,
 				A493C25F1ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				F5D04E641AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
 				F53DC37A1A49192600F5F712 /* AFURLRequestSerialization.m in Sources */,
@@ -14988,6 +15055,7 @@
 				F53DC3811A49192600F5F712 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C071AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				F5506FF31B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				A4AA99751B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */,
 				A47C5F501A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				A4AB973E1B2971190078384E /* ActivityQuestionView.m in Sources */,
 				F5C09E751B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
@@ -15203,6 +15271,7 @@
 				F569725D1B0EF2B4004E86AC /* InvestorsTableController.m in Sources */,
 				A4E731A91A8CA99700980676 /* ActivityTicketView.m in Sources */,
 				A493C3721ADD14A60056BD52 /* WLStatusM.m in Sources */,
+				A4AA99801B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */,
 				A49235791ADE693A009E0B8C /* CTAssetItemViewController.m in Sources */,
 				F56649A51A2AFD56008A5830 /* AppDelegate.mm in Sources */,
 				F56649A61A2AFD56008A5830 /* TQRichTextView.m in Sources */,
@@ -15391,6 +15460,7 @@
 				A4E7319E1A8C94B900980676 /* ActivityInfoViewCell.m in Sources */,
 				F56649FC1A2AFD56008A5830 /* UIImageView+MJWebCache.m in Sources */,
 				A4C140711A4BEA8500C9BAB5 /* UIImage+Alpha.m in Sources */,
+				A4AA99901B2C1651004DB1A8 /* YUDatePicker.m in Sources */,
 				F56649FE1A2AFD56008A5830 /* CommentCellView.m in Sources */,
 				F56649FF1A2AFD56008A5830 /* MeInfoController.m in Sources */,
 				A4C141771A4BEF5700C9BAB5 /* XHWaterDropRefresh.m in Sources */,
@@ -15429,6 +15499,7 @@
 				F5664A091A2AFD56008A5830 /* WLContentCellView.m in Sources */,
 				F5664A0A1A2AFD56008A5830 /* HaderInfoCell.m in Sources */,
 				A40515831AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
+				A4AA998B1B2C1650004DB1A8 /* NSDate+YU.m in Sources */,
 				F5C09E1F1B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */,
 				F5664A0B1A2AFD56008A5830 /* WLStatusDock.m in Sources */,
 				A493C3221ADD14A60056BD52 /* NewFriendModel.m in Sources */,
@@ -15542,7 +15613,6 @@
 				A4D43AB01AC55A7200713295 /* NSArray+PureLayout.m in Sources */,
 				F5933F961AD4F4030088C70D /* MJRefreshGifFooter.m in Sources */,
 				F5664A421A2AFD56008A5830 /* MeinfoCell.m in Sources */,
-				F5A086841B2AA1BE00136210 /* ChatRoomTextf.m in Sources */,
 				A493C25D1ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				A4C141171A4BEF5700C9BAB5 /* MLLetterIndexNavigationItem.m in Sources */,
 				F5D04E621AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
@@ -15566,6 +15636,7 @@
 				F5664A481A2AFD56008A5830 /* AFSecurityPolicy.m in Sources */,
 				F5664A491A2AFD56008A5830 /* NSData+ImageContentType.m in Sources */,
 				F5506FF11B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				A4AA99731B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */,
 				F5CA5C051AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				A4AB973C1B2971190078384E /* ActivityQuestionView.m in Sources */,
 				F5C09E731B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
@@ -15781,6 +15852,7 @@
 				F569725E1B0EF2B4004E86AC /* InvestorsTableController.m in Sources */,
 				F5664C631A2AFDD5008A5830 /* MJPhoto.m in Sources */,
 				A493C2451ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
+				A4AA99811B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */,
 				A49C80451A71041000F2AEC5 /* Order.m in Sources */,
 				F5664C651A2AFDD5008A5830 /* WeixinActivityBase.m in Sources */,
 				A47D41D71A8B50320070BFD8 /* ProjectUser.m in Sources */,
@@ -15969,6 +16041,7 @@
 				A48CA6AE1A4D044B009EBD04 /* DTTimePeriodGroup.m in Sources */,
 				F5C779701A5392E10098BC29 /* InvestCerVC.m in Sources */,
 				F5664CB31A2AFDD5008A5830 /* ZBMessageManagerFaceView.m in Sources */,
+				A4AA99911B2C1651004DB1A8 /* YUDatePicker.m in Sources */,
 				A48CA6A81A4D044B009EBD04 /* DTTimePeriodChain.m in Sources */,
 				A4C1409C1A4BEA8500C9BAB5 /* WLMessageTableViewCell.m in Sources */,
 				F5933FAF1AD4F4030088C70D /* UIScrollView+MJRefresh.m in Sources */,
@@ -16007,6 +16080,7 @@
 				A4C140931A4BEA8500C9BAB5 /* WLMessage.m in Sources */,
 				A40515841AE5FA6300A3CA3F /* WeLianClient.m in Sources */,
 				A49235661ADE693A009E0B8C /* JKPromptView.m in Sources */,
+				A4AA998C1B2C1651004DB1A8 /* NSDate+YU.m in Sources */,
 				F5C09E201B26B2220068559A /* NSObject+MagicalDataImport.m in Sources */,
 				A4EFA6D01A89E75D00CB5A4D /* PhotoInfos.m in Sources */,
 				F5664CC31A2AFDD5008A5830 /* WLContentCellView.m in Sources */,
@@ -16120,7 +16194,6 @@
 				A45065501A5BCE990057F8AA /* SEImageCache.m in Sources */,
 				F5664CFD1A2AFDD5008A5830 /* CommentHeadView.m in Sources */,
 				F5664CFE1A2AFDD5008A5830 /* main.m in Sources */,
-				F5A086851B2AA1BE00136210 /* ChatRoomTextf.m in Sources */,
 				A493C25E1ADD0BB00056BD52 /* UIView+Extend.m in Sources */,
 				F5D04E631AC1056F004DE412 /* TTTAttributedLabel.m in Sources */,
 				F5664CFF1A2AFDD5008A5830 /* AFURLRequestSerialization.m in Sources */,
@@ -16144,6 +16217,7 @@
 				F5664D051A2AFDD5008A5830 /* WeixinTimelineActivity.m in Sources */,
 				F5CA5C061AA59DA900E3E2F8 /* WLCellCardView.m in Sources */,
 				F5506FF21B2932DA002ACF5B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				A4AA99741B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */,
 				A47C5F4F1A5E1E9400E63737 /* AddFriendViewController.m in Sources */,
 				A4AB973D1B2971190078384E /* ActivityQuestionView.m in Sources */,
 				F5C09E741B26B2220068559A /* MagicalRecord+ShorthandMethods.m in Sources */,
@@ -16260,6 +16334,7 @@
 				A493C2651ADD0BB00056BD52 /* UIView+Size.m in Sources */,
 				A493C3341ADD14A60056BD52 /* CommentHeadFrame.m in Sources */,
 				A493C2471ADD0BB00056BD52 /* NSUserDefaults+Standard.m in Sources */,
+				A4AA99761B2C027F004DB1A8 /* ChatRoomListViewCell.m in Sources */,
 				A493C21F1ADD0BB00056BD52 /* CALayer+XibConfiguration.m in Sources */,
 				A493C2921ADD0BB00056BD52 /* NSArray+ArrayQuery.m in Sources */,
 				A4C0E1361B0F0D6F00A9929D /* ProjcetClassViewController.m in Sources */,
@@ -16300,6 +16375,7 @@
 				A493C3431ADD14A60056BD52 /* FeedAndZanFrameM.m in Sources */,
 				A4AB973F1B2971190078384E /* ActivityQuestionView.m in Sources */,
 				A493C1D01ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
+				A4AA998E1B2C1651004DB1A8 /* NSDate+YU.m in Sources */,
 				A40515991AE777E300A3CA3F /* ILoginUserModel.m in Sources */,
 				A493C2971ADD0BB00056BD52 /* NSManagedObject+ManagedObjectQuery.m in Sources */,
 				A493C2B81ADD13DF0056BD52 /* WLTextField.m in Sources */,
@@ -16358,6 +16434,7 @@
 				A493C2A61ADD0BB00056BD52 /* WLCustomSegmentedControl.m in Sources */,
 				A493C1D51ADD0A0C0056BD52 /* WLHUDView.m in Sources */,
 				A492366A1ADE6AF9009E0B8C /* BasicPlainTableViewController.m in Sources */,
+				A4AA99831B2C08B0004DB1A8 /* ChatRoomSettingViewController.m in Sources */,
 				A4E323091B1458C600DD395B /* LookBPFileViewController.m in Sources */,
 				A493C3611ADD14A60056BD52 /* WLBasicTrends.m in Sources */,
 				F51484DA1B09B28800970AFB /* HYBLoadImageView.m in Sources */,
@@ -16374,6 +16451,7 @@
 				A4B5C2EE1B27EF0500E0D396 /* WLChatViewController.m in Sources */,
 				A48845F71B0B10860053B92F /* NewsListViewController.m in Sources */,
 				A493C3981ADD14A60056BD52 /* FriendsUserModel.m in Sources */,
+				A4AA99931B2C1651004DB1A8 /* YUDatePicker.m in Sources */,
 				A493C36B1ADD14A60056BD52 /* WLPhoto.m in Sources */,
 				A493C2881ADD0BB00056BD52 /* DKPredicate.m in Sources */,
 				F51484E41B09B28800970AFB /* HYBPageControl.m in Sources */,
