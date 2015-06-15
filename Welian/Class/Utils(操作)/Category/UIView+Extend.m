@@ -55,7 +55,7 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [button setImage:image forState:UIControlStateNormal];
-    if (image) {
+    if (title && image) {
         button.imageEdgeInsets = UIEdgeInsetsMake(0.f, -10.f, 0.f, 0.f);
     }
     button.layer.cornerRadius = 5.f;
