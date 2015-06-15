@@ -95,7 +95,6 @@
 
 /**
  *  插入自定义会话数据模型到数据源，并且更新tableview
- *
  *  @param conversationModel 会话数据对象
  */
 - (void)refreshConversationTableViewWithConversationModel:(RCConversationModel *)conversationModel;

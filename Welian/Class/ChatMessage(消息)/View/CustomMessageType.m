@@ -55,6 +55,7 @@
     if (json) {
         self.content = json[@"content"];
         self.extra = json[@"extra"];
+        
     }
 
 }

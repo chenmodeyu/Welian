@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Welian/AppDelegate.mm"
-            timestampString = "456041927.126081"
+            timestampString = "456061525.138328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "911"
-            endingLineNumber = "911"
-            landmarkName = "-onRCIMReceiveMessage:left:"
+            startingLineNumber = "476"
+            endingLineNumber = "476"
+            landmarkName = "-inceptMessage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

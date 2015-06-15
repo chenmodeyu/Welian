@@ -50,4 +50,6 @@ typedef enum {
 // 退出登录
 - (void)logout;
 
+- (NewFriendUser *)getNewFriendMessage:(NSDictionary *)dataDic LoginUserId:(NSNumber *)userId;
+
 @end

@@ -3575,6 +3575,10 @@
 		F557863E1A63749500630A46 /* BadgeBaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F557863A1A63749500630A46 /* BadgeBaseCell.xib */; };
 		F557863F1A63749500630A46 /* BadgeBaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F557863A1A63749500630A46 /* BadgeBaseCell.xib */; };
 		F55786401A63749500630A46 /* BadgeBaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F557863A1A63749500630A46 /* BadgeBaseCell.xib */; };
+		F557CB6E1B2EFCB60011870E /* WLChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F557CB6D1B2EFCB60011870E /* WLChatListController.m */; };
+		F557CB6F1B2EFCB60011870E /* WLChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F557CB6D1B2EFCB60011870E /* WLChatListController.m */; };
+		F557CB701B2EFCB60011870E /* WLChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F557CB6D1B2EFCB60011870E /* WLChatListController.m */; };
+		F557CB711B2EFCB60011870E /* WLChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F557CB6D1B2EFCB60011870E /* WLChatListController.m */; };
 		F55EB0FB1AC9271A00FFB3BE /* me_renzheng_phone_failed_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F55EB0FA1AC9271A00FFB3BE /* me_renzheng_phone_failed_bg@2x.png */; };
 		F55EB0FC1AC9271A00FFB3BE /* me_renzheng_phone_failed_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F55EB0FA1AC9271A00FFB3BE /* me_renzheng_phone_failed_bg@2x.png */; };
 		F55EB0FD1AC9271A00FFB3BE /* me_renzheng_phone_failed_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F55EB0FA1AC9271A00FFB3BE /* me_renzheng_phone_failed_bg@2x.png */; };
@@ -6563,6 +6567,8 @@
 		F55786391A63749500630A46 /* BadgeBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeBaseCell.m; sourceTree = "<group>"; };
 		F557863A1A63749500630A46 /* BadgeBaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeBaseCell.xib; sourceTree = "<group>"; };
 		F55786411A639CA000630A46 /* weLian1.1.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weLian1.1.5.xcdatamodel; sourceTree = "<group>"; };
+		F557CB6C1B2EFCB60011870E /* WLChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLChatListController.h; sourceTree = "<group>"; };
+		F557CB6D1B2EFCB60011870E /* WLChatListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLChatListController.m; sourceTree = "<group>"; };
 		F55EB0FA1AC9271A00FFB3BE /* me_renzheng_phone_failed_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me_renzheng_phone_failed_bg@2x.png"; sourceTree = "<group>"; };
 		F55EB0FF1AC9303B00FFB3BE /* me_lvli_line_end@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me_lvli_line_end@2x.png"; sourceTree = "<group>"; };
 		F55EB10A1ACB9FE400FFB3BE /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
@@ -9662,6 +9668,8 @@
 				A4AA997F1B2C08B0004DB1A8 /* ChatRoomSettingViewController.m */,
 				A4B5C2E91B27EF0500E0D396 /* WLChatViewController.h */,
 				A4B5C2EA1B27EF0500E0D396 /* WLChatViewController.m */,
+				F557CB6C1B2EFCB60011870E /* WLChatListController.h */,
+				F557CB6D1B2EFCB60011870E /* WLChatListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -14468,6 +14476,7 @@
 				F5C09E6E1B26B2220068559A /* MagicalRecord+Options.m in Sources */,
 				A49C7D211A70D42700F2AEC5 /* AFSecurityPolicy.m in Sources */,
 				A493C1D11ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
+				F557CB711B2EFCB60011870E /* WLChatListController.m in Sources */,
 				A49C7D221A70D42700F2AEC5 /* WLMessageVideoConverPhotoFactory.m in Sources */,
 				A49C7D231A70D42700F2AEC5 /* NSData+ImageContentType.m in Sources */,
 				A49C7D241A70D42700F2AEC5 /* NoCommentCell.m in Sources */,
@@ -15049,6 +15058,7 @@
 				F5C09E6D1B26B2220068559A /* MagicalRecord+Options.m in Sources */,
 				F53DC37E1A49192600F5F712 /* AFSecurityPolicy.m in Sources */,
 				A493C1CF1ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
+				F557CB701B2EFCB60011870E /* WLChatListController.m in Sources */,
 				A41CE1ED1A6FA750004F17E7 /* WLMessageVideoConverPhotoFactory.m in Sources */,
 				F53DC37F1A49192600F5F712 /* NSData+ImageContentType.m in Sources */,
 				F53DC3801A49192600F5F712 /* NoCommentCell.m in Sources */,
@@ -15630,6 +15640,7 @@
 				F5C09E6B1B26B2220068559A /* MagicalRecord+Options.m in Sources */,
 				F5664A441A2AFD56008A5830 /* main.m in Sources */,
 				F5664A451A2AFD56008A5830 /* AFURLRequestSerialization.m in Sources */,
+				F557CB6E1B2EFCB60011870E /* WLChatListController.m in Sources */,
 				A41CE1EB1A6FA750004F17E7 /* WLMessageVideoConverPhotoFactory.m in Sources */,
 				A493C1CD1ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
 				F5664A471A2AFD56008A5830 /* SWTableViewCell.m in Sources */,
@@ -16211,6 +16222,7 @@
 				F5C09E6C1B26B2220068559A /* MagicalRecord+Options.m in Sources */,
 				F5664D021A2AFDD5008A5830 /* AFSecurityPolicy.m in Sources */,
 				A493C1CE1ADD0A0C0056BD52 /* WLHttpTool.m in Sources */,
+				F557CB6F1B2EFCB60011870E /* WLChatListController.m in Sources */,
 				A41CE1EC1A6FA750004F17E7 /* WLMessageVideoConverPhotoFactory.m in Sources */,
 				F5664D031A2AFDD5008A5830 /* NSData+ImageContentType.m in Sources */,
 				F5664D041A2AFDD5008A5830 /* NoCommentCell.m in Sources */,

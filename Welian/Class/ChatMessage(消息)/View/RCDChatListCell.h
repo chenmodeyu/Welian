@@ -12,5 +12,7 @@
 
 @property (nonatomic,strong) UIImageView *ivAva;
 @property (nonatomic,strong) UILabel *lblName;
+@property (nonatomic,strong) UILabel *lblDetail;
+@property (nonatomic, copy) NSString *userName;
 
 @end

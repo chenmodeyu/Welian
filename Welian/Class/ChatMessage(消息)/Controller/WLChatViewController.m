@@ -100,7 +100,7 @@
     
     ChatCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"chatcell" forIndexPath:indexPath];
     CustomMessageType *model = self.conversationDataRepository[indexPath.row];
-
+    
     DLog(@"info:%@",[(CustomMessageType *)model.content content]);
     [cell setModel:model];
     return cell;

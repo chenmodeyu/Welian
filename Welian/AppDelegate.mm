@@ -32,7 +32,7 @@
 
 #define kDeviceToken @"RongCloud_SDK_DeviceToken"
 
-@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource,RCIMReceiveMessageDelegate>
+@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
      NSString *_upURL; // 更新地址
@@ -306,7 +306,7 @@ BMKMapManager* _mapManager;
     //状态监听
     [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
     //接收消息的监听器。如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。
-    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+//    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
     // 注册自定义消息
     [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
     //聊天消息头像
@@ -554,7 +554,7 @@ BMKMapManager* _mapManager;
 }
 
 // 接受新的好友请求消息
-- (void)getNewFriendMessage:(NSDictionary *)dataDic LoginUserId:(NSNumber *)userId
+- (NewFriendUser *)getNewFriendMessage:(NSDictionary *)dataDic LoginUserId:(NSNumber *)userId
 {
     NSString *type = [dataDic objectForKey:@"type"];
     NewFriendModel *newfrendM = [NewFriendModel objectWithDict:dataDic];
@@ -567,7 +567,7 @@ BMKMapManager* _mapManager;
     }
     //如果为空返回
     if (loginUser == nil) {
-        return;
+        return nil;
     }
     if ([type isEqualToString:@"friendAdd"]) {
         // 别人同意添加我为好友，直接加入好友列表，并改变新的好友里状态为已添加
@@ -578,7 +578,7 @@ BMKMapManager* _mapManager;
         //创建本地数据库好友
         MyFriendUser *friendUser = [MyFriendUser createMyFriendNewFriendModel:newfrendM LogInUser:loginUser];
         if (!friendUser) {
-            return;
+            return nil;
         }
         //修改需要添加的用户的状态
         NeedAddUser *needAddUser = [loginUser getNeedAddUserWithUid:friendUser.uid];
@@ -657,10 +657,11 @@ BMKMapManager* _mapManager;
     
     //创建的时间
     newfrendM.created = newfrendM.created.length > 0 ? newfrendM.created : [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [NewFriendUser createNewFriendUserModel:newfrendM];
+   NewFriendUser *newFriendUser = [NewFriendUser createNewFriendUserModel:newfrendM];
     
     //通知刷新页面
     [KNSNotification postNotificationName:KNewFriendNotif object:self];
+    return newFriendUser;
 }
 
 // 接收聊天消息
@@ -906,10 +907,18 @@ BMKMapManager* _mapManager;
  @param message 接收到的消息。
  @param left    剩余消息数.
  */
-- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
-{
-    NSLog(@"接收消息到消息后执行:%@",message);
-}
+//- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
+//{
+//    NSLog(@"接收消息到消息后执行:%@",message);
+//    
+//    if ([message.objectName isEqualToString:RCCustomMessageTypeIdentifier]) {
+//        CustomMessageType *customMessage = (CustomMessageType *)message.content;
+//        NSDictionary *newFriendMessage = [customMessage.content jsonObject];
+//        [self getNewFriendMessage:newFriendMessage LoginUserId:@(message.targetId.integerValue)];
+//        DLog(@"%@",[customMessage.content jsonObject]);
+//    }
+//    
+//}
 
 //获取聊天消息记录 和好友请求消息
 - (void)getServiceChatMsgInfo

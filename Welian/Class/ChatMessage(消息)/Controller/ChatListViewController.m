@@ -13,12 +13,15 @@
 #import "RCDUserInfo.h"
 #import "ChatRoomListController.h"
 #import "ChatRoomHeaderView.h"
+#import "CustomMessageType.h"
+#import "AppDelegate.h"
 
 @interface ChatListViewController ()
 
 @end
 
 static NSString *chatroomcellid = @"chatroomcellid";
+static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 
 @implementation ChatListViewController
 
@@ -68,34 +71,28 @@ static NSString *chatroomcellid = @"chatroomcellid";
     [self.navigationController pushViewController:chatVC animated:YES];
 }
 
-- (void)fdalsdfasjfldsajkfdsaf
-{
-    RCContactNotificationMessage *notFiend = [RCContactNotificationMessage notificationWithOperation:ContactNotificationMessage_ContactOperationRequest sourceUserId:@"10030" targetUserId:@"10019" message:@"zhengjiahaoy" extra:@"fdasd"];
-    
-//    RCUserInfo *user = [[RCUserInfo alloc] initWithUserId:@"10030" name:@"DDDD" portrait:@""];
-//    CustomMessageType *customContent = [[CustomMessageType alloc] init];
-//    [customContent setSenderUserInfo:user];
-//    customContent.content = @"自定义消息0000000";
-    
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:@"10019" content:notFiend pushContent:@"zidsafdsafas" success:^(long messageId) {
-        DLog(@"%ld",messageId);
-    } error:^(RCErrorCode nErrorCode, long messageId) {
-        DLog(@"%ld",(long)nErrorCode);
-    }];
-}
+//- (void)fdalsdfasjfldsajkfdsaf
+//{
+//    RCContactNotificationMessage *notFiend = [RCContactNotificationMessage notificationWithOperation:ContactNotificationMessage_ContactOperationRequest sourceUserId:@"10030" targetUserId:@"10019" message:@"zhengjiahaoy" extra:@"fdasd"];
+//    
+////    RCUserInfo *user = [[RCUserInfo alloc] initWithUserId:@"10030" name:@"DDDD" portrait:@""];
+////    CustomMessageType *customContent = [[CustomMessageType alloc] init];
+////    [customContent setSenderUserInfo:user];
+////    customContent.content = @"自定义消息0000000";
+//    
+//    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:@"10019" content:notFiend pushContent:@"zidsafdsafas" success:^(long messageId) {
+//        DLog(@"%ld",messageId);
+//    } error:^(RCErrorCode nErrorCode, long messageId) {
+//        DLog(@"%ld",(long)nErrorCode);
+//    }];
+//}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(fdalsdfasjfldsajkfdsaf)];
     self.conversationListTableView.tableFooterView = [UIView new];
     [self.conversationListTableView registerClass:[ChatRoomHeaderView class] forCellReuseIdentifier:chatroomcellid];
-//    ChatRoomHeaderView *chatRoomHeader = [[ChatRoomHeaderView alloc] init];
-//    [chatRoomHeader setFrame:CGRectMake(0, 0, SuperSize.width, 80)];
-//    [chatRoomHeader.clickBut addTarget:self action:@selector(enterChatRoomListVC) forControlEvents:UIControlEventTouchUpInside];
-//    self.conversationListTableView.tableHeaderView = chatRoomHeader;
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.conversationListTableView registerClass:[RCDChatListCell class] forCellReuseIdentifier:chatNewFirendcellid];
 }
 
 - (void)enterChatRoomListVC
@@ -179,10 +176,13 @@ static NSString *chatroomcellid = @"chatroomcellid";
 //插入自定义会话model
 -(NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource
 {
+//    RCConversationModel *fdsads = dataSource[0];
+    
     RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION  exntend:nil];
     model.isTop = YES;
     model.objectName = @"ChatRoomHeader";
     [dataSource insertObject:model atIndex:0];
+    
     return dataSource;
 }
 
@@ -208,11 +208,41 @@ static NSString *chatroomcellid = @"chatroomcellid";
             ChatRoomHeaderView *cell = [tableView dequeueReusableCellWithIdentifier:chatroomcellid];
             return cell;
         }else{
-            RCDChatListCell *cell = [[RCDChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+            __block NSString *userName    = nil;
+            __block NSString *portraitUri = nil;
+            
+            //此处需要添加根据userid来获取用户信息的逻辑，extend字段不存在于DB中，当数据来自db时没有extend字段内容，只有userid
+            if (nil == model.extend) {
+                // Not finished yet, To Be Continue...
+                CustomMessageType *customMessage = (CustomMessageType *)model.lastestMessage;
+                NSMutableDictionary *newFriendMessage = [NSMutableDictionary dictionaryWithDictionary:[[customMessage.content jsonObject] objectForKey:@"data"]];
+                [newFriendMessage setObject:[[customMessage.content jsonObject] objectForKey:@"type"] forKey:@"type"];
+                AppDelegate *delet = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                NewFriendUser *newFM = [delet getNewFriendMessage:newFriendMessage LoginUserId:nil];
+                if (!newFM) {
+
+                }
+                NSDictionary *_cache_userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:newFM.uid.stringValue];
+                if (_cache_userinfo) {
+                    userName = _cache_userinfo[@"username"];
+                    portraitUri = _cache_userinfo[@"portraitUri"];
+                }
+                
+            }else{
+                RCDUserInfo *user = (RCDUserInfo *)model.extend;
+                userName    = user.userName;
+                portraitUri = user.portraitUri;
+            }
+
+            RCDChatListCell *cell = [tableView dequeueReusableCellWithIdentifier:chatNewFirendcellid];
+            cell.lblDetail.text =[NSString stringWithFormat:@"来自%@的好友请求",userName];
+            [cell.ivAva sd_setImageWithURL:[NSURL URLWithString:portraitUri] placeholderImage:[UIImage imageNamed:@"system_notice"]];
             return cell;
         }
+    }else{
+        return nil;
     }
-    return nil;
+    
 }
 
 //*********************插入自定义Cell*********************//
@@ -222,8 +252,57 @@ static NSString *chatroomcellid = @"chatroomcellid";
     __weak typeof(&*self) blockSelf_ = self;
     //处理好友请求
     RCMessage *message = notification.object;
-    if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
-        RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)message.content;        
+    
+    if ([message.objectName isEqualToString:RCCustomMessageTypeIdentifier]) {
+        CustomMessageType *customMessage = (CustomMessageType *)message.content;
+        
+        NSMutableDictionary *newFriendMessage = [NSMutableDictionary dictionaryWithDictionary:[[customMessage.content jsonObject] objectForKey:@"data"]];
+        [newFriendMessage setObject:[[customMessage.content jsonObject] objectForKey:@"type"] forKey:@"type"];
+        AppDelegate *delet = (AppDelegate *)[UIApplication sharedApplication].delegate;
+       NewFriendUser *newFM = [delet getNewFriendMessage:newFriendMessage LoginUserId:nil];
+        if (!newFM) {
+            return;
+        }
+        RCDUserInfo *rcduserinfo_ = [RCDUserInfo new];
+        rcduserinfo_.userName = newFM.name;
+        rcduserinfo_.userId = newFM.uid.stringValue;
+        rcduserinfo_.portraitUri = newFM.avatar;//头像
+        
+        RCConversationModel *customModel = [RCConversationModel new];
+        customModel.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
+        customModel.extend = rcduserinfo_;
+        customModel.conversationType = ConversationType_SYSTEM;
+        customModel.senderUserId = rcduserinfo_.userId;
+        customModel.lastestMessage = customMessage;
+        
+        //local cache for userInfo
+        NSDictionary *userinfoDic = @{@"username": rcduserinfo_.userName,
+                                      @"portraitUri":rcduserinfo_.portraitUri
+                                      };
+        [[NSUserDefaults standardUserDefaults]setObject:userinfoDic forKey:customModel.senderUserId];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //调用父类刷新未读消息数
+            [blockSelf_ refreshConversationTableViewWithConversationModel:customModel];
+            [blockSelf_ resetConversationListBackgroundViewIfNeeded];
+            [blockSelf_ updateBadgeValueForTabBarItem];
+        });
+
+        
+        DLog(@"%@",[customMessage.content jsonObject]);
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //调用父类刷新未读消息数
+            [super didReceiveMessageNotification:notification];
+            [blockSelf_ resetConversationListBackgroundViewIfNeeded];
+            [blockSelf_ updateBadgeValueForTabBarItem];
+        });
+    }
+    
+    /*
+     if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
+        RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)message.content;
         //该接口需要替换为从消息体获取好友请求的用户信息
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
         if (!loginUser) {
@@ -241,7 +320,6 @@ static NSString *chatroomcellid = @"chatroomcellid";
                                   customModel.extend = rcduserinfo_;
                                   customModel.senderUserId = message.senderUserId;
                                   customModel.lastestMessage = _contactNotificationMsg;
-                                  //[_myDataSource insertObject:customModel atIndex:0];
                                   
                                   //local cache for userInfo
                                   NSDictionary *userinfoDic = @{@"username": rcduserinfo_.userName,
@@ -253,7 +331,6 @@ static NSString *chatroomcellid = @"chatroomcellid";
                                   dispatch_async(dispatch_get_main_queue(), ^{
                                       //调用父类刷新未读消息数
                                       [blockSelf_ refreshConversationTableViewWithConversationModel:customModel];
-                                      //[super didReceiveMessageNotification:notification];
                                       [blockSelf_ resetConversationListBackgroundViewIfNeeded];
                                       [blockSelf_ updateBadgeValueForTabBarItem];
                                   });
@@ -265,6 +342,7 @@ static NSString *chatroomcellid = @"chatroomcellid";
             [blockSelf_ updateBadgeValueForTabBarItem];
         });
     }
+     */
 }
 
 - (void)didReceiveMemoryWarning {
