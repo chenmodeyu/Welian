@@ -196,6 +196,7 @@
         
 //        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(actionCancel:)];
         UIButton *cancelBtn = [UIButton getBtnWithTitle:@"取消" image:nil];
+        [cancelBtn setTitleColor:kTitleNormalTextColor forState:UIControlStateNormal];
         cancelBtn.layer.borderColor = kNormalLineColor.CGColor;
         cancelBtn.layer.borderWidth = .8f;
         [cancelBtn sizeToFit];
@@ -207,6 +208,7 @@
 //        UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(actionDone:)];
         
         UIButton *doneBtn = [UIButton getBtnWithTitle:@"完成" image:nil];
+        [doneBtn setTitleColor:kTitleNormalTextColor forState:UIControlStateNormal];
         doneBtn.layer.borderColor = kNormalLineColor.CGColor;
         doneBtn.layer.borderWidth = .8f;
         [doneBtn sizeToFit];

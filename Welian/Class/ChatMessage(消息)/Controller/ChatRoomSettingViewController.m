@@ -172,7 +172,7 @@
     
     tableView.tableHeaderView = headerView;
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 50.f)];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 30.f)];
     footerView.backgroundColor = [UIColor clearColor];
     tableView.tableFooterView = footerView;
     
@@ -253,7 +253,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    [[self.view findFirstResponder] resignFirstResponder];
+    
     [self.datePicker showInView:self.view block:^(YUDatePicker *date) {
         DLog(@"showInView ==%@ ",date.dateStr);
         self.selectIndexPath = indexPath;
