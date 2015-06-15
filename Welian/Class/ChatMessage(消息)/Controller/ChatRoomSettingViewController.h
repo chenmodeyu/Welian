@@ -15,6 +15,6 @@ typedef enum : NSUInteger {
 
 @interface ChatRoomSettingViewController : BasicViewController
 
-- (instancetype)initWithRoomType:(ChatRoomSetType)roomSetType ChatRoomInfo:(IChatRoomInfo *)chatRoomInfo;
+- (instancetype)initWithRoomType:(ChatRoomSetType)roomSetType ChatRoomInfo:(ChatRoomInfo *)chatRoomInfo;
 
 @end

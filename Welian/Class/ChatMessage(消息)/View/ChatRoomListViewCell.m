@@ -31,13 +31,28 @@
     return self;
 }
 
-- (void)setChatRoomInfo:(IChatRoomInfo *)chatRoomInfo
+- (void)setChatRoomInfo:(ChatRoomInfo *)chatRoomInfo
 {
     [super willChangeValueForKey:@"chatRoomInfo"];
     _chatRoomInfo = chatRoomInfo;
     [super didChangeValueForKey:@"chatRoomInfo"];
+    //设置图片
+    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_chatRoomInfo.avatorUrl]
+                      placeholderImage:nil
+                               options:SDWebImageRetryFailed|SDWebImageLowPriority
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                 if (image) {
+                                     _logoImageView.image = image;
+                                 }else{
+                                     _logoImageView.image = [UIImage imageNamed:@"user_small"];
+                                 }
+                             }];
     _nameLabel.text = _chatRoomInfo.title;
-    _messageLabel.text = [NSString stringWithFormat:@"%d人在线",0];
+    _messageLabel.text = [NSString stringWithFormat:@"%@ 人在线",_chatRoomInfo.joinUserCount.stringValue];
+    [_messageLabel setAttributedText:[NSObject getAttributedInfoString:_messageLabel.text
+                                                             searchStr:_chatRoomInfo.joinUserCount.stringValue
+                                                                 color:KBlueTextColor
+                                                                  font:kNormalBlod14Font]];
 }
 
 - (void)layoutSubviews

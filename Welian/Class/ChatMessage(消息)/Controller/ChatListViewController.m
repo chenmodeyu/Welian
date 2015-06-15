@@ -155,10 +155,10 @@ static NSString *chatroomcellid = @"chatroomcellid";
     if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
         RCConversationModel *model = self.conversationListDataSource[indexPath.row];
         if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
-            
-        }else{
             ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
             [self.navigationController pushViewController:chatRoomListVC animated:YES];
+        }else{
+            
         }
     }
 }

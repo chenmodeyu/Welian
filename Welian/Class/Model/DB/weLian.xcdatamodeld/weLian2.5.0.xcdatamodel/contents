@@ -90,6 +90,8 @@
         <attribute name="isShow" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="joinUserCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="lastJoinTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="role" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="shareUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="starttime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="rsLoginUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LogInUser" inverseName="rsChatRoomInfos" inverseEntity="LogInUser" syncable="YES"/>
@@ -317,6 +319,6 @@
         <element name="SchoolCompanyDate" positionX="322" positionY="-63" width="128" height="103"/>
         <element name="SchoolModel" positionX="63" positionY="53" width="128" height="133"/>
         <element name="TouTiaoInfo" positionX="-1359" positionY="-396" width="128" height="180"/>
-        <element name="ChatRoomInfo" positionX="-1359" positionY="-396" width="128" height="195"/>
+        <element name="ChatRoomInfo" positionX="-1359" positionY="-396" width="128" height="225"/>
     </elements>
 </model>

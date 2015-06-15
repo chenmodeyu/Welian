@@ -99,8 +99,15 @@
                                               AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                                               [appDelegate logout];
                                           }
-                                          //可以提醒的错误
-                                          SAFE_BLOCK_CALL(failed, result.error);
+                                          //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确
+                                          if(result.state.integerValue == 1100)
+                                          {
+                                              //可以提醒的错误
+                                              SAFE_BLOCK_CALL(success, result);
+                                          }else{
+                                              //可以提醒的错误
+                                              SAFE_BLOCK_CALL(failed, result.error);
+                                          }
                                           if (result.state.integerValue != 1010) {
                                               [WLHUDView showErrorHUD:result.errormsg];
                                           }
@@ -148,7 +155,7 @@
                              Success:(SuccessBlock)success
                               Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"id":chatroomid,
+    NSDictionary *params = @{@"chatroomid":chatroomid,
                              @"title":title,
                              @"starttime":starttime,
                              @"endtime":endtime,
@@ -157,7 +164,8 @@
                           Path:KBaseChatroomUrl(@"save")
                        Success:^(id resultInfo) {
                            DLog(@"chatroomCreateOrChange ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           IChatRoomInfo *result = [IChatRoomInfo objectWithDict:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];
@@ -175,7 +183,12 @@
                           Path:KBaseChatroomUrl(@"join")
                        Success:^(id resultInfo) {
                            DLog(@"chatroomJoin ---- %@",resultInfo);
-                           SAFE_BLOCK_CALL(success,resultInfo);
+                           if ([resultInfo isKindOfClass:[IBaseModel class]]) {
+                               SAFE_BLOCK_CALL(success,resultInfo);
+                           }else{
+                               IChatRoomInfo *result = [IChatRoomInfo objectWithDict:resultInfo];
+                               SAFE_BLOCK_CALL(success,result);
+                           }
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];
@@ -198,10 +211,14 @@
 }
 
 //取聊天室列表
-+ (void)getChatroomListWithSuccess:(SuccessBlock)success
-                            Failed:(FailedBlock)failed
++ (void)getChatroomListWithPage:(NSNumber *)page
+                           Size:(NSNumber *)size
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed
 {
-    [self reqestPostWithParams:nil
+    NSDictionary *params = @{@"page":page,
+                             @"size":size};
+    [self reqestPostWithParams:params
                           Path:KBaseChatroomUrl(@"list")
                        Success:^(id resultInfo) {
                            DLog(@"getChatroomList ---- %@",resultInfo);
@@ -214,16 +231,19 @@
 
 //取聊天室在线成员
 + (void)getChatroomMembersWithId:(NSNumber *)chatroomid
+                            Page:(NSNumber *)page
+                            Size:(NSNumber *)size
                          Success:(SuccessBlock)success
                           Failed:(FailedBlock)failed
 {
-    NSDictionary *params = @{@"chatroomid":chatroomid};
+    NSDictionary *params = @{@"chatroomid":chatroomid,
+                             @"page":page,
+                             @"size":size};
     [self reqestPostWithParams:params
                           Path:KBaseChatroomUrl(@"members")
                        Success:^(id resultInfo) {
                            DLog(@"getChatroomMembers ---- %@",resultInfo);
-                           NSArray *result = [IBaseUserM objectsWithInfo:resultInfo];
-                           SAFE_BLOCK_CALL(success,result);
+                           SAFE_BLOCK_CALL(success,resultInfo);
                        } Failed:^(NSError *error) {
                            SAFE_BLOCK_CALL(failed, error);
                        }];

@@ -38,11 +38,15 @@
                     Failed:(FailedBlock)failed;
 
 //取聊天室列表
-+ (void)getChatroomListWithSuccess:(SuccessBlock)success
-                            Failed:(FailedBlock)failed;
++ (void)getChatroomListWithPage:(NSNumber *)page
+                           Size:(NSNumber *)size
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed;
 
 //取聊天室在线成员
 + (void)getChatroomMembersWithId:(NSNumber *)chatroomid
+                            Page:(NSNumber *)page
+                            Size:(NSNumber *)size
                          Success:(SuccessBlock)success
                           Failed:(FailedBlock)failed;
 

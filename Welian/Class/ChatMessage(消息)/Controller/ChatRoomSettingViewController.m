@@ -30,7 +30,7 @@
 @property (strong,nonatomic) NSIndexPath *selectIndexPath;
 @property (assign,nonatomic) WLTextField *nameTF;
 @property (assign,nonatomic) WLTextField *passWdTF;
-@property (strong,nonatomic) IChatRoomInfo *iChatRoomInfo;
+@property (strong,nonatomic) ChatRoomInfo *chatRoomInfo;
 
 @end
 
@@ -83,12 +83,15 @@
     }
 }
 
-- (instancetype)initWithRoomType:(ChatRoomSetType)roomSetType ChatRoomInfo:(IChatRoomInfo *)chatRoomInfo
+- (instancetype)initWithRoomType:(ChatRoomSetType)roomSetType ChatRoomInfo:(ChatRoomInfo *)chatRoomInfo
 {
     self = [super init];
     if (self) {
         self.roomSetType = roomSetType;
-        self.iChatRoomInfo = chatRoomInfo;
+        self.chatRoomInfo = chatRoomInfo;
+        self.startTime = _chatRoomInfo ? (_chatRoomInfo.starttime.length > 0 ? _chatRoomInfo.starttime : @"") : @"";
+        self.endTime = _chatRoomInfo ? (_chatRoomInfo.endtime.length > 0 ? _chatRoomInfo.endtime : @"") : @"";
+        self.datasource = _chatRoomInfo ? @[_startTime,_endTime] : [NSArray array];
     }
     return self;
 }
@@ -107,6 +110,13 @@
         default:
             break;
     }
+    
+    if (_startTime.length > 0 && _endTime.length > 0) {
+        self.selectType = 1;
+    }else{
+        self.selectType = 0;
+    }
+    
     //添加创建活动按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:rightTitle
                                                                               style:UIBarButtonItemStyleDone
@@ -133,6 +143,7 @@
     nameTF.font = kNormal14Font;
     nameTF.textColor = kTitleNormalTextColor;
     nameTF.placeholder = @"聊天室名称，10个字以内";
+    nameTF.text = _chatRoomInfo ? _chatRoomInfo.title : @"";
     nameTF.layer.borderColorFromUIColor = kNormalLineColor;
     nameTF.layer.borderWidths = @"{0.8f,0,0.4,0}";
     nameTF.delegate = self;
@@ -146,6 +157,7 @@
     passWdTF.font = kNormal14Font;
     passWdTF.textColor = kTitleNormalTextColor;
     passWdTF.placeholder = @"口令，10个字以内";
+    passWdTF.text = _chatRoomInfo ? _chatRoomInfo.code : @"";
     passWdTF.layer.borderColorFromUIColor = kNormalLineColor;
     passWdTF.layer.borderWidths = @"{0.4f,0,0.8f,0}";
     passWdTF.delegate = self;
@@ -169,7 +181,7 @@
     segmentedControl.frame = CGRectMake(20.f, noteLabel1.bottom + 15.f, headerView.width - 40.f, 30.f);
     [segmentedControl addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
     //设置默认选择的内容
-    [segmentedControl setSelectedSegmentIndex:0];
+    [segmentedControl setSelectedSegmentIndex:_selectType];
     [headerView addSubview:segmentedControl];
     self.segmentedControl = segmentedControl;
     
@@ -188,7 +200,7 @@
     footerView.backgroundColor = [UIColor clearColor];
     tableView.tableFooterView = footerView;
     
-    self.selectType = 0;
+    //设置数据
     [self checkDateTypeInfo];
     
     //控制字数
@@ -238,15 +250,26 @@
     }
     //创建或者修改聊天室信息
     [WLHUDView showHUDWithStr:@"创建中..." dim:NO];
-    [WeLianClient chatroomCreateOrChangeWithId:_roomSetType == ChatRoomSetTypeCreate ? @(0) : _iChatRoomInfo.roomId
+    [WeLianClient chatroomCreateOrChangeWithId:_roomSetType == ChatRoomSetTypeCreate ? @(0) : _chatRoomInfo.chatroomid
                                          Title:_nameTF.text
                                      Starttime:startTimeStr
                                        Endtime:endTimeStr
                                           Code:_passWdTF.text
                                        Success:^(id resultInfo) {
                                            [WLHUDView hiddenHud];
+                                           IChatRoomInfo *iChatRoomInfo = resultInfo;
+                                           iChatRoomInfo.title = _nameTF.text;
+                                           iChatRoomInfo.code = _passWdTF.text;
+                                           iChatRoomInfo.starttime = startTimeStr;
+                                           iChatRoomInfo.endtime = endTimeStr;
+                                           iChatRoomInfo.total = @(0);
+                                           iChatRoomInfo.created = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
+                                           //保存到数据库
+                                           [ChatRoomInfo createChatRoomInfoWith:iChatRoomInfo];
+                                           ///通知刷新列表
+                                           [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
                                            [UIAlertView bk_showAlertViewWithTitle:@""
-                                                                          message:@"聊天室创建成功！"
+                                                                          message:_roomSetType == ChatRoomSetTypeCreate ? @"聊天室创建成功！" : @"聊天室修改成功！"
                                                                 cancelButtonTitle:@"知道了"
                                                                 otherButtonTitles:nil
                                                                           handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
@@ -278,7 +301,9 @@
     }else{
         _endTime = dateStr;
     }
-    [_tableView reloadRowsAtIndexPaths:@[_selectIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    self.datasource = @[_startTime,_endTime];
+    [_tableView reloadData];
+//    [_tableView reloadRowsAtIndexPaths:@[_selectIndexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)segmentedControlChanged:(UISegmentedControl *)sender
@@ -296,6 +321,16 @@
     [_noteLabel2 sizeToFit];
     _noteLabel2.left = 15.f;
     _noteLabel2.top = _segmentedControl.bottom + 5.f;
+    
+//    if (_selectType == 0) {
+//        self.startTime = @"";
+//        self.endTime = @"";
+//    }else{
+//        self.startTime = _chatRoomInfo.starttime;
+//        self.endTime = _chatRoomInfo.endtime;
+//    }
+    self.datasource = @[_startTime,_endTime];
+    [_tableView reloadData];
 }
 
 - (void)textFiledEditChanged:(NSNotification *)obj{
@@ -352,11 +387,8 @@
     }
     //    cell.baseUser = _datasource[indexPath.row];
     cell.textLabel.text = indexPath.row == 0 ? @"开始时间" : @"结束时间";
-    if(indexPath.row == 0){
-        cell.detailTextLabel.text = _startTime.length > 0 ? _startTime : @"请选择";
-    }else{
-        cell.detailTextLabel.text = _endTime.length > 0 ? _endTime : @"请选择";
-    }
+    NSString *detailStr = [_datasource[indexPath.row] length] > 0 ? _datasource[indexPath.row] : @"请选择";
+    cell.detailTextLabel.text = detailStr;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.backgroundColor = [UIColor whiteColor];

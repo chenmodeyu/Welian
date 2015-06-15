@@ -10,6 +10,6 @@
 
 @interface ChatRoomListViewCell : BaseTableViewCell
 
-@property (strong,nonatomic) IChatRoomInfo *chatRoomInfo;
+@property (strong,nonatomic) ChatRoomInfo *chatRoomInfo;
 
 @end

@@ -10,6 +10,6 @@
 
 @interface WLChatRoomController : RCConversationViewController
 
-- (instancetype)initWithChatRoomInfo:(IChatRoomInfo *)chatRoomInfo;
+- (instancetype)initWithChatRoomInfo:(ChatRoomInfo *)chatRoomInfo;
 
 @end

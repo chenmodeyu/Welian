@@ -12,7 +12,7 @@
 
 - (void)customOperation:(NSDictionary *)dict
 {
-    self.roomId = dict[@"id"];
+    
 }
 
 @end
