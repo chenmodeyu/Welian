@@ -10,9 +10,9 @@
 
 @implementation ChatRoomHeaderView
 
-- (id)init
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super init];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor groupTableViewBackgroundColor];
         UIView *cellView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SuperSize.width, 70)];
@@ -28,10 +28,6 @@
         UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(_iconImage.right+10, 0, SuperSize.width-_iconImage.right+20, 70)];
         [nameLabel setText:@"聊天室"];
         [cellView addSubview:nameLabel];
-
-        _clickBut = [[UIButton alloc] initWithFrame:cellView.bounds];
-        [cellView addSubview:_clickBut];
-        
     }
     return self;
 }

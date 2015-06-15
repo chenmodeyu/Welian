@@ -18,6 +18,8 @@
 
 @end
 
+static NSString *chatroomcellid = @"chatroomcellid";
+
 @implementation ChatListViewController
 
 - (NSString *)title
@@ -66,15 +68,34 @@
     [self.navigationController pushViewController:chatVC animated:YES];
 }
 
+- (void)fdalsdfasjfldsajkfdsaf
+{
+    RCContactNotificationMessage *notFiend = [RCContactNotificationMessage notificationWithOperation:ContactNotificationMessage_ContactOperationRequest sourceUserId:@"10030" targetUserId:@"10019" message:@"zhengjiahaoy" extra:@"fdasd"];
+    
+//    RCUserInfo *user = [[RCUserInfo alloc] initWithUserId:@"10030" name:@"DDDD" portrait:@""];
+//    CustomMessageType *customContent = [[CustomMessageType alloc] init];
+//    [customContent setSenderUserInfo:user];
+//    customContent.content = @"自定义消息0000000";
+    
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:@"10019" content:notFiend pushContent:@"zidsafdsafas" success:^(long messageId) {
+        DLog(@"%ld",messageId);
+    } error:^(RCErrorCode nErrorCode, long messageId) {
+        DLog(@"%ld",(long)nErrorCode);
+    }];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(fdalsdfasjfldsajkfdsaf)];
     self.conversationListTableView.tableFooterView = [UIView new];
-    ChatRoomHeaderView *chatRoomHeader = [[ChatRoomHeaderView alloc] init];
-    [chatRoomHeader setFrame:CGRectMake(0, 0, SuperSize.width, 80)];
-    [chatRoomHeader.clickBut addTarget:self action:@selector(enterChatRoomListVC) forControlEvents:UIControlEventTouchUpInside];
-    self.conversationListTableView.tableHeaderView = chatRoomHeader;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.conversationListTableView registerClass:[ChatRoomHeaderView class] forCellReuseIdentifier:chatroomcellid];
+//    ChatRoomHeaderView *chatRoomHeader = [[ChatRoomHeaderView alloc] init];
+//    [chatRoomHeader setFrame:CGRectMake(0, 0, SuperSize.width, 80)];
+//    [chatRoomHeader.clickBut addTarget:self action:@selector(enterChatRoomListVC) forControlEvents:UIControlEventTouchUpInside];
+//    self.conversationListTableView.tableHeaderView = chatRoomHeader;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)enterChatRoomListVC
@@ -133,31 +154,35 @@
     //自定义会话类型
     if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
         RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-        ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
-        [self.navigationController pushViewController:chatRoomListVC animated:YES];
+        if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
+            
+        }else{
+            ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
+            [self.navigationController pushViewController:chatRoomListVC animated:YES];
+        }
     }
-    
 }
 
-//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-//    
-//    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;//默认没有编辑风格
-//    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL) {
-//        result = UITableViewCellEditingStyleDelete;//设置编辑风格为删除风格
-//    }
-//    return result;
-//}
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+    
+    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;//默认没有编辑风格
+    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL) {
+        result = UITableViewCellEditingStyleDelete;//设置编辑风格为删除风格
+    }
+    return result;
+}
 
 
 //*********************插入自定义Cell*********************//
 //插入自定义会话model
 -(NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource
 {
-//    RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION  exntend:nil];
-//    model.isTop = YES;
-//    [dataSource insertObject:model atIndex:0];
+    RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION  exntend:nil];
+    model.isTop = YES;
+    model.objectName = @"ChatRoomHeader";
+    [dataSource insertObject:model atIndex:0];
     return dataSource;
 }
 
@@ -169,19 +194,24 @@
 }
 
 //高度
-//-(CGFloat)rcConversationListTableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 80.0f;
-//}
+-(CGFloat)rcConversationListTableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.0f;
+}
 
 //自定义cell
 -(RCConversationBaseCell *)rcConversationListTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-//    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
-//        RCDChatListCell *cell = [[RCDChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
-//        return cell;
-//    }
+    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
+        if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
+            ChatRoomHeaderView *cell = [tableView dequeueReusableCellWithIdentifier:chatroomcellid];
+            return cell;
+        }else{
+            RCDChatListCell *cell = [[RCDChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+            return cell;
+        }
+    }
     return nil;
 }
 

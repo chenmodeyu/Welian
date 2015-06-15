@@ -4,28 +4,18 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/Class/Friends(&#x597d;&#x53cb;)/Controller/FriendsFriendController.m"
-            timestampString = "454927783.717199"
+            filePath = "Welian/Class/Login(&#x767b;&#x9646;)/Controller/PerfectInfoController.m"
+            timestampString = "455982197.496023"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-initWithStyle:"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "-setUserInfoDic:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/WLChatViewController.m"
-            timestampString = "455781800.947561"
+            filePath = "Welian/AppDelegate.mm"
+            timestampString = "456041927.126081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-rcConversationCollectionView:cellForItemAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/ChatListViewController.m"
-            timestampString = "455803297.880157"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "-didReceiveMessageNotification:"
+            startingLineNumber = "911"
+            endingLineNumber = "911"
+            landmarkName = "-onRCIMReceiveMessage:left:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

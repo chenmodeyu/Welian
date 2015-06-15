@@ -42,9 +42,6 @@
 
 @property (nonatomic, strong) NotstringView *notDataView;
 
-///** 新特性界面(如果是通过Block方式进入主界面则不需要声明该属性) */
-//@property (nonatomic, strong)  LCNewFeatureVC *newFeatureVC;
-
 @end
 
 @implementation HomeController
@@ -88,13 +85,6 @@
     [self.tableView.header beginRefreshing];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //现实头部导航
-//    self.navigationController.navigationBarHidden = NO;
-//    self.navigationController.navigationBar.hidden = NO;
-}
 
 - (instancetype)initWithUid:(NSNumber *)uid
 {
@@ -192,8 +182,6 @@
                 }
             });  
         });
-        
-        
     } Failed:^(NSError *error) {
         [self endRefreshing];
     }];
@@ -275,17 +263,36 @@
     [[MainViewController sharedMainViewController] updataItembadge];
 }
 
+- (void)homeMessagesItemClick
+{
+    MessageController *messageVC = [[MessageController alloc] init];
+    [self.navigationController pushViewController:messageVC animated:YES];
+}
+
 
 #pragma mark 设置界面属性
 - (void)buildUI
 {
     if (!_uid||(_uid!=nil &&_uid.integerValue==0)) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_write"] style:UIBarButtonItemStyleBordered target:self action:@selector(publishStatus)];
+        
+        UIImage *image = [UIImage imageNamed:@"navbar_write"];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0,0,40, 40)];
+        [button addTarget:self action:@selector(homeMessagesItemClick) forControlEvents:UIControlEventTouchUpInside];
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 20);
+        [button setImage:image forState:UIControlStateNormal];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.navigationItem.leftBarButtonItem.shouldAnimateBadge = YES;
+        self.navigationItem.leftBarButtonItem.shouldHideBadgeAtZero = YES;
+        self.navigationItem.leftBarButtonItem.badgeValue = @"12";
+        self.navigationItem.leftBarButtonItem.badgeBGColor = [UIColor redColor];
+        self.navigationItem.leftBarButtonItem.badgeFont = WLFONT(14);
+        self.navigationItem.leftBarButtonItem.badgePadding = 2;
     }
     // 背景颜色
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView setBackgroundColor:WLLineColor];
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, IWTableBorderWidth, 0);
+//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, IWTableBorderWidth, 0);
     
     // 检查网络连接
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
@@ -805,21 +812,6 @@
             [WLHUDView showErrorHUD:@"发布失败！"];
         }];
     }
-    
-    
-   
-//    [WLHttpTool addFeedParameterDic:reqDataDic success:^(id JSON) {
-//        [[WLDataDBTool sharedService] deleteObjectById:statusFrame.status.sendId fromTable:KSendAgainDataTableName];
-//        [weakSelf beginPullDownRefreshing];
-//    } fail:^(NSError *error) {
-//        
-//        WLStatusM *statusM = statusFrame.status;
-//        statusM.sendType = 1;
-//        statusFrame.status = statusM;
-//        [_dataArry replaceObjectAtIndex:indexPath.row withObject:statusFrame];
-//        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//        [WLHUDView showErrorHUD:@"发布失败！"];
-//    }];
 }
 
 @end

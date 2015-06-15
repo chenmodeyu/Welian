@@ -10,6 +10,6 @@
 
 @interface MessageController : UITableViewController
 
-- (instancetype)initWithStyle:(UITableViewStyle)style isAllMessage:(BOOL)isAllMessage;
+//- (instancetype)initWithStyle:(UITableViewStyle)style isAllMessage:(BOOL)isAllMessage;
 
 @end
