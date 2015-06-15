@@ -35,6 +35,10 @@
 //#define kAlipayNotifyURL @"http://test.welian.com:8080/alipay/notify"
 #define kAlipayNotifyURL @"http://www.welian.com:8080/alipay/notify"
 
+#pragma mark - 融云集成
+// 发现banner 广告
+#define KBaseChatroomUrl(path) [NSString stringWithFormat:@"chatroom/%@",path]
+
 #pragma mark - 1.8.0版接口
 // 发现banner 广告
 #define KBannerUrl(path) [NSString stringWithFormat:@"ad/%@",path]

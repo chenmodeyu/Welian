@@ -12,6 +12,7 @@
 
 @interface WLChatRoomController ()
 
+@property (strong,nonatomic) IChatRoomInfo *chatRoomInfo;
 
 @end
 
@@ -22,6 +23,15 @@
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBarHidden = NO;
+}
+
+- (instancetype)initWithChatRoomInfo:(IChatRoomInfo *)chatRoomInfo
+{
+    self = [super init];
+    if (self) {
+        self.chatRoomInfo = chatRoomInfo;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -50,7 +60,7 @@
 //更多操作按钮
 - (void)shareItemClicked
 {
-    ChatRoomSettingViewController *roomSettingVC = [[ChatRoomSettingViewController alloc] initWithRoomType:ChatRoomSetTypeChange];
+    ChatRoomSettingViewController *roomSettingVC = [[ChatRoomSettingViewController alloc] initWithRoomType:ChatRoomSetTypeChange ChatRoomInfo:_chatRoomInfo];
     [self.navigationController pushViewController:roomSettingVC animated:YES];
 }
 

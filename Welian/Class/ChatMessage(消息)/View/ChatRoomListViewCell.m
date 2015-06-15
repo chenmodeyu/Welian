@@ -30,6 +30,16 @@
     }
     return self;
 }
+
+- (void)setChatRoomInfo:(IChatRoomInfo *)chatRoomInfo
+{
+    [super willChangeValueForKey:@"chatRoomInfo"];
+    _chatRoomInfo = chatRoomInfo;
+    [super didChangeValueForKey:@"chatRoomInfo"];
+    _nameLabel.text = _chatRoomInfo.title;
+    _messageLabel.text = [NSString stringWithFormat:@"%d人在线",0];
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];

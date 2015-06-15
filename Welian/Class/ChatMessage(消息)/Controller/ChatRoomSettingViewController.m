@@ -14,8 +14,9 @@
 
 #define kTableViewCellHeight 50.f
 #define kTableHeaderViewHeight 213.f
+#define kMaxLength 10.f
 
-@interface ChatRoomSettingViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ChatRoomSettingViewController ()<UITableViewDelegate, UITableViewDataSource ,UITextFieldDelegate>
 
 @property (strong,nonatomic) YUDatePicker *datePicker;
 @property (assign,nonatomic) UITableView *tableView;
@@ -27,10 +28,20 @@
 @property (strong,nonatomic) NSString *startTime;
 @property (strong,nonatomic) NSString *endTime;
 @property (strong,nonatomic) NSIndexPath *selectIndexPath;
+@property (assign,nonatomic) WLTextField *nameTF;
+@property (assign,nonatomic) WLTextField *passWdTF;
+@property (strong,nonatomic) IChatRoomInfo *iChatRoomInfo;
 
 @end
 
 @implementation ChatRoomSettingViewController
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self
+                                                   name:UITextFieldTextDidChangeNotification
+                                                 object:_nameTF];
+}
 
 - (YUDatePicker *)datePicker{
     if (!_datePicker) {
@@ -72,11 +83,12 @@
     }
 }
 
-- (instancetype)initWithRoomType:(ChatRoomSetType)roomSetType
+- (instancetype)initWithRoomType:(ChatRoomSetType)roomSetType ChatRoomInfo:(IChatRoomInfo *)chatRoomInfo
 {
     self = [super init];
     if (self) {
         self.roomSetType = roomSetType;
+        self.iChatRoomInfo = chatRoomInfo;
     }
     return self;
 }
@@ -106,6 +118,7 @@
     tableView.backgroundColor = RGB(246.f, 247.f, 248.f);
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     self.tableView = tableView;
@@ -122,7 +135,9 @@
     nameTF.placeholder = @"聊天室名称，10个字以内";
     nameTF.layer.borderColorFromUIColor = kNormalLineColor;
     nameTF.layer.borderWidths = @"{0.8f,0,0.4,0}";
+    nameTF.delegate = self;
     [headerView addSubview:nameTF];
+    self.nameTF = nameTF;
     //    [roomIdTF setDebug:YES];
     
     //口令
@@ -133,7 +148,9 @@
     passWdTF.placeholder = @"口令，10个字以内";
     passWdTF.layer.borderColorFromUIColor = kNormalLineColor;
     passWdTF.layer.borderWidths = @"{0.4f,0,0.8f,0}";
+    passWdTF.delegate = self;
     [headerView addSubview:passWdTF];
+    self.passWdTF = passWdTF;
 
     //告示1
     UILabel *noteLabel1 = [[UILabel alloc] init];
@@ -161,12 +178,7 @@
     noteLabel2.backgroundColor = [UIColor clearColor];
     noteLabel2.font = kNormal12Font;
     noteLabel2.textColor = kNormalTextColor;
-//    noteLabel2.text = @"到开始时间之后，聊天室才会开启；过了结束时间，聊天室自动销毁";
     noteLabel2.numberOfLines = 0.f;
-//    noteLabel2.width = headerView.width - 30.f;
-//    [noteLabel2 sizeToFit];
-//    noteLabel2.left = 15.f;
-//    noteLabel2.top = segmentedControl.bottom + 5.f;
     [headerView addSubview:noteLabel2];
     self.noteLabel2 = noteLabel2;
     
@@ -178,12 +190,75 @@
     
     self.selectType = 0;
     [self checkDateTypeInfo];
+    
+    //控制字数
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:)
+                                                name:UITextFieldTextDidChangeNotification
+                                              object:_nameTF];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:)
+                                                name:UITextFieldTextDidEndEditingNotification
+                                              object:_nameTF];
+    
+    //控制字数
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:)
+                                                name:UITextFieldTextDidChangeNotification
+                                              object:_passWdTF];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:)
+                                                name:UITextFieldTextDidEndEditingNotification
+                                              object:_passWdTF];
 }
 
 #pragma mark - private
 - (void)rightBarButtonItemClicked
 {
-
+    //隐藏键盘
+    [[self.view findFirstResponder] resignFirstResponder];
+    
+    if ([_nameTF.text deleteTopAndBottomKonggeAndHuiche].length == 0) {
+        [WLHUDView showErrorHUD:@"请输入聊天室名称！"];
+        return;
+    }
+    if ([_passWdTF.text deleteTopAndBottomKonggeAndHuiche].length == 0) {
+        [WLHUDView showErrorHUD:@"请输入聊天室口令！"];
+        return;
+    }
+    NSString *startTimeStr = @"";
+    NSString *endTimeStr = @"";
+    if(_selectType == 1){
+        startTimeStr = _startTime;
+        endTimeStr = _endTime;
+        if ([startTimeStr deleteTopAndBottomKonggeAndHuiche].length == 0) {
+            [WLHUDView showErrorHUD:@"请选择开始时间！"];
+            return;
+        }
+        if ([endTimeStr deleteTopAndBottomKonggeAndHuiche].length == 0) {
+            [WLHUDView showErrorHUD:@"请选择结束时间！"];
+            return;
+        }
+    }
+    //创建或者修改聊天室信息
+    [WLHUDView showHUDWithStr:@"创建中..." dim:NO];
+    [WeLianClient chatroomCreateOrChangeWithId:_roomSetType == ChatRoomSetTypeCreate ? @(0) : _iChatRoomInfo.roomId
+                                         Title:_nameTF.text
+                                     Starttime:startTimeStr
+                                       Endtime:endTimeStr
+                                          Code:_passWdTF.text
+                                       Success:^(id resultInfo) {
+                                           [WLHUDView hiddenHud];
+                                           [UIAlertView bk_showAlertViewWithTitle:@""
+                                                                          message:@"聊天室创建成功！"
+                                                                cancelButtonTitle:@"知道了"
+                                                                otherButtonTitles:nil
+                                                                          handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                                              [self.navigationController popViewControllerAnimated:YES];
+                                                                          }];
+                                       } Failed:^(NSError *error) {
+                                           if (error) {
+                                               [WLHUDView showErrorHUD:error.localizedDescription];
+                                           }else{
+                                               [WLHUDView showErrorHUD:@"创建失败，请重试！"];
+                                           }
+                                       }];
 }
 
 - (void)dateChanged:(id)sender{
@@ -221,6 +296,44 @@
     [_noteLabel2 sizeToFit];
     _noteLabel2.left = 15.f;
     _noteLabel2.top = _segmentedControl.bottom + 5.f;
+}
+
+- (void)textFiledEditChanged:(NSNotification *)obj{
+    UITextField *textField = (UITextField *)obj.object;
+    
+    NSString *toBeString = textField.text;
+    // 键盘输入模式(判断输入模式的方法是iOS7以后用到的,如果想做兼容,另外谷歌)
+    NSArray * currentar = [UITextInputMode activeInputModes];
+    UITextInputMode * current = [currentar firstObject];
+    
+    if ([current.primaryLanguage isEqualToString:@"zh-Hans"]) { // 简体中文输入，包括简体拼音，健体五笔，简体手写
+        UITextRange *selectedRange = [textField markedTextRange];
+        //获取高亮部分
+        UITextPosition *position = [textField positionFromPosition:selectedRange.start offset:0];
+        // 没有高亮选择的字，则对已输入的文字进行字数统计和限制
+        if (!position) {
+            if (toBeString.length > kMaxLength) {
+                textField.text = [toBeString substringToIndex:kMaxLength];
+                //此方法是我引入的第三方警告框.读者可以自己完成警告弹窗.
+            }
+        }else{
+            // 有高亮选择的字符串，则暂不对文字进行统计和限制
+        }
+    }else{
+        // 中文输入法以外的直接对其统计限制即可，不考虑其他语种情况
+        if (toBeString.length > kMaxLength) {
+            textField.text = [toBeString substringToIndex:kMaxLength];
+        }
+    }
+}
+
+#pragma mark - UITextField Delegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    //键盘出现前，隐藏时间选项
+    [_datePicker hidden];
+    _tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    return YES;
 }
 
 #pragma mark - UITableView Datasource&delegate

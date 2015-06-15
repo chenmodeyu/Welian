@@ -82,6 +82,18 @@
         <attribute name="voiceUrl" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="rsMyFriendUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MyFriendUser" inverseName="rsChatMessages" inverseEntity="MyFriendUser" syncable="YES"/>
     </entity>
+    <entity name="ChatRoomInfo" representedClassName="ChatRoomInfo" syncable="YES">
+        <attribute name="avatorUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chatroomid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endtime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isShow" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="joinUserCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastJoinTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="starttime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rsLoginUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LogInUser" inverseName="rsChatRoomInfos" inverseEntity="LogInUser" syncable="YES"/>
+    </entity>
     <entity name="CityInfo" representedClassName="CityInfo" syncable="YES">
         <attribute name="cityid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="isShow" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -157,6 +169,7 @@
         <attribute name="unionid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="rsActivityInfos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ActivityInfo" inverseName="rsLoginUser" inverseEntity="ActivityInfo" syncable="YES"/>
+        <relationship name="rsChatRoomInfos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ChatRoomInfo" inverseName="rsLoginUser" inverseEntity="ChatRoomInfo" syncable="YES"/>
         <relationship name="rsCompanys" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CompanyModel" inverseName="rsLogInUser" inverseEntity="CompanyModel" syncable="YES"/>
         <relationship name="rsFriendsFriends" optional="YES" toMany="YES" maxCount="15" deletionRule="Cascade" destinationEntity="FriendsFriendUser" inverseName="rsLogInUser" inverseEntity="FriendsFriendUser" syncable="YES"/>
         <relationship name="rsHomeMessages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HomeMessage" inverseName="rsLogInUser" inverseEntity="HomeMessage" syncable="YES"/>
@@ -292,7 +305,7 @@
         <element name="InvestItems" positionX="-1350" positionY="-387" width="128" height="103"/>
         <element name="InvestorUser" positionX="-729" positionY="-477" width="128" height="58"/>
         <element name="InvestStages" positionX="-1341" positionY="-378" width="128" height="88"/>
-        <element name="LogInUser" positionX="-218" positionY="-193" width="128" height="585"/>
+        <element name="LogInUser" positionX="-218" positionY="-193" width="128" height="600"/>
         <element name="MyFriendUser" positionX="-650" positionY="-387" width="128" height="150"/>
         <element name="NeedAddUser" positionX="-1359" positionY="-396" width="128" height="120"/>
         <element name="NewFriendUser" positionX="-623" positionY="-270" width="128" height="165"/>
@@ -304,5 +317,6 @@
         <element name="SchoolCompanyDate" positionX="322" positionY="-63" width="128" height="103"/>
         <element name="SchoolModel" positionX="63" positionY="53" width="128" height="133"/>
         <element name="TouTiaoInfo" positionX="-1359" positionY="-396" width="128" height="180"/>
+        <element name="ChatRoomInfo" positionX="-1359" positionY="-396" width="128" height="195"/>
     </elements>
 </model>

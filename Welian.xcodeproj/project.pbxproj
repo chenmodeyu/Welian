@@ -1389,6 +1389,16 @@
 		A4948EAC1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */; };
 		A4948EAD1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */; };
 		A4948EAE1B0C860300BA6258 /* ProjectPostDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */; };
+		A49A35E41B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35E31B2EA28E00B6A790 /* IChatRoomInfo.m */; };
+		A49A35E51B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35E31B2EA28E00B6A790 /* IChatRoomInfo.m */; };
+		A49A35E61B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35E31B2EA28E00B6A790 /* IChatRoomInfo.m */; };
+		A49A35E71B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35E31B2EA28E00B6A790 /* IChatRoomInfo.m */; };
+		A49A35E81B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35E31B2EA28E00B6A790 /* IChatRoomInfo.m */; };
+		A49A35EB1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35EA1B2EAD3F00B6A790 /* ChatRoomInfo.m */; };
+		A49A35EC1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35EA1B2EAD3F00B6A790 /* ChatRoomInfo.m */; };
+		A49A35ED1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35EA1B2EAD3F00B6A790 /* ChatRoomInfo.m */; };
+		A49A35EE1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35EA1B2EAD3F00B6A790 /* ChatRoomInfo.m */; };
+		A49A35EF1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A35EA1B2EAD3F00B6A790 /* ChatRoomInfo.m */; };
 		A49C7BC31A70D42700F2AEC5 /* ISchoolResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A3F8F51A41855900F06DDD /* ISchoolResult.m */; };
 		A49C7BC51A70D42700F2AEC5 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = A48CA6951A4D044B009EBD04 /* DTTimePeriod.m */; };
 		A49C7BC61A70D42700F2AEC5 /* ActivityUserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CE1AB1A6E4ED5004F17E7 /* ActivityUserViewCell.m */; };
@@ -5723,6 +5733,10 @@
 		A4948EA21B0C830000BA6258 /* xiangmu_pdf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangmu_pdf@2x.png"; sourceTree = "<group>"; };
 		A4948EA81B0C860300BA6258 /* ProjectPostDetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectPostDetailInfoViewController.h; sourceTree = "<group>"; };
 		A4948EA91B0C860300BA6258 /* ProjectPostDetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectPostDetailInfoViewController.m; sourceTree = "<group>"; };
+		A49A35E21B2EA28E00B6A790 /* IChatRoomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IChatRoomInfo.h; sourceTree = "<group>"; };
+		A49A35E31B2EA28E00B6A790 /* IChatRoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IChatRoomInfo.m; sourceTree = "<group>"; };
+		A49A35E91B2EAD3F00B6A790 /* ChatRoomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomInfo.h; sourceTree = "<group>"; };
+		A49A35EA1B2EAD3F00B6A790 /* ChatRoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomInfo.m; sourceTree = "<group>"; };
 		A49C7FC11A70D42700F2AEC5 /* weLianAppDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weLianAppDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49C7FC31A70D63C00F2AEC5 /* weLianAppDev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "weLianAppDev-Info.plist"; sourceTree = "<group>"; };
 		A49C7FC81A70EA0B00F2AEC5 /* weLian1.1.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weLian1.1.6.xcdatamodel; sourceTree = "<group>"; };
@@ -7512,6 +7526,8 @@
 				A4E322F71B1412C900DD395B /* ICityModel.m */,
 				A486EBDC1B16BA6900A591EE /* IGetNewFeedResultModel.h */,
 				A486EBDD1B16BA6900A591EE /* IGetNewFeedResultModel.m */,
+				A49A35E21B2EA28E00B6A790 /* IChatRoomInfo.h */,
+				A49A35E31B2EA28E00B6A790 /* IChatRoomInfo.m */,
 			);
 			path = Interface2.0;
 			sourceTree = "<group>";
@@ -10011,6 +10027,8 @@
 			isa = PBXGroup;
 			children = (
 				F59E76091A405D170028FBAF /* weLian.xcdatamodeld */,
+				A49A35E91B2EAD3F00B6A790 /* ChatRoomInfo.h */,
+				A49A35EA1B2EAD3F00B6A790 /* ChatRoomInfo.m */,
 				A4E322FD1B14161500DD395B /* CityInfo.h */,
 				A4E322FE1B14161500DD395B /* CityInfo.m */,
 				A4C0E1231B0EFE5600A9929D /* ProjectClassInfo.h */,
@@ -14103,6 +14121,7 @@
 				A4E731AC1A8CA99700980676 /* ActivityTicketView.m in Sources */,
 				A493C1CC1ADD0A0C0056BD52 /* ResManager.m in Sources */,
 				A49C7C0A1A70D42700F2AEC5 /* TQRichTextView.m in Sources */,
+				A49A35E81B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */,
 				A49C7C0B1A70D42700F2AEC5 /* XHCacheManager.m in Sources */,
 				A49C7C0C1A70D42700F2AEC5 /* UIBarButtonItem+Badge.m in Sources */,
 				A49C7C0E1A70D42700F2AEC5 /* ChineseString.m in Sources */,
@@ -14150,6 +14169,7 @@
 				F5C09E3A1B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */,
 				A49C7C311A70D42700F2AEC5 /* WLBubblePhotoImageView.m in Sources */,
 				A493C2701ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
+				A49A35EF1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */,
 				F50B631E1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				A49C7C321A70D42700F2AEC5 /* UIImageView+WebCache.m in Sources */,
 				A49C7C331A70D42700F2AEC5 /* InvestInfoListVC.m in Sources */,
@@ -14684,6 +14704,7 @@
 				A493C1CA1ADD0A0C0056BD52 /* ResManager.m in Sources */,
 				F53DC2CC1A49192600F5F712 /* TQRichTextView.m in Sources */,
 				A4C140B61A4BEF0E00C9BAB5 /* XHCacheManager.m in Sources */,
+				A49A35E61B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */,
 				F53DC2CD1A49192600F5F712 /* UIBarButtonItem+Badge.m in Sources */,
 				F53DC2CE1A49192600F5F712 /* ChineseString.m in Sources */,
 				A493C3741ADD14A60056BD52 /* WLStatusM.m in Sources */,
@@ -14731,6 +14752,7 @@
 				F5C09E391B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */,
 				F53DC2E41A49192600F5F712 /* UIImageView+WebCache.m in Sources */,
 				F52F96701A56EA0A00BAA77B /* InvestInfoListVC.m in Sources */,
+				A49A35ED1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */,
 				F50B631D1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				F53DC2E51A49192600F5F712 /* AFURLSessionManager.m in Sources */,
 				F5E13A391A7B3062001BB786 /* MyProjectViewController.m in Sources */,
@@ -15265,6 +15287,7 @@
 				A4C13FFF1A4BC0AD00C9BAB5 /* ChatViewController.m in Sources */,
 				F53D4E471A4AABE800CA06C8 /* NewFriendUser.m in Sources */,
 				F56649A41A2AFD56008A5830 /* FeedAndZanView.m in Sources */,
+				A49A35E41B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */,
 				A493C1C81ADD0A0C0056BD52 /* ResManager.m in Sources */,
 				A489E7D01AA5980C00F7BE9F /* ActivityInfo.m in Sources */,
 				F534DAFC1A4F1BB100B6A725 /* AddCaseCell.m in Sources */,
@@ -15312,6 +15335,7 @@
 				F5C09E371B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */,
 				F56649B61A2AFD56008A5830 /* SignInPWDController.m in Sources */,
 				A437CEF51A541BF300B54E68 /* WLMessageSpecialView.m in Sources */,
+				A49A35EB1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */,
 				A493C26C1ADD0BB00056BD52 /* e0571CoreDataManager.m in Sources */,
 				F50B631B1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				F56649B71A2AFD56008A5830 /* FMDatabaseAdditions.m in Sources */,
@@ -15846,6 +15870,7 @@
 				A493C1C91ADD0A0C0056BD52 /* ResManager.m in Sources */,
 				F5664C601A2AFDD5008A5830 /* TQRichTextView.m in Sources */,
 				A4C140B51A4BEF0E00C9BAB5 /* XHCacheManager.m in Sources */,
+				A49A35E51B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */,
 				F5664C611A2AFDD5008A5830 /* UIBarButtonItem+Badge.m in Sources */,
 				F5664C621A2AFDD5008A5830 /* ChineseString.m in Sources */,
 				A493C3731ADD14A60056BD52 /* WLStatusM.m in Sources */,
@@ -15893,6 +15918,7 @@
 				F5C09E381B26B2220068559A /* NSManagedObject+MagicalRecord.m in Sources */,
 				F5664C771A2AFDD5008A5830 /* UIImageView+WebCache.m in Sources */,
 				F52F966F1A56EA0A00BAA77B /* InvestInfoListVC.m in Sources */,
+				A49A35EC1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */,
 				F50B631C1B1585D6002259B2 /* FirmInfoHeaderView.m in Sources */,
 				F5664C781A2AFDD5008A5830 /* AFURLSessionManager.m in Sources */,
 				F5E13A381A7B3062001BB786 /* MyProjectViewController.m in Sources */,
@@ -16382,6 +16408,7 @@
 				A4B5C2FD1B28089000E0D396 /* RCDChatListCell.m in Sources */,
 				A4E322ED1B14118400DD395B /* ICommonSelectInfoResult.m in Sources */,
 				A493C3571ADD14A60056BD52 /* PublishModel.m in Sources */,
+				A49A35EE1B2EAD3F00B6A790 /* ChatRoomInfo.m in Sources */,
 				A4C0E13D1B0F1B3000A9929D /* UIImage+RTTint.m in Sources */,
 				A4B5C3121B281AA400E0D396 /* CustomMessageType.m in Sources */,
 				A49235541ADE693A009E0B8C /* JKAssetsViewCell.m in Sources */,
@@ -16423,6 +16450,7 @@
 				A493C3521ADD14A60056BD52 /* MessageHomeModel.m in Sources */,
 				A49236651ADE6AF9009E0B8C /* BaseTableViewCell.m in Sources */,
 				A45923B01B0D93DA00715F06 /* FinancingInfoViewCell.m in Sources */,
+				A49A35E71B2EA28E00B6A790 /* IChatRoomInfo.m in Sources */,
 				A4C0E1281B0EFE5600A9929D /* ProjectClassInfo.m in Sources */,
 				A493C2AB1ADD0BB00056BD52 /* WLNavHeaderView.m in Sources */,
 				A4C0E12F1B0F031000A9929D /* ProjectClassViewCell.m in Sources */,

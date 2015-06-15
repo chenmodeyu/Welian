@@ -16,6 +16,37 @@
 + (void)cancelAllRequestHttpTool;
 
 
+#pragma mark - 融云集成
+//创建修改聊天室
++ (void)chatroomCreateOrChangeWithId:(NSNumber *)chatroomid// 创建是id为0，修改的时候传id
+                               Title:(NSString *)title
+                           Starttime:(NSString *)starttime
+                             Endtime:(NSString *)endtime
+                                Code:(NSString *)code
+                             Success:(SuccessBlock)success
+                              Failed:(FailedBlock)failed;
+
+//加入聊天室
++ (void)chatroomJoinWithId:(NSNumber *)chatroomid
+                      Code:(NSString *)code
+                   Success:(SuccessBlock)success
+                    Failed:(FailedBlock)failed;
+
+//退出聊天室
++ (void)chatroomQuitWithId:(NSNumber *)chatroomid
+                   Success:(SuccessBlock)success
+                    Failed:(FailedBlock)failed;
+
+//取聊天室列表
++ (void)getChatroomListWithSuccess:(SuccessBlock)success
+                            Failed:(FailedBlock)failed;
+
+//取聊天室在线成员
++ (void)getChatroomMembersWithId:(NSNumber *)chatroomid
+                         Success:(SuccessBlock)success
+                          Failed:(FailedBlock)failed;
+
+
 #pragma mark - 1.8.0版本
 // 发现banner 广告
 + (void)adBannerWithSuccess:(SuccessBlock)success Failed:(FailedBlock)failed;

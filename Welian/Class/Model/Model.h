@@ -27,6 +27,7 @@
 #import "ProjectClassInfo.h"
 #import "CityInfo.h"
 #import "InvestIndustry.h"
+#import "ChatRoomInfo.h"
 
 #pragma mark - Interface
 #import "IBaseModel.h"
@@ -57,6 +58,7 @@
 #import "ICommonSelectInfoResult.h"
 #import "ICityModel.h"
 #import "IGetNewFeedResultModel.h"
+#import "IChatRoomInfo.h"
 
 
 #pragma mark - Model（Home）

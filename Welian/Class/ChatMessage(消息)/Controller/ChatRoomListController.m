@@ -24,6 +24,7 @@
 @property (assign,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSArray *datasource;
 @property (strong,nonatomic) NotstringView *notView;
+@property (assign,nonatomic) WLTextField *roomIdTF;
 
 @end
 
@@ -42,6 +43,20 @@
     return _notView;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //注册键盘
+    [DaiDodgeKeyboard addRegisterTheViewNeedDodgeKeyboard:self.view];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    //移除監控
+    [DaiDodgeKeyboard removeRegisterTheViewNeedDodgeKeyboard];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -53,6 +68,7 @@
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     self.tableView = tableView;
@@ -86,8 +102,17 @@
     roomIdTF.placeholder = @"输入口令，快速进入聊天室";
     roomIdTF.layer.borderColor = KBgGrayColor.CGColor;
     roomIdTF.layer.borderWidth = 0.8f;
+    roomIdTF.returnKeyType = UIReturnKeyGo;
     [bottomView addSubview:roomIdTF];
+    self.roomIdTF = roomIdTF;
 //    [roomIdTF setDebug:YES];
+    
+    //回车
+    WEAKSELF
+    [roomIdTF setBk_shouldReturnBlock:^BOOL(UITextField *textField) {
+        [weakSelf checkTextCodeAndJoinRoom];
+        return YES;
+    }];
     
     //下拉刷新
     [_tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadReflshData)];
@@ -99,21 +124,50 @@
 //进入聊天室
 - (void)joinBtnClicked:(UIButton *)sender
 {
+    [self checkTextCodeAndJoinRoom];
+}
+
+//检测并加入聊天室
+- (void)checkTextCodeAndJoinRoom
+{
+    if([_roomIdTF.text deleteTopAndBottomKonggeAndHuiche].length == 0){
+        [WLHUDView showErrorHUD:@"请输入聊天室口令！"];
+        return;
+    }
+    [self joinRoomWithCode:_roomIdTF.text];
+}
+
+//加入聊天室
+- (void)joinRoomWithCode:(NSString *)code
+{
+    RCConversationModel *model = [[RCConversationModel alloc] init];
+    model.targetId = @"10019";
+    model.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
+    model.conversationType = ConversationType_CHATROOM;
+    model.conversationTitle = @"微链聊天室";
     
+    WLChatRoomController *chatRoomVC = [[WLChatRoomController alloc] init];
+    chatRoomVC.conversationType = model.conversationType;
+    chatRoomVC.targetId = model.targetId;
+    chatRoomVC.userName = model.conversationTitle;
+    chatRoomVC.title = model.conversationTitle;
+    [self.navigationController pushViewController:chatRoomVC animated:YES];
 }
 
 - (void)loadReflshData
 {
-    [_tableView.header endRefreshing];
-    
-    //获取数据
-    self.datasource = @[@{@"name":@"迭代资本聊天室",@"num":@"20"},
-                        @{@"name":@"微链聊天室",@"num":@"20"},
-                        @{@"name":@"迭代资本聊天室",@"num":@"20"},
-                        @{@"name":@"迭代资本聊天室",@"num":@"20"},
-                        @{@"name":@"迭代资本聊天室",@"num":@"20"},
-                        @{@"name":@"迭代资本聊天室",@"num":@"20"}];
-    [_tableView reloadData];
+    [WeLianClient getChatroomListWithSuccess:^(id resultInfo) {
+        [_tableView.header endRefreshing];
+        self.datasource = resultInfo;
+        [_tableView reloadData];
+    } Failed:^(NSError *error) {
+        [_tableView.header endRefreshing];
+        if (error) {
+            [WLHUDView showErrorHUD:error.localizedDescription];
+        }else{
+            [WLHUDView showErrorHUD:@"创建失败，请重试！"];
+        }
+    }];
     
     //加载数据
     if(_datasource.count == 0){
@@ -127,7 +181,7 @@
 //创建聊天室
 - (void)createChatRoom
 {
-    ChatRoomSettingViewController *roomSettingVC = [[ChatRoomSettingViewController alloc] initWithRoomType:ChatRoomSetTypeCreate];
+    ChatRoomSettingViewController *roomSettingVC = [[ChatRoomSettingViewController alloc] initWithRoomType:ChatRoomSetTypeCreate ChatRoomInfo:nil];
     [self.navigationController pushViewController:roomSettingVC animated:YES];
 }
 
@@ -158,7 +212,7 @@
     if (!cell) {
         cell = [[ChatRoomListViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-//    cell.baseUser = _datasource[indexPath.row];
+    cell.chatRoomInfo = _datasource[indexPath.row];
     return cell;
 }
 
@@ -166,18 +220,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    RCConversationModel *model = [[RCConversationModel alloc] init];
-    model.targetId = @"10019";
-    model.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
-    model.conversationType = ConversationType_CHATROOM;
-    model.conversationTitle = @"微链聊天室";
-    
-    WLChatRoomController *chatRoomVC = [[WLChatRoomController alloc] init];
-    chatRoomVC.conversationType = model.conversationType;
-    chatRoomVC.targetId = model.targetId;
-    chatRoomVC.userName = model.conversationTitle;
-    chatRoomVC.title = model.conversationTitle;
-    [self.navigationController pushViewController:chatRoomVC animated:YES];
+    [self joinRoomWithCode:@""];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
