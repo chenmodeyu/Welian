@@ -32,7 +32,7 @@
 
 #define kDeviceToken @"RongCloud_SDK_DeviceToken"
 
-@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
+@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource,RCIMReceiveMessageDelegate>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
      NSString *_upURL; // 更新地址
@@ -302,12 +302,13 @@ BMKMapManager* _mapManager;
     NSString *_deviceTokenCache = [UserDefaults objectForKey:kRongCloudDeviceToken];
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:_deviceTokenCache];
-    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
     //设置会话列表头像和会话界面头像
     //状态监听
     [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
     //接收消息的监听器。如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。
-//    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+    // 注册自定义消息
+    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
     //聊天消息头像
     if (Iphone6plus) {
         [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(56, 56);
@@ -905,10 +906,10 @@ BMKMapManager* _mapManager;
  @param message 接收到的消息。
  @param left    剩余消息数.
  */
-//- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
-//{
-//    NSLog(@"接收消息到消息后执行:%@",message);
-//}
+- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
+{
+    NSLog(@"接收消息到消息后执行:%@",message);
+}
 
 //获取聊天消息记录 和好友请求消息
 - (void)getServiceChatMsgInfo

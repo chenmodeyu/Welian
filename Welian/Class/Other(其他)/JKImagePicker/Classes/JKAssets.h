@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSURL     *groupPropertyURL;
 @property (nonatomic, strong) NSURL     *assetPropertyURL;
 
+//@property (nonatomic, strong) ALAsset *asset;
 @property (nonatomic, strong) UIImage *fullImage;
 
 @end

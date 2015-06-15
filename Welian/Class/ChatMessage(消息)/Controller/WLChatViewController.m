@@ -41,6 +41,7 @@
 }
 
 
+
 #pragma mark override
 /**
  *  点击头像事件
@@ -98,7 +99,7 @@
 {
     
     ChatCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"chatcell" forIndexPath:indexPath];
-    RCMessageModel *model = self.conversationDataRepository[indexPath.row];
+    CustomMessageType *model = self.conversationDataRepository[indexPath.row];
 
     DLog(@"info:%@",[(CustomMessageType *)model.content content]);
     [cell setModel:model];

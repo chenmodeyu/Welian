@@ -16612,7 +16612,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = weLianAppDev;
-				PROVISIONING_PROFILE = "1cc01dbf-3884-4036-974a-ce5cfec7900f";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -16658,7 +16658,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = weLianAppDev;
-				PROVISIONING_PROFILE = "1cc01dbf-3884-4036-974a-ce5cfec7900f";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};

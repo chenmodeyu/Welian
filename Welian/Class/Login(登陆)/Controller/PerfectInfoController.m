@@ -30,7 +30,7 @@
     UIButton *_loginBut;
     UIButton *_bindingBut;
 //    NSString *_imagebase64Str;
-    NSString *_imageURL;
+   __block NSString *_imageURL;
     UIScrollView *_scrollView;
 }
 

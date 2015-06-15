@@ -6,11 +6,10 @@
 //  Copyright (c) 2015年 chuansongmen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <RongIMKit/RongIMKit.h>
 
-@interface ChatRoomHeaderView : UIView
+@interface ChatRoomHeaderView : RCConversationBaseCell
 
 @property (strong, nonatomic) UIImageView *iconImage;
-@property (strong, nonatomic) UIButton *clickBut;
 
 @end

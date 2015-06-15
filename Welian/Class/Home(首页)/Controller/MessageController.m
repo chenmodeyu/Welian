@@ -89,11 +89,10 @@
     [self.tableView addSubview:self.notView];
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style isAllMessage:(BOOL)isAllMessage
+- (instancetype)init
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
-        [LogInUser setUserHomemessagebadge:@(0)];
 //        [UserDefaults removeObjectForKey:KMessagebadge];
         _messageDataArray = [NSMutableArray array];
         [self.tableView setSectionHeaderHeight:0.1];
@@ -104,16 +103,15 @@
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
         _allMessgeArray = [loginUser getAllMessages];
         
-        if (isAllMessage) {
-            
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空列表" style:UIBarButtonItemStyleBordered target:self action:@selector(cleacMessage)];
-            
+        if (!loginUser.homemessagebadge.integerValue) {
+            if (_allMessgeArray.count) {
+                 self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空列表" style:UIBarButtonItemStyleBordered target:self action:@selector(cleacMessage)];
+            }
             for (HomeMessage *hoemM in _allMessgeArray) {
                 MessageFrameModel *messageFrameM = [[MessageFrameModel alloc] init];
                 [messageFrameM setMessageDataM:hoemM];
                 [_messageDataArray addObject:messageFrameM];
             }
-
         }else{
             for (HomeMessage *homeM  in _allMessgeArray) {
                 if (!homeM.isLook.boolValue) {
@@ -125,13 +123,12 @@
             }
             [self.tableView setTableFooterView:self.footButton];
         }
-    
-        
         if (!_messageDataArray.count) {
             
             [self.tableView addSubview:self.notView];
             
         }
+        [LogInUser setUserHomemessagebadge:@(0)];
     }
     return self;
 }
@@ -139,11 +136,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"消息列表"];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {

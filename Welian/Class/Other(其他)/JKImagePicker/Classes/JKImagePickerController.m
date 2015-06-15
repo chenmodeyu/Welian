@@ -666,10 +666,11 @@ static NSString *kJKAssetsFooterViewIdentifier = @"kJKAssetsFooterViewIdentifier
     NSURL *groupURL = [self.selectAssetsGroup valueForProperty:ALAssetsGroupPropertyURL];
     NSString *groupID = [self.selectAssetsGroup valueForProperty:ALAssetsGroupPropertyPersistentID];
     JKAssets  *jkAsset = [[JKAssets alloc] init];
-//    jkAsset.fullImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage scale:1.0 orientation:UIImageOrientationUp];
-   jkAsset.fullImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage
-                        scale:asset.defaultRepresentation.scale
-                  orientation:(UIImageOrientation)asset.defaultRepresentation.orientation];
+//    jkAsset.asset = asset;
+    jkAsset.fullImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage scale:0.5 orientation:UIImageOrientationUp];
+//   jkAsset.fullImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage
+//                        scale:asset.defaultRepresentation.scale
+//                  orientation:(UIImageOrientation)asset.defaultRepresentation.orientation];
 //     = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
     jkAsset.groupPropertyID = groupID;
     jkAsset.groupPropertyURL = groupURL;

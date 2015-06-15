@@ -10,7 +10,6 @@
 
 @implementation CustomMessageType
 
-
 + (instancetype)messageWithContent:(NSString *)content {
     CustomMessageType *text = [[CustomMessageType alloc] init];
     if (text) {

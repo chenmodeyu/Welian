@@ -16,9 +16,9 @@
 
 // 加好友请求。
 #define ContactNotificationMessage_ContactOperationRequest @"Request"
-// 加好友请求。
+// 接受 加好友请求。
 #define ContactNotificationMessage_ContactOperationAcceptResponse @"AcceptResponse"
-// 加好友请求。
+// 拒绝 加好友请求。
 #define ContactNotificationMessage_ContactOperationRejectResponse @"RejectResponse"
 
 /**
