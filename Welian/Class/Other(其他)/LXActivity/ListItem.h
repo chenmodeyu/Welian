@@ -26,7 +26,9 @@ typedef NS_ENUM(NSInteger, ShareType) {
     ///** 设置团队成员 **//
     ShareTypeProjectMember,
     ///** 设置融资信息 **//
-    ShareTypeProjectFinancing
+    ShareTypeProjectFinancing,
+    ///** 设置 **//
+    ShareTypeSetting
 };
 
 typedef void (^WLActivityBlock)(ShareType duration);

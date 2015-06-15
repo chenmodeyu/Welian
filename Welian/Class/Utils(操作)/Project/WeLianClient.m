@@ -99,8 +99,15 @@
                                               AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                                               [appDelegate logout];
                                           }
-                                          //可以提醒的错误
-                                          SAFE_BLOCK_CALL(failed, result.error);
+                                          //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确
+                                          if(result.state.integerValue == 1100)
+                                          {
+                                              //可以提醒的错误
+                                              SAFE_BLOCK_CALL(success, result);
+                                          }else{
+                                              //可以提醒的错误
+                                              SAFE_BLOCK_CALL(failed, result.error);
+                                          }
                                           if (result.state.integerValue != 1010) {
                                               [WLHUDView showErrorHUD:result.errormsg];
                                           }
@@ -138,6 +145,109 @@
     [[[WeLianClient sharedClient] operationQueue] cancelAllOperations];
 }
 
+#pragma mark - 融云集成
+//创建修改聊天室
++ (void)chatroomCreateOrChangeWithId:(NSNumber *)chatroomid// 创建是id为0，修改的时候传id
+                               Title:(NSString *)title
+                           Starttime:(NSString *)starttime
+                             Endtime:(NSString *)endtime
+                                Code:(NSString *)code
+                             Success:(SuccessBlock)success
+                              Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"chatroomid":chatroomid,
+                             @"title":title,
+                             @"starttime":starttime,
+                             @"endtime":endtime,
+                             @"code":code};
+    [self reqestPostWithParams:params
+                          Path:KBaseChatroomUrl(@"save")
+                       Success:^(id resultInfo) {
+                           DLog(@"chatroomCreateOrChange ---- %@",resultInfo);
+                           IChatRoomInfo *result = [IChatRoomInfo objectWithDict:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//加入聊天室
++ (void)chatroomJoinWithId:(NSNumber *)chatroomid
+                      Code:(NSString *)code
+                   Success:(SuccessBlock)success
+                    Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"chatroomid":chatroomid,
+                             @"code":code};
+    [self reqestPostWithParams:params
+                          Path:KBaseChatroomUrl(@"join")
+                       Success:^(id resultInfo) {
+                           DLog(@"chatroomJoin ---- %@",resultInfo);
+                           if ([resultInfo isKindOfClass:[IBaseModel class]]) {
+                               SAFE_BLOCK_CALL(success,resultInfo);
+                           }else{
+                               IChatRoomInfo *result = [IChatRoomInfo objectWithDict:resultInfo];
+                               SAFE_BLOCK_CALL(success,result);
+                           }
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//退出聊天室
++ (void)chatroomQuitWithId:(NSNumber *)chatroomid
+                   Success:(SuccessBlock)success
+                    Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"chatroomid":chatroomid};
+    [self reqestPostWithParams:params
+                          Path:KBaseChatroomUrl(@"quit")
+                       Success:^(id resultInfo) {
+                           DLog(@"chatroomQuit ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//取聊天室列表
++ (void)getChatroomListWithPage:(NSNumber *)page
+                           Size:(NSNumber *)size
+                        Success:(SuccessBlock)success
+                         Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"page":page,
+                             @"size":size};
+    [self reqestPostWithParams:params
+                          Path:KBaseChatroomUrl(@"list")
+                       Success:^(id resultInfo) {
+                           DLog(@"getChatroomList ---- %@",resultInfo);
+                           NSArray *result = [IChatRoomInfo objectsWithInfo:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
+//取聊天室在线成员
++ (void)getChatroomMembersWithId:(NSNumber *)chatroomid
+                            Page:(NSNumber *)page
+                            Size:(NSNumber *)size
+                         Success:(SuccessBlock)success
+                          Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"chatroomid":chatroomid,
+                             @"page":page,
+                             @"size":size};
+    [self reqestPostWithParams:params
+                          Path:KBaseChatroomUrl(@"members")
+                       Success:^(id resultInfo) {
+                           DLog(@"getChatroomMembers ---- %@",resultInfo);
+                           SAFE_BLOCK_CALL(success,resultInfo);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
 
 #pragma mark - 1.8.0版本
 // 发现banner 广告

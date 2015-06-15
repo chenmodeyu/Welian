@@ -65,5 +65,12 @@
 		<key>itemTitle</key>
 		<string>设置融资信息</string>
 	</dict>
+	<key>10</key>
+	<dict>
+		<key>itemImage</key>
+		<string>share_setting.png</string>
+		<key>itemTitle</key>
+		<string>设置</string>
+	</dict>
 </dict>
 </plist>

@@ -105,6 +105,10 @@
             _operateBtn.layer.masksToBounds = YES;
         }
     }
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (loginUser) {
+        _operateBtn.hidden = loginUser.uid.integerValue == _baseUser.uid.integerValue ? YES : NO;
+    }
 }
 
 - (void)setHidOperateBtn:(BOOL)hidOperateBtn

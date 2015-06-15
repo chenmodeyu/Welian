@@ -36,7 +36,7 @@
 
         [UIView animateWithDuration:[self objects].keyboardAnimationDutation animations: ^{
             CGRect newFrame = [self objects].observerView.frame;
-            newFrame.origin.y = [self objects].observerView.frame.origin.y - currentShift;
+            newFrame.origin.y = [self objects].observerView.frame.origin.y - currentShift - 6.f;
             [self objects].observerView.frame = newFrame;
         } completion:^(BOOL finished) {
             [self objects].shiftHeight = -[self objects].observerView.frame.origin.y;
