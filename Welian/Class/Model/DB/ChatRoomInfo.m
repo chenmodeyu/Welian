@@ -41,7 +41,7 @@
     chatRoomInfo.isShow = @(YES);
     chatRoomInfo.role = iChatRoomInfo.role;
     chatRoomInfo.shareUrl = iChatRoomInfo.shareurl;
-    chatRoomInfo.lastJoinTime = [iChatRoomInfo.created dateFromNormalStringNoss];
+    chatRoomInfo.lastJoinTime = [NSDate date];//[iChatRoomInfo.created dateFromNormalStringNoss];
     
     LogInUser *loginUser = [LogInUser getCurrentLoginUser];
     if (loginUser) {
@@ -49,6 +49,10 @@
     }
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    ///通知刷新列表
+    [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
+    
     return chatRoomInfo;
 }
 
@@ -77,11 +81,25 @@
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
+//删除数据库数据。 隐性删除
+- (void)deleteChatRoomInfo
+{
+    self.isShow = @(NO);
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
 //真实删除
 + (void)deleteAllChatRoomInfosReal
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"isShow",@(NO)];
     [ChatRoomInfo MR_deleteAllMatchingPredicate:pre];
+}
+
+- (ChatRoomInfo *)updateJoinUserCount:(NSNumber *)count
+{
+    self.joinUserCount = count;
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    return self;
 }
 
 @end

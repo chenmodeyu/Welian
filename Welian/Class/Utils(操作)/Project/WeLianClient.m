@@ -100,10 +100,11 @@
                                               [appDelegate logout];
                                           }
                                           //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确
-                                          if(result.state.integerValue == 1100)
+                                          if(result.state.integerValue == 1100 || result.state.integerValue == 1020)
                                           {
                                               //可以提醒的错误
                                               SAFE_BLOCK_CALL(success, result);
+                                              return;
                                           }else{
                                               //可以提醒的错误
                                               SAFE_BLOCK_CALL(failed, result.error);
@@ -146,6 +147,23 @@
 }
 
 #pragma mark - 融云集成
+//获取单个用户信息
++ (void)getMemberWithUid:(NSNumber *)uid
+                 Success:(SuccessBlock)success
+                  Failed:(FailedBlock)failed
+{
+    NSDictionary *params = @{@"uid":uid};
+    [self reqestPostWithParams:params
+                          Path:KBaseChatroomUrl(@"member")
+                       Success:^(id resultInfo) {
+                           DLog(@"getMember ---- %@",resultInfo);
+                           IBaseUserM *result = [IBaseUserM objectWithDict:resultInfo];
+                           SAFE_BLOCK_CALL(success,result);
+                       } Failed:^(NSError *error) {
+                           SAFE_BLOCK_CALL(failed, error);
+                       }];
+}
+
 //创建修改聊天室
 + (void)chatroomCreateOrChangeWithId:(NSNumber *)chatroomid// 创建是id为0，修改的时候传id
                                Title:(NSString *)title

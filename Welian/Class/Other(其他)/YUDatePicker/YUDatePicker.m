@@ -145,7 +145,8 @@
             [self.dayArray addObject:num];
         if (i<XYPICKER_HOUR)
             [self.hourArray addObject:num];
-        [self.minuteArray addObject:num];
+//        [self.minuteArray addObject:num];
+        [self.minuteArray addObject:@"00"];
     }
     
     for (int i=XYPICKER_MINDATE; i<XYPICKER_MAXDATE; i++) {
@@ -236,7 +237,7 @@
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     if (self.datePickerMode == UIYUDatePickerModeDateYYYYMMDDHHmm){
-        return 5;
+        return 4;
     }
     return 0;
 }
@@ -290,9 +291,9 @@
             if (component == 3) {
                 self.hourIndex = row%(count=self.hourArray.count);
             }
-            if (component == 4) {
-                self.minuteIndex = row%(count=self.minuteArray.count);
-            }
+//            if (component == 4) {
+//                self.minuteIndex = row%(count=self.minuteArray.count);
+//            }
         }
             break;
             
@@ -338,13 +339,13 @@
                 textColor = [self dayColorRow:row];
             }
             if (component==3) {
-                title = [NSString stringWithFormat:@"%@",self.hourArray[row%self.hourArray.count]];
+                title = [NSString stringWithFormat:@"%@时",self.hourArray[row%self.hourArray.count]];
                 textColor = [self hourColorRow:row];
             }
-            if (component==4) {
-                title = [NSString stringWithFormat:@"%@",self.minuteArray[row%self.minuteArray.count]];
-                textColor = [self minuteColorRow:row];
-            }
+//            if (component==4) {
+//                title = [NSString stringWithFormat:@"%@",self.minuteArray[row%self.minuteArray.count]];
+//                textColor = [self minuteColorRow:row];
+//            }
         }
             break;
             
@@ -390,8 +391,12 @@
         iArr = @[I2S(self.yearArray.count),I2S(self.yearIndex),
                  I2S(self.monthArray.count),I2S(self.monthIndex),
                  I2S(self.dayArray.count),I2S(self.dayIndex),
-                 I2S(self.hourArray.count),I2S(self.hourIndex),
-                 I2S(self.minuteArray.count),I2S(self.minuteIndex)];
+                 I2S(self.hourArray.count),I2S(self.hourIndex)];
+//        iArr = @[I2S(self.yearArray.count),I2S(self.yearIndex),
+//                 I2S(self.monthArray.count),I2S(self.monthIndex),
+//                 I2S(self.dayArray.count),I2S(self.dayIndex),
+//                 I2S(self.hourArray.count),I2S(self.hourIndex),
+//                 I2S(self.minuteArray.count),I2S(self.minuteIndex)];
     }
     iArr ? 0 :(iArr=[NSArray array]);
     return iArr;

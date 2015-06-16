@@ -37,6 +37,7 @@
 {
     _datasource = nil;
     _notView = nil;
+    _joinedRoom = nil;
     [KNSNotification removeObserver:self];
 }
 
@@ -81,7 +82,30 @@
                                                     DLog(@"quitChatRoom success");
                                                 });
                                             } error:^(RCErrorCode status) {
-                                                DLog(@"quitChatRoom erro:%d",status);
+                                                NSString *errStr = @"";
+                                                switch (status) {
+                                                    case ERRORCODE_UNKNOWN:
+                                                        errStr = @"未知错误";
+                                                        break;
+                                                    case ERRORCODE_TIMEOUT:
+                                                        errStr = @"超时错误";
+                                                        break;
+                                                    case REJECTED_BY_BLACKLIST:
+                                                        errStr = @"被对方加入黑名单时发送消息的状态";
+                                                        break;
+                                                    case NOT_IN_DISCUSSION:
+                                                        errStr = @"不在讨论组中。";
+                                                        break;
+                                                    case NOT_IN_GROUP:
+                                                        errStr = @"不在群组中。";
+                                                        break;
+                                                    case NOT_IN_CHATROOM:
+                                                        errStr = @"不在聊天室中。";
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                                DLog(@"quitChatRoom erro:%@",errStr);
                                             }];
     }
 }
@@ -96,6 +120,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.datasource = [ChatRoomInfo getAllChatRoomInfos];
     
     //添加创建活动按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStyleDone target:self action:@selector(createChatRoom)];
@@ -112,8 +137,8 @@
     //下方的输入栏
     UIView *bottomView = [[UIView alloc] initWithFrame:Rect(0.f, tableView.bottom, self.view.width, KPasswordH)];
     bottomView.backgroundColor = RGB(246.f, 246.f, 246.f);
-    bottomView.layer.borderColorFromUIColor = RGB(184.f, 184.f, 184.f);
-    bottomView.layer.borderWidths = @"{1,0,0,0}";
+    bottomView.layer.borderColorFromUIColor = RGB(171.f, 172.f, 173.f);
+    bottomView.layer.borderWidths = @"{0.6f,0,0,0}";
     [self.view addSubview:bottomView];
     
     //输入按钮
@@ -157,8 +182,14 @@
     [_tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreDataArray)];
     // 隐藏当前的上拉刷新控件
     _tableView.footer.hidden = YES;
-    //自动下拉刷新数据
-    [_tableView.header beginRefreshing];
+    
+    if (_datasource.count > 0) {
+        //后台加载数据
+        [self loadReflshData];
+    }else{
+        //自动下拉刷新数据
+        [_tableView.header beginRefreshing];
+    }
 }
 
 #pragma mark - Private
@@ -181,10 +212,10 @@
 }
 
 //需要重新输入口令
-- (void)needReSetCode
+- (void)needReSetCode:(IBaseModel *)baseModel
 {
     //口令被修改过
-    UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"口令" message:@"口令已被修改，请重新输入"];
+    UIAlertView *alert = [[UIAlertView alloc] bk_initWithTitle:@"口令" message:baseModel.errormsg.length > 0 ? baseModel.errormsg : @"口令已被修改，请重新输入"];
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alert bk_addButtonWithTitle:@"取消" handler:nil];
     [alert bk_addButtonWithTitle:@"开启" handler:^{
@@ -195,26 +226,48 @@
     [alert show];
 }
 
+- (void)hasNoThisCodeRoom:(IBaseModel *)baseModel ChatRoom:(ChatRoomInfo *)chatRoom
+{
+    [UIAlertView bk_showAlertViewWithTitle:@""
+                                   message:baseModel.errormsg.length > 0 ? baseModel.errormsg : @"该聊天室已失效！"
+                         cancelButtonTitle:@"知道了"
+                         otherButtonTitles:nil
+                                   handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                       [self deleteChatRoomWithRoom:chatRoom isNeedNote:NO];
+                                   }];
+}
+
 //加入聊天室
 - (void)joinRoomWithCode:(NSString *)code Room:(ChatRoomInfo *)chatRoomInfo
 {
+    [WLHUDView showHUDWithStr:@"" dim:NO];
     //首次进入chatroom根据code可以直接进入，第二次进入的时候验证code
     [WeLianClient chatroomJoinWithId:code.length > 0 ? @(0) : chatRoomInfo.chatroomid
                                 Code:code.length > 0 ? code : chatRoomInfo.code
                              Success:^(id resultInfo) {
+                                 [WLHUDView hiddenHud];
+                                 
+                                 //清空口令
+                                 _roomIdTF.text = @"";
+                                 
                                  if ([resultInfo isKindOfClass:[IBaseModel class]]) {
                                      //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确
                                      IBaseModel *model = resultInfo;
-                                     if(model.state.integerValue == 1100){
-                                         [self needReSetCode];
+                                     switch (model.state.integerValue) {
+                                         case 1100:
+                                             [self needReSetCode:model];
+                                             break;
+                                         case 1020:
+                                             [self hasNoThisCodeRoom:model ChatRoom:chatRoomInfo];
+                                             break;
+                                         default:
+                                             break;
                                      }
                                  }else{
                                      ChatRoomInfo *chatRoom = [ChatRoomInfo createChatRoomInfoWith:resultInfo];
-                                     //更新加入的数据
-                                     [self refreshDataAndUI];
                                      //融云加入聊天室
                                      [[RCIMClient sharedRCIMClient] joinChatRoom:chatRoom.chatroomid.stringValue
-                                                                    messageCount:15
+                                                                    messageCount:0
                                                                          success:^{
                                                                              dispatch_async(dispatch_get_main_queue(), ^{
                                                                                  self.joinedRoom = chatRoom;
@@ -232,17 +285,44 @@
                                                                                  chatRoomVC.userName = model.conversationTitle;
                                                                                  //    chatRoomVC.title = model.conversationTitle;
                                                                                  [self.navigationController pushViewController:chatRoomVC animated:YES];
+                                                                                 //更新加入的数据
+                                                                                 [self refreshDataAndUI];
                                                                              });
                                                                          } error:^(RCErrorCode status) {
-                                                                             DLog(@"joinChatRoom erro:%d",status);
+                                                                             NSString *errStr = @"";
+                                                                             switch (status) {
+                                                                                 case ERRORCODE_UNKNOWN:
+                                                                                     errStr = @"未知错误";
+                                                                                     break;
+                                                                                 case ERRORCODE_TIMEOUT:
+                                                                                     errStr = @"超时错误";
+                                                                                     break;
+                                                                                 case REJECTED_BY_BLACKLIST:
+                                                                                     errStr = @"被对方加入黑名单时发送消息的状态";
+                                                                                     break;
+                                                                                 case NOT_IN_DISCUSSION:
+                                                                                     errStr = @"不在讨论组中。";
+                                                                                     break;
+                                                                                 case NOT_IN_GROUP:
+                                                                                     errStr = @"不在群组中。";
+                                                                                     break;
+                                                                                 case NOT_IN_CHATROOM:
+                                                                                     errStr = @"不在聊天室中。";
+                                                                                     break;
+                                                                                 default:
+                                                                                     break;
+                                                                             }
+                                                                             DLog(@"joinChatRoom erro:%@",errStr);
                                                                          }];
                                  }
                              } Failed:^(NSError *error) {
+                                 //清空口令
+                                 _roomIdTF.text = @"";
                                  //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确
                                  if (error) {
                                      [WLHUDView showErrorHUD:error.localizedDescription];
                                  }else{
-                                     [WLHUDView showErrorHUD:@"创建失败，请重试！"];
+                                     [WLHUDView showErrorHUD:@"加入聊天室失败，请重试！"];
                                  }
                              }];
 }
@@ -284,7 +364,7 @@
                                                   }
                                                   chatRoomInfo.chatroomid = iChatRoomInfo.chatroomid;
                                                   chatRoomInfo.title = iChatRoomInfo.title;
-                                                  chatRoomInfo.code = iChatRoomInfo.code;
+                                                  chatRoomInfo.code = chatRoomInfo.code.length > 0 ? chatRoomInfo.code : iChatRoomInfo.code;
                                                   chatRoomInfo.starttime = iChatRoomInfo.starttime;
                                                   chatRoomInfo.endtime = iChatRoomInfo.endtime;
                                                   chatRoomInfo.avatorUrl = iChatRoomInfo.avatar;
@@ -292,7 +372,8 @@
                                                   chatRoomInfo.isShow = @(YES);
                                                   chatRoomInfo.role = iChatRoomInfo.role;
                                                   chatRoomInfo.shareUrl = iChatRoomInfo.shareurl;
-                                                  chatRoomInfo.lastJoinTime = [iChatRoomInfo.created dateFromNormalStringNoss];;
+//                                                  chatRoomInfo.lastJoinTime = [iChatRoomInfo.created dateFromNormalStringNoss];
+                                                  chatRoomInfo.lastJoinTime = [NSDate date];
                                                   
                                                   [loginUser addRsChatRoomInfosObject:chatRoomInfo];
                                               }
@@ -308,7 +389,7 @@
                                       if (error) {
                                           [WLHUDView showErrorHUD:error.localizedDescription];
                                       }else{
-                                          [WLHUDView showErrorHUD:@"创建失败，请重试！"];
+                                          [WLHUDView showErrorHUD:@"获取聊天室失败，请重试！"];
                                       }
                                   }];
 }
@@ -361,19 +442,35 @@
 }
 
 //删除，并退出 当前聊天室
-- (void)deleteChatRoomWith:(NSIndexPath *)indexPath
+- (void)deleteChatRoomWithRoom:(ChatRoomInfo *)chatRoomInfo isNeedNote:(BOOL)isNeedNote
 {
-    ChatRoomInfo *chatRoomInfo = _datasource[indexPath.row];
+    [WLHUDView showHUDWithStr:@"删除中..." dim:NO];
     [WeLianClient chatroomQuitWithId:chatRoomInfo.chatroomid
                              Success:^(id resultInfo) {
                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                     [WLHUDView hiddenHud];
                                      
                                      //本地删除
                                      [chatRoomInfo MR_deleteEntity];
-                                     [self refreshDataAndUI];
+                                     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                                     if (isNeedNote) {
+                                         [UIAlertView bk_showAlertViewWithTitle:@""
+                                                                        message:chatRoomInfo.role.boolValue ? @"删除并解散聊天室成功！" : @"删除并退出聊天室成功！"
+                                                              cancelButtonTitle:@"知道了"
+                                                              otherButtonTitles:nil
+                                                                        handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                                            [self refreshDataAndUI];
+                                                                        }];
+                                     }else{
+                                         [self refreshDataAndUI];
+                                     }
                                  });
                              } Failed:^(NSError *error) {
-                                 
+                                 if (error) {
+                                     [WLHUDView showErrorHUD:error.localizedDescription];
+                                 }else{
+                                     [WLHUDView showErrorHUD:@"删除或解散聊天室失败，请重试！"];
+                                 }
                              }];
 }
 
@@ -410,15 +507,15 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChatRoomInfo *chatRoomInfo = _datasource[indexPath.row];
-    return chatRoomInfo.role.boolValue;;
+    return YES;
 }
 
 #pragma mark - 删除
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ChatRoomInfo *chatRoomInfo = _datasource[indexPath.row];
     [UIAlertView bk_showAlertViewWithTitle:@""
-                                   message:@"确认删除当前聊天室？"
+                                   message:chatRoomInfo.role.boolValue ? @"确认删除并解散当前聊天室？" : @"确认删除并退出当前聊天室？"
                          cancelButtonTitle:@"取消"
                          otherButtonTitles:@[@"删除"]
                                    handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
@@ -426,7 +523,7 @@
                                            return ;
                                        }else{
                                            //删除项目
-                                           [self deleteChatRoomWith:indexPath];
+                                           [self deleteChatRoomWithRoom:chatRoomInfo isNeedNote:YES];
                                        }
                                    }];
 }

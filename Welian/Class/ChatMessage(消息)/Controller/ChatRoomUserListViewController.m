@@ -29,9 +29,10 @@
 
 @implementation ChatRoomUserListViewController
 
-- (NSString *)title
+- (void)dealloc
 {
-    return @"聊天室成员";
+    _chatRoomInfo = nil;
+    _datasource = nil;
 }
 
 - (NotstringView *)noDataNotView
@@ -47,6 +48,7 @@
     self = [super init];
     if (self) {
         self.chatRoomInfo = chatRoomInfo;
+        self.title = [NSString stringWithFormat:@"聊天室成员%@",_chatRoomInfo.joinUserCount.integerValue > 0 ? [NSString stringWithFormat:@"(%@)",_chatRoomInfo.joinUserCount] : @""];
         self.pageIndex = 1;
         self.pageSize = KCellConut;
         self.datasource = [NSMutableArray array];
@@ -57,8 +59,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.title = _chatRoomInfo.title;
+    
+    //显示导航条
     self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)viewDidLoad {
@@ -67,19 +78,17 @@
     //隐藏tableiView分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    if (_totalNum == 0) {
-        [self.tableView addSubview:self.noDataNotView];
-        [self.tableView sendSubviewToBack:self.noDataNotView];
-    }
-    
+    //下拉刷新
+    [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadReflshData)];
     //上提加载更多
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
     [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreDataArray)];
     // 隐藏当前的上拉刷新控件
     self.tableView.footer.hidden = YES;
-    
+    //自动下拉刷新数据
+    [self.tableView.header beginRefreshing];
     //加载数据
-    [self initData];
+//    [self initData];
 }
 
 #pragma mark - Table view data source
@@ -168,15 +177,22 @@
                                       Size:@(_pageSize)
                                    Success:^(id resultInfo) {
                                        //隐藏加载更多动画
+                                       [self.tableView.header endRefreshing];
                                        [self.tableView.footer endRefreshing];
                                        
                                        self.totalNum = [resultInfo[@"total"] integerValue];
-                                       self.title = [NSString stringWithFormat:@"聊天室成员（%d）",_totalNum];
+                                       self.chatRoomInfo = [_chatRoomInfo updateJoinUserCount:@(_totalNum)];
+                                       
+//                                       self.title = [NSString stringWithFormat:@"聊天室成员(%@)",_chatRoomInfo.joinUserCount];
+                                       self.title = [NSString stringWithFormat:@"聊天室成员%@",_chatRoomInfo.joinUserCount.integerValue > 0 ? [NSString stringWithFormat:@"(%@)",_chatRoomInfo.joinUserCount] : @""];
+                                       
+                                       ///通知刷新列表 刷新聊天室人数
+                                       [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
                                        
                                        NSArray *result = resultInfo[@"members"];
                                        NSArray *records = [IBaseUserM objectsWithInfo:result];
                                        
-                                       if (records.count > 0) {
+                                       if (records.count) {
                                            [self.datasource addObjectsFromArray:records];
                                        }
                                        
@@ -198,8 +214,16 @@
                                        [self.tableView reloadData];
                                    } Failed:^(NSError *error) {
                                        //隐藏加载更多动画
+                                       [self.tableView.header endRefreshing];
                                        [self.tableView.footer endRefreshing];
                                    }];
+}
+
+- (void)loadReflshData
+{
+    self.pageIndex = 1;
+    self.datasource = [NSMutableArray array];
+    [self initData];
 }
 
 //加载更多数据

@@ -17,6 +17,11 @@
 
 
 #pragma mark - 融云集成
+//获取单个用户信息
++ (void)getMemberWithUid:(NSNumber *)uid
+                 Success:(SuccessBlock)success
+                  Failed:(FailedBlock)failed;
+
 //创建修改聊天室
 + (void)chatroomCreateOrChangeWithId:(NSNumber *)chatroomid// 创建是id为0，修改的时候传id
                                Title:(NSString *)title

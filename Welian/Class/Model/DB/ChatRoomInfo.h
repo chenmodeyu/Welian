@@ -31,7 +31,11 @@
 + (NSArray *)getAllChatRoomInfos;
 //删除数据库数据。 隐性删除
 + (void)deleteAllChatRoomInfos;
+//删除数据库数据。 隐性删除
+- (void)deleteChatRoomInfo;
 //真实删除
 + (void)deleteAllChatRoomInfosReal;
+
+- (ChatRoomInfo *)updateJoinUserCount:(NSNumber *)count;
 
 @end
