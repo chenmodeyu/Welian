@@ -15,6 +15,7 @@
 #import "ChatRoomHeaderView.h"
 #import "CustomMessageType.h"
 #import "AppDelegate.h"
+#import "WLFriendsRequestListController.h"
 
 @interface ChatListViewController ()
 
@@ -41,9 +42,9 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
         [KNSNotification addObserver:self selector:@selector(chatFromUserInfo:) name:kChatFromUserInfo object:nil];
         //设置要显示的会话类型
         [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),@(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP),@(ConversationType_SYSTEM)]];
-        //聚合会话类型
-        [self setCollectionConversationType:@[@(ConversationType_GROUP),@(ConversationType_DISCUSSION)]];
         
+        //聚合会话类型
+        [self setCollectionConversationType:@[@(ConversationType_GROUP),@(ConversationType_DISCUSSION),@(ConversationType_SYSTEM)]];
     }
     return self;
 }
@@ -95,11 +96,11 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     [self.conversationListTableView registerClass:[RCDChatListCell class] forCellReuseIdentifier:chatNewFirendcellid];
 }
 
-- (void)enterChatRoomListVC
-{
-    ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
-    [self.navigationController pushViewController:chatRoomListVC animated:YES];
-}
+//- (void)enterChatRoomListVC
+//{
+//    ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
+//    [self.navigationController pushViewController:chatRoomListVC animated:YES];
+//}
 
 - (void)updateBadgeValueForTabBarItem
 {
@@ -139,13 +140,9 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     
     //聚合会话类型，此处自定设置。
     if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_COLLECTION) {
-        
-        ChatListViewController *temp = [[ChatListViewController alloc] init];
-        NSArray *array = [NSArray arrayWithObject:[NSNumber numberWithInt:model.conversationType]];
-        [temp setDisplayConversationTypes:array];
-        [temp setCollectionConversationType:nil];
-        temp.isEnteredToCollectionViewController = YES;
-        [self.navigationController pushViewController:temp animated:YES];
+
+        WLFriendsRequestListController *friendRequestVC = [[WLFriendsRequestListController alloc] init];
+        [self.navigationController pushViewController:friendRequestVC animated:YES];
     }
     
     //自定义会话类型
@@ -154,20 +151,24 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
         if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
             ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
             [self.navigationController pushViewController:chatRoomListVC animated:YES];
-        }else{
-            
+        }else if([model.lastestMessage isMemberOfClass:[RCContactNotificationMessage class]]){
+            WLFriendsRequestListController *friendRequestVC = [[WLFriendsRequestListController alloc] init];
+            [self.navigationController pushViewController:friendRequestVC animated:YES];
         }
     }
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-    
-    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;//默认没有编辑风格
-    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL) {
-        result = UITableViewCellEditingStyleDelete;//设置编辑风格为删除风格
+    UITableViewCellEditingStyle result = UITableViewCellEditingStyleDelete;//默认没有编辑风格
+    if (indexPath.row==0) {
+     result = UITableViewCellEditingStyleDelete;//默认没有编辑风格
     }
+//    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+//    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;//默认没有编辑风格
+//    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL||model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_COLLECTION) {
+//        result = UITableViewCellEditingStyleDelete;//设置编辑风格为删除风格
+//    }
     return result;
 }
 
@@ -183,6 +184,9 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     model.objectName = @"ChatRoomHeader";
     [dataSource insertObject:model atIndex:0];
     
+//    RCConversationModel *firendmodel = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_COLLECTION  exntend:nil];
+//    firendmodel.objectName = RCCustomMessageTypeIdentifier;
+//    [dataSource insertObject:firendmodel atIndex:1];
     return dataSource;
 }
 
@@ -207,42 +211,30 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
         if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
             ChatRoomHeaderView *cell = [tableView dequeueReusableCellWithIdentifier:chatroomcellid];
             return cell;
-        }else{
+        }else if ([model.lastestMessage isMemberOfClass:[RCContactNotificationMessage class]]) {
+            
             __block NSString *userName    = nil;
             __block NSString *portraitUri = nil;
-            
             //此处需要添加根据userid来获取用户信息的逻辑，extend字段不存在于DB中，当数据来自db时没有extend字段内容，只有userid
             if (nil == model.extend) {
-                // Not finished yet, To Be Continue...
-                CustomMessageType *customMessage = (CustomMessageType *)model.lastestMessage;
-                NSMutableDictionary *newFriendMessage = [NSMutableDictionary dictionaryWithDictionary:[[customMessage.content jsonObject] objectForKey:@"data"]];
-                [newFriendMessage setObject:[[customMessage.content jsonObject] objectForKey:@"type"] forKey:@"type"];
-                AppDelegate *delet = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                NewFriendUser *newFM = [delet getNewFriendMessage:newFriendMessage LoginUserId:nil];
-                if (!newFM) {
-
-                }
-                NSDictionary *_cache_userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:newFM.uid.stringValue];
+                RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)model.lastestMessage;
+                NSDictionary *_cache_userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:_contactNotificationMsg.sourceUserId];
                 if (_cache_userinfo) {
                     userName = _cache_userinfo[@"username"];
                     portraitUri = _cache_userinfo[@"portraitUri"];
                 }
-                
             }else{
                 RCDUserInfo *user = (RCDUserInfo *)model.extend;
                 userName    = user.userName;
                 portraitUri = user.portraitUri;
             }
-
-            RCDChatListCell *cell = [tableView dequeueReusableCellWithIdentifier:chatNewFirendcellid];
-            cell.lblDetail.text =[NSString stringWithFormat:@"来自%@的好友请求",userName];
-            [cell.ivAva sd_setImageWithURL:[NSURL URLWithString:portraitUri] placeholderImage:[UIImage imageNamed:@"system_notice"]];
+            RCDChatListCell *cell = [[RCDChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+            cell.lblDetail.text =[NSString stringWithFormat:@"%@请求添加你为好友",userName];
+            [cell.ivAva setImage:[UIImage imageNamed:@"system_notice"]];
             return cell;
         }
-    }else{
-        return nil;
     }
-    
+    return nil;
 }
 
 //*********************插入自定义Cell*********************//
@@ -253,13 +245,13 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     //处理好友请求
     RCMessage *message = notification.object;
     
-    if ([message.objectName isEqualToString:RCCustomMessageTypeIdentifier]) {
-        CustomMessageType *customMessage = (CustomMessageType *)message.content;
-        
-        NSMutableDictionary *newFriendMessage = [NSMutableDictionary dictionaryWithDictionary:[[customMessage.content jsonObject] objectForKey:@"data"]];
-        [newFriendMessage setObject:[[customMessage.content jsonObject] objectForKey:@"type"] forKey:@"type"];
+    if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
+        RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)message.content;
+
+        NSMutableDictionary *newFriendMessage = [NSMutableDictionary dictionaryWithDictionary:[[_contactNotificationMsg.extra jsonObject] objectForKey:@"data"]];
+        [newFriendMessage setObject:[[_contactNotificationMsg.extra jsonObject] objectForKey:@"type"] forKey:@"type"];
         AppDelegate *delet = (AppDelegate *)[UIApplication sharedApplication].delegate;
-       NewFriendUser *newFM = [delet getNewFriendMessage:newFriendMessage LoginUserId:nil];
+        NewFriendUser *newFM = [delet getNewFriendMessage:newFriendMessage LoginUserId:nil];
         if (!newFM) {
             return;
         }
@@ -268,82 +260,43 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
         rcduserinfo_.userId = newFM.uid.stringValue;
         rcduserinfo_.portraitUri = newFM.avatar;//头像
         
-        RCConversationModel *customModel = [RCConversationModel new];
-        customModel.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
-        customModel.extend = rcduserinfo_;
-        customModel.conversationType = ConversationType_SYSTEM;
-        customModel.senderUserId = rcduserinfo_.userId;
-        customModel.lastestMessage = customMessage;
-        
-        //local cache for userInfo
-        NSDictionary *userinfoDic = @{@"username": rcduserinfo_.userName,
-                                      @"portraitUri":rcduserinfo_.portraitUri
-                                      };
-        [[NSUserDefaults standardUserDefaults]setObject:userinfoDic forKey:customModel.senderUserId];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //调用父类刷新未读消息数
-            [blockSelf_ refreshConversationTableViewWithConversationModel:customModel];
-            [blockSelf_ resetConversationListBackgroundViewIfNeeded];
-            [blockSelf_ updateBadgeValueForTabBarItem];
-        });
-
-        
-        DLog(@"%@",[customMessage.content jsonObject]);
-    }else{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //调用父类刷新未读消息数
-            [super didReceiveMessageNotification:notification];
-            [blockSelf_ resetConversationListBackgroundViewIfNeeded];
-            [blockSelf_ updateBadgeValueForTabBarItem];
-        });
-    }
-    
-    /*
-     if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
-        RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)message.content;
-        //该接口需要替换为从消息体获取好友请求的用户信息
-        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-        if (!loginUser) {
-            return;
+          RCConversationModel *customModel = [RCConversationModel new];
+          customModel.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
+          customModel.extend = rcduserinfo_;
+          customModel.senderUserId = message.senderUserId;
+          customModel.lastestMessage = _contactNotificationMsg;
+          
+          //local cache for userInfo
+          NSDictionary *userinfoDic = @{@"username": rcduserinfo_.userName,
+                                        @"portraitUri":rcduserinfo_.portraitUri
+                                        };
+          [[NSUserDefaults standardUserDefaults]setObject:userinfoDic forKey:_contactNotificationMsg.sourceUserId];
+          [[NSUserDefaults standardUserDefaults]synchronize];
+          
+          dispatch_async(dispatch_get_main_queue(), ^{
+              
+              //调用父类刷新未读消息数
+              [blockSelf_ refreshConversationTableViewWithConversationModel:customModel];
+              [blockSelf_ resetConversationListBackgroundViewIfNeeded];
+              [blockSelf_ updateBadgeValueForTabBarItem];
+              
+              //当消息为RCContactNotificationMessage时，没有调用super，如果是最后一条消息，可能需要刷新一下整个列表。
+              //原因请查看super didReceiveMessageNotification的注释。
+              NSNumber *left = [notification.userInfo objectForKey:@"left"];
+              if (0 == left.integerValue) {
+                  [super refreshConversationTableViewIfNeeded];
+              }
+          });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //调用父类刷新未读消息数
+                [super didReceiveMessageNotification:notification];
+                [blockSelf_ resetConversationListBackgroundViewIfNeeded];
+                //            [self notifyUpdateUnreadMessageCount]; super会调用notifyUpdateUnreadMessageCount
+            });
         }
-        MyFriendUser *user = [loginUser getMyfriendUserWithUid:@(_contactNotificationMsg.sourceUserId.integerValue)];
-        
-                                  RCDUserInfo *rcduserinfo_ = [RCDUserInfo new];
-                                  rcduserinfo_.userName = user.name;
-                                  rcduserinfo_.userId = user.uid.stringValue;
-                                  rcduserinfo_.portraitUri = user.avatar;//头像
-                                  
-                                  RCConversationModel *customModel = [RCConversationModel new];
-                                  customModel.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
-                                  customModel.extend = rcduserinfo_;
-                                  customModel.senderUserId = message.senderUserId;
-                                  customModel.lastestMessage = _contactNotificationMsg;
-                                  
-                                  //local cache for userInfo
-                                  NSDictionary *userinfoDic = @{@"username": rcduserinfo_.userName,
-                                                                @"portraitUri":rcduserinfo_.portraitUri
-                                                                };
-                                  [[NSUserDefaults standardUserDefaults]setObject:userinfoDic forKey:_contactNotificationMsg.sourceUserId];
-                                  [[NSUserDefaults standardUserDefaults]synchronize];
-                                  
-                                  dispatch_async(dispatch_get_main_queue(), ^{
-                                      //调用父类刷新未读消息数
-                                      [blockSelf_ refreshConversationTableViewWithConversationModel:customModel];
-                                      [blockSelf_ resetConversationListBackgroundViewIfNeeded];
-                                      [blockSelf_ updateBadgeValueForTabBarItem];
-                                  });
-    }else{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //调用父类刷新未读消息数
-            [super didReceiveMessageNotification:notification];
-            [blockSelf_ resetConversationListBackgroundViewIfNeeded];
-            [blockSelf_ updateBadgeValueForTabBarItem];
-        });
-    }
-     */
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

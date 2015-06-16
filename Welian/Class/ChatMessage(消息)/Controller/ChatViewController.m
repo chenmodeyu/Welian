@@ -61,6 +61,7 @@
                     message.bubbleMessageType = chatMessage.bubbleMessageType.integerValue;
                     message.uid = self.friendUser.uid.stringValue;
                     break;
+                    
                 case WLBubbleMessageMediaTypeText:
                     //普通文本
                     message = [[WLMessage alloc] initWithText:chatMessage.message sender:chatMessage.sender timestamp:chatMessage.timestamp];
