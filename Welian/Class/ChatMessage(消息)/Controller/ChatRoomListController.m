@@ -233,7 +233,9 @@
                          cancelButtonTitle:@"知道了"
                          otherButtonTitles:nil
                                    handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                                       [self deleteChatRoomWithRoom:chatRoom isNeedNote:NO];
+                                       if(chatRoom){
+                                           [self deleteChatRoomWithRoom:chatRoom isNeedNote:NO];
+                                       }
                                    }];
 }
 
@@ -444,6 +446,9 @@
 //删除，并退出 当前聊天室
 - (void)deleteChatRoomWithRoom:(ChatRoomInfo *)chatRoomInfo isNeedNote:(BOOL)isNeedNote
 {
+    if (!chatRoomInfo) {
+        return;
+    }
     [WLHUDView showHUDWithStr:@"删除中..." dim:NO];
     [WeLianClient chatroomQuitWithId:chatRoomInfo.chatroomid
                              Success:^(id resultInfo) {

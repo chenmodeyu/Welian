@@ -49,10 +49,6 @@
     }
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    
-    ///通知刷新列表
-    [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
-    
     return chatRoomInfo;
 }
 

@@ -56,6 +56,9 @@
     [super viewDidAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.hidden = NO;
+    
+    ///通知刷新列表 刷新聊天室人数
+    [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
 }
 
 - (void)viewDidLoad {

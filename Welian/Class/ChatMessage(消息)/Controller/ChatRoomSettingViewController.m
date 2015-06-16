@@ -271,12 +271,13 @@
                                            iChatRoomInfo.created = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
                                            //保存到数据库
                                            [ChatRoomInfo createChatRoomInfoWith:iChatRoomInfo];
-                                           
                                            [UIAlertView bk_showAlertViewWithTitle:@""
                                                                           message:_roomSetType == ChatRoomSetTypeCreate ? @"聊天室创建成功！" : @"聊天室修改成功！"
                                                                 cancelButtonTitle:@"知道了"
                                                                 otherButtonTitles:nil
                                                                           handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                                              ///通知刷新列表
+                                                                              [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
                                                                               [self.navigationController popViewControllerAnimated:YES];
                                                                           }];
                                        } Failed:^(NSError *error) {
