@@ -15,7 +15,7 @@
 #define RCContactNotificationMessageIdentifier @"RC:ContactNtf"
 
 // 加好友请求。
-#define ContactNotificationMessage_ContactOperationRequest @"Request"
+#define ContactNotificationMessage_ContactOperationRequest @"friendRequest"
 // 接受 加好友请求。
 #define ContactNotificationMessage_ContactOperationAcceptResponse @"AcceptResponse"
 // 拒绝 加好友请求。

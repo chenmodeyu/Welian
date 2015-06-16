@@ -237,15 +237,6 @@
         case 2:
         {
             NewFriendUser *friendM = _datasource[indexPath.row];
-//            NSNumber *opereateType = nil;
-//            
-//            if ([friendM.operateType integerValue] == 1) {
-//                opereateType = @(1);
-//            }else{
-//                
-//            }
-//            opereateType = friendM.operateType;
-//            UserInfoBasicVC *userInfoVC = [[UserInfoBasicVC alloc] initWithStyle:UITableViewStyleGrouped andUsermode:(IBaseUserM *)friendM isAsk:isask];
             UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:(IBaseUserM *)friendM OperateType:friendM.operateType HidRightBtn:NO];
             [self.navigationController pushViewController:userInfoVC animated:YES];
 //            [userInfoVC setNeedlessCancel:YES];
@@ -578,19 +569,6 @@
                                                  [WLHUDView showErrorHUD:@"发送失败，请重试"];
                                              }
                                          }];
-//            [WLHttpTool requestFriendParameterDic:@{@"fid":newFriendUser.uid,@"message":[alert textFieldAtIndex:0].text} success:^(id JSON) {
-//                //发送邀请成功，修改状态，刷新列表
-//                NewFriendUser *nowFriendUser = [newFriendUser updateOperateType:FriendOperateTypeWait];
-//                
-//                //改变数组，刷新列表
-//                NSMutableArray *allDatas = [NSMutableArray arrayWithArray:_datasource];
-//                [allDatas replaceObjectAtIndex:indexPath.row withObject:nowFriendUser];
-//                self.datasource = [NSArray arrayWithArray:allDatas];
-//                //刷新列表
-//                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//            } fail:^(NSError *error) {
-//                
-//            }];
         }];
         [alert show];
     }
@@ -634,39 +612,6 @@
                                              [WLHUDView showErrorHUD:@"添加失败，请重试"];
                                          }
                                      }];
-        
-//        [WLHttpTool addFriendParameterDic:@{@"fid":newFriendUser.uid} success:^(id JSON) {
-//            
-//            [newFriendUser setIsAgree:@(1)];
-//            //更新好友列表数据库
-//            MyFriendUser *myFriendUser = [MyFriendUser createWithNewFriendUser:newFriendUser];
-//            
-//            //发送邀请成功，修改状态，刷新列表
-//            NewFriendUser *nowFriendUser = [newFriendUser updateOperateType:FriendOperateTypeAdded];
-////            if (self.userBasicVC) {
-////                [self.userBasicVC addSucceed];
-////            }
-//            //改变数组，刷新列表
-//            NSMutableArray *allDatas = [NSMutableArray arrayWithArray:_datasource];
-//            [allDatas replaceObjectAtIndex:indexPath.row withObject:nowFriendUser];
-//            
-//            self.datasource = [NSArray arrayWithArray:allDatas];
-//            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//            
-//            //刷新好友列表
-//            [KNSNotification postNotificationName:KupdataMyAllFriends object:self];
-//            
-//            //通知接受好友请求
-//            [KNSNotification postNotificationName:[NSString stringWithFormat:kAccepteFriend,newFriendUser.uid] object:nil];
-//            
-//            //接受后，本地创建一条消息
-//            //本地创建好像
-//            [ChatMessage createChatMessageForAddFriend:myFriendUser];
-//            
-//            [WLHUDView showSuccessHUD:@"添加成功！"];
-//        } fail:^(NSError *error) {
-//            
-//        }];
     }
 }
 

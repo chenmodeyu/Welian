@@ -92,7 +92,6 @@
  *
  *  @param collectionView collectionView
  *  @param indexPath      indexPath
- *
  *  @return RCMessageTemplateCell
  */
 - (RCMessageBaseCell *)rcConversationCollectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

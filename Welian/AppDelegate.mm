@@ -377,6 +377,7 @@ BMKMapManager* _mapManager;
     if (!loginUser) {
         return;
     }
+
     //自己的用户信息
     if (userId.integerValue == loginUser.uid.integerValue) {
         RCUserInfo *user = [[RCUserInfo alloc]init];
@@ -389,11 +390,19 @@ BMKMapManager* _mapManager;
     
     //好友的用户信息
     MyFriendUser *friendUser = [loginUser getMyfriendUserWithUid:@(userId.integerValue)];
+    NewFriendUser *newfriend = [loginUser getNewFriendUserWithUid:@(userId.integerValue)];
     if (friendUser) {
         RCUserInfo *user = [[RCUserInfo alloc]init];
         user.userId = friendUser.uid.stringValue;
         user.name = friendUser.name;
         user.portraitUri = friendUser.avatar;
+        
+        return completion(user);
+    }else if(newfriend){
+        RCUserInfo *user = [[RCUserInfo alloc]init];
+        user.userId = newfriend.uid.stringValue;
+        user.name = newfriend.name;
+        user.portraitUri = newfriend.avatar;
         
         return completion(user);
     }
