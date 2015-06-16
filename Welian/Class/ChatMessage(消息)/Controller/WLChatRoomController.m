@@ -29,11 +29,7 @@
 - (void)dealloc
 {
     _chatRoomInfo = nil;
-}
-
-- (NSString *)title
-{
-    return _chatRoomInfo.title;
+    [KNSNotification removeObserver:self];
 }
 
 - (instancetype)initWithChatRoomInfo:(ChatRoomInfo *)chatRoomInfo
@@ -41,6 +37,7 @@
     self = [super init];
     if (self) {
         self.chatRoomInfo = chatRoomInfo;
+        self.title = [NSString stringWithFormat:@"%@%@",_chatRoomInfo.title,_chatRoomInfo.joinUserCount.integerValue > 0 ? [NSString stringWithFormat:@"(%@)",_chatRoomInfo.joinUserCount] : @""];
     }
     return self;
 }
@@ -48,30 +45,48 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.title = _chatRoomInfo.title;
+    
+    //显示导航条
     self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
+    
+    ///通知刷新列表 刷新聊天室人数
+    [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [KNSNotification addObserver:self selector:@selector(refreshDataAndUI) name:@"NeedRloadChatRoomList" object:nil];
+    
     UIBarButtonItem *userItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_member"]
-                                                                 style:UIBarButtonItemStylePlain
+                                                                 style:UIBarButtonItemStyleDone
                                                                 target:self action:@selector(chatRoomUserItemClicked)];
     UIBarButtonItem *moreItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_more"]
-                                                                 style:UIBarButtonItemStylePlain
+                                                                 style:UIBarButtonItemStyleDone
                                                                 target:self action:@selector(shareItemClicked)];
-    
     //添加创建活动按钮
     if (_chatRoomInfo.role.boolValue || _chatRoomInfo.shareUrl.length > 0) {
         self.navigationItem.rightBarButtonItems = @[moreItem,userItem];
     }else{
         self.navigationItem.rightBarButtonItems = @[userItem];
     }
-    
 }
 
 #pragma mark - Private
+- (void)refreshDataAndUI
+{
+    self.chatRoomInfo = [ChatRoomInfo getChatRoomInfoWithId:_chatRoomInfo.chatroomid];
+    self.title = [NSString stringWithFormat:@"%@%@",_chatRoomInfo.title,_chatRoomInfo.joinUserCount.integerValue > 0 ? [NSString stringWithFormat:@"(%@)",_chatRoomInfo.joinUserCount] : @""];
+}
+
 //查看聊天室人员
 - (void)chatRoomUserItemClicked
 {
@@ -87,18 +102,14 @@
 {
     //隐藏键盘
     [[self.view findFirstResponder] resignFirstResponder];
-    
-    NSArray *buttons = nil;
-    //自己创建的聊天室
-    if (_chatRoomInfo.role.boolValue) {
-        buttons = @[@(ShareTypeSetting),@(ShareTypeDelete)];
-    }
-//    WEAKSELF
+    //自己创建的聊天室可以设置，别的可以删除可以退出
+    NSArray *buttons = _chatRoomInfo.role.boolValue ? @[@(ShareTypeSetting),@(ShareTypeDelete)] : nil;
+    WEAKSELF
     NSArray *shareArray = _chatRoomInfo.shareUrl.length > 0 ? @[@(ShareTypeWeixinFriend),@(ShareTypeWeixinCircle)] : nil;
     WLActivityView *wlActivity = [[WLActivityView alloc] initWithOneSectionArray:buttons andTwoArray:shareArray];
     wlActivity.wlShareBlock = ^(ShareType type){
         NSString *desc = [NSString stringWithFormat:@"我在[%@]聊天室，口令：%@，欢迎加入…",_chatRoomInfo.title,_chatRoomInfo.code];
-        UIImage *shareImage = [UIImage imageNamed:@"home_repost_xiangmu"];
+        UIImage *shareImage = [UIImage imageNamed:@"share_chatroom_logo"];
         NSString *title = @"邀请您加入微链聊天室";
         switch (type) {
 //            case ShareTypeWLFriend:
@@ -150,24 +161,13 @@
             case ShareTypeDelete:
             {
                 //删除
-                [UIAlertView bk_showAlertViewWithTitle:@""
-                                               message:@"确认删除当前聊天室？"
-                                     cancelButtonTitle:@"取消"
-                                     otherButtonTitles:@[@"删除"]
-                                               handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                                                   if (buttonIndex == 0) {
-                                                       return ;
-                                                   }else{
-                                                       [self deleteChatRoom];
-                                                   }
-                                               }];
+                [weakSelf deleteChatRoomAlert];
             }
                 break;
             case ShareTypeSetting:
             {
                 //设置
-                ChatRoomSettingViewController *roomSettingVC = [[ChatRoomSettingViewController alloc] initWithRoomType:ChatRoomSetTypeChange ChatRoomInfo:_chatRoomInfo];
-                [self.navigationController pushViewController:roomSettingVC animated:YES];
+                [weakSelf toChatRoomSetting];
             }
                 break;
             default:
@@ -177,21 +177,57 @@
     [wlActivity show];
 }
 
+//设置
+- (void)toChatRoomSetting
+{
+    ChatRoomSettingViewController *roomSettingVC = [[ChatRoomSettingViewController alloc] initWithRoomType:ChatRoomSetTypeChange ChatRoomInfo:_chatRoomInfo];
+    [self.navigationController pushViewController:roomSettingVC animated:YES];
+}
+
+//删除聊天室
+- (void)deleteChatRoomAlert
+{
+    [UIAlertView bk_showAlertViewWithTitle:@""
+                                   message:_chatRoomInfo.role.boolValue ? @"确认删除并解散当前聊天室？" : @"确认删除并退出当前聊天室？"
+                         cancelButtonTitle:@"取消"
+                         otherButtonTitles:@[@"删除"]
+                                   handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                       if (buttonIndex == 0) {
+                                           return ;
+                                       }else{
+                                           //删除项目
+                                           [self deleteChatRoom];
+                                       }
+                                   }];
+}
+
+//删除聊天室
 - (void)deleteChatRoom
 {
     //删除项目
+    [WLHUDView showHUDWithStr:@"删除中..." dim:NO];
     [WeLianClient chatroomQuitWithId:_chatRoomInfo.chatroomid
                              Success:^(id resultInfo) {
-                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                     
-                                     //本地删除
-                                     [_chatRoomInfo MR_deleteEntity];
-                                     ///通知刷新列表
-                                     [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
-                                     [self.navigationController popViewControllerAnimated:YES];
-                                 });
-                             } Failed:^(NSError *error) {
+                                 [WLHUDView hiddenHud];
                                  
+                                 //本地删除
+                                 [_chatRoomInfo deleteChatRoomInfo];
+                                 
+                                 ///通知刷新列表
+                                 [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
+                                 [UIAlertView bk_showAlertViewWithTitle:@""
+                                                                message:_chatRoomInfo.role.boolValue ? @"删除并解散聊天室成功！" : @"删除并退出聊天室成功！"
+                                                      cancelButtonTitle:@"知道了"
+                                                      otherButtonTitles:nil
+                                                                handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                                    [self.navigationController popViewControllerAnimated:YES];
+                                                                }];
+                             } Failed:^(NSError *error) {
+                                 if (error) {
+                                     [WLHUDView showErrorHUD:error.localizedDescription];
+                                 }else{
+                                     [WLHUDView showErrorHUD:@"删除或解散聊天室失败，请重试！"];
+                                 }
                              }];
 }
 
@@ -211,10 +247,15 @@
     }
     if (userId.integerValue == loginUser.uid.integerValue) {
         userMode = [loginUser toIBaseUserModelInfo];
+        userMode.friendship = @(-1);
     }else{
         //好友头像
         MyFriendUser *friendUser = [loginUser getMyfriendUserWithUid:@(userId.integerValue)];
-        userMode = [friendUser toIBaseUserModelInfo];
+        if (friendUser) {
+            userMode = [friendUser toIBaseUserModelInfo];
+        }else{
+            userMode.uid = @(userId.integerValue);
+        }
     }
     UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:userMode OperateType:userMode.friendship.integerValue == 1 ? @(10) : nil HidRightBtn:NO];
     [self.navigationController pushViewController:userInfoVC animated:YES];

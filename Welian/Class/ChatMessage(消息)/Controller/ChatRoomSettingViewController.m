@@ -38,9 +38,13 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter]removeObserver:self
-                                                   name:UITextFieldTextDidChangeNotification
-                                                 object:_nameTF];
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    _datePicker = nil;
+    _datasource = nil;
+    _startTime = nil;
+    _endTime = nil;
+    _chatRoomInfo = nil;
 }
 
 - (YUDatePicker *)datePicker{
@@ -249,7 +253,7 @@
         }
     }
     //创建或者修改聊天室信息
-    [WLHUDView showHUDWithStr:@"创建中..." dim:NO];
+    [WLHUDView showHUDWithStr:_roomSetType == ChatRoomSetTypeCreate ? @"创建中..." : @"保存中..." dim:NO];
     [WeLianClient chatroomCreateOrChangeWithId:_roomSetType == ChatRoomSetTypeCreate ? @(0) : _chatRoomInfo.chatroomid
                                          Title:_nameTF.text
                                      Starttime:startTimeStr
@@ -262,24 +266,25 @@
                                            iChatRoomInfo.code = _passWdTF.text;
                                            iChatRoomInfo.starttime = startTimeStr;
                                            iChatRoomInfo.endtime = endTimeStr;
-                                           iChatRoomInfo.total = @(0);
+                                           iChatRoomInfo.total = _roomSetType == ChatRoomSetTypeCreate ? @(0) : _chatRoomInfo.joinUserCount;
+                                           iChatRoomInfo.role = @(1);
                                            iChatRoomInfo.created = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
                                            //保存到数据库
                                            [ChatRoomInfo createChatRoomInfoWith:iChatRoomInfo];
-                                           ///通知刷新列表
-                                           [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
                                            [UIAlertView bk_showAlertViewWithTitle:@""
                                                                           message:_roomSetType == ChatRoomSetTypeCreate ? @"聊天室创建成功！" : @"聊天室修改成功！"
                                                                 cancelButtonTitle:@"知道了"
                                                                 otherButtonTitles:nil
                                                                           handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                                              ///通知刷新列表
+                                                                              [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
                                                                               [self.navigationController popViewControllerAnimated:YES];
                                                                           }];
                                        } Failed:^(NSError *error) {
                                            if (error) {
                                                [WLHUDView showErrorHUD:error.localizedDescription];
                                            }else{
-                                               [WLHUDView showErrorHUD:@"创建失败，请重试！"];
+                                               [WLHUDView showErrorHUD:_roomSetType == ChatRoomSetTypeCreate ? @"聊天室创建失败，请重试！" : @"聊天室修改失败，请重试！"];
                                            }
                                        }];
 }
@@ -301,6 +306,29 @@
     }else{
         _endTime = dateStr;
     }
+    
+    //时间控制
+    NSDate *startDate = _startTime.length > 0 ? [_startTime dateFromNormalString] : [NSDate date];
+    NSDate *endDate = _endTime.length > 0 ? [_endTime dateFromNormalString] : [NSDate date];
+    if (_startTime.length > 0 && _endTime.length == 0) {
+        //如果只有开始时间，设置结束时间是开始时间的下一个小时
+        _endTime = [[startDate dateByAddingHours:1] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    }else if(_startTime.length == 0 && _endTime.length > 0){
+        if ([endDate daysUntil] > 0) {
+            //比结束时间往前一小时
+            _startTime = [[endDate dateBySubtractingHours:1] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+        }else{
+            //如果结束时间等于当前时间  把结束时间当作开始时间，结束时间往后加1小时
+            _startTime = _endTime;
+            _endTime = [[[_startTime dateFromNormalString] dateByAddingHours:1] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+        }
+    }else if(_startTime.length > 0 && _endTime.length > 0){
+        //开始和结束时间都有
+        if ([startDate isLaterThanOrEqualTo:endDate]) {
+            _endTime = [[startDate dateByAddingHours:1] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+        }
+    }
+    
     self.datasource = @[_startTime,_endTime];
     [_tableView reloadData];
 //    [_tableView reloadRowsAtIndexPaths:@[_selectIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -308,7 +336,7 @@
 
 - (void)segmentedControlChanged:(UISegmentedControl *)sender
 {
-    DLog(@"segmentedControlChanged-->%d",sender.selectedSegmentIndex);
+    DLog(@"segmentedControlChanged-->%ld",(long)sender.selectedSegmentIndex);
     self.selectType = sender.selectedSegmentIndex;
     [_tableView reloadData];
     [self checkDateTypeInfo];

@@ -10,7 +10,6 @@
 
 #define kLogoWidth 40.f
 #define kMarginLeft 15.f
-#define kMarginTop 10.f
 
 @interface ChatRoomListViewCell ()
 
@@ -59,7 +58,7 @@
 {
     [super layoutSubviews];
     _logoImageView.size = CGSizeMake(kLogoWidth, kLogoWidth);
-    _logoImageView.top = kMarginTop;
+    _logoImageView.centerY = self.height / 2.f;
     _logoImageView.left = kMarginLeft;
     
     [_nameLabel sizeToFit];
@@ -93,7 +92,7 @@
     nameLabel.backgroundColor = [UIColor clearColor];
     nameLabel.textColor = kTitleNormalTextColor;
     nameLabel.font = kNormal16Font;
-    nameLabel.text = @"迭代资本聊天室";
+//    nameLabel.text = @"迭代资本聊天室";
     [self addSubview:nameLabel];
     self.nameLabel = nameLabel;
     
@@ -102,7 +101,7 @@
     messageLabel.backgroundColor = [UIColor clearColor];
     messageLabel.textColor = kTitleTextColor;
     messageLabel.font = kNormal14Font;
-    messageLabel.text = @"20 人在线";
+//    messageLabel.text = @"20 人在线";
     [self addSubview:messageLabel];
     self.messageLabel = messageLabel;
 }

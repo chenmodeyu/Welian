@@ -406,6 +406,20 @@ BMKMapManager* _mapManager;
         
         return completion(user);
     }
+    
+    //获取个人信息
+    [WeLianClient getMemberWithUid:@(userId.integerValue)
+                           Success:^(id resultInfo) {
+                               IBaseUserM *baseUser = resultInfo;
+                               RCUserInfo *user = [[RCUserInfo alloc]init];
+                               user.userId = baseUser.uid.stringValue;
+                               user.name = baseUser.name;
+                               user.portraitUri = baseUser.avatar;
+                               return completion(user);
+                           } Failed:^(NSError *error) {
+                               DLog(@"getMember error:%@",error.localizedDescription);
+                           }];
+    
     return completion(nil);
 }
 

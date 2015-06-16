@@ -299,6 +299,7 @@
         <element name="ActivityInfo" positionX="-1350" positionY="-387" width="128" height="375"/>
         <element name="BaseUser" positionX="-1566" positionY="-244" width="128" height="390"/>
         <element name="ChatMessage" positionX="-423" positionY="-549" width="128" height="510"/>
+        <element name="ChatRoomInfo" positionX="-1359" positionY="-396" width="128" height="225"/>
         <element name="CityInfo" positionX="-1359" positionY="-396" width="128" height="105"/>
         <element name="CompanyModel" positionX="52" positionY="-234" width="128" height="133"/>
         <element name="FriendsFriendUser" positionX="-632" positionY="-31" width="128" height="60"/>
@@ -319,6 +320,5 @@
         <element name="SchoolCompanyDate" positionX="322" positionY="-63" width="128" height="103"/>
         <element name="SchoolModel" positionX="63" positionY="53" width="128" height="133"/>
         <element name="TouTiaoInfo" positionX="-1359" positionY="-396" width="128" height="180"/>
-        <element name="ChatRoomInfo" positionX="-1359" positionY="-396" width="128" height="225"/>
     </elements>
 </model>
