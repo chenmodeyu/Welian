@@ -226,6 +226,7 @@
     [alert show];
 }
 
+//没有当前聊天室，删除
 - (void)hasNoThisCodeRoom:(IBaseModel *)baseModel ChatRoom:(ChatRoomInfo *)chatRoom
 {
     [UIAlertView bk_showAlertViewWithTitle:@""
@@ -237,6 +238,23 @@
                                            [self deleteChatRoomWithRoom:chatRoom isNeedNote:NO];
                                        }
                                    }];
+}
+
+//暂未开始，如果是自己创建的，可以进入
+- (void)hasNotBegainRoom:(IBaseModel *)baseModel ChatRoom:(ChatRoomInfo *)chatRoom
+{
+    if(chatRoom && chatRoom.role.boolValue){
+        //自己创建可以进入
+        [self joinChatRoomWith:chatRoom];
+    }else{
+        [UIAlertView bk_showAlertViewWithTitle:@""
+                                       message:baseModel.errormsg.length > 0 ? baseModel.errormsg : @"该聊天室暂未开始！"
+                             cancelButtonTitle:@"知道了"
+                             otherButtonTitles:nil
+                                       handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                           
+                                       }];
+    }
 }
 
 //加入聊天室
@@ -253,7 +271,7 @@
                                  _roomIdTF.text = @"";
                                  
                                  if ([resultInfo isKindOfClass:[IBaseModel class]]) {
-                                     //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确
+                                     //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确  1200：还未开始
                                      IBaseModel *model = resultInfo;
                                      switch (model.state.integerValue) {
                                          case 1100:
@@ -262,60 +280,15 @@
                                          case 1020:
                                              [self hasNoThisCodeRoom:model ChatRoom:chatRoomInfo];
                                              break;
+                                         case 1200:
+                                             [self hasNotBegainRoom:model ChatRoom:chatRoomInfo];
+                                             break;
                                          default:
                                              break;
                                      }
                                  }else{
                                      ChatRoomInfo *chatRoom = [ChatRoomInfo createChatRoomInfoWith:resultInfo];
-                                     //融云加入聊天室
-                                     [[RCIMClient sharedRCIMClient] joinChatRoom:chatRoom.chatroomid.stringValue
-                                                                    messageCount:0
-                                                                         success:^{
-                                                                             dispatch_async(dispatch_get_main_queue(), ^{
-                                                                                 self.joinedRoom = chatRoom;
-                                                                                 
-                                                                                 //只有code
-                                                                                 RCConversationModel *model = [[RCConversationModel alloc] init];
-                                                                                 model.targetId = chatRoom.chatroomid.stringValue;
-                                                                                 model.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
-                                                                                 model.conversationType = ConversationType_CHATROOM;
-                                                                                 model.conversationTitle = chatRoom.title;
-                                                                                 
-                                                                                 WLChatRoomController *chatRoomVC = [[WLChatRoomController alloc] initWithChatRoomInfo:chatRoom];
-                                                                                 chatRoomVC.conversationType = model.conversationType;
-                                                                                 chatRoomVC.targetId = model.targetId;
-                                                                                 chatRoomVC.userName = model.conversationTitle;
-                                                                                 //    chatRoomVC.title = model.conversationTitle;
-                                                                                 [self.navigationController pushViewController:chatRoomVC animated:YES];
-                                                                                 //更新加入的数据
-                                                                                 [self refreshDataAndUI];
-                                                                             });
-                                                                         } error:^(RCErrorCode status) {
-                                                                             NSString *errStr = @"";
-                                                                             switch (status) {
-                                                                                 case ERRORCODE_UNKNOWN:
-                                                                                     errStr = @"未知错误";
-                                                                                     break;
-                                                                                 case ERRORCODE_TIMEOUT:
-                                                                                     errStr = @"超时错误";
-                                                                                     break;
-                                                                                 case REJECTED_BY_BLACKLIST:
-                                                                                     errStr = @"被对方加入黑名单时发送消息的状态";
-                                                                                     break;
-                                                                                 case NOT_IN_DISCUSSION:
-                                                                                     errStr = @"不在讨论组中。";
-                                                                                     break;
-                                                                                 case NOT_IN_GROUP:
-                                                                                     errStr = @"不在群组中。";
-                                                                                     break;
-                                                                                 case NOT_IN_CHATROOM:
-                                                                                     errStr = @"不在聊天室中。";
-                                                                                     break;
-                                                                                 default:
-                                                                                     break;
-                                                                             }
-                                                                             DLog(@"joinChatRoom erro:%@",errStr);
-                                                                         }];
+                                     [self joinChatRoomWith:chatRoom];
                                  }
                              } Failed:^(NSError *error) {
                                  //清空口令
@@ -327,6 +300,62 @@
                                      [WLHUDView showErrorHUD:@"加入聊天室失败，请重试！"];
                                  }
                              }];
+}
+
+//加入聊天室
+- (void)joinChatRoomWith:(ChatRoomInfo *)chatRoom
+{
+    if (chatRoom) {
+        //融云加入聊天室
+        [[RCIMClient sharedRCIMClient] joinChatRoom:chatRoom.chatroomid.stringValue
+                                       messageCount:0
+                                            success:^{
+                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                    self.joinedRoom = chatRoom;
+                                                    
+                                                    //只有code
+                                                    RCConversationModel *model = [[RCConversationModel alloc] init];
+                                                    model.targetId = chatRoom.chatroomid.stringValue;
+                                                    model.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
+                                                    model.conversationType = ConversationType_CHATROOM;
+                                                    model.conversationTitle = chatRoom.title;
+                                                    
+                                                    WLChatRoomController *chatRoomVC = [[WLChatRoomController alloc] initWithChatRoomInfo:chatRoom];
+                                                    chatRoomVC.conversationType = model.conversationType;
+                                                    chatRoomVC.targetId = model.targetId;
+                                                    chatRoomVC.userName = model.conversationTitle;
+                                                    //    chatRoomVC.title = model.conversationTitle;
+                                                    [self.navigationController pushViewController:chatRoomVC animated:YES];
+                                                    //更新加入的数据
+                                                    [self refreshDataAndUI];
+                                                });
+                                            } error:^(RCErrorCode status) {
+                                                NSString *errStr = @"";
+                                                switch (status) {
+                                                    case ERRORCODE_UNKNOWN:
+                                                        errStr = @"未知错误";
+                                                        break;
+                                                    case ERRORCODE_TIMEOUT:
+                                                        errStr = @"超时错误";
+                                                        break;
+                                                    case REJECTED_BY_BLACKLIST:
+                                                        errStr = @"被对方加入黑名单时发送消息的状态";
+                                                        break;
+                                                    case NOT_IN_DISCUSSION:
+                                                        errStr = @"不在讨论组中。";
+                                                        break;
+                                                    case NOT_IN_GROUP:
+                                                        errStr = @"不在群组中。";
+                                                        break;
+                                                    case NOT_IN_CHATROOM:
+                                                        errStr = @"不在聊天室中。";
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                                DLog(@"joinChatRoom erro:%@",errStr);
+                                            }];
+    }
 }
 
 - (void)loadReflshData
@@ -346,9 +375,10 @@
     [WeLianClient getChatroomListWithPage:@(_pageIndex)
                                      Size:@(_pageSize)
                                   Success:^(id resultInfo) {
-                                      //第一页 隐性 删除所有
-                                      [ChatRoomInfo deleteAllChatRoomInfos];
-                                      
+                                      if (_pageIndex == 1) {
+                                          //第一页 隐性 删除所有
+                                          [ChatRoomInfo deleteAllChatRoomInfos];
+                                      }
                                       if([resultInfo count] > 0){
                                           //异步保存数据
                                           [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {

@@ -99,8 +99,8 @@
                                               AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                                               [appDelegate logout];
                                           }
-                                          //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确
-                                          if(result.state.integerValue == 1100 || result.state.integerValue == 1020)
+                                          //1000，1020：没有这个口令的聊天室，1100，口令被修改过，不正确  1200：还未开始
+                                          if(result.state.integerValue == 1100 || result.state.integerValue == 1020 || result.state.integerValue == 1200)
                                           {
                                               //可以提醒的错误
                                               SAFE_BLOCK_CALL(success, result);
