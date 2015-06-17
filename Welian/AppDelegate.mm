@@ -29,6 +29,7 @@
 #import "MsgPlaySound.h"
 #import "LCNewFeatureVC.h"
 #import "CustomMessageType.h"
+#import "CustomCardMessage.h"
 
 #define kDeviceToken @"RongCloud_SDK_DeviceToken"
 
@@ -309,6 +310,7 @@ BMKMapManager* _mapManager;
 //    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
     // 注册自定义消息
     [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
+    [[RCIM sharedRCIM] registerMessageType:CustomCardMessage.class];
     //聊天消息头像
     if (Iphone6plus) {
         [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(56, 56);

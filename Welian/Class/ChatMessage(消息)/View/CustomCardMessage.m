@@ -10,6 +10,15 @@
 
 @implementation CustomCardMessage
 
+//+ (instancetype)cardMessageWithContent:(NSString *)content {
+//    CustomCardMessage *cardM = [[CustomCardMessage alloc] init];
+//    if (cardM) {
+//        cardM.content = content;
+//        
+//    }
+//    return cardM;
+//}
+
 +(RCMessagePersistent)persistentFlag {
     return (MessagePersistent_ISPERSISTED | MessagePersistent_ISCOUNTED);
 }
@@ -19,8 +28,10 @@
 -(NSData *)encode {
     
     NSMutableDictionary *dataDict=[NSMutableDictionary dictionary];
+    [dataDict setObject:self.card forKey:@"card"];
+    [dataDict setObject:self.touser forKey:@"touser"];
     [dataDict setObject:self.content forKey:@"content"];
-    //NSDictionary* dataDict = [NSDictionary dictionaryWithObjectsAndKeys:self.content, @"content", nil];
+    [dataDict setObject:self.portraitUri forKey:@"portraitUri"];
     NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict
                                                    options:kNilOptions
                                                      error:nil];
@@ -38,14 +49,15 @@
                                                            error:&error];
     
     if (json) {
-        self.content = json[@"content"];
-        self.cid = json[@"cid"];
-        self.title = json[@"title"];
+        self.card = json[@"card"];
+        self.touser = json[@"touser"];
+        self.content = json[@"card"][@"content"];
+        self.portraitUri = json[@"portraitUri"];
     }
 }
 
 +(NSString *)getObjectName {
-    return RCTextMessageTypeIdentifier;
+    return WLCustomCardMessageTypeIdentifier;
 }
 
 @end

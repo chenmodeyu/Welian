@@ -227,19 +227,7 @@ static const CGFloat kWLMessageSpecialViewPaddingX = 16;
             avatorButton.backgroundColor = [UIColor lightGrayColor];
             [self.contentView addSubview:avatorButton];
             self.avatorButton = avatorButton;
-//            [avatorButton setDebug:YES];
         }
-        
-        
-        // 3、配置用户名
-//        UILabel *userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.avatorButton.bounds) + 20, 20)];
-//        userNameLabel.textAlignment = NSTextAlignmentCenter;
-//        userNameLabel.backgroundColor = [UIColor clearColor];
-//        userNameLabel.font = kNormal12Font;
-//        userNameLabel.textColor = [UIColor colorWithRed:0.140 green:0.635 blue:0.969 alpha:1.000];
-//        [self.contentView addSubview:userNameLabel];
-//        self.userNameLabel = userNameLabel;
-//        [userNameLabel setDebug:YES];
         
         // 4、配置需要显示什么消息内容，比如语音、文字、视频、图片
         if (!_messageBubbleView) {
@@ -265,25 +253,18 @@ static const CGFloat kWLMessageSpecialViewPaddingX = 16;
             
             //发送失败点击按钮
             [messageBubbleView.sendFailedBtn addTarget:self action:@selector(sendFailedBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//            messageBubbleView.displayTextView.delegate = self;
             messageBubbleView.displayLabel.delegate = self;
             [self.contentView addSubview:messageBubbleView];
-//            [self.contentView sendSubviewToBack:messageBubbleView];
             self.messageBubbleView = messageBubbleView;
-//            [messageBubbleView setDebug:YES];
         }
         
         //5.特殊提醒消息
         if (!_messageSpecialView) {
             WLMessageSpecialView *messageSpecialView = [[WLMessageSpecialView alloc] initWithFrame:CGRectMake(kWLMessageSpecialViewPaddingX, 10.f,  CGRectGetWidth(self.bounds) - kWLMessageSpecialViewPaddingX * 2.f, [WLMessageSpecialView calculateCellHeightWithMessage:message] + (self.displayTimestamp ? (kWLTimeStampLabelHeight + kWLLabelPadding) : kWLLabelPadding)) message:message];
             messageSpecialView.hidden = YES;
-//            messageSpecialView.specialTextView.delegate = self;
             messageSpecialView.displayLabel.delegate = self;
             [self.contentView addSubview:messageSpecialView];
-//            [self.contentView sendSubviewToBack:messageSpecialView];
-//            [self.contentView bringSubviewToFront:messageSpecialView];
             self.messageSpecialView = messageSpecialView;
-//            [specialTextView setDebug:YES];
         }
     }
     return self;
@@ -386,7 +367,6 @@ static const CGFloat kWLMessageSpecialViewPaddingX = 16;
 
 //配置头像
 - (void)configAvatorWithMessage:(id <WLMessageModel>)message {
-//    DLog(@"----%@   >>> type :%d >>>> url:%@ ",message.text,(int)message.messageMediaType,message.avatorUrl);
     //配置头像是否显示
     if (message.messageMediaType == WLBubbleMessageSpecialTypeText) {
         _avatorButton.hidden = YES;
@@ -452,8 +432,7 @@ static const CGFloat kWLMessageSpecialViewPaddingX = 16;
             case WLBubbleMessageMediaTypeText:
             case WLBubbleMessageMediaTypeVoice:
             {
-//                self.messageBubbleView.voiceDurationLabel.text = [NSString stringWithFormat:@"%@\'\'", message.voiceDuration];
-                //            break;
+                
             }
             case WLBubbleMessageMediaTypeEmotion: {
                 UITapGestureRecognizer *tapGestureRecognizer;
@@ -473,27 +452,6 @@ static const CGFloat kWLMessageSpecialViewPaddingX = 16;
         [self.messageBubbleView configureCellWithMessage:message];
     }
 }
-
-#pragma mark - SETextView Delegate
-//- (BOOL)textView:(SETextView *)textView clickedOnLink:(SELinkText *)link atIndex:(NSUInteger)charIndex
-//{
-//    DLog(@"setextview seclect: %@  link:%@",textView.selectedAttributedText,link.text);
-//    NSDataDetector * dataDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink|NSTextCheckingTypePhoneNumber error:nil];
-//    NSTextCheckingResult * firstMatch = [dataDetector firstMatchInString:link.text options:0 range:NSMakeRange(0, [link.text length])];
-//    if (firstMatch) {
-//        if ([self.delegate respondsToSelector:@selector(didSelectedSELinkTextOnMessage:LinkText:atIndexPath:)]) {
-//            [self.delegate didSelectedSELinkTextOnMessage:self.messageBubbleView.message LinkText:link.text atIndexPath:self.indexPath];
-//        }
-//    }
-//    if ([self.delegate respondsToSelector:@selector(didSelectedSELinkTextOnMessage:LinkText:type:atIndexPath:)]) {
-//        if (firstMatch) {
-////            [self.delegate didSelectedSELinkTextOnMessage:self.messageBubbleView.message LinkText:link.text type:firstMatch.resultType atIndexPath:self.indexPath];
-//        }else{
-//            [self.delegate didSelectedSELinkTextOnMessage:self.messageBubbleView.message LinkText:link.text atIndexPath:self.indexPath];
-//        }
-//    }
-//    return YES;
-//}
 
 - (void)mlEmojiLabel:(MLEmojiLabel*)emojiLabel didSelectLink:(NSString*)link withType:(MLEmojiLabelLinkType)type
 {
@@ -554,9 +512,6 @@ didSelectLinkWithCorrectionCheckingResult:(NSString *)components
         return;
     if (self.messageBubbleView.message.messageMediaType == WLBubbleMessageMediaTypeText) {
         UIMenuItem *copy = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"copy", @"MessageDisplayKitString", @"复制文本消息") action:@selector(copyed:)];
-        //    UIMenuItem *transpond = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"transpond", @"MessageDisplayKitString", @"转发") action:@selector(transpond:)];
-        //    UIMenuItem *favorites = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"favorites", @"MessageDisplayKitString", @"收藏") action:@selector(favorites:)];
-        //    UIMenuItem *more = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"more", @"MessageDisplayKitString", @"更多") action:@selector(more:)];
         
         UIMenuController *menu = [UIMenuController sharedMenuController];
         [menu setMenuItems:[NSArray arrayWithObjects:copy, nil]];

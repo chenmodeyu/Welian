@@ -27,7 +27,6 @@
 
 @interface WLMessageBubbleView ()
 
-//@property (nonatomic, weak, readwrite) SETextView *displayTextView;
 @property (nonatomic, weak, readwrite) MLEmojiLabel *displayLabel;
 
 //用于显示卡片类型的控件
@@ -81,29 +80,15 @@
 
 + (CGSize)neededSizeForText:(NSString *)text {
     CGFloat maxWidth = CGRectGetWidth([[UIScreen mainScreen] bounds]) * (kIsiPad ? 0.8 : 0.6);
-    
-//    CGFloat dyWidth = [WLMessageBubbleView neededWidthForText:text];
-    
-//    CGSize textSize = [SETextView frameRectWithAttributtedString:[[WLMessageBubbleHelper sharedMessageBubbleHelper] bubbleAttributtedStringWithText:text] constraintSize:CGSizeMake(maxWidth, MAXFLOAT) lineSpacing:kWLTextLineSpacing font:[[WLMessageBubbleView appearance] font]].size;
-    
     MLEmojiLabel *displayLabel = [[MLEmojiLabel alloc]init];
     displayLabel.numberOfLines = 0;
-//    displayLabel.emojiDelegate = self;
     displayLabel.lineBreakMode = NSLineBreakByCharWrapping;
     displayLabel.font = [[WLMessageBubbleView appearance] font];
     displayLabel.text = text;
     displayLabel.isNeedAtAndPoundSign = NO;
-    
-//    displayLabel.text = @"/:|-)TableView github:https://github.com/molon/MLEmojiLabel @撒旦 哈哈哈哈#九歌#九黎电话13612341234邮箱13612341234@qq.com旦旦/:dsad旦/::)sss/::~啊是大三的拉了/::B/::|/:8-)/::</::$/::X/::Z/::'(/::-|/::@/::P/::D/::O/::(/::+/:--b/::Q/::T/:,@P/:,@-D/::d/:,@o/::g/:|-)/::!/::L/::>/::,@/:,@f/::-S/:?/:ok/:love/:<L>/:jump/:shake/:<O>/:circle/:kotow/:turn/:skip/:oY链接:http://baidu.com dudl@qq.com";
-//    displayLabel.textColor = WLRGB(51, 51, 51);
-//    displayLabel.backgroundColor = [UIColor clearColor];
-//    [self addSubview:displayLabel];
-    
     CGSize textSize = [displayLabel preferredSizeWithMaxWidth:maxWidth];
     
     return CGSizeMake(textSize.width + kBubblePaddingRight + kWLArrowMarginWidth, textSize.height + kMarginTop);
-//    return CGSizeMake((dyWidth > textSize.width ? textSize.width : dyWidth) + kBubblePaddingRight + kWLArrowMarginWidth, textSize.height + kMarginTop);
-//    return CGSizeMake((dyWidth > textSize.width ? textSize.width : dyWidth) + kBubblePaddingRight * 2 + kWLArrowMarginWidth, textSize.height + kMarginTop);
 }
 
 + (CGSize)neededSizeForPhoto:(UIImage *)photo {
@@ -147,7 +132,6 @@
                 case WLBubbleMessageCardTypeInvestorGet://索要项目
                 case WLBubbleMessageCardTypeInvestorPost://投递项目
                 case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
-//                    bubbleSize = CGSizeMake(InfoMaxWidth, [WLMessageCardView calculateCellHeightWithMessage:message]);
                     bubbleSize = [WLMessageCardView calculateCellSizeWithMessage:message];
                     break;
                 default:
@@ -244,16 +228,9 @@
     }
     
     switch (currentType) {
-//        case WLBubbleMessageMediaTypeVoice: {
-//            _voiceDurationLabel.hidden = NO;
-//            if (message.isRead == NO) {
-//                _voiceUnreadDotImageView.hidden = NO;
-//            }
-//        }
         case WLBubbleMessageMediaTypeActivity://活动
         case WLBubbleMessageMediaTypeCard://卡片
         case WLBubbleMessageMediaTypeText:
-//        case WLBubbleMessageMediaTypeEmotion:
         {
             _bubbleImageView.image = [WLMessageBubbleFactory bubbleImageViewForType:message.bubbleMessageType style:WLBubbleImageViewStyleWeChat meidaType:message.messageMediaType];
             // 只要是文本、语音、第三方表情，背景的气泡都不能隐藏
@@ -267,15 +244,12 @@
             
             if (currentType == WLBubbleMessageMediaTypeText) {
                 // 如果是文本消息，那文本消息的控件需要显示
-//                _displayTextView.hidden = NO;
                 _displayLabel.hidden = NO;
-                
                 // 那语言的gif动画imageView就需要隐藏了
                 _animationVoiceImageView.hidden = YES;
                 _emotionImageView.hidden = YES;
             } else {
                 // 那如果不文本消息，必须把文本消息的控件隐藏了啊
-//                _displayTextView.hidden = YES;
                 _displayLabel.hidden = YES;
                 
                 // 对语音消息的进行特殊处理，第三方表情可以直接利用背景气泡的ImageView控件
@@ -339,8 +313,6 @@
             break;
         }
         case WLBubbleMessageMediaTypePhoto:
-//        case WLBubbleMessageMediaTypeVideo:
-//        case WLBubbleMessageMediaTypeLocalPosition:
         {
             // 只要是图片和视频消息，必须把尖嘴显示控件显示出来
             _bubblePhotoImageView.hidden = NO;
@@ -348,7 +320,6 @@
             _videoPlayImageView.hidden = (currentType != WLBubbleMessageMediaTypeVideo);
             
             _geolocationsLabel.hidden = (currentType != WLBubbleMessageMediaTypeLocalPosition);
-            
             // 那其他的控件都必须隐藏
 //            _displayTextView.hidden = YES;
             _displayLabel.hidden = YES;
@@ -364,12 +335,10 @@
             _bubbleImageView.image = [WLMessageBubbleFactory bubbleImageViewForType:message.bubbleMessageType style:WLBubbleImageViewStyleWeChat meidaType:message.messageMediaType];
             // 只要是文本、语音、第三方表情，背景的气泡都不能隐藏
             _bubbleImageView.hidden = NO;
-            
             // 只要是文本、语音、第三方表情，都需要把显示尖嘴图片的控件隐藏了
             _bubblePhotoImageView.hidden = YES;
             
             // 如果是文本消息，那文本消息的控件需要显示
-            //                _displayTextView.hidden = NO;
             _displayLabel.hidden = NO;
             _displayCardView.hidden = YES;
             // 那语言的gif动画imageView就需要隐藏了
@@ -384,52 +353,16 @@
     switch (message.messageMediaType) {
         case WLBubbleMessageMediaTypeText:
         {
-            // 设置表情
-            //            _displayLabel.customEmojiRegex = @"\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
-            //            _displayLabel.customEmojiPlistName = @"expressionImage_custom";
-            //            _displayLabel.frame = tex2tFrame;
             //设置文字
             _displayLabel.textColor = [message bubbleMessageType] == WLBubbleMessageTypeReceiving ? kTitleNormalTextColor : [UIColor whiteColor];
             _displayLabel.lineBreakMode = NSLineBreakByCharWrapping;
             _displayLabel.text = message.text;
-//            _displayLabel.text = @"/:|-)TableView github:https://github.com/molon/MLEmojiLabel @撒旦 哈哈哈哈#九歌#九黎电话13612341234邮箱13612341234@qq.com旦旦/:dsad旦/::)sss/::~啊是大三的拉了/::B/::|/:8-)/::</::$/::X/::Z/::'(/::-|/::@/::P/::D/::O/::(/::+/:--b/::Q/::T/:,@P/:,@-D/::d/:,@o/::g/:|-)/::!/::L/::>/::,@/:,@f/::-S/:?/:ok/:love/:<L>/:jump/:shake/:<O>/:circle/:kotow/:turn/:skip/:oY链接:http://baidu.com dudl@qq.com";
-            
-            //测试TTT原生方法
-//            [_displayLabel addLinkToURL:[NSURL URLWithString:@"http://sasasadan.com"] withRange:[_displayLabel.text rangeOfString:@"TableView"]];
-            
-            //            _displayTextView.attributedText = [[WLMessageBubbleHelper sharedMessageBubbleHelper] bubbleAttributtedStringWithText:[message text] withTextColor:[UIColor blackColor]];
-            //            //设置字体颜色
-            //            _displayTextView.textColor = [message bubbleMessageType] == WLBubbleMessageTypeReceiving ? [UIColor blackColor] : [UIColor whiteColor];
-            //            _displayTextView.attributedText = [[NSAttributedString alloc] initWithString:@"发送好友请求"];
-            //链接颜色
-            //            _displayTextView.linkHighlightColor = [UIColor blueColor];
-            //            _displayTextView.linkRolloverEffectColor = [UIColor blueColor];
-            //            _displayTextView.selectedTextBackgroundColor = [UIColor blueColor];
-            //            _displayTextView.highlightedTextColor = [UIColor redColor];
-            //            _displayTextView.textColor = [UIColor redColor];
+
         }
             break;
         case WLBubbleMessageMediaTypePhoto:
             [_bubblePhotoImageView configureMessagePhoto:message.photo thumbnailUrl:nil originPhotoUrl:message.originPhotoUrl onBubbleMessageType:self.message.bubbleMessageType];
             break;
-//        case WLBubbleMessageMediaTypeVideo:
-//            [_bubblePhotoImageView configureMessagePhoto:message.videoConverPhoto thumbnailUrl:nil originPhotoUrl:message.originPhotoUrl onBubbleMessageType:self.message.bubbleMessageType];
-//            break;
-//        case WLBubbleMessageMediaTypeVoice:
-//            break;
-//        case WLBubbleMessageMediaTypeEmotion:
-//            // 直接设置GIF
-//            if (message.emotionPath) {
-//                NSData *animatedData = [NSData dataWithContentsOfFile:message.emotionPath];
-//                FLAnimatedImage *animatedImage = [[FLAnimatedImage alloc] initWithAnimatedGIFData:animatedData];
-//                _emotionImageView.animatedImage = animatedImage;
-//            }
-//            break;
-//        case WLBubbleMessageMediaTypeLocalPosition:
-//            [_bubblePhotoImageView configureMessagePhoto:message.localPositionPhoto thumbnailUrl:nil originPhotoUrl:nil onBubbleMessageType:self.message.bubbleMessageType];
-//            
-//            _geolocationsLabel.text = message.geolocations;
-//            break;
         case WLBubbleMessageMediaTypeActivity://活动
         case WLBubbleMessageMediaTypeCard://卡片
         {
@@ -449,12 +382,7 @@
                     model.intro = message.cardIntro;
                     model.url = message.cardUrl;
                     model.content = message.cardMsg;
-//                    _displayCardView.cardM = model;
-//                    _displayCardView.isHidLine = YES;//隐藏边线
-//                    _displayCardView.tapBut.hidden = YES;
                     _displayCardView.cardInfo = model;
-//                    [_displayCardView setDebug:YES];
-                    
                 }
                     break;
                 default:
@@ -495,54 +423,25 @@
             bubbleImageView.userInteractionEnabled = YES;
             [self addSubview:bubbleImageView];
             self.bubbleImageView = bubbleImageView;
-//            [bubbleImageView setDebug:YES];
         }
         
         //初始化现实卡片的view
         if(!_displayCardView){
-//            WLCellCardView *cardView = [[WLCellCardView alloc] init];
-//            cardView.backgroundColor = [UIColor clearColor];
-//            [self addSubview:cardView];
-//            self.displayCardView = cardView;
             WLMessageCardView *cardView = [[WLMessageCardView alloc] init];
             [self addSubview:cardView];
             self.displayCardView = cardView;
         }
         
-        // 2、初始化显示文本消息的TextView
-//        if (!_displayTextView) {
-//            SETextView *displayTextView = [[SETextView alloc] initWithFrame:CGRectZero];
-//            displayTextView.backgroundColor = [UIColor clearColor];
-//            displayTextView.selectable = NO;
-//            displayTextView.lineSpacing = kWLTextLineSpacing;
-//            displayTextView.font = [[WLMessageBubbleView appearance] font];
-//            displayTextView.showsEditingMenuAutomatically = NO;
-//            displayTextView.highlighted = NO;
-//            //设置字体颜色
-////            displayTextView.textColor = [message bubbleMessageType] == WLBubbleMessageTypeReceiving ? [UIColor blackColor] : [UIColor whiteColor];
-//            //设置字体颜色
-////            displayTextView.textColor = [message bubbleMessageType] == WLBubbleMessageTypeReceiving ? displayTextView.textColor : [SEConstants sendTextColor];
-//            //链接颜色
-////            displayTextView.linkHighlightColor = [UIColor blueColor];
-////            displayTextView.linkRolloverEffectColor = [UIColor blueColor];
-////            displayTextView.delegate = self;
-//            [self addSubview:displayTextView];
-//            _displayTextView = displayTextView;
-////            [displayTextView setDebug:YES];
-//        }
-        
         if (!_displayLabel) {
             // 5.内容
             MLEmojiLabel *displayLabel = [[MLEmojiLabel alloc]init];
             displayLabel.numberOfLines = 0;
-//            displayLabel.emojiDelegate = self;
             displayLabel.lineBreakMode = NSLineBreakByCharWrapping;
             displayLabel.isNeedAtAndPoundSign = NO;
             displayLabel.font = [[WLMessageBubbleView appearance] font];
             displayLabel.backgroundColor = [UIColor clearColor];
             [self addSubview:displayLabel];
             self.displayLabel = displayLabel;
-//            [displayLabel setDebug:YES];
         }
         
         // 3、初始化显示图片的控件
@@ -550,7 +449,6 @@
             WLBubblePhotoImageView *bubblePhotoImageView = [[WLBubblePhotoImageView alloc] initWithFrame:CGRectZero];
             [self addSubview:bubblePhotoImageView];
             _bubblePhotoImageView = bubblePhotoImageView;
-//            [bubblePhotoImageView setDebug:YES];
             if (!_videoPlayImageView) {
                 UIImageView *videoPlayImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MessageVideoPlay"]];
                 [bubblePhotoImageView addSubview:videoPlayImageView];
@@ -606,17 +504,14 @@
             [sendFailedBtn sizeToFit];
             [self addSubview:sendFailedBtn];
             _sendFailedBtn = sendFailedBtn;
-//            [sendFailedBtn setDebug:YES];
         }
         
         //8.发送的时候的加载控件
         if (!_activityIndicatorView) {
             UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             activityIndicatorView.hidesWhenStopped = YES;
-//            activityIndicatorView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.0, CGRectGetHeight(self.bounds) / 2.0);
             [self addSubview:activityIndicatorView];
             _activityIndicatorView = activityIndicatorView;
-//            [_activityIndicatorView startAnimating];
         }
     }
     return self;
@@ -624,7 +519,6 @@
 
 - (void)dealloc {
     _message = nil;
-//    _displayTextView = nil;
     _displayCardView = nil;
     _displayLabel = nil;
     _bubbleImageView = nil;
@@ -653,8 +547,6 @@
         case WLBubbleMessageMediaTypeCard://卡片
         case WLBubbleMessageMediaTypeActivity://活动
         case WLBubbleMessageMediaTypeText:
-//        case WLBubbleMessageMediaTypeVoice:
-//        case WLBubbleMessageMediaTypeEmotion:
         {
             self.bubbleImageView.frame = bubbleFrame;
             
@@ -668,8 +560,6 @@
                                           CGRectGetMinY(bubbleFrame) + kPaddingTop / 2.f + 1.f,
                                           CGRectGetWidth(bubbleFrame) - kBubblePaddingRight * 2,
                                           bubbleFrame.size.height - kMarginTop - kMarginBottom);
-            
-//            self.displayTextView.frame = CGRectIntegral(textFrame);
             self.displayLabel.frame = CGRectIntegral(textFrame);
             
             CGRect animationVoiceImageViewFrame = self.animationVoiceImageView.frame;
@@ -684,8 +574,6 @@
             break;
         }
         case WLBubbleMessageMediaTypePhoto:
-//        case WLBubbleMessageMediaTypeVideo:
-//        case WLBubbleMessageMediaTypeLocalPosition:
         {
             CGRect photoImageViewFrame = CGRectMake(bubbleFrame.origin.x - 2, 0, bubbleFrame.size.width, bubbleFrame.size.height);
             self.bubblePhotoImageView.frame = photoImageViewFrame;
@@ -709,8 +597,6 @@
                                           CGRectGetMinY(bubbleFrame) + kPaddingTop / 2.f + 1.f,
                                           CGRectGetWidth(bubbleFrame) - kBubblePaddingRight * 2,
                                           bubbleFrame.size.height - kMarginTop - kMarginBottom);
-            
-            //            self.displayTextView.frame = CGRectIntegral(textFrame);
             self.displayLabel.frame = CGRectIntegral(textFrame);
             
             CGRect animationVoiceImageViewFrame = self.animationVoiceImageView.frame;

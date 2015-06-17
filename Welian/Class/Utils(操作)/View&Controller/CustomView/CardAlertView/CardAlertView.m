@@ -9,6 +9,7 @@
 #import "CardAlertView.h"
 #import "WLCellCardView.h"
 #import "WLMessageTextView.h"
+#import "CustomCardMessage.h"
 
 #define kContentViewHeight 180.f
 #define kCardViewHeight 56.f
@@ -178,30 +179,50 @@
     _cardModel.content = _textView.text.length > 0 ? _textView.text : @"";
     NSDictionary *cardDic = [_cardModel keyValues];
     NSDictionary *param = @{@"type":@(51),@"touser":_selectFriendUser.uid,@"card":cardDic,@"msg":_cardModel.content};
-    [WLHttpTool sendMessageParameterDic:param success:^(id JSON) {
-        //返回的是字典
-        NSString *state = JSON[@"state"];
-        NSString *time = JSON[@"created"];
-        if ([state intValue] == -1) {
-            //更新发送状态为失败
-            [WLHUDView showErrorHUD:@"发送失败！"];
-        }else{
-            //创建数据库对象
-            ChatMessage *chatMessage = [ChatMessage createChatMessageWithCard:_cardModel FriendUser:_selectFriendUser];
-            //更新发送时间
-            if (time) {
-                [chatMessage updateTimeStampFromServer:time];
-            }
-            
+
+    LogInUser *loguser = [LogInUser getCurrentLoginUser];
+    CustomCardMessage *cardMessage = [[CustomCardMessage alloc] init];
+    cardMessage.portraitUri = loguser.avatar;
+    cardMessage.card = cardDic;
+    cardMessage.touser = _selectFriendUser.uid.stringValue;
+    cardMessage.content = _cardModel.content;
+    WEAKSELF
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:_selectFriendUser.uid.stringValue content:cardMessage pushContent:@"分享卡片" success:^(long messageId) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf dismiss];
             if (_sendSuccessBlock) {
-                [self dismiss];
                 _sendSuccessBlock();
             }
-        }
-    } fail:^(NSError *error) {
-        //更新发送状态为失败
-        [WLHUDView showErrorHUD:@"发送失败！"];
+        });
+    } error:^(RCErrorCode nErrorCode, long messageId) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [WLHUDView showErrorHUD:@"发送失败！"];
+        });
     }];
+//    [WLHttpTool sendMessageParameterDic:param success:^(id JSON) {
+//        //返回的是字典
+//        NSString *state = JSON[@"state"];
+//        NSString *time = JSON[@"created"];
+//        if ([state intValue] == -1) {
+//            //更新发送状态为失败
+//            [WLHUDView showErrorHUD:@"发送失败！"];
+//        }else{
+//            //创建数据库对象
+//            ChatMessage *chatMessage = [ChatMessage createChatMessageWithCard:_cardModel FriendUser:_selectFriendUser];
+//            //更新发送时间
+//            if (time) {
+//                [chatMessage updateTimeStampFromServer:time];
+//            }
+//            
+//            if (_sendSuccessBlock) {
+//                [self dismiss];
+//                _sendSuccessBlock();
+//            }
+//        }
+//    } fail:^(NSError *error) {
+//        //更新发送状态为失败
+//        [WLHUDView showErrorHUD:@"发送失败！"];
+//    }];
 }
 
 //显示
@@ -214,6 +235,7 @@
 - (void)dismiss
 {
     [[self findFirstResponder] resignFirstResponder];
+//    [self removeFromSuperview];
     [self fadeOut];
 }
 
@@ -260,12 +282,14 @@
 #pragma mark - Hide Animations
 - (void)fadeOut
 {
-    [UIView animateWithDuration:0.3f animations:^{
-        _bgImageView.alpha = 0.0f;
-        _contentView.alpha = 0.0f;
+//    [self removeFromSuperview];
+    WEAKSELF
+    [UIView animateWithDuration:0.2f animations:^{
+        weakSelf.bgImageView.alpha = 0.0f;
+        weakSelf.contentView.alpha = 0.0f;
     } completion:^(BOOL completed) {
-        [self.bgImageView removeFromSuperview];
-        [self removeFromSuperview];
+        [weakSelf.bgImageView removeFromSuperview];
+        [weakSelf removeFromSuperview];
     }];
 }
 

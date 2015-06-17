@@ -12,6 +12,8 @@
 
 #import "WLMessageModel.h"
 
+#import "CustomCardMessage.h"
+
 @interface WLMessageCardView : UIView
 
 @property (nonatomic,strong) CardStatuModel *cardInfo;
@@ -29,5 +31,7 @@
 + (CGFloat)calculateCellHeightWithMessage:(id <WLMessageModel>)message;
 
 + (CGSize)calculateCellSizeWithMessage:(id <WLMessageModel>)message;
+
++ (CGSize)calculateCellSizeWithCardMessage:(CustomCardMessage *)cardMsg;
 
 @end

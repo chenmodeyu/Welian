@@ -26,6 +26,23 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 
 @implementation ChatListViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //显示导航条
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+
 - (NSString *)title
 {
     return @"会话列表";
@@ -162,7 +179,7 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 {
     UITableViewCellEditingStyle result = UITableViewCellEditingStyleDelete;//默认没有编辑风格
     if (indexPath.row==0) {
-     result = UITableViewCellEditingStyleDelete;//默认没有编辑风格
+     result = UITableViewCellEditingStyleNone;//默认没有编辑风格
     }
 //    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
 //    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;//默认没有编辑风格

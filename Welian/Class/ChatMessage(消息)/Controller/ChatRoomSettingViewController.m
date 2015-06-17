@@ -14,7 +14,7 @@
 
 #define kTableViewCellHeight 50.f
 #define kTableHeaderViewHeight 213.f
-#define kMaxLength 10.f
+#define kMaxLength 20.f
 
 @interface ChatRoomSettingViewController ()<UITableViewDelegate, UITableViewDataSource ,UITextFieldDelegate>
 
@@ -146,7 +146,7 @@
     nameTF.isToBounds = YES;//圆角
     nameTF.font = kNormal14Font;
     nameTF.textColor = kTitleNormalTextColor;
-    nameTF.placeholder = @"聊天室名称，10个字以内";
+    nameTF.placeholder = @"聊天室名称，20个字以内";
     nameTF.text = _chatRoomInfo ? _chatRoomInfo.title : @"";
     nameTF.layer.borderColorFromUIColor = kNormalLineColor;
     nameTF.layer.borderWidths = @"{0.8f,0,0.4,0}";
@@ -160,7 +160,7 @@
     passWdTF.backgroundColor = [UIColor whiteColor];
     passWdTF.font = kNormal14Font;
     passWdTF.textColor = kTitleNormalTextColor;
-    passWdTF.placeholder = @"口令，10个字以内";
+    passWdTF.placeholder = @"口令，20个字以内";
     passWdTF.text = _chatRoomInfo ? _chatRoomInfo.code : @"";
     passWdTF.layer.borderColorFromUIColor = kNormalLineColor;
     passWdTF.layer.borderWidths = @"{0.4f,0,0.8f,0}";

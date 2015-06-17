@@ -80,9 +80,9 @@
         //添加新的消息通知
         [KNSNotification addObserver:self selector:@selector(badgeInfoChanged) name:KMessageHomeNotif object:nil];
         //如果是从好友列表进入聊天，首页变换
-        [KNSNotification addObserver:self selector:@selector(chatFromUserInfo:) name:kChatFromUserInfo object:nil];
-        
-        //如果是从当前VC进入聊天
+//        [KNSNotification addObserver:self selector:@selector(chatFromUserInfo:) name:kChatFromUserInfo object:nil];
+//        
+//        //如果是从当前VC进入聊天
         [KNSNotification addObserver:self selector:@selector(currentChatFromUserInfo:) name:kCurrentChatFromUserInfo object:nil];
         
     }

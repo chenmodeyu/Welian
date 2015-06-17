@@ -8,8 +8,7 @@
 
 #import "WLMessageCardView.h"
 
-#define InfoMaxWidth CGRectGetWidth([[UIScreen mainScreen] bounds]) * (kIsiPad ? 0.8 : 0.69)
-// (CGRectGetWidth([[UIScreen mainScreen] bounds]) * (kIsiPad ? 0.55 : 0.7))
+#define InfoMaxWidth CGRectGetWidth([[UIScreen mainScreen] bounds]) * (0.65)
 #define kCardViewHeight 56.f
 #define kPaddingTop 8.0f
 #define kMarginLeft 8.f
@@ -46,17 +45,10 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _titleLabel.width = self.width - kMarginLeft * 2.f;
-//    [_titleLabel sizeToFit];
+//    _titleLabel.width = self.width - kMarginLeft * 2.f;
     CGSize titleSize = [_titleLabel preferredSizeWithMaxWidth:(InfoMaxWidth - kMarginLeft * 2)];
     _titleLabel.size = CGSizeMake(titleSize.width, titleSize.height);
-//    CGFloat leftWith = (self.width - titleSize.width) / 2.f ;
-//    _titleLabel.left = leftWith > 12.f ? kMarginLeft : leftWith;
-//    if (titleSize.width < self.width - kMarginLeft * 2) {
-        _titleLabel.left = kMarginLeft;
-//    }else{
-//        _titleLabel.centerX = self.width / 2.f;
-//    }
+    _titleLabel.left = kMarginLeft;
     _titleLabel.top = kPaddingTop;
     
     _cardView.size = CGSizeMake(self.width, kCardViewHeight);
@@ -75,18 +67,14 @@
 #pragma mark - Private
 - (void)setup
 {
-//    [self setDebug:YES];
     MLEmojiLabel *titleLabel = [[MLEmojiLabel alloc]init];
     titleLabel.numberOfLines = 0;
-    //            displayLabel.emojiDelegate = self;
     titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
     titleLabel.font = kNormal16Font;
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor  = kTitleNormalTextColor;
-//    titleLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:titleLabel];
     self.titleLabel = titleLabel;
-//    [titleLabel setDebug:YES];
     
     //分割线
     UIImageView *lineView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"circle_chat_line"]];
@@ -101,7 +89,6 @@
     cardView.tapBut.hidden = YES;
     [self addSubview:cardView];
     self.cardView = cardView;
-//    [cardView setDebug:YES];
 }
 
 
@@ -150,7 +137,25 @@
         textHeight = -kPaddingTop;
     }
     return CGSizeMake(InfoMaxWidth , textHeight + kCardViewHeight);
-//    return CGSizeMake(textWidth == 0 ? (InfoMaxWidth - kMarginLeft * 2) : textWidth, textHeight + kCardViewHeight);
 }
+
++ (CGSize)calculateCellSizeWithCardMessage:(CustomCardMessage *)cardMsg
+{
+    CGFloat textHeight = 0.f;
+    if (cardMsg.content.length > 0) {
+        MLEmojiLabel *displayLabel = [[MLEmojiLabel alloc]init];
+        displayLabel.numberOfLines = 0;
+        //    displayLabel.emojiDelegate = self;
+        displayLabel.lineBreakMode = NSLineBreakByCharWrapping;
+        displayLabel.font = kNormal16Font;
+        displayLabel.text = cardMsg.content;
+        
+        CGSize textSize = [displayLabel preferredSizeWithMaxWidth:(InfoMaxWidth - kMarginLeft * 2)];
+        textHeight = textSize.height + 5.f+kPaddingTop;
+    }
+    return CGSizeMake(InfoMaxWidth , textHeight + kCardViewHeight);
+}
+
+
 
 @end

@@ -604,6 +604,7 @@
     //发送成功
     [alertView setSendSuccessBlock:^(void){
         [WLHUDView showSuccessHUD:@"分享成功！"];
+//        [alertView removeFromSuperview];
     }];
 }
 
