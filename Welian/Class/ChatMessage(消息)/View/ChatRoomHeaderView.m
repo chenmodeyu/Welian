@@ -20,7 +20,7 @@
         [self addSubview:cellView];
         _iconImage = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 50, 50)];
         
-        [_iconImage setImage:[UIImage imageNamed:@"header_background_bottom.png"]];
+        [_iconImage setImage:[UIImage imageNamed:@"chat_chatroom_logo.png"]];
         [_iconImage.layer setMasksToBounds:YES];
         [_iconImage.layer setCornerRadius:25];
         [cellView addSubview:_iconImage];

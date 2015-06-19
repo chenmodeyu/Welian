@@ -16,4 +16,6 @@ single_interface(MainViewController)
 - (void)updataItembadge;
 
 - (void)loadNewStustupdata;
+
+- (void)updateChatMessageBadge;
 @end

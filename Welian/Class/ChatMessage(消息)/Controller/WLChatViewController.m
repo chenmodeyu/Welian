@@ -8,10 +8,14 @@
 
 #import "WLChatViewController.h"
 #import "WLChatCustomCardCell.h"
-#import "CustomMessageType.h"
 #import "UserInfoViewController.h"
 #import "BasicViewController.h"
 #import "CustomCardMessage.h"
+#import "ActivityDetailInfoViewController.h"
+#import "ProjectDetailsViewController.h"
+#import "TOWebViewController.h"
+#import "InvestorUserInfoController.h"
+#import "ProjectPostDetailInfoViewController.h"
 
 @interface WLChatViewController ()
 
@@ -117,6 +121,7 @@
     WLChatCustomCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"chatcell" forIndexPath:indexPath];
     RCMessageModel *model = self.conversationDataRepository[indexPath.row];
     [cell setDataModel:model];
+    CustomCardMessage *customCardM = (CustomCardMessage *)model.content;
     // 点击头像
     WEAKSELF
     cell.chatIconBlock = ^(){
@@ -130,7 +135,85 @@
     cell.chatDeleteBlock = ^(){
         [weakSelf deleteMessage:model];
     };
+    cell.chatCardBlock = ^(){
+        DLog(@"%@",customCardM.card);
+        [weakSelf selectedCardMessageWithCardM:customCardM];
+    };
     return cell;
+}
+
+- (void)selectedCardMessageWithCardM:(CustomCardMessage *)cardMessage
+{
+    CardStatuModel *cardModel = [CardStatuModel objectWithDict:cardMessage.card];
+    
+    //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
+    switch (cardModel.type.integerValue) {
+        case WLBubbleMessageCardTypeActivity:
+        {
+            //查询本地有没有该活动
+            ActivityInfo *activityInfo = [ActivityInfo getActivityInfoWithActiveId:cardModel.cid Type:@(0)];
+            ActivityDetailInfoViewController *activityInfoVC = nil;
+            if(activityInfo){
+                activityInfoVC = [[ActivityDetailInfoViewController alloc] initWithActivityInfo:activityInfo];
+            }else{
+                activityInfoVC = [[ActivityDetailInfoViewController alloc] initWIthActivityId:cardModel.cid];
+            }
+            if (activityInfoVC) {
+                [self.navigationController pushViewController:activityInfoVC animated:YES];
+            }
+        }
+            break;
+        case WLBubbleMessageCardTypeProject:
+        {
+            //查询数据库是否存在
+            ProjectInfo *projectInfo = [ProjectInfo getProjectInfoWithPid:cardModel.cid Type:@(0)];
+            ProjectDetailsViewController *projectDetailVC = nil;
+            if (projectInfo) {
+                projectDetailVC = [[ProjectDetailsViewController alloc] initWithProjectInfo:projectInfo];
+            }else{
+                IProjectInfo *iProjectInfo = [[IProjectInfo alloc] init];
+                iProjectInfo.name = cardModel.title;
+                iProjectInfo.pid = cardModel.cid;
+                iProjectInfo.intro = cardModel.intro;
+                projectDetailVC = [[ProjectDetailsViewController alloc] initWithIProjectInfo:iProjectInfo];
+            }
+            if (projectDetailVC) {
+                [self.navigationController pushViewController:projectDetailVC animated:YES];
+            }
+        }
+            break;
+        case WLBubbleMessageCardTypeWeb:
+        {
+            //普通链接
+            TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:cardModel.url];
+            webVC.navigationButtonsHidden = YES;//隐藏底部操作栏目
+            webVC.showRightShareBtn = YES;//现实右上角分享按钮
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+            break;
+        case WLBubbleMessageCardTypeInvestorGet:
+        {
+            //索要项目
+            InvestorUserInfoController *investorUserInfoVC = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeUID andUserData:@[cardModel.cid,cardModel.relationid]];
+            [self.navigationController pushViewController:investorUserInfoVC animated:YES];
+        }
+            break;
+        case WLBubbleMessageCardTypeInvestorPost:
+        {
+            //投递项目
+            ProjectPostDetailInfoViewController *projectPostDetailVC = [[ProjectPostDetailInfoViewController alloc] initWithPid:cardModel.cid];
+            [self.navigationController pushViewController:projectPostDetailVC animated:YES];
+        }
+            break;
+        case WLBubbleMessageCardTypeInvestorUser:
+        {
+            //用户名片卡片
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 /**
@@ -143,56 +226,6 @@
 //- (void)multiMediaMessageDidSelectedOnMessage:(id <WLMessageModel>)message atIndexPath:(NSIndexPath *)indexPath onMessageTableViewCell:(WLMessageTableViewCell *)messageTableViewCell
 //{
 //    switch (message.messageMediaType) {
-//            //        case WLBubbleMessageMediaTypeVideo:
-//        case WLBubbleMessageMediaTypePhoto:
-//        {
-//            //键盘控制
-//            //            [self finishSendMessageWithBubbleMessageType:WLBubbleMessageMediaTypePhoto];
-//            
-//            // 1.封装图片数据
-//            NSArray *photoData = [self.messages bk_select:^BOOL(id obj) {
-//                return [obj messageMediaType] == WLBubbleMessageMediaTypePhoto;
-//            }];
-//            NSInteger selectIndex = [photoData indexOfObject:message];
-//            NSMutableArray *photos = [NSMutableArray arrayWithCapacity:photoData.count];
-//            for (int i = 0; i<photoData.count; i++) {
-//                WLMessage *wlMessage = photoData[i];
-//                NSInteger index = [self.messages indexOfObject:wlMessage];
-//                WLPhotoView *photoView = [[WLPhotoView alloc] init];
-//                photoView.image = [ResManager imageWithPath:wlMessage.thumbnailUrl];
-//                
-//                MJPhoto *photo = [[MJPhoto alloc] init];
-//                if( message.bubbleMessageType == WLBubbleMessageTypeSending){
-//                    photo.image = [ResManager imageWithPath:wlMessage.thumbnailUrl];
-//                }else{
-//                    //去除，现实高清图地址
-//                    NSString *photoUrl = wlMessage.originPhotoUrl;
-//                    photoUrl = [photoUrl stringByReplacingOccurrencesOfString:@"_x.jpg" withString:@".jpg"];
-//                    photoUrl = [photoUrl stringByReplacingOccurrencesOfString:@"_x.png" withString:@".png"];
-//                    photo.url = [NSURL URLWithString:photoUrl]; // 图片路径
-//                }
-//                photo.srcImageView = photoView; // 来源于哪个UIImageView
-//                photo.hasNoImageView = YES;
-//                WLMessageTableViewCell *cell = (WLMessageTableViewCell *)[self.messageTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-//                //计算图片在屏幕中的位置
-//                CGRect imageRect = [cell.messageBubbleView.bubblePhotoImageView convertRect:cell.messageBubbleView.bubblePhotoImageView.bounds toView:self.view];
-//                photo.imageCurrentRect = CGRectMake(imageRect.origin.x, imageRect.origin.y + ViewCtrlTopBarHeight, imageRect.size.width, imageRect.size.height);
-//                [photos addObject:photo];
-//            }
-//            
-//            // 2.显示相册
-//            MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
-//            browser.currentPhotoIndex = selectIndex; // 弹出相册时显示的第一张图片是？
-//            browser.photos = photos; // 设置所有的图片
-//            [browser show];
-//            //
-//            //
-//            //            DLog(@"message ----> photo");
-//            //            WLDisplayMediaViewController *messageDisplayTextView = [[WLDisplayMediaViewController alloc] init];
-//            //            messageDisplayTextView.message = message;
-//            //            [self.navigationController pushViewController:messageDisplayTextView animated:YES];
-//        }
-//            break;
 //        case WLBubbleMessageMediaTypeActivity://活动
 //        {
 //            //查询本地有没有该活动

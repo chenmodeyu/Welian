@@ -101,13 +101,16 @@
     } Failed:^(NSError *error) {
         
     }];
+    [[RCIM sharedRCIM] logout];
+    [[RCIM sharedRCIM] disconnect];
     [UserDefaults removeObjectForKey:kSessionId];
     [UserDefaults removeObjectForKey:kBPushRequestChannelIdKey];
     [UserDefaults setBool:NO forKey:kneedChannelId];
     [UserDefaults synchronize];
     [LogInUser setUserisNow:NO];
-    [self.view.window setRootViewController:[[LoginGuideController alloc] init]];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [self.navigationController popToRootViewControllerAnimated:NO];
+    [self.view.window setRootViewController:[[LoginGuideController alloc] init]];
 }
 
 #pragma mark 读取plist文件的内容
@@ -124,7 +127,6 @@
 {
     [super viewDidLoad];
     [self setTitle:@"设置"];
-    
 }
 
 #pragma mark - Table view data source

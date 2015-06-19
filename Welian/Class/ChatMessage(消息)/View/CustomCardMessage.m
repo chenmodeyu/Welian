@@ -30,9 +30,10 @@
     NSMutableDictionary *dataDict=[NSMutableDictionary dictionary];
     [dataDict setObject:self.card forKey:@"card"];
     [dataDict setObject:self.touser forKey:@"touser"];
-    [dataDict setObject:self.content forKey:@"content"];
-    [dataDict setObject:self.portraitUri forKey:@"portraitUri"];
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dataDict
+    [dataDict setObject:self.msg forKey:@"msg"];
+    [dataDict setObject:self.fromuser forKeyedSubscript:@"fromuser"];
+
+    NSData *data = [NSJSONSerialization dataWithJSONObject:@{@"content":[RCJSONConverter jsonStringWithDictionary:dataDict]}
                                                    options:kNilOptions
                                                      error:nil];
     return data;
@@ -47,17 +48,26 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                          options:kNilOptions
                                                            error:&error];
-    
     if (json) {
-        self.card = json[@"card"];
-        self.touser = json[@"touser"];
-        self.content = json[@"card"][@"content"];
-        self.portraitUri = json[@"portraitUri"];
+        NSString *contentStr = [json objectForKey:@"content"];
+        NSDictionary *dataDic = [contentStr jsonObject];
+        if (dataDic) {
+            self.card = dataDic[@"card"];
+            self.touser = dataDic[@"uid"];
+            self.msg = dataDic[@"msg"];
+            self.fromuser = dataDic[@"fromuser"];
+        }
     }
 }
 
+
 +(NSString *)getObjectName {
     return WLCustomCardMessageTypeIdentifier;
+}
+
+- (NSString *)conversationDigest
+{
+    return self.msg.length?self.msg:[self.card objectForKey:@"title"];
 }
 
 @end

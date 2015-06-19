@@ -117,7 +117,9 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
     WEAKSELF
     [WeLianClient adBannerWithSuccess:^(id resultInfo) {
         DLog(@"%@",resultInfo);
-        [[WLDataDBTool sharedService] putObject:resultInfo withId:KBannerDataTableName intoTable:KBannerDataTableName];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [[WLDataDBTool sharedService] putObject:resultInfo withId:KBannerDataTableName intoTable:KBannerDataTableName];
+        });
         [weakSelf showBannerViewWith:resultInfo];
         
     } Failed:^(NSError *error) {
@@ -347,7 +349,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                     
                     [LogInUser updateToutiaoBadge:NO];
                     [LogInUser updateToutiaoNewCount:@(0)];
-                    [[MainViewController sharedMainViewController] loadNewStustupdata];
+//                    [[MainViewController sharedMainViewController] loadNewStustupdata];
                     [self reloadToutiao];
                 }
                     break;
@@ -359,7 +361,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                     
                     // 取消新活动角标
                     [LogInUser setUserIsactivebadge:NO];
-                    [[MainViewController sharedMainViewController] loadNewStustupdata];
+//                    [[MainViewController sharedMainViewController] loadNewStustupdata];
                     [self reloadNewactivit];
                 }
                     break;
@@ -384,7 +386,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                 
                 // 取消新活动角标
                 [LogInUser setUserIsProjectBadge:NO];
-                [[MainViewController sharedMainViewController] loadNewStustupdata];
+//                [[MainViewController sharedMainViewController] loadNewStustupdata];
                 [self reloadProject];
             }else if (indexPath.row==1){
                 InvestorsListController *investorListVC = [[InvestorsListController alloc] init];
@@ -392,7 +394,7 @@ static NSString *CellIdentifier = @"BadgeBaseCellid";
                 [self.navigationController pushViewController:investorListVC animated:YES];
                 
                 [LogInUser updateFindInvestorBadge:NO];
-                [[MainViewController sharedMainViewController] loadNewStustupdata];
+//                [[MainViewController sharedMainViewController] loadNewStustupdata];
                 [self reloadInvestor];
             }
         }

@@ -8,9 +8,14 @@
 
 #import <RongIMLib/RongIMLib.h>
 
-#define WLCustomCardMessageTypeIdentifier @"WL:CardMessage"
+#define WLCustomCardMessageTypeIdentifier @"WL:CardMsg"
 
-@interface CustomCardMessage : RCMessageContent
+@interface CustomCardMessage : RCMessageContent <RCMessageContentView>
+
+@property (nonatomic, strong) NSDictionary *content;
+
+@property (nonatomic, strong) NSDictionary *fromuser;
+//@property (nonatomic, strong) NSDictionary *card;
 
 // cid 为0 时表示已删除
 //@property (nonatomic, strong) NSNumber *cid;
@@ -24,9 +29,8 @@
 @property (nonatomic, strong) NSDictionary *card;
 
 @property (nonatomic, strong) NSString *touser;
-@property (nonatomic, strong) NSString *portraitUri;
 
-@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *msg;
 
 
 

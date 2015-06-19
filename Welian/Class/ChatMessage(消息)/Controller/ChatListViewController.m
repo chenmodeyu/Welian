@@ -8,14 +8,14 @@
 
 #import "ChatListViewController.h"
 #import "WLChatViewController.h"
-
 #import "RCDChatListCell.h"
 #import "RCDUserInfo.h"
 #import "ChatRoomListController.h"
 #import "ChatRoomHeaderView.h"
-#import "CustomMessageType.h"
 #import "AppDelegate.h"
 #import "WLFriendsRequestListController.h"
+
+#import "CustomCardMessage.h"
 
 @interface ChatListViewController ()
 
@@ -29,7 +29,7 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [[MainViewController sharedMainViewController] updateChatMessageBadge];
     //显示导航条
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.hidden = NO;
@@ -45,7 +45,7 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 
 - (NSString *)title
 {
-    return @"会话列表";
+    return @"消息";
 }
 
 /**
@@ -84,27 +84,9 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     chatVC.userName                    = user.name;
     chatVC.conversationType              = ConversationType_PRIVATE;
     chatVC.title                         = user.name;
-//    chatVC.conversation = model;
     
     [self.navigationController pushViewController:chatVC animated:YES];
 }
-
-//- (void)fdalsdfasjfldsajkfdsaf
-//{
-//    RCContactNotificationMessage *notFiend = [RCContactNotificationMessage notificationWithOperation:ContactNotificationMessage_ContactOperationRequest sourceUserId:@"10030" targetUserId:@"10019" message:@"zhengjiahaoy" extra:@"fdasd"];
-//    
-////    RCUserInfo *user = [[RCUserInfo alloc] initWithUserId:@"10030" name:@"DDDD" portrait:@""];
-////    CustomMessageType *customContent = [[CustomMessageType alloc] init];
-////    [customContent setSenderUserInfo:user];
-////    customContent.content = @"自定义消息0000000";
-//    
-//    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:@"10019" content:notFiend pushContent:@"zidsafdsafas" success:^(long messageId) {
-//        DLog(@"%ld",messageId);
-//    } error:^(RCErrorCode nErrorCode, long messageId) {
-//        DLog(@"%ld",(long)nErrorCode);
-//    }];
-//}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -113,26 +95,20 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     [self.conversationListTableView registerClass:[RCDChatListCell class] forCellReuseIdentifier:chatNewFirendcellid];
 }
 
-//- (void)enterChatRoomListVC
+//- (void)updateBadgeValueForTabBarItem
 //{
-//    ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
-//    [self.navigationController pushViewController:chatRoomListVC animated:YES];
+//    __weak typeof(self) __weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        int count = [[RCIMClient sharedRCIMClient]getUnreadCount:self.displayConversationTypeArray];
+//        if (count>0) {
+//            __weakSelf.tabBarItem.badgeValue = [[NSString alloc]initWithFormat:@"%d",count];
+//        }else
+//        {
+//            __weakSelf.tabBarItem.badgeValue = nil;
+//        }
+//        
+//    });
 //}
-
-- (void)updateBadgeValueForTabBarItem
-{
-    __weak typeof(self) __weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        int count = [[RCIMClient sharedRCIMClient]getUnreadCount:self.displayConversationTypeArray];
-        if (count>0) {
-            __weakSelf.tabBarItem.badgeValue = [[NSString alloc]initWithFormat:@"%d",count];
-        }else
-        {
-            __weakSelf.tabBarItem.badgeValue = nil;
-        }
-        
-    });
-}
 
 
 /**
@@ -181,11 +157,6 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     if (indexPath.row==0) {
      result = UITableViewCellEditingStyleNone;//默认没有编辑风格
     }
-//    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-//    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;//默认没有编辑风格
-//    if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL||model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_COLLECTION) {
-//        result = UITableViewCellEditingStyleDelete;//设置编辑风格为删除风格
-//    }
     return result;
 }
 
@@ -200,10 +171,6 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     model.isTop = YES;
     model.objectName = @"ChatRoomHeader";
     [dataSource insertObject:model atIndex:0];
-    
-//    RCConversationModel *firendmodel = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_COLLECTION  exntend:nil];
-//    firendmodel.objectName = RCCustomMessageTypeIdentifier;
-//    [dataSource insertObject:firendmodel atIndex:1];
     return dataSource;
 }
 
@@ -261,7 +228,6 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     __weak typeof(&*self) blockSelf_ = self;
     //处理好友请求
     RCMessage *message = notification.object;
-    
     if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
         RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)message.content;
 
@@ -295,7 +261,7 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
               //调用父类刷新未读消息数
               [blockSelf_ refreshConversationTableViewWithConversationModel:customModel];
               [blockSelf_ resetConversationListBackgroundViewIfNeeded];
-              [blockSelf_ updateBadgeValueForTabBarItem];
+              
               
               //当消息为RCContactNotificationMessage时，没有调用super，如果是最后一条消息，可能需要刷新一下整个列表。
               //原因请查看super didReceiveMessageNotification的注释。
@@ -309,9 +275,9 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
                 //调用父类刷新未读消息数
                 [super didReceiveMessageNotification:notification];
                 [blockSelf_ resetConversationListBackgroundViewIfNeeded];
-                //            [self notifyUpdateUnreadMessageCount]; super会调用notifyUpdateUnreadMessageCount
             });
         }
+//    [self updateBadgeValueForTabBarItem];
 }
 
 

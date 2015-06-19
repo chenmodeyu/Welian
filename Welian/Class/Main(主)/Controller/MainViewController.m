@@ -60,7 +60,7 @@ single_implementation(MainViewController)
 {
     self = [super init];
     if (self) {
-        [WeLianClient updateclientID];
+//        [WeLianClient updateclientID];
     }
     return self;
 }
@@ -69,21 +69,20 @@ single_implementation(MainViewController)
 {
     if ([UserDefaults objectForKey:kSessionId]) {
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-        if (!loginUser) {
-            return;
+        if (loginUser) {
+            //获取最新动态数量
+            [WeLianClient getNewFeedCountsWithID:loginUser.firststustid ? : @(0)
+                                            Time:loginUser.lastGetTime.length > 0 ? loginUser.lastGetTime : @""
+                                         Success:^(id resultInfo) {
+                                             IGetNewFeedResultModel *newFeedModel = resultInfo;
+                                             //保存数据
+                                             [LogInUser setNewFeedCountInfo:newFeedModel];
+                                             
+                                             [self updataItembadge];
+                                         } Failed:^(NSError *error) {
+                                             
+                                         }];
         }
-        //获取最新动态数量
-        [WeLianClient getNewFeedCountsWithID:loginUser.firststustid ? : @(0)
-                                        Time:loginUser.lastGetTime.length > 0 ? loginUser.lastGetTime : @""
-                                     Success:^(id resultInfo) {
-                                         IGetNewFeedResultModel *newFeedModel = resultInfo;
-                                         //保存数据
-                                         [LogInUser setNewFeedCountInfo:newFeedModel];
-
-                                         [self updataItembadge];
-                                     } Failed:^(NSError *error) {
-                                         
-                                     }];
     }
 }
 
@@ -91,13 +90,12 @@ single_implementation(MainViewController)
 // 根据更新信息设置 提示角标
 - (void)updataItembadge
 {
+    LogInUser *logUser = [LogInUser getCurrentLoginUser];
     //更新消息页面角标
-    [self updateChatMessageBadge:nil];
+    [self updateChatMessageBadge];
     
     // 首页 创业圈角标
-//    if (meinfo.newstustcount.integerValue &&!meinfo.homemessagebadge.integerValue) {
-    if ([LogInUser getCurrentLoginUser].newstustcount.integerValue) {
-//        [self.navTitleView showPrompt];
+    if (logUser.newstustcount.integerValue) {
         [homeItem setImage:[[UIImage imageNamed:@"tabbar_home_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         [homeItem setSelectedImage:[[UIImage imageNamed:@"tabbar_home_selected_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
@@ -106,7 +104,7 @@ single_implementation(MainViewController)
     }
     
     /// 有新的活动或者新的项目
-    if ([LogInUser getCurrentLoginUser].isactivebadge.boolValue || [LogInUser getCurrentLoginUser].isprojectbadge.boolValue || [LogInUser getCurrentLoginUser].istoutiaobadge.boolValue || [LogInUser getCurrentLoginUser].isfindinvestorbadge.boolValue) {
+    if (logUser.isactivebadge.boolValue || logUser.isprojectbadge.boolValue || logUser.istoutiaobadge.boolValue || logUser.isfindinvestorbadge.boolValue) {
         [findItem setImage:[[UIImage imageNamed:@"tabbar_discovery_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         [findItem setSelectedImage:[[UIImage imageNamed:@"tabbar_discovery_selected_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
@@ -115,7 +113,7 @@ single_implementation(MainViewController)
     }
     
     // 我的投资人认证状态改变
-    if ([LogInUser getCurrentLoginUser].isinvestorbadge.boolValue) {
+    if (logUser.isinvestorbadge.boolValue) {
         [meItem setImage:[[UIImage imageNamed:@"tabbar_friend_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         [meItem setSelectedImage:[[UIImage imageNamed:@"tabbar_friend_selected_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
@@ -125,20 +123,30 @@ single_implementation(MainViewController)
 }
 
 //更新消息数量改变
-- (void)updateChatMessageBadge:(NSNotification *)notification
+- (void)updateChatMessageBadge
 {
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    if (!loginUser) {
-        return;
-    }
-    //聊天
-    NSInteger unReadChatMsg = [loginUser allUnReadChatMessageNum];
-    //消息
-    NSInteger unReadMsg = loginUser.homemessagebadge.integerValue;
-    //好友通知
-    NSInteger unReadFriend = loginUser.newfriendbadge.integerValue;
-    NSInteger totalUnRead = unReadChatMsg + unReadMsg + unReadFriend;
-    chatMessageItem.badgeValue = totalUnRead <= 0 ? nil : [NSString stringWithFormat:@"%@",@(totalUnRead)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSInteger messageCount = [[RCIMClient sharedRCIMClient] getTotalUnreadCount];
+        if (messageCount) {
+            chatMessageItem.badgeValue = [NSString stringWithFormat:@"%ld",(long)messageCount];
+        }else{
+            chatMessageItem.badgeValue = nil;
+        }
+
+    });
+
+//    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+//    if (!loginUser) {
+//        return;
+//    }
+//    //聊天
+//    NSInteger unReadChatMsg = [loginUser allUnReadChatMessageNum];
+//    //消息
+//    NSInteger unReadMsg = loginUser.homemessagebadge.integerValue;
+//    //好友通知
+//    NSInteger unReadFriend = loginUser.newfriendbadge.integerValue;
+//    NSInteger totalUnRead = unReadChatMsg + unReadMsg + unReadFriend;
+//    chatMessageItem.badgeValue = totalUnRead <= 0 ? nil : [NSString stringWithFormat:@"%@",@(totalUnRead)];
 }
 
 //设置选择的为消息列表页面
@@ -151,8 +159,13 @@ single_implementation(MainViewController)
 {
     [super viewDidLoad];
     [WeLianClient updateclientID];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateChatMessageBadge)
+                                                 name:RCKitDispatchMessageNotification
+                                               object:nil];
     // 有新好友通知
-    [KNSNotification addObserver:self selector:@selector(newFriendPuthMessga) name:KNewFriendNotif object:nil];
+    [KNSNotification addObserver:self selector:@selector(updateChatMessageBadge) name:KNewFriendNotif object:nil];
     
     // 有新动态通知
     [KNSNotification addObserver:self selector:@selector(loadNewStustupdata) name:KNEWStustUpdate object:nil];
@@ -161,8 +174,8 @@ single_implementation(MainViewController)
    [KNSNotification addObserver:self selector:@selector(updataItembadge) name:KMessageHomeNotif object:nil];
     
     //添加聊天用户改变监听
-    [KNSNotification addObserver:self selector:@selector(updateChatMessageBadge:) name:kChatMsgNumChanged object:nil];
-    [KNSNotification addObserver:self selector:@selector(updateChatMessageBadge:) name:kUpdateMainMessageBadge object:nil];
+    [KNSNotification addObserver:self selector:@selector(updateChatMessageBadge) name:kChatMsgNumChanged object:nil];
+    [KNSNotification addObserver:self selector:@selector(updateChatMessageBadge) name:kUpdateMainMessageBadge object:nil];
     
     //如果是从好友列表进入聊天，首页变换
     [KNSNotification addObserver:self selector:@selector(changeTapToChatList:) name:kChangeTapToChatList object:nil];
@@ -196,13 +209,21 @@ single_implementation(MainViewController)
     [homeNav setDelegate:self];
     [homeNav setTabBarItem:homeItem];
     
-    // 聊天消息
+//    // 聊天消息
+//    chatMessageItem = [self itemWithTitle:@"消息" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
+//    MessagesViewController *chatMessageVC = [[MessagesViewController alloc] init];
+//    NavViewController *chatMeeageNav = [[NavViewController alloc] initWithRootViewController:chatMessageVC];
+//    [chatMessageVC.navigationItem setTitle:@"消息"];
+//    [chatMeeageNav setDelegate:self];
+//    [chatMeeageNav setTabBarItem:chatMessageItem];
+    // 融云
     chatMessageItem = [self itemWithTitle:@"消息" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
-    MessagesViewController *chatMessageVC = [[MessagesViewController alloc] init];
-    NavViewController *chatMeeageNav = [[NavViewController alloc] initWithRootViewController:chatMessageVC];
-    [chatMessageVC.navigationItem setTitle:@"消息"];
-    [chatMeeageNav setDelegate:self];
-    [chatMeeageNav setTabBarItem:chatMessageItem];
+    ChatListViewController *chatListVC = [[ChatListViewController alloc] init];
+    NavViewController *ryMeeageNav = [[NavViewController alloc] initWithRootViewController:chatListVC];
+    [ryMeeageNav setDelegate:self];
+    
+    [ryMeeageNav setTabBarItem:chatMessageItem];
+    
     
     // 发现
     findItem = [self itemWithTitle:@"发现" imageStr:@"tabbar_discovery" selectedImageStr:@"tabbar_discovery_selected"];
@@ -219,22 +240,28 @@ single_implementation(MainViewController)
     [meNav setDelegate:self];
     [meNav setTabBarItem:meItem];
     
-    // 融云
-    ChatListViewController *chatListVC = [[ChatListViewController alloc] init];
-    NavViewController *ryMeeageNav = [[NavViewController alloc] initWithRootViewController:chatListVC];
-    [ryMeeageNav setDelegate:self];
-    UITabBarItem *ryItem = [self itemWithTitle:@"融云" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
-    [ryMeeageNav setTabBarItem:ryItem];
-    
     //设置底部导航
-    [self setViewControllers:@[homeNav,findNav,ryMeeageNav,meNav,chatMeeageNav]];
+    [self setViewControllers:@[homeNav,findNav,ryMeeageNav,meNav]];
     [self.tabBar setSelectedImageTintColor:KBasesColor];
 
     selectItem = homeItem;
     [self updataItembadge];
-    [self updateChatMessageBadge:nil];
     
     // 定位
+    [self getCityLocationInfo];
+}
+
+- (CLGeocoder*)geocoder
+{
+    if (_geocoder == nil) {
+        _geocoder = [[CLGeocoder alloc] init];
+    }
+    return _geocoder;
+}
+
+//定位
+- (void)getCityLocationInfo
+{
     [[LocationTool sharedLocationTool] statLocationMy];
     WEAKSELF
     [[LocationTool sharedLocationTool] setUserLocationBlock:^(BMKUserLocation *userLocation){
@@ -251,54 +278,8 @@ single_implementation(MainViewController)
                                              } Failed:^(NSError *error) {
                                                  
                                              }];
-
+        
     }];
-    
-    //获取城市定位
-//    [self getCityLocationInfo];
-}
-
-- (CLGeocoder*)geocoder
-{
-    if (_geocoder == nil) {
-        _geocoder = [[CLGeocoder alloc] init];
-    }
-    return _geocoder;
-}
-
-//获取城市定位
-- (void)getCityLocationInfo
-{
-    // 定位
-//    [[LocationTool sharedLocationTool] statLocationMy];
-//    WEAKSELF
-//    [[LocationTool sharedLocationTool] setUserLocationBlock:^(BMKUserLocation *userLocation){
-//        [weakSelf getLoactionCityInfoWith:userLocation];
-//    }];
-    
-//    [[WLLocationHelper sharedInstance] getCurrentGeolocationsCompled:^(NSArray *placemarks) {
-//        if (placemarks.count > 0) {
-//            CLPlacemark *placemark = [placemarks firstObject];
-//            if (placemark) {
-//                NSDictionary *addressDictionary = placemark.addressDictionary;
-//                //            NSArray *formattedAddressLines = [addressDictionary valueForKey:@"FormattedAddressLines"];
-//                //            NSString *geoLocations = [formattedAddressLines lastObject];
-//                if (placemark.locality.length > 0 || addressDictionary != nil) {
-//                    //                        [weakSelf didSendGeolocationsMessageWithGeolocaltions:geoLocations location:placemark.location];
-//                    NSString *cityStr = placemark.locality.length > 0 ? placemark.locality : addressDictionary[@"City"];
-//                    if (cityStr.length > 0) {
-//                        NSString *city = [cityStr hasSuffix:@"市"] ? [cityStr stringByReplacingOccurrencesOfString:@"市" withString:@""] : cityStr;
-//                        DLog(@"当前城市：%@ ---- placemark.locality:%@",city,placemark.locality);
-//                        //定位的城市
-//                        [[NSUserDefaults standardUserDefaults] setObject:city forKey:@"LocationCity"];
-//                    }else{
-//                        //定位的城市
-//                        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"LocationCity"];
-//                    }
-//                }
-//            }
-//        }
-//    }];
 }
 
 - (void)getLoactionCityInfoWith:(BMKUserLocation *)userLocation
@@ -314,8 +295,6 @@ single_implementation(MainViewController)
                     //            NSArray *formattedAddressLines = [addressDictionary valueForKey:@"FormattedAddressLines"];
                     //            NSString *geoLocations = [formattedAddressLines lastObject];
                     if (addressDictionary != nil) {
-                        //                        [weakSelf didSendGeolocationsMessageWithGeolocaltions:geoLocations location:placemark.location];
-//                        NSString *provinStr =[placemark.addressDictionary objectForKey:@"State"];
                         NSString *cityStr = addressDictionary[@"City"];//市
                         NSString *stateStr =  addressDictionary[@"State"];//省
                         
@@ -352,16 +331,6 @@ single_implementation(MainViewController)
 }
 
 
-- (void)newFriendPuthMessga
-{
-//    NSString *badgeStr = [NSString stringWithFormat:@"%@",[LogInUser getCurrentLoginUser].newfriendbadge];
-//    [circleItem setBadgeValue:badgeStr];
-    
-    //更新消息页面角标
-    [self updateChatMessageBadge:nil];
-}
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -372,15 +341,6 @@ single_implementation(MainViewController)
 {
     if (selectItem == homeItem && item == homeItem) {
         [homeVC beginRefreshing];
-//        [homeVC.refreshControl beginRefreshing];
-//        [homeVC.tableView setContentOffset:CGPointMake(0,-homeVC.refreshControl.frame.size.height-64) animated:YES];
-//        // 延迟0.5秒执行：
-//        double delayInSeconds = 0.5;
-//        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//            // code to be executed on the main queue after delay
-//            [homeVC.refreshControl sendActionsForControlEvents:UIControlEventValueChanged];
-//        });
     }
     selectItem = item;
 }

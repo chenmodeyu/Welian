@@ -19,6 +19,7 @@
     LogInUser *_logUser;
     UIImageView *_baseImageView;
     RCMessageModel *_cellMessageModel;
+    UILabel *_timeLabel;
 }
 
 @end
@@ -33,15 +34,20 @@
         [self.baseContentView setFrame:CGRectMake(0, 10, frame.size.width, frame.size.height)];
         _baseImageView = [[UIImageView alloc] init];
         [self.baseContentView addSubview:_baseImageView];
-        [self.messageTimeLabel setFrame:CGRectMake(0, 10, 100, 20)];
-        [self.messageTimeLabel setTextAlignment:NSTextAlignmentCenter];
-        self.messageTimeLabel.marginInsets = UIEdgeInsetsMake(0, 0, -10, 0);
-        
+        _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 100, 20)];
+        [_timeLabel setBackgroundColor:WLRGB(188, 188, 188)];
+        [_timeLabel setTextAlignment:NSTextAlignmentCenter];
+        [_timeLabel setTextColor:[UIColor whiteColor]];
+        [_timeLabel.layer setMasksToBounds:YES];
+        [_timeLabel.layer setCornerRadius:5];
+        [_timeLabel setFont:WLFONT(13)];
+        [self addSubview:_timeLabel];
+
         self.avatorBut = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 45, 45)];
         [self.avatorBut addTarget:self action:@selector(iconClickBut) forControlEvents:UIControlEventTouchUpInside];
         [self.avatorBut.layer setMasksToBounds:YES];
         [self.avatorBut.layer setCornerRadius:45*0.5];
-        [self.avatorBut setDebug:YES];
+        
         [self.baseContentView addSubview:self.avatorBut];
         self.msgCardView = [[WLMessageCardView alloc] init];
         self.msgCardView.top = 0;
@@ -67,7 +73,7 @@
     if (longPressGestureRecognizer.state != UIGestureRecognizerStateBegan || ![self becomeFirstResponder])
         return;
     NSMutableArray *menuArray = [NSMutableArray array];
-    if (customCardM.content.length) {
+    if (customCardM.msg.length) {
         UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"copy", @"MessageDisplayKitString", @"复制文本消息") action:@selector(copyed:)];
         UIMenuItem *deleteItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"删除", @"MessageDisplayKitString", @"删除") action:@selector(deleteCell:)];
         [menuArray addObjectsFromArray:@[copyItem,deleteItem]];
@@ -110,13 +116,16 @@
     self.messageDirection = model.messageDirection;
     CustomCardMessage *customCardM = (CustomCardMessage *)model.content;
     
-    [self.avatorBut sd_setImageWithURL:[NSURL URLWithString:customCardM.portraitUri] forState:UIControlStateNormal];
+    [self.avatorBut sd_setImageWithURL:[NSURL URLWithString:[customCardM.fromuser objectForKey:@"avatar"]] forState:UIControlStateNormal];
     
-    [self.messageTimeLabel setHidden:!model.isDisplayMessageTime];
+    [_timeLabel setHidden:!model.isDisplayMessageTime];
     if (model.isDisplayMessageTime) {
-        [self.messageTimeLabel setText:[NSString stringWithFormat:@"%lld",model.sentTime]];
-        self.baseContentView.top = self.messageTimeLabel.bottom+10;
-        self.messageTimeLabel.centerx = self.centerx;
+        [_timeLabel setText:[self formatterTimeText:model.receivedTime/1000]];
+        self.baseContentView.top = _timeLabel.bottom+10;
+        CGSize timeLsize = [_timeLabel.text sizeWithCustomFont:WLFONT(13) constrainedToSize:CGSizeMake(MAXFLOAT, 20)];
+        _timeLabel.width = timeLsize.width+10;
+        _timeLabel.centerx = self.centerx;
+
     }else{
         self.baseContentView.top = 10;
     }
@@ -125,6 +134,7 @@
     [self.msgCardView setHeight:msgCardsize.height];
     
     CardStatuModel *cardM = [CardStatuModel objectWithDict:customCardM.card];
+    cardM.content = customCardM.msg;
     self.msgCardView.cardInfo = cardM;
     WLBubbleMessageType direcType;
     if (model.messageDirection == MessageDirection_SEND) {
@@ -169,7 +179,7 @@
 // 复制
 - (void)copyed:(id)sender {
     CustomCardMessage *customCardM = (CustomCardMessage *)_cellMessageModel.content;
-    [[UIPasteboard generalPasteboard] setString:customCardM.content];
+    [[UIPasteboard generalPasteboard] setString:customCardM.msg];
     [self resignFirstResponder];
 }
 // 删除
@@ -192,4 +202,26 @@
     DLog(@"Cell was more");
 }
 
+- (NSString *)formatterTimeText:(NSTimeInterval)secs
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    NSDate *send = [NSDate dateWithTimeIntervalSince1970:secs];
+    NSString *sendStr = [fmt stringFromDate:send];
+    NSDate *now = [NSDate date];
+    NSString *nowStr = [fmt stringFromDate:now];
+    
+    NSDate *yesterday = [[NSDate alloc] initWithTimeIntervalSinceNow:-(24 * 60 * 60)];
+    NSString *strYesterday = [fmt stringFromDate:yesterday];
+    
+    if ([sendStr isEqualToString:nowStr]) {
+        fmt.dateFormat = @"HH:mm";
+        return [fmt stringFromDate:send];
+    }else if([strYesterday isEqualToString:sendStr]){
+        fmt.dateFormat = @"HH:mm";
+        return [NSString stringWithFormat:@"昨天 %@",[fmt stringFromDate:send]];
+    }else{
+        return sendStr;
+    }
+}
 @end

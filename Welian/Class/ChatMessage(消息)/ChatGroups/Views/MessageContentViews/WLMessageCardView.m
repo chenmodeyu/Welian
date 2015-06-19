@@ -142,13 +142,13 @@
 + (CGSize)calculateCellSizeWithCardMessage:(CustomCardMessage *)cardMsg
 {
     CGFloat textHeight = 0.f;
-    if (cardMsg.content.length > 0) {
+    if (cardMsg.msg.length > 0) {
         MLEmojiLabel *displayLabel = [[MLEmojiLabel alloc]init];
         displayLabel.numberOfLines = 0;
         //    displayLabel.emojiDelegate = self;
         displayLabel.lineBreakMode = NSLineBreakByCharWrapping;
         displayLabel.font = kNormal16Font;
-        displayLabel.text = cardMsg.content;
+        displayLabel.text = cardMsg.msg;
         
         CGSize textSize = [displayLabel preferredSizeWithMaxWidth:(InfoMaxWidth - kMarginLeft * 2)];
         textHeight = textSize.height + 5.f+kPaddingTop;

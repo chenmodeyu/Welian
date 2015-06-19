@@ -19,4 +19,6 @@
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *content;
 
+@property (nonatomic, strong) NSNumber *relationid;
+
 @end

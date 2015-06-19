@@ -15,7 +15,7 @@ typedef void(^ChatCardClickBlock)(void);
 
 typedef void(^ChatCellDeleteBlock)(void);
 
-@interface WLChatCustomCardCell : RCMessageBaseCell
+@interface WLChatCustomCardCell : RCMessageBaseCell 
 
 @property (nonatomic, strong) ChatCardIconClickBlock chatIconBlock;
 

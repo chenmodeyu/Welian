@@ -28,7 +28,6 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "MsgPlaySound.h"
 #import "LCNewFeatureVC.h"
-#import "CustomMessageType.h"
 #import "CustomCardMessage.h"
 
 #define kDeviceToken @"RongCloud_SDK_DeviceToken"
@@ -309,7 +308,7 @@ BMKMapManager* _mapManager;
     //接收消息的监听器。如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。
 //    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
     // 注册自定义消息
-    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
+//    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
     [[RCIM sharedRCIM] registerMessageType:CustomCardMessage.class];
     //聊天消息头像
     if (Iphone6plus) {
@@ -711,24 +710,29 @@ BMKMapManager* _mapManager;
         } Failed:^(NSError *error) {
         }];
     }
+    [[RCIM sharedRCIM] logout];
+    [[RCIM sharedRCIM] disconnect];
     [LogInUser setUserisNow:NO];
     [UserDefaults removeObjectForKey:kSessionId];
     [UserDefaults setBool:NO forKey:kneedChannelId];
     [UserDefaults removeObjectForKey:kBPushRequestChannelIdKey];
     [UserDefaults synchronize];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     DLog(@"应用程序将要进入非活动状态，即将进入后台");
-    LogInUser *user = [LogInUser getCurrentLoginUser];
-    if (user) {
-    [UIApplication sharedApplication].applicationIconBadgeNumber = user.newfriendbadge.integerValue+user.homemessagebadge.integerValue+[user allUnReadChatMessageNum];
+    if ([LogInUser getCurrentLoginUser]) {
+        int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
+        application.applicationIconBadgeNumber = unreadMsgCount;
+    }else{
+        application.applicationIconBadgeNumber = 0;
     }
-
+    
     //隐藏活动中的键盘,防止重新进入程序 uitextfiled 偏移问题
-    [[[application keyWindow].rootViewController.view findFirstResponder] resignFirstResponder];
+//    [[[application keyWindow].rootViewController.view findFirstResponder] resignFirstResponder];
 }
 
 
@@ -757,7 +761,7 @@ BMKMapManager* _mapManager;
         [_updataalert show];
     }
     //获取聊天消息记录 和好友请求消息
-    [self getServiceChatMsgInfo];
+//    [self getServiceChatMsgInfo];
     [KNSNotification postNotificationName:kChangeBannerKey object:self];
     [KNSNotification postNotificationName:KNEWStustUpdate object:self];
 }
@@ -766,7 +770,11 @@ BMKMapManager* _mapManager;
 {
     LogInUser *user = [LogInUser getCurrentLoginUser];
     if (user) {
-        [UIApplication sharedApplication].applicationIconBadgeNumber = user.newfriendbadge.integerValue+user.homemessagebadge.integerValue+[user allUnReadChatMessageNum];
+        int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
+        application.applicationIconBadgeNumber = unreadMsgCount;
+//        [UIApplication sharedApplication].applicationIconBadgeNumber = user.newfriendbadge.integerValue+user.homemessagebadge.integerValue+[user allUnReadChatMessageNum];
+    }else{
+        application.applicationIconBadgeNumber = 0;
     }
     
     //数据库操作

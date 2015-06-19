@@ -276,18 +276,20 @@
     if (!_uid||(_uid!=nil &&_uid.integerValue==0)) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_write"] style:UIBarButtonItemStyleBordered target:self action:@selector(publishStatus)];
         
-        UIImage *image = [UIImage imageNamed:@"navbar_write"];
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0,0,40, 40)];
-        [button addTarget:self action:@selector(homeMessagesItemClick) forControlEvents:UIControlEventTouchUpInside];
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 20);
-        [button setImage:image forState:UIControlStateNormal];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-        self.navigationItem.leftBarButtonItem.shouldAnimateBadge = YES;
-        self.navigationItem.leftBarButtonItem.shouldHideBadgeAtZero = YES;
-        self.navigationItem.leftBarButtonItem.badgeValue = @"12";
-        self.navigationItem.leftBarButtonItem.badgeBGColor = [UIColor redColor];
-        self.navigationItem.leftBarButtonItem.badgeFont = WLFONT(14);
-        self.navigationItem.leftBarButtonItem.badgePadding = 2;
+        if (!_uid) {
+            UIImage *image = [UIImage imageNamed:@"navbar_write"];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0,0,40, 40)];
+            [button addTarget:self action:@selector(homeMessagesItemClick) forControlEvents:UIControlEventTouchUpInside];
+            button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 20);
+            [button setImage:image forState:UIControlStateNormal];
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+            self.navigationItem.leftBarButtonItem.shouldAnimateBadge = YES;
+            self.navigationItem.leftBarButtonItem.shouldHideBadgeAtZero = YES;
+            self.navigationItem.leftBarButtonItem.badgeValue = @"12";
+            self.navigationItem.leftBarButtonItem.badgeBGColor = [UIColor redColor];
+            self.navigationItem.leftBarButtonItem.badgeFont = WLFONT(14);
+            self.navigationItem.leftBarButtonItem.badgePadding = 2;
+        }
     }
     // 背景颜色
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

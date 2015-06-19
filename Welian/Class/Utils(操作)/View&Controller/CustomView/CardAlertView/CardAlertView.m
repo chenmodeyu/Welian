@@ -179,13 +179,14 @@
     _cardModel.content = _textView.text.length > 0 ? _textView.text : @"";
     NSDictionary *cardDic = [_cardModel keyValues];
     NSDictionary *param = @{@"type":@(51),@"touser":_selectFriendUser.uid,@"card":cardDic,@"msg":_cardModel.content};
-
+    
     LogInUser *loguser = [LogInUser getCurrentLoginUser];
     CustomCardMessage *cardMessage = [[CustomCardMessage alloc] init];
-    cardMessage.portraitUri = loguser.avatar;
+//    RCUserInfo *userinfo = [[RCUserInfo alloc] initWithUserId:loguser.uid.stringValue name:loguser.name portrait:loguser.avatar];
+    cardMessage.fromuser = @{@"name":loguser.name,@"uid":loguser.uid.stringValue,@"avatar":loguser.avatar};
     cardMessage.card = cardDic;
     cardMessage.touser = _selectFriendUser.uid.stringValue;
-    cardMessage.content = _cardModel.content;
+    cardMessage.msg = _textView.text;
     WEAKSELF
     [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:_selectFriendUser.uid.stringValue content:cardMessage pushContent:@"分享卡片" success:^(long messageId) {
         dispatch_async(dispatch_get_main_queue(), ^{
