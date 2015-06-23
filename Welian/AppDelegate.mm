@@ -793,6 +793,13 @@ BMKMapManager* _mapManager;
     if ([url.description rangeOfString:@"wechat"].length>0) {
         return  [WXApi handleOpenURL:url delegate:self];
     }
+    //自定义唤醒
+    if ([[url scheme] isEqualToString:@"welian"])
+    {
+        DLog(@"handleOpenURL --- :%@",url);
+        return YES;
+    }
+    
     return [ShareSDK handleOpenURL:url wxDelegate:self];
 }
 
@@ -836,6 +843,41 @@ BMKMapManager* _mapManager;
 //    wx5e4e9a58776baed3://platformId=wechat
     if ([url.description rangeOfString:@"wechat"].length>0) {
         return  [WXApi handleOpenURL:url delegate:self];
+    }
+    
+    //自定义链接
+    if ([url.scheme isEqualToString:@"welian"]){
+        DLog(@"来源位置 sourceApplication --- :%@", sourceApplication);    //来源于哪个app（Bundle identifier）
+        DLog(@"description --- :%@", [url description]);  //url scheme
+        DLog(@"scheme --- :%@", [url scheme]);  //url scheme
+        DLog(@"host ---: %@", [url host]);   //url host  ?之前的
+        DLog(@"query ---: %@", [url query]);   //查询串  用“?...”格式访问
+        //提醒内容
+        NSString *text = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [UIAlertView bk_showAlertViewWithTitle:@""
+                                       message:text
+                             cancelButtonTitle:@"取消"
+                             otherButtonTitles:@[@"查看"]
+                                       handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                           if (buttonIndex == 0) {
+                                               return ;
+                                           }else{
+                                               NSArray *paramArray = [[url query] componentsSeparatedByString:@"&"];
+                                               DLog(@"paramArray: %@", paramArray);
+                                               NSMutableDictionary *paramsDic = [[NSMutableDictionary alloc] initWithCapacity:0];
+                                               for (int i = 0; i < paramArray.count; i++) {
+                                                   NSString *str = paramArray[i];
+                                                   NSArray *keyArray = [str componentsSeparatedByString:@"="];
+                                                   NSString *key = keyArray[0];
+                                                   NSString *value = keyArray[1];
+                                                   [paramsDic setObject:value forKey:key];
+                                                   DLog(@"key:%@ ==== value:%@", key, value);
+                                               }
+//                                               UIViewController *currentActivityVC = [NSObject currentRootViewController];
+//                                               [currentActivityVC.navigationController pushViewController:<#(UIViewController *)#> animated:<#(BOOL)#>]
+                                           }
+                                       }];
+        return YES;
     }
     
     return [ShareSDK handleOpenURL:url

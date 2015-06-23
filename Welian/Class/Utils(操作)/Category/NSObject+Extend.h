@@ -33,5 +33,8 @@
 + (CGFloat)getHeightWithMaxWidth:(CGFloat)maxWidth In4ScreWidth:(CGFloat)in4ScreWith In4ScreeHeight:(CGFloat)in4ScreeHeight;
 
 
+// 获取当前处于activity状态的view controller
++ (UIViewController *)currentRootViewController;
+
 
 @end
