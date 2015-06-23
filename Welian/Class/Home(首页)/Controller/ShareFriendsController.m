@@ -45,7 +45,7 @@ static NSString *fridcellid = @"fridcellid";
                             forKey:@"_searchResultsTableViewStyle"];
     
     //加载数据库数据
-    NSArray *myFriends = [[LogInUser getCurrentLoginUser] getAllMyFriendUsers];
+    NSArray *myFriends = [[LogInUser getCurrentLoginUser] getAllMyFriendUsersNoChatUser];
     if(myFriends.count > 0){
         self.allArray = [WLHttpTool getChineseStringArr:myFriends];
         [self.tableView reloadData];

@@ -182,7 +182,6 @@
     
     LogInUser *loguser = [LogInUser getCurrentLoginUser];
     CustomCardMessage *cardMessage = [[CustomCardMessage alloc] init];
-//    RCUserInfo *userinfo = [[RCUserInfo alloc] initWithUserId:loguser.uid.stringValue name:loguser.name portrait:loguser.avatar];
     cardMessage.fromuser = @{@"name":loguser.name,@"uid":loguser.uid.stringValue,@"avatar":loguser.avatar};
     cardMessage.card = cardDic;
     cardMessage.touser = _selectFriendUser.uid.stringValue;
@@ -194,7 +193,9 @@
             if (_sendSuccessBlock) {
                 _sendSuccessBlock();
             }
+            [KNSNotification postNotificationName:@"123456" object:nil];
         });
+        
     } error:^(RCErrorCode nErrorCode, long messageId) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [WLHUDView showErrorHUD:@"发送失败！"];

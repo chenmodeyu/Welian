@@ -10,15 +10,6 @@
 
 @implementation CustomCardMessage
 
-//+ (instancetype)cardMessageWithContent:(NSString *)content {
-//    CustomCardMessage *cardM = [[CustomCardMessage alloc] init];
-//    if (cardM) {
-//        cardM.content = content;
-//        
-//    }
-//    return cardM;
-//}
-
 +(RCMessagePersistent)persistentFlag {
     return (MessagePersistent_ISPERSISTED | MessagePersistent_ISCOUNTED);
 }

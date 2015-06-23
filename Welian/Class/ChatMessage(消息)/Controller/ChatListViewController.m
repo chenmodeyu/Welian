@@ -38,6 +38,7 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [NSUserDefaults removeObjectForKey:@"Chat_Share_Friend_Uid"];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.hidden = NO;
 }
@@ -110,7 +111,6 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
         _conversationVC.userName = model.conversationTitle;
         _conversationVC.title = model.conversationTitle;
         _conversationVC.conversation = model;
-        
         [self.navigationController pushViewController:_conversationVC animated:YES];
     }
     
@@ -126,22 +126,18 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
         if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
             ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
             [self.navigationController pushViewController:chatRoomListVC animated:YES];
-        }else if([model.lastestMessage isMemberOfClass:[RCContactNotificationMessage class]]){
+//            RCInformationNotificationMessage *infotM = [RCInformationNotificationMessage notificationWithMessage:@"请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全" extra:@""];
+//            [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:@"10019" content:infotM pushContent:@"注意人身财产安全" success:^(long messageId) {
+//                
+//            } error:^(RCErrorCode nErrorCode, long messageId) {
+//                
+//            }];
+        }else if([model.objectName isEqualToString:@"friendCell"]){
             WLFriendsRequestListController *friendRequestVC = [[WLFriendsRequestListController alloc] init];
             [self.navigationController pushViewController:friendRequestVC animated:YES];
         }
     }
 }
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCellEditingStyle result = UITableViewCellEditingStyleDelete;//默认没有编辑风格
-    if (indexPath.row==0) {
-     result = UITableViewCellEditingStyleNone;//默认没有编辑风格
-    }
-    return result;
-}
-
 
 //*********************插入自定义Cell*********************//
 //插入自定义会话model
@@ -151,6 +147,12 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     model.isTop = YES;
     model.objectName = @"ChatRoomHeader";
     [dataSource insertObject:model atIndex:0];
+    
+    RCConversationModel *friendmodel = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION  exntend:nil];
+    friendmodel.isTop = YES;
+    friendmodel.objectName = @"friendCell";
+    [dataSource insertObject:friendmodel atIndex:0];
+    
     for (RCConversationModel *rcmodel in dataSource) {
         DLog(@"%@",[self formatterTimeText:rcmodel.receivedTime/1000]);
     }
@@ -173,11 +175,26 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     [self.conversationListDataSource removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCellEditingStyle result = UITableViewCellEditingStyleDelete;//默认没有编辑风格
+    if (indexPath.row==0||indexPath.row == 1) {
+        result = UITableViewCellEditingStyleNone;//默认没有编辑风格
+    }
+    return result;
+}
+
 
 //高度
 -(CGFloat)rcConversationListTableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80.0f;
+    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+    if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
+        return 80.0f;
+    }else if ([model.objectName isEqualToString:@"friendCell"]){
+        return 65.0f;
+    }
+    return 0.0f;
 }
 
 //自定义cell
@@ -187,6 +204,10 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
         if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
             ChatRoomHeaderView *cell = [tableView dequeueReusableCellWithIdentifier:chatroomcellid];
+            return cell;
+        }else if ([model.objectName isEqualToString:@"friendCell"]){
+            WLFriendRequestCell *cell = [tableView dequeueReusableCellWithIdentifier:chatNewFirendcellid];
+            
             return cell;
         }else if ([model.lastestMessage isMemberOfClass:[RCContactNotificationMessage class]]) {
             

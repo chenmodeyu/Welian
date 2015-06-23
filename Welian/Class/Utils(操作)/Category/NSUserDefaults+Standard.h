@@ -27,6 +27,8 @@
 + (void) setObject:(id) value forKey:(NSString*) key;
 + (id)objectForKey:(NSString *)key;
 
++ (void)removeObjectForKey:(NSString *)key;
+
 // register
 + (void)registerDefaultValueWithTestKey:(NSString *)key;
 

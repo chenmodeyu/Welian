@@ -73,6 +73,9 @@
 //---------------------  我的好友  MyFriendUser操作 ---------------------/
 // //通过uid查询
 - (MyFriendUser *)getMyfriendUserWithUid:(NSNumber *)uid;
+
+// 所有好友，除当前聊天好友
+- (NSArray *)getAllMyFriendUsersNoChatUser;
 // 所有好友
 - (NSArray *)getAllMyFriendUsers;
 
