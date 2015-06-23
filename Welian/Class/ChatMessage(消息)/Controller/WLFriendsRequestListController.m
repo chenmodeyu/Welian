@@ -18,6 +18,11 @@
 
 @implementation WLFriendsRequestListController
 
+- (NSString *)title
+{
+    return @"新的好友";
+}
+
 //没有聊天记录提醒
 - (NotstringView *)notHasDataView
 {

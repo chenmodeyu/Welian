@@ -53,9 +53,19 @@
     [KNSNotification removeObserver:self];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillDisappear:animated];
+    [self endRefreshing];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (!_uid&&self.tableView) {
+        [self.navigationItem.leftBarButtonItem setBadgeValue:[LogInUser getCurrentLoginUser].homemessagebadge.stringValue];
+         [[MainViewController sharedMainViewController] updataItembadge];
+    }
 
 }
 
@@ -240,9 +250,6 @@
     
     [KNSNotification addObserver:self selector:@selector(messageHomenotif) name:KMessageHomeNotif object:nil];
     
-    //刷新所有好友通知
-//    [KNSNotification addObserver:self selector:@selector(loadMyAllFriends) name:KupdataMyAllFriends object:nil];
-    
     // 1.设置界面属性
     [self buildUI];
     
@@ -285,10 +292,11 @@
             self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
             self.navigationItem.leftBarButtonItem.shouldAnimateBadge = YES;
             self.navigationItem.leftBarButtonItem.shouldHideBadgeAtZero = YES;
-            self.navigationItem.leftBarButtonItem.badgeValue = @"12";
             self.navigationItem.leftBarButtonItem.badgeBGColor = [UIColor redColor];
             self.navigationItem.leftBarButtonItem.badgeFont = WLFONT(14);
             self.navigationItem.leftBarButtonItem.badgePadding = 2;
+            NSString *badgeStr = [NSString stringWithFormat:@"%@",[LogInUser getCurrentLoginUser].homemessagebadge];
+            [self.navigationItem.leftBarButtonItem setBadgeValue:badgeStr];
         }
     }
     // 背景颜色

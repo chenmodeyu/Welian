@@ -4664,6 +4664,10 @@
 		F5C0C9A61B33D666003F849E /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C0C98F1B33D666003F849E /* RongIMLib.framework */; };
 		F5C0C9A71B33D666003F849E /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C0C98F1B33D666003F849E /* RongIMLib.framework */; };
 		F5C0C9A81B33D666003F849E /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C0C98F1B33D666003F849E /* RongIMLib.framework */; };
+		F5C0C9AB1B341B97003F849E /* WLFriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C0C9AA1B341B97003F849E /* WLFriendRequestCell.m */; };
+		F5C0C9AC1B341B97003F849E /* WLFriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C0C9AA1B341B97003F849E /* WLFriendRequestCell.m */; };
+		F5C0C9AD1B341B97003F849E /* WLFriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C0C9AA1B341B97003F849E /* WLFriendRequestCell.m */; };
+		F5C0C9AE1B341B97003F849E /* WLFriendRequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C0C9AA1B341B97003F849E /* WLFriendRequestCell.m */; };
 		F5C566891A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
 		F5C5668A1A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
 		F5C5668B1A821BAB002AF408 /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C566881A821BAB002AF408 /* HeaderLabel.m */; };
@@ -6987,6 +6991,8 @@
 		F5C0C98E1B33D666003F849E /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
 		F5C0C98F1B33D666003F849E /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
 		F5C0C9901B33D666003F849E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RongCloudKit.strings"; sourceTree = "<group>"; };
+		F5C0C9A91B341B97003F849E /* WLFriendRequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFriendRequestCell.h; sourceTree = "<group>"; };
+		F5C0C9AA1B341B97003F849E /* WLFriendRequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFriendRequestCell.m; sourceTree = "<group>"; };
 		F5C2D0F919F8E1A2000610A1 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		F5C2D0FA19F8E1A2000610A1 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		F5C2D0FC19F8FA6B000610A1 /* AddImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddImageCollectionCell.h; sourceTree = "<group>"; };
@@ -9718,6 +9724,8 @@
 				F5994EC01B2FF0AA002E1902 /* CustomCardMessage.m */,
 				A4AA99711B2C027F004DB1A8 /* ChatRoomListViewCell.h */,
 				A4AA99721B2C027F004DB1A8 /* ChatRoomListViewCell.m */,
+				F5C0C9A91B341B97003F849E /* WLFriendRequestCell.h */,
+				F5C0C9AA1B341B97003F849E /* WLFriendRequestCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -14501,6 +14509,7 @@
 				A49C7D0F1A70D42700F2AEC5 /* AddFriendTypeListViewController.m in Sources */,
 				F56972721B0F01C6004E86AC /* InvestorOrgCell.m in Sources */,
 				A49C7D101A70D42700F2AEC5 /* CommentCell.m in Sources */,
+				F5C0C9AE1B341B97003F849E /* WLFriendRequestCell.m in Sources */,
 				F55EB1151ACB9FE400FFB3BE /* HPTextViewInternal.m in Sources */,
 				A49C7D121A70D42700F2AEC5 /* WLBaseTableViewCell.m in Sources */,
 				A47F1B391A7F54E300CB4D9F /* ProjectInfoView.m in Sources */,
@@ -15085,6 +15094,7 @@
 				A47C5F561A5E663100E63737 /* AddFriendTypeListViewController.m in Sources */,
 				F56972711B0F01C6004E86AC /* InvestorOrgCell.m in Sources */,
 				F53DC3741A49192600F5F712 /* CommentCell.m in Sources */,
+				F5C0C9AD1B341B97003F849E /* WLFriendRequestCell.m in Sources */,
 				F55EB1141ACB9FE400FFB3BE /* HPTextViewInternal.m in Sources */,
 				A4C140971A4BEA8500C9BAB5 /* WLBaseTableViewCell.m in Sources */,
 				A47F1B381A7F54E300CB4D9F /* ProjectInfoView.m in Sources */,
@@ -15669,6 +15679,7 @@
 				F5933FB21AD4F4030088C70D /* UIView+MJExtension.m in Sources */,
 				F569726F1B0F01C6004E86AC /* InvestorOrgCell.m in Sources */,
 				A4C140B71A4BEF0E00C9BAB5 /* XHFileAttribute.m in Sources */,
+				F5C0C9AB1B341B97003F849E /* WLFriendRequestCell.m in Sources */,
 				A47F1B361A7F54E300CB4D9F /* ProjectInfoView.m in Sources */,
 				F55EB1121ACB9FE400FFB3BE /* HPTextViewInternal.m in Sources */,
 				F58CA99A1A5D4F9100988A61 /* DaiDodgeKeyboard+Animation.m in Sources */,
@@ -16253,6 +16264,7 @@
 				A47C5F551A5E663100E63737 /* AddFriendTypeListViewController.m in Sources */,
 				F56972701B0F01C6004E86AC /* InvestorOrgCell.m in Sources */,
 				F5664CF91A2AFDD5008A5830 /* CommentCell.m in Sources */,
+				F5C0C9AC1B341B97003F849E /* WLFriendRequestCell.m in Sources */,
 				F55EB1131ACB9FE400FFB3BE /* HPTextViewInternal.m in Sources */,
 				A4C140961A4BEA8500C9BAB5 /* WLBaseTableViewCell.m in Sources */,
 				A47F1B371A7F54E300CB4D9F /* ProjectInfoView.m in Sources */,

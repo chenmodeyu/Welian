@@ -57,6 +57,9 @@ fprintf(stderr, "-----------------------------------\n");                       
 //#define SaveLoginPassWD(pass) [NSUserDefaults setString:pass forKey:@"kLastLoginPassWord"]
 //#define lastLoginPassWD [NSUserDefaults stringForKey:@"kLastLoginPassWord"]
 
+// 融云appkey
+#define RONGCLOUD_IM_APPKEY      KINFODic(@"KRongCloud_APPKEY")
+
 // 百度地图key
 #define KBMK_Key                 KINFODic(@"KBMK_Key")
 

@@ -14,7 +14,7 @@
 #import "ChatRoomHeaderView.h"
 #import "AppDelegate.h"
 #import "WLFriendsRequestListController.h"
-
+#import "WLFriendRequestCell.h"
 #import "CustomCardMessage.h"
 
 @interface ChatListViewController ()
@@ -58,10 +58,10 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
         //如果是从好友列表进入聊天，首页变换
         [KNSNotification addObserver:self selector:@selector(chatFromUserInfo:) name:kChatFromUserInfo object:nil];
         //设置要显示的会话类型
-        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),@(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP),@(ConversationType_SYSTEM)]];
+        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
         
         //聚合会话类型
-        [self setCollectionConversationType:@[@(ConversationType_GROUP),@(ConversationType_DISCUSSION),@(ConversationType_SYSTEM)]];
+        [self setCollectionConversationType:@[@(ConversationType_SYSTEM)]];
     }
     return self;
 }
@@ -84,7 +84,6 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     chatVC.userName                    = user.name;
     chatVC.conversationType              = ConversationType_PRIVATE;
     chatVC.title                         = user.name;
-    
     [self.navigationController pushViewController:chatVC animated:YES];
 }
 
@@ -92,24 +91,8 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     [super viewDidLoad];
     self.conversationListTableView.tableFooterView = [UIView new];
     [self.conversationListTableView registerClass:[ChatRoomHeaderView class] forCellReuseIdentifier:chatroomcellid];
-    [self.conversationListTableView registerClass:[RCDChatListCell class] forCellReuseIdentifier:chatNewFirendcellid];
+    [self.conversationListTableView registerClass:[WLFriendRequestCell class] forCellReuseIdentifier:chatNewFirendcellid];
 }
-
-//- (void)updateBadgeValueForTabBarItem
-//{
-//    __weak typeof(self) __weakSelf = self;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        int count = [[RCIMClient sharedRCIMClient]getUnreadCount:self.displayConversationTypeArray];
-//        if (count>0) {
-//            __weakSelf.tabBarItem.badgeValue = [[NSString alloc]initWithFormat:@"%d",count];
-//        }else
-//        {
-//            __weakSelf.tabBarItem.badgeValue = nil;
-//        }
-//        
-//    });
-//}
-
 
 /**
  *  点击进入会话界面
@@ -133,7 +116,6 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     
     //聚合会话类型，此处自定设置。
     if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_COLLECTION) {
-
         WLFriendsRequestListController *friendRequestVC = [[WLFriendsRequestListController alloc] init];
         [self.navigationController pushViewController:friendRequestVC animated:YES];
     }
@@ -165,14 +147,25 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 //插入自定义会话model
 -(NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource
 {
-//    RCConversationModel *fdsads = dataSource[0];
-    
     RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION  exntend:nil];
     model.isTop = YES;
     model.objectName = @"ChatRoomHeader";
     [dataSource insertObject:model atIndex:0];
+    for (RCConversationModel *rcmodel in dataSource) {
+        DLog(@"%@",[self formatterTimeText:rcmodel.receivedTime/1000]);
+    }
     return dataSource;
 }
+
+
+- (NSString *)formatterTimeText:(NSTimeInterval)secs
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *send = [NSDate dateWithTimeIntervalSince1970:secs];
+    return [fmt stringFromDate:send];
+}
+
 
 //左滑删除
 -(void)rcConversationListTableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -277,7 +270,6 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
                 [blockSelf_ resetConversationListBackgroundViewIfNeeded];
             });
         }
-//    [self updateBadgeValueForTabBarItem];
 }
 
 

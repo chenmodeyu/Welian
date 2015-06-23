@@ -17,9 +17,12 @@
 #import "InvestorUserInfoController.h"
 #import "ProjectPostDetailInfoViewController.h"
 
-@interface WLChatViewController ()
+@interface WLChatViewController ()<UIGestureRecognizerDelegate>
 
 @end
+
+static NSString *tipMessageCellid = @"tipMessageCellid";
+static NSString *customCardCellid = @"customCardCellid";
 
 @implementation WLChatViewController
 
@@ -43,23 +46,60 @@
 {
     self = [super initWithConversationType:conversationType targetId:targetId];
     if (self) {
-        [self registerClass:[WLChatCustomCardCell class] forCellWithReuseIdentifier:@"chatcell"];
+        [self registerClass:[WLChatCustomCardCell class] forCellWithReuseIdentifier:customCardCellid];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     //是否允许保存新拍照片到本地系统
     self.enableSaveNewPhotoToLocalSystem = YES;
     [self notifyUpdateUnreadMessageCount];
     [self.pluginBoardView removeItemWithTag:1004];
     
-//    /**
-//     *  注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
-//     *  @param messageClass   消息类型名称，对应的继承自 RCMessageContent 的消息类型。
-//     */
-    [self registerClass:[WLChatCustomCardCell class] forCellWithReuseIdentifier:@"chatcell"];
+    //* 注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
+    [self registerClass:[WLChatCustomCardCell class] forCellWithReuseIdentifier:customCardCellid];
+    [self registerClass:[RCTipMessageCell class] forCellWithReuseIdentifier:tipMessageCellid];
+}
+
+/**
+ *  更新左上角未读消息数
+ */
+- (void)notifyUpdateUnreadMessageCount {
+    __weak typeof(&*self) __weakself = self;
+    int count = [[RCIMClient sharedRCIMClient] getUnreadCount:@[        @(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *backString = nil;
+        if (count > 0 && count <= 99) {
+            backString = [NSString stringWithFormat:@"消息(%d)", count];
+        } else if (count > 99) {
+            backString = @"消息(99+)";
+        } else {
+            backString = @"消息";
+        }
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        backBtn.frame = CGRectMake(0, 4, 90, 25);
+        UIImageView *backImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_left"]];
+        backImg.frame = CGRectMake(-5, 3, 12, 20);
+        [backBtn addSubview:backImg];
+        UILabel *backText = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, 90, 25)];
+        backText.text = backString;//NSLocalizedStringFromTable(@"Back", @"RongCloudKit", nil);
+        backText.font = [UIFont systemFontOfSize:16];
+        [backText setBackgroundColor:[UIColor clearColor]];
+        [backText setTextColor:[UIColor whiteColor]];
+        [backBtn addSubview:backText];
+        [backBtn addTarget:__weakself action:@selector(leftBarButtonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        [__weakself.navigationItem setLeftBarButtonItem:leftButton];
+    });
+}
+
+- (void)leftBarButtonItemPressed:(id)sender {
+    //需要调用super的实现
+    [super leftBarButtonItemPressed:sender];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -111,35 +151,40 @@
 #pragma mark override
 /**
  *  重写方法实现自定义消息的显示
- *
  *  @param collectionView collectionView
  *  @param indexPath      indexPath
  *  @return RCMessageTemplateCell
  */
-- (WLChatCustomCardCell *)rcConversationCollectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (RCMessageBaseCell *)rcConversationCollectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    WLChatCustomCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"chatcell" forIndexPath:indexPath];
     RCMessageModel *model = self.conversationDataRepository[indexPath.row];
-    [cell setDataModel:model];
-    CustomCardMessage *customCardM = (CustomCardMessage *)model.content;
-    // 点击头像
-    WEAKSELF
-    cell.chatIconBlock = ^(){
-        if (model.messageDirection == MessageDirection_SEND) {
-            [weakSelf didTapCellPortrait:model.senderUserId];
-        }else{
-            [weakSelf didTapCellPortrait:model.targetId];
-        }
-    };
-    // 删除
-    cell.chatDeleteBlock = ^(){
-        [weakSelf deleteMessage:model];
-    };
-    cell.chatCardBlock = ^(){
-        DLog(@"%@",customCardM.card);
-        [weakSelf selectedCardMessageWithCardM:customCardM];
-    };
-    return cell;
+//    if ([model.objectName isEqualToString:@"RC:InfoNtf"]) {
+//        RCTipMessageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tipMessageCellid forIndexPath:indexPath];
+//        [cell setDataModel:model];
+//        return cell;
+//    }else{
+        WLChatCustomCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:customCardCellid forIndexPath:indexPath];
+        [cell setDataModel:model];
+        CustomCardMessage *customCardM = (CustomCardMessage *)model.content;
+        // 点击头像
+        WEAKSELF
+        cell.chatIconBlock = ^(){
+            if (model.messageDirection == MessageDirection_SEND) {
+                [weakSelf didTapCellPortrait:model.senderUserId];
+            }else{
+                [weakSelf didTapCellPortrait:model.targetId];
+            }
+        };
+        // 删除
+        cell.chatDeleteBlock = ^(){
+            [weakSelf deleteMessage:model];
+        };
+        cell.chatCardBlock = ^(){
+            DLog(@"%@",customCardM.card);
+            [weakSelf selectedCardMessageWithCardM:customCardM];
+        };
+        return cell;
+//    }
 }
 
 - (void)selectedCardMessageWithCardM:(CustomCardMessage *)cardMessage
@@ -217,111 +262,7 @@
 }
 
 /**
- *  点击多媒体消息的时候统一触发这个回调
- *
- *  @param message   被操作的目标消息Model
- *  @param indexPath 该目标消息在哪个IndexPath里面
- *  @param messageTableViewCell 目标消息在该Cell上
- */
-//- (void)multiMediaMessageDidSelectedOnMessage:(id <WLMessageModel>)message atIndexPath:(NSIndexPath *)indexPath onMessageTableViewCell:(WLMessageTableViewCell *)messageTableViewCell
-//{
-//    switch (message.messageMediaType) {
-//        case WLBubbleMessageMediaTypeActivity://活动
-//        {
-//            //查询本地有没有该活动
-//            ActivityInfo *activityInfo = [ActivityInfo getActivityInfoWithActiveId:message.cardId Type:@(0)];
-//            ActivityDetailInfoViewController *activityInfoVC = nil;
-//            if(activityInfo){
-//                activityInfoVC = [[ActivityDetailInfoViewController alloc] initWithActivityInfo:activityInfo];
-//            }else{
-//                activityInfoVC = [[ActivityDetailInfoViewController alloc] initWIthActivityId:message.cardId];
-//            }
-//            if (activityInfoVC) {
-//                [self.navigationController pushViewController:activityInfoVC animated:YES];
-//            }
-//        }
-//            break;
-//        case WLBubbleMessageMediaTypeCard:
-//        {
-//            DLog(@"message ----> Card");
-//            //3 活动，10项目，11 网页  13 投递项目卡片 14 用户名片卡片 15 投资人索要项目卡片
-//            switch (message.cardType.integerValue) {
-//                case WLBubbleMessageCardTypeActivity:
-//                {
-//                    //查询本地有没有该活动
-//                    ActivityInfo *activityInfo = [ActivityInfo getActivityInfoWithActiveId:message.cardId Type:@(0)];
-//                    ActivityDetailInfoViewController *activityInfoVC = nil;
-//                    if(activityInfo){
-//                        activityInfoVC = [[ActivityDetailInfoViewController alloc] initWithActivityInfo:activityInfo];
-//                    }else{
-//                        activityInfoVC = [[ActivityDetailInfoViewController alloc] initWIthActivityId:message.cardId];
-//                    }
-//                    if (activityInfoVC) {
-//                        [self.navigationController pushViewController:activityInfoVC animated:YES];
-//                    }
-//                }
-//                    break;
-//                case WLBubbleMessageCardTypeProject:
-//                {
-//                    //查询数据库是否存在
-//                    ProjectInfo *projectInfo = [ProjectInfo getProjectInfoWithPid:message.cardId Type:@(0)];
-//                    ProjectDetailsViewController *projectDetailVC = nil;
-//                    if (projectInfo) {
-//                        projectDetailVC = [[ProjectDetailsViewController alloc] initWithProjectInfo:projectInfo];
-//                    }else{
-//                        IProjectInfo *iProjectInfo = [[IProjectInfo alloc] init];
-//                        iProjectInfo.name = message.cardTitle;
-//                        iProjectInfo.pid = message.cardId;
-//                        iProjectInfo.intro = message.cardIntro;
-//                        projectDetailVC = [[ProjectDetailsViewController alloc] initWithIProjectInfo:iProjectInfo];
-//                    }
-//                    if (projectDetailVC) {
-//                        [self.navigationController pushViewController:projectDetailVC animated:YES];
-//                    }
-//                }
-//                    break;
-//                case WLBubbleMessageCardTypeWeb:
-//                {
-//                    //普通链接
-//                    TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:message.cardUrl];
-//                    webVC.navigationButtonsHidden = YES;//隐藏底部操作栏目
-//                    webVC.showRightShareBtn = YES;//现实右上角分享按钮
-//                    [self.navigationController pushViewController:webVC animated:YES];
-//                }
-//                    break;
-//                case WLBubbleMessageCardTypeInvestorGet:
-//                {
-//                    //索要项目
-//                    InvestorUserInfoController *investorUserInfoVC = [[InvestorUserInfoController alloc] initWithUserType:InvestorUserTypeUID andUserData:@[message.cardId,message.cardRelationId]];
-//                    [self.navigationController pushViewController:investorUserInfoVC animated:YES];
-//                }
-//                    break;
-//                case WLBubbleMessageCardTypeInvestorPost:
-//                {
-//                    //投递项目
-//                    ProjectPostDetailInfoViewController *projectPostDetailVC = [[ProjectPostDetailInfoViewController alloc] initWithPid:message.cardId];
-//                    [self.navigationController pushViewController:projectPostDetailVC animated:YES];
-//                }
-//                    break;
-//                case WLBubbleMessageCardTypeInvestorUser:
-//                {
-//                    //用户名片卡片
-//                    
-//                }
-//                    break;
-//                default:
-//                    break;
-//            }
-//        }
-//            break;
-//        default:
-//            break;
-//    }
-//}
-
-/**
  *  重写方法实现自定义消息的显示的高度
- *
  *  @param collectionView       collectionView
  *  @param collectionViewLayout collectionViewLayout
  *  @param indexPath            indexPath
@@ -331,9 +272,15 @@
                                 layout:(UICollectionViewLayout *)collectionViewLayout
                 sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     RCMessageModel *model = self.conversationDataRepository[indexPath.row];
-    CustomCardMessage *customCardM = (CustomCardMessage *)model.content;
-    return CGSizeMake(SuperSize.width, [WLChatCustomCardCell getCellSizeWithCardMessage:customCardM].height+10);
+//    if ([model.objectName isEqualToString:@"RC:InfoNtf"]) {
+//        
+//        return CGSizeMake(SuperSize.width, 30);
+//    }else{
+        CustomCardMessage *customCardM = (CustomCardMessage *)model.content;
+        return CGSizeMake(SuperSize.width, [WLChatCustomCardCell getCellSizeWithCardMessage:customCardM].height+10);
+//    }
 }
 
 #pragma mark override
