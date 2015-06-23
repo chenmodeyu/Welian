@@ -108,6 +108,7 @@
         }else{
             if(_activityInfo.joined.integerValue >= _activityInfo.limited.integerValue){
                 _numLabel.hidden = YES;
+                _numLabel.text = @"";
                 _statusLabel.text = @"已报满";
             }else{
                 _statusLabel.text = @"报名";
@@ -123,6 +124,7 @@
             _numLabel.text = _activityInfo.joined.stringValue;
         }else{
             _numLabel.hidden = YES;
+            _numLabel.text = @"";
             _statusLabel.text = @"已报满";
         }
     }
@@ -175,8 +177,8 @@
     _numLabel.centerY = _statusLabel.centerY;
     
     [_locationBtn sizeToFit];
-    _locationBtn.width = _numLabel.left - _dateLabel.right - kMarginEdge * 2.f;
-    _locationBtn.left = _dateLabel.right + kMarginEdge;
+    _locationBtn.width = _numLabel.left - _dateLabel.right - kMarginEdge;
+    _locationBtn.left = _dateLabel.right + kMarginEdge / 2.f;
     _locationBtn.centerY = _dateLabel.centerY;
 }
 
