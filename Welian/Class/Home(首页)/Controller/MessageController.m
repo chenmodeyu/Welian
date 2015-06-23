@@ -17,6 +17,7 @@
 #import "UIImage+ImageEffects.h"
 #import "HomeMessage.h"
 #import "ProjectDetailsViewController.h"
+#import "MainViewController.h"
 
 @interface MessageController ()
 {
@@ -93,7 +94,6 @@
 {
     self = [super init];
     if (self) {
-//        [UserDefaults removeObjectForKey:KMessagebadge];
         _messageDataArray = [NSMutableArray array];
         [self.tableView setSectionHeaderHeight:0.1];
         [self.tableView setBackgroundColor:[UIColor whiteColor]];
@@ -124,9 +124,7 @@
             [self.tableView setTableFooterView:self.footButton];
         }
         if (!_messageDataArray.count) {
-            
             [self.tableView addSubview:self.notView];
-            
         }
         [LogInUser setUserHomemessagebadge:@(0)];
     }
@@ -199,6 +197,19 @@
         [commentVC setStatusM:statusM];
         [self.navigationController pushViewController:commentVC animated:YES];
     }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MessageFrameModel *messageFrameModel = _messageDataArray[indexPath.row];
+    [messageFrameModel.messageDataM MR_deleteEntity];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    [_messageDataArray removeObject:messageFrameModel];
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

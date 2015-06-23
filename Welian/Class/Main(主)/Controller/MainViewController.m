@@ -95,12 +95,17 @@ single_implementation(MainViewController)
     [self updateChatMessageBadge];
     
     // 首页 创业圈角标
-    if (logUser.newstustcount.integerValue) {
+    if (logUser.newstustcount.integerValue && !logUser.homemessagebadge.integerValue) {
         [homeItem setImage:[[UIImage imageNamed:@"tabbar_home_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         [homeItem setSelectedImage:[[UIImage imageNamed:@"tabbar_home_selected_prompt"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
         [homeItem setImage:[UIImage imageNamed:@"tabbar_home"]];
         [homeItem setSelectedImage:[UIImage imageNamed:@"tabbar_home_selected"]];
+        if (logUser.homemessagebadge.integerValue) {
+            homeItem.badgeValue = logUser.homemessagebadge.stringValue;
+        }else{
+            homeItem.badgeValue = nil;
+        }
     }
     
     /// 有新的活动或者新的项目
@@ -127,26 +132,14 @@ single_implementation(MainViewController)
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger messageCount = [[RCIMClient sharedRCIMClient] getTotalUnreadCount];
-        if (messageCount) {
+        if (messageCount > 0) {
             chatMessageItem.badgeValue = [NSString stringWithFormat:@"%ld",(long)messageCount];
         }else{
             chatMessageItem.badgeValue = nil;
         }
-
+        int unreadMsgCount = [[RCIMClient sharedRCIMClient] getTotalUnreadCount];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = unreadMsgCount+[LogInUser getCurrentLoginUser].homemessagebadge.integerValue;
     });
-
-//    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-//    if (!loginUser) {
-//        return;
-//    }
-//    //聊天
-//    NSInteger unReadChatMsg = [loginUser allUnReadChatMessageNum];
-//    //消息
-//    NSInteger unReadMsg = loginUser.homemessagebadge.integerValue;
-//    //好友通知
-//    NSInteger unReadFriend = loginUser.newfriendbadge.integerValue;
-//    NSInteger totalUnRead = unReadChatMsg + unReadMsg + unReadFriend;
-//    chatMessageItem.badgeValue = totalUnRead <= 0 ? nil : [NSString stringWithFormat:@"%@",@(totalUnRead)];
 }
 
 //设置选择的为消息列表页面
@@ -208,6 +201,7 @@ single_implementation(MainViewController)
     [homeVC.navigationItem setTitle:@"创业圈"];
     [homeNav setDelegate:self];
     [homeNav setTabBarItem:homeItem];
+//    homeItem.badgeValue = mode.homemessagebadge.stringValue;
     
 //    // 聊天消息
 //    chatMessageItem = [self itemWithTitle:@"消息" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];

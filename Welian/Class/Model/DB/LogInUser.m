@@ -178,9 +178,6 @@
     }
     loginUser.firststustid = firststustid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setFirststustid:firststustid];
-//    [MOC save];
 }
 + (void)setUserNewstustcount:(NSNumber *)newstustcount
 {
@@ -190,9 +187,6 @@
     }
     loginUser.newstustcount = newstustcount;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setNewstustcount:newstustcount];
-//    [MOC save];
 }
 + (void)setUserHomemessagebadge:(NSNumber *)homemessagebadge
 {
@@ -202,9 +196,6 @@
     }
     loginUser.homemessagebadge = homemessagebadge;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setHomemessagebadge:homemessagebadge];
-//    [MOC save];
 }
 + (void)setUserInvestorcount:(NSNumber *)investorcount
 {
@@ -214,9 +205,6 @@
     }
     loginUser.investorcount = investorcount;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setInvestorcount:investorcount];
-//    [MOC save];
 }
 + (void)setUserProjectcount:(NSNumber *)projectcount
 {
@@ -235,9 +223,6 @@
     }
     loginUser.activecount = activecount;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setActivecount:activecount];
-//    [MOC save];
 }
 + (void)updateToutiaoCount:(NSNumber *)count
 {
@@ -284,9 +269,6 @@
     }
     loginUser.isactivebadge = @(isactivebadge);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setIsactivebadge:@(isactivebadge)];
-//    [MOC save];
 }
 + (void)setUserIsinvestorbadge:(BOOL)isinvestorbadge
 {
@@ -296,9 +278,6 @@
     }
     loginUser.isinvestorbadge = @(isinvestorbadge);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setIsinvestorbadge:@(isinvestorbadge)];
-//    [MOC save];
 }
 + (void)setUserIsProjectBadge:(BOOL)isprojectbadge
 {
@@ -369,9 +348,6 @@
     }
     loginUser.uid = uid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setUid:uid];
-//    [MOC save];
 }
 
 + (void)setUserMobile:(NSString *)mobile
@@ -402,9 +378,6 @@
     }
     loginUser.position = position;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setPosition:position];
-//    [MOC save];
 }
 
 + (void)setUserProvinceid:(NSNumber *)provinceid
@@ -415,9 +388,6 @@
     }
     loginUser.provinceid = provinceid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setProvinceid:provinceid];
-//    [MOC save];
 }
 
 + (void)setUserProvincename:(NSString *)provincename
@@ -428,9 +398,6 @@
     }
     loginUser.provincename = provincename;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setProvincename:provincename];
-//    [MOC save];
 }
 
 + (void)setUserCityid:(NSNumber *)cityid
@@ -441,9 +408,6 @@
     }
     loginUser.cityid = cityid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setCityid:cityid];
-//    [MOC save];
 }
 
 + (void)setUserCityname:(NSString *)cityname
@@ -454,9 +418,6 @@
     }
     loginUser.cityname = cityname;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setCityname:cityname];
-//    [MOC save];
 }
 
 + (void)setUserFriendship:(NSNumber *)friendship
@@ -467,9 +428,6 @@
     }
     loginUser.friendship = friendship;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setFriendship:friendship];
-//    [MOC save];
 }
 
 + (void)setUserShareurl:(NSString *)shareurl
@@ -480,9 +438,6 @@
     }
     loginUser.shareurl = shareurl;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setShareurl:shareurl];
-//    [MOC save];
 }
 
 + (void)setUserAvatar:(NSString *)avatar
@@ -493,9 +448,6 @@
     }
     loginUser.avatar = avatar;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setAvatar:avatar];
-//    [MOC save];
 }
 
 + (void)setUserName:(NSString *)name
@@ -506,9 +458,6 @@
     }
     loginUser.name = name;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setName:name];
-//    [MOC save];
 }
 
 + (void)setUserAddress:(NSString *)address
@@ -519,9 +468,6 @@
     }
     loginUser.address = address;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setAddress:address];
-//    [MOC save];
 }
 
 + (void)setUserEmail:(NSString *)email
@@ -532,9 +478,6 @@
     }
     loginUser.email = email;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setEmail:email];
-//    [MOC save];
 }
 
 + (void)setUserinvestorauth:(NSNumber *)investorauth
@@ -545,9 +488,6 @@
     }
     loginUser.investorauth = investorauth;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setInvestorauth:investorauth];
-//    [MOC save];
 }
 
 + (void)setUserstartupauth:(NSNumber *)startupauth
@@ -558,9 +498,6 @@
     }
     loginUser.startupauth = startupauth;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setStartupauth:startupauth];
-//        [MOC save];
 }
 
 + (void)setUsercompany:(NSString *)company
@@ -571,30 +508,7 @@
     }
     loginUser.company = company;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setCompany:company];
-//        [MOC save];
 }
-
-//+ (void)setUsercheckcode:(NSString *)checkcode
-//{
-//    LogInUser *loginUser = [self getCurrentLoginUser];
-//    loginUser.checkcode = checkcode;
-//    [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-//    
-////    [[LogInUser getNowLogInUser] setCheckcode:checkcode];
-////        [MOC save];
-//}
-
-//+ (void)setUserSessionid:(NSString *)sessionid
-//{
-//    LogInUser *loginUser = [self getCurrentLoginUser];
-//    loginUser.sessionid = sessionid;
-//    [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-//    
-////    [[LogInUser getNowLogInUser]setSessionid:sessionid];
-////    [MOC save];
-//}
 
 + (void)setUserisNow:(BOOL)isnow
 {
@@ -604,9 +518,6 @@
     }
     loginUser.isNow = @(isnow);
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setIsNow:@(isnow)];
-//    [MOC save];
 }
 
 + (void)setUserUrl:(NSString *)url
@@ -617,16 +528,7 @@
     }
     loginUser.url = url;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setUrl:url];
-//    [MOC save];
 }
-
-//+ (void)setuserAuth:(NSNumber *)auth
-//{
-//    [[LogInUser getNowLogInUser] setAuth:auth];
-//    [MOC save];
-//}
 
 + (void)setUseropenid:(NSString *)openid
 {
@@ -636,9 +538,6 @@
     }
     loginUser.openid = openid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setOpenid:openid];
-//    [MOC save];
 }
 + (void)setUserunionid:(NSString *)unionid
 {
@@ -648,9 +547,6 @@
     }
     loginUser.unionid = unionid;
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-    
-//    [[LogInUser getNowLogInUser] setUnionid:unionid];
-//    [MOC save];
 }
 
 //通过uid查询
@@ -658,8 +554,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"uid",uid];
     LogInUser *loginuser = [LogInUser MR_findFirstWithPredicate:pre];
-    
-//    LogInUser *loginuser = [[[[LogInUser queryInManagedObjectContext:MOC] where:@"uid" equals:uid.stringValue] results] firstObject];
     return loginuser;
 }
 
@@ -701,7 +595,6 @@
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"isChatNow",@(YES)];
     NSArray *users = [MyFriendUser MR_findAllSortedBy:@"lastChatTime" ascending:NO withPredicate:pre];
     return users;
-//    return [[[[[MyFriendUser queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:self] where:@"isChatNow" isTrue:YES] orderBy:@"lastChatTime" ascending:NO] results];
 }
 
 //获取新的好友列表
@@ -710,8 +603,6 @@
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"rsLogInUser",self];
     NSArray *allFriends = [NewFriendUser MR_findAllSortedBy:@"created" ascending:NO withPredicate:pre];
     return allFriends;
-
-//    return [[[[NewFriendUser queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:self] orderBy:@"created" ascending:NO] results];
 }
 
 //所有未读取的聊天消息数量
@@ -729,8 +620,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"operateType",@(3)];
     NSArray *waitNewFriends = [NewFriendUser MR_findAllWithPredicate:pre inContext:[self managedObjectContext]];
-    
-//    NSArray *waitNewFriends = [[[[NewFriendUser queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:self] where:@"operateType" equals:@"3"] results];
     for (NewFriendUser *newFriendUser in waitNewFriends) {
         [newFriendUser updateOperateType:0];
     }
@@ -741,8 +630,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLoginUser",self,@"friendship",@"4"];
     NSArray *waitAddFriends = [NeedAddUser MR_findAllWithPredicate:pre inContext:[self managedObjectContext]];
-    
-//    NSArray *waitAddFriends = [[[[NeedAddUser queryInManagedObjectContext:MOC] where:@"rsLoginUser" equals:self] where:@"friendship" equals:@"4"] results];
     for (NeedAddUser *needAdd in waitAddFriends) {
         [needAdd updateFriendShip:2];
     }
@@ -754,7 +641,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"uid",uid];
     MyFriendUser *myFriend = [MyFriendUser MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
-//    MyFriendUser *myFriend = [[[[[MyFriendUser queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"uid" equals:uid] results] firstObject];
     return myFriend;
 }
 
@@ -764,7 +650,6 @@
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"rsLogInUser == %@ && uid > %@ && %K == %@",self,@(100),@"isMyFriend",@(YES)];
     NSArray *allFriends = [MyFriendUser MR_findAllWithPredicate:pre inContext:[NSManagedObjectContext MR_defaultContext]];
     return allFriends;
-//    return  [[[[MyFriendUser queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"uid" greaterThan:@"100"] results];
 }
 
 //---------------------- SchoolModel ------------
@@ -773,8 +658,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"usid",usid];
     SchoolModel *schoolM = [SchoolModel MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
-//    SchoolModel *schoolM = [[[[[SchoolModel queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"usid" equals:usid] results] firstObject];
-    
     return schoolM;
 }
 
@@ -784,15 +667,12 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"ucid",ucid];
     CompanyModel *company = [CompanyModel MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
-    
-//    CompanyModel *company = [[[[[CompanyModel queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"ucid" equals:ucid] results] firstObject];
     return company;
 }
 
 // 查询所有数据并返回
 - (NSArray *)allCompanyModels
 {
-// return [[[CompanyModel queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] results];
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"rsLogInUser",self];
     NSArray *allCompanys = [CompanyModel MR_findAllWithPredicate:pre inContext:[self managedObjectContext]];
     return allCompanys;
@@ -803,7 +683,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"uid",uid];
     NewFriendUser *newFriend = [NewFriendUser MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
-//    NewFriendUser *newFriend = [[[[[NewFriendUser queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"uid" equals:uid] results] firstObject];
     return newFriend;
 }
 
@@ -811,7 +690,6 @@
 - (NSString *)getMaxNewFriendUserMessageId
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"rsLogInUser",self];
-//    NewFriendUser *newFriend = [NewFriendUser MR_findFirstWithPredicate:pre sortedBy:@"messageid" ascending:NO];
     NSArray *NewFriendUsers = [NewFriendUser MR_findAllWithPredicate:pre inContext:self.managedObjectContext];
     NewFriendUser *newFriend = nil;
     if (NewFriendUsers.count > 0 && NewFriendUsers != nil) {
@@ -838,7 +716,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"commentid",commentid];
     HomeMessage *homeMessage = [HomeMessage MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
-//    HomeMessage *homeMessage = [[[[[HomeMessage queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"commentid" equals:commentid] results] firstObject];
     return homeMessage;
 }
 
@@ -847,12 +724,10 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"isLook",@(NO)];
     NSArray *homearray = [HomeMessage MR_findAllWithPredicate:pre inContext:[self managedObjectContext]];
-//    NSArray *homearray = [[[[HomeMessage queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"isLook" isTrue:NO] results];
     for (HomeMessage *meee  in homearray) {
         meee.isLook = @(YES);
     }
     [self.managedObjectContext MR_saveToPersistentStoreAndWait];
-//    [MOC save];
     return homearray;
     
 }
@@ -874,10 +749,6 @@
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"rsLogInUser",self];
     NSArray *allHomeMessages = [HomeMessage MR_findAllSortedBy:@"created" ascending:NO withPredicate:pre];
     return allHomeMessages;
-    
-//    NSSortDescriptor *bookNameDes=[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:NO];
-//    
-//    return [[[[HomeMessage queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] results]  sortedArrayUsingDescriptors:@[bookNameDes]];
 }
 
 //--------------------InvestIndustry-----------
@@ -886,7 +757,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"industryname",name];
     InvestIndustry *investIndustry = [InvestIndustry MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
-//    InvestIndustry *investIndustry = [[[[[InvestIndustry queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"industryname" equals:name] results] firstObject];
     return investIndustry;
 }
 
@@ -896,7 +766,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"stagename",item];
     InvestStages *investStage = [InvestStages MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
-//    InvestStages *investStage = [[[[[InvestStages queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"stagename" equals:item] results] firstObject];
     return investStage;
 }
 
@@ -907,9 +776,6 @@
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"rsLogInUser",self];
     NSArray *allInvestItems = [InvestItems MR_findAllSortedBy:@"time" ascending:NO withPredicate:pre];
     return allInvestItems;
-    
-//    NSSortDescriptor *bookNameDes=[NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
-//    return [[[[InvestItems queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] results]  sortedArrayUsingDescriptors:@[bookNameDes]];
 }
 
 // //通过item查询
@@ -917,7 +783,6 @@
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLogInUser",self,@"item",item];
     InvestItems *investItem = [InvestItems MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
-//    InvestItems *investItem = [[[[[InvestItems queryInManagedObjectContext:MOC] where:@"rsLogInUser" equals:[LogInUser getCurrentLoginUser]] where:@"item" equals:item] results] firstObject];
     return investItem;
 }
 
@@ -928,7 +793,6 @@
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@ && %K == %@", @"rsLoginUser",self,@"uid",uid];
     NeedAddUser *needAddUser = [NeedAddUser MR_findFirstWithPredicate:pre inContext:[self managedObjectContext]];
     return needAddUser;
-//    return [[[[[NeedAddUser queryInManagedObjectContext:MOC] where:@"rsLoginUser" equals:[LogInUser getCurrentLoginUser]] where:@"uid" equals:uid.stringValue] results] firstObject];
 }
 
 //获取已经存在的好友对象

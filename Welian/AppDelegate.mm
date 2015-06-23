@@ -312,10 +312,10 @@ BMKMapManager* _mapManager;
     [[RCIM sharedRCIM] registerMessageType:CustomCardMessage.class];
     //聊天消息头像
     if (Iphone6plus) {
-        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(56, 56);
+        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
     }else{
         NSLog(@"iPhone6 %d", Iphone6);
-        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(46, 46);
+        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
     }
     //外面全局消息头像
     [RCIM sharedRCIM].globalMessagePortraitSize = CGSizeMake(20, 20);
@@ -511,7 +511,6 @@ BMKMapManager* _mapManager;
             NSInteger badge = [loginUser.homemessagebadge integerValue];
             badge++;
             [LogInUser setUserHomemessagebadge:@(badge)];
-            //        [UserDefaults setObject:[NSString stringWithFormat:@"%d",badge] forKey:KMessagebadge];
             [KNSNotification postNotificationName:KMessageHomeNotif object:self];
         }
     }else if([type isEqualToString:@"friendRequest"]||[type isEqualToString:@"friendAdd"]||[type isEqualToString:@"friendCommand"]){
@@ -724,9 +723,10 @@ BMKMapManager* _mapManager;
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     DLog(@"应用程序将要进入非活动状态，即将进入后台");
-    if ([LogInUser getCurrentLoginUser]) {
+    LogInUser *logUser = [LogInUser getCurrentLoginUser];
+    if (logUser) {
         int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
-        application.applicationIconBadgeNumber = unreadMsgCount;
+        application.applicationIconBadgeNumber = unreadMsgCount+logUser.homemessagebadge.integerValue;
     }else{
         application.applicationIconBadgeNumber = 0;
     }
@@ -768,11 +768,10 @@ BMKMapManager* _mapManager;
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    LogInUser *user = [LogInUser getCurrentLoginUser];
-    if (user) {
+    LogInUser *logUser = [LogInUser getCurrentLoginUser];
+    if (logUser) {
         int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
-        application.applicationIconBadgeNumber = unreadMsgCount;
-//        [UIApplication sharedApplication].applicationIconBadgeNumber = user.newfriendbadge.integerValue+user.homemessagebadge.integerValue+[user allUnReadChatMessageNum];
+        application.applicationIconBadgeNumber = unreadMsgCount+logUser.homemessagebadge.integerValue;
     }else{
         application.applicationIconBadgeNumber = 0;
     }
