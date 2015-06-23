@@ -644,6 +644,24 @@
     return myFriend;
 }
 
+// 所有好友，除当前聊天好友
+- (NSArray *)getAllMyFriendUsersNoChatUser
+{
+    NSString *chatUid = [UserDefaults stringForKey:@"Chat_Share_Friend_Uid"];
+    NSPredicate *pre;
+    if (chatUid.length > 0) {
+        //从聊天进入
+        pre = [NSPredicate predicateWithFormat:@"rsLogInUser == %@ && uid > %@ && uid != %@ && %K == %@",self,@(100),@(chatUid.integerValue),@"isMyFriend",@(YES)];
+    }else{
+        //其他地方进入
+        pre = [NSPredicate predicateWithFormat:@"rsLogInUser == %@ && uid > %@ && %K == %@",self,@(100),@"isMyFriend",@(YES)];
+    }
+    
+    NSArray *allFriends = [MyFriendUser MR_findAllWithPredicate:pre inContext:[NSManagedObjectContext MR_defaultContext]];
+    return allFriends;
+}
+
+
 // 所有好友
 - (NSArray *)getAllMyFriendUsers
 {

@@ -21,7 +21,7 @@
 
 @end
 
-static NSString *tipMessageCellid = @"tipMessageCellid";
+static NSString *tipMessageCellid=@"rcTipMessageCellIndentifier";
 static NSString *customCardCellid = @"customCardCellid";
 
 @implementation WLChatViewController
@@ -38,6 +38,7 @@ static NSString *customCardCellid = @"customCardCellid";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [NSUserDefaults setString:self.targetId forKey:@"Chat_Share_Friend_Uid"];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.hidden = NO;
 }
@@ -53,6 +54,7 @@ static NSString *customCardCellid = @"customCardCellid";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [KNSNotification addObserver:self selector:@selector(fdsafdadf) name:@"123456" object:nil];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     //是否允许保存新拍照片到本地系统
     self.enableSaveNewPhotoToLocalSystem = YES;
@@ -61,7 +63,12 @@ static NSString *customCardCellid = @"customCardCellid";
     
     //* 注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
     [self registerClass:[WLChatCustomCardCell class] forCellWithReuseIdentifier:customCardCellid];
-    [self registerClass:[RCTipMessageCell class] forCellWithReuseIdentifier:tipMessageCellid];
+//    [self registerClass:[RCTipMessageCell class] forCellWithReuseIdentifier:tipMessageCellid];
+}
+
+- (void)fdsafdadf
+{
+    [self.conversationMessageCollectionView reloadData];
 }
 
 /**
@@ -158,11 +165,11 @@ static NSString *customCardCellid = @"customCardCellid";
 - (RCMessageBaseCell *)rcConversationCollectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     RCMessageModel *model = self.conversationDataRepository[indexPath.row];
-//    if ([model.objectName isEqualToString:@"RC:InfoNtf"]) {
-//        RCTipMessageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tipMessageCellid forIndexPath:indexPath];
-//        [cell setDataModel:model];
-//        return cell;
-//    }else{
+    if ([model isMemberOfClass:[RCInformationNotificationMessage class]]) {
+        RCTipMessageCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:tipMessageCellid forIndexPath:indexPath];
+        [cell setDataModel:model];
+        return cell;
+    }else{
         WLChatCustomCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:customCardCellid forIndexPath:indexPath];
         [cell setDataModel:model];
         CustomCardMessage *customCardM = (CustomCardMessage *)model.content;
@@ -184,7 +191,7 @@ static NSString *customCardCellid = @"customCardCellid";
             [weakSelf selectedCardMessageWithCardM:customCardM];
         };
         return cell;
-//    }
+    }
 }
 
 - (void)selectedCardMessageWithCardM:(CustomCardMessage *)cardMessage
@@ -274,13 +281,17 @@ static NSString *customCardCellid = @"customCardCellid";
 {
     
     RCMessageModel *model = self.conversationDataRepository[indexPath.row];
-//    if ([model.objectName isEqualToString:@"RC:InfoNtf"]) {
-//        
-//        return CGSizeMake(SuperSize.width, 30);
-//    }else{
+    if ([model.content isMemberOfClass:[RCInformationNotificationMessage class]]) {
+        return CGSizeMake(SuperSize.width, 30);
+    }else{
         CustomCardMessage *customCardM = (CustomCardMessage *)model.content;
         return CGSizeMake(SuperSize.width, [WLChatCustomCardCell getCellSizeWithCardMessage:customCardM].height+10);
-//    }
+    }
+}
+
+
+- (void)didTapPhoneNumberInMessageCell:(NSString *)phoneNumber model:(RCMessageModel *)model
+{
 }
 
 #pragma mark override
@@ -290,9 +301,13 @@ static NSString *customCardCellid = @"customCardCellid";
  *  @param pluginBoardView 功能模板
  *  @param tag             标记
  */
-//-(void)pluginBoardView:(RCPluginBoardView*)pluginBoardView clickedItemWithTag:(NSInteger)tag
-//{
-//    DLog(@"%d",tag);
-//}
+-(void)pluginBoardView:(RCPluginBoardView*)pluginBoardView clickedItemWithTag:(NSInteger)tag
+{
+//    if (tag == 1001) {
+//        
+//    }else{
+        [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
+//    }
+}
 
 @end

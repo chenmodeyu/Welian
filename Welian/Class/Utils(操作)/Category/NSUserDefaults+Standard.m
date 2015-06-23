@@ -37,6 +37,13 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:key];
 }
 
++ (void)removeObjectForKey:(NSString *)key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:key];
+	[defaults synchronize];
+}
+
 + (void) setString:(NSString*) value forKey:(NSString*) key
 {
 	[NSUserDefaults setObject:value forKey:key];
