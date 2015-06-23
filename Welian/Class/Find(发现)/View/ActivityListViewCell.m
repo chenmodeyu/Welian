@@ -108,6 +108,7 @@
         }else{
             if(_activityInfo.joined.integerValue >= _activityInfo.limited.integerValue){
                 _numLabel.hidden = YES;
+                _numLabel.text = @"";
                 _statusLabel.text = @"已报满";
             }else{
                 _statusLabel.text = @"报名";
@@ -123,6 +124,7 @@
             _numLabel.text = _activityInfo.joined.stringValue;
         }else{
             _numLabel.hidden = YES;
+            _numLabel.text = @"";
             _statusLabel.text = @"已报满";
         }
     }
@@ -147,13 +149,14 @@
     _joinedImageView.right = self.contentView.width;
     _joinedImageView.top = 0.f;
     
-    _titleLabel.width = self.contentView.width - _iconImageView.right - kMarginEdge - (_joinedImageView.hidden == NO ? _joinedImageView.width : kMarginEdge);
+    _titleLabel.width = self.contentView.width - _iconImageView.right - kMarginEdge - (_activityInfo.isjoined.boolValue ? (_joinedImageView.width - kMarginTop) : kMarginEdge);
     [_titleLabel sizeToFit];
     _titleLabel.left = _iconImageView.right + kMarginEdge;
     _titleLabel.top = _iconImageView.top;
     
     [_detailTitleLabel sizeToFit];
-    _detailTitleLabel.width = _titleLabel.width;
+    _detailTitleLabel.width = self.contentView.width - _iconImageView.right - kMarginEdge - (_titleLabel.height < 30.f ? _joinedImageView.width / 2.f : kMarginEdge);
+//    _detailTitleLabel.width = _titleLabel.width;
     _detailTitleLabel.left = _titleLabel.left;
     _detailTitleLabel.top = _titleLabel.bottom + 6.f;
     
@@ -175,8 +178,8 @@
     _numLabel.centerY = _statusLabel.centerY;
     
     [_locationBtn sizeToFit];
-    _locationBtn.width = _numLabel.left - _dateLabel.right - kMarginEdge * 2.f;
-    _locationBtn.left = _dateLabel.right + kMarginEdge;
+    _locationBtn.width = _numLabel.left - _dateLabel.right - kMarginEdge;
+    _locationBtn.left = _dateLabel.right + kMarginEdge / 2.f;
     _locationBtn.centerY = _dateLabel.centerY;
 }
 
@@ -226,6 +229,7 @@
 //    detailTitleLabel.text = @"主办方：微链、迭代资本";
     [self.contentView addSubview:detailTitleLabel];
     self.detailTitleLabel = detailTitleLabel;
+//    [detailTitleLabel setDebug:YES];
     
     //时间
     UIButton *timeBtn = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -14,7 +14,7 @@
 #import "NotstringView.h"
 #import "MJRefresh.h"
 
-#define kTableViewCellHeight 98.f
+#define kTableViewCellHeight 116.f
 #define kTableViewHeaderHeight 25.f
 
 @interface MyActivityViewController ()<UITableViewDataSource,UITableViewDelegate>
