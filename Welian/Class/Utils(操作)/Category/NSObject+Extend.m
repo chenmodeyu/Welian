@@ -149,36 +149,31 @@
     UIViewController* activityViewController = nil;
     
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    if(window.windowLevel != UIWindowLevelNormal)
-    {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
-        for(UIWindow *tmpWin in windows)
+    if (IsiOS7Later) {
+        activityViewController = window.rootViewController;
+    }else{
+        if(window.windowLevel != UIWindowLevelNormal){
+            NSArray *windows = [[UIApplication sharedApplication] windows];
+            for(UIWindow *tmpWin in windows){
+                if(tmpWin.windowLevel == UIWindowLevelNormal){
+                    window = tmpWin;
+                    break;
+                }
+            }
+        }
+        
+        NSArray *viewsArray = [window subviews];
+        if([viewsArray count] > 0)
         {
-            if(tmpWin.windowLevel == UIWindowLevelNormal)
-            {
-                window = tmpWin;
-                break;
+            UIView *frontView = [viewsArray objectAtIndex:0];
+            id nextResponder = [frontView nextResponder];
+            if([nextResponder isKindOfClass:[UIViewController class]]){
+                activityViewController = nextResponder;
+            }else{
+                activityViewController = window.rootViewController;
             }
         }
     }
-    
-    NSArray *viewsArray = [window subviews];
-    if([viewsArray count] > 0)
-    {
-        UIView *frontView = [viewsArray objectAtIndex:0];
-        
-        id nextResponder = [frontView nextResponder];
-        
-        if([nextResponder isKindOfClass:[UIViewController class]])
-        {
-            activityViewController = nextResponder;
-        }
-        else
-        {
-            activityViewController = window.rootViewController;
-        }
-    }
-    
     return activityViewController;
 }
 

@@ -7,8 +7,16 @@
 //
 
 #import "AppDelegate.h"
-#import "BMapKit.h"
+#import <ShareSDK/ShareSDK.h>
+#import <AlipaySDK/AlipaySDK.h>
+
+#import "ProjectDetailsViewController.h"
+#import "ActivityDetailInfoViewController.h"
+#import "TOWebViewController.h"
 #import "NavViewController.h"
+#import "LCNewFeatureVC.h"
+
+#import "BMapKit.h"
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
 #import "ShareEngine.h"
@@ -24,10 +32,7 @@
 #import "WLMessage.h"
 #import "MyFriendUser.h"
 #import "NeedAddUser.h"
-#import <ShareSDK/ShareSDK.h>
-#import <AlipaySDK/AlipaySDK.h>
 #import "MsgPlaySound.h"
-#import "LCNewFeatureVC.h"
 #import "CustomCardMessage.h"
 
 #define kDeviceToken @"RongCloud_SDK_DeviceToken"
@@ -853,30 +858,34 @@ BMKMapManager* _mapManager;
         DLog(@"host ---: %@", [url host]);   //url host  ?之前的
         DLog(@"query ---: %@", [url query]);   //查询串  用“?...”格式访问
         //提醒内容
-        NSString *text = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [UIAlertView bk_showAlertViewWithTitle:@""
-                                       message:text
-                             cancelButtonTitle:@"取消"
-                             otherButtonTitles:@[@"查看"]
-                                       handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                                           if (buttonIndex == 0) {
-                                               return ;
-                                           }else{
-                                               NSArray *paramArray = [[url query] componentsSeparatedByString:@"&"];
-                                               DLog(@"paramArray: %@", paramArray);
-                                               NSMutableDictionary *paramsDic = [[NSMutableDictionary alloc] initWithCapacity:0];
-                                               for (int i = 0; i < paramArray.count; i++) {
-                                                   NSString *str = paramArray[i];
-                                                   NSArray *keyArray = [str componentsSeparatedByString:@"="];
-                                                   NSString *key = keyArray[0];
-                                                   NSString *value = keyArray[1];
-                                                   [paramsDic setObject:value forKey:key];
-                                                   DLog(@"key:%@ ==== value:%@", key, value);
-                                               }
-//                                               UIViewController *currentActivityVC = [NSObject currentRootViewController];
-//                                               [currentActivityVC.navigationController pushViewController:<#(UIViewController *)#> animated:<#(BOOL)#>]
-                                           }
-                                       }];
+        [self showInfoWithType:url.host param:[url.query componentsSeparatedByString:@"="]];
+//        NSString *text = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        WEAKSELF
+//        [UIAlertView bk_showAlertViewWithTitle:@""
+//                                       message:text
+//                             cancelButtonTitle:@"取消"
+//                             otherButtonTitles:@[@"查看"]
+//                                       handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+//                                           if (buttonIndex == 0) {
+//                                               return ;
+//                                           }else{
+//                                               [weakSelf showInfoWithType:url.host param:[url.query componentsSeparatedByString:@"="]];
+//                                               
+////                                               NSArray *paramArray = [[url query] componentsSeparatedByString:@"&"];
+////                                               DLog(@"paramArray: %@", paramArray);
+////                                               NSMutableDictionary *paramsDic = [[NSMutableDictionary alloc] initWithCapacity:0];
+////                                               for (int i = 0; i < paramArray.count; i++) {
+////                                                   NSString *str = paramArray[i];
+////                                                   NSArray *keyArray = [str componentsSeparatedByString:@"="];
+////                                                   NSString *key = keyArray[0];
+////                                                   NSString *value = keyArray[1];
+////                                                   [paramsDic setObject:value forKey:key];
+////                                                   DLog(@"key:%@ ==== value:%@", key, value);
+////                                               }
+////                                               UIViewController *currentActivityVC = [NSObject currentRootViewController];
+////                                               [currentActivityVC.navigationController pushViewController:<#(UIViewController *)#> animated:<#(BOOL)#>]
+//                                           }
+//                                       }];
         return YES;
     }
     
@@ -993,6 +1002,89 @@ BMKMapManager* _mapManager;
 //    }
 //    
 //}
+
+//显示被其他程序唤醒的页面
+- (void)showInfoWithType:(NSString *)type param:(NSArray *)infos
+{
+    //    1、动态分享的页面:	welian://1?wlid=24204  (动态的id)
+    //    2、项目分享的页面: 	welian://2?wlid=11091 (项目的id)
+    //    3、活动分享的页面:	welian://3?wlid=1734 （活动的id）
+    //    4、创业头条页面:		welian://4?url=http://h5.welian.com/toutiao/i/58 （头条的url）
+    //    5、用户邀请页面:		welian://5?wlid=10239   (用户uid)
+    //    NSDictionary *infoDic = @{infos[0]:infos[1]};
+    //    UIViewController *currentActivityVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+    if (!loginUser) {
+        return;
+    }
+    
+    UIViewController *currentActivityVC = [NSObject currentRootViewController];
+    if ([currentActivityVC isKindOfClass:[MainViewController class]]) {
+        currentActivityVC = [(NavViewController *)[(MainViewController *)currentActivityVC selectedViewController] topViewController];
+    }
+    NSString *info = infos[1];
+    switch (type.integerValue) {
+        case 1:
+        {
+            //动态
+            
+        }
+            break;
+        case 2:
+        {
+            //项目
+            //查询数据库是否存在
+            ProjectInfo *projectInfo = [ProjectInfo getProjectInfoWithPid:@(info.integerValue) Type:@(0)];
+            ProjectDetailsViewController *projectDetailVC = nil;
+            if (projectInfo) {
+                projectDetailVC = [[ProjectDetailsViewController alloc] initWithProjectInfo:projectInfo];
+            }else{
+                projectDetailVC = [[ProjectDetailsViewController alloc] initWithProjectPid:@(info.integerValue)];
+            }
+            if (projectDetailVC) {
+                [currentActivityVC.navigationController pushViewController:projectDetailVC animated:YES];
+            }
+        }
+            break;
+        case 3:
+        {
+            //活动
+            //查询本地有没有该活动
+            ActivityInfo *activityInfo = [ActivityInfo getActivityInfoWithActiveId:@(info.integerValue) Type:@(0)];
+            ActivityDetailInfoViewController *activityInfoVC = nil;
+            if(activityInfo){
+                activityInfoVC = [[ActivityDetailInfoViewController alloc] initWithActivityInfo:activityInfo];
+            }else{
+                activityInfoVC = [[ActivityDetailInfoViewController alloc] initWIthActivityId:@(info.integerValue)];
+            }
+            if (activityInfoVC) {
+                [currentActivityVC.navigationController pushViewController:activityInfoVC animated:YES];
+            }
+        }
+            break;
+        case 4:
+        {
+            //头条
+            if(info.length > 0){
+                TOWebViewController *webVC = [[TOWebViewController alloc] initWithURLString:info];
+                webVC.navigationButtonsHidden = NO;//隐藏底部操作栏目
+                webVC.showRightShareBtn = YES;//现实右上角分享按钮
+                webVC.isTouTiao = YES;
+                
+                [currentActivityVC.navigationController pushViewController:webVC animated:YES];
+            }
+        }
+            break;
+        case 5:
+        {
+            //用户邀请
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 //获取聊天消息记录 和好友请求消息
 - (void)getServiceChatMsgInfo
