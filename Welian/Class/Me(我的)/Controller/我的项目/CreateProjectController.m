@@ -213,7 +213,7 @@ static NSString *projectcellid = @"projectcellid";
         [cell setAccessoryType:UITableViewCellAccessoryNone];
         if (indexPath.section==0&&indexPath.row==0) {
             [cell.textLabel setText:@"项目名称"];
-            [cell.textField setPlaceholder:@"10字之内"];
+            [cell.textField setPlaceholder:@"20字之内"];
             [cell.textField setText:_projectModel.name];
             [cell.textField setBk_didEndEditingBlock:^(UITextField *textField) {
                 [_projectModel setName:textField.text];
@@ -410,7 +410,7 @@ static NSString *projectcellid = @"projectcellid";
         [WLHUDView showErrorHUD:@"项目名称不能为空"];
         return;
     }
-    if (_projectModel.name.length>10) {
+    if (_projectModel.name.length>20) {
         [WLHUDView showErrorHUD:@"项目名称最长允许10个字"];
         return;
     }

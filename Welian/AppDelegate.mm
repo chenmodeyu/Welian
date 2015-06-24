@@ -145,7 +145,7 @@ BMKMapManager* _mapManager;
 #pragma mark 1. 是否应该显示新特性界面
     BOOL showNewFeature = [LCNewFeatureVC shouldShowNewFeature];
 //    showNewFeature = YES;
-    if (showNewFeature) {
+    if (0) {
 #pragma mark  设置新特性界面为当前窗口的根视图控制器
         self.window.rootViewController = self.newFeatureVC;
     }else{
