@@ -240,8 +240,6 @@
     //friendship /**  好友关系，1好友，2好友的好友,-1自己，0没关系  4.等待验证 */
     self.friendship = @(type);
     [[self managedObjectContext] MR_saveToPersistentStoreAndWait];
-//    [MOC save];
-    
     return self;
 }
 

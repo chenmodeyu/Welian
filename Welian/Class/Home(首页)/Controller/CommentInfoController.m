@@ -185,6 +185,7 @@ static NSString *noCommentCell = @"NoCommentCell";
         [self.messageView.commentTextView becomeFirstResponder];
     }
     [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreCommentData)];
+    self.tableView.footer.hidden = YES;
 }
 
 

@@ -266,7 +266,6 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
     if (url.scheme.length == 0) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", [url absoluteString]]];
     }
-    
     return url;
 }
 

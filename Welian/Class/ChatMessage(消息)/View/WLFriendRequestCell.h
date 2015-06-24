@@ -10,4 +10,6 @@
 
 @interface WLFriendRequestCell : RCConversationBaseCell
 
+- (void)upNewFriendsBadge;
+
 @end

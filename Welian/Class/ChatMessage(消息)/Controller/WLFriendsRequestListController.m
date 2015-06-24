@@ -12,7 +12,7 @@
 #import "UserInfoViewController.h"
 
 @interface WLFriendsRequestListController ()
-@property (strong,nonatomic) NSArray *datasource;
+@property (strong,nonatomic) NSMutableArray *datasource;
 @property (strong,nonatomic) NotstringView *notHasDataView;//无消息提醒
 @end
 
@@ -45,10 +45,10 @@
     [self.tableView reloadData];
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView setTableFooterView:[UIView new]];
+    [LogInUser setUserNewfriendbadge:@(0)];
     [self loadNewFriendData];
 }
 
@@ -96,10 +96,12 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-            NewFriendUser *friendM = _datasource[indexPath.row];
-                //删除本地数据库数据
-                [friendM MR_deleteEntity];
-                [[friendM managedObjectContext] MR_saveToPersistentStoreAndWait];
+        NewFriendUser *friendM = _datasource[indexPath.row];
+        //删除本地数据库数据
+        [friendM MR_deleteEntity];
+        [[friendM managedObjectContext] MR_saveToPersistentStoreAndWait];
+        [_datasource removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     }
 }
 
@@ -135,7 +137,7 @@
                                              //改变数组，刷新列表
                                              NSMutableArray *allDatas = [NSMutableArray arrayWithArray:_datasource];
                                              [allDatas replaceObjectAtIndex:indexPath.row withObject:nowFriendUser];
-                                             self.datasource = [NSArray arrayWithArray:allDatas];
+                                             self.datasource = [NSMutableArray arrayWithArray:allDatas];
                                              //刷新列表
                                              [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
                                              [WLHUDView showSuccessHUD:@"好友请求已发送"];
@@ -165,10 +167,10 @@
                                          //                [self.userBasicVC addSucceed];
                                          //            }
                                          //改变数组，刷新列表
-                                         NSMutableArray *allDatas = [NSMutableArray arrayWithArray:_datasource];
-                                         [allDatas replaceObjectAtIndex:indexPath.row withObject:nowFriendUser];
+//                                         NSMutableArray *allDatas = [NSMutableArray arrayWithArray:_datasource];
+                                         [_datasource replaceObjectAtIndex:indexPath.row withObject:nowFriendUser];
                                          
-                                         self.datasource = [NSArray arrayWithArray:allDatas];
+//                                         self.datasource = [NSArray arrayWithArray:allDatas];
                                          [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
                                          
                                          //刷新好友列表

@@ -34,6 +34,7 @@
 #import "NeedAddUser.h"
 #import "MsgPlaySound.h"
 #import "CustomCardMessage.h"
+#import "CommentInfoController.h"
 
 #define kDeviceToken @"RongCloud_SDK_DeviceToken"
 
@@ -614,25 +615,25 @@ BMKMapManager* _mapManager;
             [needAddUser updateFriendShip:1];
         }
         
-        //接受后，本地创建一条消息
-        WLMessage *textMessage = [[WLMessage alloc] initWithText:[NSString stringWithFormat:@"我已经通过你的好友请求，现在我们可以开始聊聊创业那些事了"] sender:newfrendM.name timestamp:[NSDate date]];
-        textMessage.avatorUrl = newfrendM.avatar;
-        //是否读取
-        textMessage.isRead = NO;
-        textMessage.sended = @"1";
-        textMessage.bubbleMessageType = WLBubbleMessageTypeReceiving;
-        
-        //更新聊天好友
-        [friendUser updateIsChatStatus:YES];
-        
-        //本地聊天数据库添加
-        ChatMessage *chatMessage = [ChatMessage createChatMessageWithWLMessage:textMessage FriendUser:friendUser];
-        if (chatMessage) {
-            textMessage.msgId = chatMessage.msgId.stringValue;
-        }
-        
-        //更新聊天消息数量
-        [friendUser updateUnReadMessageNumber:@(friendUser.unReadChatMsg.integerValue + 1)];
+//        //接受后，本地创建一条消息
+//        WLMessage *textMessage = [[WLMessage alloc] initWithText:[NSString stringWithFormat:@"我已经通过你的好友请求，现在我们可以开始聊聊创业那些事了"] sender:newfrendM.name timestamp:[NSDate date]];
+//        textMessage.avatorUrl = newfrendM.avatar;
+//        //是否读取
+//        textMessage.isRead = NO;
+//        textMessage.sended = @"1";
+//        textMessage.bubbleMessageType = WLBubbleMessageTypeReceiving;
+//        
+//        //更新聊天好友
+//        [friendUser updateIsChatStatus:YES];
+//        
+//        //本地聊天数据库添加
+//        ChatMessage *chatMessage = [ChatMessage createChatMessageWithWLMessage:textMessage FriendUser:friendUser];
+//        if (chatMessage) {
+//            textMessage.msgId = chatMessage.msgId.stringValue;
+//        }
+//        
+//        //更新聊天消息数量
+//        [friendUser updateUnReadMessageNumber:@(friendUser.unReadChatMsg.integerValue + 1)];
         
         //更新好友列表
         [KNSNotification postNotificationName:KupdataMyAllFriends object:self];
@@ -672,14 +673,17 @@ BMKMapManager* _mapManager;
         //判断当前是否已经是好友
         NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];
         if (!([newFriendUser.operateType integerValue]==2)) {
+           [LogInUser setUserNewfriendbadge:@(1)];
+//            loginUser.newfriendbadge = @(1);
+//            [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
             //不是好友，添加角标
-            NSInteger badge = [loginUser.newfriendbadge integerValue];
-            if (!badge) {
-                //设置是否在新的好友通知页面
-                if (![UserDefaults boolForKey:kIsLookAtNewFriendVC]) {
-                    [LogInUser setUserNewfriendbadge:@(1)];
-                }
-            }
+//            NSInteger badge = [loginUser.newfriendbadge integerValue];
+//            if (!badge) {
+//                //设置是否在新的好友通知页面
+//                if (![UserDefaults boolForKey:kIsLookAtNewFriendVC]) {
+//                    [LogInUser setUserNewfriendbadge:@(1)];
+//                }
+//            }
         }
     }
     
@@ -731,7 +735,7 @@ BMKMapManager* _mapManager;
     LogInUser *logUser = [LogInUser getCurrentLoginUser];
     if (logUser) {
         int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
-        application.applicationIconBadgeNumber = unreadMsgCount+logUser.homemessagebadge.integerValue;
+        application.applicationIconBadgeNumber = unreadMsgCount+logUser.homemessagebadge.integerValue+logUser.newfriendbadge.integerValue;
     }else{
         application.applicationIconBadgeNumber = 0;
     }
@@ -776,7 +780,7 @@ BMKMapManager* _mapManager;
     LogInUser *logUser = [LogInUser getCurrentLoginUser];
     if (logUser) {
         int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
-        application.applicationIconBadgeNumber = unreadMsgCount+logUser.homemessagebadge.integerValue;
+        application.applicationIconBadgeNumber = unreadMsgCount+logUser.homemessagebadge.integerValue+logUser.newfriendbadge.integerValue;
     }else{
         application.applicationIconBadgeNumber = 0;
     }
@@ -1022,12 +1026,19 @@ BMKMapManager* _mapManager;
     if ([currentActivityVC isKindOfClass:[MainViewController class]]) {
         currentActivityVC = [(NavViewController *)[(MainViewController *)currentActivityVC selectedViewController] topViewController];
     }
-    NSString *info = infos[1];
+    NSString *info = [infos[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if (!info.length) return;
     switch (type.integerValue) {
         case 1:
         {
             //动态
+            WLStatusM *statusM = [[WLStatusM alloc] init];
+            statusM.fid = @(info.integerValue);
+            statusM.topid = @(info.integerValue);
             
+            CommentInfoController *commentInfoVC = [[CommentInfoController alloc] init];
+            commentInfoVC.statusM = statusM;
+            [currentActivityVC.navigationController pushViewController:commentInfoVC animated:YES];
         }
             break;
         case 2:

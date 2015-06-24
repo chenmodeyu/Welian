@@ -19,46 +19,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/AppDelegate.mm"
-            timestampString = "456732186.796317"
+            filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/WLChatViewController.m"
+            timestampString = "456743549.631236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "634"
-            endingLineNumber = "634"
-            landmarkName = "-getNewFriendMessage:LoginUserId:"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-fdsafdadf"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AppDelegate getNewFriendMessage:LoginUserId:]"
-                  moduleName = "weLianDev"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dong/Desktop/Welian/Welian/AppDelegate.mm"
-                  timestampString = "456805529.537623"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "634"
-                  endingLineNumber = "634"
-                  offsetFromSymbolStart = "2292">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AppDelegate getNewFriendMessage:LoginUserId:]"
-                  moduleName = "weLianDev"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dong/Desktop/Welian/Welian/AppDelegate.mm"
-                  timestampString = "456805529.537794"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "634"
-                  endingLineNumber = "634"
-                  offsetFromSymbolStart = "2316">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -67,13 +35,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/WLChatViewController.m"
-            timestampString = "456743549.631236"
+            filePath = "Welian/Class/ChatMessage(&#x6d88;&#x606f;)/Controller/ChatListViewController.m"
+            timestampString = "456826808.400786"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-fdsafdadf"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "-didReceiveMessageNotification:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Welian/AppDelegate.mm"
+            timestampString = "456827006.382011"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "676"
+            endingLineNumber = "676"
+            landmarkName = "-getNewFriendMessage:LoginUserId:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Welian/AppDelegate.mm"
+            timestampString = "456827008.477116"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "675"
+            endingLineNumber = "675"
+            landmarkName = "-getNewFriendMessage:LoginUserId:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

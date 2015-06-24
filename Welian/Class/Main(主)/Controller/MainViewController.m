@@ -51,11 +51,6 @@ single_implementation(MainViewController)
     [KNSNotification removeObserver:self];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
 - (instancetype)init
 {
     self = [super init];
@@ -131,14 +126,14 @@ single_implementation(MainViewController)
 - (void)updateChatMessageBadge
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSInteger messageCount = [[RCIMClient sharedRCIMClient] getTotalUnreadCount];
+        LogInUser *logUser = [LogInUser getCurrentLoginUser];
+        NSInteger messageCount = [[RCIMClient sharedRCIMClient] getTotalUnreadCount]+logUser.newfriendbadge.integerValue;
         if (messageCount > 0) {
             chatMessageItem.badgeValue = [NSString stringWithFormat:@"%ld",(long)messageCount];
         }else{
             chatMessageItem.badgeValue = nil;
         }
-        int unreadMsgCount = [[RCIMClient sharedRCIMClient] getTotalUnreadCount];
-        [UIApplication sharedApplication].applicationIconBadgeNumber = unreadMsgCount+[LogInUser getCurrentLoginUser].homemessagebadge.integerValue;
+        [UIApplication sharedApplication].applicationIconBadgeNumber = messageCount+logUser.homemessagebadge.integerValue;
     });
 }
 
@@ -153,10 +148,10 @@ single_implementation(MainViewController)
     [super viewDidLoad];
     [WeLianClient updateclientID];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateChatMessageBadge)
-                                                 name:RCKitDispatchMessageNotification
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(updateChatMessageBadge)
+//                                                 name:RCKitDispatchMessageNotification
+//                                               object:nil];
     // 有新好友通知
     [KNSNotification addObserver:self selector:@selector(updateChatMessageBadge) name:KNewFriendNotif object:nil];
     

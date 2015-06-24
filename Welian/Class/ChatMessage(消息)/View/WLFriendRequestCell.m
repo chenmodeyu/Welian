@@ -19,7 +19,7 @@
 @property (assign,nonatomic) UIImageView *logoImageView;
 @property (assign,nonatomic) UIButton *numBtn;
 @property (assign,nonatomic) UILabel *nickNameLabel;
-@property (assign,nonatomic) UILabel *timeLabel;
+//@property (assign,nonatomic) UILabel *timeLabel;
 //@property (assign,nonatomic) UILabel *messageLabel;
 
 @end
@@ -55,13 +55,13 @@
     _numBtn.right = _logoImageView.right + 8;
     
     //时间
-    [_timeLabel sizeToFit];
-    _timeLabel.top = _logoImageView.top;
-    _timeLabel.right = self.width - kMarginLeft;
+//    [_timeLabel sizeToFit];
+//    _timeLabel.top = _logoImageView.top;
+//    _timeLabel.right = self.width - kMarginLeft;
     
     //昵称
     [_nickNameLabel sizeToFit];
-    _nickNameLabel.width = _timeLabel.left - _logoImageView.right - kMarginLeft * 2;
+    _nickNameLabel.width = SuperSize.width - _logoImageView.right - kMarginLeft * 2;
     _nickNameLabel.left = _logoImageView.right + K10MarginLeft;
     _nickNameLabel.top = _logoImageView.top;
     _nickNameLabel.height = kLogoImageWidth;
@@ -110,13 +110,13 @@
     self.nickNameLabel = nickNameLabel;
     
     //时间
-    UILabel *timeLabel = [[UILabel alloc] init];
-    timeLabel.backgroundColor = [UIColor clearColor];
-    timeLabel.textColor = RGB(173.f, 173.f, 173.f);
-    timeLabel.font = kNormal12Font;
-    timeLabel.text = @"";
-    [self addSubview:timeLabel];
-    self.timeLabel = timeLabel;
+//    UILabel *timeLabel = [[UILabel alloc] init];
+//    timeLabel.backgroundColor = [UIColor clearColor];
+//    timeLabel.textColor = RGB(173.f, 173.f, 173.f);
+//    timeLabel.font = kNormal12Font;
+//    timeLabel.text = @"";
+//    [self addSubview:timeLabel];
+//    self.timeLabel = timeLabel;
     
     //消息
 //    UILabel *messageLabel = [[UILabel alloc] init];
@@ -126,6 +126,19 @@
 //    messageLabel.text = @"";
 //    [self addSubview:messageLabel];
 //    self.messageLabel = messageLabel;
+}
+
+- (void)upNewFriendsBadge
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSNumber *newBadge = [LogInUser getCurrentLoginUser].newfriendbadge;
+        if (newBadge.integerValue) {
+            [self.numBtn setHidden:NO];
+            [self.numBtn setTitle:newBadge.stringValue forState:UIControlStateNormal];
+        }else{
+            [self.numBtn setHidden:YES];
+        }
+    });
 }
 
 @end
