@@ -302,7 +302,6 @@ static NSString *noCommentCell = @"NoCommentCell";
 - (void)loadnewcommentAndFeedZanAndForward
 {
     [self loadloadOneFeed2];
-//    [self loadnewFeedZanAndForward];
     [self loadNewCommentListData];
 }
 

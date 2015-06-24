@@ -284,7 +284,7 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_write"] style:UIBarButtonItemStyleBordered target:self action:@selector(publishStatus)];
         
         if (!_uid) {
-            UIImage *image = [UIImage imageNamed:@"navbar_write"];
+            UIImage *image = [UIImage imageNamed:@"navbar_remind"];
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0,0,40, 40)];
             [button addTarget:self action:@selector(homeMessagesItemClick) forControlEvents:UIControlEventTouchUpInside];
             button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 20);

@@ -126,12 +126,12 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
         if ([model.objectName isEqualToString:@"ChatRoomHeader"]) {
             ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
             [self.navigationController pushViewController:chatRoomListVC animated:YES];
-//            RCInformationNotificationMessage *infotM = [RCInformationNotificationMessage notificationWithMessage:@"请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全" extra:@""];
-//            [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:@"10019" content:infotM pushContent:@"注意人身财产安全" success:^(long messageId) {
-//                
-//            } error:^(RCErrorCode nErrorCode, long messageId) {
-//                
-//            }];
+            RCInformationNotificationMessage *infotM = [RCInformationNotificationMessage notificationWithMessage:@"请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全请在聊天中注意人身财产安全" extra:@""];
+            [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:@"10019" content:infotM pushContent:@"注意人身财产安全" success:^(long messageId) {
+//
+            } error:^(RCErrorCode nErrorCode, long messageId) {
+                
+            }];
         }else if([model.objectName isEqualToString:@"friendCell"]){
             WLFriendsRequestListController *friendRequestVC = [[WLFriendsRequestListController alloc] init];
             [self.navigationController pushViewController:friendRequestVC animated:YES];
@@ -242,6 +242,10 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     __weak typeof(&*self) blockSelf_ = self;
     //处理好友请求
     RCMessage *message = notification.object;
+    if ([message.content isMemberOfClass:[RCInformationNotificationMessage class]]) {
+        RCInformationNotificationMessage *fdsas = (RCInformationNotificationMessage *)message.content;
+        DLog(@"%@",fdsas.message);
+    }
     if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
         RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)message.content;
 

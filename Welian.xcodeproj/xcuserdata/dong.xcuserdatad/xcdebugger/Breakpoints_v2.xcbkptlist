@@ -20,22 +20,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Welian/AppDelegate.mm"
-            timestampString = "456732178.013002"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "595"
-            endingLineNumber = "595"
-            landmarkName = "-getNewFriendMessage:LoginUserId:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Welian/AppDelegate.mm"
             timestampString = "456732186.796317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -52,7 +36,7 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/AppDelegate.mm"
-                  timestampString = "456745826.584487"
+                  timestampString = "456805529.537623"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "634"
@@ -67,7 +51,7 @@
                   moduleName = "weLianDev"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dong/Desktop/Welian/Welian/AppDelegate.mm"
-                  timestampString = "456745826.584614"
+                  timestampString = "456805529.537794"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "634"
