@@ -66,12 +66,9 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    //注册键盘
-    [DaiDodgeKeyboard addRegisterTheViewNeedDodgeKeyboard:self.view];
-    
+    [super viewDidAppear:animated];
     if (_joinedRoom) {
         //退出聊天室
         //融云加入聊天室
@@ -108,6 +105,13 @@
                                                 DLog(@"quitChatRoom erro:%@",errStr);
                                             }];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //注册键盘
+    [DaiDodgeKeyboard addRegisterTheViewNeedDodgeKeyboard:self.view];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -482,24 +486,26 @@
     [WLHUDView showHUDWithStr:@"删除中..." dim:NO];
     [WeLianClient chatroomQuitWithId:chatRoomInfo.chatroomid
                              Success:^(id resultInfo) {
-                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                     [WLHUDView hiddenHud];
-                                     
-                                     //本地删除
-                                     [chatRoomInfo MR_deleteEntity];
-                                     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-                                     if (isNeedNote) {
-                                         [UIAlertView bk_showAlertViewWithTitle:@""
-                                                                        message:chatRoomInfo.role.boolValue ? @"删除并解散聊天室成功！" : @"删除并退出聊天室成功！"
-                                                              cancelButtonTitle:@"知道了"
-                                                              otherButtonTitles:nil
-                                                                        handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                                                                            [self refreshDataAndUI];
-                                                                        }];
-                                     }else{
-                                         [self refreshDataAndUI];
-                                     }
-                                 });
+                                 [WLHUDView hiddenHud];
+                                 
+                                 //本地删除
+                                 [chatRoomInfo MR_deleteEntity];
+                                 [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                                 
+                                 if (isNeedNote) {
+                                     [UIAlertView bk_showAlertViewWithTitle:@""
+                                                                    message:chatRoomInfo.role.boolValue ? @"删除并解散聊天室成功！" : @"删除并退出聊天室成功！"
+                                                          cancelButtonTitle:@"知道了"
+                                                          otherButtonTitles:nil
+                                                                    handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                                        [self refreshDataAndUI];
+                                                                    }];
+                                 }else{
+                                     [self refreshDataAndUI];
+                                 }
+//                                 dispatch_async(dispatch_get_main_queue(), ^{
+//                                     
+//                                 });
                              } Failed:^(NSError *error) {
                                  if (error) {
                                      [WLHUDView showErrorHUD:error.localizedDescription];
