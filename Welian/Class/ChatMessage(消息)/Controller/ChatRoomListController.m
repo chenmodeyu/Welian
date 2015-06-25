@@ -331,7 +331,7 @@
                                                     //    chatRoomVC.title = model.conversationTitle;
                                                     [self.navigationController pushViewController:chatRoomVC animated:YES];
                                                     //更新加入的数据
-                                                    [self refreshDataAndUI];
+//                                                    [self refreshDataAndUI];
                                                 });
                                             } error:^(RCErrorCode status) {
                                                 NSString *errStr = @"";

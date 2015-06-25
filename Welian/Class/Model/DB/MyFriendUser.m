@@ -203,6 +203,8 @@
 - (void)updateIsNotMyFriend
 {
     self.isMyFriend = @(NO);
+    //friendship /** 好友关系，1好友，2好友的好友,-1自己，0没关系  4:等待验证   5.已发送  */
+    self.friendship = @(2);
     [self.managedObjectContext MR_saveToPersistentStoreAndWait];
 }
 

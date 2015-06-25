@@ -603,6 +603,7 @@ BMKMapManager* _mapManager;
         [newfrendM setIsAgree:@(1)];
         //操作类型0：添加 1：接受  2:已添加 3：待验证
         [newfrendM setOperateType:@(2)];
+        newfrendM.friendship = @(1);//已经是好友
         
         //创建本地数据库好友
         MyFriendUser *friendUser = [MyFriendUser createMyFriendNewFriendModel:newfrendM LogInUser:loginUser];
