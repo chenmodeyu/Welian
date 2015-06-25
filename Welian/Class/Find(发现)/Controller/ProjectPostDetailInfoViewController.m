@@ -13,6 +13,8 @@
 #import "ChatViewController.h"
 #import "MessagesViewController.h"
 #import "ProjectDetailsViewController.h"
+#import "ChatListViewController.h"
+#import "WLChatViewController.h"
 
 #import "ProjectInfoViewCell.h"
 #import "FinancingInfoView.h"
@@ -291,11 +293,22 @@
         user = [MyFriendUser createOrUpddateMyFriendUserModel:_iProjectDetailInfo.user];
     }
     
+    
     UIViewController *rootVC = [self.navigationController.viewControllers firstObject];
     //当前已经在消息页面
-    if ([rootVC isKindOfClass:[MessagesViewController class]]) {
-        [KNSNotification postNotificationName:kCurrentChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
-        ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
+    if ([rootVC isKindOfClass:[ChatListViewController class]]) {
+        //            [KNSNotification postNotificationName:kCurrentChatFromUserInfo object:self userInfo:@{@"uid":_baseUserModel.uid.stringValue}];
+        
+//        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+//        if (!loginUser) {
+//            return ;
+//        }
+//        MyFriendUser *user = [loginUser getMyfriendUserWithUid:_baseUserModel.uid];
+        WLChatViewController *chatVC = [[WLChatViewController alloc] init];
+        chatVC.targetId                      = user.uid.stringValue;
+        chatVC.userName                    = user.name;
+        chatVC.conversationType              = ConversationType_PRIVATE;
+        chatVC.title                         = user.name;
         [self.navigationController pushViewController:chatVC animated:YES];
         
         //替换中间的内容
@@ -310,6 +323,27 @@
         
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
+    
+    
+//    UIViewController *rootVC = [self.navigationController.viewControllers firstObject];
+//    //当前已经在消息页面
+//    if ([rootVC isKindOfClass:[MessagesViewController class]]) {
+//        [KNSNotification postNotificationName:kCurrentChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
+//        ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:user];
+//        [self.navigationController pushViewController:chatVC animated:YES];
+//        
+//        //替换中间的内容
+//        NSMutableArray *contros = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+//        [contros removeObjectsInRange:NSMakeRange(1, contros.count - 1) ];
+//        [contros addObject:chatVC];
+//        
+//        [self.navigationController setViewControllers:contros animated:YES];
+//    }else{
+//        //进入聊天页面
+//        [KNSNotification postNotificationName:kChatFromUserInfo object:self userInfo:@{@"uid":user.uid.stringValue}];
+//        
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//    }
 }
 
 //查看创建用户的信息

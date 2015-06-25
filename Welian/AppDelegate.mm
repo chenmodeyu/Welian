@@ -144,7 +144,6 @@ BMKMapManager* _mapManager;
     
 #pragma mark 1. 是否应该显示新特性界面
     BOOL showNewFeature = [LCNewFeatureVC shouldShowNewFeature];
-//    showNewFeature = YES;
     if (0) {
 #pragma mark  设置新特性界面为当前窗口的根视图控制器
         self.window.rootViewController = self.newFeatureVC;
@@ -316,20 +315,21 @@ BMKMapManager* _mapManager;
     // 注册自定义消息
 //    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
     [[RCIM sharedRCIM] registerMessageType:CustomCardMessage.class];
+//    [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
     //聊天消息头像
-    if (Iphone6plus) {
-        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
-    }else{
-        NSLog(@"iPhone6 %d", Iphone6);
-        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
-    }
+//    if (Iphone6plus) {
+//        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
+//    }else{
+//        NSLog(@"iPhone6 %d", Iphone6);
+//        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
+//    }
     //外面全局消息头像
-    [RCIM sharedRCIM].globalMessagePortraitSize = CGSizeMake(20, 20);
+//    [RCIM sharedRCIM].globalMessagePortraitSize = CGSizeMake(20, 20);
     
     //设置头像形状
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
-    
+//    [RCIM sharedRCIM].enableMessageAttachUserInfo = YES;
     //用于返回用户的信息
     // 设置用户信息提供者。
     [[RCIM sharedRCIM] setUserInfoDataSource:self];
@@ -361,9 +361,9 @@ BMKMapManager* _mapManager;
 //                                                 name:RCKitDispatchMessageNotification
 //                                               object:nil];
     //消息免通知，默认是NO
-    //    [RCIM sharedRCIM].disableMessageNotificaiton = YES;
-    //关闭新消息提示音，默认值是NO，新消息有提示音.
-    //    [RCIM sharedRCIM].disableMessageAlertSound = YES;
+//        [RCIM sharedRCIM].disableMessageNotificaiton = YES;
+//    关闭新消息提示音，默认值是NO，新消息有提示音.
+//        [RCIM sharedRCIM].disableMessageAlertSound = YES;
 }
 
 //- (void)didReceiveMessageNotification:(NSNotification *)notification {
@@ -770,7 +770,7 @@ BMKMapManager* _mapManager;
         [_updataalert show];
     }
     //获取聊天消息记录 和好友请求消息
-//    [self getServiceChatMsgInfo];
+    [self getServiceChatMsgInfo];
     [KNSNotification postNotificationName:kChangeBannerKey object:self];
     [KNSNotification postNotificationName:KNEWStustUpdate object:self];
 }

@@ -363,7 +363,7 @@ static NSString *picCellid = @"PicCellID";
         [self.navigationItem.rightBarButtonItem setEnabled:YES];
     }
     [imagePicker dismissViewControllerAnimated:YES completion:^{
-        self.assetsArray = [NSMutableArray arrayWithArray:assets];;
+        self.assetsArray = [NSMutableArray arrayWithArray:assets];
         [self.collectionView reloadData];
         [self.tableView setTableFooterView:_collectionView];
     }];

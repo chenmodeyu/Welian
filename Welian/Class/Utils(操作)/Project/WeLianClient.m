@@ -1250,7 +1250,6 @@
 //取动态评论列表
 + (void)getFeedCommentListWithParameterDic:(NSDictionary *)params Success:(SuccessBlock)success Failed:(FailedBlock)failed
 {
-//    NSDictionary *params = @{@"fid":fid,@"page":page,@"size":size};
     [self reqestPostWithParams:params
                           Path:kFeedListCommentPath
                        Success:^(id resultInfo) {

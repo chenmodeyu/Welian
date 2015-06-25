@@ -178,7 +178,7 @@
 {
     _cardModel.content = _textView.text.length > 0 ? _textView.text : @"";
     NSDictionary *cardDic = [_cardModel keyValues];
-    NSDictionary *param = @{@"type":@(51),@"touser":_selectFriendUser.uid,@"card":cardDic,@"msg":_cardModel.content};
+//    NSDictionary *param = @{@"type":@(51),@"touser":_selectFriendUser.uid,@"card":cardDic,@"msg":_cardModel.content};
     
     LogInUser *loguser = [LogInUser getCurrentLoginUser];
     CustomCardMessage *cardMessage = [[CustomCardMessage alloc] init];
@@ -193,7 +193,6 @@
             if (_sendSuccessBlock) {
                 _sendSuccessBlock();
             }
-            [KNSNotification postNotificationName:@"123456" object:nil];
         });
         
     } error:^(RCErrorCode nErrorCode, long messageId) {

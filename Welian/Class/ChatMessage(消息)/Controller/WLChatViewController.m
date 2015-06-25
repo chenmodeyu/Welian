@@ -16,9 +16,10 @@
 #import "TOWebViewController.h"
 #import "InvestorUserInfoController.h"
 #import "ProjectPostDetailInfoViewController.h"
+#import "JKImagePickerController.h"
 
-@interface WLChatViewController ()<UIGestureRecognizerDelegate>
-
+@interface WLChatViewController ()<UIGestureRecognizerDelegate,JKImagePickerControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+//@property (nonatomic, strong) __block NSMutableArray *assetsArray;
 @end
 
 static NSString *tipMessageCellid=@"rcTipMessageCellIndentifier";
@@ -54,7 +55,6 @@ static NSString *customCardCellid = @"customCardCellid";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [KNSNotification addObserver:self selector:@selector(fdsafdadf) name:@"123456" object:nil];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     //是否允许保存新拍照片到本地系统
     self.enableSaveNewPhotoToLocalSystem = YES;
@@ -63,13 +63,8 @@ static NSString *customCardCellid = @"customCardCellid";
     
     //* 注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
     [self registerClass:[WLChatCustomCardCell class] forCellWithReuseIdentifier:customCardCellid];
-//    [self registerClass:[RCTipMessageCell class] forCellWithReuseIdentifier:tipMessageCellid];
 }
 
-- (void)fdsafdadf
-{
-    [self.conversationMessageCollectionView reloadData];
-}
 
 /**
  *  更新左上角未读消息数
@@ -139,10 +134,9 @@ static NSString *customCardCellid = @"customCardCellid";
 #pragma mark override
 /**
  *  打开大图。开发者可以重写，自己下载并且展示图片。默认使用内置controller
- *
- *  @param model 图片消息model
+ *  @param imageMessageContent 图片消息内容
  */
-//- (void)presentImagePreviewController:(RCMessageModel *)model
+//- (void)presentImagePreviewController:(RCMessageModel *)model;
 //{
 //    RCImagePreviewController *_imagePreviewVC =
 //    [[RCImagePreviewController alloc] init];
@@ -151,9 +145,9 @@ static NSString *customCardCellid = @"customCardCellid";
 //    
 //    UINavigationController *nav = [[UINavigationController alloc]
 //                                   initWithRootViewController:_imagePreviewVC];
-//    
 //    [self presentViewController:nav animated:YES completion:nil];
 //}
+
 
 #pragma mark override
 /**
@@ -303,11 +297,86 @@ static NSString *customCardCellid = @"customCardCellid";
  */
 -(void)pluginBoardView:(RCPluginBoardView*)pluginBoardView clickedItemWithTag:(NSInteger)tag
 {
-//    if (tag == 1001) {
-//        
-//    }else{
+    if (tag == 1001) {
+        [self showPicVC];
+    }else if(tag == 1002){
+        [self clickSheetCamera];
+    }else{
         [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
-//    }
+    }
 }
+
+- (void)showPicVC
+{
+    JKImagePickerController *imagePickerController = [[JKImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.filterType = JKImagePickerControllerFilterTypePhotos;
+    imagePickerController.showsCancelButton = YES;
+    imagePickerController.allowsMultipleSelection = YES;
+    imagePickerController.minimumNumberOfSelection = 1;
+    imagePickerController.maximumNumberOfSelection = 9;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+    [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+#pragma mark - JKImagePickerControllerDelegate
+- (void)imagePickerController:(JKImagePickerController *)imagePicker didSelectAssets:(NSArray *)assets isSource:(BOOL)source
+{
+    WEAKSELF
+    [imagePicker dismissViewControllerAnimated:YES completion:^{
+        for (JKAssets *jkasse in assets) {
+            [weakSelf sendImageMessage:[RCImageMessage messageWithImage:jkasse.fullImage] pushContent:@"图片"];
+        }
+    }];
+}
+
+- (void)imagePickerControllerJKDidCancel:(JKImagePickerController *)imagePicker
+{
+    [imagePicker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)saveNewPhotoToLocalSystemAfterSendingSuccess:(UIImage *)newImage
+{
+    //保存图片
+    UIImage *image = newImage;
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+}
+
+
+// 拍照
+- (void)clickSheetCamera
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+//    [imagePicker setAllowsEditing:YES];
+    // 判断相机可以使用
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }else {
+        [[[UIAlertView alloc] initWithTitle:nil message:@"摄像头不可用！！！" delegate:self cancelButtonTitle:@"知道了！" otherButtonTitles:nil, nil] show];
+        return;
+    }
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //image就是你选取的照片
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    [self sendImageMessage:[RCImageMessage messageWithImage:image] pushContent:@"图片"];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end

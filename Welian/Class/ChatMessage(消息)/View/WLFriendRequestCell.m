@@ -98,6 +98,7 @@
     [numBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [numBtn setBackgroundImage:[UIImage imageNamed:@"notification_badge1"] forState:UIControlStateNormal];
     [self addSubview:numBtn];
+    numBtn.hidden = YES;
     self.numBtn = numBtn;
     
     //昵称

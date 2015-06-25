@@ -510,60 +510,60 @@ didSelectLinkWithCorrectionCheckingResult:(NSString *)components
 - (void)longPressGestureRecognizerHandle:(UILongPressGestureRecognizer *)longPressGestureRecognizer {
     if (longPressGestureRecognizer.state != UIGestureRecognizerStateBegan || ![self becomeFirstResponder])
         return;
-    if (self.messageBubbleView.message.messageMediaType == WLBubbleMessageMediaTypeText) {
-        UIMenuItem *copy = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"copy", @"MessageDisplayKitString", @"复制文本消息") action:@selector(copyed:)];
-        
-        UIMenuController *menu = [UIMenuController sharedMenuController];
-        [menu setMenuItems:[NSArray arrayWithObjects:copy, nil]];
-        
-        
-        CGRect targetRect = [self convertRect:[self.messageBubbleView bubbleFrame]
-                                     fromView:self.messageBubbleView];
-        
-        [menu setTargetRect:CGRectInset(targetRect, 0.0f, 4.0f) inView:self];
-        
-        
-        [KNSNotification addObserver:self
-                            selector:@selector(handleMenuWillShowNotification:)
-                                name:UIMenuControllerWillShowMenuNotification
-                              object:nil];
-        [menu setMenuVisible:YES animated:YES];
-    }else if(self.messageBubbleView.message.messageMediaType == WLBubbleMessageMediaTypeCard){
-        UIMenuItem *menuItem = nil;
-        switch (self.messageBubbleView.message.cardType.integerValue) {
-            case WLBubbleMessageCardTypeActivity:
-            case WLBubbleMessageCardTypeProject:
-            case WLBubbleMessageCardTypeWeb:
-            case WLBubbleMessageCardTypeInvestorGet://索要项目
-            case WLBubbleMessageCardTypeInvestorPost://投递项目
-            case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
-            {
-                menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"transpond", @"MessageDisplayKitString", @"转发") action:@selector(transpond:)];
-            }
-                break;
-            default:
-            {
-                menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"copy", @"MessageDisplayKitString", @"复制文本消息") action:@selector(copyed:)];
-            }
-                break;
-        }
-        
-        if (menuItem) {
-            UIMenuController *menu = [UIMenuController sharedMenuController];
-            [menu setMenuItems:[NSArray arrayWithObjects:menuItem, nil]];
-            
-            CGRect targetRect = [self convertRect:[self.messageBubbleView bubbleFrame]
-                                         fromView:self.messageBubbleView];
-            
-            [menu setTargetRect:CGRectInset(targetRect, 0.0f, 4.0f) inView:self];
-            
-            [KNSNotification addObserver:self
-                                selector:@selector(handleMenuWillShowNotification:)
-                                    name:UIMenuControllerWillShowMenuNotification
-                                  object:nil];
-            [menu setMenuVisible:YES animated:YES];
-        }
-    }
+//    if (self.messageBubbleView.message.messageMediaType == WLBubbleMessageMediaTypeText) {
+//        UIMenuItem *copy = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"copy", @"MessageDisplayKitString", @"复制文本消息") action:@selector(copyed:)];
+//        
+//        UIMenuController *menu = [UIMenuController sharedMenuController];
+//        [menu setMenuItems:[NSArray arrayWithObjects:copy, nil]];
+//        
+//        
+//        CGRect targetRect = [self convertRect:[self.messageBubbleView bubbleFrame]
+//                                     fromView:self.messageBubbleView];
+//        
+//        [menu setTargetRect:CGRectInset(targetRect, 0.0f, 4.0f) inView:self];
+//        
+//        
+//        [KNSNotification addObserver:self
+//                            selector:@selector(handleMenuWillShowNotification:)
+//                                name:UIMenuControllerWillShowMenuNotification
+//                              object:nil];
+//        [menu setMenuVisible:YES animated:YES];
+//    }else if(self.messageBubbleView.message.messageMediaType == WLBubbleMessageMediaTypeCard){
+//        UIMenuItem *menuItem = nil;
+//        switch (self.messageBubbleView.message.cardType.integerValue) {
+//            case WLBubbleMessageCardTypeActivity:
+//            case WLBubbleMessageCardTypeProject:
+//            case WLBubbleMessageCardTypeWeb:
+//            case WLBubbleMessageCardTypeInvestorGet://索要项目
+//            case WLBubbleMessageCardTypeInvestorPost://投递项目
+//            case WLBubbleMessageCardTypeInvestorUser://用户名片卡片
+//            {
+//                menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"transpond", @"MessageDisplayKitString", @"转发") action:@selector(transpond:)];
+//            }
+//                break;
+//            default:
+//            {
+//                menuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"copy", @"MessageDisplayKitString", @"复制文本消息") action:@selector(copyed:)];
+//            }
+//                break;
+//        }
+//        
+//        if (menuItem) {
+//            UIMenuController *menu = [UIMenuController sharedMenuController];
+//            [menu setMenuItems:[NSArray arrayWithObjects:menuItem, nil]];
+//            
+//            CGRect targetRect = [self convertRect:[self.messageBubbleView bubbleFrame]
+//                                         fromView:self.messageBubbleView];
+//            
+//            [menu setTargetRect:CGRectInset(targetRect, 0.0f, 4.0f) inView:self];
+//            
+//            [KNSNotification addObserver:self
+//                                selector:@selector(handleMenuWillShowNotification:)
+//                                    name:UIMenuControllerWillShowMenuNotification
+//                                  object:nil];
+//            [menu setMenuVisible:YES animated:YES];
+//        }
+//    }
 }
 
 - (void)sigleTapGestureRecognizerHandle:(UITapGestureRecognizer *)tapGestureRecognizer {

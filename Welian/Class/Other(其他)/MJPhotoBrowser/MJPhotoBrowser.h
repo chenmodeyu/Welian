@@ -6,6 +6,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MJPhotoToolbar.h"
+#import "MJPhoto.h"
 
 @protocol MJPhotoBrowserDelegate;
 @interface MJPhotoBrowser : UIViewController <UIScrollViewDelegate>

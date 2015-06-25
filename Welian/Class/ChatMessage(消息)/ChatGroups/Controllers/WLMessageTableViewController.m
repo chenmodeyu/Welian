@@ -437,8 +437,9 @@ static CGPoint  delayOffset = {0.0};
     [self.view sendSubviewToBack:messageTableView];
     _messageTableView = messageTableView;
 
+#warning 输入框高度0  隐藏+++++++++++++++++++++++++++
     // 设置Message TableView 的bottom edg
-    CGFloat inputViewHeight = (self.inputViewStyle == WLMessageInputViewStyleFlat) ? 45.0f : 40.0f;
+    CGFloat inputViewHeight = 0;// (self.inputViewStyle == WLMessageInputViewStyleFlat) ? 45.0f : 40.0f;
     [self setTableViewInsetsWithBottomValue:inputViewHeight];
     
     // 设置整体背景颜色

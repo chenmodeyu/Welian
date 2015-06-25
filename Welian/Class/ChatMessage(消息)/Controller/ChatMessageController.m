@@ -39,12 +39,12 @@
     self = [super initWithStyle:style];
     if (self) {
         //添加聊天用户改变监听
-        [KNSNotification addObserver:self selector:@selector(chatUsersChanged:) name:kChatUserChanged object:nil];
+//        [KNSNotification addObserver:self selector:@selector(chatUsersChanged:) name:kChatUserChanged object:nil];
         //添加聊天消息数量改变监听
-        [KNSNotification addObserver:self selector:@selector(chatUsersChanged:) name:kChatMsgNumChanged object:nil];
+//        [KNSNotification addObserver:self selector:@selector(chatUsersChanged:) name:kChatMsgNumChanged object:nil];
         
-        //如果是从好友列表进入聊天，首页变换
-        [KNSNotification addObserver:self selector:@selector(chatFromUserInfo:) name:kChatFromUserInfo object:nil];
+//        //如果是从好友列表进入聊天，首页变换
+//        [KNSNotification addObserver:self selector:@selector(chatFromUserInfo:) name:kChatFromUserInfo object:nil];
         
         self.datasource = [[LogInUser getCurrentLoginUser] chatUsers];
     }
@@ -146,7 +146,7 @@
         [friendUser updateUnReadMessageNumber:@(0)];
         
         //更新首页角标
-        [KNSNotification postNotificationName:kChatMsgNumChanged object:nil];
+//        [KNSNotification postNotificationName:kChatMsgNumChanged object:nil];
         
         //刷新列表
         self.datasource = [[LogInUser getCurrentLoginUser] chatUsers];

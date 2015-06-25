@@ -84,7 +84,6 @@ static NSString *noCommentCell = @"NoCommentCell";
     _commentHeadView.feedTuiBlock = ^(WLStatusM *statusM){
         [weakSelf.statusM setForwards:statusM.forwards];
         [weakSelf backDataStatusFrame:NO];
-
     };
     return _commentHeadView;
 }
@@ -316,11 +315,11 @@ static NSString *noCommentCell = @"NoCommentCell";
     [WeLianClient getFeedCommentListWithParameterDic:self.reqestDic Success:^(id resultInfo) {
         [_dataArrayM removeAllObjects];
         NSArray *datarray = [CommentMode objectsWithInfo:resultInfo];
-        [self hiddenRefresh];
         if (!datarray.count) return;
         _dataArrayM = [self commentFrameArrayModel:datarray];
         [self.statusM setComments:datarray];
         [self updataCommentBlock];
+        [self hiddenRefresh:datarray.count];
         [self.tableView reloadData];
     } Failed:^(NSError *error) {
         [self.refreshControl endRefreshing];
@@ -356,7 +355,7 @@ static NSString *noCommentCell = @"NoCommentCell";
     [WeLianClient getFeedCommentListWithParameterDic:self.reqestDic Success:^(id resultInfo) {
         NSArray *dataarr = [CommentMode objectsWithInfo:resultInfo];
         [_dataArrayM addObjectsFromArray:[self commentFrameArrayModel:dataarr]];
-        [self hiddenRefresh];
+        [self hiddenRefresh:dataarr.count];
         [self.tableView reloadData];
     } Failed:^(NSError *error) {
         [self.refreshControl endRefreshing];
@@ -371,12 +370,12 @@ static NSString *noCommentCell = @"NoCommentCell";
     _selecCommFrame = nil;
 }
 
-- (void)hiddenRefresh
+- (void)hiddenRefresh:(NSInteger)count
 {
     [self.refreshControl endRefreshing];
     [self.tableView.footer endRefreshing];
     
-    if (_dataArrayM.count<KCellConut) {
+    if (count<KCellConut) {
         [self.tableView.footer setHidden:YES];
     }else{
         NSInteger page = [[self.reqestDic objectForKey:@"page"] integerValue];
@@ -481,6 +480,7 @@ static NSString *noCommentCell = @"NoCommentCell";
             CommentCell *cell = [CommentCell cellWithTableView:tableView];
             // 传递的模型：文字数据 + 子控件frame数据
             cell.commentCellFrame = _dataArrayM[indexPath.row];
+            cell.showBottomLine = YES;
             cell.commentVC = self;
             return cell;
         }else{
@@ -504,7 +504,7 @@ static NSString *noCommentCell = @"NoCommentCell";
     }
     
     LogInUser *mode = [LogInUser getCurrentLoginUser];
-    if(!mode){
+    if(mode){
         if ([selecCommF.commentM.user.uid integerValue]==[mode.uid integerValue]) {
             WEAKSELF
             UIActionSheet *sheet = [UIActionSheet bk_actionSheetWithTitle:nil];
@@ -530,11 +530,7 @@ static NSString *noCommentCell = @"NoCommentCell";
             _selecCommFrame = selecCommF;
             [self.messageView startCompile:_selecCommFrame.commentM.user];
         }
-    }else{
-        _selecCommFrame = selecCommF;
-        [self.messageView startCompile:_selecCommFrame.commentM.user];
     }
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

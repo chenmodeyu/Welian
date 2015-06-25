@@ -1215,7 +1215,6 @@ static const float kAfterInteractiveMaxProgressValue    = 0.9f;
         //add the loading bar to the view
         if (self.showLoadingBar)
             [self.view insertSubview:self.loadingBarView aboveSubview:self.navigationBar];
-        
         //kickstart the loading progress
         [self setLoadingProgress:kInitialProgressValue];
         

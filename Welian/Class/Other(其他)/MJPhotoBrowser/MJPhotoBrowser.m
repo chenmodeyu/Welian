@@ -6,7 +6,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "MJPhotoBrowser.h"
-#import "MJPhoto.h"
 #import "SDWebImageManager+MJ.h"
 #import "MJPhotoView.h"
 #import <AssetsLibrary/AssetsLibrary.h>

@@ -10,6 +10,7 @@
 #import "UserInfoViewController.h"
 #import "ChatRoomSettingViewController.h"
 #import "ChatRoomUserListViewController.h"
+#import "JKImagePickerController.h"
 
 #import "ShareFriendsController.h"
 #import "PublishStatusController.h"
@@ -18,7 +19,7 @@
 #import "WLActivityView.h"
 #import "ShareEngine.h"
 
-@interface WLChatRoomController ()
+@interface WLChatRoomController ()<JKImagePickerControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (strong,nonatomic) ChatRoomInfo *chatRoomInfo;
 
@@ -262,9 +263,101 @@
 }
 
 
+- (void)didTapPhoneNumberInMessageCell:(NSString *)phoneNumber model:(RCMessageModel *)model
+{
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/**
+ *  点击pluginBoardView上item响应事件
+ *
+ *  @param pluginBoardView 功能模板
+ *  @param tag             标记
+ */
+-(void)pluginBoardView:(RCPluginBoardView*)pluginBoardView clickedItemWithTag:(NSInteger)tag
+{
+    if (tag == 1001) {
+        [self showPicVC];
+    }else if(tag == 1002){
+        [self clickSheetCamera];
+    }else{
+        [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
+    }
+}
+
+- (void)showPicVC
+{
+    JKImagePickerController *imagePickerController = [[JKImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.filterType = JKImagePickerControllerFilterTypePhotos;
+    imagePickerController.showsCancelButton = YES;
+    imagePickerController.allowsMultipleSelection = YES;
+    imagePickerController.minimumNumberOfSelection = 1;
+    imagePickerController.maximumNumberOfSelection = 9;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+    [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+#pragma mark - JKImagePickerControllerDelegate
+- (void)imagePickerController:(JKImagePickerController *)imagePicker didSelectAssets:(NSArray *)assets isSource:(BOOL)source
+{
+    WEAKSELF
+    [imagePicker dismissViewControllerAnimated:YES completion:^{
+        for (JKAssets *jkasse in assets) {
+            [weakSelf sendImageMessage:[RCImageMessage messageWithImage:jkasse.fullImage] pushContent:@"图片"];
+        }
+    }];
+}
+
+- (void)imagePickerControllerJKDidCancel:(JKImagePickerController *)imagePicker
+{
+    [imagePicker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)saveNewPhotoToLocalSystemAfterSendingSuccess:(UIImage *)newImage
+{
+    //保存图片
+    UIImage *image = newImage;
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+}
+
+
+// 拍照
+- (void)clickSheetCamera
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    //    [imagePicker setAllowsEditing:YES];
+    // 判断相机可以使用
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }else {
+        [[[UIAlertView alloc] initWithTitle:nil message:@"摄像头不可用！！！" delegate:self cancelButtonTitle:@"知道了！" otherButtonTitles:nil, nil] show];
+        return;
+    }
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //image就是你选取的照片
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    [self sendImageMessage:[RCImageMessage messageWithImage:image] pushContent:@"图片"];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

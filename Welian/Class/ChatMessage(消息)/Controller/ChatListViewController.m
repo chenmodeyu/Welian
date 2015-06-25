@@ -17,6 +17,7 @@
 #import "WLFriendRequestCell.h"
 #import "CustomCardMessage.h"
 #import "MainViewController.h"
+#import "ChatMessageController.h"
 
 @interface ChatListViewController ()
 
@@ -91,9 +92,18 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"历史消息" style:UIBarButtonItemStyleBordered target:self action:@selector(historyMessage)];
     self.conversationListTableView.tableFooterView = [UIView new];
     [self.conversationListTableView registerClass:[ChatRoomHeaderView class] forCellReuseIdentifier:chatroomcellid];
     [self.conversationListTableView registerClass:[WLFriendRequestCell class] forCellReuseIdentifier:chatNewFirendcellid];
+}
+
+#pragma mark - 历史消息
+- (void)historyMessage
+{
+    ChatMessageController *historyMVC = [[ChatMessageController alloc] initWithStyle:UITableViewStylePlain];
+    historyMVC.title = @"历史消息";
+    [self.navigationController pushViewController:historyMVC animated:YES];
 }
 
 /**
@@ -244,10 +254,6 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
     __weak typeof(&*self) blockSelf_ = self;
     //处理好友请求
     RCMessage *message = notification.object;
-    if ([message.content isMemberOfClass:[RCInformationNotificationMessage class]]) {
-        RCInformationNotificationMessage *fdsas = (RCInformationNotificationMessage *)message.content;
-        DLog(@"%@",fdsas.message);
-    }
     if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
         RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)message.content;
 
