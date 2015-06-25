@@ -750,7 +750,7 @@ static NSString *fridcellid = @"fridcellid";
             break;
     }
     
-    //设置操作按钮
+    //设置操作按钮 //操作类型0：添加 1：接受  2:已添加 3：待验证    10:隐藏
     if (_operateType) {
         _userInfoView.operateType = _operateType;
     }

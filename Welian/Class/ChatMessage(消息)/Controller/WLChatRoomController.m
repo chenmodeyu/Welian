@@ -257,7 +257,8 @@
             userMode.uid = @(userId.integerValue);
         }
     }
-    UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:userMode OperateType:userMode.friendship.integerValue == 1 ? @(10) : nil HidRightBtn:NO];
+    ///**  好友关系，1好友，2好友的好友,-1自己，0没关系   */
+    UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:userMode OperateType:userMode.friendship.integerValue == -1 ? @(10) : nil HidRightBtn:NO];
     [self.navigationController pushViewController:userInfoVC animated:YES];
 }
 
