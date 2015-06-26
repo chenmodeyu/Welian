@@ -184,6 +184,7 @@
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"不限制时间",@"限制时间"]];
     segmentedControl.frame = CGRectMake(20.f, noteLabel1.bottom + 15.f, headerView.width - 40.f, 30.f);
     [segmentedControl addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
+    segmentedControl.tintColor = KBlueTextColor;
     //设置默认选择的内容
     [segmentedControl setSelectedSegmentIndex:_selectType];
     [headerView addSubview:segmentedControl];
