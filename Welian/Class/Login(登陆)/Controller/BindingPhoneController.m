@@ -80,12 +80,35 @@
 
     [WLHUDView showHUDWithStr:@"绑定中..." dim:YES];
     [WeLianClient loginWithParameterDic:requstDic Success:^(id resultInfo) {
-        [WLHUDView hiddenHud];
+//        [WLHUDView hiddenHud];
         ILoginUserModel *loginUserM = resultInfo;
-        [LogInUser createLogInUserModel:loginUserM];
-        //进入主页面
-        MainViewController *mainVC = [[MainViewController alloc] init];
-        [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
+        [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
+            //设置当前的用户信息
+            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
+                                                                        name:loginUserM.name
+                                                                    portrait:loginUserM.avatar];
+            [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [WLHUDView hiddenHud];
+                [LogInUser createLogInUserModel:loginUserM];
+                // 进入主页面
+                MainViewController *mainVC = [[MainViewController alloc] init];
+                [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
+            });
+        }error:^(RCConnectErrorCode status) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
+            });
+            NSLog(@"RCConnectErrorCode is %ld",(long)status);
+        } tokenIncorrect:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [WLHUDView showErrorHUD:@"token过期"];
+            });
+        }];
+//        [LogInUser createLogInUserModel:loginUserM];
+//        //进入主页面
+//        MainViewController *mainVC = [[MainViewController alloc] init];
+//        [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
         
     } Failed:^(NSError *error) {
         [WLHUDView showErrorHUD:error.localizedDescription];

@@ -44,6 +44,7 @@
         [self addSubview:_backgView];
     
         _iconImage = [[UIImageView alloc] initWithFrame:CGRectMake(iconX, iconX, iconW, iconW)];
+        [_iconImage setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
         _iconImage.layer.masksToBounds = YES;
         _iconImage.layer.cornerRadius = iconW/2;
         [_backgView addSubview:_iconImage];

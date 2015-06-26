@@ -30,6 +30,9 @@
         [nameLabel setFont:WLFONT(16)];
         [nameLabel setText:@"聊天室"];
         [cellView addSubview:nameLabel];
+        //设置下边边线
+        cellView.layer.borderColor = RGB(210, 210, 210).CGColor;
+        cellView.layer.borderWidths = @"{0,0,0.5,0}";
     }
     return self;
 }

@@ -40,7 +40,7 @@
 {
     [super layoutSubviews];
     //设置下边边线
-    self.layer.borderColor = RGB(230, 230, 230).CGColor;
+    self.layer.borderColor = RGB(210, 210, 210).CGColor;
     self.layer.borderWidths = @"{0,0,0.5,0}";
     
     //设置头像

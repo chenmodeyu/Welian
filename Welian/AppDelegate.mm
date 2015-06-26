@@ -36,8 +36,6 @@
 #import "CustomCardMessage.h"
 #import "CommentInfoController.h"
 
-#define kDeviceToken @"RongCloud_SDK_DeviceToken"
-
 @interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
@@ -130,7 +128,6 @@ BMKMapManager* _mapManager;
 	_mapManager = [[BMKMapManager alloc]init];
 	BOOL ret = [_mapManager start:KBMK_Key generalDelegate:self];
 	if (!ret) {
-        
 	}
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
@@ -170,7 +167,7 @@ BMKMapManager* _mapManager;
 #pragma mark - 进入主界面
 - (void)enterMainVC {
     
-    if ([UserDefaults objectForKey:kSessionId]) {
+    if ([LogInUser getCurrentLoginUser]) {
         /** 已登陆 */
         self.mainVC = [[MainViewController alloc] init];
         [self.mainVC setDelegate:self];
@@ -298,7 +295,6 @@ BMKMapManager* _mapManager;
     if (![self checkSdkInstance]) {
         return nil;
     }
-    
     return [_gexinPusher sendMessage:body error:error];
 }
 
@@ -307,34 +303,20 @@ BMKMapManager* _mapManager;
     NSString *_deviceTokenCache = [UserDefaults objectForKey:kRongCloudDeviceToken];
     //初始化融云SDK
     [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY deviceToken:_deviceTokenCache];
-    //设置会话列表头像和会话界面头像
     //状态监听
     [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
-    //接收消息的监听器。如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。
-//    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
     // 注册自定义消息
-//    [[RCIM sharedRCIM] registerMessageType:CustomMessageType.class];
     [[RCIM sharedRCIM] registerMessageType:CustomCardMessage.class];
-//    [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
-    //聊天消息头像
-//    if (Iphone6plus) {
-//        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
-//    }else{
-//        NSLog(@"iPhone6 %d", Iphone6);
-//        [RCIM sharedRCIM].globalConversationPortraitSize = CGSizeMake(45, 45);
-//    }
-    //外面全局消息头像
-//    [RCIM sharedRCIM].globalMessagePortraitSize = CGSizeMake(20, 20);
     
     //设置头像形状
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
-//    [RCIM sharedRCIM].enableMessageAttachUserInfo = YES;
+    [RCIM sharedRCIM].enableMessageAttachUserInfo = YES;
     //用于返回用户的信息
     // 设置用户信息提供者。
     [[RCIM sharedRCIM] setUserInfoDataSource:self];
     // 设置群组信息提供者。
-    [[RCIM sharedRCIM] setGroupInfoDataSource:self];
+//    [[RCIM sharedRCIM] setGroupInfoDataSource:self];
     
     //保存token
     //设置当前的用户信息
@@ -342,12 +324,10 @@ BMKMapManager* _mapManager;
     NSString *token = loginUser.rongCloudToken;
     if (token.length > 0 && loginUser) {
         //登陆融云服务器  // 快速集成第二步，连接融云服务器
-//        [WLHUDView showHUDWithStr:@"连接融云服务器中..." dim:YES];
         [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
             //保存默认用户
-            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:nil];
-            [RCIMClient sharedRCIMClient].currentUserInfo = _currentUserInfo;
-            
+            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:loginUser.avatar];
+            [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
         } error:^(RCConnectErrorCode status) {
             NSLog(@"RCConnectErrorCode is %ld",(long)status);
         } tokenIncorrect:^{
@@ -431,30 +411,30 @@ BMKMapManager* _mapManager;
 }
 
 // 获取群组信息的方法。
--(void)getGroupInfoWithGroupId:(NSString*)groupId completion:(void (^)(RCGroup *group))completion
-{
-    // 此处最终代码逻辑实现需要您从本地缓存或服务器端获取群组信息。
-    
-    if ([@"1" isEqual:groupId]) {
-        RCGroup *group = [[RCGroup alloc]init];
-        group.groupId = @"1";
-        group.groupName = @"同城交友";
-        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
-        
-        return completion(group);
-    }
-    
-    if ([@"2" isEqual:groupId]) {
-        RCGroup *group = [[RCGroup alloc]init];
-        group.groupId = @"2";
-        group.groupName = @"跳蚤市场";
-        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
-        
-        return completion(group);
-    }
-    
-    return completion(nil);
-}
+//-(void)getGroupInfoWithGroupId:(NSString*)groupId completion:(void (^)(RCGroup *group))completion
+//{
+//    // 此处最终代码逻辑实现需要您从本地缓存或服务器端获取群组信息。
+//    
+//    if ([@"1" isEqual:groupId]) {
+//        RCGroup *group = [[RCGroup alloc]init];
+//        group.groupId = @"1";
+//        group.groupName = @"同城交友";
+//        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+//        
+//        return completion(group);
+//    }
+//    
+//    if ([@"2" isEqual:groupId]) {
+//        RCGroup *group = [[RCGroup alloc]init];
+//        group.groupId = @"2";
+//        group.groupName = @"跳蚤市场";
+//        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
+//        
+//        return completion(group);
+//    }
+//    
+//    return completion(nil);
+//}
 
 
 #pragma mark - 友盟统计

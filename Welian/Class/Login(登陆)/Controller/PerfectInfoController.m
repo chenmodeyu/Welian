@@ -219,8 +219,8 @@
     [WLHUDView showHUDWithStr:@"正在加载..." dim:YES];
     [WeLianClient wxRegisterWithParameterDic:requstDic Success:^(id resultInfo) {
         DLog(@"%@",resultInfo);
-        [WLHUDView hiddenHud];
         if ([resultInfo isKindOfClass:[NSDictionary class]]) {
+            [WLHUDView hiddenHud];
             [UIAlertView bk_showAlertViewWithTitle:@"手机号码已经注册，可直接绑定" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"绑定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
                 if (buttonIndex==1) {
                     [self bindingPhoneClick:nil];
@@ -229,44 +229,33 @@
 
         }else{
             ILoginUserModel *loginUserM = resultInfo;
-            [LogInUser createLogInUserModel:loginUserM];
-            // 进入主页面
-            MainViewController *mainVC = [[MainViewController alloc] init];
-            [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
+            [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
+                //设置当前的用户信息
+                RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
+                                                                            name:loginUserM.name
+                                                                        portrait:loginUserM.avatar];
+                [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [WLHUDView hiddenHud];
+                    [LogInUser createLogInUserModel:loginUserM];
+                    // 进入主页面
+                    MainViewController *mainVC = [[MainViewController alloc] init];
+                    [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
+                });
+            } error:^(RCConnectErrorCode status) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
+                });
+                NSLog(@"RCConnectErrorCode is %ld",(long)status);
+            } tokenIncorrect:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [WLHUDView showErrorHUD:@"token过期"];
+                });
+            }];
         }
     } Failed:^(NSError *error) {
         [WLHUDView hiddenHud];
     }];
-//    [WLHttpTool weixinRegisterParameterDic:requstDic success:^(id JSON) {
-//        NSDictionary *dataDic = JSON;
-//        if (dataDic) {
-//            UserInfoModel *mode = [UserInfoModel objectWithKeyValues:dataDic];
-//            [mode setName:_nameTF.text];
-//            [mode setMobile:_phoneTF.text];
-//            [mode setCompany:_companyTF.text];
-//            [mode setPosition:_postTF.text];
-//            //记录最后一次登陆的手机号
-//            SaveLoginMobile(mode.mobile);
-//            
-//            [UserDefaults setObject:mode.sessionid forKey:kSessionId];
-//            [LogInUser createLogInUserModel:mode];
-////            [LogInUser setUseropenid:[self.userInfoDic objectForKey:@"openid"]];
-////            [LogInUser setUserunionid:[self.userInfoDic objectForKey:@"unionid"]];
-//            BSearchFriendsController *bsearchVC = [[BSearchFriendsController alloc] init];
-//            [bsearchVC setIsStart:YES];
-//            NavViewController *nav = [[NavViewController alloc] initWithRootViewController:bsearchVC];
-//            [self presentViewController:nav animated:YES completion:nil];
-//        }
-//    } fail:^(NSError *error) {
-//        if (error.code==1) {
-//            [UIAlertView bk_showAlertViewWithTitle:@"手机号码已经注册，可直接绑定" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"绑定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-//                if (buttonIndex==1) {
-//                    [self bindingPhoneClick:nil];
-//                }
-//            }];
-//
-//        }
-//    }];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
