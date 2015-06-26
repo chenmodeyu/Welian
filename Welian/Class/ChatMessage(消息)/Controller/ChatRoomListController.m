@@ -69,6 +69,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    //注册键盘
+    [DaiDodgeKeyboard addRegisterTheViewNeedDodgeKeyboard:self.view];
+    
     if (_joinedRoom) {
         //退出聊天室
         //融云加入聊天室
@@ -107,29 +110,27 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    //注册键盘
-    [DaiDodgeKeyboard addRegisterTheViewNeedDodgeKeyboard:self.view];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
+    [super viewDidDisappear:animated];
     //移除監控
     [DaiDodgeKeyboard removeRegisterTheViewNeedDodgeKeyboard];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //tableview头部距离问题
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.datasource = [ChatRoomInfo getAllChatRoomInfos];
     
     //添加创建活动按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStyleDone target:self action:@selector(createChatRoom)];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height-KPasswordH) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, ViewCtrlTopBarHeight, self.view.width, self.view.height - ViewCtrlTopBarHeight - KPasswordH) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -212,6 +213,7 @@
         [WLHUDView showErrorHUD:@"请输入聊天室口令！"];
         return;
     }
+    
     [self joinRoomWithCode:_roomIdTF.text Room:nil];
 }
 
@@ -355,6 +357,7 @@
                                                         errStr = @"不在聊天室中。";
                                                         break;
                                                     default:
+                                                        errStr = [NSString stringWithFormat:@"%d",status];
                                                         break;
                                                 }
                                                 DLog(@"joinChatRoom erro:%@",errStr);
@@ -503,9 +506,6 @@
                                  }else{
                                      [self refreshDataAndUI];
                                  }
-//                                 dispatch_async(dispatch_get_main_queue(), ^{
-//                                     
-//                                 });
                              } Failed:^(NSError *error) {
                                  if (error) {
                                      [WLHUDView showErrorHUD:error.localizedDescription];
