@@ -151,7 +151,6 @@
 {
     //取消授权
     [ShareSDK cancelAuthWithType:ShareTypeWeixiSession];
-    
     //用户用户信息
     id<ISSAuthOptions> authOptions = [ShareSDK authOptionsWithAutoAuth:YES
                                                          allowCallback:YES
@@ -159,12 +158,10 @@
                                                           viewDelegate:nil
                                                authManagerViewDelegate:nil];
     [WLHUDView showHUDWithStr:@"授权中..." dim:YES];
-
     [ShareSDK getUserInfoWithType:ShareTypeWeixiSession
                       authOptions:authOptions
                            result:^(BOOL result, id<ISSPlatformUser> userInfo, id<ICMErrorInfo> error) {
-                               [WLHUDView hiddenHud];
-                               
+//                               [WLHUDView hiddenHud];
                                if (result)
                                {
                                    NSDictionary *sourceDic = [userInfo sourceData];
@@ -174,9 +171,8 @@
                                    [reqstDic setObject:[sourceDic objectForKey:@"unionid"] forKey:@"unionid"];
 //                                   [WLHUDView showHUDWithStr:@"正在登录中..." dim:YES];
                                    [WeLianClient loginWithParameterDic:reqstDic Success:^(id resultInfo) {
-                                       [WLHUDView hiddenHud];
                                        if ([resultInfo isKindOfClass:[NSDictionary class]]) {
-                                           
+                                          [WLHUDView hiddenHud];
                                            // 微信没有登陆过
                                            PerfectInfoController *perfcetInfoVC = [[PerfectInfoController alloc] init];
                                            
@@ -192,10 +188,29 @@
                                        }else{
                                            //
                                            ILoginUserModel *loginUserM = resultInfo;
-                                           [LogInUser createLogInUserModel:loginUserM];
-                                           // 进入主页面
-                                           MainViewController *mainVC = [[MainViewController alloc] init];
-                                           [self.view.window setRootViewController:mainVC];
+                                           [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
+                                               //设置当前的用户信息
+                                               RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
+                                                                                                           name:loginUserM.name
+                                                                                                       portrait:loginUserM.avatar];
+                                               [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
+                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                   [WLHUDView hiddenHud];
+                                                   [LogInUser createLogInUserModel:loginUserM];
+                                                   // 进入主页面
+                                                   MainViewController *mainVC = [[MainViewController alloc] init];
+                                                   [self.view.window setRootViewController:mainVC];
+                                               });
+                                           } error:^(RCConnectErrorCode status) {
+                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                   [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
+                                               });
+                                               NSLog(@"RCConnectErrorCode is %ld",(long)status);
+                                           } tokenIncorrect:^{
+                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                   [WLHUDView showErrorHUD:@"token过期"];
+                                               });
+                                           }];
                                        }
                                    } Failed:^(NSError *error) {
                                        [WLHUDView showErrorHUD:error.localizedDescription];
