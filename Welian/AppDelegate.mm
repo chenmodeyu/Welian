@@ -15,6 +15,7 @@
 #import "TOWebViewController.h"
 #import "NavViewController.h"
 #import "LCNewFeatureVC.h"
+#import "ChatRoomListController.h"
 
 #import "BMapKit.h"
 #import "AFNetworking.h"
@@ -1091,6 +1092,13 @@ BMKMapManager* _mapManager;
         {
             //用户邀请
             
+        }
+            break;
+            case 6:
+        {
+            //聊天室
+            ChatRoomListController *chatRoomListVC = [[ChatRoomListController alloc] init];
+            [currentActivityVC.navigationController pushViewController:chatRoomListVC animated:YES];
         }
             break;
         default:
