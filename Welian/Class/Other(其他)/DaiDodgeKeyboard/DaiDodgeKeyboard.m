@@ -40,7 +40,7 @@
                 [self objects].textEffectsWindow = eachWindow;
             }
         }
-    [self dodgeKeyboardAnimation];
+        [self dodgeKeyboardAnimation];
         
     //當鍵盤大小有變動時, 還會再進來一次
     } else {
@@ -61,12 +61,14 @@
 + (void)addObservers
 {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 + (void)removeObservers
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 

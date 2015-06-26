@@ -152,8 +152,19 @@ BMKMapManager* _mapManager;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     // 设置状态栏颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //统一导航条样式
+//    UIFont* font = [UIFont boldSystemFontOfSize:17.f];
+//    NSDictionary* textAttributes = @{NSFontAttributeName:font,
+//                                     NSForegroundColorAttributeName:[UIColor whiteColor]};
+    NSDictionary* textAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:RGB(43.f, 94.f, 171.f)];
+//    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+//    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3473BA)];
     
     // [1]:使用APPID/APPKEY/APPSECRENT创建个推实例
     [self startSdkWith:KGTAppId appKey:KGTAppKey appSecret:kGTAppSecret];
