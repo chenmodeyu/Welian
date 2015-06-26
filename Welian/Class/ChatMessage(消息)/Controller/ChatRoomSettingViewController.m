@@ -185,6 +185,11 @@
     segmentedControl.frame = CGRectMake(20.f, noteLabel1.bottom + 15.f, headerView.width - 40.f, 30.f);
     [segmentedControl addTarget:self action:@selector(segmentedControlChanged:) forControlEvents:UIControlEventValueChanged];
     segmentedControl.tintColor = KBlueTextColor;
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:kNormal14Font
+                                                           forKey:NSFontAttributeName];
+    [segmentedControl setTitleTextAttributes:attributes
+                           forState:UIControlStateNormal];
+//    [segmentedControl setTintColor:KBasesColor];
     //设置默认选择的内容
     [segmentedControl setSelectedSegmentIndex:_selectType];
     [headerView addSubview:segmentedControl];
