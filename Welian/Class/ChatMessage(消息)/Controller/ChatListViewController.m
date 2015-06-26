@@ -48,7 +48,7 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 
 - (NSString *)title
 {
-    return @"消息";
+    return @"聊天";
 }
 
 /**

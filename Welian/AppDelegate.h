@@ -10,6 +10,7 @@
 #import "GexinSdk.h"
 #import "MainViewController.h"
 #import "LoginGuideController.h"
+#import "Singleton.h"
 
 typedef enum {
     SdkStatusStoped,
@@ -22,7 +23,7 @@ typedef enum {
     NSString *_deviceToken;
 }
 
-//single_interface(AppDelegate)
+single_interface(AppDelegate)
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) GexinSdk *gexinPusher;
@@ -49,6 +50,8 @@ typedef enum {
 
 // 退出登录
 - (void)logout;
+
+- (void)initRongInfo:(ILoginUserModel *)loginUserM;
 
 - (NewFriendUser *)getNewFriendMessage:(NSDictionary *)dataDic LoginUserId:(NSNumber *)userId;
 

@@ -19,7 +19,9 @@
 #import "JKImagePickerController.h"
 
 @interface WLChatViewController ()<UIGestureRecognizerDelegate,JKImagePickerControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-//@property (nonatomic, strong) __block NSMutableArray *assetsArray;
+{
+    BOOL _isBlakUser;
+}
 @end
 
 static NSString *tipMessageCellid=@"rcTipMessageCellIndentifier";
@@ -150,6 +152,53 @@ static NSString *customCardCellid = @"customCardCellid";
 
 
 #pragma mark override
+/**
+ *  重写方法，消息发送完成触发
+ *
+ *  @param stauts        0,成功，非0失败
+ *  @param messageCotent 消息内容
+ */
+- (void)didSendMessage:(NSInteger)stauts content:(RCMessageContent *)messageCotent
+{
+    [super didSendMessage:stauts content:messageCotent];
+    if (stauts == 405) {  // 已加入黑名单
+        if (!_isBlakUser) {
+            RCInformationNotificationMessage *infoNot = [RCInformationNotificationMessage notificationWithMessage:@"你们已解除好友关系，无法继续聊天" extra:@""];
+            [self sendMessage:infoNot pushContent:@"你们已解除好友关系，无法继续聊天"];
+            _isBlakUser = YES;
+        }
+    }
+}
+
+#pragma mark override
+/**
+ *  重写方法，过滤消息或者修改消息
+ *
+ *  @param messageCotent 消息内容
+ *
+ *  @return 返回消息内容
+ */
+//- (RCMessageContent *)willSendMessage:(RCMessageContent *)messageCotent
+//{
+//    __block BOOL isBlakUser = NO;
+//    [[RCIMClient sharedRCIMClient] getBlacklistStatus:self.targetId success:^(int bizStatus) {
+//        if (bizStatus == 0) {
+//            isBlakUser = YES;
+//        }
+//        RCInformationNotificationMessage *infoNot = [RCInformationNotificationMessage notificationWithMessage:@"你们已解除好友关系，无法继续聊天" extra:@""];
+//        return infoNot;
+//    } error:^(RCErrorCode status) {
+//        
+//    }];
+////    if (isBlakUser) {
+////        RCInformationNotificationMessage *infoNot = [RCInformationNotificationMessage notificationWithMessage:@"你们已解除好友关系，无法继续聊天" extra:@""];
+////        return infoNot;
+////    }else{
+////       return messageCotent;
+////    }
+////    return nil;
+//}
+
 /**
  *  重写方法实现自定义消息的显示
  *  @param collectionView collectionView

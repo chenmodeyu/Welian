@@ -37,7 +37,7 @@
 #import "CustomCardMessage.h"
 #import "CommentInfoController.h"
 
-@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMUserInfoDataSource,RCIMGroupInfoDataSource>
+@interface AppDelegate() <BMKGeneralDelegate,UITabBarControllerDelegate,WXApiDelegate,RCIMConnectionStatusDelegate,RCIMUserInfoDataSource>
 {
     NSInteger _update; //0不提示更新 1不强制更新，2强制更新
      NSString *_upURL; // 更新地址
@@ -50,6 +50,7 @@
 @end
 
 @implementation AppDelegate
+single_implementation(AppDelegate);
 BMKMapManager* _mapManager;
 
 - (LCNewFeatureVC *)newFeatureVC
@@ -123,7 +124,7 @@ BMKMapManager* _mapManager;
     // 友盟统计
     [self umengTrack];
     //初始化融云配置
-    [self initRongInfo];
+    [self initRongInfo:nil];
     
     // 要使用百度地图，请先启动BaiduMapManager
 	_mapManager = [[BMKMapManager alloc]init];
@@ -299,7 +300,7 @@ BMKMapManager* _mapManager;
     return [_gexinPusher sendMessage:body error:error];
 }
 
-- (void)initRongInfo
+- (void)initRongInfo:(ILoginUserModel *)loginUserM
 {
     NSString *_deviceTokenCache = [UserDefaults objectForKey:kRongCloudDeviceToken];
     //初始化融云SDK
@@ -316,40 +317,51 @@ BMKMapManager* _mapManager;
     //用于返回用户的信息
     // 设置用户信息提供者。
     [[RCIM sharedRCIM] setUserInfoDataSource:self];
-    // 设置群组信息提供者。
-//    [[RCIM sharedRCIM] setGroupInfoDataSource:self];
     
-    //保存token
-    //设置当前的用户信息
-    LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-    NSString *token = loginUser.rongCloudToken;
-    if (token.length > 0 && loginUser) {
-        //登陆融云服务器  // 快速集成第二步，连接融云服务器
-        [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
-            //保存默认用户
-            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:loginUser.avatar];
+    if (loginUserM) {
+        [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
+            //设置当前的用户信息
+            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
+                                                                        name:loginUserM.name
+                                                                    portrait:loginUserM.avatar];
             [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
-        } error:^(RCConnectErrorCode status) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [WLHUDView hiddenHud];
+                [LogInUser createLogInUserModel:loginUserM];
+                // 进入主页面
+                MainViewController *mainVC = [[MainViewController alloc] init];
+                [self.window setRootViewController:mainVC];
+            });
+        }error:^(RCConnectErrorCode status) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
+            });
             NSLog(@"RCConnectErrorCode is %ld",(long)status);
         } tokenIncorrect:^{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Token已过期，请重新登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];;
-            [alertView show];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                    [WLHUDView showErrorHUD:@"token过期"];
+            });
         }];
+    }else{
+        //保存token
+        //设置当前的用户信息
+        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
+        NSString *token = loginUser.rongCloudToken;
+        if (token.length > 0 && loginUser) {
+            //登陆融云服务器  // 快速集成第二步，连接融云服务器
+            [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
+                //保存默认用户
+                RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:loginUser.avatar];
+                [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
+            } error:^(RCConnectErrorCode status) {
+            } tokenIncorrect:^{
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Token已过期，请重新登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];;
+                [alertView show];
+            }];
+        }
     }
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(didReceiveMessageNotification:)
-//                                                 name:RCKitDispatchMessageNotification
-//                                               object:nil];
-    //消息免通知，默认是NO
-//        [RCIM sharedRCIM].disableMessageNotificaiton = YES;
-//    关闭新消息提示音，默认值是NO，新消息有提示音.
-//        [RCIM sharedRCIM].disableMessageAlertSound = YES;
 }
-
-//- (void)didReceiveMessageNotification:(NSNotification *)notification {
-//    [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber+1;
-//}
 
 /**
  *  获取用户信息。
@@ -410,33 +422,6 @@ BMKMapManager* _mapManager;
     
     return completion(nil);
 }
-
-// 获取群组信息的方法。
-//-(void)getGroupInfoWithGroupId:(NSString*)groupId completion:(void (^)(RCGroup *group))completion
-//{
-//    // 此处最终代码逻辑实现需要您从本地缓存或服务器端获取群组信息。
-//    
-//    if ([@"1" isEqual:groupId]) {
-//        RCGroup *group = [[RCGroup alloc]init];
-//        group.groupId = @"1";
-//        group.groupName = @"同城交友";
-//        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
-//        
-//        return completion(group);
-//    }
-//    
-//    if ([@"2" isEqual:groupId]) {
-//        RCGroup *group = [[RCGroup alloc]init];
-//        group.groupId = @"2";
-//        group.groupName = @"跳蚤市场";
-//        //group.portraitUri = @"http://rongcloud-web.qiniudn.com/docs_demo_rongcloud_logo.png";
-//        
-//        return completion(group);
-//    }
-//    
-//    return completion(nil);
-//}
-
 
 #pragma mark - 友盟统计
 - (void)umengTrack {
@@ -752,7 +737,7 @@ BMKMapManager* _mapManager;
         [_updataalert show];
     }
     //获取聊天消息记录 和好友请求消息
-    [self getServiceChatMsgInfo];
+//    [self getServiceChatMsgInfo];
     [KNSNotification postNotificationName:kChangeBannerKey object:self];
     [KNSNotification postNotificationName:KNEWStustUpdate object:self];
 }
@@ -901,7 +886,7 @@ BMKMapManager* _mapManager;
                     [WLHUDView showErrorHUD:@"分享失败！"];
                     break;
                 case WXErrCodeUserCancel:
-                    [WLHUDView showErrorHUD:@"取消分享！"];
+                    [WLHUDView showAttentionHUD:@"取消分享！"];
                     break;
                 default:
                     break;
@@ -960,8 +945,7 @@ BMKMapManager* _mapManager;
 - (void)onRCIMConnectionStatusChanged:(RCConnectionStatus)status
 {
     if (status == ConnectionStatus_KICKED_OFFLINE_BY_OTHER_CLIENT) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的帐号在别的设备上登录，您被迫下线！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-        [alert show];
+        [self logout];
 //        LoginViewController *loginVC = [[LoginViewController alloc] init];
 //        // [loginVC defaultLogin];
 //        // RCDLoginViewController* loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];

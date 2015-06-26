@@ -41,7 +41,7 @@
         //添加聊天用户改变监听
 //        [KNSNotification addObserver:self selector:@selector(chatUsersChanged:) name:kChatUserChanged object:nil];
         //添加聊天消息数量改变监听
-//        [KNSNotification addObserver:self selector:@selector(chatUsersChanged:) name:kChatMsgNumChanged object:nil];
+        [KNSNotification addObserver:self selector:@selector(chatUsersChanged:) name:kChatMsgNumChanged object:nil];
         
 //        //如果是从好友列表进入聊天，首页变换
 //        [KNSNotification addObserver:self selector:@selector(chatFromUserInfo:) name:kChatFromUserInfo object:nil];
@@ -60,11 +60,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //隐藏分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -103,19 +98,13 @@
         cell = [[ChatMessageViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_Identifier];
     }
     cell.myFriendUser = _datasource[indexPath.row];
-//    [cell setDebug:YES];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    //在切换界面的过程中禁止滑动手势，避免界面卡死
-//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-//        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-//    }
-    
+
     //进入聊天页面
     MyFriendUser *friendUser = _datasource[indexPath.row];
     ChatViewController *chatVC = [[ChatViewController alloc] initWithUser:friendUser];
@@ -142,7 +131,7 @@
         [friendUser updateIsChatStatus:NO];
         
         //更新当前聊天的所有消息为已读状态
-//        [friendUser updateAllMessageReadStatus];
+        [friendUser updateAllMessageReadStatus];
         [friendUser updateUnReadMessageNumber:@(0)];
         
         //更新首页角标

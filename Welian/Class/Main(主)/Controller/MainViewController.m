@@ -206,7 +206,7 @@ single_implementation(MainViewController)
 //    [chatMeeageNav setDelegate:self];
 //    [chatMeeageNav setTabBarItem:chatMessageItem];
     // 融云
-    chatMessageItem = [self itemWithTitle:@"消息" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
+    chatMessageItem = [self itemWithTitle:@"聊天" imageStr:@"tabbar_chat" selectedImageStr:@"tabbar_chat_selected"];
     ChatListViewController *chatListVC = [[ChatListViewController alloc] init];
     NavViewController *ryMeeageNav = [[NavViewController alloc] initWithRootViewController:chatListVC];
     [ryMeeageNav setDelegate:self];

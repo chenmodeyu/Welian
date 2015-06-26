@@ -16,6 +16,7 @@
 #import "LoginPhoneVC.h"
 #import "SignInPhoneController.h"
 #import "WXApi.h"
+#import "AppDelegate.h"
 
 @interface LoginGuideController () <UIScrollViewDelegate>
 {
@@ -188,29 +189,30 @@
                                        }else{
                                            //
                                            ILoginUserModel *loginUserM = resultInfo;
-                                           [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
-                                               //设置当前的用户信息
-                                               RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
-                                                                                                           name:loginUserM.name
-                                                                                                       portrait:loginUserM.avatar];
-                                               [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
-                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                   [WLHUDView hiddenHud];
-                                                   [LogInUser createLogInUserModel:loginUserM];
-                                                   // 进入主页面
-                                                   MainViewController *mainVC = [[MainViewController alloc] init];
-                                                   [self.view.window setRootViewController:mainVC];
-                                               });
-                                           } error:^(RCConnectErrorCode status) {
-                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                   [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
-                                               });
-                                               NSLog(@"RCConnectErrorCode is %ld",(long)status);
-                                           } tokenIncorrect:^{
-                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                   [WLHUDView showErrorHUD:@"token过期"];
-                                               });
-                                           }];
+                                           [[AppDelegate sharedAppDelegate] initRongInfo:loginUserM];
+//                                           [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
+//                                               //设置当前的用户信息
+//                                               RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
+//                                                                                                           name:loginUserM.name
+//                                                                                                       portrait:loginUserM.avatar];
+//                                               [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
+//                                               dispatch_async(dispatch_get_main_queue(), ^{
+//                                                   [WLHUDView hiddenHud];
+//                                                   [LogInUser createLogInUserModel:loginUserM];
+//                                                   // 进入主页面
+//                                                   MainViewController *mainVC = [[MainViewController alloc] init];
+//                                                   [self.view.window setRootViewController:mainVC];
+//                                               });
+//                                           } error:^(RCConnectErrorCode status) {
+//                                               dispatch_async(dispatch_get_main_queue(), ^{
+//                                                   [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
+//                                               });
+//                                               NSLog(@"RCConnectErrorCode is %ld",(long)status);
+//                                           } tokenIncorrect:^{
+//                                               dispatch_async(dispatch_get_main_queue(), ^{
+////                                                   [WLHUDView showErrorHUD:@"token过期"];
+//                                               });
+//                                           }];
                                        }
                                    } Failed:^(NSError *error) {
                                        [WLHUDView showErrorHUD:error.localizedDescription];
