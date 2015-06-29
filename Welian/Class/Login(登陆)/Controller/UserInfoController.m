@@ -137,37 +137,12 @@
     [WeLianClient registerWithName:_nameTF.text Mobile:self.phoneString Company:_companyTF.text Position:_postTF.text Password:[self.pwdString MD5String] Avatar:_imageURL Success:^(id resultInfo) {
         DLog(@"%@",resultInfo);
         ILoginUserModel *loginUserM = resultInfo;
-        [[AppDelegate sharedAppDelegate] initRongInfo:loginUserM];
         //登陆融云服务器  // 快速集成第二步，连接融云服务器
-//        [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
-//            //设置当前的用户信息
-//            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
-//                                                                        name:loginUserM.name
-//                                                                    portrait:loginUserM.avatar];
-//            [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [WLHUDView hiddenHud];
-//                [LogInUser createLogInUserModel:loginUserM];
-//                MainViewController *mainVC = [[MainViewController alloc] init];
-//                [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
-//            });
-//        }error:^(RCConnectErrorCode status) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
-//            });
-//            NSLog(@"RCConnectErrorCode is %ld",(long)status);
-//        } tokenIncorrect:^{
-//            dispatch_async(dispatch_get_main_queue(), ^{
-////                [WLHUDView showErrorHUD:@"token过期"];
-//            });
-//        }];
+        [[AppDelegate sharedAppDelegate] initRongInfo:loginUserM];
     } Failed:^(NSError *error) {
         [WLHUDView showErrorHUD:error.localizedDescription];
     }];
 }
-
-
-
 
 #pragma mark - 选取头像照片
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -227,7 +202,6 @@
             [self presentViewController:compAPostVC animated:NO completion:^{
                 [_scrollView setAlpha:1.0];
                 [self.navigationController.navigationBar setAlpha:1];
-                
             }];
         }];
         
