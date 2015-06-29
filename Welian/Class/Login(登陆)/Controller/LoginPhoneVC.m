@@ -145,32 +145,8 @@
     [WLHUDView showHUDWithStr:@"登录中..." dim:YES];
     [WeLianClient loginWithParameterDic:reqstDic Success:^(id resultInfo) {
         ILoginUserModel *loginUserM = resultInfo;
-        [[AppDelegate sharedAppDelegate] initRongInfo:loginUserM];
         //登陆融云服务器  // 快速集成第二步，连接融云服务器
-//        [WLHUDView showHUDWithStr:@"连接融云服务器中..." dim:YES];
-//        [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
-//            //设置当前的用户信息
-//            RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
-//                                                                        name:loginUserM.name
-//                                                                    portrait:loginUserM.avatar];
-//            [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [WLHUDView hiddenHud];
-//                [LogInUser createLogInUserModel:loginUserM];
-//                MainViewController *mainVC = [[MainViewController alloc] init];
-//                [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
-//            });
-//        }error:^(RCConnectErrorCode status) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
-//            });
-//            NSLog(@"RCConnectErrorCode is %ld",(long)status);
-//        } tokenIncorrect:^{
-//            dispatch_async(dispatch_get_main_queue(), ^{
-////                [WLHUDView showErrorHUD:@"token过期"];
-//            });
-//        }];
-        
+        [[AppDelegate sharedAppDelegate] initRongInfo:loginUserM];
     } Failed:^(NSError *error) {
         [WLHUDView showErrorHUD:error.localizedDescription];
     }];

@@ -345,7 +345,7 @@ BMKMapManager* _mapManager;
             });
         }error:^(RCConnectErrorCode status) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
+                [WLHUDView showErrorHUD:@"登录失败，请重新登录"];
             });
             NSLog(@"RCConnectErrorCode is %ld",(long)status);
         } tokenIncorrect:^{
@@ -367,7 +367,7 @@ BMKMapManager* _mapManager;
                 [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
             } error:^(RCConnectErrorCode status) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
+                    [WLHUDView showErrorHUD:@"登录失败，请重新登录"];
                 });
             } tokenIncorrect:^{
                 [weakSelf logout];
@@ -1096,8 +1096,6 @@ BMKMapManager* _mapManager;
                                            success:^(id JSON) {
                                                if ([JSON count] > 0) {
                                                    for(NSDictionary *chatDic in JSON){
-//                                                       NSNumber *toUser = chatDic[@"uid"];
-//                                                       LogInUser *loginUser = [LogInUser getLogInUserWithUid:toUser];
                                                        //如果本地数据库没有当前登陆用户，不处理
                                                        LogInUser *loginUser = [LogInUser getCurrentLoginUser];
                                                        if (loginUser) {
@@ -1105,8 +1103,6 @@ BMKMapManager* _mapManager;
                                                        }
                                                    }
                                                }
-                                               //                                               NSString *maxChatNum = [ChatMessage getMaxChatMessageId];
-//                                               [UserDefaults setObject:maxChatNum forKey:kMaxChatMessageId];
                                            } fail:^(NSError *error) {
                                                DLog(@"service chatMsg error:%@",error.description);
                                            }];

@@ -122,13 +122,6 @@
                                        } Failed:^(NSError *error) {
                                            
                                        }];
-//        [WLHttpTool getCompanyParameterDic:@{@"start":@(1),@"size":@(50),@"keyword":searchText} success:^(id JSON) {
-//            self.searchArray = [NSMutableArray arrayWithArray:JSON];
-//            [self.tableView reloadData];
-//            DLog(@"%@",JSON);
-//        } fail:^(NSError *error) {
-//            
-//        }];
     }else if (_type ==2){
         //搜索职位
         [WeLianClient searchPositionWithKeyword:searchText
@@ -139,15 +132,6 @@
                                         } Failed:^(NSError *error) {
                                             
                                         }];
-        
-//        [WLHttpTool getJobParameterDic:@{@"start":@(1),@"size":@(50),@"keyword":searchText} success:^(id JSON) {
-//            self.searchArray = [NSMutableArray arrayWithArray:JSON];
-//            [self.tableView reloadData];
-//            [_backdropView insertSubview:self.postView belowSubview:self.tableView];
-//        } fail:^(NSError *error) {
-//            
-//        }];
-
     }
     
 }
@@ -264,17 +248,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

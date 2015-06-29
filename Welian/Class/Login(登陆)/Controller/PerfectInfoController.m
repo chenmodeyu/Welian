@@ -19,6 +19,7 @@
 #import "NavViewController.h"
 #import "UITextField+LeftRightView.h"
 #import "IPhotoUp.h"
+#import "AppDelegate.h"
 
 @interface PerfectInfoController () <UITextFieldDelegate>
 {
@@ -229,29 +230,7 @@
 
         }else{
             ILoginUserModel *loginUserM = resultInfo;
-            [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
-                //设置当前的用户信息
-                RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId
-                                                                            name:loginUserM.name
-                                                                        portrait:loginUserM.avatar];
-                [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [WLHUDView hiddenHud];
-                    [LogInUser createLogInUserModel:loginUserM];
-                    // 进入主页面
-                    MainViewController *mainVC = [[MainViewController alloc] init];
-                    [[UIApplication sharedApplication].keyWindow setRootViewController:mainVC];
-                });
-            } error:^(RCConnectErrorCode status) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
-                });
-                NSLog(@"RCConnectErrorCode is %ld",(long)status);
-            } tokenIncorrect:^{
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [WLHUDView showErrorHUD:@"token过期"];
-                });
-            }];
+            [[AppDelegate sharedAppDelegate] initRongInfo:loginUserM];
         }
     } Failed:^(NSError *error) {
         [WLHUDView hiddenHud];
@@ -272,9 +251,7 @@
         _imageURL = photoUp.photo;
     } Failed:^(NSError *error) {
     }];
-//    _imagebase64Str = [UIImageJPEGRepresentation(image, 0.5) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     [picker dismissViewControllerAnimated:YES completion:^{
-        
     }];
     
 }

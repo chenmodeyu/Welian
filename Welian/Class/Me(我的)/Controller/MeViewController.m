@@ -88,6 +88,8 @@ static NSString *BadgeBaseCellid = @"BadgeBaseCellid";
     self = [super init];
     if (self) {
         self.showCustomNavHeader = YES;
+        //获取用户信息
+        [self initUserInfo];
     }
     return self;
 }
