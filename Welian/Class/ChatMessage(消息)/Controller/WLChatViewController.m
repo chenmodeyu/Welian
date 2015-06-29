@@ -77,11 +77,11 @@ static NSString *customCardCellid = @"customCardCellid";
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *backString = nil;
         if (count > 0 && count <= 99) {
-            backString = [NSString stringWithFormat:@"消息(%d)", count];
+            backString = [NSString stringWithFormat:@"聊天(%d)", count];
         } else if (count > 99) {
-            backString = @"消息(99+)";
+            backString = @"聊天(99+)";
         } else {
-            backString = @"消息";
+            backString = @"聊天";
         }
         UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         backBtn.frame = CGRectMake(0, 4, 90, 25);

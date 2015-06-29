@@ -63,6 +63,8 @@
 	<string>tMBHhQ9iMJ6CAti03m4z93</string>
 	<key>KPlatformType</key>
 	<string>ios-app</string>
+	<key>KRongCloud_APPKEY</key>
+	<string>lmxuhwagx82sd</string>
 	<key>KWeChatAppId</key>
 	<string>wx5e4e9a58776baed3</string>
 	<key>KWeChatAppSecret</key>

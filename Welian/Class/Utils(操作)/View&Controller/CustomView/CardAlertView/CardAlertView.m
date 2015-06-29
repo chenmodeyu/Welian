@@ -194,10 +194,9 @@
                 _sendSuccessBlock();
             }
         });
-        
     } error:^(RCErrorCode nErrorCode, long messageId) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [WLHUDView showErrorHUD:@"发送失败！"];
+            [WLHUDView showErrorHUD:@"分享失败！"];
         });
     }];
 //    [WLHttpTool sendMessageParameterDic:param success:^(id JSON) {

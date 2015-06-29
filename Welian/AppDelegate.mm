@@ -328,7 +328,7 @@ BMKMapManager* _mapManager;
     //用于返回用户的信息
     // 设置用户信息提供者。
     [[RCIM sharedRCIM] setUserInfoDataSource:self];
-    
+    WEAKSELF
     if (loginUserM) {
         [[RCIM sharedRCIM] connectWithToken:loginUserM.token success:^(NSString *userId) {
             //设置当前的用户信息
@@ -350,7 +350,8 @@ BMKMapManager* _mapManager;
             NSLog(@"RCConnectErrorCode is %ld",(long)status);
         } tokenIncorrect:^{
             dispatch_async(dispatch_get_main_queue(), ^{
-                    [WLHUDView showErrorHUD:@"token过期"];
+                [weakSelf logout];
+//                    [WLHUDView showErrorHUD:@"token过期"];
             });
         }];
     }else{
@@ -365,10 +366,13 @@ BMKMapManager* _mapManager;
                 RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:loginUser.avatar];
                 [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
             } error:^(RCConnectErrorCode status) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [WLHUDView showErrorHUD:@"登陆失败，请重新登陆"];
+                });
             } tokenIncorrect:^{
-                
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Token已过期，请重新登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];;
-                [alertView show];
+                [weakSelf logout];
+//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Token已过期，请重新登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];;
+//                [alertView show];
             }];
         }
     }
