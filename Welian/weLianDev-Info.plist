@@ -29,7 +29,7 @@
 			<string>weixinDev</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx5e4e9a58776baed3</string>
+				<string>wx243964c9ec1c73e4</string>
 			</array>
 		</dict>
 		<dict>
@@ -66,9 +66,9 @@
 	<key>KRongCloud_APPKEY</key>
 	<string>82hegw5uh95qx</string>
 	<key>KWeChatAppId</key>
-	<string>wx5e4e9a58776baed3</string>
+	<string>wx243964c9ec1c73e4</string>
 	<key>KWeChatAppSecret</key>
-	<string>1272e0c65919830d1fffa9ca098f6a72</string>
+	<string>1563ee7be4fd4dc8365db9c39b1a7f46</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
