@@ -75,7 +75,7 @@
         [_wxBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     }else{
         _wxBtn.hidden = YES;
-        _operateBtn.hidden = YES;
+        _operateBtn.hidden = NO;
         if (_baseUser.friendship.integerValue == 1) {
             /**  好友关系，1好友，2好友的好友,-1自己，0没关系   */
             [_wxBtn setTitle:@"微链好友" forState:UIControlStateNormal];
@@ -84,7 +84,6 @@
             _operateBtn.hidden = _baseUser.friendship.integerValue != 1 ? NO : YES;
         }else if(_baseUser.friendship.integerValue == 4){
             //等待验证
-            _operateBtn.hidden = NO;
             _operateBtn.titleLabel.font = kNormal16Font;
             [_operateBtn setImage:nil forState:UIControlStateNormal];
             [_operateBtn setTitle:@"待验证" forState:UIControlStateNormal];
@@ -95,7 +94,6 @@
             if (_baseUser.friendship.integerValue == -1) {
                 _operateBtn.hidden = YES;
             }else{
-                _operateBtn.hidden = NO;
                 _operateBtn.titleLabel.font = kNormal13Font;
                 [_operateBtn addTarget:self action:@selector(operateBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [_operateBtn setImage:[UIImage imageNamed:@"osusume_friend_add"] forState:UIControlStateNormal];
@@ -152,7 +150,7 @@
         [_wxBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     }else{
         _wxBtn.hidden = YES;
-        _operateBtn.hidden = YES;
+        _operateBtn.hidden = NO;
         if(friendship.integerValue == 1){
             [_wxBtn setTitle:@"微链好友" forState:UIControlStateNormal];
             [_wxBtn setTitleColor:RGB(72.f, 130.f, 193.f) forState:UIControlStateNormal];
@@ -160,7 +158,6 @@
             _operateBtn.hidden = friendship.integerValue != 1 ? NO : YES;
         }else if(friendship.integerValue == 4){
              //等待验证
-            _operateBtn.hidden = YES;
             _operateBtn.titleLabel.font = kNormal16Font;
             [_operateBtn setImage:nil forState:UIControlStateNormal];
             [_operateBtn setTitle:@"待验证" forState:UIControlStateNormal];
@@ -171,7 +168,6 @@
             if (friendship.integerValue == -1) {
                 _operateBtn.hidden = YES;
             }else{
-                _operateBtn.hidden = YES;
                 _operateBtn.titleLabel.font = kNormal13Font;
                 [_operateBtn addTarget:self action:@selector(operateBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [_operateBtn setImage:[UIImage imageNamed:@"osusume_friend_add"] forState:UIControlStateNormal];
