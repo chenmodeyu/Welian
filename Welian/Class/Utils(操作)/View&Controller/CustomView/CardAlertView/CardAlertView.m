@@ -10,6 +10,7 @@
 #import "WLCellCardView.h"
 #import "WLMessageTextView.h"
 #import "CustomCardMessage.h"
+#import "WLMessageBubbleFactory.h"
 
 #define kContentViewHeight 180.f
 #define kCardViewHeight 56.f
@@ -186,8 +187,22 @@
     cardMessage.card = cardDic;
     cardMessage.touser = _selectFriendUser.uid.stringValue;
     cardMessage.msg = _textView.text;
+    NSString *pushStr = @"";
+    switch (_cardModel.type.integerValue) {
+        case WLBubbleMessageCardTypeActivity://活动
+            pushStr = [NSString stringWithFormat:@"%@向你推荐了一个活动“%@”",loguser.name,_cardModel.title];
+            break;
+        case WLBubbleMessageCardTypeProject://项目
+            pushStr = [NSString stringWithFormat:@"%@向你推荐了一个项目“%@”",loguser.name,_cardModel.title];
+            break;
+        case WLBubbleMessageCardTypeWeb://网页
+            pushStr = [NSString stringWithFormat:@"%@向你发送了一个链接",loguser.name];
+            break;            
+        default:
+            break;
+    }
     WEAKSELF
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:_selectFriendUser.uid.stringValue content:cardMessage pushContent:@"分享卡片" success:^(long messageId) {
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:_selectFriendUser.uid.stringValue content:cardMessage pushContent:pushStr success:^(long messageId) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf dismiss];
             if (_sendSuccessBlock) {

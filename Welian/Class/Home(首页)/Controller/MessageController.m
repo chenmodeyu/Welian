@@ -83,7 +83,6 @@
         return;
     }
     loginUser.rsHomeMessages = nil;
-//    [MOC save];
     [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
     [_messageDataArray removeAllObjects];
     [self.tableView reloadData];

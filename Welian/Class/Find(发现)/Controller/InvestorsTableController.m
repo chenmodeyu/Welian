@@ -127,19 +127,24 @@ static NSString *investorOrgCellid = @"InvestorOrgCell";
 
 - (void)hideRefreshViewWithCount:(NSInteger)count
 {
-    [self.tableView.header endRefreshing];
-    [self.tableView.footer endRefreshing];
-    if (count>=KCellConut) {
-        _page++;
-    }
-    if (invType == InvestorsTypeShaiXuan) {
-        if (!_dataArray.count) {
-            [self.tableView addSubview:self.notView];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+
+        if (count>=KCellConut) {
+            self.tableView.footer.hidden = NO;
+            _page++;
         }else{
-            [self.notView removeFromSuperview];
+            self.tableView.footer.hidden = YES;
         }
-    }
-    self.tableView.footer.hidden = count<KCellConut;
+        if (invType == InvestorsTypeShaiXuan) {
+            if (!_dataArray.count) {
+                [self.tableView addSubview:self.notView];
+            }else{
+                [self.notView removeFromSuperview];
+            }
+        }
+    });
 }
 
 // 刷新数据

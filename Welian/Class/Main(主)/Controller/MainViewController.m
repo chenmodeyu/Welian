@@ -96,11 +96,11 @@ single_implementation(MainViewController)
     }else{
         [homeItem setImage:[UIImage imageNamed:@"tabbar_home"]];
         [homeItem setSelectedImage:[UIImage imageNamed:@"tabbar_home_selected"]];
-        if (logUser.homemessagebadge.integerValue) {
-            homeItem.badgeValue = logUser.homemessagebadge.stringValue;
-        }else{
-            homeItem.badgeValue = nil;
-        }
+    }
+    if (logUser.homemessagebadge.integerValue) {
+        homeItem.badgeValue = logUser.homemessagebadge.stringValue;
+    }else{
+        homeItem.badgeValue = nil;
     }
     
     /// 有新的活动或者新的项目

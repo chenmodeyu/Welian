@@ -57,10 +57,10 @@ static NSString *customCardCellid = @"customCardCellid";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     //是否允许保存新拍照片到本地系统
     self.enableSaveNewPhotoToLocalSystem = YES;
-    [self notifyUpdateUnreadMessageCount];
+//    [self notifyUpdateUnreadMessageCount];
     [self.pluginBoardView removeItemWithTag:1004];
     
     //* 注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
@@ -71,40 +71,40 @@ static NSString *customCardCellid = @"customCardCellid";
 /**
  *  更新左上角未读消息数
  */
-- (void)notifyUpdateUnreadMessageCount {
-    __weak typeof(&*self) __weakself = self;
-    int count = [[RCIMClient sharedRCIMClient] getUnreadCount:@[        @(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSString *backString = nil;
-        if (count > 0 && count <= 99) {
-            backString = [NSString stringWithFormat:@"聊天(%d)", count];
-        } else if (count > 99) {
-            backString = @"聊天(99+)";
-        } else {
-            backString = @"聊天";
-        }
-        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        backBtn.frame = CGRectMake(0, 4, 90, 25);
-        UIImageView *backImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_left"]];
-        backImg.frame = CGRectMake(-5, 3, 12, 20);
-        [backBtn addSubview:backImg];
-        UILabel *backText = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, 90, 25)];
-        backText.text = backString;//NSLocalizedStringFromTable(@"Back", @"RongCloudKit", nil);
-        backText.font = [UIFont systemFontOfSize:16];
-        [backText setBackgroundColor:[UIColor clearColor]];
-        [backText setTextColor:[UIColor whiteColor]];
-        [backBtn addSubview:backText];
-        [backBtn addTarget:__weakself action:@selector(leftBarButtonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-        [__weakself.navigationItem setLeftBarButtonItem:leftButton];
-    });
-}
-
-- (void)leftBarButtonItemPressed:(id)sender {
-    //需要调用super的实现
-    [super leftBarButtonItemPressed:sender];
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)notifyUpdateUnreadMessageCount {
+//    __weak typeof(&*self) __weakself = self;
+//    int count = [[RCIMClient sharedRCIMClient] getUnreadCount:@[        @(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        NSString *backString = nil;
+//        if (count > 0 && count <= 99) {
+//            backString = [NSString stringWithFormat:@"聊天(%d)", count];
+//        } else if (count > 99) {
+//            backString = @"聊天(99+)";
+//        } else {
+//            backString = @"聊天";
+//        }
+//        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        backBtn.frame = CGRectMake(0, 4, 90, 25);
+//        UIImageView *backImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_left"]];
+//        backImg.frame = CGRectMake(-5, 3, 12, 20);
+//        [backBtn addSubview:backImg];
+//        UILabel *backText = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, 90, 25)];
+//        backText.text = backString;//NSLocalizedStringFromTable(@"Back", @"RongCloudKit", nil);
+//        backText.font = [UIFont systemFontOfSize:16];
+//        [backText setBackgroundColor:[UIColor clearColor]];
+//        [backText setTextColor:[UIColor whiteColor]];
+//        [backBtn addSubview:backText];
+//        [backBtn addTarget:__weakself action:@selector(leftBarButtonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+//        [__weakself.navigationItem setLeftBarButtonItem:leftButton];
+//    });
+//}
+//
+//- (void)leftBarButtonItemPressed:(id)sender {
+//    //需要调用super的实现
+//    [super leftBarButtonItemPressed:sender];
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 
 

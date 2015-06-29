@@ -117,7 +117,7 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
 -(void)onSelectedTableRow:(RCConversationModelType)conversationModelType conversationModel:(RCConversationModel *)model atIndexPath:(NSIndexPath *)indexPath
 {
     if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_NORMAL) {
-        WLChatViewController *_conversationVC = [[WLChatViewController alloc]init];
+        WLChatViewController *_conversationVC = [[WLChatViewController alloc]initWithConversationType:model.conversationType targetId:model.targetId];
         _conversationVC.conversationType = model.conversationType;
         _conversationVC.targetId = model.targetId;
         _conversationVC.userName = model.conversationTitle;
@@ -225,8 +225,9 @@ static NSString *chatNewFirendcellid = @"chatNewFirendcellid";
             NewFriendUser *newFM = [delet getNewFriendMessage:newFriendMessage LoginUserId:nil];
             if (newFM) {
                 NSIndexPath *indexP = [NSIndexPath indexPathForRow:0 inSection:0];
-                WLFriendRequestCell *cell = (WLFriendRequestCell *)[self.conversationListTableView cellForRowAtIndexPath:indexP];
-                [cell upNewFriendsBadge];
+//                WLFriendRequestCell *cell = (WLFriendRequestCell *)[self.conversationListTableView cellForRowAtIndexPath:indexP];
+//                [cell upNewFriendsBadge];
+                [blockSelf_.conversationListTableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationFade];
             }
         });
         }else{

@@ -279,8 +279,8 @@ BMKMapManager* _mapManager;
 - (BOOL)checkSdkInstance
 {
     if (!_gexinPusher) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"SDK未启动" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-        [alertView show];
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"SDK未启动" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+//        [alertView show];
         return NO;
     }
     return YES;
@@ -322,6 +322,9 @@ BMKMapManager* _mapManager;
     [[RCIM sharedRCIM] registerMessageType:CustomCardMessage.class];
     
     //设置头像形状
+    CGSize iconSize = CGSizeMake(45, 45);
+    [RCIM sharedRCIM].globalConversationPortraitSize = iconSize;
+    [RCIM sharedRCIM].globalMessagePortraitSize = iconSize;
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].enableMessageAttachUserInfo = YES;
@@ -351,32 +354,51 @@ BMKMapManager* _mapManager;
         } tokenIncorrect:^{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakSelf logout];
-//                    [WLHUDView showErrorHUD:@"token过期"];
             });
         }];
     }else{
         //保存token
         //设置当前的用户信息
         LogInUser *loginUser = [LogInUser getCurrentLoginUser];
-        NSString *token = loginUser.rongCloudToken;
-        if (token.length > 0 && loginUser) {
-            //登陆融云服务器  // 快速集成第二步，连接融云服务器
-            [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
-                //保存默认用户
-                RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:loginUser.avatar];
-                [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
-            } error:^(RCConnectErrorCode status) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [WLHUDView showErrorHUD:@"登录失败，请重新登录"];
-                });
-            } tokenIncorrect:^{
-                [weakSelf logout];
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Token已过期，请重新登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];;
-//                [alertView show];
-            }];
+        if (loginUser) {
+            NSString *token = loginUser.rongCloudToken;
+            if (token.length > 0) {
+                //登陆融云服务器  // 快速集成第二步，连接融云服务器
+                [weakSelf connectRCIMWithToken:token logUser:loginUser];
+            }else{
+                [WeLianClient getUserDetailInfoWithUid:@(0) Success:^(id resultInfo) {
+                    // 详细信息
+                    NSDictionary *profile = [resultInfo objectForKey:@"profile"];
+                    ILoginUserModel *profileM = [ILoginUserModel objectWithDict:profile];
+                    if (profileM.token.length) {
+                        //登陆融云服务器  // 快速集成第二步，连接融云服务器
+                        [weakSelf connectRCIMWithToken:profileM.token logUser:loginUser];
+                    }
+                } Failed:^(NSError *error) {
+
+                }];
+
+            }
         }
     }
 }
+
+- (void)connectRCIMWithToken:(NSString *)token logUser:(LogInUser *)loginUser
+{
+    WEAKSELF
+    [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
+        //保存默认用户
+        RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:loginUser.avatar];
+        [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
+    } error:^(RCConnectErrorCode status) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [WLHUDView showErrorHUD:@"登录失败，请重新登录"];
+        });
+    } tokenIncorrect:^{
+        [weakSelf logout];
+    }];
+}
+
 
 /**
  *  获取用户信息。
