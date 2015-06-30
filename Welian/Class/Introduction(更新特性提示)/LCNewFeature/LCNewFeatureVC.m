@@ -9,6 +9,7 @@
 
 #import "LCNewFeatureVC.h"
 #import "UIImage+LC.h"
+#import "UIImage+ImageEffects.h"
 
 @interface LCNewFeatureVC () <UIScrollViewDelegate> {
     
@@ -73,14 +74,23 @@
     if (self = [super init]) {
         // 进入主界面按钮
         UIButton *enterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [enterBtn setTitle:@"进入微链2.0" forState:UIControlStateNormal];
-        [enterBtn setFrame:(CGRect){84.0f, SuperSize.height * 0.85f, SuperSize.width - 2*84.0f, 40.0f}];
+        [enterBtn setTitle:@"进入微链2.1" forState:UIControlStateNormal];
+        CGFloat butH = 40.f;
+        if (Iphone5) {
+            butH = 50.f;
+        }else if (Iphone6) {
+            butH = 60.f;
+        }else if (Iphone6plus){
+            butH = 70.f;
+        }
+        [enterBtn setFrame:(CGRect){84.0f, SuperSize.height * 0.86f, SuperSize.width - 2*84.0f, butH}];
         enterBtn.titleLabel.font = WLFONT(21);
-        enterBtn.layer.borderWidth = 1;
+        enterBtn.layer.borderWidth = 3;
         enterBtn.layer.masksToBounds = YES;
-        enterBtn.layer.cornerRadius = 8;
-        enterBtn.layer.borderColor = [KBlueTextColor CGColor];
-        [enterBtn setTitleColor:KBlueTextColor forState:UIControlStateNormal];
+        enterBtn.layer.cornerRadius = butH*0.5;
+        enterBtn.layer.borderColor = [[UIColor whiteColor] CGColor];
+        enterBtn.backgroundColor = [UIColor blackColor];
+        [enterBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [enterBtn addTarget:self action:@selector(didClickedBtn) forControlEvents:UIControlEventTouchUpInside];
         
         _imageName = imageName;

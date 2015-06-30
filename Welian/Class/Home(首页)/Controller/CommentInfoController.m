@@ -315,11 +315,11 @@ static NSString *noCommentCell = @"NoCommentCell";
     [WeLianClient getFeedCommentListWithParameterDic:self.reqestDic Success:^(id resultInfo) {
         [_dataArrayM removeAllObjects];
         NSArray *datarray = [CommentMode objectsWithInfo:resultInfo];
+        [self hiddenRefresh:datarray.count];
         if (!datarray.count) return;
         _dataArrayM = [self commentFrameArrayModel:datarray];
         [self.statusM setComments:datarray];
         [self updataCommentBlock];
-        [self hiddenRefresh:datarray.count];
         [self.tableView reloadData];
     } Failed:^(NSError *error) {
         [self.refreshControl endRefreshing];
@@ -374,7 +374,6 @@ static NSString *noCommentCell = @"NoCommentCell";
 {
     [self.refreshControl endRefreshing];
     [self.tableView.footer endRefreshing];
-    
     if (count<KCellConut) {
         [self.tableView.footer setHidden:YES];
     }else{

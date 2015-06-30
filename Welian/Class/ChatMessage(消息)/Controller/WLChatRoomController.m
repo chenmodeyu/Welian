@@ -43,6 +43,15 @@
     return self;
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    //代理置空，否则会闪退 设置手势滑动返回
+//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+//    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -60,13 +69,28 @@
     
     ///通知刷新列表 刷新聊天室人数
     [KNSNotification postNotificationName:@"NeedRloadChatRoomList" object:nil];
+    
+    //开启iOS7的滑动返回效果
+//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        //只有在二级页面生效
+//        if ([self.navigationController.viewControllers count] > 1) {
+//            self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//        }
+//    }
 }
+
+//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+//    //开启滑动手势
+//    if ([navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        navigationController.interactivePopGestureRecognizer.enabled = YES;
+//    }
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [KNSNotification addObserver:self selector:@selector(refreshDataAndUI) name:@"NeedRloadChatRoomList" object:nil];
-    
+    [self notifyUpdateUnreadMessageCount];
     UIBarButtonItem *userItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_member"]
                                                                  style:UIBarButtonItemStyleDone
                                                                 target:self action:@selector(chatRoomUserItemClicked)];
@@ -80,6 +104,48 @@
         self.navigationItem.rightBarButtonItems = @[userItem];
     }
 }
+
+
+/**
+ *  更新左上角未读消息数
+ */
+//- (void)notifyUpdateUnreadMessageCount {
+//    __weak typeof(&*self) __weakself = self;
+//    int count = [[RCIMClient sharedRCIMClient] getUnreadCount:@[        @(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        NSString *backString = nil;
+//        if (count > 0 && count <= 99) {
+//            backString = [NSString stringWithFormat:@"聊天(%d)", count];
+//        } else if (count > 99) {
+//            backString = @"聊天(99+)";
+//        } else {
+//            backString = @"聊天";
+//        }
+//        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        backBtn.frame = CGRectMake(0, 4, 90, 25);
+//        UIImageView *backImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_left"]];
+//        backImg.frame = CGRectMake(-5, 3, 12, 20);
+//        [backBtn addSubview:backImg];
+//        UILabel *backText = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, 90, 25)];
+//        backText.text = backString;//NSLocalizedStringFromTable(@"Back", @"RongCloudKit", nil);
+//        backText.font = [UIFont systemFontOfSize:16];
+//        [backText setBackgroundColor:[UIColor clearColor]];
+//        [backText setTextColor:[UIColor whiteColor]];
+//        [backBtn addSubview:backText];
+//        [backBtn addTarget:__weakself action:@selector(leftBarButtonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+//        [__weakself.navigationItem setLeftBarButtonItem:leftButton];
+//    });
+//}
+//
+//- (void)leftBarButtonItemPressed:(id)sender {
+//    //需要调用super的实现
+//    [super leftBarButtonItemPressed:sender];
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
+
+
+
 
 #pragma mark - Private
 - (void)refreshDataAndUI
@@ -360,15 +426,5 @@
     [self sendImageMessage:[RCImageMessage messageWithImage:image] pushContent:@"图片"];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

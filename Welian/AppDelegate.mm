@@ -57,7 +57,7 @@ BMKMapManager* _mapManager;
 {
     if (_newFeatureVC == nil) {
         WEAKSELF
-        _newFeatureVC = [[LCNewFeatureVC alloc] initWithImageName:@"new_feature" imageCount:2 finishBlock:^{
+        _newFeatureVC = [[LCNewFeatureVC alloc] initWithImageName:@"new_feature" imageCount:1 finishBlock:^{
             [weakSelf enterMainVC];
         }];
         _newFeatureVC.pointOtherColor = KBgGrayColor;
@@ -143,7 +143,7 @@ BMKMapManager* _mapManager;
     
 #pragma mark 1. 是否应该显示新特性界面
     BOOL showNewFeature = [LCNewFeatureVC shouldShowNewFeature];
-    if (0) {
+    if (showNewFeature) {
 #pragma mark  设置新特性界面为当前窗口的根视图控制器
         self.window.rootViewController = self.newFeatureVC;
     }else{
@@ -390,6 +390,7 @@ BMKMapManager* _mapManager;
         //保存默认用户
         RCUserInfo *_currentUserInfo = [[RCUserInfo alloc]initWithUserId:userId name:loginUser.name portrait:loginUser.avatar];
         [[RCIM sharedRCIM] setCurrentUserInfo:_currentUserInfo];
+        DLog(@"++++++++++++++++++++++++++++++++++++++++++++++链接融云服务器成功++++++++++++++++++++++++++++++++++++");
     } error:^(RCConnectErrorCode status) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [WLHUDView showErrorHUD:@"登录失败，请重新登录"];
@@ -642,27 +643,28 @@ BMKMapManager* _mapManager;
         //更新好友列表
         [KNSNotification postNotificationName:KupdataMyAllFriends object:self];
     }else{
+        [LogInUser setUserNewfriendbadge:@(1)];
         [newfrendM setIsAgree:@(0)];
         //别人请求加我为好友
         //操作类型0：添加 1：接受  2:已添加 3：待验证
-//        MyFriendUser *myFriendUser = [loginUser getMyfriendUserWithUid:newfrendM.uid];
-//        if (myFriendUser) {
-//            if(myFriendUser.isMyFriend.boolValue){
-//                [newfrendM setOperateType:@(1)];
-//            }else{
-//                //设置不是我的好友
+        MyFriendUser *myFriendUser = [loginUser getMyfriendUserWithUid:newfrendM.uid];
+        if (myFriendUser) {
+            if(myFriendUser.isMyFriend.boolValue){
+                [newfrendM setOperateType:@(2)];
+            }else{
+                //设置不是我的好友
 //                [myFriendUser updateIsNotMyFriend];
-//                
-//                if ([type isEqualToString:@"friendRequest"]) {
-//                    //如果是好友，设置为已添加
-//                    [newfrendM setOperateType:@(1)];
-//                }
-//                //推荐的
-//                if([type isEqualToString:@"friendCommand"]){
-//                    [newfrendM setOperateType:@(0)];
-//                }
-//            }
-//        }else{
+                
+                if ([type isEqualToString:@"friendRequest"]) {
+                    //如果是好友，设置为已添加
+                    [newfrendM setOperateType:@(1)];
+                }
+                //推荐的
+                if([type isEqualToString:@"friendCommand"]){
+                    [newfrendM setOperateType:@(0)];
+                }
+            }
+        }else{
             //不是我的好友
             if ([type isEqualToString:@"friendRequest"]) {
                 //如果是好友，设置为已添加
@@ -672,23 +674,23 @@ BMKMapManager* _mapManager;
             if([type isEqualToString:@"friendCommand"]){
                 [newfrendM setOperateType:@(0)];
             }
-//        }
+        }
         
         //判断当前是否已经是好友
-        NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];
-        if (!([newFriendUser.operateType integerValue]==2)) {
-           [LogInUser setUserNewfriendbadge:@(1)];
-//            loginUser.newfriendbadge = @(1);
-//            [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
-            //不是好友，添加角标
-//            NSInteger badge = [loginUser.newfriendbadge integerValue];
-//            if (!badge) {
-//                //设置是否在新的好友通知页面
-//                if (![UserDefaults boolForKey:kIsLookAtNewFriendVC]) {
-//                    [LogInUser setUserNewfriendbadge:@(1)];
-//                }
-//            }
-        }
+//        NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];
+//        if ([newFriendUser.operateType integerValue] != 2) {
+//           [LogInUser setUserNewfriendbadge:@(1)];
+////            loginUser.newfriendbadge = @(1);
+////            [[loginUser managedObjectContext] MR_saveToPersistentStoreAndWait];
+//            //不是好友，添加角标
+////            NSInteger badge = [loginUser.newfriendbadge integerValue];
+////            if (!badge) {
+////                //设置是否在新的好友通知页面
+////                if (![UserDefaults boolForKey:kIsLookAtNewFriendVC]) {
+////                    [LogInUser setUserNewfriendbadge:@(1)];
+////                }
+////            }
+//        }
     }
     
     //创建的时间

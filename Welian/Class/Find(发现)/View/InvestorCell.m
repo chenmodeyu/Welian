@@ -139,7 +139,7 @@
     [_nameLabel setText:user.name];
     [_nameLabel setFrame:CGRectMake(70, 15, SuperSize.width-70-friendSize.width-citySize.width-15, 20)];
     
-    [_jobLabel setText:[NSString stringWithFormat:@"%@  %@",user.position,user.company?:@""]];
+    [_jobLabel setText:[NSString stringWithFormat:@"%@  %@",[user.position deleteTopAndBottomKonggeAndHuiche],[user.company deleteTopAndBottomKonggeAndHuiche]?:@""]];
     [_stageLabel setText:[NSString stringWithFormat:@"投资阶段：%@",investUserM.stagesStr?:@"暂无"]];
     [_itmesLabel setText:[NSString stringWithFormat:@"投资案例：%@",investUserM.itemsStr?:@"暂无"]];
 }

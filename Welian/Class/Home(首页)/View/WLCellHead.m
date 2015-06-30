@@ -172,7 +172,7 @@
         
         // 职务和公司
         if (user.position) {
-            [_zhiwulncLabel setText:[NSString stringWithFormat:@"%@   %@",user.position,user.company]];
+            [_zhiwulncLabel setText:[NSString stringWithFormat:@"%@   %@",[user.position deleteTopAndBottomKonggeAndHuiche],[user.company deleteTopAndBottomKonggeAndHuiche]]];
         }
         
         // 好友关系

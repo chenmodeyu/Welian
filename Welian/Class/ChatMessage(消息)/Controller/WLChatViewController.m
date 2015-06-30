@@ -29,10 +29,18 @@ static NSString *customCardCellid = @"customCardCellid";
 
 @implementation WLChatViewController
 
+//- (void)viewDidDisappear:(BOOL)animated
+//{
+//    [super viewDidDisappear:animated];
+//    //代理置空，否则会闪退 设置手势滑动返回
+//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+//    }
+//}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     //显示导航条
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.hidden = NO;
@@ -44,6 +52,13 @@ static NSString *customCardCellid = @"customCardCellid";
     [NSUserDefaults setString:self.targetId forKey:@"Chat_Share_Friend_Uid"];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.hidden = NO;
+//    //开启iOS7的滑动返回效果
+//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        //只有在二级页面生效
+//        if ([self.navigationController.viewControllers count] > 1) {
+//            self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//        }
+//    }
 }
 
 - (id)initWithConversationType:(RCConversationType)conversationType targetId:(NSString *)targetId
@@ -55,12 +70,19 @@ static NSString *customCardCellid = @"customCardCellid";
     return self;
 }
 
+//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+//    //开启滑动手势
+//    if ([navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        navigationController.interactivePopGestureRecognizer.enabled = YES;
+//    }
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     //是否允许保存新拍照片到本地系统
     self.enableSaveNewPhotoToLocalSystem = YES;
-//    [self notifyUpdateUnreadMessageCount];
+    [self notifyUpdateUnreadMessageCount];
     [self.pluginBoardView removeItemWithTag:1004];
     
     //* 注册消息类型，如果使用IMKit，使用此方法，不再使用RongIMLib的同名方法。如果对消息类型进行扩展，可以忽略此方法。
@@ -161,44 +183,16 @@ static NSString *customCardCellid = @"customCardCellid";
 - (void)didSendMessage:(NSInteger)stauts content:(RCMessageContent *)messageCotent
 {
     [super didSendMessage:stauts content:messageCotent];
-    if (stauts == 405) {  // 已加入黑名单
-        if (!_isBlakUser) {
-            RCInformationNotificationMessage *infoNot = [RCInformationNotificationMessage notificationWithMessage:@"你们已解除好友关系，无法继续聊天" extra:@""];
-            [self sendMessage:infoNot pushContent:@"你们已解除好友关系，无法继续聊天"];
-            _isBlakUser = YES;
-        }
-    }
+//    if (stauts == 405) {  // 已加入黑名单
+//        if (!_isBlakUser) {
+//            RCInformationNotificationMessage *infoNot = [RCInformationNotificationMessage notificationWithMessage:@"你们已解除好友关系，无法继续聊天" extra:@""];
+//            [self sendMessage:infoNot pushContent:@"你们已解除好友关系，无法继续聊天"];
+//            _isBlakUser = YES;
+//        }
+//    }
 }
 
 #pragma mark override
-/**
- *  重写方法，过滤消息或者修改消息
- *
- *  @param messageCotent 消息内容
- *
- *  @return 返回消息内容
- */
-//- (RCMessageContent *)willSendMessage:(RCMessageContent *)messageCotent
-//{
-//    __block BOOL isBlakUser = NO;
-//    [[RCIMClient sharedRCIMClient] getBlacklistStatus:self.targetId success:^(int bizStatus) {
-//        if (bizStatus == 0) {
-//            isBlakUser = YES;
-//        }
-//        RCInformationNotificationMessage *infoNot = [RCInformationNotificationMessage notificationWithMessage:@"你们已解除好友关系，无法继续聊天" extra:@""];
-//        return infoNot;
-//    } error:^(RCErrorCode status) {
-//        
-//    }];
-////    if (isBlakUser) {
-////        RCInformationNotificationMessage *infoNot = [RCInformationNotificationMessage notificationWithMessage:@"你们已解除好友关系，无法继续聊天" extra:@""];
-////        return infoNot;
-////    }else{
-////       return messageCotent;
-////    }
-////    return nil;
-//}
-
 /**
  *  重写方法实现自定义消息的显示
  *  @param collectionView collectionView
