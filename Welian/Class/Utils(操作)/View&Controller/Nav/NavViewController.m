@@ -15,33 +15,32 @@
 @implementation NavViewController
 
 - (id)initWithRootViewController:(UIViewController *)rootViewController
-
 {
     self = [super initWithRootViewController:rootViewController];
-    
     if (self) {
+        
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-
-    __weak NavViewController *weakSelf = self;
-    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
-    {
-        self.interactivePopGestureRecognizer.delegate = weakSelf;
-        self.delegate = weakSelf;
-    }
+    [super viewDidLoad];
+//    __weak NavViewController *weakSelf = self;
+//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+//    {
+//        self.interactivePopGestureRecognizer.delegate = weakSelf;
+//        self.delegate = weakSelf;
+//    }
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if ( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] && animated == YES )
-    {
-        self.interactivePopGestureRecognizer.enabled = YES;
-    }
-    
+//    if ( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] && animated == YES )
+//    {
+//        self.interactivePopGestureRecognizer.enabled = YES;
+//    }
+//    
     if (self.viewControllers.count) {
         [viewController setHidesBottomBarWhenPushed:YES];
     }
@@ -58,46 +57,46 @@
 - (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     [WLHUDView hiddenHud];
-    if( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] )
-    {
-        self.interactivePopGestureRecognizer.enabled = NO;
-    }
+//    if( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] )
+//    {
+//        self.interactivePopGestureRecognizer.enabled = NO;
+//    }
     return [super popToViewController:viewController animated:animated];
 }
 
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated
 {
     [WLHUDView hiddenHud];
-    if ( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] && animated == YES )
-    {
-        self.interactivePopGestureRecognizer.enabled = NO;
-    }
+//    if ( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] && animated == YES )
+//    {
+//        self.interactivePopGestureRecognizer.enabled = NO;
+//    }
     return [super popToRootViewControllerAnimated:animated];
 }
 
-- (void)navigationController:(UINavigationController *)navigationController
-       didShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animate
-{
-    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
-    {
-        self.interactivePopGestureRecognizer.enabled = YES;
-    }
-}
+//- (void)navigationController:(UINavigationController *)navigationController
+//       didShowViewController:(UIViewController *)viewController
+//                    animated:(BOOL)animate
+//{
+//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+//    {
+//        self.interactivePopGestureRecognizer.enabled = YES;
+//    }
+//}
 
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-    
-    if ( gestureRecognizer == self.interactivePopGestureRecognizer )
-    {
-        if ( self.viewControllers.count < 2 || self.visibleViewController == [self.viewControllers objectAtIndex:0] )
-        {
-            return NO;
-        }
-    }
-    
-    return YES;
-}
+//-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+//{
+//    
+//    if ( gestureRecognizer == self.interactivePopGestureRecognizer )
+//    {
+//        if ( self.viewControllers.count < 2 || self.visibleViewController == [self.viewControllers objectAtIndex:0] )
+//        {
+//            return NO;
+//        }
+//    }
+//    
+//    return YES;
+//}
 
 
 - (void)didReceiveMemoryWarning

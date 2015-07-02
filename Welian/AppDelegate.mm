@@ -146,7 +146,7 @@ BMKMapManager* _mapManager;
     [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:RGB(43.f, 94.f, 171.f)];
-    [[UINavigationBar appearance] setTranslucent:YES];
+//    [[UINavigationBar appearance] setTranslucent:YES];
     
 #pragma mark 1. 是否应该显示新特性界面
     BOOL showNewFeature = [LCNewFeatureVC shouldShowNewFeature];
