@@ -175,12 +175,12 @@ static NSString *noCommentCell = @"NoCommentCell";
     [KNSNotification removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [KNSNotification removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     
-    if (!_isFromCreate) {
-        //代理置空，否则会闪退 设置手势滑动返回
+//    if (!_isFromCreate) {
+//        //代理置空，否则会闪退 设置手势滑动返回
 //        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
 //            self.navigationController.interactivePopGestureRecognizer.delegate = nil;
 //        }
-    }
+//    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -193,15 +193,19 @@ static NSString *noCommentCell = @"NoCommentCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (!_isFromCreate) {
-        //开启iOS7的滑动返回效果
+    if(_isFromCreate){
+        //设置是否禁用可以滑动返回pop
+        self.fd_interactivePopDisabled = YES;
+    }
+//    if (!_isFromCreate) {
+//        //开启iOS7的滑动返回效果
 //        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
 //            //只有在二级页面生效
 //            if ([self.navigationController.viewControllers count] > 1) {
 //                self.navigationController.interactivePopGestureRecognizer.delegate = self;
 //            }
 //        }
-    }
+//    }
 }
 
 //- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {

@@ -2754,6 +2754,10 @@
 		A4C8E9471A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C8E9461A4ACA1A003A5A72 /* ChatMessageViewCell.m */; };
 		A4C8E9481A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C8E9461A4ACA1A003A5A72 /* ChatMessageViewCell.m */; };
 		A4C8E9491A4ACA1A003A5A72 /* ChatMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C8E9461A4ACA1A003A5A72 /* ChatMessageViewCell.m */; };
+		A4CA8FE21B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CA8FE11B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m */; };
+		A4CA8FE31B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CA8FE11B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m */; };
+		A4CA8FE41B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CA8FE11B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m */; };
+		A4CA8FE51B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CA8FE11B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m */; };
 		A4D43AAC1AC55A7200713295 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D43AA21AC55A7200713295 /* ALView+PureLayout.m */; };
 		A4D43AAD1AC55A7200713295 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D43AA21AC55A7200713295 /* ALView+PureLayout.m */; };
 		A4D43AAE1AC55A7200713295 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D43AA21AC55A7200713295 /* ALView+PureLayout.m */; };
@@ -6108,6 +6112,8 @@
 		A4C770FD1A80E3AB005ABC7F /* ProjectUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectUserListViewController.m; sourceTree = "<group>"; };
 		A4C8E9451A4ACA1A003A5A72 /* ChatMessageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageViewCell.h; sourceTree = "<group>"; };
 		A4C8E9461A4ACA1A003A5A72 /* ChatMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageViewCell.m; sourceTree = "<group>"; };
+		A4CA8FE01B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		A4CA8FE11B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		A4D43AA11AC55A7200713295 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
 		A4D43AA21AC55A7200713295 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
 		A4D43AA31AC55A7200713295 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
@@ -9152,6 +9158,15 @@
 			path = ACETelPrompt;
 			sourceTree = "<group>";
 		};
+		A4CA8FDF1B44DBAA00D2386D /* FDFullscreenPopGesture */ = {
+			isa = PBXGroup;
+			children = (
+				A4CA8FE01B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.h */,
+				A4CA8FE11B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			path = FDFullscreenPopGesture;
+			sourceTree = "<group>";
+		};
 		A4D43A9F1AC55A7100713295 /* VGParallaxHeader */ = {
 			isa = PBXGroup;
 			children = (
@@ -10832,6 +10847,7 @@
 		F5CE864119BFF44100A9D14C /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
+				A4CA8FDF1B44DBAA00D2386D /* FDFullscreenPopGesture */,
 				F5931E851B4233BE00C5F16C /* Rong_Cloud_iOS_SDK_v2_1_4_stable_no_voip */,
 				A4AA99851B2C1650004DB1A8 /* YUDatePicker */,
 				10389B611A3EC8E3001A785C /* Other.h */,
@@ -14131,6 +14147,7 @@
 				A493C3531ADD14A60056BD52 /* MessageHomeModel.m in Sources */,
 				A49C7BFE1A70D42700F2AEC5 /* NSDate+DateTools.m in Sources */,
 				A49C7C001A70D42700F2AEC5 /* FriendCell.m in Sources */,
+				A4CA8FE51B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				A49C7C011A70D42700F2AEC5 /* SWUtilityButtonView.m in Sources */,
 				A4C770E31A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
 				F564B0271B16C64800923A1B /* ShaiXuanCell.m in Sources */,
@@ -14716,6 +14733,7 @@
 				A48CA6B21A4D044B009EBD04 /* NSDate+DateTools.m in Sources */,
 				F53DC2C41A49192600F5F712 /* FriendCell.m in Sources */,
 				F53DC2C51A49192600F5F712 /* SWUtilityButtonView.m in Sources */,
+				A4CA8FE41B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				A4C770E21A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
 				F53DC2CA1A49192600F5F712 /* FeedAndZanView.m in Sources */,
 				F564B0261B16C64800923A1B /* ShaiXuanCell.m in Sources */,
@@ -15301,6 +15319,7 @@
 				A493C28F1ADD0BB00056BD52 /* NSArray+ArrayQuery.m in Sources */,
 				F566499B1A2AFD56008A5830 /* UIButton+AFNetworking.m in Sources */,
 				A493C34F1ADD14A60056BD52 /* MessageHomeModel.m in Sources */,
+				A4CA8FE21B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				F534DB4F1A51082F00B6A725 /* IInvestStageModel.m in Sources */,
 				A4C1408C1A4BEA8500C9BAB5 /* WLMessageTableViewController.m in Sources */,
 				F566499E1A2AFD56008A5830 /* FriendCell.m in Sources */,
@@ -15886,6 +15905,7 @@
 				A48CA6B11A4D044B009EBD04 /* NSDate+DateTools.m in Sources */,
 				F5664C581A2AFDD5008A5830 /* FriendCell.m in Sources */,
 				F5664C591A2AFDD5008A5830 /* SWUtilityButtonView.m in Sources */,
+				A4CA8FE31B44DBAA00D2386D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				A4C770E11A80A1E0005ABC7F /* IProjectDetailInfo.m in Sources */,
 				F5664C5E1A2AFDD5008A5830 /* FeedAndZanView.m in Sources */,
 				F564B0251B16C64800923A1B /* ShaiXuanCell.m in Sources */,

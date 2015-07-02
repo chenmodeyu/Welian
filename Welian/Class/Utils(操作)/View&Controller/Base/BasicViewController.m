@@ -88,13 +88,21 @@
         self.navigationController.navigationBar.hidden = NO;
 //        [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
+    
+    //隐藏导航条//隐藏导航条
+    if (_showCustomNavHeader) {
+        //设置navbar是否隐藏
+        self.fd_prefersNavigationBarHidden = YES;
+    }else{
+        //设置navbar是否隐藏
+        self.fd_prefersNavigationBarHidden = NO;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    //隐藏导航条//隐藏导航条
+
     if (_showCustomNavHeader) {
         if (self.navigationController.viewControllers.count == 1) {
             [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -135,13 +143,13 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
 //    self.navigationController.delegate = self;
     //设置屏幕手势是否可以使用
-//    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
+//    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
 //    //设置是否禁用可以滑动返回pop
-//    self.fd_interactivePopDisabled = NO;
+//    self.fd_interactivePopDisabled = YES;
     
     if (_showCustomNavHeader) {
         //设置navbar是否隐藏
-//        self.fd_prefersNavigationBarHidden = YES;
+        self.fd_prefersNavigationBarHidden = YES;
         //设置pop的最大
 //        self.fd_interactivePopMaxAllowedInitialDistanceToLeftEdge = 200.f;
         
