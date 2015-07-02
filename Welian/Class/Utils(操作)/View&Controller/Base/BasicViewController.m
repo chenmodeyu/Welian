@@ -88,13 +88,21 @@
         self.navigationController.navigationBar.hidden = NO;
 //        [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
+    
+    //隐藏导航条//隐藏导航条
+    if (_showCustomNavHeader) {
+        //设置navbar是否隐藏
+        self.fd_prefersNavigationBarHidden = YES;
+    }else{
+        //设置navbar是否隐藏
+        self.fd_prefersNavigationBarHidden = NO;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    //隐藏导航条//隐藏导航条
+
     if (_showCustomNavHeader) {
         if (self.navigationController.viewControllers.count == 1) {
             [self.navigationController setNavigationBarHidden:YES animated:YES];
