@@ -445,6 +445,10 @@
 		A437CEF51A541BF300B54E68 /* WLMessageSpecialView.m in Sources */ = {isa = PBXBuildFile; fileRef = A437CEF41A541BF300B54E68 /* WLMessageSpecialView.m */; };
 		A437CEF61A541BF300B54E68 /* WLMessageSpecialView.m in Sources */ = {isa = PBXBuildFile; fileRef = A437CEF41A541BF300B54E68 /* WLMessageSpecialView.m */; };
 		A437CEF71A541BF300B54E68 /* WLMessageSpecialView.m in Sources */ = {isa = PBXBuildFile; fileRef = A437CEF41A541BF300B54E68 /* WLMessageSpecialView.m */; };
+		A446B4901B45279500940D0E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A446B48F1B45279500940D0E /* SearchViewController.m */; };
+		A446B4911B45279500940D0E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A446B48F1B45279500940D0E /* SearchViewController.m */; };
+		A446B4921B45279500940D0E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A446B48F1B45279500940D0E /* SearchViewController.m */; };
+		A446B4931B45279500940D0E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A446B48F1B45279500940D0E /* SearchViewController.m */; };
 		A44BDF831AC3F27B00E306E7 /* me_lvli_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44BDF821AC3F27B00E306E7 /* me_lvli_line@2x.png */; };
 		A44BDF841AC3F27B00E306E7 /* me_lvli_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44BDF821AC3F27B00E306E7 /* me_lvli_line@2x.png */; };
 		A44BDF851AC3F27B00E306E7 /* me_lvli_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44BDF821AC3F27B00E306E7 /* me_lvli_line@2x.png */; };
@@ -5357,6 +5361,8 @@
 		A437CEEA1A53D53100B54E68 /* circle_chatlist_sending@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle_chatlist_sending@2x.png"; sourceTree = "<group>"; };
 		A437CEF31A541BF300B54E68 /* WLMessageSpecialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLMessageSpecialView.h; sourceTree = "<group>"; };
 		A437CEF41A541BF300B54E68 /* WLMessageSpecialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLMessageSpecialView.m; sourceTree = "<group>"; };
+		A446B48E1B45279500940D0E /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		A446B48F1B45279500940D0E /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		A44BDF821AC3F27B00E306E7 /* me_lvli_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me_lvli_line@2x.png"; sourceTree = "<group>"; };
 		A44BDF871AC3F4B000E306E7 /* UserInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewCell.h; sourceTree = "<group>"; };
 		A44BDF881AC3F4B000E306E7 /* UserInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewCell.m; sourceTree = "<group>"; };
@@ -8264,6 +8270,8 @@
 				A470956C1ADD252600329050 /* Nav */,
 				A493C2B21ADD0E330056BD52 /* Base */,
 				A493C2121ADD0BB00056BD52 /* CustomView */,
+				A446B48E1B45279500940D0E /* SearchViewController.h */,
+				A446B48F1B45279500940D0E /* SearchViewController.m */,
 			);
 			path = "View&Controller";
 			sourceTree = "<group>";
@@ -14122,6 +14130,7 @@
 				A49C7FCE1A70F07B00F2AEC5 /* WLDisplayMediaViewController.m in Sources */,
 				A49A35FC1B2EEFCC00B6A790 /* ChatRoomUserListViewController.m in Sources */,
 				F569725A1B0ED1E9004E86AC /* ShaiXuanView.m in Sources */,
+				A446B4931B45279500940D0E /* SearchViewController.m in Sources */,
 				A49235871ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
 				A492356E1ADE693A009E0B8C /* JKUtil.m in Sources */,
 				A47F1B291A7F2AF200CB4D9F /* ProjectViewCell.m in Sources */,
@@ -14708,6 +14717,7 @@
 				A40356111A5D2259006AE52C /* MyFriendsOperateViewCell.m in Sources */,
 				A49A35FA1B2EEFCC00B6A790 /* ChatRoomUserListViewController.m in Sources */,
 				F56972591B0ED1E9004E86AC /* ShaiXuanView.m in Sources */,
+				A446B4921B45279500940D0E /* SearchViewController.m in Sources */,
 				A49C7FCD1A70F07B00F2AEC5 /* WLDisplayMediaViewController.m in Sources */,
 				A47F1B281A7F2AF200CB4D9F /* ProjectViewCell.m in Sources */,
 				F53DC2BA1A49192600F5F712 /* FindViewController.m in Sources */,
@@ -15294,6 +15304,7 @@
 				A49235831ADE693A009E0B8C /* CTAssetsPageViewController.m in Sources */,
 				A49A35F81B2EEFCC00B6A790 /* ChatRoomUserListViewController.m in Sources */,
 				F56972571B0ED1E9004E86AC /* ShaiXuanView.m in Sources */,
+				A446B4901B45279500940D0E /* SearchViewController.m in Sources */,
 				F5D04C771AC104A6004DE412 /* WUEmoticonsKeyboardKeyItem.m in Sources */,
 				A492356A1ADE693A009E0B8C /* JKUtil.m in Sources */,
 				A4C1409E1A4BEA8500C9BAB5 /* WLMessageInputView.m in Sources */,
@@ -15880,6 +15891,7 @@
 				A40356101A5D2259006AE52C /* MyFriendsOperateViewCell.m in Sources */,
 				A49A35F91B2EEFCC00B6A790 /* ChatRoomUserListViewController.m in Sources */,
 				F56972581B0ED1E9004E86AC /* ShaiXuanView.m in Sources */,
+				A446B4911B45279500940D0E /* SearchViewController.m in Sources */,
 				A49C7FCC1A70F07B00F2AEC5 /* WLDisplayMediaViewController.m in Sources */,
 				A47F1B271A7F2AF200CB4D9F /* ProjectViewCell.m in Sources */,
 				F5664C4F1A2AFDD5008A5830 /* FindViewController.m in Sources */,

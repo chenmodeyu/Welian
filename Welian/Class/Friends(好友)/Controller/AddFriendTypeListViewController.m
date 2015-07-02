@@ -11,6 +11,8 @@
 #import "BSearchFriendsController.h"
 #import "NavViewController.h"
 #import "UserInfoViewController.h"
+#import "SearchViewController.h"
+
 #import "UIImage+ImageEffects.h"
 #import "NewFriendViewCell.h"
 
@@ -210,6 +212,15 @@
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
     [_filterArray removeAllObjects];
+}
+
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    SearchViewController *searchVC = [[SearchViewController alloc] initWithStyle:UITableViewStylePlain];
+    NavViewController *nav = [[NavViewController alloc] initWithRootViewController:searchVC];
+    [self presentViewController:nav animated:YES completion:nil];
+    return NO;
 }
 
 @end
