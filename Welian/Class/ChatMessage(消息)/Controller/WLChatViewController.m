@@ -18,7 +18,7 @@
 #import "ProjectPostDetailInfoViewController.h"
 #import "JKImagePickerController.h"
 
-@interface WLChatViewController ()<UIGestureRecognizerDelegate,JKImagePickerControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface WLChatViewController ()<JKImagePickerControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     BOOL _isBlakUser;
 }
@@ -28,15 +28,6 @@ static NSString *tipMessageCellid=@"rcTipMessageCellIndentifier";
 static NSString *customCardCellid = @"customCardCellid";
 
 @implementation WLChatViewController
-
-//- (void)viewDidDisappear:(BOOL)animated
-//{
-//    [super viewDidDisappear:animated];
-//    //代理置空，否则会闪退 设置手势滑动返回
-//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-//        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-//    }
-//}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -52,13 +43,6 @@ static NSString *customCardCellid = @"customCardCellid";
     [NSUserDefaults setString:self.targetId forKey:@"Chat_Share_Friend_Uid"];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.hidden = NO;
-//    //开启iOS7的滑动返回效果
-//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-//        //只有在二级页面生效
-//        if ([self.navigationController.viewControllers count] > 1) {
-//            self.navigationController.interactivePopGestureRecognizer.delegate = self;
-//        }
-//    }
 }
 
 - (id)initWithConversationType:(RCConversationType)conversationType targetId:(NSString *)targetId
@@ -70,16 +54,8 @@ static NSString *customCardCellid = @"customCardCellid";
     return self;
 }
 
-//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//    //开启滑动手势
-//    if ([navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-//        navigationController.interactivePopGestureRecognizer.enabled = YES;
-//    }
-//}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     //是否允许保存新拍照片到本地系统
     self.enableSaveNewPhotoToLocalSystem = YES;
     [self notifyUpdateUnreadMessageCount];
@@ -93,40 +69,40 @@ static NSString *customCardCellid = @"customCardCellid";
 /**
  *  更新左上角未读消息数
  */
-//- (void)notifyUpdateUnreadMessageCount {
-//    __weak typeof(&*self) __weakself = self;
-//    int count = [[RCIMClient sharedRCIMClient] getUnreadCount:@[        @(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        NSString *backString = nil;
-//        if (count > 0 && count <= 99) {
-//            backString = [NSString stringWithFormat:@"聊天(%d)", count];
-//        } else if (count > 99) {
-//            backString = @"聊天(99+)";
-//        } else {
-//            backString = @"聊天";
-//        }
-//        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        backBtn.frame = CGRectMake(0, 4, 90, 25);
-//        UIImageView *backImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_left"]];
-//        backImg.frame = CGRectMake(-5, 3, 12, 20);
-//        [backBtn addSubview:backImg];
-//        UILabel *backText = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, 90, 25)];
-//        backText.text = backString;//NSLocalizedStringFromTable(@"Back", @"RongCloudKit", nil);
-//        backText.font = [UIFont systemFontOfSize:16];
-//        [backText setBackgroundColor:[UIColor clearColor]];
-//        [backText setTextColor:[UIColor whiteColor]];
-//        [backBtn addSubview:backText];
-//        [backBtn addTarget:__weakself action:@selector(leftBarButtonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-//        [__weakself.navigationItem setLeftBarButtonItem:leftButton];
-//    });
-//}
-//
-//- (void)leftBarButtonItemPressed:(id)sender {
-//    //需要调用super的实现
-//    [super leftBarButtonItemPressed:sender];
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
+- (void)notifyUpdateUnreadMessageCount {
+    __weak typeof(&*self) __weakself = self;
+    int count = [[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE),@(ConversationType_SYSTEM)]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *backString = nil;
+        if (count > 0 && count <= 99) {
+            backString = [NSString stringWithFormat:@"聊天(%d)", count];
+        } else if (count > 99) {
+            backString = @"聊天(99+)";
+        } else {
+            backString = @"聊天";
+        }
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        backBtn.frame = CGRectMake(0, 4, 90, 25);
+        UIImageView *backImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar_left"]];
+        backImg.frame = CGRectMake(-5, 3, 12, 20);
+        [backBtn addSubview:backImg];
+        UILabel *backText = [[UILabel alloc] initWithFrame:CGRectMake(12, 0, 90, 25)];
+        backText.text = backString;//NSLocalizedStringFromTable(@"Back", @"RongCloudKit", nil);
+        backText.font = [UIFont systemFontOfSize:16];
+        [backText setBackgroundColor:[UIColor clearColor]];
+        [backText setTextColor:[UIColor whiteColor]];
+        [backBtn addSubview:backText];
+        [backBtn addTarget:__weakself action:@selector(leftBarButtonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        [__weakself.navigationItem setLeftBarButtonItem:leftButton];
+    });
+}
+
+- (void)leftBarButtonItemPressed:(id)sender {
+    //需要调用super的实现
+    [super leftBarButtonItemPressed:sender];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 

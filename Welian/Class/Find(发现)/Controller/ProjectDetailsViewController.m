@@ -49,7 +49,7 @@
 
 static NSString *noCommentCell = @"NoCommentCell";
 
-@interface ProjectDetailsViewController ()<WLSegmentedControlDelegate,UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
+@interface ProjectDetailsViewController ()<WLSegmentedControlDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isFinish;
 }
@@ -177,9 +177,9 @@ static NSString *noCommentCell = @"NoCommentCell";
     
     if (!_isFromCreate) {
         //代理置空，否则会闪退 设置手势滑动返回
-        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-            self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-        }
+//        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//            self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+//        }
     }
 }
 
@@ -195,25 +195,25 @@ static NSString *noCommentCell = @"NoCommentCell";
     [super viewDidAppear:animated];
     if (!_isFromCreate) {
         //开启iOS7的滑动返回效果
-        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-            //只有在二级页面生效
-            if ([self.navigationController.viewControllers count] > 1) {
-                self.navigationController.interactivePopGestureRecognizer.delegate = self;
-            }
-        }
+//        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//            //只有在二级页面生效
+//            if ([self.navigationController.viewControllers count] > 1) {
+//                self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//            }
+//        }
     }
 }
 
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    //开启滑动手势
-    if (!_isFromCreate) {
-        if ([navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-            navigationController.interactivePopGestureRecognizer.enabled = YES;
-        }
-    }else{
-        navigationController.interactivePopGestureRecognizer.enabled = NO;
-    }
-}
+//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+//    //开启滑动手势
+//    if (!_isFromCreate) {
+//        if ([navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//            navigationController.interactivePopGestureRecognizer.enabled = YES;
+//        }
+//    }else{
+//        navigationController.interactivePopGestureRecognizer.enabled = NO;
+//    }
+//}
 
 // 返回
 - (void)backItem

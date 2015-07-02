@@ -141,9 +141,16 @@ BMKMapManager* _mapManager;
                            wechatCls:[WXApi class]];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    //统一导航条样式
+    NSDictionary* textAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:RGB(43.f, 94.f, 171.f)];
+    [[UINavigationBar appearance] setTranslucent:YES];
+    
 #pragma mark 1. 是否应该显示新特性界面
     BOOL showNewFeature = [LCNewFeatureVC shouldShowNewFeature];
-    if (showNewFeature) {
+    if (1) {
 #pragma mark  设置新特性界面为当前窗口的根视图控制器
         self.window.rootViewController = self.newFeatureVC;
     }else{
@@ -155,16 +162,6 @@ BMKMapManager* _mapManager;
     
     // 设置状态栏颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    //统一导航条样式
-//    UIFont* font = [UIFont boldSystemFontOfSize:17.f];
-//    NSDictionary* textAttributes = @{NSFontAttributeName:font,
-//                                     NSForegroundColorAttributeName:[UIColor whiteColor]};
-    NSDictionary* textAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-    [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setBarTintColor:RGB(43.f, 94.f, 171.f)];
-//    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
-//    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3473BA)];
     
     // [1]:使用APPID/APPKEY/APPSECRENT创建个推实例
     [self startSdkWith:KGTAppId appKey:KGTAppKey appSecret:kGTAppSecret];
@@ -647,24 +644,24 @@ BMKMapManager* _mapManager;
         [newfrendM setIsAgree:@(0)];
         //别人请求加我为好友
         //操作类型0：添加 1：接受  2:已添加 3：待验证
-        MyFriendUser *myFriendUser = [loginUser getMyfriendUserWithUid:newfrendM.uid];
-        if (myFriendUser) {
-            if(myFriendUser.isMyFriend.boolValue){
-                [newfrendM setOperateType:@(2)];
-            }else{
-                //设置不是我的好友
-//                [myFriendUser updateIsNotMyFriend];
-                
-                if ([type isEqualToString:@"friendRequest"]) {
-                    //如果是好友，设置为已添加
-                    [newfrendM setOperateType:@(1)];
-                }
-                //推荐的
-                if([type isEqualToString:@"friendCommand"]){
-                    [newfrendM setOperateType:@(0)];
-                }
-            }
-        }else{
+//        MyFriendUser *myFriendUser = [loginUser getMyfriendUserWithUid:newfrendM.uid];
+//        if (myFriendUser) {
+//            if(myFriendUser.isMyFriend.boolValue){
+//                [newfrendM setOperateType:@(2)];
+//            }else{
+//                //设置不是我的好友
+////                [myFriendUser updateIsNotMyFriend];
+//                
+//                if ([type isEqualToString:@"friendRequest"]) {
+//                    //如果是好友，设置为已添加
+//                    [newfrendM setOperateType:@(1)];
+//                }
+//                //推荐的
+//                if([type isEqualToString:@"friendCommand"]){
+//                    [newfrendM setOperateType:@(0)];
+//                }
+//            }
+//        }else{
             //不是我的好友
             if ([type isEqualToString:@"friendRequest"]) {
                 //如果是好友，设置为已添加
@@ -674,7 +671,7 @@ BMKMapManager* _mapManager;
             if([type isEqualToString:@"friendCommand"]){
                 [newfrendM setOperateType:@(0)];
             }
-        }
+//        }
         
         //判断当前是否已经是好友
 //        NewFriendUser *newFriendUser = [loginUser getNewFriendUserWithUid:newfrendM.uid];

@@ -53,11 +53,8 @@
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
     
     if ([currentVersion isEqualToString:lastVersion]) {
-        
         return NO;
-        
     } else {
-        
         [defaults setObject:currentVersion forKey:key];
         [defaults synchronize];
         

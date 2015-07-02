@@ -8,39 +8,40 @@
 
 #import "NavViewController.h"
 
-@interface NavViewController ()
+@interface NavViewController ()<UIGestureRecognizerDelegate,UINavigationControllerDelegate>
 
 @end
 
 @implementation NavViewController
 
+- (id)initWithRootViewController:(UIViewController *)rootViewController
 
-+ (void)initialize
 {
-//    UINavigationBar *navBar = [UINavigationBar appearance];
-//    [navBar setTintColor:[UIColor whiteColor]];
-//    // 3.设置文字样式
-//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-//    attrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-//    [navBar setTitleTextAttributes:attrs];
-//    
-//    // 4.设置导航栏按钮的主题
-//    UIBarButtonItem *barItem = [UIBarButtonItem appearance];
-//    [barItem setTintColor:[UIColor whiteColor]];
-//
-//    NSMutableDictionary *disableAttrs = [NSMutableDictionary dictionary];
-//    disableAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
-//    [barItem setTitleTextAttributes:disableAttrs forState:UIControlStateDisabled];
-//    
-//    NSMutableDictionary *itemAttrs = [NSMutableDictionary dictionary];
-//    itemAttrs[NSForegroundColorAttributeName] =[UIColor whiteColor];
-//    [barItem setTitleTextAttributes:itemAttrs forState:UIControlStateNormal];
-//    
-//    [navBar setBarTintColor:[UIColor colorWithRed:43/255.0 green:94/255.0 blue:171/255.0 alpha:0.1]];
+    self = [super initWithRootViewController:rootViewController];
+    
+    if (self) {
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+
+    __weak NavViewController *weakSelf = self;
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+    {
+        self.interactivePopGestureRecognizer.delegate = weakSelf;
+        self.delegate = weakSelf;
+    }
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    if ( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] && animated == YES )
+    {
+        self.interactivePopGestureRecognizer.enabled = YES;
+    }
+    
     if (self.viewControllers.count) {
         [viewController setHidesBottomBarWhenPushed:YES];
     }
@@ -57,21 +58,47 @@
 - (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     [WLHUDView hiddenHud];
+    if( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] )
+    {
+        self.interactivePopGestureRecognizer.enabled = NO;
+    }
     return [super popToViewController:viewController animated:animated];
 }
 
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated
 {
-
     [WLHUDView hiddenHud];
+    if ( [self respondsToSelector:@selector(interactivePopGestureRecognizer)] && animated == YES )
+    {
+        self.interactivePopGestureRecognizer.enabled = NO;
+    }
     return [super popToRootViewControllerAnimated:animated];
 }
 
-- (void)viewDidLoad
+- (void)navigationController:(UINavigationController *)navigationController
+       didShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animate
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+    {
+        self.interactivePopGestureRecognizer.enabled = YES;
+    }
 }
+
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    
+    if ( gestureRecognizer == self.interactivePopGestureRecognizer )
+    {
+        if ( self.viewControllers.count < 2 || self.visibleViewController == [self.viewControllers objectAtIndex:0] )
+        {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -79,15 +106,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

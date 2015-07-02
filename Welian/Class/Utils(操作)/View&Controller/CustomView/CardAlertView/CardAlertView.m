@@ -177,6 +177,7 @@
 //发送卡片消息给好友
 - (void)sendCardMessageToFriend
 {
+    [self setUserInteractionEnabled:NO];
     _cardModel.content = _textView.text.length > 0 ? _textView.text : @"";
     NSDictionary *cardDic = [_cardModel keyValues];
 //    NSDictionary *param = @{@"type":@(51),@"touser":_selectFriendUser.uid,@"card":cardDic,@"msg":_cardModel.content};
@@ -204,6 +205,7 @@
     WEAKSELF
     [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:_selectFriendUser.uid.stringValue content:cardMessage pushContent:pushStr success:^(long messageId) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self setUserInteractionEnabled:YES];
             [weakSelf dismiss];
             if (_sendSuccessBlock) {
                 _sendSuccessBlock();
@@ -212,32 +214,9 @@
     } error:^(RCErrorCode nErrorCode, long messageId) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [WLHUDView showErrorHUD:@"分享失败！"];
+            [self setUserInteractionEnabled:YES];
         });
     }];
-//    [WLHttpTool sendMessageParameterDic:param success:^(id JSON) {
-//        //返回的是字典
-//        NSString *state = JSON[@"state"];
-//        NSString *time = JSON[@"created"];
-//        if ([state intValue] == -1) {
-//            //更新发送状态为失败
-//            [WLHUDView showErrorHUD:@"发送失败！"];
-//        }else{
-//            //创建数据库对象
-//            ChatMessage *chatMessage = [ChatMessage createChatMessageWithCard:_cardModel FriendUser:_selectFriendUser];
-//            //更新发送时间
-//            if (time) {
-//                [chatMessage updateTimeStampFromServer:time];
-//            }
-//            
-//            if (_sendSuccessBlock) {
-//                [self dismiss];
-//                _sendSuccessBlock();
-//            }
-//        }
-//    } fail:^(NSError *error) {
-//        //更新发送状态为失败
-//        [WLHUDView showErrorHUD:@"发送失败！"];
-//    }];
 }
 
 //显示
