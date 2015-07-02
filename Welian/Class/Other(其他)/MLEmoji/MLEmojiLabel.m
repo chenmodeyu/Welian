@@ -266,7 +266,6 @@ static CGFloat widthCallback(void *refCon) {
     if (!self.attributedText) {
         return [super sizeThatFits:size];
     }
-    
     CGSize rSize = [super sizeThatFits:size];
     rSize.height +=1.5;
     return rSize;
@@ -664,6 +663,7 @@ static inline CGFloat TTTFlushFactorForTextAlignment(NSTextAlignment textAlignme
 - (CGSize)preferredSizeWithMaxWidth:(CGFloat)maxWidth
 {
     maxWidth = maxWidth - self.textInsets.left - self.textInsets.right;
+    [self setText:self.text];
     return [self sizeThatFits:CGSizeMake(maxWidth, CGFLOAT_MAX)];
 }
 

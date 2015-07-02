@@ -97,7 +97,7 @@
         NSRange touserRange = [commMode.commentAndName  rangeOfString:commMode.touser.name];
         [mlLabel addLinkToAddress:@{@"user":commMode.touser} withRange:touserRange];
     }
-    [mlLabel sizeToFit];
+//    [mlLabel sizeToFit];
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithAddress:(NSDictionary *)addressComponents
@@ -109,13 +109,6 @@
     }else{
         IBaseUserM *userModel = addressComponents[@"user"];
         if (!userModel)  return;
-//         = [[IBaseUserM alloc] init];
-//        [userModel setUid:usmode.uid];
-//        [userModel setAvatar:usmode.avatar];
-//        [userModel setName:usmode.name];
-//        [userModel setPosition:usmode.position];
-//        [userModel setCompany:usmode.company];
-        
         UserInfoViewController *userInfoVC = [[UserInfoViewController alloc] initWithBaseUserM:userModel OperateType:nil HidRightBtn:NO];
         [self.commentVC.navigationController pushViewController:userInfoVC animated:YES];
     }
