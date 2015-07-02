@@ -26,6 +26,8 @@
     if (_HBlabel == nil) {
         _HBlabel = [[MLEmojiLabel alloc] init];
         _HBlabel.font = WLFONT(14);
+        _HBlabel.numberOfLines = 0;
+        _HBlabel.lineBreakMode = NSLineBreakByCharWrapping;
         [_HBlabel setLineSpacing:1];
     }
     return _HBlabel;
